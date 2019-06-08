@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equations</title>
+    <style>
+        table,
+        tr,
+        td {
+            padding: 0;
+            margin: 0;
+        }
+        
+        td {
+            text-align: center;
+        }
+        
+        .fractionTop {
+            border-bottom: 1px solid black;
+        }
+        
+        img[src="./equations.jpg"] {
+            width: 75%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="equations">
+        <section>
+            <h2>Arithmetic Stuff:</h2>
+            <ul>
+                <li>
+                    <table>
+                        <tr>
+                            <td class="fractionTop">(ending term + starting term) * # of terms</td>
+                        </tr>
+                        <tr>
+                            <td class="fractionBottom">2</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    A finite Arithmetic Series always converges.
+                </li>
+                <li>An infinte Arithmetic Series always diverges.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Geometric Stuff:</h2>
+            <ul>
+                <li>Equations:<br /><img src="./equations.jpg" /></li>
+                <!--<li>
+                    <table>
+                        <tr>
+                            <td rowspan="2">Partial Sums: <var>S<sub>n</sub> = a<sub><sub><sub>1</sub></sub></sub></var></td>
+                            <td class="fractionTop">(1 - <var>r</var><sup><var>n</var></sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>(1 - <var>r</var>)</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    <table>
+                        <tr>
+                            <td>&infin;</td>
+                            <td colspan="2"></td>
+                            <td><var>n</var></td>
+                        </tr>
+                        <tr>
+                            <td>&sum;</td>
+                            <td>(<var>ar<sup>k</sup></var>) = </td>
+                            <td><var>lim</var></td>
+                            <td>&sum;</td>
+                            <td>(<var>ar<sup>k</sup></var>) = </td>
+                            <td><var>lim</var></td>
+                            <td>
+                                <table style="font-size: 60%;">
+                                    <tr>
+                                        <td class="fractionTop">(1 - <var>r<sup>n</sup></var>)</td>
+                                        <td rowspan="2"> = </td>
+                                        <td class="fractionTop" style="font-size: 200%;"><var>a</var></td>
+                                    </tr>
+                                    <tr>
+                                        <td>(1 - <var>r</var>)</td>
+                                        <td style="font-size: 200%;">(1 - <var>r</var>)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><var>k = </var>1</td>
+                            <td></td>
+                            <td><var>n</var>&rarr;&infin;</td>
+                            <td><var>k = </var>1</td>
+                            <td></td>
+                            <td><var>n</var>&rarr;&infin;</td>
+                        </tr>
+                    </table>
+                </li>-->
+            </ul>
+        </section>
+        <section>
+            <h2>Miscellaneous:</h2>
+            <ul>
+                <li>Combinations Formula:
+                    <table>
+                        <tr>
+                            <td rowspan="2"><var><sub>n</sub>C<sub>r</sub> = </var></td>
+                            <td class="fractionTop"><var>n!</var></td>
+                        </tr>
+                        <tr>
+                            <td><var>r!</var>(<var>n - r</var>)<var>!</var></td>
+                        </tr>
+                    </table>
+                </li>
+                <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
+                <li>The Pascal's Triangle follows the pattern of <var><sub>row - 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 - 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
+                <li>Partial Fraction Decomposition:<br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 + 1) + B(0)<br />0 + 2 = A(1) + 0 <br />2 = A<br />And if x = –1, then we easily get –3 + 2 = –B, so B = 1</li>
+                <li>When an infinite geometric sequence converges to 0, then the coreesponding infinite geometric series converges to 0 as well</li>
+                <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which doesn't make a difference in the sum</li>
+                <li>A species series that was learned is called a harmonic series, where there is a fraction and "n" is in the denominator under 1
+                    <table>
+                        <tr>
+                            <td>&infin;</td>
+                        </tr>
+                        <tr>
+                            <td rowspan = "2">&sum;</td>
+                            <td class="fractionTop">1</td>
+                        </tr>
+                        <tr>
+                            <td class="fractionBottom">n<td>
+                        </tr>
+                        <tr>
+                            <td>n=1</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>
