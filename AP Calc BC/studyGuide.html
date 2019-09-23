@@ -74,10 +74,10 @@
             //Defined all Limit Tags
             var limTags = document.getElementsByTagName("lim");
             for (var f = 0; f < limTags.length; f++) {
-                var limAs = limTags[f].innerHTML.getElementsByTagName("as")[0].innerText;
-                var limApproaches = limTags[f].innerHTML.getElementsByTagName("approaches")[0].innerText;
-                var limOf = limTags[f].innerHTML.getElementsByTagName("of")[0].innerHTML;
-                limTags[f].innerHTML = "<table style='display: inline;'><tr><td><var>lim</var>(</td><td><var>" + limOf + "</var>)</td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
+                var limAs = limTags[f].getElementsByTagName("as")[0].innerText;
+                var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerText;
+                var limOf = limTags[f].getElementsByTagName("of")[0].innerHTML;
+                limTags[f].innerHTML = "<table style='display: inline;'><tr><td><var>lim</var></td><td>(<var>" + limOf + "</var>)</td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
             }
             //Defined trig tags
             var sinTags = document.getElementsByTagName("sin");
