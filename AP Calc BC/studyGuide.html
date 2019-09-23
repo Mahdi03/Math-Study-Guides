@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        
+        .indent {
+            margin-left: 4em;
+        }
+        
+        #unit1,
+        #unit2,
+        #unit3,
+        #unit4,
+        #unit5,
+        #unit6,
+        #unit7,
+        #unit8,
+        #unit9 {
+            display: none;
+            -webkit-transition: display 1s ease-in-out;
+            -moz-transition: display 1s ease-in-out;
+            -ms-transition: display 1s ease-in-out;
+            -o-transition: display 1s ease-in-out;
+            transition: display 1s ease-in-out;
+        }
+        
+        .toggleButton {
+            border: 1px solid grey;
+            display: inline;
+            margin: 5px;
+            float: left;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .toggleButton:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Study Guide</h1>
+    <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
+    <h2>Unit 1:</h2>
+    <div id="unit1">
+        <div class="indent">
+            <h3>Limits:</h3>
+            <div class="indent">
+                <ul>
+                    <li>Limits help define End Behavior of functions as well as the behavior of graphs at certain points.</li>
+                    <div><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = L</div>
+                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var>"</li>
+                    <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
+                </ul>
+                <h4>The Sandwich (Squeeze) Theorem:</h4>
+                <p>Suppose that <var>g(x) &le; f(x) &le; h(x)</var> for all values in some open interval containing <var>c</var>,
+                except possibly at <var>c</var> itself. Suppose also that <lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim> = 
+                <lim><as>x</as><approaches><var>c</var></approaches><of><var>h(x)</var></of></lim>.</p>
+                <p>So basically come up with a <var>g(x)</var> and an <var>h(x)</var> that have the same limit in order to find the limit of <var>f(x)</var>.</p>
+            </div>
+            <h3>Derivatives:</h3>
+        </div>
+    </div>
+    <script>
+        document.body.onload = function() {
+            //Replaced/Defined all math function tags
+            //Defined all Limit Tags
+            var limTags = document.getElementsByTagName("lim");
+            for (var f = 0; f < limTags.length; f++) {
+                var limAs = limTags[f].innerHTML.getElementsByTagName("as")[0].innerText;
+                var limApproaches = limTags[f].innerHTML.getElementsByTagName("approaches")[0].innerText;
+                var limOf = limTags[f].innerHTML.getElementsByTagName("of")[0].innerHTML;
+                limTags[f].innerHTML = "<table style='display: inline;'><tr><td><var>lim</var>(</td><td><var>" + limOf + "</var>)</td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
+            }
+            //Defined trig tags
+            var sinTags = document.getElementsByTagName("sin");
+            for (var j = 0; j < sinTags.length; j++) {
+                var sinInput = sinTags[j].innerHTML;
+                sinTags[j].innerHTML = "sin(<var>" + sinInput + "</var>)";
+            }
+            var cosTags = document.getElementsByTagName("cos");
+            for (var k = 0; k < cosTags.length; k++) {
+                var cosInput = cosTags[k].innerHTML;
+                cosTags[k].innerHTML = "cos(<var>" + cosInput + "</var>)";
+            }
+            var tanTags = document.getElementsByTagName("tan");
+            for (var l = 0; l < tanTags.length; l++) {
+                var tanInput = tanTags[l].innerHTML;
+                tanTags[l].innerHTML = "tan(<var>" + tanInput + "</var>)";
+            }
+            var cscTags = document.getElementsByTagName("csc");
+            for (var m = 0; m < cscTags.length; m++) {
+                var cscInput = cscTags[m].innerHTML;
+                cscTags[m].innerHTML = "csc(<var>" + cscInput + "</var>)";
+            }
+            var secTags = document.getElementsByTagName("sec");
+            for (var n = 0; n < secTags.length; n++) {
+                var secInput = secTags[n].innerHTML;
+                secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
+            }
+            var cotTags = document.getElementsByTagName("cot");
+            for (var o = 0; o < cotTags.length; l++) {
+                var cotInput = cotTags[o].innerHTML;
+                cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
+            }
+            //Defined log tag and ln tag
+            var logTags = document.getElementsByTagName("log");
+            for (var p = 0; p < logTags.length; p++) {
+                var logInput = logTags[p].innerHTML;
+                if (logTags[p].getAttribute("base") !== null) {
+                    var base = logTags[p].getAttribute("base");
+                    logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
+                } else {
+                    logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
+                }
+            }
+            var lnTags = document.getElementsByTagName("ln");
+            for (var q = 0; q < lnTags.length; q++) {
+                var lnInput = lnTags[q].innerHTML;
+                lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
+            }
+            /*
+            //Defined vector tag
+            var vectorTags = document.getElementsByTagName("vector");
+            for (var i = 0; i < vectorTags.length; i++) {
+                var vectorName = vectorTags[i].innerHTML;
+                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
+            }
+            */
+        };
+    
+        function toggleDiv(id) {
+            var element = document.querySelector(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+                document.querySelector(id + "ToggleButton").innerHTML = "&plus;";
+            } else {
+                element.style.display = "block";
+                document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
+            }
+        }
+    </script>
+</body>
+</html>
