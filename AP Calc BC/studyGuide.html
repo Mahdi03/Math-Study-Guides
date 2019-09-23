@@ -56,8 +56,25 @@
                 <ul>
                     <li>Limits help define End Behavior of functions as well as the behavior of graphs at certain points.</li>
                     <div><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = L</div>
-                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var>"</li>
+                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> is L"</li>
                     <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
+                    <li>In order for a limit to exist, its left-hand and right-hand limits must exist and be equal.</li>
+                    <div><lim><as>x</as><approaches><var>c<sup>&plus;/&minus;</sup></var></approaches><of><var>f(x)</var></of></lim> = L</div>
+                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> from the right/left is L"</li>
+                    <h4>Limit Rules:</h4>
+                    <ul>
+                        <p>Given:<br /><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = L<br />
+                            <lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim> = K</p>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>b</var></of></lim> = <var>b</var></li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>x</var></of></lim> = <var>c</var></li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &plusmn; g(x)</var></of></lim> = L &plusmn; K</li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &times; g(x)</var></of></lim> = L &times; K</li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>b &times; f(x)</var></of></lim> = <var>b</var> &times; L</li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)<sup>r/s</sup></var></of></lim> = L <sup><var>r/s</var></sup></li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &divide; g(x)</var></of></lim> = L &divide; K</li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(g(x))</var></of></lim> = <var>f</var>(<lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim>) = <var>f</var>(K)</li>
+                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>ln(f(x))</var></of></lim> = <var>ln</var>(<lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim>) = <var>f</var>(K)</li>
+                    <ul>
                 </ul>
                 <h4>The Sandwich (Squeeze) Theorem:</h4>
                 <p>Suppose that <var>g(x) &le; f(x) &le; h(x)</var> for all values in some open interval containing <var>c</var>,
