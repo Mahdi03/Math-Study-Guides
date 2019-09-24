@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>AP Calc BC</title>
     <style>
         h1 {
             text-align: center;
@@ -8,6 +9,19 @@
         
         .indent {
             margin-left: 4em;
+        }
+        
+        .fraction {
+            display: inline-block;
+        }
+        
+        .fraction .top {
+            border-bottom: 2px solid black;
+            text-align: center;
+        }
+        
+        .fraction .bottom {
+            text-align: center;
         }
         
         #unit1,
@@ -59,7 +73,7 @@
                     <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> is L"</li>
                     <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
                     <li>In order for a limit to exist, its left-hand and right-hand limits must exist and be equal.</li>
-                    <div><lim><as>x</as><approaches><var>c<sup>&plus;/&minus;</sup></var></approaches><of><var>f(x)</var></of></lim> = L</div>
+                    <div><lim><as>x</as><approaches><var>c</var><sup>&plus;/&minus;</sup></approaches><of><var>f(x)</var></of></lim> = L</div>
                     <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> from the right/left is L"</li>
                     <h4>Limit Rules:</h4>
                     <ul>
@@ -84,12 +98,11 @@
             </div>
         </div>
         <div class="indent">
-            <h3>Continuity</h3>
+            <h3>Continuity:</h3>
             <div class="indent">
                 <ul>
                     <li><var>f(x)</var> is continuous at a point <var>c</var> of its domain if and only if <lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = <var>f(c)</var></li>
-                    <div class="indent">
-                        <h4>3 Conditions</h4>
+                        <h4>3 Conditions:</h4>
                         <div class="indent">
                             <ol>
                                 <li><var>f(c)</var> is defined</li>
@@ -97,7 +110,6 @@
                                 <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = <var>f(c)</var></li>
                             </ol>
                         </div>
-                    </div>
                     <li>If a function <var>f</var> is not continuous at <var>x</var> = <var>c</var>, then we say <var>f</var> is discontinuous at <var>c</var> and <var>c</var> is a point of discontinuity</li>
                     <div class="indent">
                         <ul>
@@ -109,13 +121,13 @@
                             <li>Jump Discontinuity</li>
                         </ul>
                     </div>
+                    <h4>Intermediate Value Theorem or "IVT":</h4>
+                    <p>If <var>f(x)</var> is continuous on [<var>a</var>, <var>b</var>] (a closed interval) and <var>k</var> is in [<var>f(a)</var>, <var>f(b)</var>], then there must exist some <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>k</var> = <var>f(c)</var></p>
                 </ul>
             </div>
         </div>
-        <div class="indent">
-            <h2>Intermediate Value Theorem or "IVT":</h2>
-            <p>If <var>f(x)</var> is continuous on [<var>a</var>, <var>b</var>] (a closed interval) and <var>k</var> is in [<var>f(a)</var>, <var>f(b)</var>], then there must exist some <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>k</var> = <var>f(c)</var></p>
-        </div>
+        <h3></h3>
+                
     </div>
     <script>
         document.body.onload = function() {
@@ -124,7 +136,7 @@
             var limTags = document.getElementsByTagName("lim");
             for (var f = 0; f < limTags.length; f++) {
                 var limAs = limTags[f].getElementsByTagName("as")[0].innerText;
-                var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerText;
+                var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerHTML;
                 var limOf = limTags[f].getElementsByTagName("of")[0].innerHTML;
                 limTags[f].innerHTML = "<table style='display: inline;'><tr><td><var>lim</var></td><td>(<var>" + limOf + "</var>)</td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
             }
