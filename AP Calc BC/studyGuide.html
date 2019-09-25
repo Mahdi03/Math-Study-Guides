@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>AP Calc BC</title>
     <style>
@@ -13,6 +14,8 @@
         
         .fraction {
             display: inline-block;
+            margin: 2px;
+            margin-bottom: 1em;
         }
         
         .fraction .top {
@@ -22,6 +25,28 @@
         
         .fraction .bottom {
             text-align: center;
+        }
+        
+        .limTable {
+            display: inline-table;
+            margin: 0;
+            padding: 0;
+            border: collapse;
+        }
+        
+        derivative .fraction {
+            transform: translateY(25%);
+        }
+        
+         :not(.limTable)>.fraction {
+            transform: translateY(25%);
+        }
+        
+        .rules,
+        .rules th,
+        .rules td {
+            border: 3px solid black;
+            border-collapse: collapse;
         }
         
         #unit1,
@@ -59,6 +84,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Math Study Guide</h1>
     <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
@@ -66,71 +92,313 @@
     <div id="unit1">
         <div class="indent">
             <h3>Limits:</h3>
-            <div class="indent">
+
+            <ul>
+                <li>Limits help define End Behavior of functions as well as the behavior of graphs at certain points.</li>
+                <div>
+                    <lim>
+                        <as>x</as>
+                        <approaches><var>c</var></approaches>
+                        <of><var>f(x)</var></of>
+                    </lim> = L</div>
+                <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> is L"</li>
+                <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
+                <li>In order for a limit to exist, its left-hand and right-hand limits must exist and be equal.</li>
+                <div>
+                    <lim>
+                        <as>x</as>
+                        <approaches><var>c</var><sup>&plus;/&minus;</sup></approaches>
+                        <of><var>f(x)</var></of>
+                    </lim> = L</div>
+                <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> from the right/left is L"</li>
+                <h4>Limit Rules:</h4>
                 <ul>
-                    <li>Limits help define End Behavior of functions as well as the behavior of graphs at certain points.</li>
-                    <div><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = L</div>
-                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> is L"</li>
-                    <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
-                    <li>In order for a limit to exist, its left-hand and right-hand limits must exist and be equal.</li>
-                    <div><lim><as>x</as><approaches><var>c</var><sup>&plus;/&minus;</sup></approaches><of><var>f(x)</var></of></lim> = L</div>
-                    <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> from the right/left is L"</li>
-                    <h4>Limit Rules:</h4>
-                    <ul>
-                        <p>Given:<br /><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = L<br />
-                            <lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim> = K</p>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>b</var></of></lim> = <var>b</var></li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>x</var></of></lim> = <var>c</var></li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &plusmn; g(x)</var></of></lim> = L &plusmn; K</li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &times; g(x)</var></of></lim> = L &times; K</li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>b &times; f(x)</var></of></lim> = <var>b</var> &times; L</li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)<sup>r/s</sup></var></of></lim> = L <sup><var>r/s</var></sup></li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x) &divide; g(x)</var></of></lim> = L &divide; K</li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(g(x))</var></of></lim> = <var>f</var>(<lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim>) = <var>f</var>(K)</li>
-                        <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>ln(f(x))</var></of></lim> = <var>ln</var>(<lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim>) = <var>f</var>(K)</li>
-                    <ul>
+                    <p>
+                        Given:<br />
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x)</var></of>
+                        </lim> = L<br />
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>g(x)</var></of>
+                        </lim> = K
+                    </p>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>b</var></of>
+                        </lim> = <var>b</var></li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>x</var></of>
+                        </lim> = <var>c</var></li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x) &plusmn; g(x)</var></of>
+                        </lim> = L &plusmn; K</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x) &times; g(x)</var></of>
+                        </lim> = L &times; K</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>b &times; f(x)</var></of>
+                        </lim> = <var>b</var> &times; L</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x)<sup>r/s</sup></var></of>
+                        </lim> = L <sup><var>r/s</var></sup></li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x) &divide; g(x)</var></of>
+                        </lim> = L &divide; K</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(g(x))</var></of>
+                        </lim> = <var>f</var>(
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>g(x)</var></of>
+                        </lim>) = <var>f</var>(K)</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>ln(f(x))</var></of>
+                        </lim> = <var>ln</var>(
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x)</var></of>
+                        </lim>) = <var>f</var>(K)</li>
+
                 </ul>
-                <h4>The Sandwich (Squeeze) Theorem:</h4>
-                <p>Suppose that <var>g(x) &le; f(x) &le; h(x)</var> for all values in some open interval containing <var>c</var>,
-                except possibly at <var>c</var> itself. Suppose also that <lim><as>x</as><approaches><var>c</var></approaches><of><var>g(x)</var></of></lim> = 
-                <lim><as>x</as><approaches><var>c</var></approaches><of><var>h(x)</var></of></lim>.</p>
-                <p>So basically come up with a <var>g(x)</var> and an <var>h(x)</var> that have the same limit in order to find the limit of <var>f(x)</var>.</p>
-            </div>
-        </div>
-        <div class="indent">
+            </ul>
+            <h4>The Sandwich (Squeeze) Theorem:</h4>
+            <p>Suppose that <var>g(x) &le; f(x) &le; h(x)</var> for all values in some open interval containing <var>c</var>, except possibly at <var>c</var> itself. Suppose also that
+                <lim>
+                    <as>x</as>
+                    <approaches><var>c</var></approaches>
+                    <of><var>g(x)</var></of>
+                </lim> =
+                <lim>
+                    <as>x</as>
+                    <approaches><var>c</var></approaches>
+                    <of><var>h(x)</var></of>
+                </lim>.</p>
+            <p>So basically come up with a <var>g(x)</var> and an <var>h(x)</var> that have the same limit in order to find the limit of <var>f(x)</var>.</p>
+
             <h3>Continuity:</h3>
+
+            <ul>
+                <li><var>f(x)</var> is continuous at a point <var>c</var> of its domain if and only if
+                    <lim>
+                        <as>x</as>
+                        <approaches><var>c</var></approaches>
+                        <of><var>f(x)</var></of>
+                    </lim> = <var>f(c)</var></li>
+                <h4>3 Conditions:</h4>
+                <ol>
+                    <li><var>f(c)</var> is defined</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x)</var></of>
+                        </lim> exists</li>
+                    <li>
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>c</var></approaches>
+                            <of><var>f(x)</var></of>
+                        </lim> = <var>f(c)</var></li>
+                </ol>
+                <li>If a function <var>f</var> is not continuous at <var>x</var> = <var>c</var>, then we say <var>f</var> is discontinuous at <var>c</var> and <var>c</var> is a point of discontinuity</li>
+                <div class="indent">
+                    <ul>
+                        <li>Infinite Discontinuity:</li>
+                        <iframe id="infiniteDiscontinuityGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                        <li>Oscillating Discontinuity:</li>
+                        <iframe id="oscillatingDiscontinuityGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                        <li>Removable Discontinuity:</li>
+                        <li>Jump Discontinuity:</li>
+                    </ul>
+                </div>
+                <h4>Intermediate Value Theorem or "IVT":</h4>
+                <p>If <var>f(x)</var> is continuous on [<var>a</var>, <var>b</var>] (a closed interval) and <var>k</var> is in [<var>f(a)</var>, <var>f(b)</var>], then there must exist some <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>k</var>                    = <var>f(c)</var></p>
+            </ul>
+
+
+            <h3>Derivatives:</h3>
             <div class="indent">
                 <ul>
-                    <li><var>f(x)</var> is continuous at a point <var>c</var> of its domain if and only if <lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = <var>f(c)</var></li>
-                        <h4>3 Conditions:</h4>
-                        <div class="indent">
-                            <ol>
-                                <li><var>f(c)</var> is defined</li>
-                                <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> exists</li>
-                                <li><lim><as>x</as><approaches><var>c</var></approaches><of><var>f(x)</var></of></lim> = <var>f(c)</var></li>
-                            </ol>
+                    <li>
+                        <h5>Average Rate of Change (AROC) Formula:</h5>
+                        <div class="fraction">
+                            <div class="top"><var>&Delta;y</var></div>
+                            <div class="bottom"><var>&Delta;x</var></div>
                         </div>
-                    <li>If a function <var>f</var> is not continuous at <var>x</var> = <var>c</var>, then we say <var>f</var> is discontinuous at <var>c</var> and <var>c</var> is a point of discontinuity</li>
-                    <div class="indent">
+                        =
+                        <div class="fraction">
+                            <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
+                            <div class="bottom"><var>h</var></div>
+                        </div>
+                        [<var>x</var>, <var>x &plus; h</var>]
+                    </li>
+                    <li>Secant lines connect 2 or more points in a function.</li>
+                    <li>The slope of a secant line of any two points on a graph is the AROC between those two points.</li>
+                    <li>
+                        <h5>Instantaneous Rate of Change (IROC) Formula:</h5>
+                        <lim>
+                            <as>h</as>
+                            <approaches>0</approaches>
+                            <of>
+                                <div class="fraction">
+                                    <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
+                                    <div class="bottom"><var>h</var></div>
+                                </div>
+                            </of>
+                        </lim>
+                    </li>
+                    <li>This is the same as the slope of the tangent line of <var>f(x)</var> at a certain point.</li>
+                    <li>Which is the same as:<br />AROC = Average Rate of Change;<br />IROC = Instantaneous Rate of Change;<br />UROC!!</li>
+                    <li>
+                        The Formal Definition of a Derivative: The derivative of the function <var>f</var> with respect to the variable <var>x</var> is the function <var>f'</var> whose value at <var>x</var> is<br />
+                        <var>f'(x)</var> =
+                        <lim>
+                            <as>h</as>
+                            <approaches>0</approaches>
+                            <of>
+                                <div class="fraction">
+                                    <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
+                                    <div class="bottom"><var>h</var></div>
+                                </div>
+                            </of>
+                        </lim>
+                    </li>
+                    <li>The first derivative of any given function is velocity.</li>
+                    <li>The second derivative of any given function is acceleration.</li>
+                    <li>When finding the equation of the tangent line or normal line, using point-slope form is best.</li>
+                    <h4>Point-Slope Form:</h4>
+                    <li><var>y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>)</var></li>
+                    <li>The Normal Line is the line that is perpindicular to the AROC at one point that goes through the same point.</li>
+                    <li>
+                        <h5>The Alternate Definition of a Derivative:</h5>
+                        <var>f'(a)</var> =
+                        <lim>
+                            <as>x</as>
+                            <approaches><var>a</var></approaches>
+                            <of>
+                                <div class="fraction">
+                                    <div class="top"><var>f(x) &minus; f(a)</var></div>
+                                    <div class="bottom"><var>x &minus; a</var></div>
+                                </div>
+                            </of>
+                        </lim>
+                    </li>
+                    <li>
+                        <h5>Notation of Derivatives:</h5>
                         <ul>
-                            <li>Removable Discontinuity</li>
-                            <iframe src="https://www.desmos.com/calculator/0ker0rtxk2?embed" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
-                            <li>Oscillating Discontinuity</li>
-                            <iframe src="https://www.desmos.com/calculator/zd8knstmsy?embed" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
-                            <li>Removable Discontinuity</li>
-                            <li>Jump Discontinuity</li>
+                            <li>Liebniz Notation:</li>
+                            <derivative of="f" respectTo="x"></derivative>
+                            or
+                            <derivative of="y"></derivative>
+                            <li>Read as: "the derivative of <var>y</var> with respect to <var>x</var>."</li>
+                            <li>LaGrange Notation:</li>
+                            <var>f '(x)</var> or <var>y'</var>
                         </ul>
-                    </div>
-                    <h4>Intermediate Value Theorem or "IVT":</h4>
-                    <p>If <var>f(x)</var> is continuous on [<var>a</var>, <var>b</var>] (a closed interval) and <var>k</var> is in [<var>f(a)</var>, <var>f(b)</var>], then there must exist some <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>k</var> = <var>f(c)</var></p>
+                    </li>
+                    <li>When <var>f(x)</var> is decreasing, <var>f '(x)</var> is negative.</li>
+                    <li>When <var>f(x)</var> is increasing, <var>f '(x)</var> is positive.</li>
+                    <li>A function differentiable at every point of its domain (you can find the derivative at each point) is a differentiable function.</li>
+                    <li>If a function is differentiable on its domain, it is continuous.</li>
+                    <li>All polynomial functions are differentiable (smooth continuous curves).</li>
+                    <li>The IVT works with derivatives</li>
+                    <li>Differentiability implies local linearity (meaning that if you zoom in really close on that one point, the graph will start to look linear)</li>
+                    <li>
+                        <h5>Rules for Differentiation:</h5>
+                        <table class="rules">
+                            <tr>
+                                <th>1. Constant Rule:</th>
+                                <th>4. Sum and Difference Rule:</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[<var>c</var>] = 0</td>
+                                <td>
+                                    <derivative></derivative>[<var>u &plusmn; v</var>] =
+                                    <derivative of="u"></derivative> &plusmn;
+                                    <derivative of="v"></derivative>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2. Power Rule:</th>
+                                <th>5. Product Rule:</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[<var>x<sup>n</sup></var>] = <var>n &times; x<sup>n &minus; 1</sup></var>
+                                </td>
+                                <td>
+                                    <derivative></derivative>[<var>a &times; b</var>] = <var>a &times; <derivative of="b"></derivative> &plus; b &times; <derivative of="a"></derivative></var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>3. Constant Multiple Rule:</th>
+                                <th>6. Quotient Rule:</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[<var>c &times; v</var>] = <var>c &times; <derivative of="v"></derivative></var></td>
+                                <td>
+                                    <derivative></derivative>[
+                                    <div class="fraction">
+                                        <div class="top">
+                                            <var>a</var>
+                                        </div>
+                                        <div class="bottom">
+                                            <var>b</var>
+                                        </div>
+                                    </div>
+                                    ] =
+                                    <div class="fraction">
+                                        <div class="top">
+                                            <var>b &times; <derivative of="a"></derivative> &minus; a &times; <derivative of="b"></derivative></var>
+                                        </div>
+                                        <div class="bottom">
+                                            <var>b<sup>2</sup></var>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
                 </ul>
             </div>
         </div>
-        <h3></h3>
-                
     </div>
     <script>
         document.body.onload = function() {
+
             //Replaced/Defined all math function tags
             //Defined all Limit Tags
             var limTags = document.getElementsByTagName("lim");
@@ -138,7 +406,7 @@
                 var limAs = limTags[f].getElementsByTagName("as")[0].innerText;
                 var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerHTML;
                 var limOf = limTags[f].getElementsByTagName("of")[0].innerHTML;
-                limTags[f].innerHTML = "<table style='display: inline;'><tr><td><var>lim</var></td><td>(<var>" + limOf + "</var>)</td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
+                limTags[f].innerHTML = "<table class='limTable'><tr><td><var>lim</var></td><td rowspan='2'><var>" + limOf + "</var></td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
             }
             //Defined trig tags
             var sinTags = document.getElementsByTagName("sin");
@@ -187,6 +455,15 @@
                 var lnInput = lnTags[q].innerHTML;
                 lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
             }
+            //Defined Derivative Tags (Will need to be changed further as we learn new concepts)
+            //<nDeriv of="f" respectTo="t"></nDeriv> === df/dt
+            var derivativeTags = document.getElementsByTagName("derivative");
+            for (var r = 0; r < derivativeTags.length; r++) {
+                var derivativeOf = derivativeTags[r].getAttribute("of") ? derivativeTags[r].getAttribute("of") : "";
+                var derivativeRespectTo = derivativeTags[r].getAttribute("respectTo") ? derivativeTags[r].getAttribute("respectTo") : "x";
+                derivativeTags[r].innerHTML = "<div class='fraction'><div class='top'>d<var>" + derivativeOf + "</var></div><div class='bottom'>d<var>" + derivativeRespectTo + "</var></div></div>";
+            }
+
             /*
             //Defined vector tag
             var vectorTags = document.getElementsByTagName("vector");
@@ -195,8 +472,18 @@
                 vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
             }
             */
+            //Added all graphs to iFrames
+            //Set Discontinuity Graphs
+            var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
+            var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
+
+            //Actually loading each iFrame successively
+            infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
+            infiniteDiscontinuityGraph.onload = function() {
+                oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
+            };
         };
-    
+
         function toggleDiv(id) {
             var element = document.querySelector(id);
             if (element.style.display === "block") {
@@ -207,6 +494,12 @@
                 document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
             }
         }
+        //CSS3 Solution Used Instead
+        /*//Fixed Fraction Tags
+        document.querySelectorAll("derivative .fraction").forEach((element) => {
+            element.style.transform = "translate(0px, 19px)";
+        });*/
     </script>
 </body>
+
 </html>
