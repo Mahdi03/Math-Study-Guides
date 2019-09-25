@@ -45,8 +45,9 @@
         .rules,
         .rules th,
         .rules td {
-            border: 3px solid black;
+            border: 2px solid black;
             border-collapse: collapse;
+            padding: 10px;
         }
         
         #unit1,
@@ -240,7 +241,9 @@
                         <li>Oscillating Discontinuity:</li>
                         <iframe id="oscillatingDiscontinuityGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
                         <li>Removable Discontinuity:</li>
+                        <iframe id="removableDiscontinuityGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
                         <li>Jump Discontinuity:</li>
+                        <iframe id="jumpDiscontinuityGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
                     </ul>
                 </div>
                 <h4>Intermediate Value Theorem or "IVT":</h4>
@@ -475,11 +478,19 @@
             //Set Discontinuity Graphs
             var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
             var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
+            var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
+            var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
 
             //Actually loading each iFrame successively
             infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
             infiniteDiscontinuityGraph.onload = function() {
                 oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
+            };
+            oscillatingDiscontinuityGraph.onload = function() {
+                removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
+            };
+            removableDiscontinuityGraph.onload = function() {
+                jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
             };
         };
 
