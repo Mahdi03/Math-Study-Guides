@@ -19,7 +19,7 @@
         }
         
         .fraction .top {
-            border-bottom: 2px solid black;
+            border-bottom: 1px solid black;
             text-align: center;
         }
         
@@ -35,11 +35,11 @@
         }
         
         derivative .fraction {
-            transform: translateY(25%);
+            transform: translateY(30%);
         }
         
          :not(.limTable)>.fraction {
-            transform: translateY(25%);
+            transform: translateY(30%);
         }
         
         .rules,
@@ -66,7 +66,9 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
-        
+        .toggleButton:before {
+            padding-top: 100%;
+        }
         .toggleButton {
             border: 1px solid grey;
             display: inline;
