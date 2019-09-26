@@ -394,7 +394,7 @@
                             </tr>
                         </table>
                     </li>
-                    <li><h5>Derivates of Trig Functions</h5>
+                    <li><h5>Derivates of Trigonometric Functions:</h5>
                         <table class="rules">
                             <tr>
                                 <td>
@@ -414,26 +414,99 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <derivative></derivative>[<var>c &times; v</var>] = <var>c &times; <derivative of="v"></derivative></var></td>
+                                    <derivative></derivative>[<tan>x</tan>] = &minus;<sec>x</sec><sup>2</sup>
+                                </td>
                                 <td>
-                                    <derivative></derivative>[
+                                    <derivative></derivative>[<cot>x</cot>] = &minus;<cot>x</cot><sup>2</sup><sec>x</sec><sup>2</sup>
+                                </td>
+                            </tr>
+                        </table>
+                     </li>
+                     <li>
+                        <h5>Derivates of Inverse Trigonometric Functions:</h5>
+                        <table class="rules">
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[sin<sup>&minus;1</sup>(<var>u</var>)] =
                                     <div class="fraction">
                                         <div class="top">
-                                            <var>a</var>
+                                            1
                                         </div>
                                         <div class="bottom">
-                                            <var>b</var>
+                                            <sqrt>1 &minus; <var>u</var><sup>2</sup></sqrt>
                                         </div>
                                     </div>
-                                    ] =
+                                    &times;
+                                    <derivative of="u"></derivative>
+                                </td>
+                                <td>
+                                    <derivative></derivative>[cos<sup>&minus;1</sup>(<var>u</var>)] =
+                                    &minus;<div class="fraction">
+                                        <div class="top">
+                                            1
+                                        </div>
+                                        <div class="bottom">
+                                            <sqrt>1 &minus; <var>u</var><sup>2</sup></sqrt>
+                                        </div>
+                                    </div>
+                                    &times;
+                                    <derivative of="u"></derivative>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[sec<sup>&minus;1</sup>(<var>u</var>)] =
                                     <div class="fraction">
                                         <div class="top">
-                                            <var>b &times; <derivative of="a"></derivative> &minus; a &times; <derivative of="b"></derivative></var>
+                                            1
                                         </div>
                                         <div class="bottom">
-                                            <var>b<sup>2</sup></var>
+                                            |<var>u</var>|<sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
                                         </div>
                                     </div>
+                                    &times;
+                                    <derivative of="u"></derivative>
+                                </td>
+                                <td>
+                                    <derivative></derivative>[csc<sup>&minus;1</sup>(<var>u</var>)] =
+                                    &minus;<div class="fraction">
+                                        <div class="top">
+                                            1
+                                        </div>
+                                        <div class="bottom">
+                                            |<var>u</var>|<sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
+                                        </div>
+                                    </div>
+                                    &times;
+                                    <derivative of="u"></derivative>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[tan<sup>&minus;1</sup>(<var>u</var>)] =
+                                    <div class="fraction">
+                                        <div class="top">
+                                            1
+                                        </div>
+                                        <div class="bottom">
+                                            <var>u</var><sup>2</sup> &plus; 1
+                                        </div>
+                                    </div>
+                                    &times;
+                                    <derivative of="u"></derivative>
+                                </td>
+                                <td>
+                                    <derivative></derivative>[cot<sup>&minus;1</sup>(<var>u</var>)] =
+                                    &minus;<div class="fraction">
+                                        <div class="top">
+                                            1
+                                        </div>
+                                        <div class="bottom">
+                                            <var>u</var><sup>2</sup> &plus; 1
+                                        </div>
+                                    </div>
+                                    &times;
+                                    <derivative of="u"></derivative>
                                 </td>
                             </tr>
                         </table>
@@ -445,7 +518,13 @@
     <script>
         document.body.onload = function() {
 
-            //Replaced/Defined all math function tags
+            //Replaced/Defined all math function 
+            //Defined all Sqrt Tags
+            var sqrtTags = document.getElementsByTagName("sqrt");
+            for (var e = 0; e < sqrtTags.length; e++) {
+                var sqrtInput = sqrtTags[e].innerHTML;
+                sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
+            }
             //Defined all Limit Tags
             var limTags = document.getElementsByTagName("lim");
             for (var f = 0; f < limTags.length; f++) {
@@ -481,7 +560,7 @@
                 secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
             }
             var cotTags = document.getElementsByTagName("cot");
-            for (var o = 0; o < cotTags.length; l++) {
+            for (var o = 0; o < cotTags.length; o++) {
                 var cotInput = cotTags[o].innerHTML;
                 cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
             }
