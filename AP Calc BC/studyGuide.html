@@ -1,6 +1,99 @@
-<link href="styles.css" rel="stylesheet" />
-<script src="main.js" async></script>
-<div class="indent">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AP Calc BC</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        
+        .indent {
+            margin-left: 4em;
+        }
+        
+        .fraction {
+            display: inline-block;
+            margin: 2px;
+            margin-bottom: 1em;
+        }
+        
+        .fraction .top {
+            border-bottom: 1px solid black;
+            text-align: center;
+        }
+        
+        .fraction .bottom {
+            text-align: center;
+        }
+        
+        .limTable {
+            display: inline-table;
+            margin: 0;
+            padding: 0;
+            border: collapse;
+        }
+        
+        derivative .fraction {
+            transform: translateY(30%);
+        }
+        
+         :not(.limTable)>.fraction {
+            transform: translateY(30%);
+        }
+        
+        .rules,
+        .rules th,
+        .rules td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        
+        #unit1,
+        #unit2,
+        #unit3,
+        #unit4,
+        #unit5,
+        #unit6,
+        #unit7,
+        #unit8,
+        #unit9 {
+            display: none;
+            -webkit-transition: display 1s ease-in-out;
+            -moz-transition: display 1s ease-in-out;
+            -ms-transition: display 1s ease-in-out;
+            -o-transition: display 1s ease-in-out;
+            transition: display 1s ease-in-out;
+        }
+        .toggleButton:before {
+            padding-top: 100%;
+        }
+        .toggleButton {
+            border: 1px solid grey;
+            display: inline;
+            margin: 5px;
+            float: left;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .toggleButton:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Math Study Guide</h1>
+    <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
+    <h2>Unit 1:</h2>
+    <div id="unit1">
+        <div class="indent">
             <h3>Limits:</h3>
 
             <ul>
@@ -258,7 +351,7 @@
                     </li>
                     <h4>Logarithmic Differentiation:</h4>
                     <li>This is used when there is an x in the exponent or can be used to simply complex equations</li>
-                    <li>One example:
+                    <li>One example:<br />
                         Find <derivative of="y"></derivative> of <var>y</var> = (<sin>x</sin>)<sup><var>x</var></sup><br />
                         <ln>y</ln> = <ln>(<sin>x</sin>)<sup><var>x</var></sup></ln><br />
                         <ln>y</ln> = <var>x</var><ln><sin>x</sin></ln><br />
@@ -268,13 +361,6 @@
                         <derivative of="y"></derivative> = <var>y</var>(<ln><sin>x</sin></ln> &plus; <var>x</var><cot>x</cot>)<br />
                         Plug in <var>y</var> to get:<br />
                         <derivative of="y"></derivative> = ((<sin>x</sin>)<sup><var>x</var></sup>)(<ln><sin>x</sin></ln> &plus; <var>x</var><cot>x</cot>)
-                    </li>
-                    <li>
-                        Another example:<br />
-                        Find <derivative of="y"></derivative> of <var>y</var> = <sup>5</sup><sqrt><div class="fraction"><div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div><div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div></div></sqrt>:<br />
-                        <var>y</var> = (<div class="fraction"><div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div><div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div></div>)<sup><div class="fraction"><div class="top">1</div><div class="bottom">5</div></div></sup>        {Whole thing to the power of <div class="fraction"><div class="top">1</div><div class="bottom">5</div></div>}<br />
-                        <ln>y</ln> = <div class="fraction"><div class="top">1</div><div class="bottom">5</div></div><ln><div class="fraction"><div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(<var>x</var><sup>2</sup> &plus; 1)</div><div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div></div></ln><br />
-                        <div class="fraction"><div class="top">1</div><div class="bottom">y</div></div><derivative of="y"></derivative> = <div class="fraction"><div class="top">1</div><div class="bottom">5</div></div>[<ln>(x &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</ln> &minus; <ln>(2<var>x</var> &plus; 5)<sup>3</sup></ln>]<br />
                     </li>
                     <li>
                         <h5>Rules for Differentiation:</h5>
@@ -454,3 +540,125 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <script>
+        document.body.onload = function() {
+
+            //Replaced/Defined all math function 
+            //Defined all Sqrt Tags
+            var sqrtTags = document.getElementsByTagName("sqrt");
+            for (var e = 0; e < sqrtTags.length; e++) {
+                var sqrtInput = sqrtTags[e].innerHTML;
+                sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
+            }
+            //Defined all Limit Tags
+            var limTags = document.getElementsByTagName("lim");
+            for (var f = 0; f < limTags.length; f++) {
+                var limAs = limTags[f].getElementsByTagName("as")[0].innerText;
+                var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerHTML;
+                var limOf = limTags[f].getElementsByTagName("of")[0].innerHTML;
+                limTags[f].innerHTML = "<table class='limTable'><tr><td><var>lim</var></td><td rowspan='2'><var>" + limOf + "</var></td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
+            }
+            //Defined trig tags
+            var sinTags = document.getElementsByTagName("sin");
+            for (var j = 0; j < sinTags.length; j++) {
+                var sinInput = sinTags[j].innerHTML;
+                sinTags[j].innerHTML = "sin(<var>" + sinInput + "</var>)";
+            }
+            var cosTags = document.getElementsByTagName("cos");
+            for (var k = 0; k < cosTags.length; k++) {
+                var cosInput = cosTags[k].innerHTML;
+                cosTags[k].innerHTML = "cos(<var>" + cosInput + "</var>)";
+            }
+            var tanTags = document.getElementsByTagName("tan");
+            for (var l = 0; l < tanTags.length; l++) {
+                var tanInput = tanTags[l].innerHTML;
+                tanTags[l].innerHTML = "tan(<var>" + tanInput + "</var>)";
+            }
+            var cscTags = document.getElementsByTagName("csc");
+            for (var m = 0; m < cscTags.length; m++) {
+                var cscInput = cscTags[m].innerHTML;
+                cscTags[m].innerHTML = "csc(<var>" + cscInput + "</var>)";
+            }
+            var secTags = document.getElementsByTagName("sec");
+            for (var n = 0; n < secTags.length; n++) {
+                var secInput = secTags[n].innerHTML;
+                secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
+            }
+            var cotTags = document.getElementsByTagName("cot");
+            for (var o = 0; o < cotTags.length; o++) {
+                var cotInput = cotTags[o].innerHTML;
+                cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
+            }
+            //Defined log tag and ln tag
+            var logTags = document.getElementsByTagName("log");
+            for (var p = 0; p < logTags.length; p++) {
+                var logInput = logTags[p].innerHTML;
+                if (logTags[p].getAttribute("base") !== null) {
+                    var base = logTags[p].getAttribute("base");
+                    logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
+                } else {
+                    logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
+                }
+            }
+            var lnTags = document.getElementsByTagName("ln");
+            for (var q = 0; q < lnTags.length; q++) {
+                var lnInput = lnTags[q].innerHTML;
+                lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
+            }
+            //Defined Derivative Tags (Will need to be changed further as we learn new concepts)
+            //<nDeriv of="f" respectTo="t"></nDeriv> === df/dt
+            var derivativeTags = document.getElementsByTagName("derivative");
+            for (var r = 0; r < derivativeTags.length; r++) {
+                var derivativeOf = derivativeTags[r].getAttribute("of") ? derivativeTags[r].getAttribute("of") : "";
+                var derivativeRespectTo = derivativeTags[r].getAttribute("respectTo") ? derivativeTags[r].getAttribute("respectTo") : "x";
+                derivativeTags[r].innerHTML = "<div class='fraction'><div class='top'>d<var>" + derivativeOf + "</var></div><div class='bottom'>d<var>" + derivativeRespectTo + "</var></div></div>";
+            }
+
+            /*
+            //Defined vector tag
+            var vectorTags = document.getElementsByTagName("vector");
+            for (var i = 0; i < vectorTags.length; i++) {
+                var vectorName = vectorTags[i].innerHTML;
+                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
+            }
+            */
+            //Added all graphs to iFrames
+            //Set Discontinuity Graphs
+            var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
+            var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
+            var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
+            var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
+
+            //Actually loading each iFrame successively
+            infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
+            infiniteDiscontinuityGraph.onload = function() {
+                oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
+            };
+            oscillatingDiscontinuityGraph.onload = function() {
+                removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
+            };
+            removableDiscontinuityGraph.onload = function() {
+                jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
+            };
+        };
+
+        function toggleDiv(id) {
+            var element = document.querySelector(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+                document.querySelector(id + "ToggleButton").innerHTML = "&plus;";
+            } else {
+                element.style.display = "block";
+                document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
+            }
+        }
+        //CSS3 Solution Used Instead
+        /*//Fixed Fraction Tags
+        document.querySelectorAll("derivative .fraction").forEach((element) => {
+            element.style.transform = "translate(0px, 19px)";
+        });*/
+    </script>
+</body>
+
+</html>
