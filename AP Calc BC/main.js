@@ -1,4 +1,17 @@
 document.body.onload = function() {
+            //Added an HTML Include Before Everything else so that the HTML renders properly
+            document.querySelectorAll("[htmlInclude]").forEach((element) => {
+            var fileLink = element.getAttribute("htmlInclude");
+            var fileRequest = new XMLHTTPRequest();
+            fileRequest.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { element.innerHTML = this.responseText; }
+                    if (this.status == 404) { console.log("File not found!!"); }
+                }
+            }
+            fileRequest.open("GET", fileLink, true);
+            fileRequest.send();
+        });
             //Replaced/Defined all math function 
             //Defined all Sqrt Tags
             var sqrtTags = document.getElementsByTagName("sqrt");
@@ -105,15 +118,3 @@ document.body.onload = function() {
                 document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
             }
         }
-        document.querySelectorAll("[htmlInclude]").forEach((element) => {
-            var fileLink = element.getAttribute("htmlInclude");
-            var fileRequest = new XMLHTTPRequest();
-            fileRequest.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) { element.innerHTML = this.responseText; }
-                    if (this.status == 404) { console.log("File not found!!"); }
-                }
-            }
-            fileRequest.open("GET", fileLink, true);
-            fileRequest.send();
-        });
