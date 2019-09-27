@@ -1,0 +1,81 @@
+h1 {
+            text-align: center;
+        }
+        
+        .indent {
+            margin-left: 4em;
+        }
+        
+        .fraction {
+            display: inline-block;
+            margin: 2px;
+            margin-bottom: 1em;
+        }
+        
+        .fraction .top {
+            border-bottom: 1px solid black;
+            text-align: center;
+        }
+        
+        .fraction .bottom {
+            text-align: center;
+        }
+        
+        .limTable {
+            display: inline-table;
+            margin: 0;
+            padding: 0;
+            border: collapse;
+        }
+        
+        derivative .fraction {
+            transform: translateY(30%);
+        }
+        
+         :not(.limTable)>.fraction {
+            transform: translateY(30%);
+        }
+        
+        .rules,
+        .rules th,
+        .rules td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        
+        #unit1,
+        #unit2,
+        #unit3,
+        #unit4,
+        #unit5,
+        #unit6,
+        #unit7,
+        #unit8,
+        #unit9 {
+            display: none;
+            -webkit-transition: display 1s ease-in-out;
+            -moz-transition: display 1s ease-in-out;
+            -ms-transition: display 1s ease-in-out;
+            -o-transition: display 1s ease-in-out;
+            transition: display 1s ease-in-out;
+        }
+        .toggleButton:before {
+            padding-top: 100%;
+        }
+        .toggleButton {
+            border: 1px solid grey;
+            display: inline;
+            margin: 5px;
+            float: left;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .toggleButton:hover {
+            cursor: pointer;
+        }
