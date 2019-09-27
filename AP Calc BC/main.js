@@ -105,3 +105,15 @@ document.body.onload = function() {
                 document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
             }
         }
+        document.querySelectorAll("[htmlInclude]").forEach((element) => {
+            var fileLink = element.getAttribute("htmlInclude");
+            var fileRequest = new XMLHTTPRequest();
+            fileRequest.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { element.innerHTML = this.responseText; }
+                    if (this.status == 404) { console.log("File not found!!"); }
+                }
+            }
+            fileRequest.open("GET", fileLink, true);
+            fileRequest.send();
+        });
