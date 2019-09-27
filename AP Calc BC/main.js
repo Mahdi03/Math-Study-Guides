@@ -11,7 +11,9 @@ document.body.onload = function() {
             }
             fileRequest.open("GET", fileLink, true);
             fileRequest.send();
+            fileRequest.onload = renderMath;
         });
+            function renderMath() {
             //Replaced/Defined all math function 
             //Defined all Sqrt Tags
             var sqrtTags = document.getElementsByTagName("sqrt");
@@ -107,6 +109,7 @@ document.body.onload = function() {
             removableDiscontinuityGraph.onload = function() {
                 jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
             };
+            }
         };
         function toggleDiv(id) {
             var element = document.querySelector(id);
