@@ -2,7 +2,7 @@ document.body.onload = function() {
             //Added an HTML Include Before Everything else so that the HTML renders properly
             document.querySelectorAll("[htmlInclude]").forEach((element) => {
             var fileLink = element.getAttribute("htmlInclude");
-            var fileRequest = new XMLHTTPRequest();
+            var fileRequest = new XMLHttpRequest();
             fileRequest.onreadystatechange = function () {
                 if (this.readyState == 4) {
                     if (this.status == 200) { element.innerHTML = this.responseText; }
