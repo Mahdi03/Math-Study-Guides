@@ -9,10 +9,10 @@ document.body.onload = function() {
                     if (this.status == 404) { console.log("File not found!!"); }
                 }
             }
-            fileRequest.open("GET", fileLink, true);
+            fileRequest.open("GET", fileLink, false);
             fileRequest.send();
-            fileRequest.onload = renderMath;
         });
+            renderMath();
             function renderMath() {
             //Replaced/Defined all math function 
             //Defined all Sqrt Tags
