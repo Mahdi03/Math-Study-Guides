@@ -1,7 +1,31 @@
+        /*Font For Normal Text To Read*/
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+        /*Font For Titles of Sections*/
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        /*Font For Titles of Thms and Rules*/
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+
         h1 {
             text-align: center;
         }
-        
+
+        h3 {
+            font-size: 20pt;
+            font-family: 'Pacifico', cursive;
+        }
+        h5 {
+            font-size: 16pt;
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        li:not(var) {
+            font-size: 12pt;
+            font-family: 'Titilium Web', sans-serif;
+        }
+
         .indent {
             margin-left: 4em;
         }
