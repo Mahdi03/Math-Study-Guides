@@ -65,8 +65,12 @@ h1 {
         }
         .toggleButton {
             border: 1px solid grey;
-            display: inline;
+            display: inline-table;
             margin: 5px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
             float: left;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
