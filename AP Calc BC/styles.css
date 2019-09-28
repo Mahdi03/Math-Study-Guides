@@ -12,27 +12,33 @@
             margin-bottom: 1em;
         }
         
-        .fraction .top {
+        :not(lim) > .fraction .top {
             border-bottom: 1px solid black;
-            text-align: center;
         }
         
+        .fraction .top,
         .fraction .bottom {
             text-align: center;
         }
         
         .limTable {
-            display: inline-block;
+            display: inline-table;
             margin: 0;
             padding: 0;
-            border: collapse;
+            border: 1px solid black;
+        }
+        .limTable td {
+            border: 1px solid black;
+            padding: 0;
+            vertical-align: center;
+            text-align: center;
         }
         
         derivative .fraction {
             transform: translateY(30%);
         }
         
-         :not(.limTable)>.fraction {
+         :not(.limTable) .fraction {
             transform: translateY(30%);
         }
         

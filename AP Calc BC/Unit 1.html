@@ -1,146 +1,63 @@
-<link href='styles.css' rel='stylesheet' />
-<script src='main.js' async></script>
+<link href="styles.css" rel="stylesheet" />
+<script src="main.js" async></script>
 <div class="indent">
             <h3>Limits:</h3>
 
             <ul>
                 <li>Limits help define End Behavior of functions as well as the behavior of graphs at certain points.</li>
-                <div>
-                    <lim>
-                        <as>x</as>
-                        <approaches><var>c</var></approaches>
-                        <of><var>f(x)</var></of>
-                    </lim> = L</div>
+                <div><lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> = L</div>
                 <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> is L"</li>
                 <li>The function values get closer and closer to L as the inputs get closer and closer to <var>c</var>.</li>
                 <li>In order for a limit to exist, its left-hand and right-hand limits must exist and be equal.</li>
-                <div>
-                    <lim>
-                        <as>x</as>
-                        <approaches><var>c</var><sup>&plus;/&minus;</sup></approaches>
-                        <of><var>f(x)</var></of>
-                    </lim> = L</div>
+                <div><lim as="x" approaches="<var>c</var><sup>&plus;/&minus;</sup>"></lim><var>f(x)</var> = L</div>
                 <li>Read as: "The limit of <var>f(x)</var> as <var>x</var> approaches <var>c</var> from the right/left is L"</li>
                 <h4>Limit Rules:</h4>
                 <ul>
                     <p>
                         Given:<br />
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x)</var></of>
-                        </lim> = L<br />
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>g(x)</var></of>
-                        </lim> = K
+                        <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> = L<br />
+                        <lim as="x" approaches="<var>c</var>"></lim><var>g(x)</var> = K
                     </p>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>b</var></of>
-                        </lim> = <var>b</var></li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>b</var>] = <var>b</var></li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>x</var></of>
-                        </lim> = <var>c</var></li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>x</var>] = <var>c</var></li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x) &plusmn; g(x)</var></of>
-                        </lim> = L &plusmn; K</li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>f(x) &plusmn; g(x)</var>] = L &plusmn; K</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x) &times; g(x)</var></of>
-                        </lim> = L &times; K</li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>f(x) &times; g(x)</var>] = L &times; K</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>b &times; f(x)</var></of>
-                        </lim> = <var>b</var> &times; L</li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>b &times; f(x)</var>] = <var>b</var> &times; L</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x)<sup>r/s</sup></var></of>
-                        </lim> = L <sup><var>r/s</var></sup></li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>f(x)<sup>r/s</sup></var>] = L <sup><var>r/s</var></sup></li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x) &divide; g(x)</var></of>
-                        </lim> = L &divide; K</li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>f(x) &divide; g(x)</var>] = L &divide; K</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(g(x))</var></of>
-                        </lim> = <var>f</var>(
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>g(x)</var></of>
-                        </lim>) = <var>f</var>(K)</li>
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>f(g(x))</var>] = <var>f</var>(
+                            <lim as="x" approaches="<var>c</var>"></lim><var>g(x)</var>) = <var>f</var>(K)</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>ln(f(x))</var></of>
-                        </lim> = <var>ln</var>(
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x)</var></of>
-                        </lim>) = <var>f</var>(K)</li>
-
+                        <lim as="x" approaches="<var>c</var>"></lim>[<var>ln(f(x))</var>] = <var>ln</var>(
+                            <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var>) = <var>f</var>(K)</li>
                 </ul>
             </ul>
             <h4>The Sandwich (Squeeze) Theorem:</h4>
             <p>Suppose that <var>g(x) &le; f(x) &le; h(x)</var> for all values in some open interval containing <var>c</var>, except possibly at <var>c</var> itself. Suppose also that
-                <lim>
-                    <as>x</as>
-                    <approaches><var>c</var></approaches>
-                    <of><var>g(x)</var></of>
-                </lim> =
-                <lim>
-                    <as>x</as>
-                    <approaches><var>c</var></approaches>
-                    <of><var>h(x)</var></of>
-                </lim>.</p>
+                <lim as="x" approaches="<var>c</var>"></lim><var>g(x)</var> =
+                <lim as="x" approaches="<var>c</var>"></lim><var>h(x)</var> = <var>k</var>. Then <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> = <var>k</var></p>
             <p>So basically come up with a <var>g(x)</var> and an <var>h(x)</var> that have the same limit in order to find the limit of <var>f(x)</var>.</p>
 
             <h3>Continuity:</h3>
 
             <ul>
                 <li><var>f(x)</var> is continuous at a point <var>c</var> of its domain if and only if
-                    <lim>
-                        <as>x</as>
-                        <approaches><var>c</var></approaches>
-                        <of><var>f(x)</var></of>
-                    </lim> = <var>f(c)</var></li>
+                    <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> = <var>f(c)</var></li>
                 <h4>3 Conditions:</h4>
                 <ol>
                     <li><var>f(c)</var> is defined</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x)</var></of>
-                        </lim> exists</li>
+                        <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> exists</li>
                     <li>
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>c</var></approaches>
-                            <of><var>f(x)</var></of>
-                        </lim> = <var>f(c)</var></li>
+                        <lim as="x" approaches="<var>c</var>"></lim><var>f(x)</var> = <var>f(c)</var></li>
                 </ol>
                 <li>If a function <var>f</var> is not continuous at <var>x</var> = <var>c</var>, then we say <var>f</var> is discontinuous at <var>c</var> and <var>c</var> is a point of discontinuity</li>
                 <div class="indent">
@@ -179,32 +96,20 @@
                     <li>The slope of a secant line of any two points on a graph is the AROC between those two points.</li>
                     <li>
                         <h5>Instantaneous Rate of Change (IROC) Formula:</h5>
-                        <lim>
-                            <as>h</as>
-                            <approaches>0</approaches>
-                            <of>
-                                <div class="fraction">
+                        <lim as="h" approaches="0"></lim><div class="fraction">
                                     <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
                                     <div class="bottom"><var>h</var></div>
                                 </div>
-                            </of>
-                        </lim>
                     </li>
                     <li>This is the same as the slope of the tangent line of <var>f(x)</var> at a certain point.</li>
                     <li>Which is the same as:<br />AROC = Average Rate of Change;<br />IROC = Instantaneous Rate of Change;<br />UROC!!</li>
                     <li>
                         The Formal Definition of a Derivative: The derivative of the function <var>f</var> with respect to the variable <var>x</var> is the function <var>f'</var> whose value at <var>x</var> is<br />
                         <var>f'(x)</var> =
-                        <lim>
-                            <as>h</as>
-                            <approaches>0</approaches>
-                            <of>
-                                <div class="fraction">
+                        <lim as="h" approaches="0"></lim><div class="fraction">
                                     <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
                                     <div class="bottom"><var>h</var></div>
                                 </div>
-                            </of>
-                        </lim>
                     </li>
                     <li>The first derivative of any given function is velocity.</li>
                     <li>The second derivative of any given function is acceleration.</li>
@@ -217,16 +122,10 @@
                     <li>
                         <h5>The Alternate Definition of a Derivative:</h5>
                         <var>f'(a)</var> =
-                        <lim>
-                            <as>x</as>
-                            <approaches><var>a</var></approaches>
-                            <of>
-                                <div class="fraction">
+                        <lim as="x" approaches="<var>a</var>"></lim><div class="fraction">
                                     <div class="top"><var>f(x) &minus; f(a)</var></div>
                                     <div class="bottom"><var>x &minus; a</var></div>
                                 </div>
-                            </of>
-                        </lim>
                     </li>
                     <li>
                         <h5>Notation of Derivatives:</h5>

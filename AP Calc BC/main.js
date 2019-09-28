@@ -5,7 +5,7 @@ document.body.onload = function() {
             var fileRequest = new XMLHttpRequest();
             fileRequest.onreadystatechange = function () {
                 if (this.readyState == 4) {
-                    if (this.status == 200) { element.innerHTML = this.responseText.replace("<link href='styles.css' rel='stylesheet' />", "").replace("<script src='main.js' async></script>", ""); }
+                    if (this.status == 200) { element.innerHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async></script>', ''); }
                     if (this.status == 404) { console.log("File not found!!"); }
                 }
             }
@@ -24,10 +24,9 @@ document.body.onload = function() {
             //Defined all Limit Tags
             var limTags = document.getElementsByTagName("lim");
             for (var f = 0; f < limTags.length; f++) {
-                var limAs = limTags[f].getElementsByTagName("as")[0].innerText;
-                var limApproaches = limTags[f].getElementsByTagName("approaches")[0].innerHTML;
-                var limOf = limTags[f].getElementsByTagName("of")[0].innerHTML;
-                limTags[f].innerHTML = "<table class='limTable'><tr><td><var>lim</var></td><td rowspan='2'><var>" + limOf + "</var></td></tr><tr><td><var>" + limAs + "</var>&rarr;" + limApproaches + "</td></tr></table>";
+                var limAs = limTags[f].getAttribute("as");
+                var limApproaches = limTags[f].getAttribute("approaches");
+                limTags[f].innerHTML = "<div class='fraction'><div class='top'><var>lim</var></div><div class='bottom'><var>" + limAs + "</var>&rarr;" + limApproaches + "</div></div>";
             }
             //Defined trig tags
             var sinTags = document.getElementsByTagName("sin");
