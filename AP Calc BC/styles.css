@@ -1,7 +1,31 @@
-h1 {
+        /*Font For Normal Text To Read*/
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+        /*Font For Titles of Sections*/
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        /*Font For Titles of Thms and Rules*/
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+
+        h1 {
             text-align: center;
         }
-        
+
+        h3 {
+            font-size: 20pt;
+            font-family: 'Pacifico', cursive;
+        }
+        h5 {
+            font-size: 16pt;
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        li:not(var) {
+            font-size: 12pt;
+            font-family: 'Titilium Web', sans-serif;
+        }
+
         .indent {
             margin-left: 4em;
         }
@@ -12,11 +36,11 @@ h1 {
             margin-bottom: 1em;
         }
         
-        .fraction .top {
+        :not(lim) > .fraction .top {
             border-bottom: 1px solid black;
-            text-align: center;
         }
         
+        .fraction .top,
         .fraction .bottom {
             text-align: center;
         }
@@ -25,14 +49,20 @@ h1 {
             display: inline-table;
             margin: 0;
             padding: 0;
-            border: collapse;
+            border: 1px solid black;
+        }
+        .limTable td {
+            border: 1px solid black;
+            padding: 0;
+            vertical-align: center;
+            text-align: center;
         }
         
         derivative .fraction {
             transform: translateY(30%);
         }
         
-         :not(.limTable)>.fraction {
+         :not(.limTable) .fraction {
             transform: translateY(30%);
         }
         
@@ -65,8 +95,12 @@ h1 {
         }
         .toggleButton {
             border: 1px solid grey;
-            display: inline;
+            display: inline-table;
             margin: 5px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
             float: left;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
