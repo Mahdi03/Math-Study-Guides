@@ -7,7 +7,7 @@
         }
         
         .fraction {
-            display: table;
+            display: inline-block;
             margin: 2px;
             margin-bottom: 1em;
         }
@@ -22,7 +22,7 @@
         }
         
         .limTable {
-            display: table;
+            display: inline-block;
             margin: 0;
             padding: 0;
             border: collapse;
