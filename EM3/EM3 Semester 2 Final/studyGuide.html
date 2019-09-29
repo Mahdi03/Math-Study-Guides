@@ -7,9 +7,69 @@
         h1 {
             text-align: center;
         }
-        
+
+        h3 {
+            font-size: 20pt;
+            font-family: 'Pacifico', cursive;
+        }
+        h5 {
+            font-size: 16pt;
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        li:not(var) {
+            font-size: 12pt;
+            font-family: 'Titilium Web', sans-serif;
+        }
+
         .indent {
             margin-left: 4em;
+        }
+        
+        .fraction {
+            display: inline-block;
+            margin: 2px;
+            margin-bottom: 1em;
+        }
+        
+        :not(lim) > .fraction .top {
+            border-bottom: 1px solid black;
+        }
+        
+        .fraction .top,
+        .fraction .bottom {
+            text-align: center;
+        }
+        
+        .limTable {
+            display: inline-table;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+        }
+        .limTable td {
+            border: 1px solid black;
+            padding: 0;
+            vertical-align: center;
+            text-align: center;
+        }
+        
+        derivative .fraction {
+            transform: translateY(30%);
+        }
+        
+         :not(.limTable) .fraction {
+            transform: translateY(30%);
+        }
+        
+        .rules,
+        .rules th,
+        .rules td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
         }
         
         #unit1,
@@ -28,11 +88,17 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
-        
+        .toggleButton:before {
+            padding-top: 100%;
+        }
         .toggleButton {
             border: 1px solid grey;
-            display: inline;
+            display: inline-table;
             margin: 5px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
             float: left;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -44,48 +110,6 @@
         
         .toggleButton:hover {
             cursor: pointer;
-        }
-        
-        .outer {
-            width: 12pt;
-            display: inline-block;
-        }
-        
-        .inner,
-        .inner var {
-            margin: 0;
-            border: none;
-            padding: 0;
-            text-align: center;
-            height: 7pt;
-        }
-        
-        .fraction {
-            display: inline-block;
-            margin: 2px;
-            margin-bottom: 1em;
-        }
-        :not(lim) > .fraction .top {
-            border-bottom: 1px solid black;
-        }
-         
-        .fraction .top,
-        .fraction .bottom {
-            text-align: center;
-        }
-        
-        img[src="./equations.jpg"] {
-            width: 50%;
-            height: auto;
-        }
-        
-        img[src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"] {
-            width: 25%;
-            height: auto;
-        }
-        
-        td {
-            text-align: center;
         }
     </style>
 
@@ -331,7 +355,7 @@
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td style="border-top: 1px solid black">&minus;x<sup>2</sup> + 0x</td>
+                                            <td style="border-top: 1px solid black">        &minus;x<sup>2</sup> + 0x</td>
                                         </tr>
                                         <tr>
                                             <td>&minus;</td>
