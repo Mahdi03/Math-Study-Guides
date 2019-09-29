@@ -111,6 +111,37 @@
         .toggleButton:hover {
             cursor: pointer;
         }
+        .outer {	
+            width: 12pt;	
+            display: inline-block;	
+        }	
+        	
+        .inner,	
+        .inner var {	
+            margin: 0;	
+            border: none;	
+            padding: 0;	
+            text-align: center;	
+            height: 7pt;	
+        }
+        img[src="./equations.jpg"] {	
+            width: 50%;	
+            height: auto;	
+        }	
+        	
+        img[src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"] {	
+            width: 25%;	
+            height: auto;	
+        }
+        .longdivision2nd {
+            text-align: center;
+        }
+        .longdivision3rd {
+            text-align: end;
+        }
+        .longdivision4th {
+            text-align: end;
+        }
     </style>
 
 </head>
@@ -130,8 +161,8 @@
                     <li>For example, in <var>f(x) = 3x<sup>2</sup> + 1</var></li>
                     <li>The inverse would be <var>f<sup>-1</sup>(x) =
                         <div class="fraction">
-                            <div class="top">&radic; x-1</div>
-                            <div class="bottom">&radic; 3</div>
+                            <div class="top"><sqrt>x &minus; 1</sqrt></div>
+                            <div class="bottom"><sqrt>3</sqrt></div>
                         </div>
                     </var>
                     </li>
@@ -176,7 +207,7 @@
                 </div>
             </sin> =
             <div class="fraction">
-                <div class="top">&radic;2</div>
+                <div class="top"><sqrt>2</sqrt></div>
                 <div class="bottom">2</div>
             </div><br />
             <sin>60&deg;</sin> =
@@ -187,7 +218,7 @@
                 </div>
             </sin> =
             <div class="fraction">
-                <div class="top">&radic;3</div>
+                <div class="top"><sqrt>3</sqrt></div>
                 <div class="bottom">2</div>
             </div><br />
             <sin>90&deg;</sin> =
@@ -355,23 +386,23 @@
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td style="border-top: 1px solid black">        &minus;x<sup>2</sup> + 0x</td>
+                                            <td class="longdivision2nd"style="border-top: 1px solid black">&minus;<var>x</var><sup>2</sup> + 0x</td>
                                         </tr>
                                         <tr>
                                             <td>&minus;</td>
-                                            <td>(&minus;<var>x<sup>2</sup> &minus; x)</var></td>
+                                            <td class="longdivision2nd">(&minus;<var>x<sup>2</sup> &minus; x)</var></td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td style="border-top: 1px solid black"><var>x + 1</var></td>
+                                            <td class="longdivision3rd"style="border-top: 1px solid black"><var>x + 1</var></td>
                                         </tr>
                                         <tr>
                                             <td>&minus;</td>
-                                            <td>(<var>x + 1</var>)</td>
+                                            <td class="longdivision3rd">(<var>x + 1</var>)</td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td>0</td>
+                                            <td class="longdivision4th">0</td>
                                         </tr>
                                     </table>
                                 </li>
@@ -537,7 +568,7 @@
                         <h4>General Information:</h4>
                         <ul>
                             <li>The polar form for a point is (r, &theta;), where "r" represents the distance away from the origin and &theta; represents the angle from the x-axis</li>
-                            <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <var>&Sqrt;x<sup>2</sup> + y<sup>2</sup></var> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></var></li>
+                            <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> + y<sup>2</sup></var></sqrt> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></var></li>
                             <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quardrant. To fix that use this table to show what you have to do to the angle to get
                                 the right value of &theta;: <br>
                                 <table>
@@ -754,8 +785,7 @@
                 <h4>Combining Vectors:</h4>
                 <ul>
                     <li>To graphically add vectors
-                        <vector>d</vector> and
-                        <vector>v</vector>, draw
+                        <vector>d</vector> and <vector>v</vector>, draw
                         <vector>d</vector> and then draw
                         <vector>v</vector> starting at where
                         <vector>d</vector> ended. Finally, draw the resulting vector (from the starting point of
@@ -780,6 +810,12 @@
     <script>
         document.body.onload = function() {
             //Replaced/Defined all math function tags
+            //Defined Square Root Tag
+            var sqrtTags = document.getElementsByTagName("sqrt");
+            for (var e = 0; e < sqrtTags.length; e++) {
+                var sqrtInput = sqrtTags[e].innerHTML;
+                sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
+            }
             //Defined trig tags
             var sinTags = document.getElementsByTagName("sin");
             for (var j = 0; j < sinTags.length; j++) {
