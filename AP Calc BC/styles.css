@@ -1,31 +1,53 @@
         /*Font For Normal Text To Read*/
+        
         @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
         /*Font For Titles of Sections*/
+        
         @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
         /*Font For Titles of Thms and Rules*/
+        
         @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 
+        body {
+            width: 75%;
+            margin: 0 auto;
+        }
 
         h1 {
             text-align: center;
         }
-
+        
         h3 {
             font-size: 20pt;
             font-family: 'Pacifico', cursive;
         }
+        
         h5 {
             font-size: 16pt;
             font-family: 'Indie Flower', cursive;
             margin: 0;
             margin-top: 15px;
         }
-
+        
         li:not(var) {
             font-size: 12pt;
             font-family: 'Titilium Web', sans-serif;
         }
-
+        
+        .indent>ul {
+            list-style-type: none;
+        }
+        
+        .indent>ul>li:before {
+            /*Theta
+            content: '\03B8';*/
+            /*Infinity*/
+            content: '\221E';
+            margin-left: -20px;
+            margin-right: 10px;
+            font-size: 16pt;
+        }
+        
         .indent {
             margin-left: 4em;
         }
@@ -36,7 +58,7 @@
             margin-bottom: 1em;
         }
         
-        :not(lim) > .fraction .top {
+         :not(lim)>.fraction .top {
             border-bottom: 1px solid black;
         }
         
@@ -51,6 +73,7 @@
             padding: 0;
             border: 1px solid black;
         }
+        
         .limTable td {
             border: 1px solid black;
             padding: 0;
@@ -66,12 +89,16 @@
             transform: translateY(30%);
         }
         
-        .rules,
-        .rules th,
         .rules td {
             border: 2px solid black;
-            border-collapse: collapse;
+            border-radius: 15px;
+            border-spacing: 0;
             padding: 10px;
+            text-align: center;
+        }
+        
+        .rules td .th {
+            display: block;
         }
         
         #unit1,
@@ -90,11 +117,14 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
+        
         .toggleButton:before {
             padding-top: 100%;
         }
+        
         .toggleButton {
             border: 1px solid grey;
+            /*border-radius: 15px;*/
             display: inline-table;
             margin: 5px;
             width: 30px;
@@ -112,4 +142,32 @@
         
         .toggleButton:hover {
             cursor: pointer;
+            background-color: rgb(0, 208, 255);
+        }
+        
+        .toggleButton:hover+h2 {
+            color: rgb(0, 180, 255);
+        }
+        
+        .important {
+            transition: all 0.5s ease-in-out;
+            background-color: white;
+        }
+        
+        .important:hover {
+            border-style: dashed;
+            width: auto;
+            cursor: cell;
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        derivative,
+        lim,
+        sqrt,
+        var {
+            font-family: initial;
+            /*Overrides the Google Fonts so that the math can render better*/
         }

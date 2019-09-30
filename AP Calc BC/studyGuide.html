@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>AP Calc BC Study Guide</title>
-        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-        
-        <h1>Math Study Guide</h1>
-        <!--Unit 1-->
-        <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
+
+<head>
+    <title>AP Calc BC Study Guide</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <h1>Math Study Guide</h1>
+    <!--Unit 1-->
+    <div><span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
         <h2>Unit 1:</h2>
-        <div id="unit1">
-            <div htmlInclude="Unit 1.html"></div>
-        </div>
-        <!--Unit 2-->
+    </div>
+    <div id="unit1">
+        <div htmlInclude="Unit 1.html"></div>
+    </div>
+    <!--Unit 2-->
+    <div>
         <span class="toggleButton" id="unit2ToggleButton" onclick="toggleDiv('#unit2');">&plus;</span>
         <h2>Unit 2:</h2>
-        <div id="unit2">
-            <div htmlInclude="Unit 2.html"></div>
-        </div>
-        <!--Unit 3-->
-        <span class="toggleButton" id="unit3ToggleButton" onclick="toggleDiv('#unit3');">&plus;</span>
-        <h2>Unit 3:</h2>
-        <div id="unit3">
-            <div htmlInclude="Unit 3.html"></div>
-        </div>
-        <script src="main.js" sync></script>
-        <link href="styles.css" rel="stylesheet" />
-    </body>
+    </div>
+    <div id="unit2">
+        <div htmlInclude="Unit 2.html"></div>
+    </div>
+    <!--Unit 3-->
+    <span class="toggleButton" id="unit3ToggleButton" onclick="toggleDiv('#unit3');">&plus;</span>
+    <h2>Unit 3:</h2>
+    <div id="unit3">
+        <div htmlInclude="Unit 3.html"></div>
+    </div>
+    <script src="main.js" sync></script>
+    <link href="styles.css" rel="stylesheet" />
+</body>
+
 </html>
