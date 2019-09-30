@@ -124,6 +124,34 @@
         
         .toggleButton:hover {
             cursor: pointer;
+            background-color: rgb(0, 208, 255);
+        }
+        
+        .toggleButton:hover+h2 {
+            color: rgb(0, 180, 255);
+        }
+        
+        .important {
+            transition: all 0.5s ease-in-out;
+            background-color: white;
+        }
+        
+        .important:hover {
+            border-style: dashed;
+            width: auto;
+            cursor: default;
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            background-color: rgb(0, 208, 255);
+            position: relative;
+            z-index: 10;
+        }
+        
+        derivative,
+        lim,
+        sqrt,
+        var {
+            font-family: initial; /*Overrides the Google Fonts so that the math can render better*/
         }
         .outer {	
             width: 12pt;	
