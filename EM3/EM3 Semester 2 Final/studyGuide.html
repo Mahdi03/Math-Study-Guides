@@ -37,7 +37,19 @@
             font-size: 12pt;
             font-family: 'Titilium Web', sans-serif;
         }
-
+        .indent>ul {
+            list-style-type: none;
+        }
+        
+        .indent>ul>li:before {
+            /*Theta
+            content: '\03B8';*/
+            /*Infinity*/
+            content: '\221E';
+            margin-left: -20px;
+            margin-right: 10px;
+            font-size: 16pt;
+        }
         .indent {
             margin-left: 4em;
         }
