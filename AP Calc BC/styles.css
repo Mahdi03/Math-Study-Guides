@@ -157,7 +157,7 @@
         .important:hover {
             border-style: dashed;
             width: auto;
-            cursor: cell;
+            cursor: default;
             transform: scale(1.2);
             -webkit-transform: scale(1.2);
             position: relative;
