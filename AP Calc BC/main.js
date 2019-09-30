@@ -13,7 +13,7 @@ document.body.onload = function() {
         fileRequest.send();
     });
     renderMath();
-
+    addImportanceToFormulas();
     function renderMath() {
         //Replaced/Defined all math function 
         //Defined all Sqrt Tags
@@ -110,6 +110,15 @@ document.body.onload = function() {
             jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
         };
     }
+    function addImportanceToFormulas() {
+        var elementQueryList = [".rules td"]; //Use CSS Selectors Here
+        elementQueryList.forEach((elementQuery) => {
+            var elementList = document.querySelectorAll(elementQuery);
+            elementList.forEach((element) => {
+                element.classList.add("important");//This line adds a class that has predefined styles in the CSS file
+            });
+        });
+    }
 };
 
 function toggleDiv(id) {
@@ -122,14 +131,3 @@ function toggleDiv(id) {
         document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
     }
 }
-
-function addImportanceToFormulas() {
-    var elementQueryList = [".rules td"]; //Use CSS Selectors Here
-    elementQueryList.forEach((elementQuery) => {
-        var elementList = document.querySelectorAll(elementQuery);
-        elementList.forEach((element) => {
-            element.classList.add("important");//This line adds a class that has predefined styles in the CSS file
-        });
-    });
-}
-addImportanceToFormulas();
