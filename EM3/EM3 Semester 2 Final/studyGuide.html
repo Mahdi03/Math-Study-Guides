@@ -4,10 +4,31 @@
 <head>
     <title>Math Study Guide</title>
     <style>
+        /*Font For Normal Text To Read*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+        /*Font For Titles of Sections*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        /*Font For Titles of Thms and Rules*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+        body {
+            width: 75%;
+            margin: 0 auto;
+            overflow: scroll;
+        }
         h1 {
             text-align: center;
         }
-
+        
+        h2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
         h3 {
             font-size: 20pt;
             font-family: 'Pacifico', cursive;
@@ -23,7 +44,19 @@
             font-size: 12pt;
             font-family: 'Titilium Web', sans-serif;
         }
-
+        /*.indent>ul {
+            list-style-type: none;
+        }
+        
+        .indent>ul>li:before {
+            Theta
+            content: '\03B8';
+            Infinity
+            content: '\221E';
+            margin-left: -20px;
+            margin-right: 10px;
+            font-size: 16pt;
+        }*/
         .indent {
             margin-left: 4em;
         }
@@ -64,12 +97,16 @@
             transform: translateY(30%);
         }
         
-        .rules,
-        .rules th,
         .rules td {
             border: 2px solid black;
-            border-collapse: collapse;
+            border-radius: 15px;
+            border-spacing: 0;
             padding: 10px;
+            text-align: center;
+        }
+        
+        .rules td .th {
+            display: block;
         }
         
         #unit1,
@@ -106,10 +143,39 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            vertical-align: center;
         }
         
         .toggleButton:hover {
             cursor: pointer;
+            background-color: rgb(0, 208, 255);
+        }
+        
+        .toggleButton:hover+h2 {
+            color: rgb(0, 180, 255);
+        }
+        
+        .important {
+            transition: all 0.5s ease-in-out;
+            background-color: white;
+        }
+        
+        .important:hover {
+            border-style: dashed;
+            width: auto;
+            cursor: default;
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            background-color: rgb(0, 208, 255);
+            position: relative;
+            z-index: 10;
+        }
+        
+        derivative,
+        lim,
+        sqrt,
+        var {
+            font-family: initial; /*Overrides the Google Fonts so that the math can render better*/
         }
         .outer {	
             width: 12pt;	
@@ -130,7 +196,7 @@
         }	
         	
         img[src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"] {	
-            width: 25%;	
+            width: 50%;	
             height: auto;	
         }
         .longdivision2nd {
@@ -181,8 +247,8 @@
 
 <body>
     <h1>Math Study Guide</h1>
-    <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
-    <h2>Unit 1:</h2>
+    <div><span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
+    <h2>Unit 1:</h2></div>
     <div id="unit1">
         <div class="indent">
             <h3>Inverse Functions:</h3>
@@ -283,7 +349,49 @@
     <div id="unit3">
         <div class="indent">
             <h3>Logarithm Properties:</h3>
-            <div class="indent">
+                <table class="rules">
+                    <tr>
+                        <td>
+                        	<log>a * b</log> =
+                        	<log>a</log> +
+                        	<log>b</log>
+                        </td>
+                        <td>
+                        	<log>
+                            <div class="fraction">
+                                <div class="top">a</div>
+                                <div class="bottom">b</div>
+                            </div>
+                        	</log> =
+                       		<log>a</log> &minus;
+                        	<log>b</log>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<var>n</var>
+                        	<log>a</log> =
+                        	<log>a<sup><var>n</var></sup></log>
+                        </td>
+                        <td>
+                        	<log base="<var>a</var>">b</log> =
+                        	<div class="fraction">
+                            <div class="top">
+                                <log>b</log>
+                            </div>
+                            <div class="bottom">
+                                <log>a</log>
+                            </div>
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        	<var>e</var><sup><ln>e</ln></sup> = <var>e</var>
+                        </td>
+                    </tr>
+                </table>
+            <!--<div class="indent">
                 <ul>
                     <li>
                         <log>a * b</log> =
@@ -317,7 +425,7 @@
                     </li>
                     <li>e<sup><ln>e</ln></sup> = e</li>
                 </ul>
-            </div>
+            </div>-->
             <h3>Graphing Logarithimic Function:</h3>
             <div class="indent">
                 <ul>
@@ -339,15 +447,16 @@
         <div class="indent">
             <h3>Polynomial Functions:</h3>
             <div class="indent">
-                <h4>General Information:</h4>
+                <h5>General Information:</h5>
                 <ul>
                     <li>The Standard Form of a Polynomial is: <var>y = ax<sup>n</sup> + bx<sup>n &minus; 1</sup> + cx<sup>n &minus; 2</sup> + ... + k</var>.</li>
                 </ul>
-                <h4>Graphing:</h4>
+                <h5>Graphing:</h5>
                 <ul>
                     <li>The graph of a Polynomial can be easily drawn using a number line and looking at x-intercepts.</li>
+                    <li>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</li>
                     <ol type="a">
-                        <p>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</p>
+                        
                         <div class="indent">
                             <li>Using Synthetic Division (Quick &amp; Easy Method)</li>
                             <ol type="1">
@@ -452,7 +561,7 @@
         <div class="indent">
             <h3>Analytical Trig:</h3>
             <div class="indent">
-                <h3>Graphing Inverse Trigonometric Functions:</h3>
+                <h5>Graphing Inverse Trigonometric Functions:</h5>
                 <var>y = sin<sup>-1</sup>(x)</var><br />
                 <iframe id="invSinGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
                 <var>y = cos<sup>-1</sup>(x)</var><br />
@@ -467,47 +576,43 @@
                 <iframe id="invCotGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
             </div>
             <div class="indent">
-                <h4>Trig Identities:</h4>
+                <h5>Trig Identities:</h5>
                 <div class="indent">
-                    <ul>
-                        <li>sin<var><sup>2</sup>(&theta;)</var> + cos<var><sup>2</sup>(&theta;)</var> = <var>1</var></li>
-                        <li>sec<var><sup>2</sup>(&theta;)</var> = <var>1</var> + tan<var><sup>2</sup>(&theta;)</var></li>
-                        <li>csc<var><sup>2</sup>(&theta;)</var> = <var>1</var> + cot<var><sup>2</sup>(&theta;)</var></li>
-                    </ul>
+                    <table class="rules">
+                        <tr><td>sin<var><sup>2</sup>(&theta;)</var> + cos<var><sup>2</sup>(&theta;)</var> = <var>1</var></td></tr>
+                        <tr><td>sec<var><sup>2</sup>(&theta;)</var> = <var>1</var> + tan<var><sup>2</sup>(&theta;)</var></td></tr>
+                        <tr><td>csc<var><sup>2</sup>(&theta;)</var> = <var>1</var> + cot<var><sup>2</sup>(&theta;)</var></td></tr>
+                    </table>
                 </div>
-                <h4>Sum Formulas:</h4>
+                <h5>Sum Formulas:</h5>
                 <div class="indent">
-                    <ul>
-                        <li>
-                            <sin>&alpha; + &beta;</sin> =
+                    <table class="rules">
+                        <tr>
+                            <td><sin>&alpha; + &beta;</sin> =
                             <sin>&alpha;</sin>
                             <cos>&beta;</cos> +
                             <cos>&alpha;</cos>
-                            <sin>&beta;</sin>
-                        </li>
-                        <li>
-                            <sin>&alpha; &minus; &beta;</sin> =
+                            <sin>&beta;</sin></td>
+                            <td><sin>&alpha; &minus; &beta;</sin> =
                             <sin>&alpha;</sin>
                             <cos>&beta;</cos> &minus;
                             <cos>&alpha;</cos>
-                            <sin>&beta;</sin>
-                        </li>
-                        <li>
-                            <cos>&alpha; + &beta;</cos> =
+                            <sin>&beta;</sin></td>
+                        </tr>
+                        <tr>
+                            <td><cos>&alpha; + &beta;</cos> =
                             <cos>&alpha;</cos>
                             <cos>&beta;</cos> &minus;
                             <sin>&alpha;</sin>
-                            <sin>&beta;</sin>
-                        </li>
-                        <li>
-                            <cos>&alpha; &minus; &beta;</cos> =
+                            <sin>&beta;</sin></td>
+                            <td><cos>&alpha; &minus; &beta;</cos> =
                             <cos>&alpha;</cos>
                             <cos>&beta;</cos> +
                             <sin>&alpha;</sin>
                             <sin>&beta;</sin>
-                        </li>
-                        <li>
-                            <tan>&alpha; + &beta;</tan> =
+                        </tr>
+                        <tr>
+                            <td><tan>&alpha; + &beta;</tan> =
                             <div class="fraction">
                                 <div class="top">
                                     <tan>&alpha;</tan> +
@@ -517,38 +622,35 @@
                                     <tan>&alpha;</tan>
                                     <tan>&beta;</tan>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <tan>&alpha; &minus; &beta;</tan> =
+                            </div></td>
+                            <td><tan>&alpha; &minus; &beta;</tan> =
                             <div class="fraction">
                                 <div class="top">
                                     <tan>&alpha;</tan> &minus;
                                     <tan>&beta;</tan>
                                 </div>
-                                <div class="bottom"><var>1 +</var>
+                                <div class="bottom"><var>1 &minus;</var>
                                     <tan>&alpha;</tan>
                                     <tan>&beta;</tan>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </div></td>
+                        </tr>
+                    </table>
                 </div>
-                <h4>Double Angle Formulas:</h4>
+                <h5>Double Angle Formulas:</h5>
                 <div class="indent">
-                    <ul>
-                        <li>
-                            <sin>2&theta;</sin> = <var>2</var>
+                    <table class="rules">
+                        <tr>
+                            <td><sin>2&theta;</sin> = <var>2</var>
                             <cos>&theta;</cos>
-                            <sin>&theta;</sin>
-                        </li>
-                        <li>
-                            <cos>2&theta;</cos> = cos<var><sup>2</sup>(&theta;)</var> &minus; sin<var><sup>2</sup>(&theta;)</var><br>
+                            <sin>&theta;</sin></td>
+                             <td><cos>2&theta;</cos> = cos<var><sup>2</sup>(&theta;)</var> &minus; sin<var><sup>2</sup>(&theta;)</var><br>
                             <div class="indent">
                                 = <var>1</var> &minus; <var>2</var>sin<var><sup>2</sup>(&theta;)</var><br> = <var>2</var>cos<var><sup>2</sup>(&theta;)</var> + <var>1</var>
-                            </div>
-                        </li>
-                        <li>
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td>
                             <tan>2&theta;</tan> =
                             <div class="fraction">
                                 <div class="top"><var>2</var>
@@ -556,10 +658,11 @@
                                 </div>
                                 <div class="bottom"><var>1 &minus;</var> tan<var><sup>2</sup>&theta;</var></div>
                             </div>
-                        </li>
-                    </ul>
+                        </td>
+                        </tr>
+                    </table>
                 </div>
-                <h4>Half Angle Formulas:</h4>
+                <h5>Half Angle Formulas:</h5>
                 <div class="indent">
                     <li><img src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"></li>
                 </div>
@@ -572,10 +675,10 @@
         <div class="indent">
             <h3>Rational Functions:</h3>
             <ul>
-                <li>Partial Fraction Decomposition:<br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 +
+                <li><h5>Partial Fraction Decomposition:</h5><br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 +
                     1) + B(0)<br />0 + 2 = A(1) + 0 <br />2 = A<br />And if x = –1, then we easily get –3 + 2 = –B, so B = 1</li>
                 <li>
-                    <h4>Graphing Rational Functions:</h4><br> y =
+                    <h5>Graphing Rational Functions:</h5><br> y =
                     <div class="fraction">
                         <div class="top">1</div>
                         <div class="bottom">x</div>
@@ -598,7 +701,7 @@
             <div class="indent">
                 <ul>
                     <li>
-                        <h4>General Information:</h4>
+                        <h5>General Information:</h5>
                         <ul>
                             <li>The polar form for a point is (r, &theta;), where "r" represents the distance away from the origin and &theta; represents the angle from the x-axis</li>
                             <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> + y<sup>2</sup></var></sqrt> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></var></li>
@@ -606,12 +709,12 @@
                                 the right value of &theta;: <br>
                                 <table>
                                     <tr>
-                                        <td>
-                                            <h4>Quadrant</h4>
-                                        </td>
-                                        <td>
-                                            <h4>Value of tan<sup>&minus;1</sup></h4>
-                                        </td>
+                                        <th>
+                                            Quadrant
+                                        </th>
+                                        <th>
+                                            Value of tan<sup>&minus;1</sup>
+                                        </th>
                                     </tr>
                                     <tr>
                                         <td>I</td>
@@ -638,15 +741,15 @@
                         </ul>
                     </li>
                     <li>
-                        <h4>De Moivres Theorem:</h4>
+                        <h5>De Moivres Theorem:</h5>
                         <div class="indent">
                             <p>Just like complex numbers in the Cartesian plane,, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> + i<sin>&theta;</sin>)</var></p>
                         </div>
                     </li>
                     <li>
-                        <h4>Flower Functions:</h4><br>
+                        <h5>Flower Functions:</h5><br>
                         <div class="indent">
-                            <table>
+                            <table class="ta"style="border: 2px solid black; border-collapse: collapse;">
                                 <tr>
                                     <td></td>
                                     <td>cos</td>
@@ -654,13 +757,13 @@
                                 </tr>
                                 <tr>
                                     <td>even#</td>
-                                    <td>touches all 4 axes</td>
-                                    <td>touches no axes</td>
+                                    <td>Touches all 4 axes</td>
+                                    <td>Touches no axes</td>
                                 </tr>
                                 <tr>
                                     <td>odd#</td>
-                                    <td>touches right axis only</td>
-                                    <td>touches bottom axis only</td>
+                                    <td>Touches right axis only</td>
+                                    <td>Touches bottom axis only</td>
                                 </tr>
                             </table><br> r = 5
                             <cos>4&theta;</cos><br />
@@ -684,7 +787,7 @@
             <h3>Series and Sequences:</h3>
             <div class="indent">
                 <section>
-                    <h4>Arithmetic Stuff:</h4>
+                    <h5>Arithmetic Stuff:</h5>
                     <ul>
                         <li>
                             <div class="fraction">
@@ -699,7 +802,7 @@
                     </ul>
                 </section>
                 <section>
-                    <h4>Geometric Stuff:</h4>
+                    <h5>Geometric Stuff:</h5>
                     <ul>
                         <li>Equations:<br /><img src="./equations.jpg" /></li>
                         <!--<li>
@@ -759,7 +862,7 @@
                     </ul>
                 </section>
                 <section>
-                    <h4>Miscellaneous:</h4>
+                    <h5>Miscellaneous:</h5>
                     <ul>
                         <li>Combinations Formula:
                             <table>
@@ -809,7 +912,7 @@
         <div class="indent">
             <h3>Vectors:</h3>
             <div class="indent">
-                <h4>General Information:</h4>
+                <h5>General Information:</h5>
                 <ul>
                     <li>A vector has a direction and a magnitude. Uh! Uh! Uh!</li>
                     <li>A vectors component form is &lang; &Delta;x, &Delta;y &rang;</li>
@@ -820,7 +923,7 @@
                     <li><var>i</var> represents &lang;1, 0&rang;</li>
                     <li><var>j</var> represents &lang;0, 1&rang;</li>
                 </ul>
-                <h4>Combining Vectors:</h4>
+                <h5>Combining Vectors:</h5>
                 <ul>
                     <li>To graphically add vectors
                         <vector>d</vector> and <vector>v</vector>, draw
@@ -996,11 +1099,21 @@
                 secondPolarGraph.src = "https://www.desmos.com/calculator/cb7hwiprt0?embed";
             };
             secondPolarGraph.onload = function() {
-                thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";
+                thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";s
             };
             thirdPolarGraph.onload = function() {
                 fourthPolarGraph.src = "https://www.desmos.com/calculator/jkn1oiaqpq?embed";
             };
+            function addImportanceToFormulas() {
+        		var elementQueryList = [".rules td"]; //Use CSS Selectors Here
+        		elementQueryList.forEach((elementQuery) => {
+            	var elementList = document.querySelectorAll(elementQuery);
+            	elementList.forEach((element) => {
+                element.classList.add("important"); //This line adds a class that has predefined styles in the CSS file
+            });
+        });
+    }
+    addImportanceToFormulas();
         };
 
         function toggleDiv(id) {
