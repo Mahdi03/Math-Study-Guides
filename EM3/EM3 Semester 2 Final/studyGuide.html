@@ -208,11 +208,20 @@
         .longdivision4th {
             text-align: end;
         }
-        .sumTag td {
+        .sigmaTag td {
             text-align: center;
             border-collapse: collapse;
             border-spacing: 0;
             padding: 0;
+        }
+        .staticTable {
+            border-collapse: collapse;
+        }
+        .staticTable td {
+            padding: 10px;
+            text-align: center;
+            border: 2px solid black;
+            border-collapse: collapse;
         }
         /*p {
             height: 50px;
@@ -714,7 +723,7 @@
                             <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quardrant. To fix that use this table to show what you have to do to the angle to get
                                 the right value of &theta;: <br />
                             <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup></h5>
-                                <table style="margin: 0 auto; border: 2px solid black; border-collapse: collapse;"class="rules">
+                                <table style="margin: 0 auto;"class="staticTable">
                                     <tr>
                                         <td>I</td>
                                         <td>Use the calculator value</td>
@@ -748,9 +757,9 @@
                     <li>
                         <h5>Flower Functions:</h5><br>
                         <div class="indent">
-                            <table class="rules"style="border: 2px solid black; border-collapse: collapse;">
+                            <table class="staticTable">
                                 <tr>
-                                    <td style="border-top: none; border-left: none;"></td>
+                                    <td style="border: none;"></td>
                                     <td>Cos</td>
                                     <td>Sin</td>
                                 </tr>
@@ -1029,7 +1038,7 @@
                 var sigmaInput = sigmaTags[r].innerHTML;
                 var startValue = sigmaTags[r].getAttribute("start") ? sigmaTags[r].getAttribute("start") : "";
                 var endValue = sigmaTags[r].getAttribute("end") ? sigmaTags[r].getAttribute("end") : "";
-                sigmaTags[r].innerHTML = "<table><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
+                sigmaTags[r].innerHTML = "<table class='sigmaTag'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
             }
 
 
