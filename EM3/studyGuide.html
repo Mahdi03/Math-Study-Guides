@@ -619,7 +619,21 @@
                     <h5>Miscellaneous:</h5>
                     <ul>
                         <li>Combinations Formula:
-                            <table>
+                            <table class="rules">
+                                <tr>
+                                    <td><var><sub>n</sub>C<sub>r</sub> = 
+                                        <div class="fraction">
+                                            <div class="top">
+                                                <var>n!</var>
+                                            </div>
+                                            <div class="bottom">
+                                                <var>r!</var>(<var>n - r</var>)<var>!</var>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!--<table>
                                 <tr>
                                     <td rowspan="2"><var><sub>n</sub>C<sub>r</sub> = </var></td>
                                     <td><var><div class="fraction"><div class="top">n!</div></div></var></td>
@@ -627,34 +641,43 @@
                                 <tr>
                                     <td><var>r!</var>(<var>n - r</var>)<var>!</var></td>
                                 </tr>
-                            </table>
+                            </table>-->
                         </li>
                         <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
                         <li>The Pascal's Triangle follows the pattern of <var><sub>row - 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 - 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
                         <li>When an infinite geometric sequence converges to 0, then the corresponding infinite geometric series converges to 0 as well</li>
                         <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which
                             doesn't make a difference in the sum</li>
-                        <li>A species series that was learned is called a harmonic series, where there is a fraction and "n" is in the denominator under 1
-                            <table>
-                                <tr>
-                                    <td>&infin;</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2">&sum;</td>
-                                    <td>
-                                        <div class="fraction">
-                                            <div class="top">1</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="fractionBottom">n</td>
-                                </tr>
-                                <tr>
-                                    <td>n=1</td>
-                                </tr>
-                            </table>
-                        </li>
+                        <li>A species series that was learned is called a harmonic series, where there is a fraction and "n" is in the denominator under 1, as shown below:</li>
+                        <sigma start="<var>n</var> = 1" end="&infin;">
+                            <div class="fraction">
+                                <div class="top">
+                                    1
+                                </div>
+                                <div class="bottom">
+                                    <var>n</var>
+                               </div>
+                            </div>
+                        </sigma>
+                        <!--<table>
+                            <tr>
+                                <td>&infin;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">&sum;</td>
+                                <td>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fractionBottom">n</td>
+                            </tr>
+                            <tr>
+                                <td>n=1</td>
+                             </tr>
+                        </table>-->
                     </ul>
                 </section>
             </div>
