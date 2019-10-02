@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Math Study Guide</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        
+        .indent {
+            margin-left: 4em;
+        }
+        
+        #unit1,
+        #unit2,
+        #unit3,
+        #unit4,
+        #unit5,
+        #unit6,
+        #unit7,
+        #unit8,
+        #unit9 {
+            display: none;
+            -webkit-transition: display 1s ease-in-out;
+            -moz-transition: display 1s ease-in-out;
+            -ms-transition: display 1s ease-in-out;
+            -o-transition: display 1s ease-in-out;
+            transition: display 1s ease-in-out;
+        }
+        
+        .toggleButton {
+            border: 1px solid grey;
+            display: inline;
+            margin: 5px;
+            float: left;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .toggleButton:hover {
+            cursor: pointer;
+        }
+        
+        .outer {
+            width: 12pt;
+            display: inline-block;
+        }
+        
+        .inner,
+        .inner var {
+            margin: 0;
+            border: none;
+            padding: 0;
+            text-align: center;
+            height: 7pt;
+        }
+        
+        .fraction {
+            display: inline-block;
+        }
+        
+        .fraction .top {
+            border-bottom: 2px solid black;
+            text-align: center;
+        }
+        
+        .fraction .bottom {
+            text-align: center;
+        }
+        
+        img[src="./equations.jpg"] {
+            width: 50%;
+            height: auto;
+        }
+        
+        img[src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"] {
+            width: 25%;
+            height: auto;
+        }
+        
+        td {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Math Study Guide</h1>
+    <span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
+    <h2>Unit 1:</h2>
+    <div id="unit1">
+        <div class="indent">
+            <h3>Inverse Functions:</h3>
+            <div class="indent">
+                <ul>
+                    <li>An inverse function is a function that reverses another function</li>
+                    <li>To find the inverse function of any function, <var>f(x)</var> = <var>x</var>, set the <var>x</var> value to <var>f<sup>-1</sup>(x)</var> and the <var>f(x)</var> value to <var>x</var> and solve for <var>f<sup>-1</sup>(x)</var> to find
+                        the inverse function of that function</li>
+                    <li>For example, in <var>f(x) = 3x<sup>2</sup> + 1</var></li>
+                    <li>The inverse would be <var>f<sup>-1</sup>(x) =
+                        <div class="fraction">
+                            <div class="top">&radic; x-1</div>
+                            <div class="bottom">&radic; 3</div>
+                        </div>
+                    </var>
+                    </li>
+                    <li>The graph of a function is reflected over the the line <var>y = x</var> to produce the inverse function</li>
+                </ul>
+            </div>
+            <h3>Function Composition:</h3>
+            <div class="indent">
+                <ul>
+                    <li>A function composition means that a function is inside a function</li>
+                    <li>A function composition would look like this: <var>f(g(x))<var></li>
+                    <li>To solve a function composition, you would have to input the first function as an input for the second function</li>
+                    <li>For example, when <var>f(x) = 3x-2</var> and <var>g(x) = x<sup>2</sup></var><br><var>g(f(x)) = (3x-2)<sup>2</sup></var>, which also simplifies to <var>g(f(x)) = 9x<sup>2</sup> - 12x + 4</var></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit2ToggleButton" onclick="toggleDiv('#unit2');">&plus;</span>
+    <h2>Unit 2:</h2>
+    <div id="unit2">
+        <div class="indent">
+            <h3>Radians:</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/45_degree_rotations_expressed_in_radian_measure.svg/400px-45_degree_rotations_expressed_in_radian_measure.svg.png" /><br />
+            <sin>0</sin> =
+            <sin>0</sin> = 0<br />
+            <sin>30&deg;</sin> =
+            <sin>
+                <div class="fraction">
+                    <div class="top">&pi;</div>
+                    <div class="bottom">6</div>
+                </div>
+            </sin> =
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">2</div>
+            </div><br />
+            <sin>45&deg;</sin> =
+            <sin>
+                <div class="fraction">
+                    <div class="top">&pi;</div>
+                    <div class="bottom">4</div>
+                </div>
+            </sin> =
+            <div class="fraction">
+                <div class="top">&radic;2</div>
+                <div class="bottom">2</div>
+            </div><br />
+            <sin>60&deg;</sin> =
+            <sin>
+                <div class="fraction">
+                    <div class="top">&pi;</div>
+                    <div class="bottom">3</div>
+                </div>
+            </sin> =
+            <div class="fraction">
+                <div class="top">&radic;3</div>
+                <div class="bottom">2</div>
+            </div><br />
+            <sin>90&deg;</sin> =
+            <sin>
+                <div class="fraction">
+                    <div class="top">&pi;</div>
+                    <div class="bottom">2</div>
+                </div>
+            </sin> = 1
+        </div>
+        <div class="indent">
+            <h3>Graphing Sinusoidal Functions:</h3>
+            <var>y = <sin>x</sin></var><br />
+            <iframe id="sinGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            <var>y = <cos>x</cos></var><br />
+            <iframe id="cosGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            <var>y = <tan>x</tan></var><br />
+            <iframe id="tanGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            <var>y = csc(x)</var><br />
+            <iframe id="cscGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            <var>y = sec(x)</var><br />
+            <iframe id="secGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            <var>y = cot(x)</var><br />
+            <iframe id="cotGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+        </div>
+    </div>
+    <span class="toggleButton" id="unit3ToggleButton" onclick="toggleDiv('#unit3');">&plus;</span>
+    <h2>Unit 3:</h2>
+    <div id="unit3">
+        <div class="indent">
+            <h3>Logarithm Properties:</h3>
+            <div class="indent">
+                <ul>
+                    <li>
+                        <log>a * b</log> =
+                        <log>a</log> +
+                        <log>b</log>
+                    </li>
+                    <li>
+                        <log>
+                            <div class="fraction">
+                                <div class="top">a</div>
+                                <div class="bottom">b</div>
+                            </div>
+                        </log> =
+                        <log>a</log> &minus;
+                        <log>b</log>
+                    </li>
+                    <li>n
+                        <log>a</log> =
+                        <log>a<sup>n</sup></log>
+                    </li>
+                    <li>
+                        <log base="a">b</log> =
+                        <div class="fraction">
+                            <div class="top">
+                                <log>b</log>
+                            </div>
+                            <div class="bottom">
+                                <log>a</log>
+                            </div>
+                        </div>
+                    </li>
+                    <li>e<sup><ln>e</ln></sup> = e</li>
+                </ul>
+            </div>
+            <h3>Graphing Logarithimic Function:</h3>
+            <div class="indent">
+                <ul>
+                    <li>Parent Function: y =
+                        <log>x</log><br>
+                        <iframe id="logGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                    </li>
+                    <li>Parent Function: y =
+                        <ln>x</ln><br>
+                        <iframe id="lnGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit4ToggleButton" onclick="toggleDiv('#unit4');">&plus;</span>
+    <h2>Unit 4:</h2>
+    <div id="unit4">
+        <div class="indent">
+            <h3>Polynomial Functions:</h3>
+            <div class="indent">
+                <h4>General Information:</h4>
+                <ul>
+                    <li>The Standard Form of a Polynomial is: <var>y = ax<sup>n</sup> + bx<sup>n &minus; 1</sup> + cx<sup>n &minus; 2</sup> + ... + k</var>.</li>
+                </ul>
+                <h4>Graphing:</h4>
+                <ul>
+                    <li>The graph of a Polynomial can be easily drawn using a number line and looking at x-intercepts.</li>
+                    <ol type="a">
+                        <p>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</p>
+                        <div class="indent">
+                            <li>Using Synthetic Division (Quick &amp; Easy Method)</li>
+                            <ol type="1">
+                                <p>Given <var>f(x) = 3x<sup>3</sup> + 2x<sup>2</sup> + 1</var></p>
+                                <li>First find all possible zeros (Find all factors of the constant (<var>k</var>))</li>
+                                <p>Example: &plusmn;1</p>
+                                <li>Plug in the factors into the Polynomial until you find an actual zero</li>
+                                <p>Example:<br /><var>f(1) = 3 + 2 + 1 &ne; 0<br />f(&minus;1) = &minus;3 + 2 + 1 = 0</var></p>
+                                <li>Set up a diagram like this:</li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2">zero</td>
+                                        <td style="border-left: 2px solid black;">coefficients</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-left: 2px solid black; border-bottom: 2px solid black;">&darr;</td>
+                                        <td style="border-bottom: 2px solid black;"></td>
+                                        <td style="border-bottom: 2px solid black;"></td>
+                                    </tr>
+                                </table>
+                                <p>Example:</p>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2">&minus;1</td>
+                                        <td style="border-left: 2px solid black;">3</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-left: 2px solid black; border-bottom: 2px solid black;">&darr;</td>
+                                        <td style="border-bottom: 2px solid black;"></td>
+                                        <td style="border-bottom: 2px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>3</td>
+                                    </tr>
+                                </table>
+                                <li>Pull the first number down</li>
+                            </ol>
+                            <li>Using Polynomial Long Division (If All Else Fails - Longer, Tedious Method)</li>
+                            <ol type="1">
+                                <p>Given <var>f(x) = 3x<sup>3</sup> + 2x<sup>2</sup> + 1</var></p>
+                                <li>First find all possible zeros (Find all factors of the constant (<var>k</var>))</li>
+                                <p>Example: &plusmn;1</p>
+                                <li>Plug in the factors into the Polynomial until you find an actual zero</li>
+                                <p>Example:<br /><var>f(1) = 3 + 2 + 1 &ne; 0<br />f(&minus;1) = &minus;3 + 2 + 1 = 0</var></p>
+                                <li>Set up a diagram like this: <br />
+                                    <span style="border-right: 1px black solid; border-radius: 0px 0px 10px 0px">
+                                        <var>x+1</var>   
+                                    </span>
+                                    <span style="border-top: 1px black solid; ">
+                                        <var>3x<sup>3</sup> + 2x<sup>2</sup> + 1</var>
+                                    </span>
+                                </li>
+                                <li>Then solve the same way you would do to solve long division problems<br />
+                                    <table>
+                                        <tr>
+                                            <td></td>
+                                            <td><span><var>3x<sup>2</sup></var></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-right: 1px solid black; border-radius: 0px 0px 10px 0px"><var>x+1</var></td>
+                                            <td style="border-top: 1px solid black;"><var>3x<sup>3</sup> + 2x<sup>2</sup> + 0x + 1</var></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&minus;</td>
+                                            <td>(<var>3x<sup>3</sup> + 3x<sup>2</sup></var>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="border-top: 1px solid black">&minus;x<sup>2</sup> + 0x</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&minus;</td>
+                                            <td>(&minus;<var>x<sup>2</sup> &minus; x)</var></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="border-top: 1px solid black"><var>x + 1</var></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&minus;</td>
+                                            <td>(<var>x + 1</var>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>0</td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ol>
+                        </div>
+                    </ol>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit5ToggleButton" onclick="toggleDiv('#unit5');">&plus;</span>
+    <h2>Unit 5:</h2>
+    <div id="unit5">
+        <div class="indent">
+            <h3>Analytical Trig:</h3>
+            <div class="indent">
+                <h3>Graphing Inverse Trigonometric Functions:</h3>
+                <var>y = sin<sup>-1</sup>(x)</var><br />
+                <iframe id="invSinGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+                <var>y = cos<sup>-1</sup>(x)</var><br />
+                <iframe id="invCosGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+                <var>y = tan<sup>-1</sup>(x)</var><br />
+                <iframe id="invTanGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+                <var>y = csc<sup>-1</sup>(x)</var><br />
+                <iframe id="invCscGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+                <var>y = sec<sup>-1</sup>(x)</var><br />
+                <iframe id="invSecGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+                <var>y = cot<sup>-1</sup>(x)</var><br />
+                <iframe id="invCotGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
+            </div>
+            <div class="indent">
+                <h4>Trig Identities:</h4>
+                <div class="indent">
+                    <ul>
+                        <li>sin<var><sup>2</sup>(&theta;)</var> + cos<var><sup>2</sup>(&theta;)</var> = <var>1</var></li>
+                        <li>sec<var><sup>2</sup>(&theta;)</var> = <var>1</var> + tan<var><sup>2</sup>(&theta;)</var></li>
+                        <li>csc<var><sup>2</sup>(&theta;)</var> = <var>1</var> + cot<var><sup>2</sup>(&theta;)</var></li>
+                    </ul>
+                </div>
+                <h4>Sum Formulas:</h4>
+                <div class="indent">
+                    <ul>
+                        <li>
+                            <sin>&alpha; + &beta;</sin> =
+                            <sin>&alpha;</sin>
+                            <cos>&beta;</cos> +
+                            <cos>&alpha;</cos>
+                            <sin>&beta;</sin>
+                        </li>
+                        <li>
+                            <sin>&alpha; &minus; &beta;</sin> =
+                            <sin>&alpha;</sin>
+                            <cos>&beta;</cos> &minus;
+                            <cos>&alpha;</cos>
+                            <sin>&beta;</sin>
+                        </li>
+                        <li>
+                            <cos>&alpha; + &beta;</cos> =
+                            <cos>&alpha;</cos>
+                            <cos>&beta;</cos> &minus;
+                            <sin>&alpha;</sin>
+                            <sin>&beta;</sin>
+                        </li>
+                        <li>
+                            <cos>&alpha; &minus; &beta;</cos> =
+                            <cos>&alpha;</cos>
+                            <cos>&beta;</cos> +
+                            <sin>&alpha;</sin>
+                            <sin>&beta;</sin>
+                        </li>
+                        <li>
+                            <tan>&alpha; + &beta;</tan> =
+                            <div class="fraction">
+                                <div class="top">
+                                    <tan>&alpha;</tan> +
+                                    <tan>&beta;</tan>
+                                </div>
+                                <div class="bottom"><var>1 &minus;</var>
+                                    <tan>&alpha;</tan>
+                                    <tan>&beta;</tan>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <tan>&alpha; &minus; &beta;</tan> =
+                            <div class="fraction">
+                                <div class="top">
+                                    <tan>&alpha;</tan> &minus;
+                                    <tan>&beta;</tan>
+                                </div>
+                                <div class="bottom"><var>1 +</var>
+                                    <tan>&alpha;</tan>
+                                    <tan>&beta;</tan>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <h4>Double Angle Formulas:</h4>
+                <div class="indent">
+                    <ul>
+                        <li>
+                            <sin>2&theta;</sin> = <var>2</var>
+                            <cos>&theta;</cos>
+                            <sin>&theta;</sin>
+                        </li>
+                        <li>
+                            <cos>2&theta;</cos> = cos<var><sup>2</sup>(&theta;)</var> &minus; sin<var><sup>2</sup>(&theta;)</var><br>
+                            <div class="indent">
+                                = <var>1</var> &minus; <var>2</var>sin<var><sup>2</sup>(&theta;)</var><br> = <var>2</var>cos<var><sup>2</sup>(&theta;)</var> + <var>1</var>
+                            </div>
+                        </li>
+                        <li>
+                            <tan>2&theta;</tan> =
+                            <div class="fraction">
+                                <div class="top"><var>2</var>
+                                    <tan>&theta;</tan>
+                                </div>
+                                <div class="bottom"><var>1 &minus;</var> tan<var><sup>2</sup>&theta;</var></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <h4>Half Angle Formulas:</h4>
+                <div class="indent">
+                    <li><img src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit6ToggleButton" onclick="toggleDiv('#unit6');">&plus;</span>
+    <h2>Unit 6:</h2>
+    <div id="unit6">
+        <div class="indent">
+            <h3>Rational Functions:</h3>
+            <ul>
+                <li>Partial Fraction Decomposition:<br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 +
+                    1) + B(0)<br />0 + 2 = A(1) + 0 <br />2 = A<br />And if x = –1, then we easily get –3 + 2 = –B, so B = 1</li>
+                <li>
+                    <h4>Graphing Rational Functions:</h4><br> y =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">x</div>
+                    </div><br>
+                    <iframe id="rationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br> y =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">x<sup>2</sup></div>
+                    </div><br>
+                    <iframe id="anotherRationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit7ToggleButton" onclick="toggleDiv('#unit7');">&plus;</span>
+    <h2>Unit 7:</h2>
+    <div id="unit7">
+        <div class="indent">
+            <h3>Polar Functions:</h3>
+            <div class="indent">
+                <ul>
+                    <li>
+                        <h4>General Information:</h4>
+                        <ul>
+                            <li>The polar form for a point is (r, &theta;), where "r" represents the distance away from the origin and &theta; represents the angle from the x-axis</li>
+                            <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <var>&Sqrt;x<sup>2</sup> + y<sup>2</sup></var> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></var></li>
+                            <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quardrant. To fix that use this table to show what you have to do to the angle to get
+                                the right value of &theta;: <br>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h4>Quadrant</h4>
+                                        </td>
+                                        <td>
+                                            <h4>Value of tan<sup>&minus;1</sup></h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I</td>
+                                        <td>Use the calculator value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>II</td>
+                                        <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>III</td>
+                                        <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IV</td>
+                                        <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
+                                <cos>&theta;</cos> and y = r
+                                <sin>&theta;</sin>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>De Moivres Theorem:</h4>
+                        <div class="indent">
+                            <p>Just like complex numbers in the Cartesian plane,, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> + i<sin>&theta;</sin>)</var></p>
+                        </div>
+                    </li>
+                    <li>
+                        <h4>Flower Functions:</h4><br>
+                        <div class="indent">
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td>cos</td>
+                                    <td>sin</td>
+                                </tr>
+                                <tr>
+                                    <td>even#</td>
+                                    <td>touches all 4 axes</td>
+                                    <td>touches no axes</td>
+                                </tr>
+                                <tr>
+                                    <td>odd#</td>
+                                    <td>touches right axis only</td>
+                                    <td>touches bottom axis only</td>
+                                </tr>
+                            </table><br> r = 5
+                            <cos>4&theta;</cos><br />
+                            <iframe id="firstPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                            <cos>3&theta;</cos><br />
+                            <iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                            <sin>4&theta;</sin><br />
+                            <iframe id="thirdPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                            <sin>3&theta;</sin><br />
+                            <iframe id="fourthPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit8ToggleButton" onclick="toggleDiv('#unit8');">&plus;</span>
+    <h2>Unit 8:</h2>
+    <div id="unit8">
+        <div class="indent">
+            <h3>Series and Sequences:</h3>
+            <div class="indent">
+                <section>
+                    <h4>Arithmetic Stuff:</h4>
+                    <ul>
+                        <li>
+                            <div class="fraction">
+                                <div class="top">(ending term + starting term) * # of terms</div>
+                                <div class="bottom">2</div>
+                            </div>
+                        </li>
+                        <li>
+                            A finite Arithmetic Series always converges.
+                        </li>
+                        <li>An infinte Arithmetic Series always diverges.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Geometric Stuff:</h4>
+                    <ul>
+                        <li>Equations:<br /><img src="./equations.jpg" /></li>
+                        <!--<li>
+                            <table>
+                                <tr>
+                                    <td rowspan="2">Partial Sums: <var>S<sub>n</sub> = a<sub><sub><sub>1</sub></sub></sub></var></td>
+                                    <td class="fractionTop">(1 - <var>r</var><sup><var>n</var></sup>)</td>
+                                </tr>
+                                <tr>
+                                    <td>(1 - <var>r</var>)</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <table>
+                                <tr>
+                                    <td>&infin;</td>
+                                    <td colspan="2"></td>
+                                    <td><var>n</var></td>
+                                </tr>
+                                <tr>
+                                    <td>&sum;</td>
+                                    <td>(<var>ar<sup>k</sup></var>) = </td>
+                                    <td><var>lim</var></td>
+                                    <td>&sum;</td>
+                                    <td>(<var>ar<sup>k</sup></var>) = </td>
+                                    <td><var>lim</var></td>
+                                    <td>
+                                        <table style="font-size: 60%;">
+                                            <tr>
+                                                <td class="fractionTop">(1 - <var>r<sup>n</sup></var>)</td>
+                                                <td rowspan="2"> = </td>
+                                                <td class="fractionTop" style="font-size: 200%;"><var>a</var></td>
+                                            </tr>
+                                            <tr>
+                                                <td>(1 - <var>r</var>)</td>
+                                                <td style="font-size: 200%;">(1 - <var>r</var>)</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><var>k = </var>1</td>
+                                    <td></td>
+                                    <td><var>n</var>&rarr;&infin;</td>
+                                    <td><var>k = </var>1</td>
+                                    <td></td>
+                                    <td><var>n</var>&rarr;&infin;</td>
+                                </tr>
+                            </table>
+                        </li>-->
+                    </ul>
+                </section>
+                <section>
+                    <h4>Miscellaneous:</h4>
+                    <ul>
+                        <li>Combinations Formula:
+                            <table>
+                                <tr>
+                                    <td rowspan="2"><var><sub>n</sub>C<sub>r</sub> = </var></td>
+                                    <td><var><div class="fraction"><div class="top">n!</div></div></var></td>
+                                </tr>
+                                <tr>
+                                    <td><var>r!</var>(<var>n - r</var>)<var>!</var></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
+                        <li>The Pascal's Triangle follows the pattern of <var><sub>row - 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 - 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
+                        <li>When an infinite geometric sequence converges to 0, then the corresponding infinite geometric series converges to 0 as well</li>
+                        <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which
+                            doesn't make a difference in the sum</li>
+                        <li>A species series that was learned is called a harmonic series, where there is a fraction and "n" is in the denominator under 1
+                            <table>
+                                <tr>
+                                    <td>&infin;</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">&sum;</td>
+                                    <td>
+                                        <div class="fraction">
+                                            <div class="top">1</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fractionBottom">n</td>
+                                </tr>
+                                <tr>
+                                    <td>n=1</td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <span class="toggleButton" id="unit9ToggleButton" onclick="toggleDiv('#unit9');">&plus;</span>
+    <h2>Unit 9:</h2>
+    <div id="unit9">
+        <div class="indent">
+            <h3>Vectors:</h3>
+            <div class="indent">
+                <h4>General Information:</h4>
+                <ul>
+                    <li>A vector has a direction and a magnitude. Uh! Uh! Uh!</li>
+                    <li>A vectors component form is &lang; &Delta;x, &Delta;y &rang;</li>
+                    <li>The magnitude can be derived from component form by &radic; x<sup>2</sup> + y<sup>2</sup></li>
+                    <li>||
+                        <vector>v</vector>|| can be used to represent the magnitude of a vector</li>
+                    <li>A unit vector is a vector of magnitude 1 unit</li>
+                    <li><var>i</var> represents &lang;1, 0&rang;</li>
+                    <li><var>j</var> represents &lang;0, 1&rang;</li>
+                </ul>
+                <h4>Combining Vectors:</h4>
+                <ul>
+                    <li>To graphically add vectors
+                        <vector>d</vector> and
+                        <vector>v</vector>, draw
+                        <vector>d</vector> and then draw
+                        <vector>v</vector> starting at where
+                        <vector>d</vector> ended. Finally, draw the resulting vector (from the starting point of
+                        <vector>d</vector> to the ending point of
+                        <vector>v</vector>) as
+                        <vector>d</vector> +
+                        <vector>v</vector>
+                    </li>
+                    <li>In order to add vectors, add the component forms</li>
+                    <li>In order to subtract vectors, subtract the component forms</li>
+                </ul>
+            </div>
+            <h3>Parametric Equations:</h3>
+            <div class="indent">
+                <ul>
+                    <li>To convert from parametric equations to a rectangular function, you have to solve for <var>t</var> in the x equation and plug in <var>t</var> into the y equation</li>
+                    <li>To convert from a rectangular function to parametric equations, you have to use a table and plot the points. <br /> Then u find the pattern of the x coordinates and the y coordinates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.body.onload = function() {
+            //Replaced/Defined all math function tags
+            //Defined trig tags
+            var sinTags = document.getElementsByTagName("sin");
+            for (var j = 0; j < sinTags.length; j++) {
+                var sinInput = sinTags[j].innerHTML;
+                sinTags[j].innerHTML = "sin(<var>" + sinInput + "</var>)";
+            }
+            var cosTags = document.getElementsByTagName("cos");
+            for (var k = 0; k < cosTags.length; k++) {
+                var cosInput = cosTags[k].innerHTML;
+                cosTags[k].innerHTML = "cos(<var>" + cosInput + "</var>)";
+            }
+            var tanTags = document.getElementsByTagName("tan");
+            for (var l = 0; l < tanTags.length; l++) {
+                var tanInput = tanTags[l].innerHTML;
+                tanTags[l].innerHTML = "tan(<var>" + tanInput + "</var>)";
+            }
+            var cscTags = document.getElementsByTagName("csc");
+            for (var m = 0; m < cscTags.length; m++) {
+                var cscInput = cscTags[m].innerHTML;
+                cscTags[m].innerHTML = "csc(<var>" + cscInput + "</var>)";
+            }
+            var secTags = document.getElementsByTagName("sec");
+            for (var n = 0; n < secTags.length; n++) {
+                var secInput = secTags[n].innerHTML;
+                secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
+            }
+            var cotTags = document.getElementsByTagName("cot");
+            for (var o = 0; o < cotTags.length; l++) {
+                var cotInput = cotTags[o].innerHTML;
+                cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
+            }
+            //Defined log tag and ln tag
+            var logTags = document.getElementsByTagName("log");
+            for (var p = 0; p < logTags.length; p++) {
+                var logInput = logTags[p].innerHTML;
+                if (logTags[p].getAttribute("base") !== null) {
+                    var base = logTags[p].getAttribute("base");
+                    logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
+                } else {
+                    logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
+                }
+            }
+            var lnTags = document.getElementsByTagName("ln");
+            for (var q = 0; q < lnTags.length; q++) {
+                var lnInput = lnTags[q].innerHTML;
+                lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
+            }
+            //Defined vector tag
+            var vectorTags = document.getElementsByTagName("vector");
+            for (var i = 0; i < vectorTags.length; i++) {
+                var vectorName = vectorTags[i].innerHTML;
+                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
+            }
+            //Added Graphs To Each iFrame
+            //Set 6 Main Trigonometric Function's Graphs
+            var sinGraph = document.querySelector("#sinGraph");
+            var cosGraph = document.querySelector("#cosGraph");
+            var tanGraph = document.querySelector("#tanGraph");
+            var cscGraph = document.querySelector("#cscGraph");
+            var secGraph = document.querySelector("#secGraph");
+            var cotGraph = document.querySelector("#cotGraph");
+            //Logarithmic Graphs
+            var logGraph = document.querySelector("#logGraph");
+            var lnGraph = document.querySelector("#lnGraph");
+            //6 Inverse Trigonometric Function's Graphs
+            var invSinGraph = document.querySelector("#invSinGraph");
+            var invCosGraph = document.querySelector("#invCosGraph");
+            var invTanGraph = document.querySelector("#invTanGraph");
+            var invCscGraph = document.querySelector("#invCscGraph");
+            var invSecGraph = document.querySelector("#invSecGraph");
+            var invCotGraph = document.querySelector("#invCotGraph");
+            //Rational Functions
+            var rationalFunction = document.querySelector("#rationalFunction");
+            var anotherRationalFunction = document.querySelector("#anotherRationalFunction");
+            //Polar Graphs
+            var firstPolarGraph = document.querySelector("#firstPolarGraph");
+            var secondPolarGraph = document.querySelector("#secondPolarGraph");
+            var thirdPolarGraph = document.querySelector("#thirdPolarGraph");
+            var fourthPolarGraph = document.querySelector("#fourthPolarGraph");
+            //Actually Loading Each iFrame Successively
+            sinGraph.src = "https://www.desmos.com/calculator/s7xlbqwzqf?embed";
+            sinGraph.onload = function() {
+                cosGraph.src = "https://www.desmos.com/calculator/lkzm6zwt6w?embed";
+            };
+            cosGraph.onload = function() {
+                tanGraph.src = "https://www.desmos.com/calculator/hcbie01g6g?embed";
+            };
+            tanGraph.onload = function() {
+                cscGraph.src = "https://www.desmos.com/calculator/k8twn9qsof?embed";
+            };
+            cscGraph.onload = function() {
+                secGraph.src = "https://www.desmos.com/calculator/qfxuiyvyg6?embed";
+            };
+            secGraph.onload = function() {
+                cotGraph.src = "https://www.desmos.com/calculator/27vzqdaiuu?embed";
+            };
+            cotGraph.onload = function() {
+                logGraph.src = "https://www.desmos.com/calculator/jzeys9kket?embed";
+            };
+            logGraph.onload = function() {
+                lnGraph.src = "https://www.desmos.com/calculator/8mfm4fnxjl?embed";
+            };
+            lnGraph.onload = function() {
+                invSinGraph.src = "https://www.desmos.com/calculator/zw5zb9euh1?embed";
+            };
+            invSinGraph.onload = function() {
+                invCosGraph.src = "https://www.desmos.com/calculator/bkl2nqxi4j?embed";
+            };
+            invCosGraph.onload = function() {
+                invTanGraph.src = "https://www.desmos.com/calculator/yrkqujioyy?embed";
+            };
+            invTanGraph.onload = function() {
+                invCscGraph.src = "https://www.desmos.com/calculator/dempgdshcw?embed";
+            };
+            invCscGraph.onload = function() {
+                invSecGraph.src = "https://www.desmos.com/calculator/9bsv5bu4ph?embed";
+            };
+            invSecGraph.onload = function() {
+                invCotGraph.src = "https://www.desmos.com/calculator/gwhodciask?embed";
+            };
+            invCotGraph.onload = function() {
+                rationalFunction.src = "https://www.desmos.com/calculator/qgumdlzjnz?embed";
+            };
+            rationalFunction.onload = function() {
+                anotherRationalFunction.src = "https://www.desmos.com/calculator/hap7szxr0v?embed";
+            };
+            anotherRationalFunction.onload = function() {
+                firstPolarGraph.src = "https://www.desmos.com/calculator/o67beou5v4?embed";
+            };
+            firstPolarGraph.onload = function() {
+                secondPolarGraph.src = "https://www.desmos.com/calculator/cb7hwiprt0?embed";
+            };
+            secondPolarGraph.onload = function() {
+                thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";
+            };
+            thirdPolarGraph.onload = function() {
+                fourthPolarGraph.src = "https://www.desmos.com/calculator/jkn1oiaqpq?embed";
+            };
+        };
+        function toggleDiv(id) {
+            var element = document.querySelector(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+                document.querySelector(id + "ToggleButton").innerHTML = "&plus;";
+            } else {
+                element.style.display = "block";
+                document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
+            }
+        }
+    </script>
+</body>
+
+</html> 
