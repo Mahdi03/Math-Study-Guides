@@ -72,7 +72,7 @@ document.body.onload = function() {
                 var sigmaInput = sigmaTags[r].innerHTML;
                 var startValue = sigmaTags[r].getAttribute("start") ? sigmaTags[r].getAttribute("start") : "";
                 var endValue = sigmaTags[r].getAttribute("end") ? sigmaTags[r].getAttribute("end") : "";
-                sigmaTags[r].innerHTML = "<table class='sigmaTag'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
+                sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
             }
 
 

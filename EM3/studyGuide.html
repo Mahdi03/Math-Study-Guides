@@ -15,10 +15,10 @@
             <div class="indent">
                 <ul>
                     <li>An inverse function is a function that reverses another function</li>
-                    <li>To find the inverse function of any function, <var>f(x)</var> = <var>x</var>, set the <var>x</var> value to <var>f<sup>-1</sup>(x)</var> and the <var>f(x)</var> value to <var>x</var> and solve for <var>f<sup>-1</sup>(x)</var> to find
+                    <li>To find the inverse function of any function, <var>f(x)</var> = <var>x</var>, set the <var>x</var> value to <var>f<sup>&minus;1</sup>(x)</var> and the <var>f(x)</var> value to <var>x</var> and solve for <var>f<sup>&minus;1</sup>(x)</var> to find
                         the inverse function of that function</li>
                     <li>For example, in <var>f(x) = 3x<sup>2</sup> + 1</var></li>
-                    <li>The inverse would be <var>f<sup>-1</sup>(x) =
+                    <li>The inverse would be <var>f<sup>&minus;1</sup>(x) =
                         <div class="fraction">
                             <div class="top"><sqrt>x &minus; 1</sqrt></div>
                             <div class="bottom"><sqrt>3</sqrt></div>
@@ -34,7 +34,7 @@
                     <li>A function composition means that a function is inside a function</li>
                     <li>A function composition would look like this: <var>f(g(x))<var></li>
                     <li>To solve a function composition, you would have to input the first function as an input for the second function</li>
-                    <li>For example, when <var>f(x) = 3x-2</var> and <var>g(x) = x<sup>2</sup></var><br><var>g(f(x)) = (3x-2)<sup>2</sup></var>, which also simplifies to <var>g(f(x)) = 9x<sup>2</sup> - 12x + 4</var></li>
+                    <li>For example, when <var>f(x) = 3x&minus;2</var> and <var>g(x) = x<sup>2</sup></var><br><var>g(f(x)) = (3x&minus;2)<sup>2</sup></var>, which also simplifies to <var>g(f(x)) = 9x<sup>2</sup> &minus; 12x + 4</var></li>
                 </ul>
             </div>
         </div>
@@ -215,8 +215,7 @@
                 <ul>
                     <li>The graph of a Polynomial can be easily drawn using a number line and looking at x-intercepts.</li>
                     <li>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</li>
-                    <ol type="a">
-                        
+                    <ol type="a">                        
                         <div class="indent">
                             <li>Using Synthetic Division (Quick &amp; Easy Method)</li>
                             <ol type="1">
@@ -322,17 +321,17 @@
             <h3>Analytical Trig:</h3>
             <div class="indent">
                 <h5>Graphing Inverse Trigonometric Functions:</h5>
-                <var>y = sin<sup>-1</sup>(x)</var><br />
+                <var>y = sin<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invSinGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-                <var>y = cos<sup>-1</sup>(x)</var><br />
+                <var>y = cos<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invCosGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-                <var>y = tan<sup>-1</sup>(x)</var><br />
+                <var>y = tan<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invTanGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-                <var>y = csc<sup>-1</sup>(x)</var><br />
+                <var>y = csc<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invCscGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-                <var>y = sec<sup>-1</sup>(x)</var><br />
+                <var>y = sec<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invSecGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-                <var>y = cot<sup>-1</sup>(x)</var><br />
+                <var>y = cot<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invCotGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
             </div>
             <div class="indent">
@@ -542,8 +541,8 @@
                 <section>
                     <h5>Arithmetic Stuff:</h5>
                     <ul>
-                        <li>
-                            <div class="fraction">
+                        <li><sigma start="<var>k</var> = <var>c</var>" end="<var>n</var>"><var>a</var><sub><var>n</var></sub></sigma> = 
+                            <div class="fraction" style="display: inline-block">
                                 <div class="top">(ending term + starting term) * # of terms</div>
                                 <div class="bottom">2</div>
                             </div>
@@ -557,23 +556,34 @@
                 <section>
                     <h5>Geometric Stuff:</h5>
                     <ul>
+                        <li><sigma start="<var>k</var> = 1" end="<var>n</var>"><var>ar<sup>k</sup></var></sigma></li>
+                        <li>Partial Sums: 
+                            <table class="rules">
+                                <tr>
+                                    <td><var>S<sub>n</sub> = <var>a</var><sub>1</sub></var>
+                                        <div class="fraction">
+                                            <div class="top">
+                                                    (1 &minus; <var>r</var><sup><var>n</var></sup>)
+                                            </div>
+                                            <div class="bottom">
+                                                      (1 &minus; <var>r</var>)
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                           </table>                            
+                        </li>
                         <li>Equations:<br /><img src="./equations.jpg" /></li>
-                        <li><sigma start="<var>n</var> = 0" end="&infin;"><var>ar<sup>k</sup></var></sigma></li>
+                        <li><sigma start="<var>n</var> = 0" end="&infin;"><var>ar<sup>k</sup></var></sigma> = 
+                            <lim as="n" approaches="&infin;"></lim>[<sigma start="<var>k</var> = 1" end="<var>n</var>"><var>ar<sup>k</sup></var></sigma>] = 
+                            <lim as="n" approaches="&infin;"></lim>[<var>a</var><sub>1</sub></var><div class="fraction"><div class="top">(1 &minus; <var>r</var><sup><var>n</var></sup>)</div><div class="bottom">(1 &minus; <var>r</var>)</div></div>] =
+                            <div class="fraction"><div class="top"><var>a</var></div><div class="bottom">1 &minus; <var>r</var></div></div>
+                        </li>
                         <!--<li>
                             <p>
                                 <span>&Sigma;</span>
                                 k ( N - k + 1 )
                             </p>
-                        </li>
-                        <li>Partial Sums: <var>S<sub>n</sub> = a<sub>1</sub></var>
-                            <div class="fraction">
-                                <div class="top">
-                                        (1 - <var>r</var><sup><var>n</var></sup>)
-                                </div>
-                                <div class="bottom">
-                                        (1 - <var>r</var>)
-                                </div>
-                            </div>
                         </li>
                         <li>
                             <table>
@@ -627,7 +637,7 @@
                                                 <var>n!</var>
                                             </div>
                                             <div class="bottom">
-                                                <var>r!</var>(<var>n - r</var>)<var>!</var>
+                                                <var>r!</var>(<var>n &minus; r</var>)<var>!</var>
                                             </div>
                                         </div>
                                     </td>
@@ -644,7 +654,7 @@
                             </table>-->
                         </li>
                         <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
-                        <li>The Pascal's Triangle follows the pattern of <var><sub>row - 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 - 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
+                        <li>The Pascal's Triangle follows the pattern of <var><sub>row &minus; 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 &minus; 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
                         <li>When an infinite geometric sequence converges to 0, then the corresponding infinite geometric series converges to 0 as well</li>
                         <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which
                             doesn't make a difference in the sum</li>
