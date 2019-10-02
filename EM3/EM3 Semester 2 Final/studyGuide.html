@@ -706,16 +706,9 @@
                             <li>The polar form for a point is (r, &theta;), where "r" represents the distance away from the origin and &theta; represents the angle from the x-axis</li>
                             <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> + y<sup>2</sup></var></sqrt> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></var></li>
                             <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quardrant. To fix that use this table to show what you have to do to the angle to get
-                                the right value of &theta;: <br>
-                                <table>
-                                    <tr>
-                                        <th>
-                                            Quadrant
-                                        </th>
-                                        <th>
-                                            Value of tan<sup>&minus;1</sup>
-                                        </th>
-                                    </tr>
+                                the right value of &theta;: <br />
+                            <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup></h5>
+                                <table style="margin: 0 auto;"class="rules">
                                     <tr>
                                         <td>I</td>
                                         <td>Use the calculator value</td>
@@ -732,7 +725,7 @@
                                         <td>IV</td>
                                         <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
                                     </tr>
-                                </table>
+                                </table><br />
                             </li>
                             <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
                                 <cos>&theta;</cos> and y = r
@@ -749,19 +742,19 @@
                     <li>
                         <h5>Flower Functions:</h5><br>
                         <div class="indent">
-                            <table class="ta"style="border: 2px solid black; border-collapse: collapse;">
+                            <table class="rules"style="border: 2px solid black; border-collapse: collapse;">
                                 <tr>
                                     <td></td>
-                                    <td>cos</td>
-                                    <td>sin</td>
+                                    <td>Cos</td>
+                                    <td>Sin</td>
                                 </tr>
                                 <tr>
-                                    <td>even#</td>
+                                    <td>Even coefficient of &theta;</td>
                                     <td>Touches all 4 axes</td>
                                     <td>Touches no axes</td>
                                 </tr>
                                 <tr>
-                                    <td>odd#</td>
+                                    <td>Odd coefficient of &theta;</td>
                                     <td>Touches right axis only</td>
                                     <td>Touches bottom axis only</td>
                                 </tr>
@@ -805,6 +798,7 @@
                     <h5>Geometric Stuff:</h5>
                     <ul>
                         <li>Equations:<br /><img src="./equations.jpg" /></li>
+                        <li><sigma start="<var>n</var> = 0" end="&infin;"><var>ar<sup>k</sup></var></sigma></li>
                         <!--<li>
                             <p>
                                 <span>&Sigma;</span>
@@ -820,7 +814,7 @@
                                         (1 - <var>r</var>)
                                 </div>
                             </div>
-                        </li>-->
+                        </li>
                         <li>
                             <table>
                                 <tr>
@@ -858,7 +852,7 @@
                                     <td><var>n</var>&rarr;&infin;</td>
                                 </tr>
                             </table>
-                        </li>
+                        </li>-->
                     </ul>
                 </section>
                 <section>
@@ -963,6 +957,13 @@
                 var sqrtInput = sqrtTags[e].innerHTML;
                 sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
             }
+            //Defined limit tags
+            var limTags = document.getElementsByTagName("lim");
+            for (var f = 0; f < limTags.length; f++) {
+                var limAs = limTags[f].getAttribute("as");
+                var limApproaches = limTags[f].getAttribute("approaches");
+                limTags[f].innerHTML = "<div class='fraction'><div class='top'><var>lim</var></div><div class='bottom'><var>" + limAs + "</var>&rarr;" + limApproaches + "</div></div>";
+            }
             //Defined trig tags
             var sinTags = document.getElementsByTagName("sin");
             for (var j = 0; j < sinTags.length; j++) {
@@ -1015,6 +1016,14 @@
             for (var i = 0; i < vectorTags.length; i++) {
                 var vectorName = vectorTags[i].innerHTML;
                 vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
+            }
+            //Added Sigma tags
+            var sigmaTags = document.getElementsByTagName("sigma");
+            for (var r = 0; r < sigmaTags.length; r++) {
+                var sigmaInput = sigmaTags[r].innerHTML;
+                var startValue = sigmaTags[r].getAttribute("start") ? sigmaTags[r].getAttribute("start") : "";
+                var endValue = sigmaTags[r].getAttribute("end") ? sigmaTags[r].getAttribute("end") : "";
+                sigmaTags[r].innerHTML = "<table><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
             }
 
 
