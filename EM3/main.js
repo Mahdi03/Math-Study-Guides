@@ -157,7 +157,7 @@ document.body.onload = function() {
                 secondPolarGraph.src = "https://www.desmos.com/calculator/cb7hwiprt0?embed";
             };
             secondPolarGraph.onload = function() {
-                thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";s
+                thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";
             };
             thirdPolarGraph.onload = function() {
                 fourthPolarGraph.src = "https://www.desmos.com/calculator/jkn1oiaqpq?embed";
