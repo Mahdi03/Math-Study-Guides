@@ -9,7 +9,7 @@
 <body>
     <h1>Math Study Guide</h1>
     <div><span class="toggleButton" id="unit1ToggleButton" onclick="toggleDiv('#unit1');">&plus;</span>
-    <h2>Unit 1:</h2></div>
+    <h2>Unit 1: Functions and Their Inverses</h2></div>
     <div id="unit1">
         <div class="indent">
             <h3>Inverse Functions:</h3>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <span class="toggleButton" id="unit2ToggleButton" onclick="toggleDiv('#unit2');">&plus;</span>
-    <h2>Unit 2:</h2>
+    <h2>Unit 2: Trigonometric Functions in the Unit Circle</h2>
     <div id="unit2">
         <div class="indent">
             <h3>Radians:</h3>
@@ -106,7 +106,7 @@
         </div>
     </div>
     <span class="toggleButton" id="unit3ToggleButton" onclick="toggleDiv('#unit3');">&plus;</span>
-    <h2>Unit 3:</h2>
+    <h2>Unit 3: Logarithmic Functions</h2>
     <div id="unit3">
         <div class="indent">
             <h3>Logarithm Properties:</h3>
@@ -187,15 +187,15 @@
                     <li>e<sup><ln>e</ln></sup> = e</li>
                 </ul>
             </div>-->
-            <h3>Graphing Logarithimic Function:</h3>
+            <h3>Graphing Logarithimic Functions:</h3>
             <div class="indent">
                 <ul>
                     <li>Parent Function: y =
-                        <log>x</log><br>
+                        <log>x</log><br />
                         <iframe id="logGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
                     </li>
                     <li>Parent Function: y =
-                        <ln>x</ln><br>
+                        <ln>x</ln><br />
                         <iframe id="lnGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
                     </li>
                 </ul>
@@ -203,21 +203,19 @@
         </div>
     </div>
     <span class="toggleButton" id="unit4ToggleButton" onclick="toggleDiv('#unit4');">&plus;</span>
-    <h2>Unit 4:</h2>
+    <h2>Unit 4: Polynomial Functions</h2>
     <div id="unit4">
-        <div class="indent">
-            <h3>Polynomial Functions:</h3>
             <div class="indent">
-                <h5>General Information:</h5>
+                <h3>General Information:</h3>
                 <ul>
                     <li>The Standard Form of a Polynomial is: <var>y = ax<sup>n</sup> &plus; bx<sup>n &minus; 1</sup> &plus; cx<sup>n &minus; 2</sup> &plus; ... &plus; k</var>.</li>
                 </ul>
-                <h5>Graphing:</h5>
+                <h3>Graphing:</h3>
                 <ul>
                     <li>The graph of a Polynomial can be easily drawn using a number line and looking at x-intercepts.</li>
                     <li>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</li>
                     <ol type="a">                        
-                        <div class="indent">
+                        
                             <li>Using Synthetic Division (Quick &amp; Easy Method)</li>
                             <ol type="1">
                                 <p>Given <var>f(x) = 3x<sup>3</sup> &plus; 2x<sup>2</sup> &plus; 1</var></p>
@@ -309,19 +307,15 @@
                                     </table>
                                 </li>
                             </ol>
-                        </div>
                     </ol>
                 </ul>
             </div>
-        </div>
     </div>
     <span class="toggleButton" id="unit5ToggleButton" onclick="toggleDiv('#unit5');">&plus;</span>
-    <h2>Unit 5:</h2>
+    <h2>Unit 5: Analytical &amp; Inverse Trigonometry</h2>
     <div id="unit5">
         <div class="indent">
-            <h3>Analytical Trig:</h3>
-            <div class="indent">
-                <h5>Graphing Inverse Trigonometric Functions:</h5>
+                <h3>Graphing Inverse Trigonometric Functions:</h3>
                 <var>y = sin<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invSinGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
                 <var>y = cos<sup>&minus;1</sup>(x)</var><br />
@@ -334,18 +328,15 @@
                 <iframe id="invSecGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
                 <var>y = cot<sup>&minus;1</sup>(x)</var><br />
                 <iframe id="invCotGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br />
-            </div>
-            <div class="indent">
-                <h5>Trig Identities:</h5>
-                <div class="indent">
+            
+            
+                <h3>Trigonometric Identities:</h3>
                     <table class="rules">
                         <tr><td>sin<var><sup>2</sup>(&theta;)</var> &plus; cos<var><sup>2</sup>(&theta;)</var> = <var>1</var></td></tr>
                         <tr><td>sec<var><sup>2</sup>(&theta;)</var> = <var>1</var> &plus; tan<var><sup>2</sup>(&theta;)</var></td></tr>
                         <tr><td>csc<var><sup>2</sup>(&theta;)</var> = <var>1</var> &plus; cot<var><sup>2</sup>(&theta;)</var></td></tr>
                     </table>
-                </div>
                 <h5>Sum Formulas:</h5>
-                <div class="indent">
                     <table class="rules">
                         <tr>
                             <td><sin>&alpha; &plus; &beta;</sin> =
@@ -400,9 +391,7 @@
                             </div></td>
                         </tr>
                     </table>
-                </div>
-                <h5>Double Angle Formulas:</h5>
-                <div class="indent">
+                <h3>Double Angle Formulas:</h3>
                     <table class="rules">
                         <tr>
                             <td><sin>2&theta;</sin> = <var>2</var>
@@ -425,19 +414,15 @@
                         </td>
                         </tr>
                     </table>
-                </div>
-                <h5>Half Angle Formulas:</h5>
-                <div class="indent">
+                <h3>Half Angle Formulas:</h3>
                     <li><img src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"></li>
-                </div>
             </div>
         </div>
     </div>
     <span class="toggleButton" id="unit6ToggleButton" onclick="toggleDiv('#unit6');">&plus;</span>
-    <h2>Unit 6:</h2>
+    <h2>Unit 6: Rational Functions</h2>
     <div id="unit6">
         <div class="indent">
-            <h3>Rational Functions:</h3>
             <ul>
                 <li><h5>Partial Fraction Decomposition:</h5><br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br />3(0) &plus; 2 = A(0 &plus;
                     1) &plus; B(0)<br />0 &plus; 2 = A(1) &plus; 0 <br />2 = A<br />And if x = –1, then we easily get –3 &plus; 2 = –B, so B = 1</li>
@@ -458,14 +443,12 @@
         </div>
     </div>
     <span class="toggleButton" id="unit7ToggleButton" onclick="toggleDiv('#unit7');">&plus;</span>
-    <h2>Unit 7:</h2>
+    <h2>Unit 7: Polar Graphs</h2>
     <div id="unit7">
         <div class="indent">
-            <h3>Polar Functions:</h3>
-            <div class="indent">
                 <ul>
                     <li>
-                        <h5>General Information:</h5>
+                        <h3>General Information:</h3>
                         <ul>
                             <li>The polar form for a point is (r, &theta;), where "r" represents the distance away from the origin and &theta; represents the angle from the x-axis</li>
                             <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> &plus; y<sup>2</sup></var></sqrt> and &theta; = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></div></var></li>
@@ -504,7 +487,7 @@
                         </div>
                     </li>
                     <li>
-                        <h5>Flower Functions:</h5><br>
+                        <h3>Flower Functions:</h3><br>
                         <div class="indent">
                             <table class="staticTable">
                                 <tr>
@@ -534,17 +517,14 @@
                         </div>
                     </li>
                 </ul>
-            </div>
         </div>
     </div>
     <span class="toggleButton" id="unit8ToggleButton" onclick="toggleDiv('#unit8');">&plus;</span>
-    <h2>Unit 8:</h2>
+    <h2>Unit 8: Sequences and Series</h2>
     <div id="unit8">
         <div class="indent">
-            <h3>Series and Sequences:</h3>
-            <div class="indent">
                 <section>
-                    <h5>Arithmetic:</h5>
+                    <h3>Arithmetic:</h3>
                     <ul>
                         <li><sigma start="<var>k</var> = <var>c</var>" end="<var>n</var>"><var>a</var><sub><var>n</var></sub></sigma> = 
                             <div class="fraction" style="display: inline-block">
@@ -561,7 +541,7 @@
                     </ul>
                 </section>
                 <section>
-                    <h5>Geometric:</h5>
+                    <h3>Geometric:</h3>
                     <ul>
                         <li><sigma start="<var>k</var> = 1" end="<var>n</var>"><var>ar<sup>k</sup></var></sigma></li>
                         <li>Partial Sums: 
@@ -580,7 +560,7 @@
                                 </tr>
                            </table>                            
                         </li>
-                        <li>Equations:<br /><img src="./equations.jpg" /></li>
+                        <!--<li>Equations:<br /><img src="./equations.jpg" /></li>-->
                         <table class="rules">
                             <tr>
                                 <td>|<var>r</var>| &lt; 1 <br />Convergent</td>
@@ -611,7 +591,7 @@
                     </ul>
                 </section>
                 <section>
-                    <h5>Miscellaneous:</h5>
+                    <h3>Miscellaneous:</h3>
                     <ul>
                         <li>Combinations Formula:
                             <table class="rules">
@@ -639,7 +619,7 @@
                                 </tr>
                             </table>-->
                         </li>
-                        <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
+                        <li>Pascal's Triangle:<br /><img class="important" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
                         <li>The Pascal's Triangle follows the pattern of <var><sub>row &minus; 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 &minus; 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
                         <li>When an infinite geometric sequence converges to 0, then the corresponding infinite geometric series converges to 0 as well</li>
                         <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which
@@ -680,18 +660,15 @@
         </div>
     </div>
     <span class="toggleButton" id="unit9ToggleButton" onclick="toggleDiv('#unit9');">&plus;</span>
-    <h2>Unit 9:</h2>
+    <h2>Unit 9: Vectors and Parametric Functions</h2>
     <div id="unit9">
         <div class="indent">
-            <h3>Vectors:</h3>
-            <div class="indent">
-                <h5>General Information:</h5>
+                <h3>General Information:</h3>
                 <ul>
                     <li>A vector has a direction and a magnitude. Uh! Uh! Uh!</li>
                     <li>A vectors component form is &lang; &Delta;x, &Delta;y &rang;</li>
                     <li>The magnitude can be derived from component form by <sqrt>x<sup>2</sup> &plus; y<sup>2</sup></sqrt></li>
-                    <li>||
-                        <vector>v</vector>|| can be used to represent the magnitude of a vector</li>
+                    <li>||<vector>v</vector>|| can be used to represent the magnitude of a vector</li>
                     <li>A unit vector is a vector of magnitude 1 unit</li>
                     <li><var>i</var> represents &lang;1, 0&rang;</li>
                     <li><var>j</var> represents &lang;0, 1&rang;</li>
