@@ -225,6 +225,11 @@
             border: 2px solid black;
             border-collapse: collapse;
         }
+        #pascalsTriangle {
+            text-align: center;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
         /*p {
             height: 50px;
             line-height: 50px;
