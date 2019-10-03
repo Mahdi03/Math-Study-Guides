@@ -165,13 +165,23 @@ document.body.onload = function() {
             function addImportanceToFormulas() {
         		var elementQueryList = [".rules td"]; //Use CSS Selectors Here
         		elementQueryList.forEach((elementQuery) => {
-            	var elementList = document.querySelectorAll(elementQuery);
-            	elementList.forEach((element) => {
-                element.classList.add("important"); //This line adds a class that has predefined styles in the CSS file
-            });
-        });
-    }
+                	var elementList = document.querySelectorAll(elementQuery);
+                	elementList.forEach((element) => {
+                        element.classList.add("important"); //This line adds a class that has predefined styles in the CSS file
+                    });
+                });
+            }
+            function removeImportanceFromElements() {
+                var elementQueryList = ["sigma td"]; //Use CSS Selectors Here
+        		elementQueryList.forEach((elementQuery) => {
+                	var elementList = document.querySelectorAll(elementQuery);
+                	elementList.forEach((element) => {
+                        element.classList.remove("important"); //This line adds a class that has predefined styles in the CSS file
+                    });
+                });
+            }
     addImportanceToFormulas();
+    removeImportanceFromElements();
         };
 
         function toggleDiv(id) {

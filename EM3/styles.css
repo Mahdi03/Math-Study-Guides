@@ -171,6 +171,7 @@
         var {
             font-family: initial; /*Overrides the Google Fonts so that the math can render better*/
         }
+        
         .outer {	
             width: 12pt;	
             display: inline-block;	
@@ -184,6 +185,7 @@
             text-align: center;	
             height: 7pt;	
         }
+        
         img[src="./equations.jpg"] {	
             width: 50%;	
             height: auto;	
@@ -204,6 +206,8 @@
         }
         .sigmaTag td {
             text-align: center;
+            border: none;
+            border-radius: none;
             border-collapse: collapse;
             border-spacing: 0;
             padding: 0;
