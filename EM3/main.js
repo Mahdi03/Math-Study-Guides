@@ -60,12 +60,6 @@ document.body.onload = function() {
                 var lnInput = lnTags[q].innerHTML;
                 lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
             }
-            //Defined vector tag
-            var vectorTags = document.getElementsByTagName("vector");
-            for (var i = 0; i < vectorTags.length; i++) {
-                var vectorName = vectorTags[i].innerHTML;
-                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
-            }
             //Added Sigma tags
             var sigmaTags = document.getElementsByTagName("sigma");
             for (var r = 0; r < sigmaTags.length; r++) {
@@ -74,7 +68,12 @@ document.body.onload = function() {
                 var endValue = sigmaTags[r].getAttribute("end") ? sigmaTags[r].getAttribute("end") : "";
                 sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td><td>(" + sigmaInput + ")</td></tr><tr><td>"+ startValue + "</td></tr></table>";
             }
-
+            //Defined vector tag
+            var vectorTags = document.getElementsByTagName("vector");
+            for (var i = 0; i < vectorTags.length; i++) {
+                var vectorName = vectorTags[i].innerHTML;
+                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
+            }
 
             //Added Graphs To Each iFrame
             //Set 6 Main Trigonometric Function's Graphs
