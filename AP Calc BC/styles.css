@@ -172,3 +172,11 @@
             font-family: initial;
             /*Overrides the Google Fonts so that the math can render better*/
         }
+        .staticTable {
+            border-collapse: collapse;
+        }
+        .staticTable td {
+            padding: 10px;
+            text-align: center;
+            border: 2px solid black;
+            border-collapse: collapse;
