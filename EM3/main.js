@@ -40,7 +40,7 @@ document.body.onload = function() {
                 secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
             }
             var cotTags = document.getElementsByTagName("cot");
-            for (var o = 0; o < cotTags.length; l++) {
+            for (var o = 0; o < cotTags.length; o++) {
                 var cotInput = cotTags[o].innerHTML;
                 cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
             }

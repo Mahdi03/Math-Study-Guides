@@ -230,6 +230,10 @@
             padding-left: 6px;
             padding-right: 6px;
         }
+        #jsTable td {
+            border-collapse: collapse;
+            border: 3px solid black;
+        }
         /*p {
             height: 50px;
             line-height: 50px;
