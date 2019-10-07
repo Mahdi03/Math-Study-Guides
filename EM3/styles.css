@@ -1,5 +1,7 @@
         /*Font For Normal Text To Read*/
         @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+        /*Font for Main Title (<h1>)*/
+        @import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
         /*Font For Unit Titles (<h2>)*/
         @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
         /*Font For Titles of Sections (<h3>)*/
@@ -14,6 +16,7 @@
         }
         h1 {
             text-align: center;
+            font-family: 'Notable' , sans-serif;
         }
         
         h2 {
