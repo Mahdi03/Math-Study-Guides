@@ -1,32 +1,44 @@
         /*Font For Normal Text To Read*/
-        
         @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
-        /*Font For Titles of Sections*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-        /*Font For Titles of Thms and Rules*/
-        
+        /*Font for Main Title (<h1>)*/
+        @import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
+        /*Font For Unit Titles (<h2>)*/
+        @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+        /*Font For Titles of Sections (<h3>)*/
+        @import url('https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap');
+        /*Font For Titles of Thms and Rules (<h5>)*/
         @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-
+       
         body {
             width: 75%;
-            margin: 0 auto;
+            margin: 5px auto;
+            overflow: scroll;
         }
-
         h1 {
             text-align: center;
+            font-family: 'Notable' , sans-serif;
+        }
+        
+        h2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 25pt;
+            font-family: 'Fredoka One', cursive;
         }
         
         h3 {
-            font-size: 20pt;
-            font-family: 'Pacifico', cursive;
+            font-size: 30pt;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 25px;
+            margin-bottom: 25px;
         }
-        
         h5 {
-            font-size: 16pt;
+            font-size: 18pt;
             font-family: 'Indie Flower', cursive;
             margin: 0;
-            margin-top: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
         
         li:not(var) {
@@ -34,19 +46,19 @@
             font-family: 'Titilium Web', sans-serif;
         }
         
-        .indent>ul {
+        /*.indent>ul {
             list-style-type: none;
         }
         
         .indent>ul>li:before {
             /*Theta
-            content: '\03B8';*/
-            /*Infinity*/
+            content: '\03B8';
+            /*Infinity
             content: '\221E';
             margin-left: -20px;
             margin-right: 10px;
             font-size: 16pt;
-        }
+        }*/
         
         .indent {
             margin-left: 4em;
@@ -180,3 +192,4 @@
             text-align: center;
             border: 2px solid black;
             border-collapse: collapse;
+        }

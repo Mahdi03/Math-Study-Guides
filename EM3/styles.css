@@ -196,12 +196,7 @@
         img[src="./equations.jpg"] {	
             width: 50%;	
             height: auto;	
-        }	
-        	
-        /*img[src="https://www2.clarku.edu/faculty/djoyce/trig/halfangleformulas.jpg"] {	
-            width: 50%;	
-            height: auto;	
-        }*/
+        }
         .longdivision2nd {
             text-align: center;
         }
@@ -233,40 +228,3 @@
             padding-left: 6px;
             padding-right: 6px;
         }
-        #jsTable td {
-            border-collapse: collapse;
-            border: 3px solid black;
-        }
-        /*p {
-            height: 50px;
-            line-height: 50px;
-        }
-        span {
-            position: relative;
-            font-size: 2.5em;
-            display: inline-block;
-            line-height: .7em;
-            vertical-align: middle;
-        }
-
-        span:before {
-            font-size: 12px;
-            display: block;
-            position absolute;
-            left: 0;
-            top: 0;
-            content: "N";
-            width: 22px;
-            text-align: center;
-        }
-
-        span:after {
-            font-size: 12px;
-            display: block;
-            position absolute;
-            left: 0;
-            bottom: 0;
-            content: "k = 1";
-            width: 27px;
-            text-align: center;
-        }*/
