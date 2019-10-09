@@ -1,79 +1,5 @@
 document.body.onload = function() {
-            //Replaced/Defined all math function tags
-            //Defined Square Root Tag
-            var sqrtTags = document.getElementsByTagName("sqrt");
-            for (var e = 0; e < sqrtTags.length; e++) {
-                var sqrtInput = sqrtTags[e].innerHTML;
-                sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
-            }
-            //Defined limit tags
-            var limTags = document.getElementsByTagName("lim");
-            for (var f = 0; f < limTags.length; f++) {
-                var limAs = limTags[f].getAttribute("as");
-                var limApproaches = limTags[f].getAttribute("approaches");
-                limTags[f].innerHTML = "<div class='fraction'><div class='top'><var>lim</var></div><div class='bottom'><var>" + limAs + "</var>&rarr;" + limApproaches + "</div></div>";
-            }
-            //Defined trig tags
-            var sinTags = document.getElementsByTagName("sin");
-            for (var j = 0; j < sinTags.length; j++) {
-                var sinInput = sinTags[j].innerHTML;
-                sinTags[j].innerHTML = "sin(<var>" + sinInput + "</var>)";
-            }
-            var cosTags = document.getElementsByTagName("cos");
-            for (var k = 0; k < cosTags.length; k++) {
-                var cosInput = cosTags[k].innerHTML;
-                cosTags[k].innerHTML = "cos(<var>" + cosInput + "</var>)";
-            }
-            var tanTags = document.getElementsByTagName("tan");
-            for (var l = 0; l < tanTags.length; l++) {
-                var tanInput = tanTags[l].innerHTML;
-                tanTags[l].innerHTML = "tan(<var>" + tanInput + "</var>)";
-            }
-            var cscTags = document.getElementsByTagName("csc");
-            for (var m = 0; m < cscTags.length; m++) {
-                var cscInput = cscTags[m].innerHTML;
-                cscTags[m].innerHTML = "csc(<var>" + cscInput + "</var>)";
-            }
-            var secTags = document.getElementsByTagName("sec");
-            for (var n = 0; n < secTags.length; n++) {
-                var secInput = secTags[n].innerHTML;
-                secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
-            }
-            var cotTags = document.getElementsByTagName("cot");
-            for (var o = 0; o < cotTags.length; o++) {
-                var cotInput = cotTags[o].innerHTML;
-                cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
-            }
-            //Defined log tag and ln tag
-            var logTags = document.getElementsByTagName("log");
-            for (var p = 0; p < logTags.length; p++) {
-                var logInput = logTags[p].innerHTML;
-                if (logTags[p].getAttribute("base") !== null) {
-                    var base = logTags[p].getAttribute("base");
-                    logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
-                } else {
-                    logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
-                }
-            }
-            var lnTags = document.getElementsByTagName("ln");
-            for (var q = 0; q < lnTags.length; q++) {
-                var lnInput = lnTags[q].innerHTML;
-                lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
-            }
-            //Added Sigma tags
-            var sigmaTags = document.getElementsByTagName("sigma");
-            for (var r = 0; r < sigmaTags.length; r++) {
-                var startValue = sigmaTags[r].getAttribute("start");
-                var endValue = sigmaTags[r].getAttribute("end");
-                sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td></tr><tr><td>"+ startValue + "</td></tr></table>";
-            }
-            //Defined vector tag
-            var vectorTags = document.getElementsByTagName("vector");
-            for (var i = 0; i < vectorTags.length; i++) {
-                var vectorName = vectorTags[i].innerHTML;
-                vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
-            }
-
+            renderMath();
             //Added Graphs To Each iFrame
             //Set 6 Main Trigonometric Function's Graphs
             var sinGraph = document.querySelector("#sinGraph");
@@ -160,35 +86,7 @@ document.body.onload = function() {
             thirdPolarGraph.onload = function() {
                 fourthPolarGraph.src = "https://www.desmos.com/calculator/jkn1oiaqpq?embed";
             };
-            function addImportanceToFormulas() {
-        		var elementQueryList = [".rules td"]; //Use CSS Selectors Here
-        		elementQueryList.forEach((elementQuery) => {
-                	var elementList = document.querySelectorAll(elementQuery);
-                	elementList.forEach((element) => {
-                        element.classList.add("important"); //This line adds a class that has predefined styles in the CSS file
-                    });
-                });
-            }
-            function removeImportanceFromElements() {
-                var elementQueryList = ["sigma td"]; //Use CSS Selectors Here
-        		elementQueryList.forEach((elementQuery) => {
-                	var elementList = document.querySelectorAll(elementQuery);
-                	elementList.forEach((element) => {
-                        element.classList.remove("important"); //This line adds a class that has predefined styles in the CSS file
-                    });
-                });
-            }
+            
     addImportanceToFormulas();
     removeImportanceFromElements();
         };
-
-        function toggleDiv(id) {
-            var element = document.querySelector(id);
-            if (element.style.display === "block") {
-                element.style.display = "none";
-                document.querySelector(id + "ToggleButton").innerHTML = "&plus;";
-            } else {
-                element.style.display = "block";
-                document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
-            }
-        }
