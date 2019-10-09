@@ -34,7 +34,6 @@
             font-family: 'Dancing Script', cursive;
             margin-top: 25px;
             margin-bottom: 25px;
-            color: red;
         }
         h5 {
             font-size: 18pt;
@@ -42,7 +41,6 @@
             margin: 0;
             margin-top: 10px;
             margin-bottom: 10px;
-            color: rebeccapurple;
         }
 
         li:not(var) {
@@ -149,6 +147,8 @@
             -ms-user-select: none;
             user-select: none;
             vertical-align: center;
+            background-color: orange;
+            border-radius: 25px;
         }
         
         .toggleButton:hover {
