@@ -532,99 +532,112 @@
     <div id="unit6">
         <div class="indent">
             <h3>Partial Fraction Decomposition:</h3><br />
-            <img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br />
-            <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>
-            3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br /
-            >3(0) &plus; 2 = A(0 &plus; 1) &plus; B(0)<br />0 &plus; 2 = A(1) &plus; 0 <br />2 = A<br />And if x = –1, then we easily get –3 &plus; 2 = –B, so B = 1
-                
-                    <h3>Graphing Rational Functions:</h3><br /> y =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">x</div>
-                    </div><br />
-                    <iframe id="rationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> y =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">x<sup>2</sup></div>
-                    </div><br />
-                    <iframe id="anotherRationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+            <div class="indent">
+                <!--<img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br />
+                <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>-->
+                <div class="fraction"><div class="top">3<var>x</var> &plus; 2</div><div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div></div> = <div class="fraction"><div class="top">A</div><div class="bottom"><var>x</var></div></div> &plus; <div class="fraction"><div class="top">B</div><div class="bottom"><var>x</var> &plus; 1</div></div><br />
+                [<div class="fraction"><div class="top">3<var>x</var> &plus; 2</div><div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div></div>][<div class="fraction"><div class="top"><var>x</var>(<var>x</var> &plus; 1)</div><div class="bottom">1</div></div>] = [<div class="fraction"><div class="top">A</div><div class="bottom"><var>x</var></div></div>][<div class="fraction"><div class="top"><var>x</var>(<var>x</var> &plus; 1)</div><div class="bottom">1</div></div>] &plus; [<div class="fraction"><div class="top">B</div><div class="bottom">(<var>x</var> &plus; 1)</div></div>][<div class="fraction"><div class="top"><var>x</var>(<var>x</var> &plus; 1)</div><div class="bottom">1</div></div>]<br /><br />
+                3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br /><br />
+                If <var>x</var> = 0, then:<br />
+                3(0) &plus; 2 = A(0 &plus; 1) &plus; B(0)<br />
+                0 &plus; 2 = A(1) &plus; 0 <br />
+                A = 2<br /><br />
+                And if x = &minus;1, then:<br />
+                3(&minus;1) &plus; 2 = A(&minus;1 &plus; 1) &plus; B(&minus;1)<br />
+                &minus;3 &plus; 2 = 0 &plus; &minus;B <br />
+                &minus;1 = &minus;B<br />
+                B = 1<br />
+                &there4; <div class="fraction"><div class="top">3<var>x</var> &plus; 2</div><div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div></div> = <div class="fraction"><div class="top">2</div><div class="bottom"><var>x</var></div></div> &plus; <div class="fraction"><div class="top">1</div><div class="bottom"><var>x</var> &plus; 1</div></div><br />
+            </div>
+            <h3>Graphing Rational Functions:</h3><br /> 
+            <div class="indent">    
+                y =
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">x</div>
+                </div><br />
+                <iframe id="rationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> y =
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">x<sup>2</sup></div>
+                </div><br />
+                <iframe id="anotherRationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+            </div>
         </div>
     </div>
     <div><span class="toggleButton" id="unit7ToggleButton" onclick="toggleDiv('#unit7');">&plus;</span>
     <h2>Unit 7: Polar Graphs</h2></div>
     <div id="unit7">
         <div class="indent">
-                <ul>
-                    <li>
-                        <h3>General Information:</h3>
-                        <ul>
-                            <li>The polar form for a point is (r, <var>&theta;</var>), where "r" represents the distance away from the origin and <var>&theta;</var> represents the angle from the x-axis</li>
-                            <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> &plus; y<sup>2</sup></var></sqrt> and <var>&theta;</var> = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></div></var></li>
-                            <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quadrant. To fix that use this table to show what you have to do to the angle to get
-                                the right value of <var>&theta;</var>: <br />
-                            <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup></h5>
-                                <table style="margin: 0 auto;" class="staticTable">
-                                    <tr>
-                                        <td>I</td>
-                                        <td>Use the calculator value</td>
-                                    </tr>
-                                    <tr>
-                                        <td>II</td>
-                                        <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
-                                    </tr>
-                                    <tr>
-                                        <td>III</td>
-                                        <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
-                                    </tr>
-                                    <tr>
-                                        <td>IV</td>
-                                        <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
-                                    </tr>
-                                </table><br />
-                            </li>
-                            <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
-                                <cos>&theta;</cos> and y = r
-                                <sin>&theta;</sin>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h5>De Moivre's Theorem:</h5>
-                        
-                            <p>Just like complex numbers in the Cartesian plane, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> &plus; i<sin>&theta;</sin>)</var></p>
-                        
-                    </li>
-                    <li>
-                        <h3>Flower Functions:</h3><br />
-                        <div class="indent">
-                            <table class="staticTable">
+            <ul>
+                <li>
+                    <h3>General Information:</h3>
+                    <ul>
+                        <li>The polar form for a point is (r, <var>&theta;</var>), where "r" represents the distance away from the origin and <var>&theta;</var> represents the angle from the x-axis</li>
+                        <li>To convert a point from Cartesian coordinates to Polar coordinates, use r = <sqrt><var>x<sup>2</sup> &plus; y<sup>2</sup></var></sqrt> and <var>&theta;</var> = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></div></var></li>
+                        <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quadrant. To fix that use this table to show what you have to do to the angle to get
+                            the right value of <var>&theta;</var>: <br />
+                        <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup></h5>
+                            <table style="margin: 0 auto;" class="staticTable">
                                 <tr>
-                                    <td style="border: none;"></td>
-                                    <td>Cos</td>
-                                    <td>Sin</td>
+                                    <td>I</td>
+                                    <td>Use the calculator value</td>
                                 </tr>
                                 <tr>
-                                    <td>Even coefficient of <var>&theta;</var></td>
-                                    <td>Touches all 4 axes</td>
-                                    <td>Touches no axes</td>
+                                    <td>II</td>
+                                    <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
                                 </tr>
                                 <tr>
-                                    <td>Odd coefficient of <var>&theta;</var></td>
-                                    <td>Touches right axis only</td>
-                                    <td>Touches bottom axis only</td>
+                                    <td>III</td>
+                                    <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
                                 </tr>
-                            </table><br /> r = 5
-                            <cos>4&theta;</cos><br />
-                            <iframe id="firstPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                            <cos>3&theta;</cos><br />
-                            <iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                            <sin>4&theta;</sin><br />
-                            <iframe id="thirdPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                            <sin>3&theta;</sin><br />
-                            <iframe id="fourthPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
-                        </div>
-                    </li>
-                </ul>
+                                <tr>
+                                    <td>IV</td>
+                                    <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
+                                </tr>
+                            </table><br />
+                        </li>
+                        <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
+                            <cos>&theta;</cos> and y = r
+                            <sin>&theta;</sin>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>De Moivre's Theorem:</h3>
+                        <p>Just like complex numbers in the Cartesian plane, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> &plus; i<sin>&theta;</sin>)</var></p>
+                </li>
+                <li>
+                    <h3>Flower Functions:</h3>
+                    <div class="indent">
+                        <table class="staticTable">
+                            <tr>
+                                <td style="border: none;"></td>
+                                <td>Cos</td>
+                                <td>Sin</td>
+                            </tr>
+                            <tr>
+                                <td>Even coefficient of <var>&theta;</var></td>
+                                <td>Touches all 4 axes</td>
+                                <td>Touches no axes</td>
+                            </tr>
+                            <tr>
+                                <td>Odd coefficient of <var>&theta;</var></td>
+                                <td>Touches right axis only</td>
+                                <td>Touches bottom axis only</td>
+                            </tr>
+                        </table><br /> r = 5
+                        <cos>4&theta;</cos><br />
+                        <iframe id="firstPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                        <cos>3&theta;</cos><br />
+                        <iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                        <sin>4&theta;</sin><br />
+                        <iframe id="thirdPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
+                        <sin>3&theta;</sin><br />
+                        <iframe id="fourthPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
     <div><span class="toggleButton" id="unit8ToggleButton" onclick="toggleDiv('#unit8');">&plus;</span>
