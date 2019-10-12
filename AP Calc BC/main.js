@@ -14,22 +14,4 @@ document.body.onload = function() {
     });
     renderMath();
     addImportanceToFormulas();
-        
-        //Added all graphs to iFrames
-        //Set Discontinuity Graphs
-        var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
-        var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
-        var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
-        var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
-        //Actually loading each iFrame successively
-        infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
-        infiniteDiscontinuityGraph.onload = function() {
-            oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
-        };
-        oscillatingDiscontinuityGraph.onload = function() {
-            removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
-        };
-        removableDiscontinuityGraph.onload = function() {
-            jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
-        };
 };
