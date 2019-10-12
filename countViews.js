@@ -14,12 +14,12 @@ xhrGet.onreadystatechange = function () {
         views = parseInt(this.responseText);
     }
 }
-xhrGet.open("GET", "../../../views.txt", true);
+xhrGet.open("GET", "https://mahdi03.github.io/Math-Study-Guides/views.txt", true);
 xhrGet.send();
 views++;
 $.ajax({
     type: "POST",
-    url: "../../../views.txt",
+    url: "https://mahdi03.github.io/Math-Study-Guides/views.txt",
     data: views,
     success: function () { alert(0); }
 });
