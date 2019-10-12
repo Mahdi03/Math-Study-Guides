@@ -222,6 +222,7 @@
             border-collapse: collapse;
         }
         .staticTable td {
+            margin: 5px;
             padding: 10px;
             text-align: center;
             border: 2px solid black;

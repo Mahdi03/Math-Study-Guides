@@ -14,7 +14,6 @@ document.body.onload = function() {
     });
     renderMath();
     addImportanceToFormulas();
-    function renderMath() {
         
         //Added all graphs to iFrames
         //Set Discontinuity Graphs
@@ -33,5 +32,4 @@ document.body.onload = function() {
         removableDiscontinuityGraph.onload = function() {
             jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
         };
-    }
 };

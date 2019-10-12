@@ -2,39 +2,72 @@
 <script src="../renderMath.js"></script>
 <script src="main.js" async></script>
 <div class="indent">
-  <h3></h3>
-  <ul>
-      <strong><h5>Extreme Value Theorem or "EVT":</h5></strong>
-      <li>If a function <var>f</var> is continuous on the closed interval [<var>a, b</var>], then <var>f</var> must have an absolute minimum and maximum value at least once.</li>
-      <li>If a function <var>f</var> is continuous on the open interval [<var>a, b</var>], then <var>f</var> may have a local minimum and/or maximum value.</li>
-      <li>In order to find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
-      <li>The reason this works is because when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
-      <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
-      <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then it is not a critical point.</li>
-      <strong><h5>Mean Value Theorem or "MVT":</h5></strong>
-      <li></li>
-      <h5>The First Derivative Test:</h5>
-      <li>Determine the sign of the derivative of <var>f</var> to the left and right of the critical value</li>
-      <table class="staticTable">
-          <tr>
-              <th>Left</th>
-              <th>Right</th>
-              <th>Conclusion</th>
-          </tr>
-          <tr>
-              <td>&plus;</td>
-              <td>&minus;</td>
-              <td><var>f</var> is a relative maximum</td>
-          </tr>
-          <tr>
-              <td>&minus;</td>
-              <td>&plus;</td>
-              <td><var>f</var> is a relative minimum</td>
-          </tr>
-          <tr>
-              <td colspan="2">No change</td>
-              <td>No relative extremum</td>
-          </tr>
-      </table>
-  </ul>
+    <ul>
+        <h5>Extreme Value Theorem or "EVT":</h5>
+        <li>If a function <var>f</var> is continuous on the closed interval [<var>a, b</var>], then <var>f</var> must have an absolute minimum and maximum value at least once.</li>
+        <li>If a function <var>f</var> is continuous on the open interval [<var>a, b</var>], then <var>f</var> may have a local minimum and/or maximum value.</li>
+        <li>In order to find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
+        <li>The reason this works is because when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
+        <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
+        <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then it is not a critical point.</li>
+        <h5>Mean Value Theorem or "MVT":</h5>
+        <li></li>
+        <h3>Connecting <var>f '(x)</var> and <var>f ''(x)</var> with the graph of <var>f(x)</var></h3>
+        <h5>The First Derivative Test:</h5>
+        <li>Determine the sign of the derivative of <var>f</var> to the left and right of the critical value</li>
+        <table class="staticTable">
+            <tr>
+                <th>Left</th>
+                <th>Right</th>
+                <th>Conclusion</th>
+            </tr>
+            <tr>
+                <td>&plus;</td>
+                <td>&minus;</td>
+                <td><var>f(c)</var> is a relative maximum</td>
+            </tr>
+            <tr>
+                <td>&minus;</td>
+                <td>&plus;</td>
+                <td><var>f(c)</var> is a relative minimum</td>
+            </tr>
+            <tr>
+                <td colspan="2">No change</td>
+                <td>No relative extremum</td>
+            </tr>
+        </table>
+        <li>If the derivative is positive, then the function is increasing.</li>
+        <li>If the derivative is negative, then the function is decreasing.</li>
+        <li><var>f(x)</var> is concave up if <var>f '(x)</var> is increasing.</li>
+        <li><var>f(x)</var> is concave down if <var>f '(x)</var> is decreasing.</li>
+        <li>If the second derivative is negative, then the function is concave down.</li>
+        <li>If the second derivative is positive, then the function is concave up.</li>
+        <li>If the function is concave up, then the tangent lines are underneath the graph.</li>
+        <li>If the graph is concave down, then the tangent lines go above of the graph.</li>
+        <h5>Concavity Test:</h5>
+        <ul>
+            <li>Concave up where <var>f ''(x)</var> &gt; 0</li>
+            <li>Concave down where <var>f ''(x)</var> &lt; 0</li>
+        </ul>
+        <h5>Point of Inflection:</h5>
+        <li>A point where the graph of a function has a tangent line <b><u>and</u></b> where the concavity changes it a <strong>Point of Infleciton</strong>.</li>
+        <li>A <strong>Point of Inflection</strong> occurs when the second derivative is equal to 0 or undefined, in other words, a critical point of the second derivative.</li>
+        <h5>The Second Derivative Test:</h5>
+        <table class="staticTable">
+            <tr>
+                <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &lt; 0</td>
+                <td><var>f</var> has a local maximum at <var>x = c</var></td>
+            </tr>
+            <tr>
+                <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &gt; 0</td>
+                <td><var>f</var> has a local minimum at <var>x = c</var></td>
+            </tr>
+            <tr>
+                <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> = 0</td>
+                <td>Then the test fails, it could be concave up, concave down, or neither</td>
+            </tr>
+        </table>
+        <h5>Related Rates:</h5>
+        <li>Always take the <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
+    </ul>
 </div>
