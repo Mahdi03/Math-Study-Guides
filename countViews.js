@@ -2,11 +2,11 @@
 getViewsFromFile();
 addViewsToFile();*/
 //Adds JQuery:
-var script = document.createElement('script');
+/*var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
-
+*/
 var views = 0;
 var xhrGet = new XMLHttpRequest();
 xhrGet.onreadystatechange = function () {
@@ -25,9 +25,3 @@ xhrPost.onreadystatechange = function () {
 }
 xhrPost.open("GET", "https://mahdi03.github.io/Math-Study-Guides/views.txt?views=" + views, true);
 xhrPost.send();
-$.ajax({
-    type: "POST",
-    url: "https://mahdi03.github.io/Math-Study-Guides/views.txt",
-    data: views,
-    success: function () { alert(0); }
-});
