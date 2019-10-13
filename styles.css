@@ -233,3 +233,6 @@
             padding-left: 6px;
             padding-right: 6px;
         }
+        [redir]:hover {
+            cursor: pointer;
+        }

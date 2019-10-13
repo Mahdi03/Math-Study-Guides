@@ -1,4 +1,4 @@
-/*
+git /*
 var views = 0;
 var xhrGet = new XMLHttpRequest();
 xhrGet.onreadystatechange = function () {
