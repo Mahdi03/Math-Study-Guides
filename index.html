@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+        h2 {
+            text-align: center;
+        }
+        h2:hover {
+            color: rgb(0, 180, 255);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push([
+            google_ad_client: "ca-pub-8495483038077603",
+            enable_page_level_ads: true
+        ]);
+    </script>
+</head>
+<body>
+    <h1>Table of Contents:</h1>
+    <h2 redir="EM3/studyGuide.html">EM3 Study Guide</h2>
+    <h2 redir="AP Calc BC/studyGuide.html">AP Calc BC Study Guide</h2>
+    <script>
+        document.querySelectorAll("h2").forEach(function (element) {
+            element.onclick = function (event) {
+                var link = event.srcElement.attributes.redir.nodeValue;
+                createAndClickLink(link);
+            }
+        });
+        function createAndClickLink(link) {
+            var a = document.createElement("a");
+            a.href = link;
+            a.click();
+        }
+    </script>
+</body>
+</html>
