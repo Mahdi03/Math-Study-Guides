@@ -133,6 +133,7 @@
         }
         .toggleButton {
             border: 1px solid grey;
+            font-size: 20px;
             display: inline-table;
             margin: 5px;
             width: 30px;
