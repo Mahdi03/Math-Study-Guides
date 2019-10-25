@@ -1,19 +1,24 @@
         /*Font For Normal Text To Read*/
+        
         @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
         /*Font for Main Title (<h1>)*/
+        
         @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
         /*Font For Unit Titles (<h2>)*/
+        
         @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
         /*Font For Titles of Sections (<h3>)*/
+        
         @import url('https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap');
         /*Font For Titles of Thms and Rules (<h5>)*/
+        
         @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-       
         body {
             width: 75%;
             margin: 5px auto;
-            overflow: scroll;
+            overflow-y: scroll;
         }
+        
         h1 {
             text-align: center;
             font-family: 'Rock Salt', cursive;
@@ -35,6 +40,7 @@
             margin-top: 25px;
             margin-bottom: 25px;
         }
+        
         h5 {
             font-size: 18pt;
             font-family: 'Indie Flower', cursive;
@@ -42,7 +48,7 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
-
+        
         li:not(var) {
             font-size: 12pt;
             font-family: 'Titilium Web', sans-serif;
@@ -60,6 +66,7 @@
             margin-right: 10px;
             font-size: 16pt;
         }*/
+        
         .indent {
             margin-left: 4em;
         }
@@ -70,7 +77,7 @@
             margin-bottom: 1em;
         }
         
-        :not(lim) > .fraction .top {
+         :not(lim)>.fraction .top {
             border-bottom: 1px solid black;
         }
         
@@ -85,6 +92,7 @@
             padding: 0;
             border: 1px solid black;
         }
+        
         .limTable td {
             border: 1px solid black;
             padding: 0;
@@ -128,9 +136,11 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
+        
         .toggleButton:before {
             padding-top: 100%;
         }
+        
         .toggleButton {
             border: 1px solid grey;
             font-size: 20px;
@@ -181,36 +191,41 @@
         lim,
         sqrt,
         var {
-            font-family: initial; /*Overrides the Google Fonts so that the math can render better*/
+            font-family: initial;
+            /*Overrides the Google Fonts so that the math can render better*/
         }
         
-        .outer {	
-            width: 12pt;	
-            display: inline-block;	
-        }	
-        	
-        .inner,	
-        .inner var {	
-            margin: 0;	
-            border: none;	
-            padding: 0;	
-            text-align: center;	
-            height: 7pt;	
+        .outer {
+            width: 12pt;
+            display: inline-block;
         }
         
-        img[src="./equations.jpg"] {	
-            width: 50%;	
-            height: auto;	
+        .inner,
+        .inner var {
+            margin: 0;
+            border: none;
+            padding: 0;
+            text-align: center;
+            height: 7pt;
         }
+        
+        img[src="./equations.jpg"] {
+            width: 50%;
+            height: auto;
+        }
+        
         .longdivision2nd {
             text-align: center;
         }
+        
         .longdivision3rd {
             text-align: end;
         }
+        
         .longdivision4th {
             text-align: end;
         }
+        
         .sigmaTag td {
             text-align: center;
             border: none;
@@ -219,9 +234,11 @@
             border-spacing: 0;
             padding: 0;
         }
+        
         .staticTable {
             border-collapse: collapse;
         }
+        
         .staticTable td {
             margin: 5px;
             padding: 10px;
@@ -229,11 +246,13 @@
             border: 2px solid black;
             border-collapse: collapse;
         }
+        
         #pascalsTriangle {
             text-align: center;
             padding-left: 6px;
             padding-right: 6px;
         }
+        
         [redir]:hover {
             cursor: pointer;
         }
