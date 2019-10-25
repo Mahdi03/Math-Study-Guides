@@ -3,10 +3,10 @@
 <script src="main.js" async></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-    (adsbygoogle = window.adsbygoogle || []).push([
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-8495483038077603",
         enable_page_level_ads: true
-    ]);
+    });
 </script>
 <div class="indent">
     <ul>
@@ -17,10 +17,17 @@
         <li>In order to find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
         <li>The reason this works is because when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
         <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
-        <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then it is not a critical point.</li>
+        <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then
+            it is not a critical point.</li>
         <h5>Mean Value Theorem or "MVT":</h5>
-        <li>if the function <var>g</var> is <u>continuous on the <strong>closed</strong> interval</u> [<var>a</var>, <var>b</var>] and <u>differentiable on the <strong>open</strong> interval</u> (<var>a</var>, <var>b</var>), then there exists at least one <var>x</var>-value, <var>x = c</var> in (<var>a</var>, <var>b</var>) for which:</li>
-        <var>g'(c) = <div class="fraction"><div class="top">g(b) &minus; g(a)</div><div class="bottom">b &minus; a</div></div></var>
+        <li>If the function <var>g</var> is <u>continuous on the <strong>closed</strong> interval</u> [<var>a</var>, <var>b</var>] and <u>differentiable on the <strong>open</strong> interval</u> (<var>a</var>, <var>b</var>), then there exists at least one
+            <var>x</var>-value, <var>x = c</var> in (<var>a</var>, <var>b</var>) for which:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>g'(c) = <div class="fraction"><div class="top">g(b) &minus; g(a)</div><div class="bottom">b &minus; a</div></div></var></td>
+            </tr>
+        </table>
         <li>In other words, the AROC between <var>a</var> and <var>b</var> is the same as the IROC of when <var>x = c</var>.</li>
         <h5>Antiderivatives:</h5>
         <li>A function <var>D(x)</var> is an antiderivative of a function <var>f(x)</var> if <var>D'(x) = f(x)</var>.</li>
@@ -63,17 +70,17 @@
             <li>Concave down where <var>f ''(x)</var> &lt; 0</li>
         </ul>
         <h5>Point of Inflection:</h5>
-        <li>A point where the graph of a function has a tangent line <b><u>and</u></b> where the concavity changes it a <strong>Point of Infleciton</strong>.</li>
+        <li>A point where the graph of a function has a tangent line <b><u>and</u></b> where the concavity changes it a <strong>Point of Inflection</strong>.</li>
         <li>A <strong>Point of Inflection</strong> occurs when the second derivative is equal to 0 or undefined, in other words, a critical point of the second derivative.</li>
         <h5>The Second Derivative Test:</h5>
         <table class="staticTable">
             <tr>
                 <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &lt; 0</td>
-                <td><var>f</var> has a local maximum at <var>x = c</var></td>
+                <td><var>f</var>&nbsp;&nbsp;has a local maximum at <var>x = c</var></td>
             </tr>
             <tr>
                 <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &gt; 0</td>
-                <td><var>f</var> has a local minimum at <var>x = c</var></td>
+                <td><var>f</var>&nbsp;&nbsp;has a local minimum at <var>x = c</var></td>
             </tr>
             <tr>
                 <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> = 0</td>
@@ -81,8 +88,32 @@
             </tr>
         </table>
         <h5>Related Rates:</h5>
-        <li>Always take the <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
+        <li>Always take the
+            <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
         <li>Remember Area, Volume, and Surface Area formulas for all kinds of shapes.</li>
-        <li>Remeber that the <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
+        <li>Remeber that the
+            <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
+        <h5>Optimization:</h5>
+        <li>Opposite from Related Rates, that the
+            <derivative></derivative> with respect to <var>x</var> or the variable that you are using.</li>
+        <h5>Linearization:</h5>
+        <li>This is an approximation method used to find approximate values of functions with unknown answers.</li>
+        <li>The equation is:</li>
+        <table class="rules">
+            <tr>
+                <td>L(<var>x</var>) = <var>f</var>(<var>a</var>) + <var>f</var> ' (<var>a</var>)(<var>x &minus; a</var>)</td>
+            </tr>
+        </table>
+        <li>Where <var>a</var> is the nearest value you know for the given function and <var>x</var> is the value with an unknown value when inputted into the function.</li>
+        <li>The Formula above is also the formula for a line in Point-Slope form, where <var>f</var> '(<var>a</var>) is the slope of the tangent line to the point.</li>
+
+
+
+        <!--<integral lowerBound="0" upperBound="<var>x</var>" respectTo="x">
+            <div class="fraction">
+                <div class="top"><var>x</var><sup>2</sup></div>
+                <div class="bottom">(<var>x &minus; 7</var>)<sup>3</sup>
+            </div>
+        </integral>-->
     </ul>
 </div>
