@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <title></title>
     <link href="styles.css" rel="stylesheet" />
     <meta name="google-site-verification" content="pKrk-7SiIkjsE7h9YxE7dEcYzhi6h6MsJplXHamLC3Y" />
     <style>
         h2 {
             text-align: center;
         }
+        
         h2:hover {
             color: rgb(0, 180, 255);
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-3"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push([
-            google_ad_client: "ca-pub-8495483038077603",
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116674321-3');
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
             enable_page_level_ads: true
-        ]);
+        });
     </script>
 </head>
+
 <body>
     <h1>Table of Contents:</h1>
     <h2 redir="EM3/studyGuide.html">EM3 Study Guide</h2>
     <h2 redir="AP Calc BC/studyGuide.html">AP Calc BC Study Guide</h2>
     <script>
-        document.querySelectorAll("h2").forEach(function (element) {
-            element.onclick = function (event) {
+        document.querySelectorAll("h2").forEach(function(element) {
+            element.onclick = function(event) {
                 var link = event.srcElement.attributes.redir.nodeValue;
                 createAndClickLink(link);
             }
         });
+
         function createAndClickLink(link) {
             var a = document.createElement("a");
             a.href = link;
@@ -37,4 +51,5 @@
         }
     </script>
 </body>
+
 </html>

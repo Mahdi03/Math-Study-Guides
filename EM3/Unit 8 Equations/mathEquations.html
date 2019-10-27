@@ -10,26 +10,35 @@
             padding: 0;
             margin: 0;
         }
-
+        
         td {
             text-align: center;
         }
-
+        
         .fractionTop {
             border-bottom: 1px solid black;
         }
-
+        
         img[src="./equations.jpg"] {
             width: 75%;
             height: auto;
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-3"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push([
-            google_ad_client: "ca-pub-8495483038077603",
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116674321-3');
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
             enable_page_level_ads: true
-        ]);
+        });
     </script>
 </head>
 
@@ -125,20 +134,23 @@
                 </li>
                 <li>Pascal's Triangle:<br /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pascal_triangle_small.png/300px-Pascal_triangle_small.png" /></li>
                 <li>The Pascal's Triangle follows the pattern of <var><sub>row - 1</sub>C<sub>column</sub></var> in which if you wanted to find the value in the second column of the third row, you would use <var><sub>3 - 1</sub>C<sub>2</sub> = <sub>2</sub>C<sub>2</sub> = 2</var></li>
-                <li>Partial Fraction Decomposition:<br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 + 1) + B(0)<br />0 + 2 = A(1) + 0 <br />2 = A<br />And if x = –1, then we easily get –3 + 2 = –B, so B = 1</li>
+                <li>Partial Fraction Decomposition:<br /><img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br /><img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>3x + 2 = A(x + 1) + B(x)<br />3(0) + 2 = A(0 +
+                    1) + B(0)<br />0 + 2 = A(1) + 0 <br />2 = A<br />And if x = –1, then we easily get –3 + 2 = –B, so B = 1</li>
                 <li>When an infinite geometric sequence converges to 0, then the coreesponding infinite geometric series converges to 0 as well</li>
-                <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which doesn't make a difference in the sum</li>
+                <li>In order for a series to converge, the terms of the sequence eventually need to get close to zero so they are not important in the overall sum, which means that eventually you are adding number that are really close to zero, which doesn't
+                    make a difference in the sum</li>
                 <li>A species series that was learned is called a harmonic series, where there is a fraction and "n" is in the denominator under 1
                     <table>
                         <tr>
                             <td>&infin;</td>
                         </tr>
                         <tr>
-                            <td rowspan = "2">&sum;</td>
+                            <td rowspan="2">&sum;</td>
                             <td class="fractionTop">1</td>
                         </tr>
                         <tr>
-                            <td class="fractionBottom">n<td>
+                            <td class="fractionBottom">n
+                                <td>
                         </tr>
                         <tr>
                             <td>n=1</td>

@@ -7,41 +7,41 @@
         h1 {
             text-align: center;
         }
-
+        
         .indent {
             margin-left: 4em;
         }
-
+        
         .fraction {
             display: inline-block;
             margin: 2px;
             margin-bottom: 1em;
         }
-
-            .fraction .top {
-                border-bottom: 1px solid black;
-                text-align: center;
-            }
-
-            .fraction .bottom {
-                text-align: center;
-            }
-
+        
+        .fraction .top {
+            border-bottom: 1px solid black;
+            text-align: center;
+        }
+        
+        .fraction .bottom {
+            text-align: center;
+        }
+        
         .limTable {
             display: inline-table;
             margin: 0;
             padding: 0;
             border: collapse;
         }
-
+        
         derivative .fraction {
             transform: translateY(30%);
         }
-
-        :not(.limTable) > .fraction {
+        
+         :not(.limTable)>.fraction {
             transform: translateY(30%);
         }
-
+        
         .rules,
         .rules th,
         .rules td {
@@ -49,7 +49,7 @@
             border-collapse: collapse;
             padding: 10px;
         }
-
+        
         #unit1,
         #unit2,
         #unit3,
@@ -66,11 +66,11 @@
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
         }
-
+        
         .toggleButton:before {
             padding-top: 100%;
         }
-
+        
         .toggleButton {
             border: 1px solid grey;
             display: inline;
@@ -83,17 +83,26 @@
             -ms-user-select: none;
             user-select: none;
         }
-
-            .toggleButton:hover {
-                cursor: pointer;
-            }
+        
+        .toggleButton:hover {
+            cursor: pointer;
+        }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-3"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push([
-            google_ad_client: "ca-pub-8495483038077603",
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116674321-3');
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
             enable_page_level_ads: true
-        ]);
+        });
     </script>
 </head>
 
@@ -270,7 +279,7 @@
                         <div class="fraction">
                             <div class="top"><var>&Delta;y</var></div>
                             <div class="bottom"><var>&Delta;x</var></div>
-                        </div> = 
+                        </div> =
                         <div class="fraction">
                             <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
                             <div class="bottom"><var>h</var></div>
@@ -349,32 +358,103 @@
                     <li>Differentiability implies local linearity (meaning that if you zoom in really close on that one point, the graph will start to look linear)</li>
                     <h4>Implicit Differentiation:</h4>
                     <li>This is when the y variable isn't isolated and the derivative of both sides is taken</li>
-                    <li>For example:<br /> 
-                        Find <derivative of="y"></derivative> of <var>x</var><sup>2</sup> &minus; <var>xy</var> &plus; <var>y</var><sup>2</sup> = 7 at (-1, 2)<br />
-                        <derivative></derivative>(<var>x</var><sup>2</sup> &minus; <var>xy</var> &plus; <var>y</var><sup>2</sup>) = <derivative></derivative>(7)<br />
-                        2<var>x</var> &minus; <var>y</var> &minus; <var>x</var><derivative of="y"></derivative> &plus; 2<var>y</var><derivative of="y"></derivative> = 0<br />
-                        &minus; <var>x</var><derivative of="y"></derivative> &plus; 2<var>y</var><derivative of="y"></derivative> = <var>y</var> &minus; 2<var>x</var><br />
-                        (<derivative of="y"></derivative>)(&minus;<var>x</var> &plus; 2<var>y</var>) = <var>y</var> &minus; 2<var>x</var><br />
-                        <derivative of="y"></derivative> = <div class="fraction"><div class="top"><var>y</var> &minus; 2<var>x</var></div><div class="bottom">2<var>y</var> &minus; <var>x</var></div></div><br />
-                        <derivative of="y"></derivative> on the point (-1, 2) = <div class="fraction"><div class="top">2 &minus; 2(&minus;1)</div><div class="bottom">2(2) &minus; (&minus;1)</div></div> = <div class="fraction"><div class="top">4</div><div class="bottom">5</div></div>
+                    <li>For example:<br /> Find
+                        <derivative of="y"></derivative> of <var>x</var><sup>2</sup> &minus; <var>xy</var> &plus; <var>y</var><sup>2</sup> = 7 at (-1, 2)<br />
+                        <derivative></derivative>(<var>x</var><sup>2</sup> &minus; <var>xy</var> &plus; <var>y</var><sup>2</sup>) =
+                        <derivative></derivative>(7)<br /> 2
+                        <var>x</var> &minus; <var>y</var> &minus; <var>x</var>
+                        <derivative of="y"></derivative> &plus; 2<var>y</var>
+                        <derivative of="y"></derivative> = 0<br /> &minus; <var>x</var>
+                        <derivative of="y"></derivative> &plus; 2<var>y</var>
+                        <derivative of="y"></derivative> = <var>y</var> &minus; 2<var>x</var><br /> (
+                        <derivative of="y"></derivative>)(&minus;<var>x</var> &plus; 2<var>y</var>) = <var>y</var> &minus; 2<var>x</var><br />
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top"><var>y</var> &minus; 2<var>x</var></div>
+                            <div class="bottom">2<var>y</var> &minus; <var>x</var></div>
+                        </div><br />
+                        <derivative of="y"></derivative> on the point (-1, 2) =
+                        <div class="fraction">
+                            <div class="top">2 &minus; 2(&minus;1)</div>
+                            <div class="bottom">2(2) &minus; (&minus;1)</div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">4</div>
+                            <div class="bottom">5</div>
+                        </div>
                     </li>
                     <h4>Logarithmic Differentiation:</h4>
                     <li>This is used when there is an x in the exponent or can be used to simply complex equations</li>
-                    <li>One example:<br />
-                        Find <derivative of="y"></derivative> of <var>y</var> = (<sin>x</sin>)<sup><var>x</var></sup><br />
-                        <ln>y</ln> = <ln>(<sin>x</sin>)<sup><var>x</var></sup></ln><br />
-                        <ln>y</ln> = <var>x</var><ln><sin>x</sin></ln><br />
-                        <derivative></derivative>[<ln>y</ln>] = <derivative></derivative>[<var>x</var><ln><sin>x</sin></ln>]<br />
-                        <div class="fraction"><div class="top">1</div><div class="bottom"><var>y</var></div></div><derivative of="y"></derivative> = <ln><sin>x</sin></ln> &plus; <var>x</var><div class="fraction"><div class="top">1</div><div class="bottom"><sin>x</sin></div></div><cos>x</cos><br />
-                        <div class="fraction"><div class="top">1</div><div class="bottom"><var>y</var></div></div><derivative of="y"></derivative> = <ln><sin>x</sin></ln> &plus; <var>x</var><cot>x</cot><br />
-                        <derivative of="y"></derivative> = <var>y</var>(<ln><sin>x</sin></ln> &plus; <var>x</var><cot>x</cot>)<br />
-                        Plug in <var>y</var> to get:<br />
-                        <derivative of="y"></derivative> = ((<sin>x</sin>)<sup><var>x</var></sup>)(<ln><sin>x</sin></ln> &plus; <var>x</var><cot>x</cot>)
+                    <li>One example:<br /> Find
+                        <derivative of="y"></derivative> of <var>y</var> = (
+                        <sin>x</sin>)<sup><var>x</var></sup><br />
+                        <ln>y</ln> =
+                        <ln>(
+                            <sin>x</sin>)<sup><var>x</var></sup></ln><br />
+                        <ln>y</ln> = <var>x</var>
+                        <ln>
+                            <sin>x</sin>
+                        </ln><br />
+                        <derivative></derivative>[
+                        <ln>y</ln>] =
+                        <derivative></derivative>[<var>x</var>
+                        <ln>
+                            <sin>x</sin>
+                        </ln>]<br />
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                        <derivative of="y"></derivative> =
+                        <ln>
+                            <sin>x</sin>
+                        </ln> &plus; <var>x</var>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">
+                                <sin>x</sin>
+                            </div>
+                        </div>
+                        <cos>x</cos><br />
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                        <derivative of="y"></derivative> =
+                        <ln>
+                            <sin>x</sin>
+                        </ln> &plus; <var>x</var>
+                        <cot>x</cot><br />
+                        <derivative of="y"></derivative> = <var>y</var>(
+                        <ln>
+                            <sin>x</sin>
+                        </ln> &plus; <var>x</var>
+                        <cot>x</cot>)<br /> Plug in <var>y</var> to get:<br />
+                        <derivative of="y"></derivative> = ((
+                        <sin>x</sin>)<sup><var>x</var></sup>)(
+                        <ln>
+                            <sin>x</sin>
+                        </ln> &plus; <var>x</var>
+                        <cot>x</cot>)
                     </li>
                     <li>
-                        Another example:<br />
-                        Find <derivative of="y"></derivative> of <var>y</var> = <sup>5</sup><sqrt><div class="fraction"><div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div><div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div></div></sqrt>:<br />
-                        <var>y</var> = (<div class="fraction"><div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div><div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div></div>)<sup><div class="fraction"><div class="top">1</div><div class="bottom">5</div></div></sup>        {Whole thing to the power of <div class="fraction"><div class="top">1</div><div class="bottom">5</div></div>}<br />
+                        Another example:<br /> Find
+                        <derivative of="y"></derivative> of <var>y</var> = <sup>5</sup>
+                        <sqrt>
+                            <div class="fraction">
+                                <div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div>
+                                <div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div>
+                            </div>
+                        </sqrt>:<br />
+                        <var>y</var> = (
+                        <div class="fraction">
+                            <div class="top">(<var>x</var> &minus; 3)<sup>4</sup>(x<sup>2</sup> &plus; 1)</div>
+                            <div class="bottom">(2<var>x</var> &plus; 5)<sup>3</sup></div>
+                        </div>)<sup><div class="fraction"><div class="top">1</div><div class="bottom">5</div></div></sup> {Whole thing to the power of
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">5</div>
+                        </div>}<br />
                     </li>
                     <li>
                         <h5>Rules for Differentiation:</h5>
@@ -434,35 +514,50 @@
                             </tr>
                         </table>
                     </li>
-                    <li><h5>Derivatives of Trigonometric Functions:</h5>
+                    <li>
+                        <h5>Derivatives of Trigonometric Functions:</h5>
                         <table class="rules">
                             <tr>
                                 <td>
-                                    <derivative></derivative>[<sin>x</sin>] = <cos>x</cos>
+                                    <derivative></derivative>[
+                                    <sin>x</sin>] =
+                                    <cos>x</cos>
                                 </td>
                                 <td>
-                                    <derivative></derivative>[<csc>x</csc>] = &minus;<csc>x</csc><cot>x</cot>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <derivative></derivative>[<cos>x</cos>] = &minus;<sin>x</sin>
-                                </td>
-                                <td>
-                                    <derivative></derivative>[<sec>x</sec>] = <sec>x</sec><tan>x</tan>
+                                    <derivative></derivative>[
+                                    <csc>x</csc>] = &minus;
+                                    <csc>x</csc>
+                                    <cot>x</cot>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <derivative></derivative>[<tan>x</tan>] = <sec>x</sec><sup>2</sup>
+                                    <derivative></derivative>[
+                                    <cos>x</cos>] = &minus;
+                                    <sin>x</sin>
                                 </td>
                                 <td>
-                                    <derivative></derivative>[<cot>x</cot>] = &minus;<csc>x</csc><sup>2</sup>
+                                    <derivative></derivative>[
+                                    <sec>x</sec>] =
+                                    <sec>x</sec>
+                                    <tan>x</tan>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <derivative></derivative>[
+                                    <tan>x</tan>] =
+                                    <sec>x</sec><sup>2</sup>
+                                </td>
+                                <td>
+                                    <derivative></derivative>[
+                                    <cot>x</cot>] = &minus;
+                                    <csc>x</csc><sup>2</sup>
                                 </td>
                             </tr>
                         </table>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <h5>Derivatives of Inverse Trigonometric Functions:</h5>
                         <table class="rules">
                             <tr>
@@ -480,8 +575,8 @@
                                     <derivative of="u"></derivative>
                                 </td>
                                 <td>
-                                    <derivative></derivative>[cos<sup>&minus;1</sup>(<var>u</var>)] =
-                                    &minus;<div class="fraction">
+                                    <derivative></derivative>[cos<sup>&minus;1</sup>(<var>u</var>)] = &minus;
+                                    <div class="fraction">
                                         <div class="top">
                                             1
                                         </div>
@@ -501,20 +596,22 @@
                                             1
                                         </div>
                                         <div class="bottom">
-                                            |<var>u</var>|<sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
+                                            |<var>u</var>|
+                                            <sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
                                         </div>
                                     </div>
                                     &times;
                                     <derivative of="u"></derivative>
                                 </td>
                                 <td>
-                                    <derivative></derivative>[csc<sup>&minus;1</sup>(<var>u</var>)] =
-                                    &minus;<div class="fraction">
+                                    <derivative></derivative>[csc<sup>&minus;1</sup>(<var>u</var>)] = &minus;
+                                    <div class="fraction">
                                         <div class="top">
                                             1
                                         </div>
                                         <div class="bottom">
-                                            |<var>u</var>|<sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
+                                            |<var>u</var>|
+                                            <sqrt><var>u</var><sup>2</sup> &minus; 1</sqrt>
                                         </div>
                                     </div>
                                     &times;
@@ -536,8 +633,8 @@
                                     <derivative of="u"></derivative>
                                 </td>
                                 <td>
-                                    <derivative></derivative>[cot<sup>&minus;1</sup>(<var>u</var>)] =
-                                    &minus;<div class="fraction">
+                                    <derivative></derivative>[cot<sup>&minus;1</sup>(<var>u</var>)] = &minus;
+                                    <div class="fraction">
                                         <div class="top">
                                             1
                                         </div>
@@ -550,7 +647,7 @@
                                 </td>
                             </tr>
                         </table>
-                     </li>
+                    </li>
                 </ul>
             </div>
         </div>
