@@ -10,36 +10,9 @@
 </script>
 <div class="indent">
     <ul>
-        <h3>Estimating Area with Finite Sums:</h3>
-        <li>The area under a velocity curve represents the accumulative distance traveled.</li>
-        <li>There are four ways to approximate the area between the function and the x-axis:</li>
-        <ul>
-            <li>Right Rectangular Approximation Method ("R-RAM"):</li>
-            <iframe id="RRAMGraph" width="250px" height="250px"></iframe>
-            <li>Left Rectangular Approximation Method ("L-RAM"):</li>
-            <iframe id="LRAMGraph" width="250px" height="250px"></iframe>
-            <li>Middle Rectangular Approximation Method("M-RAM"):</li>
-            <iframe id="MRAMGraph" width="250px" height="250px"></iframe>
-            <li>Trapezoidal Approximation Method ("TAM"):</li>
-            <iframe id="TAMGraph" width="250px" height="250px"></iframe>
-        </ul>
-        <h3>Definite Integrals:</h3>
-        <li>As seen in RAM, as the number of rectangles <var>n</var> increases, the better the approximation of the area.</li>
+        
     </ul>
 </div>
 <script>
-    var RRAMGraph = document.querySelector("#RRAMGraph");
-    var LRAMGraph = document.querySelector("#LRAMGraph");
-    var MRAMGraph = document.querySelector("#MRAMGraph");
-    var TAMGraph = document.querySelector("#TAMGraph");
-    RRAMGraph.src = "https://www.desmos.com/calculator/zy9ul29c0z?embed";
-    RRAMGraph.onload = function() {
-        LRAMGraph.src = "https://www.desmos.com/calculator/9jwrakggdy?embed";
-    };
-    LRAMGraph.onload = function() {
-        MRAMGraph.src = "https://www.desmos.com/calculator/tdmhkfa3mu?embed";
-    };
-    MRAMGraph.onload = function() {
-        TAMGraph.src = "https://www.desmos.com/calculator/frbofu0fir?embed";
-    };
+    
 </script>
