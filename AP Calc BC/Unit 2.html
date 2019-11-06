@@ -175,6 +175,12 @@
             <li>This form is an Integral, and it is denoted as
                 <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
             </li>
+            <li>The <span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'><var>a</var></sub><sup style='display: inline-block; transform: translateY(-11px);'><var>b</var></sup>                is the integral sign with the bounds [<var>a</var>, <var>b</var>] where <var>a</var> and <var>b</var> are both constants.</li><br />
+            <li>The <var>f </var>(<var>x</var>) is the same as the the <var>f</var> (<var>c<sub>k</sub></var>) in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
+            <li>The <var>dx</var> is the same exact value as the &Delta;<var>x</var> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremly small value (a differential) as the number of rectangles tends towards <var>&infin;</var>,
+                and it also lets us know which variable is the integral being taken with respect to. As seen later, this <var>dx</var> will come in handy with <var>u</var>-substitution and
+                <derivative></derivative>
+            </li>
             <h5>5 Easy Rules for Definite Integrals</h5>
             <div class="indent">
                 <ol>
@@ -212,7 +218,26 @@
                         <li>Find
                             <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>
                         </li><br />
-                        <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0, according to rule #1
+                        <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0, according to rule #1<br /><br />
+                        <li>Find
+                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;
+                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #2<br /><br /> So
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6<br /><br />
+                        <li>
+                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> =
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus;
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #3<br /><br /> So
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5<br /><br />
+                        <li>Find
+                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br /> So
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20<br /><br />
                     </ol>
                 </p>
             </div>
