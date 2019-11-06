@@ -147,15 +147,34 @@
                 <li>Trapezoidal Approximation Method ("TAM"):</li>
                 <iframe id="TAMGraph" width="250px" height="250px"></iframe>
             </ul>
+            <li>As seen in the RRAM graph, the area is found on the bounds [<var>a</var>, <var>b</var>] where <var>a</var> = 0 and <var>b</var> = 4 and there are 10 rectangles. So then the width of each rectangle can be found by
+                <div class="fraction">
+                    <div class="top"><var>b &minus; a</var></div>
+                    <div class="bottom"><var>n</var></div>
+                </div> where <var>n</var> is equal to the number of rectangles.
+            </li>
             <li>The area of each rectangle can get tedious if we were to get more and more rectangles. So we can use
                 <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit8">Sums</a>!</li>
-            <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as S<sub><var>n</var> = <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma></sub></li>
-
+            <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as S<sub><var>n</var></sub> =
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var></li>
+            <li>Where <var>f</var> (<var>c<sub>k</sub></var>) is the height of each individual rectangle and &Delta;<var>x</var> =
+                <div class="fraction">
+                    <div class="top"><var>b &minus; a</var></div>
+                    <div class="bottom"><var>n</var></div>
+                </div>, the width of each rectangle.</li>
+            <li>As seen in RAM, as the number of rectangles <var>n</var> increases, the better the approximation of the area.</li>
+            <li>So if <var>n</var> &rarr; <var>&infin;</var> then
+                <lim as="n" approaches="&infin;"></lim>
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> should give us an exact area under the curve.</li>
+            <li>This is called a Riemann Sum, and it gives us the true area under the curve.</li>
         </div>
         <h3>Definite Integrals:</h3>
         <div class="indent">
-            <li>As seen in RAM, as the number of rectangles <var>n</var> increases, the better the approximation of the area.</li>
-
+            <li>The Riemann Sum above:
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> can be written in another form for both simplicity and maneuverability.</li>
+            <li>This form is an Integral, and it is denoted as
+                <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
+            </li>
             <h5>5 Easy Rules for Definite Integrals</h5>
             <div class="indent">
                 <ol>
