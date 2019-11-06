@@ -132,17 +132,13 @@
         <div class="indent">
             <h5>5 Easy Rules for Definite Integrals</h5>
             <div class="indent">
-                <ol>
-                    <li><integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral> ( Well, duh - there's no area "between" <var>a</var> and <var>a</var>.)</li>
-                    <br />
-                    <li><integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;<integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral></li>
-                    <br />
-                    <li><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> = <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus; <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral></li>
-                    <br />
-                    <li><integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> (<var>k</var> is constant; you can pull a constant out of the integral.)</li>
-                    <br />
-                    <li><integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> = <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn; <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral></li>
-                </ol>
+                <table class="rules">
+                    <tr><td><integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral> ( Well, duh - there's no area "between" <var>a</var> and <var>a</var>.)</td></tr>
+                    <tr><td><integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;<integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral></td></tr>
+                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> = <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus; <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral></td></tr>
+                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> (<var>k</var> is constant; you can pull a constant out of the integral.)</td></tr>
+                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> = <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn; <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral></td></tr>
+                </table>
                 <p>
                     <strong>Example:</strong> Given the following: <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;<integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;<integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
                     <br />
