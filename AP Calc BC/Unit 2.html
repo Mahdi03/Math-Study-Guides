@@ -19,11 +19,13 @@
                 <li>In order to find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
                 <li>The reason this works is because when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
                 <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
-                <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then it is not a critical point.</li>
+                <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined,
+                    then it is not a critical point.</li>
             </div>
             <h5>Mean Value Theorem or "MVT":</h5>
             <div class="indent">
-                <li>If the function <var>g</var> is <u>continuous on the <strong>closed</strong> interval</u> [<var>a</var>, <var>b</var>] and <u>differentiable on the <strong>open</strong> interval</u> (<var>a</var>, <var>b</var>), then there exists at least one
+                <li>If the function <var>g</var> is <u>continuous on the <strong>closed</strong> interval</u> [<var>a</var>, <var>b</var>] and <u>differentiable on the <strong>open</strong> interval</u> (<var>a</var>, <var>b</var>), then there exists at least
+                    one
                     <var>x</var>-value, <var>x = c</var> in (<var>a</var>, <var>b</var>) for which:</li>
                 <table class="rules">
                     <tr>
@@ -107,13 +109,16 @@
         <div class="indent">
             <h5>Related Rates:</h5>
             <div class="indent">
-                <li>Always take the <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
+                <li>Always take the
+                    <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
                 <li>Remember Area, Volume, and Surface Area formulas for all kinds of shapes.</li>
-                <li>Remeber that the <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
+                <li>Remeber that the
+                    <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
             </div>
             <h5>Optimization:</h5>
             <div class="indent">
-                <li>Opposite from Related Rates, that the <derivative></derivative> with respect to <var>x</var> or the variable that you are using.</li>
+                <li>Opposite from Related Rates, that the
+                    <derivative></derivative> with respect to <var>x</var> or the variable that you are using.</li>
             </div>
             <h5>Linearization:</h5>
             <div class="indent">
@@ -128,35 +133,126 @@
                 <li>The Formula above is also the formula for a line in Point-Slope form, where <var>f</var> '(<var>a</var>) is the slope of the tangent line to the point.</li>
             </div>
         </div>
-        <h3>Integrals</h3>
+        <h3>Estimating Area with Finite Sums:</h3>
         <div class="indent">
+            <li>The area under a velocity curve represents the accumulative distance traveled.</li>
+            <li>There are four ways to approximate the area between the function and the x-axis:</li>
+            <ul>
+                <li>Right Rectangular Approximation Method ("R-RAM"):</li>
+                <iframe id="RRAMGraph" width="250px" height="250px"></iframe>
+                <li>Left Rectangular Approximation Method ("L-RAM"):</li>
+                <iframe id="LRAMGraph" width="250px" height="250px"></iframe>
+                <li>Middle Rectangular Approximation Method ("M-RAM"):</li>
+                <iframe id="MRAMGraph" width="250px" height="250px"></iframe>
+                <li>Trapezoidal Approximation Method ("TAM"):</li>
+                <iframe id="TAMGraph" width="250px" height="250px"></iframe>
+            </ul>
+            <li>As seen in the RRAM graph, the area is found on the bounds [<var>a</var>, <var>b</var>] where <var>a</var> = 0 and <var>b</var> = 4 and there are 10 rectangles. So then the width of each rectangle can be found by
+                <div class="fraction">
+                    <div class="top"><var>b &minus; a</var></div>
+                    <div class="bottom"><var>n</var></div>
+                </div> where <var>n</var> is equal to the number of rectangles.
+            </li>
+            <li>The area of each rectangle can get tedious if we were to get more and more rectangles. So we can use
+                <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit8">Sums</a>!</li>
+            <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as S<sub><var>n</var></sub> =
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var></li>
+            <li>Where <var>f</var> (<var>c<sub>k</sub></var>) is the height of each individual rectangle and &Delta;<var>x</var> =
+                <div class="fraction">
+                    <div class="top"><var>b &minus; a</var></div>
+                    <div class="bottom"><var>n</var></div>
+                </div>, the width of each rectangle.</li>
+            <li>As seen in RAM, as the number of rectangles <var>n</var> increases, the better the approximation of the area.</li>
+            <li>So if <var>n</var> &rarr; <var>&infin;</var> then
+                <lim as="n" approaches="&infin;"></lim>
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> should give us an exact area under the curve.</li>
+            <li>This is called a Riemann Sum, and it gives us the true area under the curve.</li>
+        </div>
+        <h3>Definite Integrals:</h3>
+        <div class="indent">
+            <li>The Riemann Sum above:
+                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> can be written in another form for both simplicity and maneuverability.</li>
+            <li>This form is an Integral, and it is denoted as
+                <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
+            </li>
+            <li>The <span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'><var>a</var></sub><sup style='display: inline-block; transform: translateY(-11px);'><var>b</var></sup>                is the integral sign with the bounds [<var>a</var>, <var>b</var>] where <var>a</var> and <var>b</var> are both constants.</li><br />
+            <li>The <var>f </var>(<var>x</var>) is the same as the the <var>f</var> (<var>c<sub>k</sub></var>) in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
+            <li>The <var>dx</var> is the same exact value as the &Delta;<var>x</var> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremly small value (a differential) as the number of rectangles tends towards <var>&infin;</var>,
+                and it also lets us know which variable is the integral being taken with respect to. As seen later, this <var>dx</var> will come in handy with <var>u</var>-substitution and
+                <derivative></derivative>
+            </li>
             <h5>5 Easy Rules for Definite Integrals</h5>
             <div class="indent">
                 <table class="rules">
-                    <tr><td><integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral> ( Well, duh - there's no area "between" <var>a</var> and <var>a</var>.)</td></tr>
-                    <tr><td><integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;<integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral></td></tr>
-                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> = <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus; <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral></td></tr>
-                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> (<var>k</var> is constant; you can pull a constant out of the integral.)</td></tr>
-                    <tr><td><integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> = <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn; <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral></td></tr>
+                    <tr>
+                        <td>
+                            <integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral> ( Well, duh - there's no area "between" <var>a</var> and <var>a</var>.)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> =
+                            <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus;
+                            <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var>
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> (<var>k</var> is constant; you can pull a constant out of the integral.)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> =
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn;
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral>
+                        </td>
+                    </tr>
                 </table>
                 <p>
-                    <strong>Example:</strong> Given the following: <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;<integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;<integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                    <strong>Example:</strong> Given the following:
+                    <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;
+                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;
+                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
                     <br />
                     <ol>
-                        <li>Find <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral></li><br />
+                        <li>Find
+                            <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>
+                        </li><br />
                         <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0, according to rule #1<br /><br />
-                        <li>Find <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral></li><br />
-                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;<integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #2<br /><br />
-                        So <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6<br /><br />
-                        <li><integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral></li><br />
-                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus; <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #3<br /><br />
-                        So <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5<br /><br />
-                        <li>Find <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral></li><br />
-                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5<integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />
-                        So <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20<br /><br />
-                        <li><integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral></li><br />
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus; <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = &minus;2<integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />
-                        So <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18
+                        <li>Find
+                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;
+                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #2<br /><br /> So
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6<br /><br />
+                        <li>
+                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> =
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus;
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #3<br /><br /> So
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5<br /><br />
+                        <li>Find
+                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>
+                        </li><br />
+                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br /> So
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20<br /><br />
+                        <li>
+                            <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>
+                        </li><br />
+                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = 
+                        <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus; 
+                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and 
+                        <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = 
+                        &minus;2<integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />So 
+                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18
                     </ol>
                 </p>
             </div>
@@ -183,7 +279,7 @@
     </ul>
 </div>
 <script>
-     var RRAMGraph = document.querySelector("#RRAMGraph");
+    var RRAMGraph = document.querySelector("#RRAMGraph");
     var LRAMGraph = document.querySelector("#LRAMGraph");
     var MRAMGraph = document.querySelector("#MRAMGraph");
     var TAMGraph = document.querySelector("#TAMGraph");
