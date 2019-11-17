@@ -10,10 +10,12 @@ document.body.onload = function() {
                     element.innerHTML = responseHTML;
                     var m = responseHTML.search("<script>");
                     var n = responseHTML.search("<\/script>");
+                    alert("M: " + m + "N: " + n);
+                    alert(responseHTML);
                     alert(responseHTML.substr(m + 8, n - (m + 8)));
                     eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>
                 } else if (this.status == 404) {
-                    console.log("File not found!!");
+                    console.log("File " + fileLink + " not found!!");
                 }
             }
         }
