@@ -6,7 +6,7 @@ document.body.onload = function() {
         fileRequest.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
-                    var responseHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async></script>', '');
+                    var responseHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async><\/script>', '');
                     element.innerHTML = responseHTML;
                     var m = responseHTML.search("<script>");
                     var n = responseHTML.search("<\/script>");
