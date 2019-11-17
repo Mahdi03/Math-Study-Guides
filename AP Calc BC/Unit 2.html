@@ -186,7 +186,8 @@
                 <table class="rules">
                     <tr>
                         <td>
-                            <integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral></td>
+                            <integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -247,11 +248,11 @@
                         <li>
                             <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>
                         </li><br />
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = 
-                        <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus; 
-                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and 
-                        <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = 
-                        &minus;2<integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />So 
+                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> =
+                        <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus;
+                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and
+                        <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = &minus;2
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />So
                         <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18
                     </ol>
                 </p>
@@ -259,37 +260,71 @@
             <h5>Average Value of a Function</h5>
             <div class="indent">
                 <ul>
-                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by <div class="fraction"><div class="top">1</div><div class="bottom"><var>b</var> &minus; <var>a</var></div></div><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral></li>
+                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                        </div>
+                        <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                    </li>
                 </ul>
             </div>
             <h5>Mean Value Theorem</h5>
             <div class="indent">
                 <ul>
-                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then there exists a number <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>f</var>(<var>c</var>) = <var>f</var><sub><var>ave</var></sub> = <div class="fraction"><div class="top">1</div><div class="bottom"><var>b</var> &minus; <var>a</var></div></div><integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral></li>
+                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then there exists a number <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>f</var>(<var>c</var>) = <var>f</var><sub><var>ave</var></sub> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                        </div>
+                        <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                    </li>
                     <li>Basically the x-value for the Average Value of a Function</li>
                 </ul>
             </div>
             <h5>U-substitution Examples</h5>
             <div class="indent">
                 <ol>
-                    <li>Find 
+                    <li>Find
                         <integral lowerBound="" upperBound="" respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>
-                    </li><br />
-                    Let <var>u</var> = <var>x</var><sup>2</sup> &minus; 1 <br /><br />
-                    So <var>du</var> = 2<var>xdx</var><br />
-                    Plug in <var>u</var> and <var>du</var> to get 
+                    </li><br /> Let <var>u</var> = <var>x</var><sup>2</sup> &minus; 1 <br /><br /> So <var>du</var> = 2<var>xdx</var><br /> Plug in <var>u</var> and <var>du</var> to get
                     <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral><br />
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral> = <div class="fraction"><div class="top"><var>u</var><sup>4</sup></div><div class="bottom">4</div></div> &plus; <var>c</var><br />
-                    Plug <var>x</var><sup>2</sup> &minus; 1 back for <var>u</var> to get <div class="fraction"><div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div><div class="bottom">4</div></div> &plus; <var>c</var>
-                    <li>Find 
-                            <integral lowerBound="" upperBound="" respectTo="x"><div class="fraction"><div class="top"><ln>x</ln></div><div class="bottom"><var>x</var></div></div></integral>
-                    </li><br />
-                    Let <var>u</var> = <ln>x</ln><br /><br />
-                    So <var>du</var> = <div class="fraction"><div class="top">1</div><div class="bottom"><var>x</var></div></div><var>dx</var><br />
-                    Plug in <var>u</var> and <var>du</var> to get
+                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral> =
+                    <div class="fraction">
+                        <div class="top"><var>u</var><sup>4</sup></div>
+                        <div class="bottom">4</div>
+                    </div> &plus; <var>c</var><br /> Plug <var>x</var><sup>2</sup> &minus; 1 back for <var>u</var> to get
+                    <div class="fraction">
+                        <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
+                        <div class="bottom">4</div>
+                    </div> &plus; <var>c</var>
+                    <li>Find
+                        <integral lowerBound="" upperBound="" respectTo="x">
+                            <div class="fraction">
+                                <div class="top">
+                                    <ln>x</ln>
+                                </div>
+                                <div class="bottom"><var>x</var></div>
+                            </div>
+                        </integral>
+                    </li><br /> Let <var>u</var> =
+                    <ln>x</ln><br /><br /> So <var>du</var> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var></div>
+                    </div><var>dx</var><br /> Plug in <var>u</var> and <var>du</var> to get
                     <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral><br />
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> = <div class="fraction"><div class="top"><var>u</var><sup>2</sup></div><div class="bottom">2</div></div> &plus; <var>c</var><br />
-                    Plug <ln>x</ln> back for <var>u</var> to get <div class="fraction"><div class="top">(<ln>u</ln>)<sup>2</sup></div><div class="bottom">2</div></div> &plus; <var>c</var>
+                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
+                    <div class="fraction">
+                        <div class="top"><var>u</var><sup>2</sup></div>
+                        <div class="bottom">2</div>
+                    </div> &plus; <var>c</var><br /> Plug
+                    <ln>x</ln> back for <var>u</var> to get
+                    <div class="fraction">
+                        <div class="top">(
+                            <ln>u</ln>)<sup>2</sup></div>
+                        <div class="bottom">2</div>
+                    </div> &plus; <var>c</var>
                 </ol>
             </div>
         </div>
@@ -301,7 +336,7 @@
         </integral>-->
     </ul>
 </div>
-<script>
+<script class="renderJS">
     var RRAMGraph = document.querySelector("#RRAMGraph");
     var LRAMGraph = document.querySelector("#LRAMGraph");
     var MRAMGraph = document.querySelector("#MRAMGraph");

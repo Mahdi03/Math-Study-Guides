@@ -114,6 +114,10 @@ function renderMath() {
         var endValue = sigmaTags[r].getAttribute("end");
         sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td></tr><tr><td>" + startValue + "</td></tr></table>";
     }
+    var renderJS = document.querySelectorAll("script.renderJS");
+    renderJS.forEach((script) => {
+        console.log(script.innerHTML);
+    });
 }
 
 function toggleDiv(id) {

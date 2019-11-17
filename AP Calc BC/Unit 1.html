@@ -6,7 +6,7 @@
     (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-8495483038077603",
         enable_page_level_ads: true
-        });
+    });
 </script>
 
 <div class="indent">
@@ -248,9 +248,12 @@
             <derivative of="y"></derivative> of <var>y</var> =
             <sin>x</sin><sup><var>x</var></sup><br />
             <ln>y</ln> =
-            <ln><sin>x</sin><sup><var>x</var></sup></ln><br />
+            <ln>
+                <sin>x</sin><sup><var>x</var></sup></ln><br />
             <ln>y</ln> = <var>x</var>
-            <ln><sin>x</sin></ln><br />
+            <ln>
+                <sin>x</sin>
+            </ln><br />
             <derivative></derivative>[
             <ln>y</ln>] =
             <derivative></derivative>[<var>x</var>
@@ -517,33 +520,39 @@
         <table class="rules">
             <tr>
                 <td>
-                    <derivative></derivative>[<sin>x</sin>] =
+                    <derivative></derivative>[
+                    <sin>x</sin>] =
                     <cos>x</cos>
                 </td>
                 <td>
-                    <derivative></derivative>[<csc>x</csc>] = &minus;
+                    <derivative></derivative>[
+                    <csc>x</csc>] = &minus;
                     <csc>x</csc>
                     <cot>x</cot>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <derivative></derivative>[<cos>x</cos>] = &minus;
+                    <derivative></derivative>[
+                    <cos>x</cos>] = &minus;
                     <sin>x</sin>
                 </td>
                 <td>
-                    <derivative></derivative>[<sec>x</sec>] =
+                    <derivative></derivative>[
+                    <sec>x</sec>] =
                     <sec>x</sec>
                     <tan>x</tan>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <derivative></derivative>[<tan>x</tan>] =
+                    <derivative></derivative>[
+                    <tan>x</tan>] =
                     <sec>x</sec><sup>2</sup>
                 </td>
                 <td>
-                    <derivative></derivative>[<cot>x</cot>] = &minus;
+                    <derivative></derivative>[
+                    <cot>x</cot>] = &minus;
                     <csc>x</csc><sup>2</sup>
                 </td>
             </tr>
@@ -641,7 +650,8 @@
         <table class="rules">
             <tr>
                 <td>
-                    <derivative></derivative>[<ln>u</ln>] =
+                    <derivative></derivative>[
+                    <ln>u</ln>] =
                     <div class="fraction">
                         <div class="top">
                             1
@@ -715,7 +725,7 @@
         </table>
     </ul>
 </div>
-<script>
+<script class="renderJS">
     //Added all graphs to iFrames
     //Set Discontinuity Graphs
     var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
@@ -724,13 +734,13 @@
     var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
     //Actually loading each iFrame successively
     infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
-    infiniteDiscontinuityGraph.onload = function () {
+    infiniteDiscontinuityGraph.onload = function() {
         oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
     };
-    oscillatingDiscontinuityGraph.onload = function () {
+    oscillatingDiscontinuityGraph.onload = function() {
         removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
     };
-    removableDiscontinuityGraph.onload = function () {
+    removableDiscontinuityGraph.onload = function() {
         jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
     };
 </script>
