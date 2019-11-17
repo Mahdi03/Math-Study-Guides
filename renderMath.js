@@ -116,7 +116,7 @@ function renderMath() {
     }
     var renderJS = document.querySelectorAll("script.renderJS");
     renderJS.forEach((script) => {
-        console.log(script.innerHTML);
+        eval(script.innerHTML);
     });
 }
 

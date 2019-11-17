@@ -12,8 +12,8 @@ document.body.onload = function() {
                     var n = responseHTML.search("<\/script>");
                     console.log("M: " + m + "N: " + n);
                     console.log(responseHTML);
-                    console.log(responseHTML.substr(m + 8, n - (m + 8)));*/
-                    eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>
+                    console.log(responseHTML.substr(m + 8, n - (m + 8)));
+                    eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>*/
                 } else if (this.status == 404) {
                     console.log("File " + fileLink + " not found!!");
                 }
