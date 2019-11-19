@@ -256,3 +256,7 @@
         [redir]:hover {
             cursor: pointer;
         }
+.reviewTopic {
+        border: 3px dashed;
+        padding: 15px;
+    }
