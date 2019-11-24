@@ -80,13 +80,13 @@
                 <td><var>y</var> = C<var>e</var><sup><var>kt</var></sup></td>
                 <td>
                     If you have to solve for c, the answer is usually a ln(<var>x</var>), and <var>e</var><sup>ln(<var>x</var>)</sup> = <var>x</var>, so it comes out to the front as your initial value.
-                    <br /> If you are already given an intial value, then it is the same C.
+                    <br /> If you are already given an initial value, then it is the same C.
                 </td>
             </tr>
         </table>
         <li>Review Partial Fraction Decomposition <a href="../EM3/studyGuide.html">(Unit 6 - EM3)</a> below:</li>
         <div class="reviewTopic">
-<h3>Partial Fraction Decomposition:</h3><br />
+            <h3>Partial Fraction Decomposition:</h3><br />
             <div class="indent">
                 <!--<img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br />
                 <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>-->
@@ -140,8 +140,170 @@
                     <div class="bottom"><var>x</var> &plus; 1</div>
                 </div><br />
             </div>
-            </div>
+        </div>
+        <li>Logistic Growth: Recall this from EM3 as well. It is exponenetial growth, but with a carrying capacity (due to limited resources, etc.)</li>
+        <li>For exponential growth, the rate of change was <var>ky</var>, and so if we add a Carrying Capacity <var>L</var>, we get </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <derivative of="y" respectTo="t"></derivative> = <var>ky</var>(<var>L &minus; y</var>)
+                </td>
+            </tr>
+        </table>
+        <li>Where <var>k</var> is the proportionality constant that tells by just how much will the values grow or decay.</li>
+        <li>Where <var>t</var> represents time, in whatever unit required by certain problems.</li>
+        <li>Where <var>L</var> is the Carrying Capacity, or in other words, the
+            <lim as="t" approaches="&infin;"></lim><var>y</var> = L, no matter what initial value <var>y</var> has.</li>
+        <li>The formula shown below can be "anti-derived" as well, using Partial Fraction Decomposition</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>y</var> =
+                    <div class="fraction">
+                        <div class="top">
+                            <var>L</var>
+                        </div>
+                        <div class="bottom">
+                            1 + C<var>e<sup>&minus;Lkt</sup></var>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>Where "C" is just the constant that comes from anti-differentiating both sides.</li>
+        <li>The "anti-derivation" is shown below:</li>
+        <table class="staticTable">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                    </div>
+                    d<var>y</var> = <var>k</var>d<var>t</var>
+                </td>
+                <td>Separate variables</td>
+            </tr>
+            <tr>
+                <td>
+                    <integral respectTo="y">
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                        </div>
+                    </integral>
+                    =
+                    <integral respectTo="t">
+                        <var>k</var>
+                    </integral>
+                </td>
+                <td rowspan="2">Integrate both sides (add a plus C to only one side because the constant does not matter)</td>
+            </tr>
+            <tr>
+                <td>
+                    <integral respectTo="y">
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                        </div>
+                    </integral>
+                    =
+                    <var>kt</var> + c
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <var>A</var>(<var>y</var>) + B(<var>L &minus; y</var>) = 1<br />
+                    <var>y</var> = 0: <var>B</var> = <var>L</var><sup>&minus;1</sup><br />
+                    <var>y</var> = <var>L</var>: <var>A</var> = <var>L</var><sup>&minus;1</sup><br />
+                    <integral respectTo="y">
+                        <div class="fraction">
+                            <div class="top"><var>L</var><sup>&minus;1</sup></div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                    </integral>
+                    +
+                    <integral respectTo="y">
+                        <div class="fraction">
+                            <div class="top"><var>L</var><sup>&minus;1</sup></div>
+                            <div class="bottom">(<var>L &minus; y</var>)</div>
+                        </div>
+                    </integral>
+                </td>
+                <td>Now use Partial Fraction Decomposition to split up the integral on the left</td>
+            </tr>
+            <tr>
+                <td>
+                    <var>L</var><sup>&minus;1</sup>ln|<var>y</var>| &minus; <var>L</var><sup>&minus;1</sup>ln|<var>L &minus; y</var>| = <var>kt</var> + c
+                </td>
+                <td>Don't forget that <var>L</var> is just a constant, a number, and so it comes out of the integral and we can simplify.<br /> When taking the integral of the second term, it is (<var>L &minus; y</var>), meaning that <var>y</var> is negative
+                    and the minus comes out due to the chain rule.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &minus;ln|<var>y</var>| + ln|<var>L &minus; y</var>| = (<var>kt + c</var>)(&minus;<var>L</var>)
+                </td>
+                <td>
+                    Multiply both sides by &minus;<var>L</var> in order to cancel the &minus; <var>L</var><sup>&minus;1</sup>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ln|
+                    <div class="fraction">
+                        <div class="top"><var>L &minus; y</var></div>
+                        <div class="bottom"><var>y</var></div>
+                    </div>
+                    | = &minus;<var>Lkt</var> + c
+                </td>
+                <td>Combine the ln's in order to start solving for <var>y</var><br /> Remember that c is just a constant, and that we would not multiply it by another constant <var>L</var></td>
+            </tr>
+            <tr>
+                <td>
+                    |
+                    <div class="fraction">
+                        <div class="top"><var>L &minus; y</var></div>
+                        <div class="bottom"><var>y</var></div>
+                    </div>
+                    | =
+                    <var>e</var><sup>&minus;<var>Lkt</var> + c</sup>
+                </td>
+                <td>Exponentiate both sides</td>
+            </tr>
+            <tr>
+                <td>
+                    <var>L</var> = <var>y + yCe<sup>&minus;Lkt</sup></var>
+                </td>
+                <td>
+                    We can now ignore the absolute value because the exponential function will always be positive<br /> The + c from the previous step turns into a big C as the coefficient of <var>e</var> here because when you solve for c, you will get
+                    an answer in the form of ln(number), which will just become the coefficient
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <var>L</var> = <var>y</var>(1 + <var>Ce<sup>&minus;Lkt</sup></var>)<br />
+                    <var>y</var> =
+                    <div class="fraction">
+                        <div class="top">
+                            <var>L</var>
+                        </div>
+                        <div class="bottom">
+                            1 + C<var>e<sup>&minus;Lkt</sup></var>
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    Solve for <var>y</var> by factoring it out and dividing both sides by the other factor.<br /> In order to avoid this large derivation each time, remember "Lice minus licked"
+                </td>
+            </tr>
+        </table>
+        <li>The graph of a normal logistic function looks like this, where at L/2 the ROC is the max, and it changes in concavity.</li>
+        <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
+
     </ul>
 </div>
 <script class="renderJS">
+    var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph")
+    logisticGrowthGraph.src = "https://www.desmos.com/calculator/c9qkosdlwf?embed";
 </script>
