@@ -258,83 +258,150 @@
                     </ol>
                 </p>
             </div>
-            <h5>Average Value of a Function</h5>
-            <div class="indent">
-                <ul>
-                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by
+            <h5>Average Value of a Function:</h5>
+            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                </div>
+                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+            </li>
+            <h5>Mean Value Theorem for Integrals:</h5>
+            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then there exists a number <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>f</var>(<var>c</var>) = <var>f</var><sub><var>ave</var></sub> =
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                </div>
+                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+            </li>
+            <li>Basically the x-value for the Average Value of a Function</li>
+            <h5>U-substitution Examples:</h5>
+            <ol>
+                <li>Find
+                    <integral lowerBound="" upperBound="" respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>
+                </li><br /> Let <var>u</var> = <var>x</var><sup>2</sup> &minus; 1 <br /><br /> So <var>du</var> = 2<var>xdx</var><br /> Plug in <var>u</var> and <var>du</var> to get
+                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral><br />
+                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral> =
+                <div class="fraction">
+                    <div class="top"><var>u</var><sup>4</sup></div>
+                    <div class="bottom">4</div>
+                </div> &plus; <var>c</var><br /> Plug <var>x</var><sup>2</sup> &minus; 1 back for <var>u</var> to get
+                <div class="fraction">
+                    <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
+                    <div class="bottom">4</div>
+                </div> &plus; <var>c</var>
+                <li>Find
+                    <integral lowerBound="" upperBound="" respectTo="x">
                         <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>b</var> &minus; <var>a</var></div>
-                        </div>
-                        <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
-                    </li>
-                </ul>
-            </div>
-            <h5>Mean Value Theorem</h5>
-            <div class="indent">
-                <ul>
-                    <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then there exists a number <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>f</var>(<var>c</var>) = <var>f</var><sub><var>ave</var></sub> =
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>b</var> &minus; <var>a</var></div>
-                        </div>
-                        <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
-                    </li>
-                    <li>Basically the x-value for the Average Value of a Function</li>
-                </ul>
-            </div>
-            <h5>U-substitution Examples</h5>
-            <div class="indent">
-                <ol>
-                    <li>Find
-                        <integral lowerBound="" upperBound="" respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>
-                    </li><br /> Let <var>u</var> = <var>x</var><sup>2</sup> &minus; 1 <br /><br /> So <var>du</var> = 2<var>xdx</var><br /> Plug in <var>u</var> and <var>du</var> to get
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral><br />
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral> =
-                    <div class="fraction">
-                        <div class="top"><var>u</var><sup>4</sup></div>
-                        <div class="bottom">4</div>
-                    </div> &plus; <var>c</var><br /> Plug <var>x</var><sup>2</sup> &minus; 1 back for <var>u</var> to get
-                    <div class="fraction">
-                        <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
-                        <div class="bottom">4</div>
-                    </div> &plus; <var>c</var>
-                    <li>Find
-                        <integral lowerBound="" upperBound="" respectTo="x">
-                            <div class="fraction">
-                                <div class="top">
-                                    <ln>x</ln>
-                                </div>
-                                <div class="bottom"><var>x</var></div>
+                            <div class="top">
+                                <ln>x</ln>
                             </div>
-                        </integral>
-                    </li><br /> Let <var>u</var> =
-                    <ln>x</ln><br /><br /> So <var>du</var> =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>x</var></div>
-                    </div><var>dx</var><br /> Plug in <var>u</var> and <var>du</var> to get
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral><br />
-                    <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
-                    <div class="fraction">
-                        <div class="top"><var>u</var><sup>2</sup></div>
-                        <div class="bottom">2</div>
-                    </div> &plus; <var>c</var><br /> Plug
-                    <ln>x</ln> back for <var>u</var> to get
-                    <div class="fraction">
-                        <div class="top">(
-                            <ln>u</ln>)<sup>2</sup></div>
-                        <div class="bottom">2</div>
-                    </div> &plus; <var>c</var>
-                </ol>
-            </div>
+                            <div class="bottom"><var>x</var></div>
+                        </div>
+                    </integral>
+                </li><br /> Let <var>u</var> =
+                <ln>x</ln><br /><br /> So <var>du</var> =
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>x</var></div>
+                </div><var>dx</var><br /> Plug in <var>u</var> and <var>du</var> to get
+                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral><br />
+                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
+                <div class="fraction">
+                    <div class="top"><var>u</var><sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> &plus; <var>c</var><br /> Plug
+                <ln>x</ln> back for <var>u</var> to get
+                <div class="fraction">
+                    <div class="top">(
+                        <ln>u</ln>)<sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> &plus; <var>c</var>
+            </ol>
+            <h5>Integration by Parts:</h5>
+            <li>
+                Usually the preferred method is u-substitution because it helps with chain rule and it is the easiest way to find anti-derivatives. In the case that u-substitution does not work, there is another method, called Integration by Parts.
+            </li>
+            <table class="rules">
+                <tr>
+                    <td>
+                        <integral respectTo="v"><var>u</var></integral> =
+                        <var>uv</var> &minus;
+                        <integral respectTo="u"><var>v</var></integral>
+                    </td>
+                </tr>
+            </table>
+            <li>This method involves the integral of a product of two different kinds of functions. It can be derived using the Product Rule from Differential Calculus.</li>
+            <table class="staticTable">
+                <tr>
+                    <td>(<var>uv</var>)' = <var>udv + vdu</var></td>
+                    <td>Recall the Product Rule from Differential Calculus</td>
+                </tr>
+                <tr>
+                    <td><span style="font-size: 200%; display: inline-block; transform: translateY(10px);">&int;</span>(<var>uv</var>)' =
+                        <integral respectTo="v"><var>u</var></integral> +
+                        <integral respectTo="u"><var>v</var></integral>
+                    </td>
+                    <td>Integrate both sides</td>
+                </tr>
+                <tr>
+                    <td><var>uv</var> &minus;
+                        <integral respectTo="u"><var>v</var></integral> =
+                        <integral respectTo="v"><var>u</var></integral>
+                    </td>
+                    <td>Solve for the integral of a function with respect to the other function (you'll see why in a bit)</td>
+                </tr>
+            </table>
+            <li>For
+                <integral respectTo="x"><var>x<cos>x</cos></var></integral>, we can select which of the two types of functions in the product will be set as the first function.
+            </li>
+            <li>When selecting the first function, remember:</li>
+            <table class="staticTable lipet">
+                <tr>
+                    <th>L</th>
+                    <td>ogarithmic</td>
+                </tr>
+                <tr>
+                    <th>I</th>
+                    <td>nverse Trigonometric</td>
+                </tr>
+                <tr>
+                    <th>P</th>
+                    <td>olynomial</td>
+                </tr>
+                <tr>
+                    <th>E</th>
+                    <td>xponential</td>
+                </tr>
+                <tr>
+                    <th>T</th>
+                    <td>rigonometric</td>
+                </tr>
+            </table>
+            <li>So since <var>x</var> <strong>is</strong> a polynomial, it takes precedence over
+                <cos>x</cos> to be our <var>u</var> function.<br /> Let <var>u = x</var> and let <var>dv = <cos>x</cos>dx</var>:<br /> The equation requires a <var>v</var> and a <var>du</var>, and so we need to find those using our givens.<br />
+                <derivative of="u"></derivative> = 1 so <var>du</var> = <var>dx</var> and <var>v</var> =
+                <integral respectTo="x">
+                    <cos>x</cos>
+                </integral>
+                <br /> Now just plug it in to the formula and simplify:<br />
+                <var>x</var>
+                <sin>x</sin> &minus;
+                <integral respectTo="x">
+                    <sin>x</sin>
+                </integral><br /> = x
+                <sin>x</sin> +
+                <cos>x</cos> + C
+            </li>
+
+
         </div>
         <!--<integral lowerBound="0" upperBound="<var>x</var>" respectTo="x">
-            <div class="fraction">
-                <div class="top"><var>x</var><sup>2</sup></div>
-                <div class="bottom">(<var>x &minus; 7</var>)<sup>3</sup>
-            </div>
-        </integral>-->
+                        <div class="fraction">
+                            <div class="top"><var>x</var><sup>2</sup></div>
+                            <div class="bottom">(<var>x &minus; 7</var>)<sup>3</sup>
+                            </div>
+                            </integral>-->
     </ul>
 </div>
 <script class="renderJS">
@@ -352,4 +419,8 @@
     MRAMGraph.onload = function() {
         TAMGraph.src = "https://www.desmos.com/calculator/frbofu0fir?embed";
     };
+    //Differently style the LIPET table
+    document.querySelectorAll(".lipet td").forEach(function(td) {
+        td.style.textAlign = "left";
+    });
 </script>

@@ -239,7 +239,8 @@
             border-collapse: collapse;
         }
         
-        .staticTable td {
+        .staticTable td,
+        .staticTable th {
             margin: 5px;
             padding: 10px;
             text-align: center;
@@ -256,7 +257,8 @@
         [redir]:hover {
             cursor: pointer;
         }
-.reviewTopic {
-        border: 3px dashed;
-        padding: 15px;
-    }
+        
+        .reviewTopic {
+            border: 3px dashed;
+            padding: 15px;
+        }
