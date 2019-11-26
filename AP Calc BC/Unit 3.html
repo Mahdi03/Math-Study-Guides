@@ -16,9 +16,68 @@
 <div class="indent">
     <ul>
         <h5>Euler's (Oiler's) Method:</h5>
-        <li></li>
+        <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitivge linearization as the points are suppoesed to follow the function, based on the ROC at that point. In this case, we
+            will have a &Delta;<var>x</var>, which is equal to
+            <div class="fraction">
+                <div class="top"><var>x</var><sub>f</sub> &minus; <var>x</var><sub>i</sub></div>
+                <div class="bottom"><var>n</var></div>
+            </div>
+        </li>
+        <li>In order to better picture the math behind this method, setting up a table really helps.</li>
+        <li>And for each increment you take, you can just take the final point, and make it your next initial point and then do the whole process again!</li>
+        <li>Given
+            <derivative of="y"></derivative> = <var>y &minus; x</var> and the point (0, 3), find the estimate of <var>y</var> when <var>x</var> = 1.2 using 3 steps:</li>
+        &Delta;<var>x</var> =
+        <div class="fraction">
+            <div class="top">1.2 &minus; 0</div>
+            <div class="bottom">3</div>
+        </div> = 0.4
+
+        <table class="staticTable">
+            <tr>
+                <th>(<var>x<sub>i</sub></var>, <var>y<sub>i</sub></var>)</th>
+                <th>
+                    <derivative of="y"></derivative>
+                </th>
+                <th>
+                    &Delta;<var>y</var> =
+                    <derivative of="y"></derivative>&Delta;<var>x</var>
+                </th>
+                <th>(<var>x<sub>f</sub></var>, <var>y<sub>f</sub></var>)</th>
+            </tr>
+            <tr>
+                <td>(<var>x</var>, <var>y</var>)</td>
+                <td>
+                    <derivative of="y"></derivative> = <var>y &minus; x</var></td>
+                <td>
+                    &Delta;<var>y</var> =
+                    <derivative of="y"></derivative>&Delta;<var>x</var>
+                </td>
+                <td>(<var>x</var> + &Delta;<var>x</var>, <var>y</var> + &Delta;<var>y</var>)</td>
+            </tr>
+            <tr>
+                <td>(0, 3)</td>
+                <td>3 &minus; 0 = 3</td>
+                <td>(3)(0.4) = 1.2</td>
+                <td>(0 + 0.4, 3 + 1.2) &rarr; (0.4, 4.2)</td>
+            </tr>
+            <tr>
+                <td>(0.4, 4.2)</td>
+                <td>4.2 &minus; 0.4 = 3.8</td>
+                <td>(3.8)(0.4) = 1.52</td>
+                <td>(0.4 + 0.4, 4.2 + 1.52) &rarr; (0.8, 5.72)</td>
+            </tr>
+            <tr>
+                <td>(0.8, 5.72)</td>
+                <td>5.72 &minus; 0.8 = 4.92</td>
+                <td>(4.92)(0.4) = 1.968</td>
+                <td>(0.8 + 0.4, 5.72 + 1.968) &rarr; (1.2, 7.688)</td>
+            </tr>
+        </table>
+        <br />
+        <iframe id="eulersMethodGraph" width="250px" height="250px"></iframe>
         <h5>Exponential Growth:</h5>
-        <li>Most of the time the formula will end up bogging down to</li>
+        <li>Most of the time the formula will end up bogging down to:</li>
         <table class="rules">
             <tr>
                 <td>
@@ -141,7 +200,8 @@
                 </div><br />
             </div>
         </div>
-        <li>Logistic Growth: Recall this from EM3 as well. It is exponenetial growth, but with a carrying capacity (due to limited resources, etc.)</li>
+        <h5>Logistic Growth:</h5>
+        <li>Recall this from EM3 as well. It is exponenetial growth, but with a carrying capacity (due to limited resources, etc.)</li>
         <li>For exponential growth, the rate of change was <var>ky</var>, and so if we add a Carrying Capacity <var>L</var>, we get </li>
         <table class="rules">
             <tr>
@@ -170,7 +230,7 @@
                 </td>
             </tr>
         </table>
-        <li>Where "C" is just the constant that comes from anti-differentiating both sides.</li>
+        <li>Where "C" is just the constant that comes from anti-differentiating both sides. keep in mind that this is <strong>NOT</strong> the initial value, unlike the Exponential Growth problems.</li>
         <li>The "anti-derivation" is shown below:</li>
         <table class="staticTable">
             <tr>
@@ -298,12 +358,20 @@
                 </td>
             </tr>
         </table>
-        <li>The graph of a normal logistic function looks like this, where at L/2 the ROC is the max, and it changes in concavity.</li>
+        <li>The graph of a normal Logistic Growth function looks like this, where at
+            <div class="fraction">
+                <div class="top"><var>L</var></div>
+                <div class="bottom">2</div>
+            </div> the ROC is the max, and it changes in concavity.</li>
         <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
 
     </ul>
 </div>
 <script class="renderJS">
+    var eulersMethodGraph = document.querySelector("#eulersMethodGraph");
     var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph")
-    logisticGrowthGraph.src = "https://www.desmos.com/calculator/c9qkosdlwf?embed";
+    eulersMethodGraph.src = "https://www.desmos.com/calculator/fsshmsji6f?embed";
+    eulersMethodGraph.onload = function() {
+        logisticGrowthGraph.src = "https://www.desmos.com/calculator/c9qkosdlwf?embed";
+    }
 </script>
