@@ -318,6 +318,55 @@
                     <div class="bottom">2</div>
                 </div> &plus; <var>c</var>
             </ol>
+            <li>Sometimes problems will ask to solve for the "initial value problem", given
+                <derivative of="y"></derivative>. All this means is to find the antiderivative, or the original function <var>y</var>. The "initial value" just refers to the C constant that comes in when you take the integral of a function.</li>
+            <li>
+                Given
+                <derivative of="y"></derivative> = 2<var>y &minus; x</var>, solve the initial value problem given the condition that <var>y</var> = 6 when <var>x</var> = 15.<br /> In this case we must separate our variables (move the <var>x</var>'s and <var>y</var>'s to
+                different sides). So:
+                <br />
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2<var>y</var></div>
+                </div><var>dy</var> = <var>&minus; xdx</var><br />
+                <integral respectTo="y">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>y</var></div>
+                    </div>
+                </integral> =
+                <integral respectTo="x"><var>&minus; x</var></integral><br /> &half;
+                <integral respectTo="y">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>y</var></div>
+                    </div>
+                </integral> = &minus;
+                <integral respectTo="x"><var>x</var></integral><br />
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2</div>
+                </div>ln|<var>y</var>| = &minus;
+                <div class="fraction">
+                    <div class="top"><var>x</var><sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> + C<br /> ln|
+                <sqrt><var>y</var></sqrt>| = &minus;
+                <div class="fraction">
+                    <div class="top"><var>x</var><sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> + C<br /> Now if we exponentiate both sides:<br />
+                <sqrt><var>y</var></sqrt> = <var>e</var><sup>&minus;<var>x</var><sup>2</sup> &divide; 2 + C</sup><br />
+                <var>y</var> = <var>e</var><sup>&minus;2<var>x</var><sup>2</sup> &divide; 2 + C</sup><br /> Now we need to solve for C given the point (15, 6):<br /> 6 = <var>e</var><sup>&minus;15<sup>2</sup> + C</sup><br /> 6 = <var>e</var><sup>&minus;225</sup><var>e</var><sup>C</sup><br
+                />
+                <ln>6<var>e</var><sup>&minus;225</sup></ln> =
+                <ln><var>e</var><sup>C</sup></ln><br />
+                <ln>6</ln> +
+                <ln><var>e</var><sup>&minus;225</sup></ln> = C<br />
+                <ln>6</ln> &minus; 225 = C &ap; &minus;223.208<br /> And so the original function, and the answer, would be:
+                <var>y</var> = &minus;223.208<var>e<sup><var>x</var><sup>2</sup></sup>
+                </var>
+            </li>
             <h5>Integration by Parts:</h5>
             <li>
                 Usually the preferred method is u-substitution because it helps with chain rule and it is the easiest way to find anti-derivatives. In the case that u-substitution does not work, there is another method, called Integration by Parts.
@@ -393,8 +442,6 @@
                 <sin>x</sin> +
                 <cos>x</cos> + C
             </li>
-
-
         </div>
         <!--<integral lowerBound="0" upperBound="<var>x</var>" respectTo="x">
                         <div class="fraction">
