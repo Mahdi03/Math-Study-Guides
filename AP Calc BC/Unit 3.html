@@ -16,7 +16,7 @@
 <div class="indent">
     <ul>
         <h5>Euler's (Oiler's) Method:</h5>
-        <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitivge linearization as the points are suppoesed to follow the function, based on the ROC at that point. In this case, we
+        <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitive linearization as the points are suppoesed to follow the function, based on the ROC at that point. In this case, we
             will have a &Delta;<var>x</var>, which is equal to
             <div class="fraction">
                 <div class="top"><var>x</var><sub>f</sub> &minus; <var>x</var><sub>i</sub></div>
@@ -364,14 +364,47 @@
                 <div class="bottom">2</div>
             </div> the ROC is the max, and it changes in concavity.</li>
         <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
-
+        <li>Graphs of normal functions can be rotated to create 3 dimensional solids. For instance, the graph <var>y = x</var> bounded from [0, 4]:<br />
+        <iframe id="linearGraph" width="250px" height="250px"></iframe><br />
+        rotated around the x-axis:<br />
+        <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br />
+        creates a 3 dimensional cone, whose volume is <var>V</var> = <div class="fraction"><div class="top">1</div><div class="bottom">3</div></div>&pi;<var>r</var><sup>2</sup><var>h</var>.
+        </li>
+        <li>However, you can find the volume of this solid, and most other solids, using Integral Calculus as well.</li>
+        <li>For this you will need to recall the volume of a cylinder:</li>
+		<table class="rules">
+        	<tr><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></tr>
+        </table>
+        <li>Now imagine that you take the 2 dimensional representation of the cone, a triangle, and you try to take the area using RAM.</li>
+        <iframe id="linearAreaRAMGraph" width="250px" height="250px"></iframe>
+        <li>If this graph were to be rotated by the x-axis, all of the rectangles would become cylinders, where the width of the rectangle is the height of the cylinder, and the height of the rectangle is the radius of the cylinder.</li>
+        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged in to the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>. Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds: <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>. Then just use the FTC to solve.</li>
+        <li>The more generic formula is: </li>
+        <table class="rules">
+        <tr>
+        <td><var>V</var> = <integral respectTo="x" lowerBound="a" upperBound="b">&pi;r(<var>x</var>)<sup>2</sup></integral></td>
+        </tr>
+        </table>
+        
     </ul>
 </div>
 <script class="renderJS">
     var eulersMethodGraph = document.querySelector("#eulersMethodGraph");
     var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph")
+    var linearGraph = document.querySelector("#linearGraph");
+    var linearRotatedGraph = document.querySelector("#linearRotatedGraph");
+    var linearAreaRAMGraph = document.querySelector("#linearAreaRAMGraph");
     eulersMethodGraph.src = "https://www.desmos.com/calculator/fsshmsji6f?embed";
     eulersMethodGraph.onload = function() {
         logisticGrowthGraph.src = "https://www.desmos.com/calculator/c9qkosdlwf?embed";
-    }
+    };
+    logisticGrowthGraph.onload = function() {
+        linearGraph.src = "https://www.desmos.com/calculator/lliikf35bm?embed";
+    };
+    linearGraph.onload = function() {
+    	linearRotatedGraph.src = "https://www.desmos.com/calculator/yscmrcfdxv?embed";
+    };
+    linearRotatedGraph.onload = function() {
+    	linearAreaRAMGraph.src = "https://www.desmos.com/calculator/cle8v1lw6n?embed";
+    };
 </script>
