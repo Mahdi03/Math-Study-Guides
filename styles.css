@@ -128,7 +128,8 @@
         #unit6,
         #unit7,
         #unit8,
-        #unit9 {
+        #unit9,
+        #limitFormulas {
             display: none;
             -webkit-transition: display 1s ease-in-out;
             -moz-transition: display 1s ease-in-out;
@@ -261,4 +262,16 @@
         .reviewTopic {
             border: 3px dashed;
             padding: 15px;
+        }
+        
+        #vocab h2 {
+            font-size: 200%;
+            text-align: center;
+        }
+        
+        #vocab h3 {
+            font-size: 150%;
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-weight: bold;
+            text-align: center;
         }
