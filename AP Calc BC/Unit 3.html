@@ -364,61 +364,203 @@
                 <div class="bottom">2</div>
             </div> the ROC is the max, and it changes in concavity.</li>
         <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
-		<h5>Area in Between Curves:</h5>
-		<li>You already know that the integral gives the area under the curve. In order to find the area in between two curves, you can subtract the top curve from the bottom curve, and then integrate the result with respect to <var>x</var>. If the curves are sideways, then you subtract right from left, and then integrate with respect to <var>y</var>.</li>
-		<iframe id="areaBetweenCurvesGraph" width="250px" height="250px"></iframe>
-		<h5>Volumes of Rotated Graphs:</h5>
+        <h5>Area in Between Curves:</h5>
+        <li>You already know that the integral gives the area under the curve. In order to find the area in between two curves, you can subtract the top curve from the bottom curve, and then integrate the result with respect to <var>x</var>. If the curves
+            are sideways, then you subtract right from left, and then integrate with respect to <var>y</var>.</li>
+        <iframe id="areaBetweenCurvesGraph" width="250px" height="250px"></iframe>
+        <h5>Volumes of Rotated Graphs:</h5>
         <li>Graphs of normal functions can be rotated to create 3 dimensional solids. For instance, the graph <var>y = x</var> bounded from [0, 4]:<br />
-        <iframe id="linearGraph" width="250px" height="250px"></iframe><br />
-        rotated around the x-axis:<br />
-        <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br />
-        creates a 3 dimensional cone, whose volume is <var>V</var> = <div class="fraction"><div class="top">1</div><div class="bottom">3</div></div>&pi;<var>r</var><sup>2</sup><var>h</var>.
+            <iframe id="linearGraph" width="250px" height="250px"></iframe><br /> rotated around the x-axis:<br />
+            <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br /> creates a 3 dimensional cone, whose volume is <var>V</var> =
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">3</div>
+            </div>&pi;<var>r</var><sup>2</sup><var>h</var>.
         </li>
         <li>However, you can find the volume of this solid, and most other solids, using Integral Calculus as well.</li>
         <li>For this you will need to recall the volume of a cylinder:</li>
-		<table class="rules">
-        	<tr><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></tr>
+        <table class="rules">
+            <tr><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></tr>
         </table>
         <li>Now imagine that you take the 2 dimensional representation of the cone, a triangle, and you try to take the area using RAM.</li>
         <iframe id="linearAreaRAMGraph" width="250px" height="250px"></iframe>
         <li>If this graph were to be rotated by the x-axis, all of the rectangles would become cylinders, where the width of the rectangle is the height of the cylinder, and the height of the rectangle is the radius of the cylinder.</li>
-        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged in to the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>. Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds: <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>. Then just use the FTC to solve.</li>
+        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged in to the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>.
+            Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds:
+            <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>. Then just use the FTC to solve.</li>
         <li>The more generic formula is: </li>
         <table class="rules">
-        <tr>
-        <td><var>V</var> = &pi;<integral respectTo="x" lowerBound="a" upperBound="b">r(<var>x</var>)<sup>2</sup></integral></td>
-        </tr>
+            <tr>
+                <td><var>V</var> = &pi;
+                    <integral respectTo="x" lowerBound="a" upperBound="b">r(<var>x</var>)<sup>2</sup></integral>
+                </td>
+            </tr>
         </table>
         <li>In most cases, it is easier to take out the &pi; from the integral and multiply it all the way at the end as it keeps the math much simpler.</li>
-		<li>If the shape is hollow, or you are given two functions to rotate around a certain axis, you can use the same derivation technique, but instead subtract the two radii to get the resultant radius of the cylinder that makes up the shape.</li>
-		<li>When the 3-Dimensional shape is hollow, it is called a washer, and its formula is as follows:<br />
+        <li>If the shape is hollow, or you are given two functions to rotate around a certain axis, you can use the same derivation technique, but instead subtract the two radii to get the resultant radius of the cylinder that makes up the shape.</li>
+        <li>When the 3-Dimensional shape is hollow, it is called a washer, and its formula is as follows:<br />
+            <table class="rules">
+                <tr>
+                    <td><var>V</var> = &pi;
+                        <integral respectTo="x" lowerBound="a" upperBound="b">R(<var>x</var>)<sup>2</sup> &minus; r(<var>x</var>)<sup>2</sup></integral>
+                    </td>
+                </tr>
+            </table>
+            where R(<var>x</var>) is the larger radius (function farther from axis of rotation) and r(<var>x</var>) is the smaller radius (function closer to axis of rotation)</li>
+        <h5>Volumes of Graphs using Cross-Sections:</h5>
+        <li>There is another method to making 3-Dimsional shapes using 2-Dimensional Graphs. It is a broader version of rotating graphs on an axis, you do this using cross-sections of different shapes to make different solids.</li>
+        <li>Some cross sections you can use include 45-45-90 Isoceles Right Triangles, Equilateral Triangles, Circles, Semi-Circles, Squares, and really any other 2-Dimensional shapes that you can find the area of using just the base.</li>
+        <li>The reason for this is that this method uses the value of the length in between the functions as the base of the cross-section, and then the sum of all of the areas on the given bounds gives the total volume.</li>
+        <li>For these types of functions you want to first find the equation of the area of a cross-section, A(<var>x</var>), and then using a more generic formula:<br />
+            <table class="rules">
+                <tr>
+                    <td><var>V</var> =
+                        <integral respectTo="x" lowerBound="a" upperBound="b">A(<var>x</var>)</integral>
+                    </td>
+                </tr>
+            </table>
+            you can calculate the volume of many solids that have equations, including disks and washers since they use the volume of a cylinder cross section.</li>
+        <h3>Length of a Curve:</h3>
+        <li>Using line segments, we can estimate the length of a curve.</li>
+        <li>Given a
+            <sin>x</sin> curve, we can estimate the length of the curve using one line segment.<br />
+            <iframe id="sinLengthEstimateOneSegmentGraph" width="250px" height="250px"></iframe>
+            <br />which would just pan out to the Pythagorean Theorem (Distance Formula):
+            <table class="rules">
+                <tr>
+                    <td>
+                        <var>S</var> =
+                        <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt>
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <li>To get a better estimate on the length of the curve, we can increase the amount of line segments, and add their lengths to get a more accurate guess:<br />
+            <iframe id="sinLengthEstimateTwoSegmentsGraph" width="250px" height="250px"></iframe></li>
+        <li>So then if the number of line segments reaches infinity, then the result would be the actual desired answer.</li>
+        <table class="staticTable">
+            <tr>
+                <td><var>S</var> =
+                    <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                </td>
+                <td>Start with the length of one segment as the change in <var>x</var> and the change in <var>y</var> become so small that we can represent them using differentials.</td>
+            </tr>
+            <tr>
+                <td>
+                    <derivative of="S"></derivative> =
+                    <div class="fraction">
+
+                        <div class="top">
+                            <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                        </div>
+                        <div class="bottom"><var>dx</var></div>
+                    </div>
+                </td>
+                <td>Now take the derivative in order to find the rate of change in each segment (this is necessary for the last step, when we go back to the length instead of the ROC)</td>
+            </tr>
+            <tr>
+                <td>
+                    <derivative of="S"></derivative> =
+                    <div class="fraction">
+
+                        <div class="top">
+                            <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                        </div>
+                        <div class="bottom">
+                            <sqrt>(<var>dx</var>)<sup>2</sup></sqrt>
+                        </div>
+                    </div>
+                </td>
+                <td rowspan="3">Basically simplify, and remember that
+                    <derivative of="<sup>2</sup>y" respectTo="x<sup>2</sup>"></derivative> &ne;
+                    <div class="fraction">
+                        <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <derivative of="S"></derivative> = (
+                    <div class="fraction">
+                        <div class="top">
+                            (<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup>
+                        </div>
+                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                    </div>
+                    )<sup>1/2</sup>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <derivative of="S"></derivative> = (1 +
+                    <div class="fraction">
+                        <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                    </div>)<sup>1/2</sup>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <var>dS</var> = (1 +
+                    <div class="fraction">
+                        <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                    </div>)<sup>1/2</sup><var>dx</var>
+                </td>
+                <td>Now set it up to make the equation integrable to get the original length and not just the ROC.</td>
+            </tr>
+            <tr>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                        (1 +
+                        <div class="fraction">
+                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+                <td>Now Integrate from one bound <var>a</var> to another <var>b</var></td>
+            </tr>
+        </table>
+        <li>This formula can be derived in terms of <var>y</var> and not <var>x</var>, here are both of the formulas:</li>
         <table class="rules">
-        <tr>
-        <td><var>V</var> = &pi;<integral respectTo="x" lowerBound="a" upperBound="b">R(<var>x</var>)<sup>2</sup> &minus; r(<var>x</var>)<sup>2</sup></integral></td>
-        </tr>
+            <tr>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                        (1 +
+                        <div class="fraction">
+                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="y" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                        (1 +
+                        <div class="fraction">
+                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dy</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+            </tr>
         </table>
-		where R(<var>x</var>) is the larger radius (function farther from axis of rotation) and r(<var>x</var>) is the smaller radius (function closer to axis of rotation)</li>
-		<h5>Volumes of Graphs using Cross-Sections:</h5>
-		<li>There is another method to making 3-Dimsional shapes using 2-Dimensional Graphs. It is a broader version of rotating graphs on an axis, you do this using cross-sections of different shapes to make different solids.</li>
-		<li>Some cross sections you can use include 45-45-90 Isoceles Right Triangles, Equilateral Triangles, Circles, Semi-Circles, Squares, and really any other 2-Dimensional shapes that you can find the area of using just the base.</li>
-		<li>The reason for this is that this method uses the value of the length in between the functions as the base of the cross-section, and then the sum of all of the areas on the given bounds gives the total volume.</li>
-		<li>For these types of functions you want to first find the equation of the area of a cross-section, A(<var>x</var>), and then using a more generic formula:<br />
-		<table class="rules">
-        <tr>
-			<td><var>V</var> = <integral respectTo="x" lowerBound="a" upperBound="b">A(<var>x</var>)</integral></td>
-        </tr>
-        </table>
-		you can calculate the volume of many solids that have equations, including disks and washers since they use the volume of a cylinder cross section.</li>
     </ul>
 </div>
 <script class="renderJS">
     var eulersMethodGraph = document.querySelector("#eulersMethodGraph");
     var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph")
-	var areaBetweenCurvesGraph = document.querySelector("#areaBetweenCurvesGraph");
+    var areaBetweenCurvesGraph = document.querySelector("#areaBetweenCurvesGraph");
     var linearGraph = document.querySelector("#linearGraph");
     var linearRotatedGraph = document.querySelector("#linearRotatedGraph");
     var linearAreaRAMGraph = document.querySelector("#linearAreaRAMGraph");
-	
+    var sinLengthEstimateOneSegmentGraph = document.querySelector("#sinLengthEstimateOneSegmentGraph");
+    var sinLengthEstimateTwoSegmentsGraph = document.querySelector("#sinLengthEstimateTwoSegmentsGraph");
+
     eulersMethodGraph.src = "https://www.desmos.com/calculator/fsshmsji6f?embed";
     eulersMethodGraph.onload = function() {
         logisticGrowthGraph.src = "https://www.desmos.com/calculator/c9qkosdlwf?embed";
@@ -426,13 +568,19 @@
     logisticGrowthGraph.onload = function() {
         areaBetweenCurvesGraph.src = "https://www.desmos.com/calculator/jleszu5vvm?embed";
     };
-	areaBetweenCurvesGraph.onload = function() {
-		linearGraph.src = "https://www.desmos.com/calculator/lliikf35bm?embed";
-	};
+    areaBetweenCurvesGraph.onload = function() {
+        linearGraph.src = "https://www.desmos.com/calculator/lliikf35bm?embed";
+    };
     linearGraph.onload = function() {
-    	linearRotatedGraph.src = "https://www.desmos.com/calculator/yscmrcfdxv?embed";
+        linearRotatedGraph.src = "https://www.desmos.com/calculator/yscmrcfdxv?embed";
     };
     linearRotatedGraph.onload = function() {
-    	linearAreaRAMGraph.src = "https://www.desmos.com/calculator/cle8v1lw6n?embed";
+        linearAreaRAMGraph.src = "https://www.desmos.com/calculator/cle8v1lw6n?embed";
     };
+    linearAreaRAMGraph.onload = function() {
+        sinLengthEstimateOneSegmentGraph.src = "https://www.desmos.com/calculator/7u6ma9fzzq?embed";
+    }
+    sinLengthEstimateOneSegmentGraph.onload = function() {
+        sinLengthEstimateTwoSegmentsGraph.src = "https://www.desmos.com/calculator/k1qhfoquc4?embed";
+    }
 </script>
