@@ -275,7 +275,39 @@
                 <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
             </li>
             <li>Basically the x-value for the Average Value of a Function</li>
-            <h5>The Fundamental Theorem of Calculus (FTC):</h5>
+            <h5>The Fundamental Theorem of Calculus "FTC":</h5>
+            <li>This theorem has 2 parts, the first is to evaluate definite integrals using antiderivatives and the second connects Integrals back to its original function.</li>
+            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] and differentiable on (<var>a</var>, <var>b</var>), then if <var>F(x)</var> is the antidervative of <var>f(x)</var>:</li>
+            <table class="rules">
+                <tr>
+                    <td>
+                        <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x"><var>f(x)</var></integral> = <var>F(b) &minus; F(a)</var></td>
+                </tr>
+            </table>
+            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then:</li>
+            <table class="rules">
+                <tr>
+                    <td>
+                        <derivative></derivative>
+                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="t"><var>f(t)</var></integral> = <var>f(x)</var>
+                    </td>
+                    <td>
+                        <var>y</var> =
+                        <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral><br />
+                        <derivative of="y"></derivative> = [
+                        <derivative respectTo="v"></derivative>
+                        <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral>] &times;
+                        <derivative respectTo="v"></derivative>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x) &minus; f(a)</var> (using part 1)<br />
+                        <var>f(a)</var> +
+                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x)</var>
+                    </td>
+                </tr>
+            </table>
             <h5>U-substitution Examples:</h5>
             <ol>
                 <li>Find
