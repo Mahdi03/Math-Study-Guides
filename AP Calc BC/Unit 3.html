@@ -16,14 +16,14 @@
 <div class="indent">
     <ul>
         <h5>Euler's (Oiler's) Method:</h5>
-        <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitive linearization as the points are suppoesed to follow the function, based on the ROC at that point. In this case, we
-            will have a &Delta;<var>x</var>, which is equal to
+        <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitive linearization as the points are supposed to follow the function, based on the ROC at that point. In this case, we will
+            have a &Delta;<var>x</var>, which is equal to
             <div class="fraction">
                 <div class="top"><var>x</var><sub>f</sub> &minus; <var>x</var><sub>i</sub></div>
                 <div class="bottom"><var>n</var></div>
             </div>
         </li>
-        <li>In order to better picture the math behind this method, setting up a table really helps.</li>
+        <li>Set up a table to better picture the math behind this method.</li>
         <li>And for each increment you take, you can just take the final point, and make it your next initial point and then do the whole process again!</li>
         <li>Given
             <derivative of="y"></derivative> = <var>y &minus; x</var> and the point (0, 3), find the estimate of <var>y</var> when <var>x</var> = 1.2 using 3 steps:</li>
@@ -88,7 +88,7 @@
         <li>Where C is your initial value (when <var>t</var> = 0).</li>
         <li>Where <var>k</var> is the proportionality constant that tells by just how much will the values grow or decay.</li>
         <li>Where <var>t</var> represents time, in whatever unit required by certain problems.</li>
-        <li>This formula can actually be "anti-derived" by the formula given below, which also explains why <var>k</var> is a "proportionality" constant, because the Rate of Change varies directly or proportionally.
+        <li>This formula can be "anti-derived" by the formula given below, which also explains why <var>k</var> is a "proportionality" constant because the Rate of Change varies directly or proportionally.
         </li>
         <table class="rules">
             <tr>
@@ -201,7 +201,7 @@
             </div>
         </div>
         <h5>Logistic Growth:</h5>
-        <li>Recall this from EM3 as well. It is exponenetial growth, but with a carrying capacity (due to limited resources, etc.)</li>
+        <li>Recall this from EM3 as well. It is exponential growth, but with a carrying capacity (due to limited resources, etc.)</li>
         <li>For exponential growth, the rate of change was <var>ky</var>, and so if we add a Carrying Capacity <var>L</var>, we get </li>
         <table class="rules">
             <tr>
@@ -316,7 +316,7 @@
                     </div>
                     | = &minus;<var>Lkt</var> + c
                 </td>
-                <td>Combine the ln's in order to start solving for <var>y</var><br /> Remember that c is just a constant, and that we would not multiply it by another constant <var>L</var></td>
+                <td>Combine the ln's in order to start solving for <var>y</var><br /> Remember that c is just a constant and that we would not multiply it by another constant <var>L</var></td>
             </tr>
             <tr>
                 <td>
@@ -354,7 +354,7 @@
 
                 </td>
                 <td>
-                    Solve for <var>y</var> by factoring it out and dividing both sides by the other factor.<br /> In order to avoid this large derivation each time, remember "Lice minus licked"
+                    Solve for <var>y</var> by factoring it out and dividing both sides by the other factor.<br /> To avoid this large derivation each time, remember "Lice minus licked"
                 </td>
             </tr>
         </table>
@@ -366,13 +366,13 @@
         <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
         <h3>Length, Area, and Volumes of Shapes on the Cartesian Plane</h3>
         <h5>Area in Between Curves:</h5>
-        <li>You already know that the integral gives the area under the curve. In order to find the area in between two curves, you can subtract the top curve from the bottom curve, and then integrate the result with respect to <var>x</var>. If the curves
-            are sideways, then you subtract right from left, and then integrate with respect to <var>y</var>.</li>
+        <li>You already know that the integral gives the area under the curve. To find the area between two curves, you can subtract the top curve from the bottom curve, and then integrate the result with respect to <var>x</var>. If the curves are sideways,
+            then you subtract right from left and then integrate with respect to <var>y</var>.</li>
         <iframe id="areaBetweenCurvesGraph" width="250px" height="250px"></iframe>
         <h5>Volumes of Rotated Graphs:</h5>
-        <li>Graphs of normal functions can be rotated to create 3 dimensional solids. For instance, the graph <var>y = x</var> bounded from [0, 4]:<br />
+        <li>Graphs of normal functions can be rotated to create 3-dimensional solids. For instance, the graph <var>y = x</var> bounded from [0, 4]:<br />
             <iframe id="linearGraph" width="250px" height="250px"></iframe><br /> rotated around the x-axis:<br />
-            <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br /> creates a 3 dimensional cone, whose volume is
+            <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br /> creates a 3-dimensional cone, whose volume is
             <table class="rules">
                 <tr>
                     <td><var>V</var> =
@@ -390,10 +390,10 @@
                 <td><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></td>
             </tr>
         </table>
-        <li>Now imagine that you take the 2 dimensional representation of the cone, a triangle, and you try to take the area using RAM.</li>
+        <li>Now imagine that you take the 2-dimensional representation of the cone, a triangle, and you try to take the area using RAM.</li>
         <iframe id="linearAreaRAMGraph" width="250px" height="250px"></iframe>
         <li>If this graph were to be rotated by the x-axis, all of the rectangles would become cylinders, where the width of the rectangle is the height of the cylinder, and the height of the rectangle is the radius of the cylinder.</li>
-        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged in to the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>.
+        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged into the formula for the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>.
             Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds:<br />
             <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>. Then just use the FTC to solve.</li>
         <li>The more generic formula is: </li>
@@ -404,8 +404,8 @@
                 </td>
             </tr>
         </table>
-        <li>In most cases, it is easier to take out the &pi; from the integral and multiply it all the way at the end as it keeps the math much simpler.</li>
-        <li>If the shape is hollow, or you are given two functions to rotate around a certain axis, you can use the same derivation technique, but instead subtract the two radii to get the resultant radius of the cylinder that makes up the shape.</li>
+        <li>In most cases, it is easier to take out the &pi; from the integral and multiply it at the end as it keeps the math much simpler.</li>
+        <li>If the shape is hollow, or you are given two functions to rotate around a certain axis, you can use the same derivation technique, but instead, subtract the two radii to get the resultant radius of the cylinder that makes up the shape.</li>
         <li>When the 3-Dimensional shape is hollow, it is called a washer, and its formula is as follows:</li>
         <table class="rules">
             <tr>
@@ -414,11 +414,11 @@
                 </td>
             </tr>
         </table>
-        <li>Where R(<var>x</var>) is the larger radius (function farther from axis of rotation) and r(<var>x</var>) is the smaller radius (function closer to axis of rotation)</li>
+        <li>Where R(<var>x</var>) is the larger radius (function farther from the axis of rotation) and r(<var>x</var>) is the smaller radius (function closer to the axis of rotation)</li>
         <h5>Volumes of Graphs using Cross-Sections:</h5>
-        <li>There is another method to making 3-Dimsional shapes using 2-Dimensional Graphs. It is a broader version of rotating graphs on an axis, you do this using cross-sections of different shapes to make different solids.</li>
-        <li>Some cross sections you can use include 45-45-90 Isoceles Right Triangles, Equilateral Triangles, Circles, Semi-Circles, Squares, and really any other 2-Dimensional shapes that you can find the area of using just the base.</li>
-        <li>So it really helps to just know all of the area formulas for these shapes.</li>
+        <li>There is another method for making 3-Dimensional shapes using 2-Dimensional Graphs. It is a broader version of rotating graphs on an axis, you do this using cross-sections of different shapes to make different solids.</li>
+        <li>Some cross-sections you can use include 45-45-90 Isosceles Right Triangles, Equilateral Triangles, Circles, Semi-Circles, Squares, and any other 2-Dimensional shapes that you can find the area of using just the base.</li>
+        <li>So it helps to just know all of the area formulas for these shapes.</li>
         <li>The reason for this is that this method uses the value of the length in between the functions as the base of the cross-section, and then the sum of all of the areas on the given bounds gives the total volume.</li>
         <li>For these types of functions you want to first find the equation of the area of a cross-section, A(<var>x</var>), and then using a more generic formula:</li>
         <table class="rules">
@@ -428,7 +428,7 @@
                 </td>
             </tr>
         </table>
-        <li>You can calculate the volume of many solids that have equations, including disks and washers since they use the volume of a cylinder cross section.</li>
+        <li>You can calculate the volume of many solids that have equations, including disks and washers since they use the volume of a cylinder cross-section.</li>
         <h5>Length of a Curve:</h5>
         <li>Using line segments, we can estimate the length of a curve.</li>
         <li>Given a
@@ -444,9 +444,9 @@
                 </tr>
             </table>
         </li>
-        <li>To get a better estimate on the length of the curve, we can increase the amount of line segments, and add their lengths to get a more accurate guess:<br />
+        <li>To get a better estimate on the length of the curve, we can increase the number of line segments, and add their lengths to get a more accurate guess:<br />
             <iframe id="sinLengthEstimateTwoSegmentsGraph" width="250px" height="250px"></iframe></li>
-        <li>So then if the number of line segments reaches infinity, then the result would be the actual desired answer.</li>
+        <li>So then if the number of line segments reaches infinity, the result would be the actual desired answer.</li>
         <table class="staticTable">
             <tr>
                 <td><var>S</var> =
@@ -465,7 +465,7 @@
                         <div class="bottom"><var>dx</var></div>
                     </div>
                 </td>
-                <td>Now take the derivative in order to find the rate of change in each segment (this is necessary for the last step, when we go back to the length instead of the ROC)</td>
+                <td>Now take the derivative to find the rate of change in each segment (this is necessary for the last step when we go back to the length instead of the ROC)</td>
             </tr>
             <tr>
                 <td>
@@ -480,7 +480,7 @@
                         </div>
                     </div>
                 </td>
-                <td rowspan="3">Basically simplify, and remember that
+                <td rowspan="3">Basically, simplify, and remember that
                     <derivative of="<sup>2</sup>y" respectTo="x<sup>2</sup>"></derivative> &ne;
                     <div class="fraction">
                         <div class="top">(<var>dy</var>)<sup>2</sup></div>
