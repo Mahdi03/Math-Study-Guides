@@ -16,8 +16,8 @@
             <div class="indent">
                 <li>If a function <var>f</var> is continuous on the closed interval [<var>a, b</var>], then <var>f</var> must have an absolute minimum and maximum value at least once.</li>
                 <li>If a function <var>f</var> is continuous on the open interval [<var>a, b</var>], then <var>f</var> may have a local minimum and/or maximum value.</li>
-                <li>In order to find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
-                <li>The reason this works is because when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
+                <li>To find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
+                <li>The reason this works is that when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
                 <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
                 <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined,
                     then it is not a critical point.</li>
@@ -37,7 +37,7 @@
             <h5>Antiderivatives:</h5>
             <div class="indent">
                 <li>A function <var>D(x)</var> is an antiderivative of a function <var>f(x)</var> if <var>D'(x) = f(x)</var>.</li>
-                <li>The process of finding an antiderivative is called antidifferentiating, and you must <strong>always</strong> assume a constant <var>c</var>.</li>
+                <li>The process of finding an antiderivative is called antidifferentiation, and you must <strong>always</strong> assume a constant <var>c</var>.</li>
             </div>
         </div>
         <h3>Connecting <var>f '(x)</var> and <var>f ''(x)</var> with the graph of <var>f(x)</var></h3>
@@ -63,7 +63,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">No change</td>
-                        <td>No relative extremum</td>
+                        <td>No relative extrema</td>
                     </tr>
                 </table>
                 <li>If the derivative is positive, then the function is increasing.</li>
@@ -73,7 +73,7 @@
                 <li>If the second derivative is negative, then the function is concave down.</li>
                 <li>If the second derivative is positive, then the function is concave up.</li>
                 <li>If the function is concave up, then the tangent lines are underneath the graph.</li>
-                <li>If the graph is concave down, then the tangent lines go above of the graph.</li>
+                <li>If the graph is concave down, then the tangent lines go above the graph.</li>
             </div>
             <h5>Concavity Test:</h5>
             <div class="indent">
@@ -112,7 +112,7 @@
                 <li>Always take the
                     <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
                 <li>Remember Area, Volume, and Surface Area formulas for all kinds of shapes.</li>
-                <li>Remeber that the
+                <li>Remember that the
                     <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
             </div>
             <h5>Optimization:</h5>
@@ -136,7 +136,7 @@
         <h1>Integral Calculus:</h1>
         <h3>Estimating Area with Finite Sums:</h3>
         <div class="indent">
-            <li>The area under a velocity curve represents the accumulative distance traveled.</li>
+            <li>The area under a velocity curve represents the cumulative distance traveled.</li>
             <li>There are four ways to approximate the area between the function and the x-axis:</li>
             <ul>
                 <li>Right Rectangular Approximation Method ("R-RAM"):</li>
@@ -158,7 +158,7 @@
                 <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit8">Sums</a>!</li>
             <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as S<sub><var>n</var></sub> =
                 <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var></li>
-            <li>Where <var>f</var> (<var>c<sub>k</sub></var>) is the height of each individual rectangle and &Delta;<var>x</var> =
+            <li>Where <var>f</var> (<var>c<sub>k</sub></var>) is the height of each rectangle and &Delta;<var>x</var> =
                 <div class="fraction">
                     <div class="top"><var>b &minus; a</var></div>
                     <div class="bottom"><var>n</var></div>
@@ -177,8 +177,8 @@
                 <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
             </li>
             <li>The <span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'><var>a</var></sub><sup style='display: inline-block; transform: translateY(-11px);'><var>b</var></sup>                is the integral sign with the bounds [<var>a</var>, <var>b</var>] where <var>a</var> and <var>b</var> are both constants.</li><br />
-            <li>The <var>f </var>(<var>x</var>) is the same as the the <var>f</var> (<var>c<sub>k</sub></var>) in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
-            <li>The <var>dx</var> is the same exact value as the &Delta;<var>x</var> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremly small value (a differential) as the number of rectangles tends towards <var>&infin;</var>,
+            <li>The <var>f </var>(<var>x</var>) is the same as the <var>f</var> (<var>c<sub>k</sub></var>) in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
+            <li>The <var>dx</var> is the same exact value as the &Delta;<var>x</var> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremely small value (a differential) as the number of rectangles tends towards <var>&infin;</var>,
                 and it also lets us know which variable is the integral being taken with respect to. As seen later, this <var>dx</var> will come in handy with <var>u</var>-substitution and
                 <derivative></derivative>
             </li>
@@ -277,7 +277,7 @@
             <li>Basically the x-value for the Average Value of a Function</li>
             <h5>The Fundamental Theorem of Calculus "FTC":</h5>
             <li>This theorem has 2 parts, the first is to evaluate definite integrals using antiderivatives and the second connects Integrals back to its original function.</li>
-            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] and differentiable on (<var>a</var>, <var>b</var>), then if <var>F(x)</var> is the antidervative of <var>f(x)</var>:</li>
+            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] and differentiable on (<var>a</var>, <var>b</var>), then if <var>F(x)</var> is the antiderivative of <var>f(x)</var>:</li>
             <table class="rules">
                 <tr>
                     <td>
@@ -355,7 +355,7 @@
                 <derivative of="y"></derivative>. All this means is to find the antiderivative, or the original function <var>y</var>. The "initial value" just refers to the C constant that comes in when you take the integral of a function.</li>
             <li>
                 Given
-                <derivative of="y"></derivative> = 2<var>y &minus; x</var>, solve the initial value problem given the condition that <var>y</var> = 6 when <var>x</var> = 15.<br /> In this case we must separate our variables (move the <var>x</var>'s and <var>y</var>'s to
+                <derivative of="y"></derivative> = 2<var>y &minus; x</var>, solve the initial value problem given the condition that <var>y</var> = 6 when <var>x</var> = 15.<br /> In this case, we must separate our variables (move the <var>x</var>'s and <var>y</var>'s to
                 different sides). So:
                 <br />
                 <div class="fraction">
@@ -402,7 +402,7 @@
             </li>
             <h5>Integration by Parts:</h5>
             <li>
-                Usually the preferred method is u-substitution because it helps with chain rule and it is the easiest way to find anti-derivatives. In the case that u-substitution does not work, there is another method, called Integration by Parts.
+                Usually, the preferred method is u-substitution because it helps with chain rule and it is the easiest way to find antiderivatives. In the case that u-substitution does not work, there is another method, called Integration by Parts.
             </li>
             <table class="rules">
                 <tr>
@@ -413,7 +413,7 @@
                     </td>
                 </tr>
             </table>
-            <li>This method involves the integral of a product of two different kinds of functions. It can be derived using the Product Rule from Differential Calculus.</li>
+            <li>This method involves the integration of a product of two different kinds of functions. It can be derived using the Product Rule from Differential Calculus.</li>
             <table class="staticTable">
                 <tr>
                     <td>(<var>uv</var>)' = <var>udv + vdu</var></td>

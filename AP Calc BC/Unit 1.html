@@ -177,9 +177,9 @@
         <li>The second derivative of any given function is acceleration.</li>
         <li>When <var>f(x)</var> is decreasing, <var>f '(x)</var> is negative.</li>
         <li>When <var>f(x)</var> is increasing, <var>f '(x)</var> is positive.</li>
-        <li>When velocity and acceleration have the same sign, speed increases, and velocity becomes either more and more positive or more and more negative, depending on whether acceleration is positive or negative.</li>
+        <li>When velocity and acceleration have the same sign, speed increases and velocity becomes either more and more positive or more and more negative, depending on whether acceleration is positive or negative.</li>
         <li>When velocity and acceleration have opposite signs, speed decreases.</li>
-        <li>When the particle moves right, it has positive velocity. When it moves left, it has a negative velocity.</li>
+        <li>When the particle moves right, it has a positive velocity. When it moves left, it has a negative velocity.</li>
         <li>When velocity increases, it becomes more and more positive, and when velocity decreases, it becomes more and more negative.</li>
         <li>Speed is just the magnitude of velocity, and so it will always either be positive of 0.</li>
         <li>When finding the equation of the tangent line or normal line, using point-slope form is best.</li>
@@ -205,7 +205,7 @@
         </table>
         <h5>Notation of Derivatives:</h5>
         <ul>
-            <li>Liebniz Notation:</li>
+            <li>Leibniz Notation:</li>
             <derivative of="f" respectTo="x"></derivative>
             or
             <derivative of="y"></derivative>
@@ -221,12 +221,32 @@
         <li>Differentiability implies local linearity (meaning that if you zoom in really close on that one point, the graph will start to look linear)</li>
         <h5>Derivatives With Parametric Functions</h5>
         <li>As you'll recall from EM3, parametric functions are functions in which <var>x(t)</var> and <var>y(t)</var> are defined functions in terms of <var>t</var>, time, and the function itself can be plotted as (<var>x(t), y(t)</var>).</li>
-        <li>Some problems will ask for you to find <derivative of="y"></derivative> (with respect to <var>x</var>), and others will ask for the second derivative <derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> (second derivative) given a function of <var>x(t)</var> and a function <var>y(t)</var>.</li>
+        <li>Some problems will ask for you to find
+            <derivative of="y"></derivative> (with respect to <var>x</var>), and others will ask for the second derivative
+            <derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> (second derivative) given a function of <var>x(t)</var> and a function <var>y(t)</var>.</li>
         <table class="rules">
             <tr>
-                <td><derivative of="y"></derivative> = <div class="fraction"><div class="top"><derivative of="y" respectTo="t"></derivative></div><div class="bottom"><derivative of="x" respectTo="t"></derivative></div></div></td>
-                <td><derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> = <div class="fraction"><div class="top"><derivative respectTo="t"></derivative>(<derivative of="y" respectTo="x"></derivative>)</div><div class="bottom"><derivative of="x" respectTo="t"></derivative></td>
-                    </tr>
+                <td>
+                    <derivative of="y"></derivative> =
+                    <div class="fraction">
+                        <div class="top">
+                            <derivative of="y" respectTo="t"></derivative>
+                        </div>
+                        <div class="bottom">
+                            <derivative of="x" respectTo="t"></derivative>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> =
+                    <div class="fraction">
+                        <div class="top">
+                            <derivative respectTo="t"></derivative>(
+                            <derivative of="y" respectTo="x"></derivative>)</div>
+                        <div class="bottom">
+                            <derivative of="x" respectTo="t"></derivative>
+                </td>
+            </tr>
         </table>
         <h5>Implicit Differentiation:</h5>
         <li>This is when the y variable isn't isolated and the derivative of both sides is taken</li>
@@ -739,23 +759,23 @@
             </tr>
         </table>
     </ul>
-</div>
-<script class="renderJS">
-    //Added all graphs to iFrames
-    //Set Discontinuity Graphs
-    var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
-    var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
-    var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
-    var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
-    //Actually loading each iFrame successively
-    infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
-    infiniteDiscontinuityGraph.onload = function() {
-        oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
-    };
-    oscillatingDiscontinuityGraph.onload = function() {
-        removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
-    };
-    removableDiscontinuityGraph.onload = function() {
-        jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
-    };
-</script>
+    </div>
+    <script class="renderJS">
+        //Added all graphs to iFrames
+        //Set Discontinuity Graphs
+        var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
+        var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
+        var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
+        var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
+        //Actually loading each iFrame successively
+        infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
+        infiniteDiscontinuityGraph.onload = function() {
+            oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
+        };
+        oscillatingDiscontinuityGraph.onload = function() {
+            removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
+        };
+        removableDiscontinuityGraph.onload = function() {
+            jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
+        };
+    </script>
