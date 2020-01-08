@@ -568,12 +568,16 @@
             <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0.
         </li>
         <li>It's helpful with alternating series.</li>
-
+        <h3>L'H&ocirc;pital's Rule</h3>
+        <li>This rule only works when the limit is equal to the indeterminate forms of <div class="fraction><div class="top">0</div><div class="bottom">0</div></div> and <div class="fraction"><div class="top">&infin;</div><div class="bottom">&infin;</div></div></li>
+        <li>When you have the limit of <div class="fraction"><div class="top"><var>f(x)</var></div><div class="bottom"><var>g(x)</var></div></div> equal either of those two indeterminate forms, then the limit of <div class="fraction"><div class="top"><var>f '(x)</var></div><div class="bottom"><var>g '(x)</var></div></div> is the same.</li>
+        <li>This process can be repeated as many times as the limit is either of those two indeterminate forms, and if it does equal some other indeterminate form, you can rearrange it to equal either of those two indeterminate forms before differentiating the top and bottom.</li>
+            
     </ul>
 </div>
 <script class="renderJS">
     var eulersMethodGraph = document.querySelector("#eulersMethodGraph");
-    var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph")
+    var logisticGrowthGraph = document.querySelector("#logisticGrowthGraph");
     var areaBetweenCurvesGraph = document.querySelector("#areaBetweenCurvesGraph");
     var linearGraph = document.querySelector("#linearGraph");
     var linearRotatedGraph = document.querySelector("#linearRotatedGraph");
