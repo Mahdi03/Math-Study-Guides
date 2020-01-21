@@ -126,7 +126,6 @@ font-family: 'Nunito', sans-serif;
 </head>
 
 <body>
-
     <h1>Math Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman and Rohan Kumar</h3>
     <!--Stuff you Must Know Cold-->
@@ -209,6 +208,12 @@ font-family: 'Nunito', sans-serif;
     <div id="unit3">
         <div htmlInclude="Unit 3.html"></div>
     </div>
+    <!--Unit 4-->
+    <span class="toggleButton" id="unit4ToggleButton" onclick="toggleDiv('#unit4');">&plus;</span>
+    <h2>Unit 4:</h2>
+    <div id="unit4">
+        <div htmlInclude="Unit 4.html"></div>
+    </div>
     <script>
         document.querySelector("h2.link").onclick = function() {
             openPopup("stuffYouMustKnowCold");
@@ -241,6 +246,6 @@ font-family: 'Nunito', sans-serif;
         renderMath();
         addImportanceToFormulas();
     </script>
-</body content>
+</body>
 
 </html>
