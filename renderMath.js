@@ -79,7 +79,7 @@ function renderMath() {
     var lnTags = document.getElementsByTagName("ln");
     for (var q = 0; q < lnTags.length; q++) {
         var lnInput = lnTags[q].innerHTML;
-        lnTags[q].innerHTML = "ln (<var>" + lnInput + "</var>)";
+        lnTags[q].innerHTML = "ln(<var>" + lnInput + "</var>)";
     }
     //Defined Derivative Tags (Will need to be changed further as we learn new concepts)
     //<nDeriv of="f" respectTo="t"></nDeriv> === df/dt
