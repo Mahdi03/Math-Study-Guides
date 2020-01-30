@@ -58,7 +58,7 @@
         <li>This test can be tried when other methods do not work, it is quite lengthy as it requires the usage of improper integration from the last unit.</li>
         <li>Simply put, when the improper integral of the sequence converges, the infinite series of the sequence converges, and if the improper integral of the sequence diverges, so does the series. However, if the integral converges to a certain value,
             this does not mean that the infinite series converges to the same value.</li>
-        <li>In order to use this test, the function must be decreasing, continuous, and positive when <var>x</var> &ge; 1, and this needs to be shown every time.</li>
+        <li>In order to use this test, the function must be <u>decreasing, continuous, and positive when <var>x</var> &ge; 1</u>, and this needs to be shown every time.</li>
         <h5>P-Series Test:</h5>
         <li>If you can simplify your series into the form of a p-series (as shown below) then you can use the simple rule to check for convergence or divergence.</li>
         <table class="rules">
@@ -75,5 +75,97 @@
         <li>If <var>p</var> &le; 1, the series will diverge, but if <var>p</var> &gt; 1, the series will converge.</li>
         <h5>Direct Comparison Test (DCT):</h5>
         <li>Similar to the Direct Comparison Test used with Improper Integrals, come up with another function that you can find the limit of.</li>
+        <li>If the larger series converges, then the smaller series converges, and if the smaller series diverges, then the larger series diverges.</li>
+        <h5>Limit Comparison Test (LCT):</h5>
+        <li>This test can be used to compare one series to another if you know that one series either converges or diverges.</li>
+        <li>If either:<br />
+            <table class="rules" style="display: inline;">
+                <tr>
+                    <td>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>a<sub>n</sub></var></div>
+                            <div class="bottom"><var>b<sub>n</sub></var></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            or
+            <table class="rules" style="display: inline;">
+                <tr>
+                    <td>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>b<sub>n</sub></var></div>
+                            <div class="bottom"><var>a<sub>n</sub></var></div>
+                        </div>
+                    </td>
+                </tr>
+            </table> <br /> is equal to a finite and positive value, then both series either converge or both series diverge.</li>
+        <h5>Ratio Test:</h5>
+        <li>For the <var>a<sub>n+1</sub></var> simply substitute (<var>n</var> + 1) for every <var>n</var> in the sequence.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Convergent</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim>|
+                    <div class="fraction">
+                        <div class="top"><var>a<sub>n+1</sub></var></div>
+                        <div class="bottom"><var>a<sub>n</sub></var></div>
+                    </div>| &lt; 1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Divergent</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim>|
+                    <div class="fraction">
+                        <div class="top"><var>a<sub>n+1</sub></var></div>
+                        <div class="bottom"><var>a<sub>n</sub></var></div>
+                    </div>| &gt; 1
+                </td>
+                <tr>
+                    <td>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                    <td>
+                        <lim as="n" approaches="&infin;"></lim>|
+                        <div class="fraction">
+                            <div class="top"><var>a<sub>n+1</sub></var></div>
+                            <div class="bottom"><var>a<sub>n</sub></var></div>
+                        </div>| = 1
+                    </td>
+                </tr>
+            </tr>
+        </table>
+        <h5>Root Test:</h5>
+        <li>This test helps when the function of the sequence can be manipulated to where the entire function is to the power of <var>n</var>.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Convergent</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
+                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &lt; 1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Divergent</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
+                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &gt; 1
+                </td>
+                <tr>
+                    <td>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                    <td>
+                        <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
+                        <sqrt>|<var>a<sub>n</sub></var>|</sqrt> = 1
+                    </td>
+                </tr>
+            </tr>
+        </table>
     </ul>
 </div>
