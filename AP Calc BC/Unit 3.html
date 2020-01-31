@@ -761,6 +761,36 @@
                 </div></sup> = 1
         </p>
         <li>And don't forget the limit rules from Unit 1.</li>
+        <h3>Improper Integrals</h3>
+        <li>Integrals are considered improper if the integral contains an infinite interval of integration</li>
+        <li>They are also considered improper if there is a discontinuity on the interior of the interval of integration</li>
+        <li>To solve improper integrals substitute a variable for &infin; or &minus;&infin; and find the limit as the variable approaches &infin; or &minus;&infin;</li>
+        <p>
+            <strong>Ex 1:</strong> Evaluate <integral respectTo="x" lowerBound="1" upperBound="&infin;">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup>2</sup></div>
+                    </div>
+                </integral><br />
+            Substitute <var>a</var> for &infin; and find the limit as <var>a</var> goes to &infin;: <lim as="a" approaches="&infin;"></lim><integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup>2</sup></div>
+                    </div>
+                </integral><br />
+            Find the integral: <lim as="a" approaches="&infin;"></lim>&minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var></div>
+                    </div> from 1 to <var>a</var><br />
+            <lim as="a" approaches="&infin;"></lim> &minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>a</var></div>
+                    </div> &minus; (&minus;<div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">1</div>
+                    </div> = 1 
+        </p>
+        <li>Very important to include the limit in each step</li>
     </ul>
 </div>
 <script class="renderJS">
