@@ -716,7 +716,84 @@
             </div><br />
         </p>
         <li>Using logarithms to find limits in the same way that Logarithmic Differentiation also works, use that tactic whenever you have <var>x</var> in the exponent.</li>
+        <p>
+            <strong>Ex 4:</strong> Evaluate <lim as="x" approaches="&infin;"></lim><var>x</var><sup> <div class="fraction"><div class="top">1</div><div class="bottom"><var>x</var></div></div></sup><br />
+            Set the function equal to <var>y</var>: <var>y</var> = <var>x</var><sup>
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>x</var></div>
+                </div></sup><br />
+            Find natural log of both sides: <ln>y</ln> = 
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>x</var></div>
+                </div><ln>x</ln><br />
+            Find the limit of both sides: <lim as="x" approaches="&infin;"></lim><ln>y</ln> = <lim as="x" approaches="&infin;"></lim>
+                <div class="fraction">
+                    <div class="top"><ln>x</ln></div>
+                    <div class="bottom"><var>x</var></div>
+                </div><br />
+            Solve the right side of the equation: <lim as="x" approaches="&infin;"></lim>
+                <div class="fraction">
+                    <div class="top"><ln>x</ln></div>
+                    <div class="bottom"><var>x</var></div>
+                </div> = 
+                <div class="fraction">
+                    <div class="top">&infin;</div>
+                    <div class="bottom">&infin;</div>
+                </div><br />
+            Using L'H&ocirc;pital's Rule, find derivative of top and bottom: 
+                <lim as="x" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>x</var></div>
+                            </div>
+                        </div>
+                        <div class="bottom">1</div>
+                    </div> = 0<br />
+            Therefore, <lim as="x" approaches="&infin;"></lim><ln>y</ln> = 0<br />
+            Raise <var>e</var> to both sides of the equation to get that the <lim as="x" approaches="&infin;"></lim><var>x</var><sup>
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>x</var></div>
+                </div></sup> = 1
+        </p>
         <li>And don't forget the limit rules from Unit 1.</li>
+        <h3>Improper Integrals</h3>
+        <li>Integrals are considered improper if the integral contains an infinite interval of integration</li>
+        <li>They are also considered improper if there is a discontinuity on the interior of the interval of integration</li>
+        <li>To solve improper integrals substitute a variable for &infin; or &minus;&infin; and find the limit as the variable approaches &infin; or &minus;&infin;</li>
+        <p>
+            <strong>Ex 1:</strong> Evaluate <integral respectTo="x" lowerBound="1" upperBound="&infin;">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup>2</sup></div>
+                    </div>
+                </integral><br />
+            Substitute <var>a</var> for &infin; and find the limit as <var>a</var> goes to &infin;: <lim as="a" approaches="&infin;"></lim><integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup>2</sup></div>
+                    </div>
+                </integral><br />
+            Find the integral: <lim as="a" approaches="&infin;"></lim>&minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var></div>
+                    </div> from 1 to <var>a</var><br />
+            <lim as="a" approaches="&infin;"></lim> &minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>a</var></div>
+                    </div> &minus; (&minus;<div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">1</div>
+                    </div>) = 1 
+        </p>
+        <li>Very important to include the limit in each step</li>
+        <h5>P-Series Integrals</h5>
+        <li>If <var>a</var> &gt; 0, then <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;"><div class="fraction"><div class="top">1</div><div class="bottom"><var>x</var><sup><var>p</var></sup></div></div></integral> is convergent if <var>p</var> &gt; 1 and divergent if <var>p</var> &le; 1</li>
+        <li>If <var>a</var> = 1 and <var>p</var> &gt; 1, then <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;"><div class="fraction"><div class="top">1</div><div class="bottom"><var>x</var><sup><var>p</var></sup></div></div></integral> converges to <div class="fraction"><div class="top">1</div><div class="bottom"><var>p</var> &minus; 1</div></div>
     </ul>
 </div>
 <script class="renderJS">
