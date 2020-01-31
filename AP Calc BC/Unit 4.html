@@ -126,6 +126,7 @@
                         <div class="bottom"><var>a<sub>n</sub></var></div>
                     </div>| &gt; 1
                 </td>
+            </tr>
                 <tr>
                     <td>
                         <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
@@ -136,7 +137,6 @@
                             <div class="bottom"><var>a<sub>n</sub></var></div>
                         </div>| = 1
                     </td>
-                </tr>
             </tr>
         </table>
         <h5>Root Test:</h5>
@@ -157,6 +157,7 @@
                     <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
                     <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &gt; 1
                 </td>
+            </tr>
                 <tr>
                     <td>
                         <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
@@ -164,8 +165,12 @@
                         <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
                         <sqrt>|<var>a<sub>n</sub></var>|</sqrt> = 1
                     </td>
-                </tr>
             </tr>
         </table>
+        <h5>Alternating Series Test (AST):</h5>
+        <li>Use this test when you have (-1)<sup><var>n</var></sup> or (-1)<sup><var>n + c</var></sup> (where <var>c</var> is any number) within your sequence.</li>
+        <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0 and you can show that the series of <var>a<sub>n</sub></var> continuously decreases starting from a point, then the original alternating series converges.</li>
+        <li>Use this test to only prove convergence, if you find that <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> &ne; 0, then it diverges by the nth term test.</li>
+        
     </ul>
 </div>
