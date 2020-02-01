@@ -129,7 +129,8 @@
         #unit7,
         #unit8,
         #unit9,
-        #limitFormulas {
+        #limitFormulas,
+        #prerequisites {
             display: none;
             -webkit-transition: display 1s ease-in-out;
             -moz-transition: display 1s ease-in-out;

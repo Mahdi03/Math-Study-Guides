@@ -41,15 +41,34 @@
             <li>Be able to solve for variables in an equation or multiple equations.</li>
             <li>Know algebra.</li>
             <li>Recall trigonometry.</li>
-            <canvas id="rightTriangleDiagram"></canvas>
+            <canvas id="rightTriangleDiagram" width="110" height="110"></canvas>
             <script>
                 var rightTriangleDiagram = document.querySelector("#rightTriangleDiagram");
                 var ctx = rightTriangleDiagram.getContext("2d");
+                //Draw Triangle
                 ctx.beginPath();
-                ctx.moveTo(75, 50);
-                ctx.lineTo(100, 75);
-                ctx.lineTo(100, 25);
+                ctx.moveTo(90, 90);
+                ctx.lineTo(90, 10);
+                ctx.lineTo(10, 90);
                 ctx.closePath();
+                ctx.stroke();
+                ctx.moveTo(80, 90);
+                ctx.lineTo(80, 80);
+                ctx.lineTo(90, 80);
+                ctx.stroke();
+                //Draw text
+                ctx.font = "18px serif";
+                ctx.fillText("\u0398", 25, 87);
+                ctx.fillText("zcos\u0398", 31, 105);
+                ctx.save(); //Save current stuff before transformations occur
+                //Rotate canvas for rotated draxing
+                ctx.translate(95, 45);
+                ctx.rotate((Math.PI / 180) * 90);
+                ctx.translate(-95, -45);
+                //Add sideways text
+                ctx.fillText("zsin\u0398", 85, 45);
+                ctx.restore(); //Go back to default settings
+                ctx.fillText("z", 40, 45);
             </script>
             <h3>Vectors:</h3>
             <li>Many of the values in this course are represented with vectors: distance, speed, acceleration, forces, really any type of movement.</li>
