@@ -130,7 +130,8 @@
         #unit8,
         #unit9,
         #limitFormulas,
-        #prerequisites {
+        #prerequisites,
+        #linearMotion {
             display: none;
             -webkit-transition: display 1s ease-in-out;
             -moz-transition: display 1s ease-in-out;

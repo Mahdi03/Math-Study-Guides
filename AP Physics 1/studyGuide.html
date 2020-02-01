@@ -26,11 +26,118 @@
             enable_page_level_ads: true
         });
     </script>
+    <style>
+        /*
+Oswald Font For Titles, Years
+Used As Such:
+font-family: 'Oswald', sans-serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Oswald');
+        /*
+ZCOOL XiaoWei Font For Titles In Vocabulary Popup
+Used As Such:
+font-family: 'ZCOOL XiaoWei', serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
+        /*
+Nunito Font For Text, Descriptions
+Used As Such:
+font-family: 'Nunito', sans-serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Nunito');
+        .link {
+            text-align: center;
+        }
+        
+        .link:hover {
+            color: rgb(0, 180, 255);
+            cursor: pointer;
+        }
+        
+        #modalBackground {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 500;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: hidden;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.75);
+            /* Black w/ opacity */
+        }
+        
+        #modalBackground:hover {
+            cursor: pointer;
+        }
+        
+        .modal:hover {
+            cursor: default;
+        }
+        
+        .modal {
+            background-color: #fefefe;
+            margin: 0 auto;
+            /* 15% from the top and centered */
+            padding: 10px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+            /*height: 95%;*/
+            display: none;
+            overflow: auto;
+            /*overflow-y: hidden;
+    /*Change To Hidden In Production Stages*/
+        }
+        
+        .close {
+            font-size: 20px;
+            text-align: center;
+            width: 45px;
+            height: 25px;
+            color: white;
+            background-color: red;
+            position: fixed;
+            float: right;
+        }
+        
+        .close:hover {
+            cursor: pointer;
+            color: red;
+            background-color: white;
+        }
+        
+        #vocab {
+            z-index: 1000;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Physics Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
+    <h2 class="link">AP Physics 1 Equations</h2>
+    <div id="modalBackground">
+        <div id="apPhysics1Equations" class="modal">
+            <span class="close">&times;</span>
+            <div style="margin: 0 auto;">
+                <embed src="ap-physics-1-equations-table.pdf" height="800px" width="100%" />
+                <a href="ap-physics-1-equations-table.pdf" target="_blank">Download PDF Here</a>
+            </div>
+        </div>
+    </div>
 
     <!--Prerequisites-->
     <div><span class="toggleButton" id="prerequisitesToggleButton" onclick="toggleDiv('#prerequisites');">&plus;</span>
@@ -87,17 +194,102 @@
             <li>Average velocity is
                 <div class="fraction">
                     <div class="top">&Delta;<var>x</var></div>
-                    <div class="bottom"><var>t</var></div>
-                </div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div> where &Delta; simply means "change in," so &Delta;<var>x</var> is equal to your final position minus your initial position, or <br />(<var>x<sub>f</sub></var> &minus; <var>x<sub>i</sub></var>)
             </li>
             <li>Vectors can be broken apart into x-direction and y-direction components, like a right triangle. It is helpful to do this when adding and subtracting vectors.</li>
             <h5>Parallel Vectors:</h5>
             <li>Vectors in the same direction add together or reinforce.</li>
             <li>Vectors in the opposite direction subtract from each other, or cancel out.</li>
-            <h5>Perpindicular Vectors:</h5>
+            <h5>Perpendicular Vectors:</h5>
             <li>Just use the Pythagorean Theorem after breaking them up into x and y components to get the complete vector.</li>
+            <h3>Dimensional Analysis:</h3>
+            <li>Another useful trick for converting units is dimensional analysis, simply it is converting one value such as yards per second into another value such as miles per hour.</li>
+            <li>The goal of dimensional analysis is to cancel out all of the units that you don't need to end up with the final result.</li>
+            <li>Using that example, let's convert 100 yards per second into mph using dimensional analysis.</li>
+            <div class="fraction">
+                <div class="top">100 <s>yards</s></div>
+                <div class="bottom">1 <s>second</s></div>
+            </div> &times;
+            <div class="fraction">
+                <div class="top">60 <s>seconds</s></div>
+                <div class="bottom">1 <s>minute</s></div>
+            </div> &times;
+            <div class="fraction">
+                <div class="top">60 <s>minutes</s></div>
+                <div class="bottom">1 hour</div>
+            </div> &times;
+            <div class="fraction">
+                <div class="top">3 <s>feet</s></div>
+                <div class="bottom"> 1 <s>yard</s></div>
+            </div> &times;
+            <div class="fraction">
+                <div class="top">1 mile</div>
+                <div class="bottom">5280 <s>feet</s></div>
+            </div> =
+            <div class="fraction">
+                <div class="top">100 &times; 60 &times; 60 &times; 3 miles</div>
+                <div class="bottom">5280 hour</div>
+            </div>
         </ul>
     </div>
+    <div><span class="toggleButton" id="linearMotionToggleButton" onclick="toggleDiv('#linearMotion');">&plus;</span>
+        <h2>Linear Motion:</h2>
+    </div>
+    <div id="linearMotion">
+        <ul>
+            <li>Average Rate of Change, or AROC, is the rate of change in between two points on a graph, whereas Instantaneous Rate of Change, IROC, is the rate of change at a single point on the graph. If you've taken calculus, this is also known as the
+                derivative.
+            </li>
+            <li>Velocity is the rate of change in a displacement versus time graph.</li>
+            <li>Acceleration is the rate of change in a velocity versus time graph.</li>
+            <li>The area under the curve refers to the area in bewteen the graph and the x-axis. If it is below the x-axis then the area is negative. If you've taken calculus, this is known as the integral.</li>
+            <li>The area under the curve of an acceleration versus time graph is the velocity.</li>
+            <li>The area under the curve of a velocity versus time graph is the displacement.</li>
+            <li>As previously stated, velocity is
+                <div class="fraction">
+                    <div class="top">&Delta;<var>x</var></div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div>, and acceleration is
+                <div class="fraction">
+                    <div class="top">&Delta;<var>V</var></div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.querySelector("h2.link").onclick = function() {
+            openPopup("apPhysics1Equations");
+        };
+        //Opens Popup Based on ID
+        function openPopup(id) {
+            document.querySelector("#modalBackground").style.display = "block";
+            if (id === "#vocab") {
+                document.querySelector("#vocab").style.display = "block";
+            } else {
+                document.querySelector("#" + id).style.display = "block";
+            }
+        }
+
+        //Hides All Popups and Background
+        function closeAllPopups() {
+            document.getElementById("modalBackground").style.display = "none";
+            document.querySelectorAll(".modal").forEach(function(elementModal) {
+                elementModal.style.display = "none";
+            });
+        }
+        document.querySelector("#modalBackground").onclick = function(clickEvent) {
+            if (clickEvent.path[0].id === "modalBackground") {
+                closeAllPopups();
+            }
+        };
+        document.querySelectorAll(".close").forEach(function(elementClose) {
+            elementClose.onclick = closeAllPopups;
+        });
+        renderMath();
+        addImportanceToFormulas();
+    </script>
 
 </body>
 
