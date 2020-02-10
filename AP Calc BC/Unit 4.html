@@ -127,16 +127,16 @@
                     </div>| &gt; 1
                 </td>
             </tr>
-                <tr>
-                    <td>
-                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
-                    <td>
-                        <lim as="n" approaches="&infin;"></lim>|
-                        <div class="fraction">
-                            <div class="top"><var>a<sub>n+1</sub></var></div>
-                            <div class="bottom"><var>a<sub>n</sub></var></div>
-                        </div>| = 1
-                    </td>
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim>|
+                    <div class="fraction">
+                        <div class="top"><var>a<sub>n+1</sub></var></div>
+                        <div class="bottom"><var>a<sub>n</sub></var></div>
+                    </div>| = 1
+                </td>
             </tr>
         </table>
         <h5>Root Test:</h5>
@@ -158,19 +158,29 @@
                     <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &gt; 1
                 </td>
             </tr>
-                <tr>
-                    <td>
-                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
-                    <td>
-                        <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
-                        <sqrt>|<var>a<sub>n</sub></var>|</sqrt> = 1
-                    </td>
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                <td>
+                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
+                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> = 1
+                </td>
             </tr>
         </table>
         <h5>Alternating Series Test (AST):</h5>
         <li>Use this test when you have (-1)<sup><var>n</var></sup> or (-1)<sup><var>n + c</var></sup> (where <var>c</var> is any number) within your sequence.</li>
-        <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0 and you can show that the series of <var>a<sub>n</sub></var> continuously decreases starting from a point, then the original alternating series converges.</li>
-        <li>Use this test to only prove convergence, if you find that <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> &ne; 0, then it diverges by the nth term test.</li>
-        
+        <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that
+            <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0 and you can show that the series of <var>a<sub>n</sub></var> continuously decreases starting from a point, then the original alternating series converges.</li>
+        <li>Use this test to only prove convergence, if you find that
+            <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> &ne; 0, then it diverges by the nth term test.</li>
+        <li>In order to prove whether it conditionally converges or if it absolutely converges, after using the AST to prove that the alternating series converges, remove the alternating part and use another test to show that the series without the alternating
+            part either converges or diverges. If the alternating series converges and the normal series diverges, then the series as a whole conditionally converges. And if both converge then the series as a whole absolutely converges.</li>
+        <h3>Power Series:</h3>
+        <li>A power series is an infinite series that can be rewritten as a polynomial of infinite degree.</li>
+        <li>Power series converge to a function, in terms of just <var>x</var>, and where it converges to the function actually depends. It could converge in select amount of value defined by the center and the radius of the Interval of Convergence (IOC),
+            it could converge at just the center, or it could converge for all real numbers.</li>
+        <li>As for the endpoints in the IOC, they need to be tested individually in order to see if they are included in the IOC.</li>
+        <li>If you see that the series is geometric, then you can skip having to use the Ratio Test to solve for what the series converges to and finding the IOC as well as the radius.</li>
+        <li>If we know the derivative of a series converges to something, then the antiderivative of what the derivative converges to would be what the original series converges to. And the same applies for the antiderivative of a series.</li>
     </ul>
 </div>
