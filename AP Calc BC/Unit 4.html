@@ -177,10 +177,389 @@
             part either converges or diverges. If the alternating series converges and the normal series diverges, then the series as a whole conditionally converges. And if both converge then the series as a whole absolutely converges.</li>
         <h3>Power Series:</h3>
         <li>A power series is an infinite series that can be rewritten as a polynomial of infinite degree.</li>
+        <li>You can have Power Series centered at a certain point <var>a</var>, written in general form as such:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var></td>
+                <td><var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + c<sub>3</sub>(x &minus; a)<sup>3</sup> + ... + c<sub>n</sub>(x &minus; a)<sup>n</sup> + ...</var>
+                </td>
+            </tr>
+        </table>
         <li>Power series converge to a function, in terms of just <var>x</var>, and where it converges to the function actually depends. It could converge in select amount of value defined by the center and the radius of the Interval of Convergence (IOC),
             it could converge at just the center, or it could converge for all real numbers.</li>
         <li>As for the endpoints in the IOC, they need to be tested individually in order to see if they are included in the IOC.</li>
         <li>If you see that the series is geometric, then you can skip having to use the Ratio Test to solve for what the series converges to and finding the IOC as well as the radius.</li>
+        <li>Finding the IOC can be done by using the GST (if applicable) or the Ratio Test.</li>
+        <li>Using the GST, you identify a Geometric Series and find a common ratio <var>r</var>, setting that &minus;1 &le; <var>r</var> &le; 1 and simplifying to find the IOC.</li>
+        <li>Using the Ratio Test, you have the absolute value of the function &le; 1, which means that the function is &le; 1 and &ge; &minus;1</li>
+        <h5>Differentiation and Integration of Power Series:</h5>
         <li>If we know the derivative of a series converges to something, then the antiderivative of what the derivative converges to would be what the original series converges to. And the same applies for the antiderivative of a series.</li>
+        <br />Given <var>f (x)</var> =
+        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var> = <var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + ...</var>
+
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>f '(x)</var></td>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>nc<sub>n</sub>(x &minus; a)<sup>n &minus; 1</sup></var></td>
+                <td>c<sub>1</sub> + 2c<sub>2</sub>(x &minus; a)<sup>1</sup> + 3c<sub>3</sub>(x &minus; a)<sup>2</sup> + ...
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <integral respectTo="x"> <var>f(x)</var></integral>
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var><div class="fraction">
+                        <div class="top">
+                            c<sub>n</sub>(x &minus; a)<sup>n + 1</sup>
+                        </div>
+                        <div class="bottom">
+                            n + 1
+                        </div>
+                    </div></var></td>
+                <td>C + c<sub>0</sub>(x &minus; a)<sub>1</sub> +
+                    <div class="fraction">
+                        <div class="top">c<sub>1</sub>(x &minus; a)<sup>2</sup></div>
+                        <div class="bottom">2</div>
+                    </div>
+                    + ...
+                </td>
+            </tr>
+        </table>
+        <li>Although after Differentiation and Integration the Radius of Convergence remains the same, the endpoints need to be tested to see if they work. (Notice the <var>n</var> = 1 when the summation is differentiated).</li>
+        <li>In order to check the endpoints, find where it converges and diverged when you plug in the endpoints.</li>
+        <li>In order to solve for C, plug in the center value of the power series for <var>x</var>.</li>
+        <h5>Taylor and Maclaurin Series:</h5>
+        <li>A Taylor Series is another way to define a function using its derivatives.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top"><var>f <sup>(n)</sup>(a)(x &minus; a)<sup>n</sup></var></div>
+                        <div class="bottom"><var>n</var>!</div>
+                    </div>
+                </td>
+                <td>
+                    <var>f(a)</var> +
+                    <div class="fraction">
+                        <div class="top"><var>f '(a)(x &minus; a)</var><sup>1</sup></div>
+                        <div class="bottom">1!</div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top"><var>f ''(a)(x &minus; a)</var><sup>2</sup></div>
+                        <div class="bottom">2!</div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top"><var>f '''(a)(x &minus; a)</var><sup>3</sup></div>
+                        <div class="bottom">3!</div>
+                    </div> + ... +
+                    <div class="fraction">
+                        <div class="top"><var>f <sup>n</sup>(a)(x &minus; a)</var><sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var>!</div>
+                    </div> + ...
+                </td>
+            </tr>
+        </table>
+        <li>If the Taylor Series is centered at 0, in other words, if <var>a</var> = 0, then it is called a Maclaurin Series.</li>
+        <li>The partial sum of a Taylor Series can be written as a Taylor polynomial of order <var>n</var>, or of degree <var>n</var>.</li>
+        <li>A first degree polynomial is just a tangent line to <var>f(x)</var> at <var>x = a</var>.</li>
+        <li>The higher the degree of the Taylor Polynomial, a better approximation.</li>
+        <li>Some popular series to memorize:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top">
+                            1
+                        </div>
+                        <div class="bottom">
+                            1 &minus; <var>x</var>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>x<sup>n</sup></var>
+                </td>
+                <td>1 + <var>x</var> + <var>x</var><sup>2</sup> + <var>x</var><sup>3</sup> + ...</td>
+                <td>R = 1</td>
+            </tr>
+            <tr>
+                <td><var>e<sup>x</sup></var></td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top"><var>x<sup>n</sup></var></div>
+                        <div class="bottom"><var>n</var>!</div>
+                    </div>
+                </td>
+                <td>1 +
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>1</sup></div>
+                        <div class="bottom">1!</div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>2</sup></div>
+                        <div class="bottom">2!</div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>3</sup></div>
+                        <div class="bottom">3!</div>
+                    </div> + ...
+                </td>
+                <td>R = &infin;</td>
+            </tr>
+            <tr>
+                <td>
+                    <sin>x</sin>
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>2<var>n</var></sup> + 1
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var> + 1)!
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>1</sup>
+                        </div>
+                        <div class="bottom">
+                            1!
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>3</sup>
+                        </div>
+                        <div class="bottom">
+                            3!
+                        </div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>5</sup>
+                        </div>
+                        <div class="bottom">
+                            5!
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>7</sup>
+                        </div>
+                        <div class="bottom">
+                            7!
+                        </div>
+                    </div> + ...
+                </td>
+                <td>R = &infin;</td>
+            </tr>
+            <tr>
+                <td>
+                    <cos>x</cos>
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>2<var>n</var></sup>
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var>)!
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>0</sup>
+                        </div>
+                        <div class="bottom">
+                            0!
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>2</sup>
+                        </div>
+                        <div class="bottom">
+                            2!
+                        </div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>4</sup>
+                        </div>
+                        <div class="bottom">
+                            4!
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>6</sup>
+                        </div>
+                        <div class="bottom">
+                            6!
+                        </div>
+                    </div> + ...
+                </td>
+                <td>R = &infin;</td>
+            </tr>
+            <tr>
+                <td>
+                    tan<sup>&minus;1</sup>(<var>x</var>)
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>2<var>n</var></sup> + 1
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var> + 1)
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>1</sup>
+                        </div>
+                        <div class="bottom">
+                            1
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>3</sup>
+                        </div>
+                        <div class="bottom">
+                            3
+                        </div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>5</sup>
+                        </div>
+                        <div class="bottom">
+                            5
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>7</sup>
+                        </div>
+                        <div class="bottom">
+                            7
+                        </div>
+                    </div> + ...
+                </td>
+                <td>R = 1</td>
+            </tr>
+            <tr>
+                <td>
+                    <ln>1 + x</ln>
+                </td>
+                <td>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(&minus;1)<sup><var>n</var> &minus; 1</sup>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup><var>n</var></sup>
+                        </div>
+                        <div class="bottom">
+                            <var>n</var>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>1</sup>
+                        </div>
+                        <div class="bottom">
+                            1
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>2</sup>
+                        </div>
+                        <div class="bottom">
+                            2
+                        </div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>3</sup>
+                        </div>
+                        <div class="bottom">
+                            3
+                        </div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">
+                            <var>x</var><sup>4</sup>
+                        </div>
+                        <div class="bottom">
+                            4
+                        </div>
+                    </div> + ...
+                </td>
+                <td>R = 1</td>
+                <tr>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td>(1 + <var>x</var>)<sup><var>k</var></sup></td>
+                    <td>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><sub><var>n</var></sub>C<sub><var>k</var></sub><var>x<sup>n</sup></var></td>
+                    <td>1 +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>k</var>
+                            </div>
+                            <div class="bottom">
+                                1!
+                            </div>
+                        </div>
+                        <var>x</var><sup>1</sup> +
+
+                        <div class="fraction">
+                            <div class="top">
+                                <var>k(k &minus; 1)</var>
+                            </div>
+                            <div class="bottom">
+                                2!
+                            </div>
+                        </div>
+                        <var>x</var><sup>2</sup> +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>k(k &minus; 1)(k &minus; 2)</var>
+                            </div>
+                            <div class="bottom">
+                                3!
+                            </div>
+                        </div>
+                        <var>x</var><sup>3</sup> + ...
+                    </td>
+                    <td>R = 1</td>
+                </tr>
+            </tr>
+        </table>
+        <li>
+            <sin>x</sin> is an odd function, so recall the odd powers and odd factorials.</li>
+        <li>
+            <cos>x</cos> is an even function, so recall the even powers and even factorials.</li>
+        <li>The last one isn't necessary to memorize, it is just a fun series.</li>
     </ul>
 </div>
