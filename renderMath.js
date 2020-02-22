@@ -134,3 +134,14 @@ function toggleDiv(id) {
         document.querySelector(id + "ToggleButton").innerHTML = "&minus;";
     }
 }
+
+function toggleSolution(id) {
+    var element = document.querySelector(id);
+    if (element.style.display === "block") {
+        element.style.display = "none";
+        document.querySelector(id + "ToggleLink").innerHTML = "Show Solution";
+    } else {
+        element.style.display = "block";
+        document.querySelector(id + "ToggleLink").innerHTML = "Hide Solution";
+    }
+}
