@@ -48,9 +48,117 @@
         <h5>n-th Term Test:</h5>
         <li>This should be the first test used with most series unless you already see a convering Geometric Series.</li>
         <li>Simply take the limit of the sequance, and if it approaches any other value than 0, the series will diverge.</li>
-        <li>When the limit of the sequence converges to 0, another test needs to be tried out.</li>
+        <li>When the limit of the sequence converges to 0, another test needs to be tried out. This test can <strong>only prove divergence</strong>.</li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">
+                <var>n</var>
+            </div>
+            <div class="bottom"><var>n</var> + 1</div>
+        </div>&emsp;<a href="javascript:void(0)" id="nthTermTestProblem1SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem1Solution');">Show Solution</a>
+        <div id="nthTermTestProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>n</var>
+                        </div>
+                        <div class="bottom"><var>n</var> + 1</div>
+                    </div> = 1 &ne; 0
+                </li>
+                <li><span class="answer">&there4; diverges by Nth Term Test</span></li>
+            </ol>
+        </div>
+        <br />
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <var>n</var>sin(
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom"><var>n</var></div>
+        </div>)&emsp;<a href="javascript:void(0)" id="nthTermTestProblem2SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem2Solution');">Show Solution</a>
+        <div id="nthTermTestProblem2Solution" class="solution">
+            <ol>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim><var>n</var>sin(
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>) =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">sin(
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>n</var></div>
+                            </div>)</div>
+                        <div class="bottom">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>n</var></div>
+                            </div>
+                        </div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">0</div>
+                        <div class="bottom">0</div>
+                    </div>
+                </li>
+                <li>=
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">cos(
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>n</var></div>
+                            </div>)&times;<var>n</var><sup>&minus;2</sup></div>
+                        <div class="bottom"><var>n</var><sup>&minus;2</sup></div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>cos(
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>) = 1 &ne; 0
+                </li>
+                <li><span class="answer">&there4; Diverges by Nth Term Test</span></li>
+            </ol>
+        </div>
         <h5>Geometric Series Test (GST):</h5>
         <li>Use the GST when you can find a common ratio <var>r</var>. And recall from last year, that if |<var>r</var>| &ge; 1, the series will diverge, and if |<var>r</var>| &lt; 1, the series will converge.</li>
+        <li>Using this test you can also find the Interval of Convergence, when &minus;1 &le; <var>r</var> &le; 1.</li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">
+                (&minus;2)<sup><var>n</var></sup>
+            </div>
+            <div class="bottom">3<sup><var>n</var></sup></div>
+        </div>&emsp;<a href="javascript:void(0)" id="GSTProblem1SolutionToggleLink" onclick="toggleSolution('#GSTProblem1Solution');">Show Solution</a>
+        <div id="GSTProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">
+                            (&minus;2)<sup><var>n</var></sup>
+                        </div>
+                        <div class="bottom">3<sup><var>n</var></sup></div>
+                    </div> =
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    (&minus;
+                    <div class="fraction">
+                        <div class="top">2</div>
+                        <div class="bottom">3</div>
+                    </div>)<sup><var>n</var></sup>
+                </li>
+                <li>|<var>r</var>| =
+                    <div class="fraction">
+                        <div class="top">2</div>
+                        <div class="bottom">3</div>
+                    </div> &le; 1 <span class="answer">&there4; Converges by GST</span></li>
+            </ol>
+        </div>
         <h5>Telescoping Series:</h5>
         <li>These series have alternating terms that end up canceling out and leave you with only the first few terms as the value that the entire series converges to.</li>
         <li>Usually these series will involve Partial Fraction Decomposition and then finding the first couple of terms until you feel confident that the rest will cancel out.</li>
@@ -59,6 +167,83 @@
         <li>Simply put, when the improper integral of the sequence converges, the infinite series of the sequence converges, and if the improper integral of the sequence diverges, so does the series. However, if the integral converges to a certain value,
             this does not mean that the infinite series converges to the same value.</li>
         <li>In order to use this test, the function must be <u>decreasing, continuous, and positive when <var>x</var> &ge; 1</u>, and this needs to be shown every time.</li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">
+                <ln>n</ln>
+            </div>
+            <div class="bottom"><var>n</var></div>
+        </div>&emsp;<a href="javascript:void(0)" id="integralTestProblem1SolutionToggleLink" onclick="toggleSolution('#integralTestProblem1Solution');">Show Solution</a>
+        <div id="integralTestProblem1Solution" class="solution">
+            <ol>
+                <li>decreasing, continuous, and positive when <var>x</var> &ge; 1</li>
+                <li><var>f(x)</var> =
+                    <div class="fraction">
+                        <div class="top">
+                            <ln>x</ln>
+                        </div>
+                        <div class="bottom"><var>x</var></div>
+                    </div>
+                </li>
+                <li>
+                    <integral lowerBound="1" upperBound="&infin;" respectTo="x">
+                        <div class="fraction">
+                            <div class="top">
+                                <ln>x</ln>
+                            </div>
+                            <div class="bottom"><var>x</var></div>
+                        </div>
+                    </integral> =
+                    <lim as="a" approaches="&infin;"></lim>
+                    <integral lowerBound="1" upperBound="<var>a</var>" respectTo="x">
+                        <div class="fraction">
+                            <div class="top">
+                                <ln>x</ln>
+                            </div>
+                            <div class="bottom"><var>x</var></div>
+                        </div>
+                    </integral>
+                </li>
+
+                <ol type="i">
+                    <li>
+                        <integral respectTo="x">
+                            <div class="fraction">
+                                <div class="top">
+                                    <ln>x</ln>
+                                </div>
+                                <div class="bottom"><var>x</var></div>
+                            </div>
+                        </integral>:
+                    </li>
+                    <li><var>u</var> =
+                        <ln>x</ln>
+                    </li>
+                    <li><var>du</var> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>x</var></div>
+                        </div><var>dx</var></li>
+                    <li>
+                        <integral respectTo="u"><var>u</var></integral> = <var>u</var><sup>2</sup> / 2 + C
+                    </li>
+                    <li>ln<sup>2</sup>(<var>x</var>) / 2</li>
+                </ol>
+                <li>
+                    <lim as="a" approaches="&infin;"></lim>ln<sup>2</sup>(<var>a</var>) / 2 &minus; ln<sup>2</sup>(1) / 2 = &infin;
+                </li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">
+                            <ln>n</ln>
+                        </div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> diverges by the Integral Test</li>
+            </ol>
+        </div>
+
         <h5>P-Series Test:</h5>
         <li>If you can simplify your series into the form of a p-series (as shown below) then you can use the simple rule to check for convergence or divergence.</li>
         <table class="rules">
@@ -102,6 +287,66 @@
                     </td>
                 </tr>
             </table> <br /> is equal to a finite and positive value, then both series either converge or both series diverge.</li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">3<var>n</var> &minus; 1</div>
+            <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+        </div>&emsp;<a href="javascript:void(0)" id="LCTProblem1SolutionToggleLink" onclick="toggleSolution('#LCTProblem1Solution');">Show Solution</a>
+        <div id="LCTProblem1Solution" class="solution">
+            <ol>
+                <li>compare to
+                    <div class="fraction">
+                        <div class="top">3<var>n</var></div>
+                        <div class="bottom"><var>n</var><sup>2</sup></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">3</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>
+                </li>
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">3</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> diverges by P Test
+                </li>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            <div class="fraction">
+                                <div class="top">3<var>n</var> &minus; 1</div>
+                                <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="fraction">
+                                <div class="top">3</div>
+                                <div class="bottom"><var>n</var></div>
+                            </div>
+                        </div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">(3<var>n</var> &minus; 1)<var>n</var></div>
+                        <div class="bottom">3(<var>n</var><sup>2</sup> &minus; 1)</div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">3<var>n</var><sup>2</sup> &minus; <var>n</var></div>
+                        <div class="bottom">3<var>n</var><sup>2</sup> &minus; 3</div>
+                    </div> = 1
+                </li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">3<var>n</var> &minus; 1</div>
+                        <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+                    </div> <span class="answer">Diverges by the LCT</span></li>
+            </ol>
+        </div>
         <h5>Ratio Test:</h5>
         <li>For the <var>a<sub>n+1</sub></var> simply substitute (<var>n</var> + 1) for every <var>n</var> in the sequence.</li>
         <table class="rules">
@@ -139,6 +384,75 @@
                 </td>
             </tr>
         </table>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top"><var>n</var>!</div>
+            <div class="bottom">(2<var>n</var> + 1)!</div>
+        </div>&emsp;<a href="javascript:void(0)" id="ratioTestProblem1SolutionToggleLink" onclick="toggleSolution('#ratioTestProblem1Solution');">Show Solution</a>
+        <div id="ratioTestProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            <div class="fraction">
+                                <div class="top">(<var>n</var> + 1)!</div>
+                                <div class="bottom">(2<var>n</var> + 2)!</div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="top"><var>n</var>!</div>
+                            <div class="bottom">(2<var>n</var> + 1)!</div>
+                        </div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            (<var>n</var> + 1)!(2<var>n</var> + 1)!
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var> + 2)!<var>n</var>!
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            (<var>n</var> + 1)<var>n</var>!(2<var>n</var> + 1)!
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var> + 2)(2<var>n</var> + 1)!<var>n</var>!
+                        </div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">
+                            (<var>n</var> + 1)
+                        </div>
+                        <div class="bottom">
+                            (2<var>n</var> + 2)
+                        </div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">
+                            1
+                        </div>
+                        <div class="bottom">
+                            2
+                        </div>
+                    </div> &le; 1
+                </li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top"><var>n</var>!</div>
+                        <div class="bottom">(2<var>n</var> + 1)!</div>
+                    </div> <span class="answer">Converges by the Ratio Test</span></li>
+            </ol>
+        </div>
         <h5>Root Test:</h5>
         <li>This test helps when the function of the sequence can be manipulated to where the entire function is to the power of <var>n</var>.</li>
         <table class="rules">
@@ -167,6 +481,49 @@
                 </td>
             </tr>
         </table>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom">
+                <ln>2</ln><sup><var>n</var></sup></div>
+        </div>
+        &emsp;<a href="javascript:void(0)" id="rootTestProblem1SolutionToggleLink" onclick="toggleSolution('#rootTestProblem1Solution');">Show Solution</a>
+        <div id="rootTestProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">
+                            <ln>2</ln><sup><var>n</var></sup></div>
+                    </div> =
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">1<sup><var>n</var></sup></div>
+                        <div class="bottom">
+                            <ln>2</ln><sup><var>n</var></sup></div>
+                    </div>
+                </li>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">
+                            <ln>2</ln><sup><var>n</var></sup></div>
+                    </div> ?&lt; 1
+                </li>
+                <li>1 ?&lt; ln(2)</li>
+                <li><var>e</var> ?&lt; 2</li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">
+                            <ln>2</ln><sup><var>n</var></sup></div>
+                    </div> diverges by Root Test</li>
+            </ol>
+        </div>
         <h5>Alternating Series Test (AST):</h5>
         <li>Use this test when you have (-1)<sup><var>n</var></sup> or (-1)<sup><var>n + c</var></sup> (where <var>c</var> is any number) within your sequence.</li>
         <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that
