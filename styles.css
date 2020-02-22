@@ -130,6 +130,14 @@
         #unit8,
         #unit9,
         #limitFormulas,
+        #lhopitalsRuleProblem1Solution,
+        #lhopitalsRuleProblem2Solution,
+        #lhopitalsRuleProblem3Solution,
+        #lhopitalsRuleProblem4Solution,
+        #improperIntegralsProblem1Solution,
+        #improperIntegralsProblem2Solution,
+        #integralTestProblem1Solution,
+        #rootTestProblem1Solution,
         #prerequisites,
         #linearMotion {
             display: none;
@@ -138,6 +146,11 @@
             -ms-transition: display 1s ease-in-out;
             -o-transition: display 1s ease-in-out;
             transition: display 1s ease-in-out;
+        }
+        
+        .answer {
+            border: 2px solid black;
+            padding: 5px;
         }
         
         .toggleButton:before {
