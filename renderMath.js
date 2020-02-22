@@ -104,7 +104,12 @@ function renderMath() {
         }
         integralTags[h].parentNode.insertBefore(span, integralTags[h].nextSibling);
     }
-
+    var evaluatedTags = document.getElementsByTagName("evaluated");
+    for (t = 0; t < evaluatedTags.length; t++) {
+        var from = evaluatedTags[t].getAttribute("from");
+        var to = evaluatedTags[t].getAttribute("to");
+        evaluatedTags[t].innerHTML = "<table style='display: inline-table; border-left: 2px solid black; padding:0; border-collapse: collapse; transform: translate(0, -5px);'><tr><td style='transform: translate(0, -10px);'>" + to + "</td></tr><tr><td style='transform: translate(0, 10px)'>" + from + "</td></tr></table>";
+    }
     //Defined vector tag
     var vectorTags = document.getElementsByTagName("vector");
     for (var i = 0; i < vectorTags.length; i++) {
