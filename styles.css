@@ -130,14 +130,7 @@
         #unit8,
         #unit9,
         #limitFormulas,
-        #lhopitalsRuleProblem1Solution,
-        #lhopitalsRuleProblem2Solution,
-        #lhopitalsRuleProblem3Solution,
-        #lhopitalsRuleProblem4Solution,
-        #improperIntegralsProblem1Solution,
-        #improperIntegralsProblem2Solution,
-        #integralTestProblem1Solution,
-        #rootTestProblem1Solution,
+        .solution,
         #prerequisites,
         #linearMotion {
             display: none;
