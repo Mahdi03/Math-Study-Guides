@@ -45,6 +45,7 @@
             </tr>
         </table>
         <h3>Methods Of Testing Convergence/Divergence:</h3>
+
         <h5>n-th Term Test:</h5>
         <li>This should be the first test used with most series unless you already see a convering Geometric Series.</li>
         <li>Simply take the limit of the sequance, and if it approaches any other value than 0, the series will diverge.</li>
@@ -124,6 +125,7 @@
                 <li><span class="answer">&there4; Diverges by Nth Term Test</span></li>
             </ol>
         </div>
+
         <h5>Geometric Series Test (GST):</h5>
         <li>Use the GST when you can find a common ratio <var>r</var>. And recall from last year, that if |<var>r</var>| &ge; 1, the series will diverge, and if |<var>r</var>| &lt; 1, the series will converge.</li>
         <li>Using this test you can also find the Interval of Convergence, when &minus;1 &le; <var>r</var> &le; 1.</li>
@@ -159,9 +161,11 @@
                     </div> &le; 1 <span class="answer">&there4; Converges by GST</span></li>
             </ol>
         </div>
+
         <h5>Telescoping Series:</h5>
         <li>These series have alternating terms that end up canceling out and leave you with only the first few terms as the value that the entire series converges to.</li>
         <li>Usually these series will involve Partial Fraction Decomposition and then finding the first couple of terms until you feel confident that the rest will cancel out.</li>
+
         <h5>Integral Test:</h5>
         <li>This test can be tried when other methods do not work, it is quite lengthy as it requires the usage of improper integration from the last unit.</li>
         <li>Simply put, when the improper integral of the sequence converges, the infinite series of the sequence converges, and if the improper integral of the sequence diverges, so does the series. However, if the integral converges to a certain value,
@@ -205,7 +209,6 @@
                         </div>
                     </integral>
                 </li>
-
                 <ol type="i">
                     <li>
                         <integral respectTo="x">
@@ -240,7 +243,65 @@
                             <ln>n</ln>
                         </div>
                         <div class="bottom"><var>n</var></div>
-                    </div> diverges by the Integral Test</li>
+                    </div> <span class="answer">Diverges by the Integral Test</span></li>
+            </ol>
+        </div>
+        <br />
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">
+                <var>e<sup>n</sup></var>
+            </div>
+            <div class="bottom">1 + <var>e</var><sup>2<var>n</var></sup></div>
+        </div>&emsp;<a href="javascript:void(0)" id="integralTestProblem2SolutionToggleLink" onclick="toggleSolution('#integralTestProblem2Solution');">Show Solution</a>
+        <div id="integralTestProblem2Solution" class="solution">
+            <ol>
+                <li>
+                    <div class="fraction">
+                        <div class="top">
+                            <var>e<sup>x</sup></var>
+                        </div>
+                        <div class="bottom">1 + <var>e</var><sup>2<var>x</var></sup></div>
+                    </div> = <var>e<sup>x</sup></var>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">1 + (<var>e</var><sup><var>x</var></sup>)<sup><sup>2</sup></sup>
+                        </div>
+                    </div>
+                </li>
+                <li>decreasing, continuous, positive for <var>x</var> &ge; 1</li>
+                <li><var>u</var> = <var>e<sup>x</sup></var>; <var>du</var> = <var>e<sup>x</sup>dx</var></li>
+                <li>
+                    <integral lowerBound="1" upperBound="&infin;" respectTo="x">
+                        <var>e<sup>x</sup></var>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">1 + (<var>e</var><sup><var>x</var></sup>)<sup><sup>2</sup></sup>
+                            </div>
+                        </div>
+                    </integral> =
+                    <lim as="a" approaches="&infin;"></lim>
+                    <integral lowerBound="1" upperBound="<var>a</var>" respectTo="u">
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">1 + <var>u</var><sup>2</sup></div>
+                        </div>
+                    </integral>
+                </li>
+                <li>=
+                    <lim as="a" approaches="&infin;"></lim>
+                    tan<sup>&minus;1</sup>(<var>u</var>)
+                    <evaluated from="1" to="<var>a</var>"></evaluated> =
+                    <lim as="a" approaches="&infin;"></lim>
+                    tan<sup>&minus;1</sup>(<var>e<sup>a</sup></var>) &minus; tan<sup>&minus;1</sup>(<var>e</var>)
+                </li>
+                arctan as <var>x</var> approaches infinity is &pi; &divide; 2
+                <li>
+                    <div class="fraction">
+                        <div class="top">&pi;</div>
+                        <div class="bottom">2</div>
+                    </div> &minus; tan<sup>&minus;1</sup>(<var>e</var>) is a finite value</li>
+                <li><span class="answer">&there4; Converges by the Integral Test</span></li>
             </ol>
         </div>
 
@@ -258,9 +319,52 @@
             </tr>
         </table>
         <li>If <var>p</var> &le; 1, the series will diverge, but if <var>p</var> &gt; 1, the series will converge.</li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">
+                <sqrt><var>n</var></sqrt>
+            </div>
+            <div class="bottom"><var>n</var><sup>2</sup></div>
+        </div>&emsp;<a href="javascript:void(0)" id="pTestProblem1SolutionToggleLink" onclick="toggleSolution('#pTestProblem1Solution');">Show Solution</a>
+        <div id="pTestProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">
+                            <sqrt><var>n</var></sqrt>
+                        </div>
+                        <div class="bottom"><var>n</var><sup>2</sup></div>
+                    </div> =
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">
+                            1
+                        </div>
+                        <div class="bottom"><var>n</var><sup>3/2</sup></div>
+                    </div>
+                </li>
+                <li><var>p</var> =
+                    <div class="fraction">
+                        <div class="top">3</div>
+                        <div class="bottom">2</div>
+                    </div> &ge; 1</li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">
+                            <sqrt><var>n</var></sqrt>
+                        </div>
+                        <div class="bottom"><var>n</var><sup>2</sup></div>
+                    </div> <span class="answer">Diverges by P Test</span></li>
+            </ol>
+        </div>
+
         <h5>Direct Comparison Test (DCT):</h5>
         <li>Similar to the Direct Comparison Test used with Improper Integrals, come up with another function that you can find the limit of.</li>
         <li>If the larger series converges, then the smaller series converges, and if the smaller series diverges, then the larger series diverges.</li>
+
         <h5>Limit Comparison Test (LCT):</h5>
         <li>This test can be used to compare one series to another if you know that one series either converges or diverges.</li>
         <li>If either:<br />
@@ -347,6 +451,7 @@
                     </div> <span class="answer">Diverges by the LCT</span></li>
             </ol>
         </div>
+
         <h5>Ratio Test:</h5>
         <li>For the <var>a<sub>n+1</sub></var> simply substitute (<var>n</var> + 1) for every <var>n</var> in the sequence.</li>
         <table class="rules">
@@ -453,6 +558,7 @@
                     </div> <span class="answer">Converges by the Ratio Test</span></li>
             </ol>
         </div>
+
         <h5>Root Test:</h5>
         <li>This test helps when the function of the sequence can be manipulated to where the entire function is to the power of <var>n</var>.</li>
         <table class="rules">
@@ -521,9 +627,10 @@
                         <div class="top">1</div>
                         <div class="bottom">
                             <ln>2</ln><sup><var>n</var></sup></div>
-                    </div> diverges by Root Test</li>
+                    </div> <span class="answer">Diverges by Root Test</span></li>
             </ol>
         </div>
+
         <h5>Alternating Series Test (AST):</h5>
         <li>Use this test when you have (-1)<sup><var>n</var></sup> or (-1)<sup><var>n + c</var></sup> (where <var>c</var> is any number) within your sequence.</li>
         <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that
@@ -535,6 +642,62 @@
         <li>We can approximate the value of an Alternating Series with a partial sum, in which case the error would be the next term in the series. And so you can set up an inequality with the true sum lying in between the partial sum plus or minus the next
             term in the series.
         </li>
+        <li>Examples: Do the series converge or diverge?</li>
+        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+        <div class="fraction">
+            <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+        </div>&emsp;<a href="javascript:void(0)" id="ASTProblem1SolutionToggleLink" onclick="toggleSolution('#ASTProblem1Solution');">Show Solution</a>
+        <div id="ASTProblem1Solution" class="solution">
+            <ol>
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                    </div> =
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">(&minus;1)<sup><var>n</var></sup>(2)<sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                    </div>
+                </li>
+                <li>
+                    =
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">(&minus;1)<sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>
+                </li>
+                <li>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                        <div class="top">(&minus;1)<sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> = 0
+                </li>
+                <li>&there4; Converges by the AST</li>
+                But if we want to check for conditional or absolute convergence then we need to take it a step further
+                <li>
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> diverges by P Test since <var>p</var> = 1 &le; 1</li>
+                <li>&there4;
+                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                    <div class="fraction">
+                        <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                    </div> <span class="answer">Converges Conditionally</span></li>
+            </ol>
+        </div>
         <h3>Power Series:</h3>
         <li>A power series is an infinite series that can be rewritten as a polynomial of infinite degree.</li>
         <li>You can have Power Series centered at a certain point <var>a</var>, written in general form as such:</li>
@@ -555,6 +718,7 @@
         <li>Using the Ratio Test, you have the absolute value of the function &le; 1, which means that the function is &le; 1 and &ge; &minus;1</li>
         <h5>Differentiation and Integration of Power Series:</h5>
         <li>If we know the derivative of a series converges to something, then the antiderivative of what the derivative converges to would be what the original series converges to. And the same applies for the antiderivative of a series.</li>
+        <li>When integrating a series, integrate from the center <var>a</var> to <var>x</var> for simplicity and to avoid the constant that comes with indefinite integration.</li>
         <br />Given <var>f (x)</var> =
         <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var> = <var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + ...</var>
 
@@ -630,6 +794,12 @@
         <li>The higher the degree of the Taylor Polynomial, a better approximation.</li>
         <li>Some popular series to memorize:</li>
         <table class="rules">
+            <tr>
+                <th>Function:</th>
+                <th>Maclaurin Series:</th>
+                <th>Maclaurin Polynomial:</th>
+                <th>Radius of<br />Convergence:</th>
+            </tr>
             <tr>
                 <td>
                     <div class="fraction">
