@@ -206,7 +206,9 @@
                     <tr>
                         <td>
                             <integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var>
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> (<var>k</var> is constant; you can pull a constant out of the integral.)</td>
+                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                        </td>
+                        <td>(<var>k</var> is constant; you can pull a constant out of the integral.)</td>
                     </tr>
                     <tr>
                         <td>
@@ -216,47 +218,52 @@
                         </td>
                     </tr>
                 </table>
-                <p>
-                    <strong>Example:</strong> Given the following:
-                    <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;
-                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;
-                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
-                    <br />
-                    <ol>
-                        <li>Find
-                            <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>
-                        </li><br />
+                <strong>Example:</strong> Given the following:
+                <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;
+                <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;
+                <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                <br />
+                <ol>
+                    <li>Find
+                        <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem1SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem1Solution');">Show Solution</a>
+                    </li>
+                    <div id="definiteIntegralsProblem1Solution" class="solution">
                         <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0, according to rule #1<br /><br />
-                        <li>Find
-                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>
-                        </li><br />
+                    </div>
+                    <li>Find
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem2SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem2Solution');">Show Solution</a>
+                    </li>
+                    <div id="definiteIntegralsProblem2Solution" class="solution">
                         <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;
                         <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #2<br /><br /> So
-                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6<br /><br />
-                        <li>
-                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>
-                        </li><br />
+                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                    </div>
+                    <li>
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem3SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem3Solution');">Show Solution</a>
+                    </li>
+                    <div id="definiteIntegralsProblem3Solution" class="solution">
                         <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> =
                         <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus;
                         <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #3<br /><br /> So
-                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5<br /><br />
-                        <li>Find
-                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>
-                        </li><br />
+                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5</div>
+                    <li>Find
+                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem4SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem4Solution');">Show Solution</a>
+                    </li>
+                    <div id="definiteIntegralsProblem4Solution" class="solution">
                         <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5
                         <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br /> So
-                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20<br /><br />
-                        <li>
-                            <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>
-                        </li><br />
+                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20</div>
+                    <li>
+                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem5SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem5Solution');">Show Solution</a>
+                    </li>
+                    <div id="definiteIntegralsProblem5Solution" class="solution">
                         <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> =
                         <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus;
                         <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and
                         <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = &minus;2
                         <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />So
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18
-                    </ol>
-                </p>
+                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18</div>
+                </ol>
             </div>
             <h5>Average Value of a Function:</h5>
             <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by
@@ -308,49 +315,60 @@
                     </td>
                 </tr>
             </table>
-            <h5>U-substitution Examples:</h5>
-            <ol>
-                <li>Find
-                    <integral lowerBound="" upperBound="" respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>
-                </li><br /> Let <var>u</var> = <var>x</var><sup>2</sup> &minus; 1 <br /><br /> So <var>du</var> = 2<var>xdx</var><br /> Plug in <var>u</var> and <var>du</var> to get
-                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral><br />
-                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var><sup>3</sup></integral> =
-                <div class="fraction">
-                    <div class="top"><var>u</var><sup>4</sup></div>
-                    <div class="bottom">4</div>
-                </div> &plus; <var>c</var><br /> Plug <var>x</var><sup>2</sup> &minus; 1 back for <var>u</var> to get
-                <div class="fraction">
-                    <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
-                    <div class="bottom">4</div>
-                </div> &plus; <var>c</var>
-                <li>Find
-                    <integral lowerBound="" upperBound="" respectTo="x">
+            <h5>U-Substitution Examples:</h5>
+            <integral respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>&emsp;<a href="javascript:void(0)" id="uSubProblem1SolutionToggleLink" onclick="toggleSolution('#uSubProblem1Solution');">Show Solution</a>
+            <div id="uSubProblem1Solution" class="solution">
+                <ol>
+                    <li><var>u</var> = <var>x</var><sup>2</sup> &minus; 1<br /><var>du</var> = 2<var>xdx</var></li>
+                    Plug in <var>u</var> and <var>du</var>
+                    <li>
+                        <integral respectTo="u"><var>u</var><sup>3</sup></integral> =
                         <div class="fraction">
-                            <div class="top">
-                                <ln>x</ln>
-                            </div>
-                            <div class="bottom"><var>x</var></div>
-                        </div>
-                    </integral>
-                </li><br /> Let <var>u</var> =
-                <ln>x</ln><br /><br /> So <var>du</var> =
+                            <div class="top"><var>u</var><sup>4</sup></div>
+                            <div class="bottom">4</div>
+                        </div> &plus; C</li>
+                    Plug <var>x</var><sup>2</sup> &minus; 1 back in for <var>u</var>
+                    <li><span class="answer">
+                            <div class="fraction">
+                                <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
+                                <div class="bottom">4</div>
+                            </div> &plus; C
+                        </span></li>
+                </ol>
+            </div>
+            <br />
+            <integral respectTo="x">
                 <div class="fraction">
-                    <div class="top">1</div>
+                    <div class="top">
+                        <ln>x</ln>
+                    </div>
                     <div class="bottom"><var>x</var></div>
-                </div><var>dx</var><br /> Plug in <var>u</var> and <var>du</var> to get
-                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral><br />
-                <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
-                <div class="fraction">
-                    <div class="top"><var>u</var><sup>2</sup></div>
-                    <div class="bottom">2</div>
-                </div> &plus; <var>c</var><br /> Plug
-                <ln>x</ln> back for <var>u</var> to get
-                <div class="fraction">
-                    <div class="top">(
-                        <ln>u</ln>)<sup>2</sup></div>
-                    <div class="bottom">2</div>
-                </div> &plus; <var>c</var>
-            </ol>
+                </div>
+            </integral>&emsp;<a href="javascript:void(0)" id="uSubProblem2SolutionToggleLink" onclick="toggleSolution('#uSubProblem2Solution');">Show Solution</a>
+            <div id="uSubProblem2Solution" class="solution">
+                <ol>
+                    <li><var>u</var> =
+                        <ln>x</ln><br /><var>du</var> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>x</var></div>
+                        </div><var>dx</var></li>
+                    Plug in <var>u</var> and <var>du</var>
+                    <li>
+                        <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
+                        <div class="fraction">
+                            <div class="top"><var>u</var><sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div> &plus; C</li>
+                    Plug
+                    <ln>x</ln> back for <var>u</var>
+                    <li><span class="answer"><div class="fraction">
+                <div class="top">(
+                    <ln>u</ln>)<sup>2</sup></div>
+                <div class="bottom">2</div>
+            </div> &plus; C</span></li>
+                </ol>
+            </div>
             <li>Sometimes problems will ask to solve for the "initial value problem", given
                 <derivative of="y"></derivative>. All this means is to find the antiderivative, or the original function <var>y</var>. The "initial value" just refers to the C constant that comes in when you take the integral of a function.</li>
             <li>
