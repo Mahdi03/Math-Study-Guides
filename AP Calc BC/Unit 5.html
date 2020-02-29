@@ -1,0 +1,93 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+        <h3>Parametric Functions:</h3>
+        <li>Recall from EM3 functions that are defined using the parameter <var>t</var> (time) to define functions <var>x(t)</var> and <var>y(t)</var> which can later be rewritten as <var>y(x)</var>.</li>
+        <li>These graphs are drawn in a specific direction in increasing values of <var>t</var> which is shown by arrows on the graph.</li>
+        <li>In order to rewrite the function in a rectangular form, solve for <var>t</var> in one of the functions and then plug it in to the other, thus eliminating the parameter.</li>
+        <li>Recall from Unit 1 that:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <derivative of="y"></derivative> =
+                    <div class="fraction">
+                        <div class="top">
+                            <derivative of="y" respectTo="t"></derivative>
+                        </div>
+                        <div class="bottom">
+                            <derivative of="x" respectTo="t"></derivative>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> =
+                    <div class="fraction">
+                        <div class="top">
+                            <derivative respectTo="t"></derivative>(
+                            <derivative of="y" respectTo="x"></derivative>)</div>
+                        <div class="bottom">
+                            <derivative of="x" respectTo="t"></derivative>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>Earlier we derived arc length to be:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                        (1 +
+                        <div class="fraction">
+                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="y" lowerBound="<var>c</var>" upperBound="<var>d</var>">
+                        (1 +
+                        <div class="fraction">
+                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dy</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+            </tr>
+        </table>
+        <li>But with Parametric Functions we need to take in account the <var>t</var> factor, giving us:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>S</var> =
+                    <integral respectTo="t" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                        (
+                        <div class="fraction">
+                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
+                        </div>)<sup>1/2</sup>
+                    </integral>
+                </td>
+
+            </tr>
+        </table>
+
+
+    </ul>
+</div>
