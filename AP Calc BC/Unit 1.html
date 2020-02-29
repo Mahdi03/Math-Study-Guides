@@ -125,8 +125,8 @@
             <tr>
                 <td>
                     <div class="fraction">
-                        <div class="top"><var>&Delta;y</var></div>
-                        <div class="bottom"><var>&Delta;x</var></div>
+                        <div class="top">&Delta;<var>y</var></div>
+                        <div class="bottom">&Delta;<var>x</var></div>
                     </div> =
                     <div class="fraction">
                         <div class="top"><var>f(x &plus; h) &minus; f(x)</var></div>
@@ -219,7 +219,7 @@
         <li>All polynomial functions are differentiable (smooth continuous curves).</li>
         <li>The IVT works with derivatives</li>
         <li>Differentiability implies local linearity (meaning that if you zoom in really close on that one point, the graph will start to look linear)</li>
-        <h5>Derivatives With Parametric Functions</h5>
+        <h5>Derivatives With Parametric Functions:</h5>
         <li>As you'll recall from EM3, parametric functions are functions in which <var>x(t)</var> and <var>y(t)</var> are defined functions in terms of <var>t</var>, time, and the function itself can be plotted as (<var>x(t), y(t)</var>).</li>
         <li>Some problems will ask for you to find
             <derivative of="y"></derivative> (with respect to <var>x</var>), and others will ask for the second derivative
@@ -245,6 +245,8 @@
                             <derivative of="y" respectTo="x"></derivative>)</div>
                         <div class="bottom">
                             <derivative of="x" respectTo="t"></derivative>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </table>
@@ -806,23 +808,23 @@
             </tr>
         </table>
     </ul>
-    </div>
-    <script class="renderJS">
-        //Added all graphs to iFrames
-        //Set Discontinuity Graphs
-        var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
-        var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
-        var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
-        var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
-        //Actually loading each iFrame successively
-        infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
-        infiniteDiscontinuityGraph.onload = function() {
-            oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
-        };
-        oscillatingDiscontinuityGraph.onload = function() {
-            removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
-        };
-        removableDiscontinuityGraph.onload = function() {
-            jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
-        };
-    </script>
+</div>
+<script class="renderJS">
+    //Added all graphs to iFrames
+    //Set Discontinuity Graphs
+    var infiniteDiscontinuityGraph = document.querySelector("#infiniteDiscontinuityGraph");
+    var oscillatingDiscontinuityGraph = document.querySelector("#oscillatingDiscontinuityGraph");
+    var removableDiscontinuityGraph = document.querySelector("#removableDiscontinuityGraph");
+    var jumpDiscontinuityGraph = document.querySelector("#jumpDiscontinuityGraph");
+    //Actually loading each iFrame successively
+    infiniteDiscontinuityGraph.src = "https://www.desmos.com/calculator/0ker0rtxk2?embed";
+    infiniteDiscontinuityGraph.onload = function() {
+        oscillatingDiscontinuityGraph.src = "https://www.desmos.com/calculator/zd8knstmsy?embed";
+    };
+    oscillatingDiscontinuityGraph.onload = function() {
+        removableDiscontinuityGraph.src = "https://www.desmos.com/calculator/genhgvnlx8?embed";
+    };
+    removableDiscontinuityGraph.onload = function() {
+        jumpDiscontinuityGraph.src = "https://www.desmos.com/calculator/xnwrljyr3c?embed";
+    };
+</script>
