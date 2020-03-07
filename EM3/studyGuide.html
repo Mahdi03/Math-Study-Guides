@@ -1069,74 +1069,226 @@
     <div id="unit7">
         <div class="indent">
             <ul>
-                <li>
-                    <h3>General Information:</h3>
-                    <ul>
-                        <li>The polar form for a point is (r, <var>&theta;</var>), where "r" represents the distance away from the origin and <var>&theta;</var> represents the angle from the x-axis</li>
-                        <li>To convert a point from Cartesian coordinates to Polar coordinates, use r =
-                            <sqrt><var>x<sup>2</sup> &plus; y<sup>2</sup></var></sqrt> and <var>&theta;</var> = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></div></var></li>
-                        <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;</sup> because of the Quadrant. To fix that use this table to show what you have to do to the angle to get the
-                            right value of <var>&theta;</var>: <br />
-                            <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup></h5>
-                            <table style="margin: 0 auto;" class="staticTable">
-                                <tr>
-                                    <td>I</td>
-                                    <td>Use the calculator value</td>
-                                </tr>
-                                <tr>
-                                    <td>II</td>
-                                    <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
-                                </tr>
-                                <tr>
-                                    <td>III</td>
-                                    <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
-                                </tr>
-                                <tr>
-                                    <td>IV</td>
-                                    <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
-                                </tr>
-                            </table><br />
-                        </li>
-                        <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
-                            <cos>&theta;</cos> and y = r
+                <h3>General Information:</h3>
+                <ul>
+                    <li>The polar form for a point is (r, <var>&theta;</var>), where "r" represents the distance away from the origin and <var>&theta;</var> represents the angle from the x-axis</li>
+                    <li>To convert a point from Cartesian coordinates to Polar coordinates, use r =
+                        <sqrt><var>x<sup>2</sup> &plus; y<sup>2</sup></var></sqrt> and <var>&theta;</var> = tan<sup>&minus;1</sup><var><div class="fraction"><div class="top">y</div><div class="bottom">x</div></div></var></li>
+                    <li>When converting from Cartesian to Polar coordinates, your calculator can give you the wrong value of tan<sup>&minus;1</sup> because of the Quadrant. To fix that use this table to show what you have to do to the angle to get the right
+                        value of <var>&theta;</var>: <br />
+                        <h5 style="text-align: center;">Quadrant Value of tan<sup>&minus;1</sup>:</h5>
+                        <table style="margin: 0 auto;" class="staticTable">
+                            <tr>
+                                <td>I</td>
+                                <td>Use the calculator value</td>
+                            </tr>
+                            <tr>
+                                <td>II</td>
+                                <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
+                            </tr>
+                            <tr>
+                                <td>III</td>
+                                <td>Add 180&deg; or <strong>&#8508;</strong> to the calculator value</td>
+                            </tr>
+                            <tr>
+                                <td>IV</td>
+                                <td>Add 360&deg; or 2<strong>&#8508;</strong> to the calculator value</td>
+                            </tr>
+                        </table><br />
+                    </li>
+                    <li>To convert a point from Polar coordinates to Cartesian coordinates, use x = r
+                        <cos>&theta;</cos> and y = r
+                        <sin>&theta;</sin>
+                    </li>
+                </ul>
+                <h5>De Moivre's Theorem:</h5>
+                <li>Just like complex numbers in the Cartesian plane, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> &plus; i<sin>&theta;</sin>)</var></li>
+                <h3>Polar Graphs:</h3>
+                <h5>Cardioids:</h5>
+                <li>These come in two forms:</li>
+                <table class="rules">
+                    <tr>
+                        <td><var>r</var> = <var>a &plusmn; a</var>
+                            <cos>&theta;</cos>
+                        </td>
+                        <td>Symmetry with x-axis</td>
+                        <td rowspan="2">0 &le; &theta; &le; 2&pi;</td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var> = <var>a &plusmn; a</var>
                             <sin>&theta;</sin>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>De Moivre's Theorem:</h3>
-                    <p>Just like complex numbers in the Cartesian plane, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> &plus; i<sin>&theta;</sin>)</var></p>
-                </li>
-                <li>
-                    <h3>Flower Functions:</h3>
-                    <div class="indent">
-                        <table class="staticTable">
-                            <tr>
-                                <td style="border: none;"></td>
-                                <td>Cos</td>
-                                <td>Sin</td>
-                            </tr>
-                            <tr>
-                                <td>Even coefficient of <var>&theta;</var></td>
-                                <td>Touches all 4 axes</td>
-                                <td>Touches no axes</td>
-                            </tr>
-                            <tr>
-                                <td>Odd coefficient of <var>&theta;</var></td>
-                                <td>Touches right axis only</td>
-                                <td>Touches bottom axis only</td>
-                            </tr>
-                        </table><br /> r = 5
-                        <cos>4&theta;</cos><br />
-                        <iframe id="firstPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                        <cos>3&theta;</cos><br />
-                        <iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                        <sin>4&theta;</sin><br />
-                        <iframe id="thirdPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> r = 5
-                        <sin>3&theta;</sin><br />
-                        <iframe id="fourthPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
-                    </div>
-                </li>
+                        </td>
+                        <td>Symmetry with y-axis</td>
+                    </tr>
+                </table>
+                <li>If it's <var>r</var> = <var>a</var> +
+                    <var>a</var>
+                    <cos>&theta;</cos>
+                    then most of the graph will be on the positive side, if it's <var>r</var> = <var>a</var> &minus;
+                    <var>a</var>
+                    <cos>&theta;</cos>, then most of the graph will be on the negative side.</li>
+                <li>The point always is on the origin.</li>
+                <table>
+                    <tr>
+                        <td>
+                            <var>r</var> = 4 + 4
+                            <cos>&theta;</cos>
+                        </td>
+                        <td><var>r</var> = 4 &minus; 4
+                            <cos>&theta;</cos>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="firstCardioidGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="secondCardioidGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var> = 4 + 4
+                            <sin>&theta;</sin>
+                        </td>
+                        <td><var>r</var> = 4 &minus; 4
+                            <sin>&theta;</sin>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="thirdCardioidGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="fourthCardioidGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                </table>
+                <h5>Lima&ccedil;ons:</h5>
+                <li>These come in the forms:</li>
+                <table class="rules">
+                    <tr>
+                        <td><var>r</var> = <var>a &plusmn;b</var>
+                            <cos>&theta;</cos>
+                        </td>
+                        <td>Symmetry with x-axis</td>
+                        <td rowspan="2">0 &le; &theta; &le; 2&pi;</td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var> = <var>a &plusmn; b</var>
+                            <sin>&theta;</sin>
+                        </td>
+                        <td>Symmetry with y-axis</td>
+                    </tr>
+                </table>
+                <li>If <var>a &gt; b</var>, then there is no loop, rather a dimple that is nover on the origin.</li>
+                <li>If <var>a &lt; b</var>, then there is an inner loop.</li>
+                <table>
+                    <tr>
+                        <td>
+                            <var>r</var> = 5 + 3
+                            <cos>&theta;</cos>
+                        </td>
+                        <td><var>r</var> = 3 &minus; 5
+                            <cos>&theta;</cos>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="firstLimaconGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="secondLimaconGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var> = 3 + 5
+                            <sin>&theta;</sin>
+                        </td>
+                        <td><var>r</var> = 5 &minus; 3
+                            <sin>&theta;</sin>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="thirdLimaconGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="fourthLimaconGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                </table>
+                <h5>Flower Functions:</h5>
+                <li>These come in the form:</li>
+                <table class="rules">
+                    <tr>
+                        <td><var>r = a</var>
+                            <cos>n&theta;</cos>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><var>r = a</var>
+                            <sin>n&theta;</sin>
+                        </td>
+                    </tr>
+                </table>
+                <li>If <var>n</var> is odd, then there are <var>n</var> pedals and the domain is 0 &le; &theta; &le; &pi;. If <var>n</var> is even, then there are 2<var>n</var> pedals and the domain is 0 &le; &theta; &le; 2&pi;.</li>
+                <table class="staticTable">
+                    <tr>
+                        <td style="border: none;"></td>
+                        <td>Cos</td>
+                        <td>Sin</td>
+                    </tr>
+                    <tr>
+                        <td>Even coefficient of <var>&theta;</var></td>
+                        <td>Touches all 4 axes</td>
+                        <td>Touches no axes</td>
+                    </tr>
+                    <tr>
+                        <td>Odd coefficient of <var>&theta;</var></td>
+                        <td>Touches right axis only</td>
+                        <td>Touches bottom axis only</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <var>r</var> = 5
+                            <cos>4&theta;</cos>
+                        </td>
+                        <td><var>r</var> = 5
+                            <cos>3&theta;</cos>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="firstPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var> = 5
+                            <sin>4&theta;</sin>
+                        </td>
+                        <td><var>r</var> = 5
+                            <sin>3&theta;</sin>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="thirdPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="fourthPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                </table>
+                <h5>Lemniscates:</h5>
+                <li>Also known as the infinity graphs, they come in the form of:</li>
+                <table class="rules">
+                    <tr>
+                        <td><var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
+                            <cos>2&theta;</cos>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
+                            <sin>2&theta;</sin>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><var>r</var><sup>2</sup> = 8<sup>2</sup>
+                            <cos>2&theta;</cos>
+                        </td>
+                        <td><var>r</var><sup>2</sup> = 8<sup>2</sup>
+                            <sin>2&theta;</sin>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="firstLemniscateGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                        <td><iframe id="secondLemniscateGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
+                    </tr>
+                </table>
+
             </ul>
         </div>
     </div>
