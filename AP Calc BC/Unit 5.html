@@ -151,6 +151,107 @@
         <h3>Polar Functions:</h3>
         <li>Remember the Polar Plane from Unit 7 from the <a href="../EM3/studyGuide.html">EM3 Study Guide</a>.</li>
         <li>In order to find the slope of a tangent line to a polar graph, we cannot simply use
-            <derivative of="r" respectTo="&Theta;"></derivative> because it gives us the rate of change of the radius with respect to &Theta;. We need to convert to a parametric function, and then deal with it as a parametric function.</li>
+            <derivative of="r" respectTo="&theta;"></derivative> because it gives us the rate of change of the radius with respect to &theta;. We need to convert to a parametric function, and then deal with it as a parametric function.</li>
+        <li>Remember the polar to rectangular conversion formulas:</li>
+        <table class="rules">
+            <tr>
+                <td><var>x(&theta;) = r<cos>&theta;</cos></var></td>
+                <td><var>y(&theta;) = r<sin>&theta;</sin></var></td>
+            </tr>
+        </table>
+        <li>Using those formulas, you can convert the polar function into a parametric function in terms of <var>x</var> and <var>y</var> with the parameter <var>&theta;</var>.</li>
+        <strong>Ex 1:</strong> Find the slope of the graph of <var>r</var> = 5 &minus; 3
+        <sin>&theta;</sin> when &theta; =
+        <div class="fraction">
+            <div class="top">5&pi;</div>
+            <div class="bottom">3</div>
+        </div>&emsp;<a href="javascript:void(0)" id="polarSlopeProblem1SolutionToggleLink" onclick="toggleSolution('#polarSlopeProblem1Solution');">Show Solution</a>
+        <div id="polarSlopeProblem1Solution" class="solution">
+            <ol>
+                <li>First take a look at the graph</li>
+                <iframe id="polarGraph1" width="250px" height="250px"></iframe>
+                <br />Now take your equation and make it parametric in order to find
+                <derivative of="y"></derivative> parametrically by plugging <var>r</var> into the conversion formulas
+                <li>
+                    <var>r</var> = 5 &minus; 3
+                    <sin>&theta;</sin><br />
+                    <var>x(&theta;) = r<cos>&theta;</cos></var><br />
+                    <var>y(&theta;) = r<sin>&theta;</sin></var><br />
+                    <var>x</var>(<var>&theta;</var>) = (5 &minus; 3
+                    <sin>&theta;</sin>) &times;
+                    <cos>&theta;</cos><br />
+                    <var>y</var>(<var>&theta;</var>) = (5 &minus; 3
+                    <sin>&theta;</sin>) &times;
+                    <sin>&theta;</sin><br />
+                </li>
+                Now simply take the
+                <derivative of="y"></derivative> =
+                <div class="fraction">
+                    <div class="top">
+                        <derivative of="y" respectTo="&theta;"></derivative>
+                    </div>
+                    <div class="bottom">
+                        <derivative of="x" respectTo="&theta;"></derivative>
+                    </div>
+                </div> and simplify
+                <li>
+                    <derivative of="y" respectTo="&theta;"></derivative> = &minus;3
+                    <cos>&theta;</cos>
+                    <sin>&theta;</sin> +
+                    <cos>&theta;</cos>(5 &minus; 3
+                    <sin>&theta;</sin>) = &minus;6
+                    <cos>&theta;</cos>
+                    <sin>&theta;</sin> + 5
+                    <cos>&theta;</cos>
+                    <br /> = &minus;3(2
+                    <sin>&theta;</sin>
+                    <cos>&theta;</cos>) + 5
+                    <cos>&theta;</cos>
+                    <br />
+                    <derivative of="x" respectTo="&theta;"></derivative> = &minus;3cos<sup>2</sup>(<var>&theta;</var>) + &minus;
+                    <sin>&theta;</sin>(5 &minus; 3
+                    <sin>&theta;</sin>) = &minus;3cos<sup>2</sup>(<var>&theta;</var>) &minus; 3sin<sup>2</sup>(<var>&theta;</var>) &minus; 5
+                    <sin>&theta;</sin>
+                    <br /> = &minus;3(cos<sup>2</sup>(<var>&theta;</var>) &minus; sin<sup>2</sup>(<var>&theta;</var>)) &minus;5
+                    <sin>&theta;</sin>
+                </li>
+                Use double angle formulas to condense it even more
+                <li>
+                    <derivative of="y"></derivative> =
+                    <div class="fraction">
+                        <div class="top">
+                            &minus;3(2
+                            <sin>&theta;</sin>
+                            <cos>&theta;</cos>) + 5
+                            <cos>&theta;</cos>
+                        </div>
+                        <div class="bottom">
+                            &minus;3(cos<sup>2</sup>(<var>&theta;</var>) &minus; sin<sup>2</sup>(<var>&theta;</var>)) &minus;5
+                            <sin>&theta;</sin>
+                        </div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">&minus;3
+                            <sin>2&theta;</sin> + 5
+                            <cos>&theta;</cos>
+                        </div>
+                        <div class="bottom">&minus;3
+                            <cos>2&theta;</cos> &minus; 5
+                            <sin>&theta;</sin>
+                        </div>
+                    </div>
+                </li>
+                Evaluate the derivative at the given &theta; point
+                <li>
+                    <derivative of="y"></derivative>
+                    <evaluated from="<div class='fraction'><div class='top'>5&pi;</div><div class='bottom'>3</div></div>"></evaluated> &asymp; <span class="answer">0.874</span>
+                </li>
+            </ol>
+        </div>
     </ul>
 </div>
+<script class="renderJS">
+    var polarGraph1 = document.querySelector("#polarGraph1");
+
+    polarGraph1.src = "https://www.desmos.com/calculator/jhxoiqx0ue?embed";
+</script>
