@@ -22,6 +22,19 @@ document.body.onload = function() {
     var rationalFunction = document.querySelector("#rationalFunction");
     var anotherRationalFunction = document.querySelector("#anotherRationalFunction");
     //Polar Graphs
+    var firstCardioidGraph = document.querySelector("#firstCardioidGraph");
+    var secondCardioidGraph = document.querySelector("#secondCardioidGraph");
+    var thirdCardioidGraph = document.querySelector("#thirdCardioidGraph");
+    var fourthCardioidGraph = document.querySelector("#fourthCardioidGraph");
+    //Limacons
+    var firstLimaconGraph = document.querySelector("#firstLimaconGraph");
+    var secondLimaconGraph = document.querySelector("#secondLimaconGraph");
+    var thirdLimaconGraph = document.querySelector("#thirdLimaconGraph");
+    var fourthLimaconGraph = document.querySelector("#fourthLimaconGraph");
+    //Lemniscates
+    var firstLemniscateGraph = document.querySelector("#firstLemniscateGraph");
+    var secondLemniscateGraph = document.querySelector("#secondLemniscateGraph");
+    //Flowers
     var firstPolarGraph = document.querySelector("#firstPolarGraph");
     var secondPolarGraph = document.querySelector("#secondPolarGraph");
     var thirdPolarGraph = document.querySelector("#thirdPolarGraph");
@@ -75,6 +88,36 @@ document.body.onload = function() {
         anotherRationalFunction.src = "https://www.desmos.com/calculator/hap7szxr0v?embed";
     };
     anotherRationalFunction.onload = function() {
+        firstCardioidGraph.src = "https://www.desmos.com/calculator/psta8m6ixj?embed";
+    };
+    firstCardioidGraph.onload = function() {
+        secondCardioidGraph.src = "https://www.desmos.com/calculator/xfdsaf8su4?embed";
+    };
+    secondCardioidGraph.onload = function() {
+        thirdCardioidGraph.src = "https://www.desmos.com/calculator/bclxvwn05m?embed";
+    };
+    thirdCardioidGraph.onload = function() {
+        fourthCardioidGraph.src = "https://www.desmos.com/calculator/oh98hxo9yc?embed";
+    };
+    fourthCardioidGraph.onload = function() {
+        firstLimaconGraph.src = "https://www.desmos.com/calculator/wbvzcu4elm?embed";
+    };
+    firstLimaconGraph.onload = function() {
+        secondLimaconGraph.src = "https://www.desmos.com/calculator/cbyuqdmb0f?embed";
+    };
+    secondLimaconGraph.onload = function() {
+        thirdLimaconGraph.src = "https://www.desmos.com/calculator/bxxmvmnm7x?embed";
+    };
+    thirdLimaconGraph.onload = function() {
+        fourthLimaconGraph.src = "https://www.desmos.com/calculator/qggtq9vdto?embed";
+    };
+    fourthLimaconGraph.onload = function() {
+        firstLemniscateGraph.src = "https://www.desmos.com/calculator/nactjr9urf?embed";
+    };
+    firstLemniscateGraph.onload = function() {
+        secondLemniscateGraph.src = "https://www.desmos.com/calculator/tuulpweazm?embed";
+    };
+    secondLemniscateGraph.onload = function() {
         firstPolarGraph.src = "https://www.desmos.com/calculator/o67beou5v4?embed";
     };
     firstPolarGraph.onload = function() {
