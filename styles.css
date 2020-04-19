@@ -223,7 +223,9 @@
             height: 7pt;
         }
         
-        img[src="./equations.jpg"] {
+        img[src="./equations.jpg"],
+        #inclinedPlanes1,
+        #inclinedPlanes2 {
             width: 50%;
             height: auto;
         }
