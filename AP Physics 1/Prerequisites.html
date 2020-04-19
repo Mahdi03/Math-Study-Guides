@@ -38,15 +38,15 @@
             ctx.stroke();
             //Draw text
             ctx.font = "18px serif";
-            ctx.fillText("\u0398", 25, 87);
-            ctx.fillText("zcos\u0398", 31, 105);
+            ctx.fillText("\u03B8", 25, 87);
+            ctx.fillText("zcos\u03B8", 31, 105);
             ctx.save(); //Save current stuff before transformations occur
             //Rotate canvas for rotated draxing
             ctx.translate(95, 45);
             ctx.rotate((Math.PI / 180) * 90);
             ctx.translate(-95, -45);
             //Add sideways text
-            ctx.fillText("zsin\u0398", 85, 45);
+            ctx.fillText("zsin\u03B8", 85, 45);
             ctx.restore(); //Go back to default settings
             ctx.fillText("z", 40, 45);
         </script>
