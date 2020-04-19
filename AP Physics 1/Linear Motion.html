@@ -43,7 +43,7 @@
         <h3>Projectile Motion:</h3>
         <li>When launching objects, imagine a projectile as follows:</li>
         <canvas id="projectileExample" style="border: 3px solid black;" width="400" height="160"></canvas>
-        <script>
+        <script class="renderJS">
             var projectileExample = document.querySelector("#projectileExample");
             var ctx1 = projectileExample.getContext("2d");
             ctx1.arc(10, 150, 3, 0, Math.PI * 2);
@@ -58,29 +58,7 @@
         <li>Any launched object takes the parabolic path as shown above. The reason that it curves back down is because of the acceleration due to gravity, which is -9.8 m/s<sup>2</sup></li>
         <li>Adding mathematical representations to the diagram:</li>
         <canvas id="projectileExampleWithMath" style="border: 3px solid black;" width="600" height="260"></canvas>
-        <script>
-            function drawArrow(context, fromx, fromy, tox, toy) {
-                //variables to be used when creating the arrow
-                var headlen = 10;
-                var angle = Math.atan2(toy - fromy, tox - fromx);
-                //starting path of the arrow from the start square to the end square and drawing the stroke
-                context.beginPath();
-                context.moveTo(fromx, fromy);
-                context.lineTo(tox, toy);
-                context.stroke();
-                //starting a new path from the head of the arrow to one of the sides of the point
-                context.beginPath();
-                context.moveTo(tox, toy);
-                context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 7), toy - headlen * Math.sin(angle - Math.PI / 7));
-                //path from the side point of the arrow, to the other side point
-                context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 7), toy - headlen * Math.sin(angle + Math.PI / 7));
-                //path from the side point back to the tip of the arrow, and then again to the opposite side point
-                context.lineTo(tox, toy);
-                context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 7), toy - headlen * Math.sin(angle - Math.PI / 7));
-                //draws the paths created above
-                context.stroke();
-                context.fill();
-            }
+        <script class="renderJS">
             var projectileExampleWithMath = document.querySelector("#projectileExampleWithMath");
             var ctx2 = projectileExampleWithMath.getContext("2d");
             //Starting Point
