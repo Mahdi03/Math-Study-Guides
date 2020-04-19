@@ -1,0 +1,253 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <!--
+        Δ = &Delta; = \u0394
+        θ = &theta; = \u03B8
+        ω = &omega; = \u03C9
+        Ω = &ohm; = \u2126
+    -->
+    <ul>
+        <li>Be able to solve for variables in an equation or multiple equations.</li>
+        <li>Know algebra.</li>
+        <li>Recall trigonometry.</li>
+        <canvas id="rightTriangleDiagram" width="110" height="110"></canvas>
+        <script>
+            var rightTriangleDiagram = document.querySelector("#rightTriangleDiagram");
+            var ctx = rightTriangleDiagram.getContext("2d");
+            //Draw Triangle
+            ctx.beginPath();
+            ctx.moveTo(90, 90);
+            ctx.lineTo(90, 10);
+            ctx.lineTo(10, 90);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.moveTo(80, 90);
+            ctx.lineTo(80, 80);
+            ctx.lineTo(90, 80);
+            ctx.stroke();
+            //Draw text
+            ctx.font = "18px serif";
+            ctx.fillText("\u0398", 25, 87);
+            ctx.fillText("zcos\u0398", 31, 105);
+            ctx.save(); //Save current stuff before transformations occur
+            //Rotate canvas for rotated draxing
+            ctx.translate(95, 45);
+            ctx.rotate((Math.PI / 180) * 90);
+            ctx.translate(-95, -45);
+            //Add sideways text
+            ctx.fillText("zsin\u0398", 85, 45);
+            ctx.restore(); //Go back to default settings
+            ctx.fillText("z", 40, 45);
+        </script>
+        <h3>Vectors:</h3>
+        <li>Many of the values in this course are represented with vectors: displacement, velocity, acceleration, forces, really any type of movement with direction.</li>
+        <li>Vectors are a value (a magnitude) and a direction (12 ft East).</li>
+        <li>Scalars are numbers that do not have a direction (12 lbs).</li>
+        <li>Distance is how much the object traveled, it's scalar.</li>
+        <li>Displacement (&Delta;<var>x</var>) directly from start to finish, it's a vector.</li>
+        <li>Speed is how quickly the object is covering distance.</li>
+        <li>Average speed is
+            <div class="fraction">
+                <div class="top">distance</div>
+                <div class="bottom"><var>t</var></div>
+            </div>
+        </li>
+        <li>Velocity is how quickly it's changing position in a certain direction.</li>
+        <li>Average velocity is
+            <div class="fraction">
+                <div class="top">&Delta;<var>x</var></div>
+                <div class="bottom">&Delta;<var>t</var></div>
+            </div> where &Delta; simply means "change in," so &Delta;<var>x</var> is equal to your final position minus your initial position, or <br />(<var>x<sub>f</sub></var> &minus; <var>x<sub>i</sub></var>)
+        </li>
+        <li>Vectors can be broken apart into x-direction and y-direction components, like a right triangle. It is helpful to do this when adding and subtracting vectors.</li>
+        <h5>Parallel Vectors:</h5>
+        <li>Vectors in the same direction add together or reinforce.</li>
+        <li>Vectors in the opposite direction subtract from each other, or cancel out.</li>
+        <h5>Perpendicular Vectors:</h5>
+        <li>Just use the Pythagorean Theorem after breaking them up into x and y components to get the complete vector.</li>
+        <br />You're a navigator aboard a ship and the captain has told you to make two course adjustments since you've set sail from an island. The ship has traveled 83 miles at 65&deg; West of North and then 45 miles at 15&deg; North of East. What is
+        your current position in terms of the island? &emsp;<a href="javascript:void(0)" id="vectorAdditionProblemSolutionToggleLink" onclick="toggleSolution('#vectorAdditionProblemSolution');">Show Solution</a>
+        <div id="vectorAdditionProblemSolution" class="solution">
+            <ol>
+                <li>First draw a diagram, especially when approaching most physics problems, just to picture the scenario.</li>
+                <canvas id="vectorAdditionSolution1" width="180" height="120"></canvas>
+                <li>In order to add the vectors, break them up into their <var>x</var> and <var>y</var> components so that they can be added together to create a resultant vector.</li>
+                <canvas id="vectorAdditionSolution2" width="210" height="100"></canvas>
+                <canvas id="vectorAdditionSolution3" width="210" height="100"></canvas>
+                <li>Now add the vectors that go in the same direction and subtract those going in opposing directions.</li>
+                &Delta;<var>x</var> = 83sin(65&deg;) &minus; 45cos(65&deg;) &asymp; 31.76mi
+                <br /> &Delta;<var>y</var> = 83cos(65&deg;) + 45sin(15&deg;) &asymp; 46.72mi
+                <li>Now visualize the resultant vector, and solve for the new magnitude and angle.</li>
+                <canvas id="vectorAdditionSolution4" width="210" height="130"></canvas>
+                <br />tan<sup>&minus;1</sup>(
+                <div class="fraction">
+                    <div class="top">&Delta;<var>x</var></div>
+                    <div class="bottom">&Delta;<var>y</var></div>
+                </div>) = &theta; &asymp; <span class="answer">34.20&deg; West of North or 55.79&deg; North of West</span>
+                <br />
+                <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt> &asymp; <span class="answer">56.49mi</span>
+                <script>
+                    //First Step
+                    var vectorAdditionSolution1 = document.querySelector("#vectorAdditionSolution1");
+                    var ctx3 = vectorAdditionSolution1.getContext("2d");
+                    ctx3.translate(-48, -105);
+                    ctx3.arc(200, 200, 20, 0, Math.PI * 2);
+                    ctx3.fill();
+                    //Move #1
+                    ctx3.fillStyle = "blue";
+                    ctx3.strokeStyle = "blue";
+                    drawArrow(ctx3, 200, 200, 50, 130);
+                    ctx3.fillText("83 mi", 102, 174);
+                    ctx3.setLineDash([10, 5]);
+                    ctx3.moveTo(200, 200);
+                    ctx3.lineTo(200, 131);
+                    ctx3.stroke();
+                    ctx3.moveTo(200, 131);
+                    ctx3.lineTo(50, 131);
+                    ctx3.stroke();
+                    ctx3.setLineDash([]);
+                    //Move #2
+                    ctx3.fillStyle = "green";
+                    ctx3.strokeStyle = "green";
+                    drawArrow(ctx3, 50, 130, 137, 107);
+                    ctx3.fillText("45 mi", 78, 115);
+                    ctx3.setLineDash([10, 5]);
+                    ctx3.moveTo(50, 129);
+                    ctx3.lineTo(137, 129);
+                    ctx3.stroke();
+                    ctx3.moveTo(137, 129);
+                    ctx3.lineTo(137, 107);
+                    ctx3.stroke();
+                    ctx3.setLineDash([]);
+                    //Second Step
+                    var vectorAdditionSolution2 = document.querySelector("#vectorAdditionSolution2");
+                    var ctx4 = vectorAdditionSolution2.getContext("2d");
+                    ctx4.translate(-48, -105);
+                    //Move #1
+                    ctx4.fillStyle = "blue";
+                    ctx4.strokeStyle = "blue";
+                    drawArrow(ctx4, 200, 200, 50, 130);
+                    ctx4.fillText("83 mi", 102, 174);
+                    ctx4.fillText('65\u00B0', 183, 190);
+                    ctx4.fillText("83cos(65\u00B0)", 205, 166);
+                    ctx4.textAlign = "center";
+                    ctx4.fillText("83sin(65\u00B0)", 125, 125);
+                    ctx4.setLineDash([10, 5]);
+                    ctx4.moveTo(200, 200);
+                    ctx4.lineTo(200, 131);
+                    ctx4.stroke();
+                    ctx4.moveTo(200, 131);
+                    ctx4.lineTo(50, 131);
+                    ctx4.stroke();
+                    ctx4.setLineDash([]);
+                    //Second Step Second Triangle
+                    var vectorAdditionSolution3 = document.querySelector("#vectorAdditionSolution3");
+                    var ctx5 = vectorAdditionSolution3.getContext("2d");
+                    ctx5.translate(-48, -105);
+                    //Move #2
+                    ctx5.fillStyle = "green";
+                    ctx5.strokeStyle = "green";
+                    drawArrow(ctx5, 50, 130, 137, 107);
+                    ctx5.fillText("45 mi", 78, 115);
+                    ctx5.fillText('15\u00B0', 82, 127);
+                    ctx5.fillText("45sin(15\u00B0)", 140, 119);
+                    ctx5.textAlign = "center";
+                    ctx5.fillText("45cos(15\u00B0)", 94, 140);
+                    ctx5.setLineDash([10, 5]);
+                    ctx5.moveTo(50, 129);
+                    ctx5.lineTo(137, 129);
+                    ctx5.stroke();
+                    ctx5.moveTo(137, 129);
+                    ctx5.lineTo(137, 107);
+                    ctx5.stroke();
+                    ctx5.setLineDash([]);
+                    //Third Step
+                    var vectorAdditionSolution4 = document.querySelector("#vectorAdditionSolution4");
+                    var ctx6 = vectorAdditionSolution4.getContext("2d");
+                    ctx6.translate(-48, -85);
+                    ctx6.arc(200, 200, 20, 0, Math.PI * 2);
+                    ctx6.fill();
+                    //Move #1
+                    ctx6.fillStyle = "blue";
+                    ctx6.strokeStyle = "blue";
+                    drawArrow(ctx6, 200, 200, 50, 130);
+                    ctx6.fillText("83 mi", 102, 174);
+                    ctx6.setLineDash([10, 5]);
+                    ctx6.moveTo(200, 200);
+                    ctx6.lineTo(200, 131);
+                    ctx6.stroke();
+                    ctx6.moveTo(200, 131);
+                    ctx6.lineTo(50, 131);
+                    ctx6.stroke();
+                    ctx6.setLineDash([]);
+                    //Move #2
+                    ctx6.fillStyle = "green";
+                    ctx6.strokeStyle = "green";
+                    drawArrow(ctx6, 50, 130, 137, 107);
+                    ctx6.fillText("45 mi", 78, 115);
+                    ctx6.setLineDash([10, 5]);
+                    ctx6.moveTo(50, 129);
+                    ctx6.lineTo(137, 129);
+                    ctx6.stroke();
+                    ctx6.moveTo(137, 129);
+                    ctx6.lineTo(137, 107);
+                    ctx6.stroke();
+                    ctx6.setLineDash([]);
+                    //Total Movement
+                    ctx6.fillStyle = "orange";
+                    ctx6.strokeStyle = "orange";
+                    drawArrow(ctx6, 200, 200, 137, 107);
+                    ctx6.fillText("\u03B8", 194, 190);
+                    ctx6.fillText("\u0394y", 201, 154);
+                    ctx6.textAlign = "center";
+                    ctx6.fillText("\u0394x", 169, 105);
+                    ctx6.setLineDash([10, 5]);
+                    ctx6.moveTo(201, 200);
+                    ctx6.lineTo(201, 107);
+                    ctx6.stroke();
+                    ctx6.moveTo(201, 107);
+                    ctx6.lineTo(137, 107);
+                    ctx6.stroke();
+                    ctx6.setLineDash([]);
+                </script>
+            </ol>
+        </div>
+        <h3>Dimensional Analysis:</h3>
+        <li>Another useful trick for converting units is dimensional analysis, simply it is converting one value such as yards per second into another value such as miles per hour.</li>
+        <li>The goal of dimensional analysis is to cancel out all of the units that you don't need to end up with the final result.</li>
+        <li>Using that example, let's convert 100 yards per second into mph using dimensional analysis.</li>
+        <div class="fraction">
+            <div class="top">100 <s>yards</s></div>
+            <div class="bottom">1 <s>second</s></div>
+        </div> &times;
+        <div class="fraction">
+            <div class="top">60 <s>seconds</s></div>
+            <div class="bottom">1 <s>minute</s></div>
+        </div> &times;
+        <div class="fraction">
+            <div class="top">60 <s>minutes</s></div>
+            <div class="bottom">1 hour</div>
+        </div> &times;
+        <div class="fraction">
+            <div class="top">3 <s>feet</s></div>
+            <div class="bottom"> 1 <s>yard</s></div>
+        </div> &times;
+        <div class="fraction">
+            <div class="top">1 mile</div>
+            <div class="bottom">5280 <s>feet</s></div>
+        </div> =
+        <div class="fraction">
+            <div class="top">100 &times; 60 &times; 60 &times; 3 miles</div>
+            <div class="bottom">5280 hour</div>
+        </div>
+    </ul>
+</div>
