@@ -37,7 +37,156 @@
         </li>
         <li>Friction itself cannot move an object, its only element is that it impedes applied forces from moving an object. So if you push an object with 150N, but its Force of Friction is 200N, then the object will not move, and its acceleration will be
             0. If the Force of Friction is 100N however, then the object will be moving with a Net Force of 50N in the direction at which you push.</li>
-        <li>Net Force is defined as the sum of all parallel forces (
-            <sigma></sigma><var>F</var>).</li>
+        <li>Net Force is defined as the sum of all parallel forces (&Sigma;<var>F</var>). Using Net Force you can find Net Acceleration of an object or a system and use that in your kinematics equations.</li>
+        <h3>Tension:</h3>
+        <li>With cables and pulleys, the strings will have tension, but remember, tension is just a force.</li>
+        <li>Here's a simple diagram of tension:</li>
+        <canvas id="tensionDiagram" width="200" height="150"></canvas>
+        <script class="renderJS">
+            var tensionDiagram = document.querySelector("#tensionDiagram");
+            var ctx = tensionDiagram.getContext("2d");
+
+            function drawOutline() {
+                ctx.setLineDash([]);
+                //Platform
+                ctx.beginPath();
+                ctx.strokeStyle = "black";
+                ctx.fillStyle = "black";
+                ctx.moveTo(0, 10);
+                ctx.lineTo(200, 10);
+                ctx.stroke();
+                //1st Tension
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "blue";
+                ctx.fillText("T1", 10, 60);
+                ctx.fillText("\u03B81", 10, 20);
+                ctx.moveTo(0, 10);
+                ctx.lineTo(50, 96);
+                ctx.stroke();
+                //2nd Tension
+                ctx.beginPath();
+                ctx.strokeStyle = "green";
+                ctx.fillStyle = "green";
+                ctx.fillText("T2", 130, 60);
+                ctx.fillText("\u03B82", 170, 20);
+                ctx.moveTo(200, 10);
+                ctx.lineTo(50, 96);
+                ctx.stroke();
+                //3rd Tension
+                ctx.beginPath();
+                ctx.strokeStyle = "black";
+                ctx.fillStyle = "black";
+                ctx.moveTo(50, 96);
+                ctx.lineTo(50, 130);
+                ctx.stroke();
+                ctx.fillText("T3", 52, 114);
+                //Mass
+                ctx.fillRect(50 - (20 / 2), 130, 20, 20);
+            }
+
+            function addInfo() {
+                //1st Tension Info
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "blue";
+                ctx.textAlign = "center";
+                ctx.fillText("T1cos(\u03B81\u00B0)", 49 / 2, 8);
+                ctx.textAlign = "start";
+                ctx.fillText("T1sin(\u03B81\u00B0)", 52, (96 / 2) + 5);
+                //1st Tension Dotted Components
+                ctx.beginPath();
+                ctx.moveTo(49, 96);
+                ctx.setLineDash([10, 5]);
+                ctx.lineTo(49, 11);
+                ctx.lineTo(0, 11);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                //2nd Tension Info
+                ctx.strokeStyle = "green";
+                ctx.fillStyle = "green";
+                ctx.textAlign = "center";
+                ctx.fillText("T2cos(\u03B82\u00B0)", (200 + 49) / 2, 8);
+                ctx.textAlign = "start";
+                ctx.fillText("T2sin(\u03B82\u00B0)", 52, (96 / 2) - 5);
+                //2nd Tension Dotted Components
+                ctx.beginPath();
+                ctx.moveTo(51, 96);
+                ctx.setLineDash([10, 5]);
+                ctx.lineTo(51, 11);
+                ctx.lineTo(200, 11);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                //Mass
+                ctx.fillStyle = "white";
+                ctx.fillText("mg", 50 - (20 / 2) + 3, 140 + 3);
+            }
+
+            function clearDrawing() {
+                ctx.clearRect(0, 0, 200, 150);
+            }
+            /*
+            //1st Tension
+            ctx.beginPath();
+            ctx.strokeStyle = "blue";
+            ctx.fillStyle = "blue";
+            ctx.fillText("T1", 10, 60);
+            ctx.textAlign = "center";
+            ctx.fillText("T1cos(\u03B81\u00B0)", 49 / 2, 8);
+            ctx.textAlign = "start";
+            ctx.fillText("T1sin(\u03B81\u00B0)", 52, (96 / 2) + 5);
+            ctx.fillText("\u03B81", 10, 20);
+            ctx.moveTo(0, 10);
+            ctx.lineTo(50, 96);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(49, 96);
+            ctx.setLineDash([10, 5]);
+            ctx.lineTo(49, 11);
+            ctx.lineTo(0, 11);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            //2nd Tension
+            ctx.beginPath();
+            ctx.strokeStyle = "green";
+            ctx.fillStyle = "green";
+            ctx.fillText("T2", 130, 60);
+            ctx.textAlign = "center";
+            ctx.fillText("T2cos(\u03B82\u00B0)", (200 + 49) / 2, 8);
+            ctx.textAlign = "start";
+            ctx.fillText("T2sin(\u03B82\u00B0)", 52, (96 / 2) - 5);
+            ctx.fillText("\u03B82", 170, 20);
+            ctx.moveTo(200, 10);
+            ctx.lineTo(50, 96);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(51, 96);
+            ctx.setLineDash([10, 5]);
+            ctx.lineTo(51, 11);
+            ctx.lineTo(200, 11);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            //3rd Tension
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = "black";
+            ctx.moveTo(50, 96);
+            ctx.lineTo(50, 130);
+            ctx.stroke();
+            ctx.fillText("T3", 52, 114);
+            //Mass
+            ctx.fillRect(50 - (20 / 2), 130, 20, 20);
+            ctx.fillStyle = "white";
+            ctx.fillText("mg", 50 - (20 / 2) + 3, 140 + 3);
+            */
+            drawOutline();
+            setInterval(drawOutline, 5000);
+            setTimeout(function() {
+                setInterval(addInfo, 5000);
+            }, 1000);
+            setTimeout(function() {
+                setInterval(clearDrawing, 5000);
+            }, 4000);
+        </script>
     </ul>
 </div>
