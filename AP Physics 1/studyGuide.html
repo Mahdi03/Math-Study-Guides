@@ -144,95 +144,9 @@ font-family: 'Nunito', sans-serif;
         <h2>Prerequisites:</h2>
     </div>
     <div id="prerequisites">
-        <ul>
-            <li>Be able to solve for variables in an equation or multiple equations.</li>
-            <li>Know algebra.</li>
-            <li>Recall trigonometry.</li>
-            <canvas id="rightTriangleDiagram" width="110" height="110"></canvas>
-            <script>
-                var rightTriangleDiagram = document.querySelector("#rightTriangleDiagram");
-                var ctx = rightTriangleDiagram.getContext("2d");
-                //Draw Triangle
-                ctx.beginPath();
-                ctx.moveTo(90, 90);
-                ctx.lineTo(90, 10);
-                ctx.lineTo(10, 90);
-                ctx.closePath();
-                ctx.stroke();
-                ctx.moveTo(80, 90);
-                ctx.lineTo(80, 80);
-                ctx.lineTo(90, 80);
-                ctx.stroke();
-                //Draw text
-                ctx.font = "18px serif";
-                ctx.fillText("\u0398", 25, 87);
-                ctx.fillText("zcos\u0398", 31, 105);
-                ctx.save(); //Save current stuff before transformations occur
-                //Rotate canvas for rotated draxing
-                ctx.translate(95, 45);
-                ctx.rotate((Math.PI / 180) * 90);
-                ctx.translate(-95, -45);
-                //Add sideways text
-                ctx.fillText("zsin\u0398", 85, 45);
-                ctx.restore(); //Go back to default settings
-                ctx.fillText("z", 40, 45);
-            </script>
-            <h3>Vectors:</h3>
-            <li>Many of the values in this course are represented with vectors: distance, speed, acceleration, forces, really any type of movement.</li>
-            <li>Vectors are a value (a magnitude) and a direction (12 ft East).</li>
-            <li>Scalars are numbers that do not have a direction (12 lbs).</li>
-            <li>Distance is how much the object traveled, it's scalar.</li>
-            <li>Displacement (&Delta;<var>x</var>) directly from start to finish, it's a vector.</li>
-            <li>Speed is how quickly the object is covering distance.</li>
-            <li>Average speed is
-                <div class="fraction">
-                    <div class="top">distance</div>
-                    <div class="bottom"><var>t</var></div>
-                </div>
-            </li>
-            <li>Velocity is how quickly it's changing position in a certain direction.</li>
-            <li>Average velocity is
-                <div class="fraction">
-                    <div class="top">&Delta;<var>x</var></div>
-                    <div class="bottom">&Delta;<var>t</var></div>
-                </div> where &Delta; simply means "change in," so &Delta;<var>x</var> is equal to your final position minus your initial position, or <br />(<var>x<sub>f</sub></var> &minus; <var>x<sub>i</sub></var>)
-            </li>
-            <li>Vectors can be broken apart into x-direction and y-direction components, like a right triangle. It is helpful to do this when adding and subtracting vectors.</li>
-            <h5>Parallel Vectors:</h5>
-            <li>Vectors in the same direction add together or reinforce.</li>
-            <li>Vectors in the opposite direction subtract from each other, or cancel out.</li>
-            <h5>Perpendicular Vectors:</h5>
-            <li>Just use the Pythagorean Theorem after breaking them up into x and y components to get the complete vector.</li>
-            <h3>Dimensional Analysis:</h3>
-            <li>Another useful trick for converting units is dimensional analysis, simply it is converting one value such as yards per second into another value such as miles per hour.</li>
-            <li>The goal of dimensional analysis is to cancel out all of the units that you don't need to end up with the final result.</li>
-            <li>Using that example, let's convert 100 yards per second into mph using dimensional analysis.</li>
-            <div class="fraction">
-                <div class="top">100 <s>yards</s></div>
-                <div class="bottom">1 <s>second</s></div>
-            </div> &times;
-            <div class="fraction">
-                <div class="top">60 <s>seconds</s></div>
-                <div class="bottom">1 <s>minute</s></div>
-            </div> &times;
-            <div class="fraction">
-                <div class="top">60 <s>minutes</s></div>
-                <div class="bottom">1 hour</div>
-            </div> &times;
-            <div class="fraction">
-                <div class="top">3 <s>feet</s></div>
-                <div class="bottom"> 1 <s>yard</s></div>
-            </div> &times;
-            <div class="fraction">
-                <div class="top">1 mile</div>
-                <div class="bottom">5280 <s>feet</s></div>
-            </div> =
-            <div class="fraction">
-                <div class="top">100 &times; 60 &times; 60 &times; 3 miles</div>
-                <div class="bottom">5280 hour</div>
-            </div>
-        </ul>
+        <div htmlInclude="Prerequisites.html"></div>
     </div>
+    <!--Linear Motion-->
     <div><span class="toggleButton" id="linearMotionToggleButton" onclick="toggleDiv('#linearMotion');">&plus;</span>
         <h2>Linear Motion (Kinematics):</h2>
     </div>
@@ -247,6 +161,7 @@ font-family: 'Nunito', sans-serif;
             <li>The area under the curve refers to the area in bewteen the graph and the x-axis. If it is below the x-axis then the area is negative. If you've taken calculus, this is known as the integral.</li>
             <li>The area under the curve of an acceleration versus time graph is the velocity.</li>
             <li>The area under the curve of a velocity versus time graph is the displacement.</li>
+            <li>The area under the graph can be represented by integrals if you've taken calculus or are concurrently enrolled.</li>
             <li>As previously stated, velocity (<var>V</var>) is
                 <div class="fraction">
                     <div class="top">&Delta;<var>x</var></div>
