@@ -188,5 +188,150 @@
                 setInterval(clearDrawing, 5000);
             }, 4000);
         </script>
+        <li>In order to solve for the tensions, given <var>&theta;</var><sub>1</sub>, <var>&theta;</var><sub>2</sub>, and <var>m</var>, you can set up a system of equations. Since the mass is not moving left to right:
+            <br />T<sub>1</sub>cos(<var>&theta;</var><sub>1</sub>) = T<sub>2</sub>cos(<var>&theta;</var><sub>2</sub>)<br />and since the two tensions are working together to keep the mass up:
+            <br />T<sub>1</sub>sin(<var>&theta;</var><sub>1</sub>) + T<sub>2</sub>sin(<var>&theta;</var><sub>2</sub>) = T<sub>3</sub> = <var>mg</var><br />Now using substitution we can solve for both tensions T<sub>1</sub> and T<sub>2</sub>.</li>
+        <h5>Pulleys:</h5>
+        <li>Pulley problems make use of Friction, Tension, and other applied Forces, and so they are a great way to check your understanding of Forces.</li>
+        <li>Imagine a simple pulley scenario with two masses, and no friction on the surface as well as no friction or mass in the pulley itself.</li>
+        <canvas id="pulleyDiagram" width="300" height="200"></canvas>
+        <script class="renderJS">
+            var pulleyDiagram = document.querySelector("#pulleyDiagram");
+            var ctx1 = pulleyDiagram.getContext("2d");
+            //Table
+            ctx1.beginPath();
+            ctx1.moveTo(0, 50);
+            ctx1.lineTo(220, 50);
+            ctx1.lineTo(220, 200);
+            //Actual Pulley
+            ctx1.moveTo(220, 50);
+            ctx1.lineTo(220 + 15, 50 - 15);
+            ctx1.moveTo(220 + 15 + 10, 50 - 15);
+            ctx1.arc(220 + 15, 50 - 15, 10, 0, Math.PI * 2);
+            ctx1.stroke();
+            //Mass 1 Hanging
+            ctx1.beginPath();
+            ctx1.moveTo(220 + 15 + 10, 50 - 14);
+            ctx1.lineTo(220 + 15 + 10, 50 + 55);
+            ctx1.stroke();
+            ctx1.strokeRect(220 + 15 + 10 - (35 / 2), 50 + 55, 35, 70);
+            ctx1.textAlign = "center";
+            ctx1.fillText("m1", 220 + 15 + 10, (50 + 55 + 35));
+            //Mass 2 Sliding
+            ctx1.beginPath();
+            ctx1.moveTo(220 + 14, 50 - 25);
+            ctx1.lineTo(120, 50 - 25);
+            ctx1.stroke();
+            ctx1.strokeRect(120 - (50), 50 - 50, 50, 49);
+            ctx1.textAlign = "center";
+            ctx1.fillText("m2", 120 - 25, 49 / 2);
+            ctx1.fillText("T", 170, 49 / 2 - 5);
+            ctx1.fillText("T", 220 + 20 + 15, (50 - 14 + 105) / 2);
+        </script>
+        <li>A solid rule is that one string can only have one tension, it is very intuitive in sense, and in this scenario all the pulley does is transfer the load from the vertical mass (<var>m</var><sub>1</sub>) to the horizontal mass (<var>m</var><sub>2</sub>).</li>
+        <li>There are two ways to do this problem and you should be familiar with both:</li>
+        <table class="staticTable">
+            <tr>
+                <th>The Easy Way:</th>
+                <th>The Hard Way:</th>
+            </tr>
+            <tr>
+                <!--Easy Way-->
+                <td>
+                    <ul>
+                        <li>Treat the entire thing as one system and look at only the outside forces if all inside forces cancel out (if there is friction then you need to resort to the hard way)</li>
+                        <table class="rules">
+                            <tr>
+                                <td>
+                                    <var>a</var><sub>system</sub> =
+                                    <div class="fraction">
+                                        <div class="top">&Sigma;<var>F</var><sub>external</sub></div>
+                                        <div class="bottom"><var>m</var><sub>system</sub></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <li>The only external forces acting apon this system are gravity on <var>m</var><sub>1</sub>, therefore &Sigma;<var>F</var><sub>external</sub> = &minus;<var>m</var><sub>1</sub><var>g</var></li>
+                        <li>And the mass of the system is just the sum of all of the masses within the system.</li>
+                        <div class="fraction">
+                            <div class="top">&Sigma;<var>F</var><sub>external</sub></div>
+                            <div class="bottom"><var>m</var><sub>system</sub></div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">&minus;<var>m</var><sub>1</sub><var>g</var></div>
+                            <div class="bottom"><var>m</var><sub>1</sub> + <var>m</var><sub>2</sub></div>
+                        </div> = <var>a</var><sub>system</sub>
+                    </ul>
+                </td>
+                <!--Hard Way-->
+                <td>
+                    <ul>
+                        <li>This method accounts for both inner and outer forces as it looks at each object individually.</li>
+                        <table class="rules">
+                            <tr>
+                                <td>
+                                    <var>a</var><sub>m1<sub>y-dir</sub></sub> =
+                                    <div class="fraction">
+                                        <div class="top">&Sigma;<var>F</var><sub>m1<sub>y-dir</sub></sub>
+                                        </div>
+                                        <div class="bottom"><var>m</var><sub>1</sub></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <var>a</var><sub>m2<sub>x-dir</sub></sub> =
+                                    <div class="fraction">
+                                        <div class="top">&Sigma;<var>F</var><sub>m2<sub>x-dir</sub></sub>
+                                        </div>
+                                        <div class="bottom"><var>m</var><sub>2</sub></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <li>So the first one reads that the acceleration of <var>m</var><sub>1</sub> in the <var>y</var> direction is equal to the sum of the forces on <var>m</var><sub>1</sub> in the <var>y</var> direction all over the mass of <var>m</var><sub>1</sub>.
+                            And from that you can reasonably deduct the meaning of the second equation.</li>
+                        <var>a</var><sub>m1<sub>y-dir</sub></sub> =
+                        <div class="fraction">
+                            <div class="top">T &minus; <var>m</var><sub>1</sub><var>g</var></div>
+                            <div class="bottom"><var>m</var><sub>1</sub></div>
+                        </div><br />
+                        <var>a</var><sub>m2<sub>x-dir</sub></sub> =
+                        <div class="fraction">
+                            <div class="top">T</div>
+                            <div class="bottom"><var>m</var><sub>2</sub></div>
+                        </div> &rarr;
+                        <var>m</var><sub>2</sub><var>a</var><sub>m2<sub>x-dir</sub></sub> = T
+                        <li>The tension in the string is acting on both objects, <var>m</var><sub>1</sub> and <var>m</var><sub>2</sub>. It is the only force acting upon <var>m</var><sub>2</sub> (unless there is friction, in which case you would subtract <var>F<sub>f</sub></var>                            on <var>m</var><sub>2</sub>), and the tension in the string is pulling up on <var>m</var><sub>1</sub> while its weight pulls it down.</li>
+                        <li>And so by solving for T in one equation, we can use substitution and solve for our acceleration.</li>
+                        <var>a</var><sub>m1<sub>y-dir</sub></sub> =
+                        <div class="fraction">
+                            <div class="top"><var>m</var><sub>2</sub><var>a</var><sub>m2<sub>x-dir</sub></sub> &minus; <var>m</var><sub>1</sub><var>g</var></div>
+                            <div class="bottom"><var>m</var><sub>1</sub></div>
+                        </div>
+                        <li>Now since the blocks are connected by a string, they will have the same displacement, the same velocity, and the same acceleration, thus</li>
+                        <var>a</var><sub>m1<sub>y-dir</sub></sub> = <var>a</var><sub>m2<sub>x-dir</sub></sub> = <var>a</var><sub>system</sub>
+                        <li>Doing another substitution we can get</li>
+                        <var>a</var><sub>system</sub> =
+                        <div class="fraction">
+                            <div class="top"><var>m</var><sub>2</sub><var>a</var><sub>system</sub> &minus; <var>m</var><sub>1</sub><var>g</var></div>
+                            <div class="bottom"><var>m</var><sub>1</sub></div>
+                        </div>
+                        <li>And the last step is to solve for acceleration:</li>
+                        <br />
+                        <var>m</var><sub>1</sub><var>a</var><sub>system</sub> = <var>m</var><sub>2</sub><var>a</var><sub>system</sub> &minus; <var>m</var><sub>1</sub><var>g</var>
+                        <br />
+                        <var>m</var><sub>1</sub><var>a</var><sub>system</sub> &minus; <var>m</var><sub>2</sub><var>a</var><sub>system</sub> = &minus;<var>m</var><sub>1</sub><var>g</var>
+                        <br />
+                        <var>a</var><sub>system</sub>(<var>m</var><sub>1</sub> &minus; <var>m</var><sub>2</sub>) = &minus;<var>m</var><sub>1</sub><var>g</var>
+                        <br />
+                        <var>a</var><sub>system</sub> =
+                        <div class="fraction">
+                            <div class="top">&minus;<var>m</var><sub>1</sub><var>g</var></div>
+                            <div class="bottom"><var>m</var><sub>1</sub> &minus; <var>m</var><sub>2</sub></div>
+                        </div>
+                        <li>And either way you get the same answer, try to see if the easy way is applicable first before attempting this longer, more thorough method.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
     </ul>
 </div>
