@@ -1,0 +1,173 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+        <h5>Circular Motion:</h5>
+        <li>While staying linear, a car can travel in a circular track. What would the force of friction be then?</li>
+        <li>When something travels in a circular path, it has a force that points to the center of that circle, this is called a Centripetal Force. Centripetal Acceleration and Centripetal Force are given by</li>
+        <table class="rules">
+            <tr>
+                <td><var>a<sub>c</sub></var> =
+                    <div class="fraction">
+                        <div class="top">V<sup>2</sup></div>
+                        <div class="bottom"><var>r</var></div>
+                    </div>
+                </td>
+                <td><var>F<sub>c</sub></var> =
+                    <var>m</var>
+                    <div class="fraction">
+                        <div class="top">V<sup>2</sup></div>
+                        <div class="bottom"><var>r</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>When a car is going in a circular track, the Force of Friction is the same as the Centripetal Force of the track on the car because it is the only force keeping the car on the road, this is why <var>F<sub>f</sub></var> = <var>F<sub>c</sub></var>            &rarr; <var>&mu;mg</var> = <var>m</var>
+            <div class="fraction">
+                <div class="top">V<sup>2</sup></div>
+                <div class="bottom"><var>r</var></div>
+            </div>
+        </li>
+        <h3>Angular Movement:</h3>
+        <li>All the previous information was about linear moevement, disregarding spinning objects (which is why the pulleys had no mass themselves, but what if they did?), this unit will take all the linear concepts you already know and put them in a rotational
+            sense.
+        </li>
+        <table class="staticTable">
+            <tr>
+                <th style="border-top: none; border-left: none;"></th>
+                <th>Linear:</th>
+                <th>Equation:</th>
+                <th>Rotational:</th>
+            </tr>
+            <tr>
+                <th>Displacement:</th>
+                <td>&Delta;<var>x</var> meters</td>
+                <td>
+                    <table class="rules">
+                        <tr>
+                            <td>&Delta;<var>x</var> = <var>r&theta;</var></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>&theta; radians</td>
+            </tr>
+            <tr>
+                <th>Velocity:</th>
+                <td>V meters per second</td>
+                <td>
+                    <table class="rules">
+                        <tr>
+                            <td>V = <var>r&omega;</var></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>&omega; radians per second</td>
+            </tr>
+            <tr>
+                <th>Acceleration:</th>
+                <td>a m/s<sup>2</sup></td>
+                <td>
+                    <table class="rules">
+                        <tr>
+                            <td>a = <var>r&alpha;</var></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>&alpha; rad/s<sup>2</sup></td>
+            </tr>
+        </table>
+        <canvas id="linearToRotationalProof" width="150" height="150"></canvas>
+        <script class="renderJS">
+            var linearToRotationalProof = document.querySelector("#linearToRotationalProof");
+            var ctx = linearToRotationalProof.getContext("2d");
+            //Circle
+            ctx.strokeStyle = "gray";
+            ctx.moveTo(150, 150 / 2);
+            ctx.arc(150 / 2, 150 / 2, 148 / 2, 0, Math.PI * 2);
+            ctx.stroke();
+            //Arc
+            ctx.beginPath();
+            ctx.strokeStyle = "red";
+            ctx.arc(150 / 2, 150 / 2, 150 / 2, 9.5 * Math.PI / 6, 11.5 * Math.PI / 6);
+            ctx.stroke();
+            //Theta
+            ctx.fillStyle = "red";
+            ctx.font = "12pt Arial";
+            ctx.fillText("\u03B8", 138, 20);
+        </script>
+        <li>The length of the arc is equal to that portion of the angle in the entire angle of a circle times the actual circumference. Since we are working in radians, we will use 2&pi; instead of 360&deg;.</li>
+        <div class="fraction">
+            <div class="top"><var>&theta;</var></div>
+            <div class="bottom">2&pi;</div>
+        </div>&times;2&pi;<var>r</var> = <var>r&theta;</var> = &Delta;<var>x</var>
+        <li>And the other ones can be derived simply by dividing both sides by time.</li>
+        <li>Just like how the variables switch over, the kinematics equations do too:</li>
+        <table class="rules">
+            <tr>
+                <th></th>
+                <th>Linear Equations:</th>
+                <th>Rotational Equations:</th>
+            </tr>
+            <tr>
+                <th rowspan="3">Kinematics Equations</th>
+                <td>V<sub>F</sub> = V<sub>I</sub> + <var>at</var></td>
+                <td><var>&omega;</var><sub>F</sub> = <var>&omega;</var><sub>I</sub> + <var>&alpha;t</var></td>
+            </tr>
+            <tr>
+                <td><var>x</var><sub>F</sub> = <var>x</var><sub>I</sub> + V<sub>I</sub><var>t</var> +
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>at</var><sup>2</sup></td>
+                <td>
+                    <var>&theta;</var><sub>F</sub> = <var>&theta;</var><sub>I</sub> + <var>&omega;</var><sub>I</sub><var>t</var> +
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>&alpha;t</var><sup>2</sup>
+                </td>
+            </tr>
+            <tr>
+                <td>V<sub>F</sub><sup>2</sup> = V<sub>I</sub><sup>2</sup> + 2<var>a</var>&Delta;<var>x</var></td>
+                <td><var>&omega;</var><sub>F</sub><sup>2</sup> = <var>&omega;</var><sub>I</sub><sup>2</sup> + 2<var>&alpha;</var>&Delta;<var>&theta;</var></td>
+            </tr>
+            <tr>
+                <th>Force vs. Torque</th>
+                <td><var>F = ma</var></td>
+                <td><var>&tau; = I&alpha;</var></td>
+            </tr>
+            <tr>
+                <th>Momentum</th>
+                <td><var>p = m</var>V</td>
+                <td><var>L = I&omega;</var></td>
+            </tr>
+            <tr>
+                <th>Change in Momentum</th>
+                <td>&Delta;<var>p = F</var>&Delta;<var>t = m</var>&Delta;V</td>
+                <td>&Delta;<var>L = &tau;</var>&Delta;<var>t = I</var>&Delta;<var>&omega;</var></td>
+            </tr>
+            <tr>
+                <th>Kinetic Energy</th>
+                <td>KE =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>m</var>V<sup>2</sup></td>
+                <td>KE =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>I&omega;</var><sup>2</sup></td>
+            </tr>
+        </table>
+
+    </ul>
+</div>
