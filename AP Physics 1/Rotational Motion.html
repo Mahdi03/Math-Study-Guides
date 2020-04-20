@@ -83,6 +83,13 @@
                 </td>
                 <td>&alpha; rad/s<sup>2</sup></td>
             </tr>
+            <tr>
+                <th>Force:</th>
+                <td><var>F</var> Newtons</td>
+                <td><var>&tau; = rF<sin>&theta;</sin></var></td>
+                <td>&tau; Nm</td>
+            </tr>
+
         </table>
         <canvas id="linearToRotationalProof" width="150" height="150"></canvas>
         <script class="renderJS">
@@ -168,6 +175,72 @@
                     </div><var>I&omega;</var><sup>2</sup></td>
             </tr>
         </table>
+        <h5>Torque:</h5>
+        <li>Torque is a rotational force on a rotating object.</li>
+        <canvas id="torqueDemo" height="180"></canvas>
+        <script class="renderJS">
+            var torqueDemo = document.querySelector("#torqueDemo");
+            var ctx1 = torqueDemo.getContext("2d");
+            //Draw bar with Force applied and sin(theta)
+            function drawLever() {
+                ctx1.strokeRect(40, 30, 80, 10);
+                drawArrow(ctx1, 45, 35, 5, 55);
+                ctx1.moveTo(45, 35);
+                ctx1.lineTo(0, 35);
+                ctx1.moveTo(45, 35);
+                ctx1.lineTo(45, 55);
+                ctx1.setLineDash([10, 5]);
+                ctx1.stroke();
+                ctx1.setLineDash([]);
+                ctx1.fillText("F", 27, 52);
+                ctx1.fillText("\u03B8", 25, 42);
+                ctx1.fillText("Fcos(\u03B8)", 3, 32);
+                ctx1.fillText("Fsin(\u03B8)", 47, 55);
+                ctx1.beginPath();
+                ctx1.arc(xpoint, ypoint, 3, 0, Math.PI * 2);
+                ctx1.fill();
+                ctx1.moveTo(120, 27);
+                ctx1.lineTo(120, 17);
+                ctx1.moveTo(120, 22);
+                ctx1.lineTo(90, 22);
+                ctx1.moveTo(60, 22);
+                ctx1.lineTo(40, 22);
+                ctx1.moveTo(40, 27);
+                ctx1.lineTo(40, 17);
+                ctx1.stroke();
+                ctx1.fillText("r", 75, 22);
+            }
+            var xpoint = 120;
+            var ypoint = 35;
+            //Add animation to it
+            function rotateLever() {
+                ctx1.clearRect(0, 0, 200, 200);
+                ctx1.translate(xpoint, ypoint);
+                ctx1.rotate(-Math.PI / (36 * 4));
+                ctx1.translate(-xpoint, -ypoint);
+                drawLever();
+            }
 
+            function restartAnimation(rotateInterval) {
+                clearInterval(rotateInterval);
+                ctx1.translate(xpoint, ypoint);
+                ctx1.rotate(60 * Math.PI / (36 * 4));
+                ctx1.translate(-xpoint, -ypoint);
+                ctx1.clearRect(0, 0, 200, 200);
+                drawLever();
+            }
+            drawLever();
+            setInterval(function() {
+                drawLever();
+                var rotateInterval = setInterval(rotateLever, 50);
+                setTimeout(function() {
+                    restartAnimation(rotateInterval);
+                }, 3000);
+            }, 3000);
+        </script>
+        <li>We take into account the <var>r</var> because as <var>r</var> increases, the torque on the object increases, and the
+            <sin>&theta;</sin> is there to take into account only the part of the force that is making the object rotate.</li>
+        <li>Just as force (<var>F</var>) applied for some time (<var>t</var>) will change an object's linear momentum (<var>p</var>), torque (<var>&tau;</var>) applied over a certain time (<var>t</var>) will change the object's angular momentum (<var>L</var>).</li>
+        <li>Angular Momentum (<var>L</var>) is conserved just as Linear Momentum (<var>p</var>), when no Net Force (<var>F</var><sub>net</sub>) (or in this case Net Torque (<var>&tau;</var><sub>net</sub>)) is applied.</li>
     </ul>
 </div>
