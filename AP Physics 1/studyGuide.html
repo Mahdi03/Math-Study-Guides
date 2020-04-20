@@ -160,6 +160,20 @@ font-family: 'Nunito', sans-serif;
     <div id="forces">
         <div htmlInclude="Forces.html"></div>
     </div>
+    <!--Energy-->
+    <div><span class="toggleButton" id="energyToggleButton" onclick="toggleDiv('#energy');">&plus;</span>
+        <h2>Energy:</h2>
+    </div>
+    <div id="energy">
+        <div htmlInclude="Energy.html"></div>
+    </div>
+    <!--Rotational Motion-->
+    <div><span class="toggleButton" id="rotationalMotionToggleButton" onclick="toggleDiv('#rotationalMotion');">&plus;</span>
+        <h2>Rotational Motion:</h2>
+    </div>
+    <div id="rotationalMotion">
+        <div htmlInclude="Rotational Motion.html"></div>
+    </div>
     <script>
         document.querySelector("h2.link").onclick = function() {
             openPopup("apPhysics1Equations");

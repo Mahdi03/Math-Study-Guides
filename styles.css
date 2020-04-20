@@ -132,7 +132,11 @@
         #limitFormulas,
         .solution,
         #prerequisites,
-        #linearMotion {
+        #linearMotion,
+        #forces,
+        #energy,
+        #rotationalMotion,
+        #waves {
             display: none;
             -webkit-transition: display 1s ease-in-out;
             -moz-transition: display 1s ease-in-out;
