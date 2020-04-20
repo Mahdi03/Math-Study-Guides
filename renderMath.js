@@ -140,16 +140,17 @@ function toggleDiv(id) {
     }
 }
 
-function toggleSolution(id) {
+function toggleSolution(id, proof) {
     var element = document.querySelector(id);
     if (element.style.display === "block") {
         element.style.display = "none";
-        document.querySelector(id + "ToggleLink").innerHTML = "Show Solution";
+        document.querySelector(id + "ToggleLink").innerHTML = proof == true ? "Show Proof" : "Show Solution";
     } else {
         element.style.display = "block";
-        document.querySelector(id + "ToggleLink").innerHTML = "Hide Solution";
+        document.querySelector(id + "ToggleLink").innerHTML = proof == true ? "Hide Proof" : "Hide Solution";
     }
 }
+
 function drawArrow(context, fromx, fromy, tox, toy) {
     //variables to be used when creating the arrow
     var headlen = 10;
