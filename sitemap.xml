@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+          <loc>https://mahdi03.github.io/Math-Study-Guides/index.html</loc>
+          <priority>0.8</priority>
+   </url>
+   <url>
+        <loc>https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html</loc>
+        <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://mahdi03.github.io/Math-Study-Guides/AP%20Calc%20BC/studyGuide.html</loc>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://mahdi03.github.io/Math-Study-Guides/AP%20Physics%201/studyGuide.html</loc>
+       <priority>0.8</priority>
+   </url>
+</urlset> 
