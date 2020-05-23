@@ -22,6 +22,12 @@ document.body.onload = function() {
     var rationalFunction = document.querySelector("#rationalFunction");
     var anotherRationalFunction = document.querySelector("#anotherRationalFunction");
     //Polar Graphs
+    //Circles
+    var firstCircleGraph = document.querySelector("#firstCircleGraph");
+    var secondCircleGraph = document.querySelector("#secondCircleGraph");
+    var thirdCircleGraph = document.querySelector("#thirdCircleGraph");
+    var fourthCircleGraph = document.querySelector("#fourthCircleGraph");
+    //Cardioids
     var firstCardioidGraph = document.querySelector("#firstCardioidGraph");
     var secondCardioidGraph = document.querySelector("#secondCardioidGraph");
     var thirdCardioidGraph = document.querySelector("#thirdCardioidGraph");
@@ -88,6 +94,18 @@ document.body.onload = function() {
         anotherRationalFunction.src = "https://www.desmos.com/calculator/hap7szxr0v?embed";
     };
     anotherRationalFunction.onload = function() {
+        firstCircleGraph.src = "https://www.desmos.com/calculator/wfgpny8laq?embed";
+    };
+    firstCircleGraph.onload = function() {
+        secondCircleGraph.src = "https://www.desmos.com/calculator/eu24sufvrg?embed";
+    };
+    secondCircleGraph.onload = function() {
+        thirdCircleGraph.src = "https://www.desmos.com/calculator/ay8ksbj1ph?embed";
+    };
+    thirdCircleGraph.onload = function() {
+        fourthCircleGraph.src = "https://www.desmos.com/calculator/ofljdvpitq?embed";
+    };
+    fourthCircleGraph.onload = function() {
         firstCardioidGraph.src = "https://www.desmos.com/calculator/psta8m6ixj?embed";
     };
     firstCardioidGraph.onload = function() {

@@ -1108,6 +1108,51 @@
                 <h5>De Moivre's Theorem:</h5>
                 <li>Just like complex numbers in the Cartesian plane, there are also complex numbers in the Polar Plane. These are denoted as such:<br /><var>z = r(<cos>&theta;</cos> &plus; i<sin>&theta;</sin>)</var></li>
                 <h3>Polar Graphs:</h3>
+                <li>They come in many shapes and sizes</li>
+                <h5>Circles:</h5>
+                <li>These can come in three ways:</li>
+                <table class="rules">
+                    <tr>
+                        <td><var>r = a</var></td>
+                        <td>centered at origin</td>
+                        <td><var>a =</var> radius</td>
+                    </tr>
+                    <tr>
+                        <td><var>r = a</var>
+                            <cos>&theta;</cos>
+                        </td>
+                        <td>centered on the <var>x</var>-axis</td>
+                        <td rowspan="2"><var>a = </var> diameter</td>
+                    </tr>
+                    <tr>
+                        <td><var>r = a</var>
+                            <sin>&theta;</sin>
+                        </td>
+                        <td>centered on the <var>y</var>-axis</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><var>r</var> = 8</td>
+                        <td><var>r</var> = &minus;6</td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="firstCircleGraph" width="250px" height="250px"></iframe></td>
+                        <td><iframe id="secondCircleGraph" width="250px" height="250px"></iframe></td>
+                    </tr>
+                    <tr>
+                        <td><var>r =</var> &minus;8
+                            <cos>&theta;</cos>
+                        </td>
+                        <td><var>r =</var> 9
+                            <sin>&theta;</sin>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><iframe id="thirdCircleGraph" width="250px" height="250px"></iframe></td>
+                        <td><iframe id="fourthCircleGraph" width="250px" height="250px"></iframe></td>
+                    </tr>
+                </table>
                 <h5>Cardioids:</h5>
                 <li>These come in two forms:</li>
                 <table class="rules">
@@ -1176,7 +1221,7 @@
                         <td>Symmetry with y-axis</td>
                     </tr>
                 </table>
-                <li>If <var>a &gt; b</var>, then there is no loop, rather a dimple that is nover on the origin.</li>
+                <li>If <var>a &gt; b</var>, then there is no loop, rather a dimple that is never on the origin.</li>
                 <li>If <var>a &lt; b</var>, then there is an inner loop.</li>
                 <table>
                     <tr>
@@ -1223,18 +1268,24 @@
                 <table class="staticTable">
                     <tr>
                         <td style="border: none;"></td>
-                        <td>Cos</td>
-                        <td>Sin</td>
+                        <th>Cos</th>
+                        <th>Sin</th>
+                        <th>Pedals</th>
+                        <th>Domain</th>
                     </tr>
                     <tr>
                         <td>Even coefficient of <var>&theta;</var></td>
                         <td>Touches all 4 axes</td>
                         <td>Touches no axes</td>
+                        <td>2<var>n</var> pedals</td>
+                        <td>0 &le; &theta; &le; 2&pi;</td>
                     </tr>
                     <tr>
                         <td>Odd coefficient of <var>&theta;</var></td>
                         <td>Touches right axis only</td>
                         <td>Touches bottom axis only</td>
+                        <td><var>n</var> pedals</td>
+                        <td>0 &le; &theta; &le; &pi;</td>
                     </tr>
                 </table>
                 <table>
@@ -1405,8 +1456,7 @@
                                 <td><var><sub>n</sub>C<sub>r</sub> = 
                                         <div class="fraction">
                                             <div class="top">
-                                                <var>n!</var>
-        </div>
+                                                <var>n!</var></div>
         <div class="bottom">
             <var>r!</var>(<var>n &minus; r</var>)<var>!</var>
         </div>
