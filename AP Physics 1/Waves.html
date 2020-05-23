@@ -104,12 +104,13 @@
         <li>The period of a spring (<var>T<sub>s</sub></var>) is given by:</li>
         <table class="rules">
             <tr>
-                <td><var>T</var><sub>spring</sub> = 2&pi; (
+                <td><var>T</var><sub>spring</sub> = 2&pi;<img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                    <!--(
                     <div class="fraction">
                         <div class="top"><var>m</var></div>
                         <div class="bottom"><var>k</var></div>
                     </div>
-                    )<sup>1/2</sup>
+                    )<sup>1/2</sup>-->
                 </td>
                 <th> <a href="javascript:void(0)" id="springPeriodProofToggleLink" onclick="toggleSolution('#springPeriodProof', true);">Show Proof</a>
                 </th>
@@ -177,12 +178,13 @@
                 <div class="fraction">
                     <div class="top"><var>m</var></div>
                     <div class="bottom"><var>k</var></div>
-                </div>(2&pi;)<sup>2</sup> = <var>T</var><sup>2</sup><br /> 2&pi; (
+                </div>(2&pi;)<sup>2</sup> = <var>T</var><sup>2</sup><br /> 2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
                 <div class="fraction">
                     <div class="top"><var>m</var></div>
                     <div class="bottom"><var>k</var></div>
                 </div>
-                )<sup>1/2</sup> = <var>T</var><sub>spring</sub>
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub>
             </ol>
         </div>
         <h5>Pendulums:</h5>
@@ -193,12 +195,14 @@
         <li>The period of a pendulum (<var>T<sub>p</sub></var>) is given by:</li>
         <table class="rules">
             <tr>
-                <td><var>T<sub>pendulum</sub></var> = 2&pi; (
+                <td><var>T<sub>pendulum</sub></var> = 2&pi; <img src="../equations_images/lOverG.png" style="transform: translateY(20px);" />
+                    <!--(
                     <div class="fraction">
                         <div class="top"><var>l</var></div>
                         <div class="bottom"><var>g</var></div>
                     </div>
-                    )<sup>1/2</sup></td>
+                    )<sup>1/2</sup>-->
+                </td>
                 <th> <a href="javascript:void(0)" id="pendulumPeriodProofToggleLink" onclick="toggleSolution('#pendulumPeriodProof', true);">Show Proof</a>
                 </th>
             </tr>
@@ -207,12 +211,13 @@
             <p style="color: red;">This proof requires calculus and is not required for AP Physics 1, but it is a nice way to understand where the variables come from.</p>
             <ol>
                 <li>First we will be using the period of a spring because we have already derived it and both systems exhibit Simple Harmonic Motion. The goal is to solve for a <var>k</var> such that we can apply it to a pendulum.</li>
-                2&pi; (
+                2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
                 <div class="fraction">
                     <div class="top"><var>m</var></div>
                     <div class="bottom"><var>k</var></div>
                 </div>
-                )<sup>1/2</sup> = <var>T</var><sub>spring</sub>
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub>
                 <li>Now picture a Pendulum, and find the "Restoring Force" for the pendulum.</li>
                 <canvas id="pendulumPeriodProofDrawing" width="200" height="220"></canvas>
                 <script class="renderJS">
@@ -315,12 +320,13 @@
                     <div class="bottom"><var>l</var></div>
                 </div>
                 <li>Now we plug this value in to the period of a spring to get the period in terms of a pendulum.</li>
-                2&pi; (
+                2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
                 <div class="fraction">
                     <div class="top"><var>m</var></div>
                     <div class="bottom"><var>k</var></div>
                 </div>
-                )<sup>1/2</sup> = <var>T</var><sub>spring</sub> =&gt; 2&pi; (
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub> =&gt; 2&pi; (
                 <div class="fraction">
                     <div class="top"><var>m</var></div>
                     <div class="bottom">
@@ -329,16 +335,17 @@
                     </div>
                 </div>
                 )<sup>1/2</sup><br /> 2&pi;(
-                <var>m</var>
+                <del><var>m</var></del>
                 <div class="fraction">
                     <div class="top"><var>l</var></div>
-                    <div class="bottom"><var>mg</var></div>
-                </div>)<sup>1/2</sup> = 2&pi; (
+                    <div class="bottom"><var><del>m</del>g</var></div>
+                </div>)<sup>1/2</sup> = 2&pi; <img src="../equations_images/lOverG.png" style="transform: translateY(20px);" />
+                <!--(
                 <div class="fraction">
                     <div class="top"><var>l</var></div>
                     <div class="bottom"><var>g</var></div>
                 </div>
-                )<sup>1/2</sup> = <var>T<sub>pendulum</sub></var>
+                )<sup>1/2</sup>-->= <var>T<sub>pendulum</sub></var>
             </ol>
         </div>
     </ul>
