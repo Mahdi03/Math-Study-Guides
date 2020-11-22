@@ -9,7 +9,7 @@ function addImportanceToFormulas() {
 }
 
 function removeImportanceFromElements() {
-    var elementQueryList = ["sigma td"]; //Use CSS Selectors Here
+    var elementQueryList = ["sigma td", "matrix td"]; //Use CSS Selectors Here
     elementQueryList.forEach((elementQuery) => {
         var elementList = document.querySelectorAll(elementQuery);
         elementList.forEach((element) => {
@@ -87,7 +87,16 @@ function renderMath() {
     for (var r = 0; r < derivativeTags.length; r++) {
         var derivativeOf = derivativeTags[r].getAttribute("of") ? derivativeTags[r].getAttribute("of") : "";
         var derivativeRespectTo = derivativeTags[r].getAttribute("respectTo") ? derivativeTags[r].getAttribute("respectTo") : "x";
-        derivativeTags[r].innerHTML = "<div class='fraction'><div class='top'>d<var>" + derivativeOf + "</var></div><div class='bottom'>d<var>" + derivativeRespectTo + "</var></div></div>";
+        var derivativeOrder = derivativeTags[r].getAttribute("order") ? "<sup>" + derivativeTags[r].getAttribute("order") + "</sup>" : "";
+        derivativeTags[r].innerHTML = "<div class='fraction'><div class='top'>d" + derivativeOrder + "<var>" + derivativeOf + "</var></div><div class='bottom'>d" + derivativeOrder + "<var>" + derivativeRespectTo + "</var></div></div>";
+    }
+
+    var pDerivativeTags = document.getElementsByTagName("pDerivative");
+    for (var s = 0; s < pDerivativeTags.length; s++) {
+        var pDerivativeOf = pDerivativeTags[s].getAttribute("of") ? pDerivativeTags[s].getAttribute("of") : "";
+        var pDerivativeRespectTo = pDerivativeTags[s].getAttribute("respectTo") ? pDerivativeTags[s].getAttribute("respectTo") : "x";
+        var pDerivativeOrder = pDerivativeTags[s].getAttribute("order") ? "<sup>" + pDerivativeTags[s].getAttribute("order") + "</sup>" : "";
+        pDerivativeTags[s].innerHTML = "<div class='fraction'><div class='top'>&part;" + pDerivativeOrder + "<var>" + pDerivativeOf + "</var></div><div class='bottom'>&part;" + pDerivativeOrder + "<var>" + pDerivativeRespectTo + "</var></div></div>";
     }
 
     var integralTags = document.getElementsByTagName("integral");
@@ -109,6 +118,33 @@ function renderMath() {
         var from = evaluatedTags[t].getAttribute("from");
         var to = evaluatedTags[t].getAttribute("to") == null ? "" : evaluatedTags[t].getAttribute("to");
         evaluatedTags[t].innerHTML = "<table style='display: inline-table; border-left: 2px solid black; padding:0; border-collapse: collapse; transform: translate(0, -5px);'><tr><td style='transform: translate(0, -10px);'>" + to + "</td></tr><tr><td style='transform: translate(0, 10px)'>" + from + "</td></tr></table>";
+    }
+
+    //Defined matrix tag
+    //<matrix dimensionX="3" dimensionY="3" values="1, 2, 3, 4, 5, 6, 7, 8, 9"></matrix>
+    var matrixTags = document.getElementsByTagName("matrix");
+    for (var u = 0; u < matrixTags.length; u++) {
+        var dimensionX = parseInt(matrixTags[u].getAttribute("dimensionX"));
+        var dimensionY = parseInt(matrixTags[u].getAttribute("dimensionY"));
+        var values = matrixTags[u].getAttribute("values").split(", ");
+        //var values = matrixTags[u].innerHTML.split(", ");
+        if (values.length !== dimensionX * dimensionY) {
+            console.log(values);
+            matrixTags[u].innerHTML = "Could not display matrix, Dimension Error";
+        } else {
+            var table = document.createElement("table");
+            table.classList.add("matrix");
+            for (var row = 0; row < dimensionY; row++) {
+                var tr = document.createElement("tr");
+                for (var col = 0; col < dimensionX; col++) {
+                    var td = document.createElement("td");
+                    td.innerHTML = values[row * dimensionX + col];
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            matrixTags[u].appendChild(table);
+        }
     }
     //Defined vector tag
     var vectorTags = document.getElementsByTagName("vector");
@@ -151,15 +187,21 @@ function toggleSolution(id, proof) {
     }
 }
 
-function drawArrow(context, fromx, fromy, tox, toy) {
+function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     //variables to be used when creating the arrow
     var headlen = 10;
     var angle = Math.atan2(toy - fromy, tox - fromx);
     //starting path of the arrow from the start square to the end square and drawing the stroke
+    if (extraArgs !== undefined) {
+        if (extraArgs.lineDash !== undefined) {
+            context.setLineDash(extraArgs.lineDash);
+        }
+    }
     context.beginPath();
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
     context.stroke();
+    context.setLineDash([]);
     //starting a new path from the head of the arrow to one of the sides of the point
     context.beginPath();
     context.moveTo(tox, toy);
@@ -172,4 +214,19 @@ function drawArrow(context, fromx, fromy, tox, toy) {
     //draws the paths created above
     context.stroke();
     context.fill();
+}
+
+//For testing purposes to get exact coordinates
+function addCanvasPosition(canvas) {
+    var p = document.createElement("p");
+    p.setAttribute("id", "canvasPos");
+    canvas.insertAdjacentElement("afterend", p);
+    var canvasPos = document.querySelector("#canvasPos");
+    canvas.addEventListener("mousemove", (event) => {
+        var canvasPos = document.querySelector("#canvasPos");
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        canvasPos.innerHTML = `Pos: ${x}, ${y}`;
+    });
 }
