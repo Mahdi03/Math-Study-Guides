@@ -45,7 +45,7 @@ document.body.onload = function() {
                 }
             }
 
-            fileRequest.open("GET", fileLink, false);
+            fileRequest.open("GET", fileLink, true);
             fileRequest.send();
         }
         toggleButton.addEventListener("click", getFile);
