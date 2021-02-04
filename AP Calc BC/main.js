@@ -21,6 +21,7 @@ document.body.onload = function() {
                             removeImportanceFromElements();
                             //End the wait cursor
                             document.body.style.cursor = "initial";
+                            toggleButton.innerHTML = "&minus;";
                             /*var m = responseHTML.search("");
                             var n = responseHTML.search("<\/script>");
                             console.log("M: " + m + "N: " + n);
