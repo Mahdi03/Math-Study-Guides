@@ -41,51 +41,51 @@ function renderMath(parentElement = "") {
     //Replaced/Defined all math function 
     //Defined all Sqrt Tags
 
-    var sqrtTags = document.getElementsByTagName(parentElement + "sqrt");
+    var sqrtTags = document.querySelectorAll(parentElement + "sqrt");
     for (var e = 0; e < sqrtTags.length; e++) {
         var sqrtInput = sqrtTags[e].innerHTML;
         sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
     }
     //Defined all Limit Tags
-    var limTags = document.getElementsByTagName(parentElement + "lim");
+    var limTags = document.querySelectorAll(parentElement + "lim");
     for (var f = 0; f < limTags.length; f++) {
         var limAs = limTags[f].getAttribute("as");
         var limApproaches = limTags[f].getAttribute("approaches");
         limTags[f].innerHTML = "<div class='fraction'><div class='top'><var>lim</var></div><div class='bottom'><var>" + limAs + "</var>&rarr;" + limApproaches + "</div></div>";
     }
     //Defined trig tags
-    var sinTags = document.getElementsByTagName("sin");
+    var sinTags = document.querySelectorAll("sin");
     for (var j = 0; j < sinTags.length; j++) {
         var sinInput = sinTags[j].innerHTML;
         sinTags[j].innerHTML = "sin(<var>" + sinInput + "</var>)";
     }
-    var cosTags = document.getElementsByTagName(parentElement + "cos");
+    var cosTags = document.querySelectorAll(parentElement + "cos");
     for (var k = 0; k < cosTags.length; k++) {
         var cosInput = cosTags[k].innerHTML;
         cosTags[k].innerHTML = "cos(<var>" + cosInput + "</var>)";
     }
-    var tanTags = document.getElementsByTagName(parentElement + "tan");
+    var tanTags = document.querySelectorAll(parentElement + "tan");
     for (var l = 0; l < tanTags.length; l++) {
         var tanInput = tanTags[l].innerHTML;
         tanTags[l].innerHTML = "tan(<var>" + tanInput + "</var>)";
     }
-    var cscTags = document.getElementsByTagName(parentElement + "csc");
+    var cscTags = document.querySelectorAll(parentElement + "csc");
     for (var m = 0; m < cscTags.length; m++) {
         var cscInput = cscTags[m].innerHTML;
         cscTags[m].innerHTML = "csc(<var>" + cscInput + "</var>)";
     }
-    var secTags = document.getElementsByTagName(parentElement + "sec");
+    var secTags = document.querySelectorAll(parentElement + "sec");
     for (var n = 0; n < secTags.length; n++) {
         var secInput = secTags[n].innerHTML;
         secTags[n].innerHTML = "sec(<var>" + secInput + "</var>)";
     }
-    var cotTags = document.getElementsByTagName(parentElement + "cot");
+    var cotTags = document.querySelectorAll(parentElement + "cot");
     for (var o = 0; o < cotTags.length; o++) {
         var cotInput = cotTags[o].innerHTML;
         cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
     }
     //Defined log tag and ln tag
-    var logTags = document.getElementsByTagName(parentElement + "log");
+    var logTags = document.querySelectorAll(parentElement + "log");
     for (var p = 0; p < logTags.length; p++) {
         var logInput = logTags[p].innerHTML;
         if (logTags[p].getAttribute("base") !== null) {
@@ -95,14 +95,14 @@ function renderMath(parentElement = "") {
             logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
         }
     }
-    var lnTags = document.getElementsByTagName(parentElement + "ln");
+    var lnTags = document.querySelectorAll(parentElement + "ln");
     for (var q = 0; q < lnTags.length; q++) {
         var lnInput = lnTags[q].innerHTML;
         lnTags[q].innerHTML = "ln(<var>" + lnInput + "</var>)";
     }
     //Defined Derivative Tags (Will need to be changed further as we learn new concepts)
     //<nDeriv of="f" respectTo="t"></nDeriv> === df/dt
-    var derivativeTags = document.getElementsByTagName(parentElement + "derivative");
+    var derivativeTags = document.querySelectorAll(parentElement + "derivative");
     for (var r = 0; r < derivativeTags.length; r++) {
         var derivativeOf = derivativeTags[r].getAttribute("of") ? derivativeTags[r].getAttribute("of") : "";
         var derivativeRespectTo = derivativeTags[r].getAttribute("respectTo") ? derivativeTags[r].getAttribute("respectTo") : "x";
@@ -110,7 +110,7 @@ function renderMath(parentElement = "") {
         derivativeTags[r].innerHTML = "<div class='fraction'><div class='top'>d" + derivativeOrder + "<var>" + derivativeOf + "</var></div><div class='bottom'>d" + derivativeOrder + "<var>" + derivativeRespectTo + "</var></div></div>";
     }
 
-    var pDerivativeTags = document.getElementsByTagName(parentElement + "pDerivative");
+    var pDerivativeTags = document.querySelectorAll(parentElement + "pDerivative");
     for (var s = 0; s < pDerivativeTags.length; s++) {
         var pDerivativeOf = pDerivativeTags[s].getAttribute("of") ? pDerivativeTags[s].getAttribute("of") : "";
         var pDerivativeRespectTo = pDerivativeTags[s].getAttribute("respectTo") ? pDerivativeTags[s].getAttribute("respectTo") : "x";
@@ -118,7 +118,7 @@ function renderMath(parentElement = "") {
         pDerivativeTags[s].innerHTML = "<div class='fraction'><div class='top'>&part;" + pDerivativeOrder + "<var>" + pDerivativeOf + "</var></div><div class='bottom'>&part;" + pDerivativeOrder + "<var>" + pDerivativeRespectTo + "</var></div></div>";
     }
 
-    var integralTags = document.getElementsByTagName(parentElement + "integral");
+    var integralTags = document.querySelectorAll(parentElement + "integral");
     for (var h = 0; h < integralTags.length; h++) {
         var lowerBound = integralTags[h].getAttribute("lowerBound");
         var upperBound = integralTags[h].getAttribute("upperBound");
@@ -132,7 +132,7 @@ function renderMath(parentElement = "") {
         }
         integralTags[h].parentNode.insertBefore(span, integralTags[h].nextSibling);
     }
-    var evaluatedTags = document.getElementsByTagName(parentElement + "evaluated");
+    var evaluatedTags = document.querySelectorAll(parentElement + "evaluated");
     for (var t = 0; t < evaluatedTags.length; t++) {
         var from = evaluatedTags[t].getAttribute("from");
         var to = evaluatedTags[t].getAttribute("to") == null ? "" : evaluatedTags[t].getAttribute("to");
@@ -141,7 +141,7 @@ function renderMath(parentElement = "") {
 
     //Defined matrix tag
     //<matrix dimensionX="3" dimensionY="3" values="1, 2, 3, 4, 5, 6, 7, 8, 9"></matrix>
-    var matrixTags = document.getElementsByTagName(parentElement + "matrix");
+    var matrixTags = document.querySelectorAll(parentElement + "matrix");
     for (var u = 0; u < matrixTags.length; u++) {
         var dimensionX = parseInt(matrixTags[u].getAttribute("dimensionX"));
         var dimensionY = parseInt(matrixTags[u].getAttribute("dimensionY"));
@@ -166,13 +166,13 @@ function renderMath(parentElement = "") {
         }
     }
     //Defined vector tag
-    var vectorTags = document.getElementsByTagName(parentElement + "vector");
+    var vectorTags = document.querySelectorAll(parentElement + "vector");
     for (var i = 0; i < vectorTags.length; i++) {
         var vectorName = vectorTags[i].innerHTML;
         vectorTags[i].innerHTML = '<div class="outer"><div class="inner"><var>&rarr;</var></div><div class="inner"><var>' + vectorName + '</var></div></div>';
     }
     //Added Sigma tags
-    var sigmaTags = document.getElementsByTagName(parentElement + "sigma");
+    var sigmaTags = document.querySelectorAll(parentElement + "sigma");
     for (var r = 0; r < sigmaTags.length; r++) {
         var startValue = sigmaTags[r].getAttribute("start");
         var endValue = sigmaTags[r].getAttribute("end");
