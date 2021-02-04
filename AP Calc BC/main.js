@@ -10,26 +10,31 @@ document.body.onload = function() {
 
             var fileRequest = new XMLHttpRequest();
             fileRequest.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        var responseHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async><\/script>', '');
-                        element.innerHTML = responseHTML;
-                        toggleButton.removeEventListener("click", getFile);
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            var responseHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async><\/script>', '');
+                            element.innerHTML = responseHTML;
+                            toggleButton.removeEventListener("click", getFile);
 
-                        renderMath();
-                        addImportanceToFormulas();
-                        removeImportanceFromElements();
-                        /*var m = responseHTML.search("");
-                        var n = responseHTML.search("<\/script>");
-                        console.log("M: " + m + "N: " + n);
-                        console.log(responseHTML);
-                        console.log(responseHTML.substr(m + 8, n - (m + 8)));
-                        eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>*/
-                    } else if (this.status == 404) {
-                        console.log("File " + fileLink + " not found!!");
+                            renderMath(toggleButtonQuerySelector.replace("ToggleButton", ""));
+                            addImportanceToFormulas();
+                            removeImportanceFromElements();
+                            //End the wait cursor
+                            document.body.style.cursor = "initial";
+                            /*var m = responseHTML.search("");
+                            var n = responseHTML.search("<\/script>");
+                            console.log("M: " + m + "N: " + n);
+                            console.log(responseHTML);
+                            console.log(responseHTML.substr(m + 8, n - (m + 8)));
+                            eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>*/
+                        } else if (this.status == 404) {
+                            console.log("File " + fileLink + " not found!!");
+                        }
                     }
                 }
-            }
+                //Give it a wait logo so that the user knows that the website isn't frozen
+            document.body.style.cursor = "wait";
+            toggleButton.innerHTML = loadingLogoHTML;
             fileRequest.open("GET", fileLink, false);
             fileRequest.send();
         }
