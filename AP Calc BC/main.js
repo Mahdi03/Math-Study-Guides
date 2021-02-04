@@ -16,7 +16,7 @@ document.body.onload = function() {
                             element.innerHTML = responseHTML;
                             toggleButton.removeEventListener("click", getFile);
 
-                            renderMath(toggleButtonQuerySelector.replace("ToggleButton", ""));
+                            renderMath(toggleButtonQuerySelector.replace("ToggleButton", " "));
                             addImportanceToFormulas();
                             removeImportanceFromElements();
                             //End the wait cursor
