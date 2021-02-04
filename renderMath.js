@@ -1,12 +1,12 @@
 var loadingLogoHTML = `
   <style>
   .loader {
-    border: 5px solid #f3f3f3; /* Light grey */
-    border-top: 5px solid #3498db; /* Blue */
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #3498db; /* Blue */
     border-radius: 50%;
     width: 25px;
     height: 25px;
-    animation: spin 1.5s linear infinite;
+    animation: spin 1.4s linear infinite;
   }
   
   @keyframes spin {
