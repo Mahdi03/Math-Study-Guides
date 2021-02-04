@@ -20,8 +20,8 @@ document.body.onload = function() {
                             addImportanceToFormulas();
                             removeImportanceFromElements();
                             //End the wait cursor
-                            document.body.style.cursor = "initial";
-                            toggleButton.innerHTML = "&minus;";
+                            //document.body.style.cursor = "initial";
+                            //toggleButton.innerHTML = "&minus;";
                             /*var m = responseHTML.search("");
                             var n = responseHTML.search("<\/script>");
                             console.log("M: " + m + "N: " + n);
