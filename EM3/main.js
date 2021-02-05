@@ -1,155 +1,57 @@
 document.body.onload = function() {
-    renderMath();
-    //Added Graphs To Each iFrame
-    //Set 6 Main Trigonometric Function's Graphs
-    var sinGraph = document.querySelector("#sinGraph");
-    var cosGraph = document.querySelector("#cosGraph");
-    var tanGraph = document.querySelector("#tanGraph");
-    var cscGraph = document.querySelector("#cscGraph");
-    var secGraph = document.querySelector("#secGraph");
-    var cotGraph = document.querySelector("#cotGraph");
-    //Logarithmic Graphs
-    var logGraph = document.querySelector("#logGraph");
-    var lnGraph = document.querySelector("#lnGraph");
-    //6 Inverse Trigonometric Function's Graphs
-    var invSinGraph = document.querySelector("#invSinGraph");
-    var invCosGraph = document.querySelector("#invCosGraph");
-    var invTanGraph = document.querySelector("#invTanGraph");
-    var invCscGraph = document.querySelector("#invCscGraph");
-    var invSecGraph = document.querySelector("#invSecGraph");
-    var invCotGraph = document.querySelector("#invCotGraph");
-    //Rational Functions
-    var rationalFunction = document.querySelector("#rationalFunction");
-    var anotherRationalFunction = document.querySelector("#anotherRationalFunction");
-    //Polar Graphs
-    //Circles
-    var firstCircleGraph = document.querySelector("#firstCircleGraph");
-    var secondCircleGraph = document.querySelector("#secondCircleGraph");
-    var thirdCircleGraph = document.querySelector("#thirdCircleGraph");
-    var fourthCircleGraph = document.querySelector("#fourthCircleGraph");
-    //Cardioids
-    var firstCardioidGraph = document.querySelector("#firstCardioidGraph");
-    var secondCardioidGraph = document.querySelector("#secondCardioidGraph");
-    var thirdCardioidGraph = document.querySelector("#thirdCardioidGraph");
-    var fourthCardioidGraph = document.querySelector("#fourthCardioidGraph");
-    //Limacons
-    var firstLimaconGraph = document.querySelector("#firstLimaconGraph");
-    var secondLimaconGraph = document.querySelector("#secondLimaconGraph");
-    var thirdLimaconGraph = document.querySelector("#thirdLimaconGraph");
-    var fourthLimaconGraph = document.querySelector("#fourthLimaconGraph");
-    //Lemniscates
-    var firstLemniscateGraph = document.querySelector("#firstLemniscateGraph");
-    var secondLemniscateGraph = document.querySelector("#secondLemniscateGraph");
-    //Flowers
-    var firstPolarGraph = document.querySelector("#firstPolarGraph");
-    var secondPolarGraph = document.querySelector("#secondPolarGraph");
-    var thirdPolarGraph = document.querySelector("#thirdPolarGraph");
-    var fourthPolarGraph = document.querySelector("#fourthPolarGraph");
+    //Added an HTML Include Before Everything else so that the HTML renders properly
+    document.querySelectorAll("[htmlInclude]").forEach((element) => {
+        var fileLink = element.getAttribute("htmlInclude");
+        //Take file name, remove space, make first letter lowercase, and remove ".html" to make into the ToggleButton id
+        var toggleButtonQuerySelector = "#" + (fileLink.substr(0, 1).toLowerCase() + fileLink.substring(1)).split(" ").join("").replace(".html", "") + "ToggleButton";
+        var toggleButton = document.querySelector(toggleButtonQuerySelector);
 
-    //Actually Loading Each iFrame Successively
-    sinGraph.src = "https://www.desmos.com/calculator/s7xlbqwzqf?embed";
-    sinGraph.onload = function() {
-        cosGraph.src = "https://www.desmos.com/calculator/lkzm6zwt6w?embed";
-    };
-    cosGraph.onload = function() {
-        tanGraph.src = "https://www.desmos.com/calculator/hcbie01g6g?embed";
-    };
-    tanGraph.onload = function() {
-        cscGraph.src = "https://www.desmos.com/calculator/k8twn9qsof?embed";
-    };
-    cscGraph.onload = function() {
-        secGraph.src = "https://www.desmos.com/calculator/qfxuiyvyg6?embed";
-    };
-    secGraph.onload = function() {
-        cotGraph.src = "https://www.desmos.com/calculator/27vzqdaiuu?embed";
-    };
-    cotGraph.onload = function() {
-        logGraph.src = "https://www.desmos.com/calculator/jzeys9kket?embed";
-    };
-    logGraph.onload = function() {
-        lnGraph.src = "https://www.desmos.com/calculator/8mfm4fnxjl?embed";
-    };
-    lnGraph.onload = function() {
-        invSinGraph.src = "https://www.desmos.com/calculator/zw5zb9euh1?embed";
-    };
-    invSinGraph.onload = function() {
-        invCosGraph.src = "https://www.desmos.com/calculator/bkl2nqxi4j?embed";
-    };
-    invCosGraph.onload = function() {
-        invTanGraph.src = "https://www.desmos.com/calculator/yrkqujioyy?embed";
-    };
-    invTanGraph.onload = function() {
-        invCscGraph.src = "https://www.desmos.com/calculator/dempgdshcw?embed";
-    };
-    invCscGraph.onload = function() {
-        invSecGraph.src = "https://www.desmos.com/calculator/9bsv5bu4ph?embed";
-    };
-    invSecGraph.onload = function() {
-        invCotGraph.src = "https://www.desmos.com/calculator/gwhodciask?embed";
-    };
-    invCotGraph.onload = function() {
-        rationalFunction.src = "https://www.desmos.com/calculator/qgumdlzjnz?embed";
-    };
-    rationalFunction.onload = function() {
-        anotherRationalFunction.src = "https://www.desmos.com/calculator/hap7szxr0v?embed";
-    };
-    anotherRationalFunction.onload = function() {
-        firstCircleGraph.src = "https://www.desmos.com/calculator/wfgpny8laq?embed";
-    };
-    firstCircleGraph.onload = function() {
-        secondCircleGraph.src = "https://www.desmos.com/calculator/eu24sufvrg?embed";
-    };
-    secondCircleGraph.onload = function() {
-        thirdCircleGraph.src = "https://www.desmos.com/calculator/ay8ksbj1ph?embed";
-    };
-    thirdCircleGraph.onload = function() {
-        fourthCircleGraph.src = "https://www.desmos.com/calculator/ofljdvpitq?embed";
-    };
-    fourthCircleGraph.onload = function() {
-        firstCardioidGraph.src = "https://www.desmos.com/calculator/psta8m6ixj?embed";
-    };
-    firstCardioidGraph.onload = function() {
-        secondCardioidGraph.src = "https://www.desmos.com/calculator/xfdsaf8su4?embed";
-    };
-    secondCardioidGraph.onload = function() {
-        thirdCardioidGraph.src = "https://www.desmos.com/calculator/bclxvwn05m?embed";
-    };
-    thirdCardioidGraph.onload = function() {
-        fourthCardioidGraph.src = "https://www.desmos.com/calculator/oh98hxo9yc?embed";
-    };
-    fourthCardioidGraph.onload = function() {
-        firstLimaconGraph.src = "https://www.desmos.com/calculator/wbvzcu4elm?embed";
-    };
-    firstLimaconGraph.onload = function() {
-        secondLimaconGraph.src = "https://www.desmos.com/calculator/cbyuqdmb0f?embed";
-    };
-    secondLimaconGraph.onload = function() {
-        thirdLimaconGraph.src = "https://www.desmos.com/calculator/bxxmvmnm7x?embed";
-    };
-    thirdLimaconGraph.onload = function() {
-        fourthLimaconGraph.src = "https://www.desmos.com/calculator/qggtq9vdto?embed";
-    };
-    fourthLimaconGraph.onload = function() {
-        firstLemniscateGraph.src = "https://www.desmos.com/calculator/nactjr9urf?embed";
-    };
-    firstLemniscateGraph.onload = function() {
-        secondLemniscateGraph.src = "https://www.desmos.com/calculator/tuulpweazm?embed";
-    };
-    secondLemniscateGraph.onload = function() {
-        firstPolarGraph.src = "https://www.desmos.com/calculator/o67beou5v4?embed";
-    };
-    firstPolarGraph.onload = function() {
-        secondPolarGraph.src = "https://www.desmos.com/calculator/cb7hwiprt0?embed";
-    };
-    secondPolarGraph.onload = function() {
-        thirdPolarGraph.src = "https://www.desmos.com/calculator/uwvpvzcnsr?embed";
-    };
-    thirdPolarGraph.onload = function() {
-        fourthPolarGraph.src = "https://www.desmos.com/calculator/jkn1oiaqpq?embed";
-    };
+        function getFile() {
+            //Give it a wait logo so that the user knows that the website isn't frozen
+            document.body.style.cursor = "wait";
+            toggleButton.innerHTML = loadingLogoHTML;
+            var fileRequest = new XMLHttpRequest();
+            fileRequest.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        const renderingHTMLFunction = new Promise((resolve, reject) => {
+                            var responseHTML = this.responseText.replace('<link href="styles.css" rel="stylesheet" />', '').replace('<script src="main.js" async><\/script>', '');
+                            element.innerHTML = responseHTML;
+                            toggleButton.removeEventListener("click", getFile);
 
-    addImportanceToFormulas();
-    removeImportanceFromElements();
+                            renderMath(toggleButtonQuerySelector.replace("ToggleButton", " "));
+                            addImportanceToFormulas();
+                            removeImportanceFromElements();
+                            resolve("Yay we worked");
+                        });
+                        renderingHTMLFunction.then((successMessage) => {
+                            //End the wait cursor
+                            document.body.style.cursor = "initial";
+                            toggleButton.innerHTML = "&minus;";
+
+                        }).catch((errorMessage) => {
+                            console.error("This function isn't even called how did we get here???");
+                        });
+
+                        /*var m = responseHTML.search("");
+                        var n = responseHTML.search("<\/script>");
+                        console.log("M: " + m + "N: " + n);
+                        console.log(responseHTML);
+                        console.log(responseHTML.substr(m + 8, n - (m + 8)));
+                        eval(responseHTML.substr(m + 8, n - (m + 8))); //8 Is the Length of <script>*/
+                    } else if (this.status == 404) {
+                        console.log("File " + fileLink + " not found!!");
+                    }
+                }
+            }
+
+            fileRequest.open("GET", fileLink, true);
+            fileRequest.send();
+        }
+        toggleButton.addEventListener("click", getFile);
+
+    });
+
     document.querySelectorAll("h1").forEach(function(element) {
         element.onclick = function(event) {
             var link = event.srcElement.attributes.redir.nodeValue;

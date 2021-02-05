@@ -1,0 +1,86 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script data-ad-client="ca-pub-8495483038077603" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<div class="indent">
+    <h3>Partial Fraction Decomposition:</h3><br />
+    <div class="indent">
+        <!--<img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br />
+        <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>-->
+        <div class="fraction">
+            <div class="top">3<var>x</var> &plus; 2</div>
+            <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
+        </div> =
+        <div class="fraction">
+            <div class="top">A</div>
+            <div class="bottom"><var>x</var></div>
+        </div> &plus;
+        <div class="fraction">
+            <div class="top">B</div>
+            <div class="bottom"><var>x</var> &plus; 1</div>
+        </div><br /> [
+        <div class="fraction">
+            <div class="top">3<var>x</var> &plus; 2</div>
+            <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
+        </div>][
+        <div class="fraction">
+            <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+            <div class="bottom">1</div>
+        </div>] = [
+        <div class="fraction">
+            <div class="top">A</div>
+            <div class="bottom"><var>x</var></div>
+        </div>][
+        <div class="fraction">
+            <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+            <div class="bottom">1</div>
+        </div>] &plus; [
+        <div class="fraction">
+            <div class="top">B</div>
+            <div class="bottom">(<var>x</var> &plus; 1)</div>
+        </div>][
+        <div class="fraction">
+            <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+            <div class="bottom">1</div>
+        </div>]<br /><br /> 3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br /><br /> If <var>x</var> = 0, then:<br /> 3(0) &plus; 2 = A(0 &plus; 1) &plus; B(0)<br /> 0 &plus; 2 = A(1) &plus; 0 <br /> A = 2<br /><br /> And if x = &minus;1, then:<br /> 3(&minus;1)
+        &plus; 2 = A(&minus;1 &plus; 1) &plus; B(&minus;1)<br /> &minus;3 &plus; 2 = 0 &plus; &minus;B <br /> &minus;1 = &minus;B<br /> B = 1<br /> &there4;
+        <div class="fraction">
+            <div class="top">3<var>x</var> &plus; 2</div>
+            <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
+        </div> =
+        <div class="fraction">
+            <div class="top">2</div>
+            <div class="bottom"><var>x</var></div>
+        </div> &plus;
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom"><var>x</var> &plus; 1</div>
+        </div><br />
+    </div>
+    <h3>Graphing Rational Functions:</h3><br />
+    <div class="indent">
+        y =
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom">x</div>
+        </div><br />
+        <iframe id="rationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe><br /> y =
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom">x<sup>2</sup></div>
+        </div><br />
+        <iframe id="anotherRationalFunction" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+    </div>
+</div>
+<script class="renderJS">
+    //Rational Functions
+    var rationalFunction = document.querySelector("#rationalFunction");
+    var anotherRationalFunction = document.querySelector("#anotherRationalFunction");
+
+
+    rationalFunction.src = "https://www.desmos.com/calculator/qgumdlzjnz?embed";
+    rationalFunction.onload = function() {
+        anotherRationalFunction.src = "https://www.desmos.com/calculator/hap7szxr0v?embed";
+    };
+</script>

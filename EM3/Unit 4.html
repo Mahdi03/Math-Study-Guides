@@ -1,0 +1,108 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script data-ad-client="ca-pub-8495483038077603" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="indent">
+    <h3>General Information:</h3>
+    <ul>
+        <li>The Standard Form of a Polynomial is: <var>y = ax<sup>n</sup> &plus; bx<sup>n &minus; 1</sup> &plus; cx<sup>n &minus; 2</sup> &plus; ... &plus; k</var>.</li>
+    </ul>
+    <h3>Graphing:</h3>
+    <ul>
+        <li>The graph of a Polynomial can be easily drawn using a number line and looking at x-intercepts.</li>
+        <li>In order to find the x-intercepts, you need to factor the Polynomial, and there are 2 methods in in doing this:</li>
+        <ol type="a">
+            <li>Using Synthetic Division (Quick &amp; Easy Method)</li>
+            <ol type="1">
+                <p>Given <var>f(x) = 3x<sup>3</sup> &plus; 2x<sup>2</sup> &plus; 1</var></p>
+                <li>First find all possible zeros (Find all factors of the constant (<var>k</var>))</li>
+                <p>Example: &plusmn;1</p>
+                <li>Plug in the factors into the Polynomial until you find an actual zero</li>
+                <p>Example:<br /><var>f(1) = 3 &plus; 2 &plus; 1 &ne; 0<br />f(&minus;1) = &minus;3 &plus; 2 &plus; 1 = 0</var></p>
+                <li>Set up a diagram like this:</li>
+                <table>
+                    <tr>
+                        <td rowspan="2">zero</td>
+                        <td style="border-left: 2px solid black;">coefficients</td>
+                    </tr>
+                    <tr>
+                        <td style="border-left: 2px solid black; border-bottom: 2px solid black;">&darr;</td>
+                        <td style="border-bottom: 2px solid black;"></td>
+                        <td style="border-bottom: 2px solid black;"></td>
+                    </tr>
+                </table>
+                <p>Example:</p>
+                <table>
+                    <tr>
+                        <td rowspan="2">&minus;1</td>
+                        <td style="border-left: 2px solid black;">3</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td style="border-left: 2px solid black; border-bottom: 2px solid black;">&darr;</td>
+                        <td style="border-bottom: 2px solid black;"></td>
+                        <td style="border-bottom: 2px solid black;"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>3</td>
+                    </tr>
+                </table>
+                <li>Pull the first number down</li>
+            </ol>
+            <li>Using Polynomial Long Division (If All Else Fails - Longer, Tedious Method)</li>
+            <ol type="1">
+                <p>Given <var>f(x) = 3x<sup>3</sup> &plus; 2x<sup>2</sup> &plus; 1</var></p>
+                <li>First find all possible zeros (Find all factors of the constant (<var>k</var>))</li>
+                <p>Example: &plusmn;1</p>
+                <li>Plug in the factors into the Polynomial until you find an actual zero</li>
+                <p>Example:<br /><var>f(1) = 3 &plus; 2 &plus; 1 &ne; 0<br />f(&minus;1) = &minus;3 &plus; 2 &plus; 1 = 0</var></p>
+                <li>Set up a diagram like this: <br />
+                    <span style="border-right: 1px black solid; border-radius: 0px 0px 10px 0px">
+                                <var>x&plus;1</var>   
+                            </span>
+                    <span style="border-top: 1px black solid; ">
+                                <var>3x<sup>3</sup> &plus; 2x<sup>2</sup> &plus; 1</var>
+                            </span>
+                </li>
+                <li>Then solve the same way you would do to solve long division problems<br />
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td><span><var>3x<sup>2</sup> &minus; x &plus; 1</var></span></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right: 1px solid black; border-radius: 0px 0px 10px 0px"><var>x&plus;1</var></td>
+                            <td style="border-top: 1px solid black;"><var>3x<sup>3</sup> &plus; 2x<sup>2</sup> &plus; 0x &plus; 1</var></td>
+                        </tr>
+                        <tr>
+                            <td>&minus;</td>
+                            <td>(<var>3x<sup>3</sup> &plus; 3x<sup>2</sup></var>)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="longdivision2nd" style="border-top: 1px solid black">&minus;<var>x</var><sup>2</sup> &plus; 0x</td>
+                        </tr>
+                        <tr>
+                            <td>&minus;</td>
+                            <td class="longdivision2nd">(&minus;<var>x<sup>2</sup> &minus; x)</var></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="longdivision3rd" style="border-top: 1px solid black"><var>x &plus; 1</var></td>
+                        </tr>
+                        <tr>
+                            <td>&minus;</td>
+                            <td class="longdivision3rd">(<var>x &plus; 1</var>)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="longdivision4th">0</td>
+                        </tr>
+                    </table>
+                </li>
+            </ol>
+        </ol>
+    </ul>
+</div>

@@ -1,0 +1,70 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script data-ad-client="ca-pub-8495483038077603" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="indent">
+    <h3>Logarithm Properties:</h3>
+    <table class="rules">
+        <tr>
+            <td>
+                <log>a &times; b</log> =
+                <log>a</log> &plus;
+                <log>b</log>
+            </td>
+            <td>
+                <log>
+                    <div class="fraction">
+                        <div class="top">a</div>
+                        <div class="bottom">b</div>
+                    </div>
+                </log> =
+                <log>a</log> &minus;
+                <log>b</log>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <var>n</var>
+                <log>a</log> =
+                <log>a<sup><var>n</var></sup></log>
+            </td>
+            <td>
+                <log base="<var>a</var>">b</log> =
+                <div class="fraction">
+                    <div class="top">
+                        <log>b</log>
+                    </div>
+                    <div class="bottom">
+                        <log>a</log>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <var>e</var><sup><ln>e</ln></sup> = <var>e</var>
+            </td>
+        </tr>
+    </table>
+    <h3>Graphing Logarithmic Functions:</h3>
+    <ul>
+        <li>Parent Function: y =
+            <log>x</log><br />
+            <iframe id="logGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+        </li>
+        <li>Parent Function: y =
+            <ln>x</ln><br />
+            <iframe id="lnGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
+        </li>
+    </ul>
+</div>
+<script class="renderJS">
+    //Logarithmic Graphs
+    var logGraph = document.querySelector("#logGraph");
+    var lnGraph = document.querySelector("#lnGraph");
+
+    logGraph.src = "https://www.desmos.com/calculator/jzeys9kket?embed";
+    logGraph.onload = function() {
+        lnGraph.src = "https://www.desmos.com/calculator/8mfm4fnxjl?embed";
+    };
+</script>
