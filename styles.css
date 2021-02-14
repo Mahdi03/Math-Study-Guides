@@ -211,10 +211,18 @@
             font-family: initial;
             /*Overrides the Google Fonts so that the math can render better*/
         }
+        /*
+        Vector tags
+        <div class="outer">
+            <div class="inner">&rarr;</div>
+            <div class="inner">v</div>
+        </div>
+        */
         
         .outer {
-            width: 12pt;
+            /*width: 12pt;*/
             display: inline-block;
+            margin-left: -4px;
         }
         
         .inner,
@@ -224,6 +232,24 @@
             padding: 0;
             text-align: center;
             height: 7pt;
+        }
+        /*Single Vector tags in numerator of fraction tags need to be translated up*/
+        
+        .top vector:only-child {
+            display: inline-block;
+            transform: translateY(-7px);
+        }
+        
+        .matrix {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            display: inline-table;
+            transform: translateY(-20%);
+        }
+        
+        .matrix td {
+            padding: 1px;
+            text-align: center;
         }
         
         img[src="./equations.jpg"],
@@ -245,7 +271,8 @@
             text-align: end;
         }
         
-        .sigmaTag td {
+        .sigmaTag td,
+        .matrix td {
             text-align: center;
             border: none;
             border-radius: none;

@@ -1,0 +1,352 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+        <h3>Simple Harmonic Motion:</h3>
+        <li>Objects such as springs and pendulums do not move in a linear path, instead, they move in a back and forth path continuously, they both exhibit forms of Simple Harmonic Motion.</li>
+        <li>All this is, is when an object oscillates back and forth uninterrupted as the system tries to restore itself to equilibrium (the center point where the system no longer moves, or when displacement is 0), such that when its motion is graphed on
+            a line, it produces a sinusoidal function (it moves like a sine graph).</li>
+        <li>These objects oscillate a repeated amount of times, and so the length of each oscillation (how long it takes for the object to repeat its movement) is known at the period (<var>T</var>), and the amount of times this oscillation repeats in one
+            second is known as Frequency (<var>f</var> ).</li>
+        <li>The two values are inversely proportional:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>T</var> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>f</var></div>
+                    </div>
+                </td>
+                <td>
+                    <var>f</var> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>T</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>Simple Harmonic can be modeled using sinusoidal functions, the simplest form would be:</li>
+        <table class="rules">
+            <tr>
+                <td><var>x</var>(<var>t</var>) = <var>A</var>cos(
+                    <div class="fraction">
+                        <div class="top">2&pi;</div>
+                        <div class="bottom"><var>T</var></div>
+                    </div><var>t</var>)</td>
+                <td><var>x</var>(<var>t</var>) = <var>A</var>cos( 2&pi;
+                    <var>f t</var>)</td>
+            </tr>
+            <tr>
+                <td>V(<var>t</var>) = &minus;<var>A</var>
+                    <div class="fraction">
+                        <div class="top">2&pi;</div>
+                        <div class="bottom"><var>T</var></div>
+                    </div>sin(
+                    <div class="fraction">
+                        <div class="top">2&pi;</div>
+                        <div class="bottom"><var>T</var></div>
+                    </div><var>t</var>)</td>
+                <td>V(<var>t</var>) = &minus;<var>A</var>2&pi;
+                    <var>f </var>sin( 2&pi;
+                    <var>f t</var>)</td>
+            </tr>
+            <tr>
+                <td><var>a</var>(<var>t</var>) = &minus;<var>A</var>
+                    <div class="fraction">
+                        <div class="top">4&pi;<sup>2</sup></div>
+                        <div class="bottom"><var>T</var><sup>2</sup></div>
+                    </div>cos(
+                    <div class="fraction">
+                        <div class="top">2&pi;</div>
+                        <div class="bottom"><var>T</var></div>
+                    </div><var>t</var>)</td>
+                <td><var>a</var>(<var>t</var>) = &minus;<var>A</var>4&pi;<sup>2</sup><var>f </var><sup>2</sup>cos(2&pi;<var>f t</var>)</td>
+            </tr>
+        </table>
+        <li>Knowing the behavior of sinusoidal graphs, the <var>A</var> represents the maximum distance that the object will travel from equilibrium, so if a spring were pulled 0.05m and then released, your <var>A</var> value would be 0.05m.</li>
+        <li>Finding velocity and acceleration can be done using some calculus by taking the derivative of <var>x</var>(<var>t</var>) and then looking at the coefficients of those functions for maximum velocity and maximum acceleration, or you can use energy
+            methods (as detailed further below).</li>
+        <h5>Springs:</h5>
+        <li>Springs have a Spring Force Constant (<var>k</var>) that varies from spring to spring.</li>
+        <li>When you stretch a spring, as it tries to bring itself back to equilibrium, the Restoring Force is given by Hooke's Law:</li>
+        <table class="rules">
+            <tr>
+                <td><var>F<sub>s</sub> = &minus;kx</var></td>
+            </tr>
+        </table>
+        <li>The (&minus;) is there to tell you that the force is in the opposite direction of the displacement, and the formula tells you that displacement is proportional to the Restoring Force.</li>
+        <li>When springs move, they use energy as well, and this is given by the integral of Hooke's Law with respect to <var>x</var> (it is the area under a distance vs. Spring Force graph)</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    PE<sub>spring</sub> = &Delta;<var>U<sub>s</sub></var> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>kx</var><sup>2</sup>
+                </td>
+            </tr>
+        </table>
+        <li>You can use this to solve for velocity when setting it equal to KE and other Conservation of Energy methods.</li>
+        <li>The graph of a spring's movement can be depicted as follows:</li>
+        <!--Insert Desmos of sinusoidal motion-->
+        <!--Insert spring diagram showing highest PE and KE-->
+        <li>The period of a spring (<var>T<sub>s</sub></var>) is given by:</li>
+        <table class="rules">
+            <tr>
+                <td><var>T</var><sub>spring</sub> = 2&pi;<img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                    <!--(
+                    <div class="fraction">
+                        <div class="top"><var>m</var></div>
+                        <div class="bottom"><var>k</var></div>
+                    </div>
+                    )<sup>1/2</sup>-->
+                </td>
+                <th> <a href="javascript:void(0)" id="springPeriodProofToggleLink" onclick="toggleSolution('#springPeriodProof', true);">Show Proof</a>
+                </th>
+            </tr>
+        </table>
+        <div id="springPeriodProof" class="solution">
+            <p style="color: red;">This proof requires calculus and is not required for AP Physics 1, but it is a nice way to understand where the variables come from.</p>
+            <ol>
+                <li>First establish known information</li>
+                <var>F<sub>spring</sub> = kx</var> <br />
+                <var>F<sub>restoring</sub> = ma</var><br />
+                <var>x</var>(<var>t</var>) = <var>A</var>cos(
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div><var>t</var>)<br />
+                <li>We know that acceleration is the second derivative of displacement</li>
+                <var>a = x''</var><br />
+                <var>F<sub>restoring</sub> = mx''</var><br />
+
+                <var>x'</var>(<var>t</var>) = V(<var>t</var>) = &minus;<var>A</var>
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div>sin(
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div><var>t</var>)<br />
+                <var>x''</var>(<var>t</var>) = <var>a</var>(<var>t</var>) = &minus;<var>A</var>
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div> &times;
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div>cos(
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div><var>t</var>)<br />
+                <li>The Restoring Force and the Spring Force are the same thing and so we can set them equal to each other.</li>
+                <var>F<sub>restoring</sub> = F<sub>spring</sub></var><br />
+                <li>Now we can simply substitute in our displacement and acceleration formulas to solve for <var>T</var></li>
+                <var>mx'' = kx</var><br /> &minus;
+                <var>mA</var> (
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div>)<sup>2</sup>cos(
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div><var>t</var>) = <var>kA</var>cos(
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div><var>t</var>)<br />
+                <var>m</var> (
+                <div class="fraction">
+                    <div class="top">2&pi;</div>
+                    <div class="bottom"><var>T</var></div>
+                </div>)<sup>2</sup> = <var>k</var><br />
+                <div class="fraction">
+                    <div class="top"><var>m</var></div>
+                    <div class="bottom"><var>k</var></div>
+                </div>(2&pi;)<sup>2</sup> = <var>T</var><sup>2</sup><br /> 2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
+                <div class="fraction">
+                    <div class="top"><var>m</var></div>
+                    <div class="bottom"><var>k</var></div>
+                </div>
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub>
+            </ol>
+        </div>
+        <h5>Pendulums:</h5>
+        <li>Interestingly enough, pendulums also exhibit Simple Harmonic Motion at very low angles of displacement. Therefore they can be modeled with a similar approach.</li>
+        <li>Whereas there is a separate formula for energy of a spring, pendulums make use of the original Potential Energy formula we know &Delta;<var>U<sub>g</sub> = mg</var>&Delta;<var>y</var>.</li>
+        <!--Insert pendulum diagram with L - Lcos(&theta;) as &Delta;h-->
+        <li>The period of a pendulum has to differ from the period of a spring, because there is no spring constant in a pendulum.</li>
+        <li>The period of a pendulum (<var>T<sub>p</sub></var>) is given by:</li>
+        <table class="rules">
+            <tr>
+                <td><var>T<sub>pendulum</sub></var> = 2&pi; <img src="../equations_images/lOverG.png" style="transform: translateY(20px);" />
+                    <!--(
+                    <div class="fraction">
+                        <div class="top"><var>l</var></div>
+                        <div class="bottom"><var>g</var></div>
+                    </div>
+                    )<sup>1/2</sup>-->
+                </td>
+                <th> <a href="javascript:void(0)" id="pendulumPeriodProofToggleLink" onclick="toggleSolution('#pendulumPeriodProof', true);">Show Proof</a>
+                </th>
+            </tr>
+        </table>
+        <div id="pendulumPeriodProof" class="solution">
+            <p style="color: red;">This proof requires calculus and is not required for AP Physics 1, but it is a nice way to understand where the variables come from.</p>
+            <ol>
+                <li>First we will be using the period of a spring because we have already derived it and both systems exhibit Simple Harmonic Motion. The goal is to solve for a <var>k</var> such that we can apply it to a pendulum.</li>
+                2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
+                <div class="fraction">
+                    <div class="top"><var>m</var></div>
+                    <div class="bottom"><var>k</var></div>
+                </div>
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub>
+                <li>Now picture a Pendulum, and find the "Restoring Force" for the pendulum.</li>
+                <canvas id="pendulumPeriodProofDrawing" width="200" height="220"></canvas>
+                <script class="renderJS">
+                    var pendulumPeriodProofDrawing = document.querySelector("#pendulumPeriodProofDrawing");
+                    var ctx = pendulumPeriodProofDrawing.getContext("2d");
+                    var L = 150;
+                    //Add Drawing #1
+                    ctx.moveTo(20, 20);
+                    ctx.arc(20, 20, L, Math.PI / 3, Math.PI / 2);
+                    ctx.stroke();
+                    ctx.setLineDash([10, 5]);
+                    ctx.lineTo(20, 20);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    ctx.beginPath();
+                    ctx.moveTo(20, 20);
+                    ctx.arc(20, 20, 2, 0, Math.PI * 2);
+                    ctx.moveTo(L * Math.sin(Math.PI / 6) + 20, L * Math.cos(Math.PI / 6) + 20);
+                    ctx.arc(L * Math.sin(Math.PI / 6) + 20, L * Math.cos(Math.PI / 6) + 20, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.save(); //Save current stuff before transformations occur
+                    //Rotate canvas for rotated drawing
+                    ctx.rotate((Math.PI / 180) * 90);
+                    //Add sideways text
+                    ctx.fillText("equilibrium", 80, -10);
+                    ctx.restore(); //Go back to default settings
+                    ctx.fillText("\u0394x = L\u03B8", 35, 145);
+                    ctx.fillText("L", 65, 95);
+                    ctx.fillText("\u03B8", 22, 40);
+                    drawArrow(ctx, 20 + L * Math.sin(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6), 20 + L * Math.sin(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6) + 45); //Fg
+                    ctx.fillText("mg", 15 + L * Math.sin(Math.PI / 6), 22 + L * Math.cos(Math.PI / 6) + 50);
+                    drawArrow(ctx, 20 + L * Math.sin(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6), 20 + L * Math.sin(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.sin(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.cos(Math.PI / 6)); //Fgcos(theta)
+                    ctx.fillText("mgcos(\u03B8)", 20 + L * Math.sin(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.sin(Math.PI / 6), 25 + L * Math.cos(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.cos(Math.PI / 6));
+                    drawArrow(ctx, 20 + L * Math.sin(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6), 20 + L * Math.sin(Math.PI / 6) - 45 * Math.cos(Math.PI / 6) * Math.cos(Math.PI / 6), 20 + L * Math.cos(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.sin(Math.PI / 6)); //Fgsin(theta)
+                    ctx.fillText("mgsin(\u03B8)", 10 + L * Math.sin(Math.PI / 6) - 45 * Math.cos(Math.PI / 6) * Math.cos(Math.PI / 6), 30 + L * Math.cos(Math.PI / 6) + 45 * Math.cos(Math.PI / 6) * Math.sin(Math.PI / 6));
+                </script>
+                <li>The "Restoring Force" in this case is <var>mg</var>
+                    <sin>&theta;</sin> because it is the only force that is acting to bring the pendulum back to equilibrium. Using Hooke's Law, we can set them equal to each other and solve for a <var>k</var> in terms of pendulum variables.</li>
+                <var>F</var><sub>restoring</sub> = <var>mg</var>
+                <sin>&theta;</sin><br />
+                <var>F</var><sub>restoring</sub> = <var>kx</var><br />
+                <var>F</var><sub>restoring</sub> = <var>F</var><sub>restoring</sub><br />
+                <var>kx</var> = <var>mg</var>
+                <sin>&theta;</sin><br /> &Delta;
+                <var>x</var> = <var>l&theta;</var><br />
+                <var>kl&theta;</var> = <var>mg</var>
+                <sin>&theta;</sin><br />
+                <var>k</var> =
+                <div class="fraction">
+                    <div class="top"><var>mg</var>
+                        <sin>&theta;</sin>
+                    </div>
+                    <div class="bottom"><var>l&theta;</var></div>
+                </div>
+                <li>Yet we need this function to work when the pendulum reaches equilibrium. So we take the limit as <var>&theta;</var> &rarr; 0 and apply L'H&ocirc;pital's Rule as needed.</li>
+                <lim as="&theta;" approaches="0"></lim><var>k</var> =
+                <lim as="&theta;" approaches="0"></lim>
+                <div class="fraction">
+                    <div class="top"><var>mg</var>
+                        <sin>&theta;</sin>
+                    </div>
+                    <div class="bottom"><var>l&theta;</var></div>
+                </div> =
+                <div class="fraction">
+                    <div class="top"><var>mg</var></div>
+                    <div class="bottom"><var>l</var></div>
+                </div> &times;
+                <lim as="&theta;" approaches="0"></lim>
+                <div class="fraction">
+                    <div class="top">
+                        <sin>&theta;</sin>
+                    </div>
+                    <div class="bottom"><var>&theta;</var></div>
+                </div><br />
+                <lim as="&theta;" approaches="0"></lim>
+                <div class="fraction">
+                    <div class="top">
+                        <sin>&theta;</sin>
+                    </div>
+                    <div class="bottom"><var>&theta;</var></div>
+                </div> =
+                <div class="fraction">
+                    <div class="top">0</div>
+                    <div class="bottom">0</div>
+                </div><br />
+                <lim as="&theta;" approaches="0"></lim>
+                <div class="fraction">
+                    <div class="top">
+                        <cos>&theta;</cos>
+                    </div>
+                    <div class="bottom">1</div>
+                </div> = 1<br />
+                <lim as="&theta;" approaches="0"></lim><var>k</var> =
+                <div class="fraction">
+                    <div class="top"><var>mg</var></div>
+                    <div class="bottom"><var>l</var></div>
+                </div> &times; (1)<br /> &there4; <var>k</var> =
+                <div class="fraction">
+                    <div class="top"><var>mg</var></div>
+                    <div class="bottom"><var>l</var></div>
+                </div>
+                <li>Now we plug this value in to the period of a spring to get the period in terms of a pendulum.</li>
+                2&pi; <img src="../equations_images/mOverK.png" style="transform: translateY(15px);" />
+                <!--(
+                <div class="fraction">
+                    <div class="top"><var>m</var></div>
+                    <div class="bottom"><var>k</var></div>
+                </div>
+                )<sup>1/2</sup>-->= <var>T</var><sub>spring</sub> =&gt; 2&pi; (
+                <div class="fraction">
+                    <div class="top"><var>m</var></div>
+                    <div class="bottom">
+                        <div class="top"><var>mg</var></div>
+                        <div class="bottom"><var>l</var></div>
+                    </div>
+                </div>
+                )<sup>1/2</sup><br /> 2&pi;(
+                <del><var>m</var></del>
+                <div class="fraction">
+                    <div class="top"><var>l</var></div>
+                    <div class="bottom"><var><del>m</del>g</var></div>
+                </div>)<sup>1/2</sup> = 2&pi; <img src="../equations_images/lOverG.png" style="transform: translateY(20px);" />
+                <!--(
+                <div class="fraction">
+                    <div class="top"><var>l</var></div>
+                    <div class="bottom"><var>g</var></div>
+                </div>
+                )<sup>1/2</sup>-->= <var>T<sub>pendulum</sub></var>
+            </ol>
+        </div>
+    </ul>
+</div>

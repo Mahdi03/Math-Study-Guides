@@ -28,7 +28,7 @@ function addImportanceToFormulas() {
 }
 
 function removeImportanceFromElements() {
-    var elementQueryList = ["sigma td"]; //Use CSS Selectors Here
+    var elementQueryList = ["sigma td", "matrix td"]; //Use CSS Selectors Here
     elementQueryList.forEach((elementQuery) => {
         var elementList = document.querySelectorAll(elementQuery);
         elementList.forEach((element) => {
@@ -182,6 +182,7 @@ function renderMath(parentElement = "") {
     renderJS.forEach((script) => {
         eval(script.innerHTML);
     });
+
 }
 
 
@@ -207,15 +208,21 @@ function toggleSolution(id, proof) {
     }
 }
 
-function drawArrow(context, fromx, fromy, tox, toy) {
+function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     //variables to be used when creating the arrow
     var headlen = 10;
     var angle = Math.atan2(toy - fromy, tox - fromx);
     //starting path of the arrow from the start square to the end square and drawing the stroke
+    if (extraArgs !== undefined) {
+        if (extraArgs.lineDash !== undefined) {
+            context.setLineDash(extraArgs.lineDash);
+        }
+    }
     context.beginPath();
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
     context.stroke();
+    context.setLineDash([]);
     //starting a new path from the head of the arrow to one of the sides of the point
     context.beginPath();
     context.moveTo(tox, toy);
@@ -228,4 +235,18 @@ function drawArrow(context, fromx, fromy, tox, toy) {
     //draws the paths created above
     context.stroke();
     context.fill();
+}
+//For testing purposes to get exact coordinates
+function addCanvasPosition(canvas) {
+    var p = document.createElement("p");
+    p.setAttribute("id", "canvasPos");
+    canvas.insertAdjacentElement("afterend", p);
+    var canvasPos = document.querySelector("#canvasPos");
+    canvas.addEventListener("mousemove", (event) => {
+        var canvasPos = document.querySelector("#canvasPos");
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        canvasPos.innerHTML = `Pos: ${x}, ${y}`;
+    });
 }

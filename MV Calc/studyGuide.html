@@ -2,17 +2,15 @@
 <html>
 
 <head>
-    <title>AP Physics 1 Study Guide</title>
+    <title>MV Calc Study Guide</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="AP Physics 1 Study Guide" />
-    <meta name="keywords" content="newton, kinematics, force, physics, motion, rotational, linear, angled, friction" />
+    <meta name="description" content="Multivariable Calculus Study Guide" />
+    <meta name="keywords" content="vector, integral, limit, calculus, dimension, shapes" />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
     <link href="../styles.css" rel="stylesheet" />
-    <script src="../renderMath.js"></script>
-    <script src="../main.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-3"></script>
@@ -130,65 +128,60 @@ font-family: 'Nunito', sans-serif;
 </head>
 
 <body>
-    <h1 redir="..">AP Physics 1 Study Guide</h1>
+    <h1 redir="..">Multivariable Calculus Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
-    <h2 class="link">AP Physics 1 Equations</h2>
+    <h2 class="link">Cheat Sheet</h2>
     <div id="modalBackground">
-        <div id="apPhysics1Equations" class="modal">
+        <div id="stuffYouMustKnowCold" class="modal">
             <span class="close">&times;</span>
             <div style="margin: 0 auto;">
-                <embed src="ap-physics-1-equations-table.pdf" height="800px" width="100%" />
-                <a href="ap-physics-1-equations-table.pdf" target="_blank">Download PDF Here</a>
+                <iframe src="https://cms.ysu.edu/sites/default/files/documents/mathematics-assistance-center/Calculus%203_Cheat_Sheet_Reduced.pdf" height="800px" width="100%"></iframe>
+                <a href="https://cms.ysu.edu/sites/default/files/documents/mathematics-assistance-center/Calculus%203_Cheat_Sheet_Reduced.pdf">Download Cheat Sheet Here</a>
             </div>
         </div>
     </div>
+    Check out <a href="https://openstax.org/details/books/calculus-volume-3" target="_blank">this textbook</a> from open stax for more practice problems.<br />
+    <!--Chapter 12-->
+    <div><span class="toggleButton" id="ch12ToggleButton" onclick="toggleDiv('#ch12');">&plus;</span>
+        <h2>Chapter 12:</h2>
+    </div>
+    <div id="ch12">
+        <div htmlInclude="ch12.html"></div>
+    </div>
+    <!--Chapter 13-->
+    <div><span class="toggleButton" id="ch13ToggleButton" onclick="toggleDiv('#ch13');">&plus;</span>
+        <h2>Chapter 13:</h2>
+    </div>
+    <div id="ch13">
+        <div htmlInclude="ch13.html"></div>
+    </div>
+    <!--Chapter 14-->
+    <div><span class="toggleButton" id="ch14ToggleButton" onclick="toggleDiv('#ch14');">&plus;</span>
+        <h2>Chapter 14:</h2>
+    </div>
+    <div id="ch14">
+        <div htmlInclude="ch14.html"></div>
+    </div>
+    <!--Chapter 15-->
+    <div><span class="toggleButton" id="ch15ToggleButton" onclick="toggleDiv('#ch15');">&plus;</span>
+        <h2>Chapter 15:</h2>
+    </div>
+    <div id="ch15">
+        <div htmlInclude="ch15.html"></div>
+    </div>
+    <!--Chapter 16-->
+    <div><span class="toggleButton" id="ch16ToggleButton" onclick="toggleDiv('#ch16');">&plus;</span>
+        <h2>Chapter 16:</h2>
+    </div>
+    <div id="ch16">
+        <div htmlInclude="ch16.html"></div>
+    </div>
+    <script src="../renderMath.js"></script>
+    <script src="../main.js" async></script>
 
-    <!--Prerequisites-->
-    <div><span class="toggleButton" id="prerequisitesToggleButton" onclick="toggleDiv('#prerequisites');">&plus;</span>
-        <h2>Prerequisites:</h2>
-    </div>
-    <div id="prerequisites">
-        <div htmlInclude="Prerequisites.html"></div>
-    </div>
-    <!--Linear Motion-->
-    <div><span class="toggleButton" id="linearMotionToggleButton" onclick="toggleDiv('#linearMotion');">&plus;</span>
-        <h2>Linear Motion (Kinematics):</h2>
-    </div>
-    <div id="linearMotion">
-        <div htmlInclude="Linear Motion.html"></div>
-    </div>
-    <!--Forces-->
-    <div><span class="toggleButton" id="forcesToggleButton" onclick="toggleDiv('#forces');">&plus;</span>
-        <h2>Forces:</h2>
-    </div>
-    <div id="forces">
-        <div htmlInclude="Forces.html"></div>
-    </div>
-    <!--Energy (add collisions)-->
-    <div><span class="toggleButton" id="energyToggleButton" onclick="toggleDiv('#energy');">&plus;</span>
-        <h2>Energy:</h2>
-    </div>
-    <div id="energy">
-        <div htmlInclude="Energy.html"></div>
-    </div>
-    <!--Rotational Motion-->
-    <div><span class="toggleButton" id="rotationalMotionToggleButton" onclick="toggleDiv('#rotationalMotion');">&plus;</span>
-        <h2>Rotational Motion:</h2>
-    </div>
-    <div id="rotationalMotion">
-        <div htmlInclude="Rotational Motion.html"></div>
-    </div>
-    <!--Simple Harmonic Motion and Waves (add later)-->
-    <div><span class="toggleButton" id="wavesToggleButton" onclick="toggleDiv('#waves');">&plus;</span>
-        <h2>Simple Harmonic Motion and Waves:</h2>
-    </div>
-    <div id="waves">
-        <div htmlInclude="Waves.html"></div>
-    </div>
-    <!--Electricity (add later)-->
     <script>
         document.querySelector("h2.link").onclick = function() {
-            openPopup("apPhysics1Equations");
+            openPopup("stuffYouMustKnowCold");
         };
         //Opens Popup Based on ID
         function openPopup(id) {
@@ -215,10 +208,7 @@ font-family: 'Nunito', sans-serif;
         document.querySelectorAll(".close").forEach(function(elementClose) {
             elementClose.onclick = closeAllPopups;
         });
-        renderMath();
-        addImportanceToFormulas();
     </script>
-
 </body>
 
 </html>
