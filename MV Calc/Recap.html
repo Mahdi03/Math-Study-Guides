@@ -1,0 +1,198 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+
+<div class="indent">
+    <h3>Conic Sections:</h3>
+    <ul>
+        <li>Recall the 4 conic sections introduced in EM2:</li>
+        <h5>Parabolas:</h5>
+        <li>Defined as:</li>
+        <blockquote>The set of coplanar points equidistant from a point called the focus and a fixed line called the directrix.</blockquote>
+        <table class="rules">
+            <tr>
+                <td><var>x</var><sup>2</sup> = 4<var>py</var></td>
+                <td><var>y</var><sup>2</sup> = &minus;4<var>px</var></td>
+            </tr>
+        </table>
+        <h5>Circles:</h5>
+        <li>Circles are in the 2-D realm (&#x211d;<sup>2</sup>) and so it's defined as:</li>
+        <blockquote>The set of all coplanar points equidistant from one point</blockquote>
+        <table class="rules">
+            <tr>
+                <td>(<var>x &minus; a</var>)<sup>2</sup> + (<var>y &minus; b</var>)<sup>2</sup> = <var>r</var><sup>2</sup></td>
+            </tr>
+        </table>
+        <li>When you remove "coplanar" you open it up to &#x211d;<sup>3</sup> where you get a sphere:</li>
+        <table class="rules">
+            <tr>
+                <td>(<var>x &minus; a</var>)<sup>2</sup> + (<var>y &minus; b</var>)<sup>2</sup> + (<var>z &minus; c</var>)<sup>2</sup> = <var>r</var><sup>2</sup></td>
+            </tr>
+        </table>
+        <h5>Ellipses:</h5>
+        <li>Defined by:</li>
+        <blockquote>The set of all coplanar points whose <u>sum</u> of distances from 2 fixed points is constant.</blockquote>
+        <table class="rules">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>2</sup></div>
+                        <div class="bottom"><var>a</var><sup>2</sup></div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top"><var>y</var><sup>2</sup></div>
+                        <div class="bottom"><var>b</var><sup>2</sup></div>
+                    </div> = 1
+                </td>
+            </tr>
+        </table>
+        <h5>Hyperbolas:</h5>
+        <li>Similar to Ellipses, hyperbolas are defined by:</li>
+        <blockquote>The set of all coplanar points whose <u>difference</u> of distances from 2 fixed points is constant.</blockquote>
+        <table class="rules">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>2</sup></div>
+                        <div class="bottom"><var>a</var><sup>2</sup></div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top"><var>y</var><sup>2</sup></div>
+                        <div class="bottom"><var>b</var><sup>2</sup></div>
+                    </div> = 1
+                </td>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>y</var><sup>2</sup></div>
+                        <div class="bottom"><var>b</var><sup>2</sup></div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top"><var>x</var><sup>2</sup></div>
+                        <div class="bottom"><var>a</var><sup>2</sup></div>
+                    </div> = 1
+                </td>
+            </tr>
+        </table>
+        <h3>Parametric Functions:</h3>
+        <li>Parametric functions define other variables which make up functions with one independent variable, called the parameter <var>t</var>.</li>
+        <li>We can take out the parameter and get a function with just the other variables, all defined by <var>t</var> by either</li>
+        <ol>
+            <li>Solving for <var>t</var> and substituting</li>
+            <li>Using a trigonometric identity</li>
+            <li>Using a "common" expression</li>
+        </ol>
+        <li>The function <var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> = 1 can be rewritten as <var>x(t) =</var>
+            <cos>&theta;</cos> and <var>y(t) =</var>
+            <sin>&theta;</sin> but only with the provided domain 0 &le; <var>&theta;</var> &le; 2&pi;</li>
+        <li>Always include the domain with parametric functions.</li>
+
+        <!--<matrix dimensionX="2" dimensionY="2" values="2, 2, 2, 2"></matrix>
+        det
+        <matrix dimensionX="3" dimensionY="3" values="<vector>i</vector>, <vector>j</vector>, <vector>k</vector>, 4, 5, 6, 7, 8, 9"></matrix>-->
+        <table class="staticTable">
+            <tr>
+                <td>
+                    <vector>u</vector> = &plusmn;
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div>
+                </td>
+                <td>
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector> = ||
+                    <vector>a</vector>|| ||
+                    <vector>b</vector>||
+                    <cos>&theta;</cos>
+                </td>
+                <td>
+                    comp<sub><vector>a</vector></sub>
+                    <vector>b</vector> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div> = ||proj<sub><vector>a</vector></sub>
+                    <vector>b</vector>||
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <cos>&alpha;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>x</var></div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div>
+                    <br />
+                    <cos>&beta;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>y</var></div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div>
+                    <br />
+                    <cos>&gamma;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>z</var></div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div>
+                </td>
+                <td>
+                    <cos>&theta;</cos> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>|| ||
+                            <vector>b</vector>||</div>
+                    </div>
+                </td>
+                <td>
+                    proj<sub><vector>a</vector></sub>
+                    <vector>b</vector> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">
+                            <vector>a</vector> &#8729;
+                            <vector>a</vector>
+                        </div>
+                    </div>
+                    <vector>a</vector>
+                </td>
+            </tr>
+            <tr>
+                <td>cos<sup>2</sup>(<var>&alpha;</var>) + cos<sup>2</sup>(<var>&beta;</var>) + cos<sup>2</sup>(<var>&gamma;</var>) = 1</td>
+                <td></td>
+                <td><var>d</var> =
+                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 2px;">
+                        <div class="top"><var>ax<sub>0</sub> + by<sub>0</sub> + c</var></div>
+                        <div class="bottom">
+                            <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+    </ul>
+</div>

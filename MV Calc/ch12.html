@@ -1,0 +1,1060 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <!--12.1-->
+    <h3>12.1: Math in 3-D Space:</h3>
+    <ul></ul>
+    <!--12.2-->
+    <h3>12.2: Vectors:</h3>
+    <ul>
+        <li>Vectors are a value (a magnitude) and a direction (12 ft East).</li>
+        <li>Scalars are numbers that do not have a direction (12 lbs).</li>
+        <li>A vector's component form is &lang;&Delta;<var>x</var>, &Delta;<var>y</var>&rang;</li>
+        <li>The magnitude can be derived from the component form by:</li>
+        <table class="rules">
+            <tr>
+                <td>||
+                    <vector>v</vector>|| =
+                    <sqrt><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup></sqrt>
+                </td>
+            </tr>
+        </table>
+        <li>If two vectors have the same magnitude and direction, they are said to be equivalent vectors (
+            <vector>a</vector> =
+            <vector>b</vector>)</li>
+        <li>A vector between two points A(<var>x</var><sub>1</sub>, <var>y</var><sub>1</sub>) and B(<var>x</var><sub>2</sub>, <var>y</var><sub>2</sub>) is said to be
+            <vector>AB</vector> = &lang;<var>x</var><sub>2</sub> &minus; <var>x</var><sub>1</sub>, <var>y</var><sub>2</sub> &minus; <var>y</var><sub>1</sub>&rang;</li>
+        <li>A unit vector is a vector of magnitude 1 unit, there are three "standard basis vectors" as follows:</li>
+        <ul>
+            <li>
+                <vector>i</vector> represents &lang;1, 0, 0&rang;</li>
+            <li>
+                <vector>j</vector> represents &lang;0, 1, 0&rang;</li>
+            <li>
+                <vector>k</vector> represents &lang;0, 0, 1&rang;</li>
+        </ul>
+        <li>To graphically add vectors
+            <vector>a</vector> and
+            <vector>b</vector>, draw
+            <vector>a</vector> and then draw
+            <vector>b</vector> starting at where
+            <vector>a</vector> ended. Finally, draw the resulting vector (from the starting point of
+            <vector>a</vector> to the ending point of
+            <vector>b</vector>) as
+            <vector>a</vector> &plus;
+            <vector>b</vector>
+        </li>
+        <li>In order to add vectors, add the component forms:
+            <vector>A</vector> +
+            <vector>B</vector> = &lang;<var>x</var><sub>1</sub>, <var>y</var><sub>1</sub>&rang; + &lang;<var>x</var><sub>2</sub>, <var>y</var><sub>2</sub>&rang; = &lang;<var>x</var><sub>1</sub> + <var>x</var><sub>2</sub>, <var>y</var><sub>1</sub> + <var>y</var><sub>2</sub>&rang;</li>
+        <li>In order to subtract vectors, subtract the component forms:
+            <vector>A</vector> &minus;
+            <vector>B</vector> = &lang;<var>x</var><sub>1</sub>, <var>y</var><sub>1</sub>&rang; &minus; &lang;<var>x</var><sub>2</sub>, <var>y</var><sub>2</sub>&rang; = &lang;<var>x</var><sub>1</sub> &minus; <var>x</var><sub>2</sub>, <var>y</var><sub>1</sub>            &minus;
+            <var>y</var><sub>2</sub>&rang;</li>
+        <li>Scalar multiplication means scaling a vector with a scalar number, so like <var>c</var>
+            <vector>A</vector> = <var>c</var>&lang;<var>x, y, z</var>&rang; = &lang;<var>cx, cy, cz</var>&rang;</li>
+        <li>0
+            <vector>A</vector> =
+            <vector>0</vector>
+        </li>
+        <li>Vectors are parallel if they are scalar multiples of each other (
+            <vector>A</vector> = <var>c</var>
+            <vector>B</vector>).</li>
+        <li>A vector can be rewritten using the standard basis vectors <var>x</var>
+            <vector>i</vector> + <var>y</var>
+            <vector>j</vector> + <var>z</var>
+            <vector>k</vector>
+            <a href="javascript:void(0)" id="ijkVectorProofToggleLink" onclick="toggleSolution('#ijkVectorProof', true);">Show Proof</a></li>
+        <div id="ijkVectorProof" class="solution">
+            &lang;<var>x, y, z</var>&rang; = &lang;<var>x</var>, 0, 0&rang; + &lang;0, <var>y</var>, 0&rang; + &lang;0, 0, <var>z</var>&rang;<br /> = <var>x</var>&lang;1, 0, 0&rang; + <var>y</var>&lang;0, 1, 0&rang; + <var>z</var>&lang;0, 0, 1&rang; =
+            <var>x</var>
+            <vector>i</vector> + <var>y</var>
+            <vector>j</vector> + <var>z</var>
+            <vector>k</vector>
+        </div>
+        <li>Any non-zero vector
+            <vector>a</vector> has two parallel unit vectors given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>u</vector> = &plusmn;
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div>
+                </td>
+                <th><a href="javascript:void(0)" id="unitVectorProofToggleLink" onclick="toggleSolution('#unitVectorProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="unitVectorProof" class="solution">
+            <ul>
+                <li>We know that ||
+                    <vector>u</vector>|| = 1</li>
+                <li>
+                    <vector>u</vector> is parallel to
+                    <vector>a</vector>, so we can deduce that
+                    <vector>u</vector> = <var>c</var>
+                    <vector>a</vector>
+                </li>
+                <li>If
+                    <vector>a</vector> = &lang;<var>x, y, z</var>&rang;, then
+                    <vector>u</vector> = &lang;<var>cx, cy, cz</var>&rang;</li>
+            </ul>
+            ||
+            <vector>u</vector>|| =
+            <sqrt>(<var>cx</var>)<sup>2</sup> + (<var>cy</var>)<sup>2</sup> + (<var>cz</var>)<sup>2</sup></sqrt><br /> 1 =
+            <sqrt><var>c</var><sup>2</sup><var>x</var><sup>2</sup> + <var>c</var><sup>2</sup><var>y</var><sup>2</sup> + <var>c</var><sup>2</sup><var>z</var><sup>2</sup></sqrt> =
+            <sqrt><var>c</var><sup>2</sup>(<var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup>)</sqrt><br /> When we take out the <var>c</var>, we take the absolute value because it could be positive or negative<br /> 1 = |<var>c</var>|
+            <sqrt><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup></sqrt> = |<var>c</var>| ||
+            <vector>a</vector>||<br /> |
+            <var>c</var>| =
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+            </div><br /> Previously we let
+            <vector>u</vector> = <var>c</var>
+            <vector>a</vector>, so we can just substitute in <var>c</var><br /> &there4;
+            <vector>u</vector> = &plusmn;
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+            </div>
+        </div>
+    </ul>
+    <!--12.3-->
+    <h3>12.3: Dot Product:</h3>
+    <ul>
+        <li>Given that
+            <vector>a</vector> = &lang;<var>x</var><sub>1</sub>, <var>y</var><sub>2</sub>, <var>z</var><sub>1</sub>&rang; and
+            <vector>b</vector> = &lang;<var>x</var><sub>2</sub>, <var>y</var><sub>2</sub>, <var>z</var><sub>2</sub>&rang;</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>a</vector> &sdot;
+                    <vector>b</vector> = <var>x</var><sub>1</sub><var>x</var><sub>2</sub> + <var>y</var><sub>1</sub><var>y</var><sub>2</sub> + <var>z</var><sub>1</sub><var>z</var><sub>2</sub></td>
+                <th><a href="javascript:void(0)" id="vectorDotProductProofToggleLink" onclick="toggleSolution('#vectorDotProductProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="vectorDotProductProof" class="solution">
+            We can create an operation for vectors similar to multiplication such that
+            <vector>a</vector> &sdot;
+            <vector>a</vector> = ||
+            <vector>a</vector>||<sup>2</sup><br /> If
+            <vector>a</vector> = &lang;<var>x</var><sub>1</sub>, <var>y</var><sub>2</sub>, <var>z</var><sub>1</sub>&rang;<br />||
+            <vector>a</vector>|| =
+            <sqrt><var>x</var><sub>1</sub><sup>2</sup> + <var>y</var><sub>1</sub><sup>2</sup> + <var>z</var><sub>1</sub><sup>2</sup></sqrt><br /> ||
+            <vector>a</vector>||<sup>2</sup> =
+            <var>x</var><sub>1</sub><sup>2</sup> + <var>y</var><sub>1</sub><sup>2</sup> + <var>z</var><sub>1</sub><sup>2</sup> =
+            <vector>a</vector> &sdot;
+            <vector>a</vector><br /> Now we can just add in a vector
+            <vector>b</vector> to the mix
+        </div>
+        <li>Properties of the dot product:</li>
+        <ol>
+            <li>
+                <vector>a</vector> &sdot;
+                <vector>a</vector> = ||
+                <vector>a</vector>||<sup>2</sup></li>
+            <li>
+                <vector>a</vector> &sdot;
+                <vector>b</vector> =
+                <vector>b</vector> &sdot;
+                <vector>a</vector> (Commutative Property)</li>
+            <li>
+                <vector>a</vector> &sdot; (
+                <vector>b</vector> +
+                <vector>c</vector>) =
+                <vector>a</vector> &sdot;
+                <vector>b</vector> +
+                <vector>a</vector> &sdot;
+                <vector>c</vector> (Distributive Property)
+            </li>
+            <li>(<var>c</var>
+                <vector>a</vector>) &sdot; (
+                <vector>b</vector>) = <var>c</var>(
+                <vector>a</vector> &sdot;
+                <vector>b</vector>) =
+                <vector>a</vector> &sdot; (<var>c</var>
+                <vector>b</vector>)</li>
+            <li>
+                <vector>0</vector> &sdot;
+                <vector>a</vector> = 0
+            </li>
+        </ol>
+        <li>The associative propoerty does not work with dot products because that would require taking the dot product of a scalar and a vector, which is undefined <del>(<vector>a</vector> &sdot; <vector>b</vector>)</del> &sdot;
+            <vector>c</vector>
+        </li>
+        <li>The dot product of two vectors always returns a scalar and this scalar is related to the magnitudes.</li>
+        <li>Given that
+            <vector>a</vector>,
+            <vector>b</vector> &isin; &#x211d;<sup>3</sup> (or &#x211d;<sup>2</sup>) and &theta; is the angle between them, then:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>a</vector> &sdot;
+                    <vector>b</vector> = ||
+                    <vector>a</vector>|| ||
+                    <vector>b</vector>||
+                    <cos>&theta;</cos>
+                </td>
+                <td>
+                    <cos>&theta;</cos> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>|| ||
+                            <vector>b</vector>||</div>
+                    </div>
+                </td>
+                <th><a href="javascript:void(0)" id="findAngleBetweenVectorsEquationProofToggleLink" onclick="toggleSolution('#findAngleBetweenVectorsEquationProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="findAngleBetweenVectorsEquationProof" class="solution">
+            <canvas id="findAngleBetweenVectorsEquationDiagram" width="400" height="200"></canvas>
+            <script class="renderJS">
+                var findAngleBetweenVectorsEquationDiagram = document.querySelector("#findAngleBetweenVectorsEquationDiagram");
+                var ctx = findAngleBetweenVectorsEquationDiagram.getContext("2d");
+                //Vector Triangle
+                drawArrow(ctx, 10, 150, 100, 150);
+                ctx.fillText("a", 45, 160);
+                drawArrow(ctx, 10, 150, 50, 50);
+                ctx.fillText("b", 20, 100);
+                drawArrow(ctx, 50, 50, 100, 148);
+                ctx.fillText("a - b", 80, 100);
+                ctx.fillText("\u03B8", 17, 145);
+
+                drawArrow(ctx, 120, 100, 170, 100);
+
+                //Magnitude Triangle
+                ctx.beginPath();
+                ctx.moveTo(200, 150);
+                ctx.lineTo(240, 50);
+                ctx.lineTo(290, 150);
+                ctx.closePath();
+                ctx.stroke();
+
+                ctx.fillText("|a|", 235, 160);
+                ctx.fillText("|b|", 205, 100);
+                ctx.fillText("|a - b|", 270, 100);
+                ctx.fillText("\u03B8", 207, 145);
+            </script>
+            <br />Recall the Law of Cosines:
+            <table class="rules">
+                <tr>
+                    <td>
+                        <var>c</var><sup>2</sup> = <var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> &minus; 2<var>ab</var>
+                        <cos>C&deg;</cos>
+                    </td>
+                </tr>
+            </table>
+            Using this we can simplify with the values we have in our vector magnitude triangle<br /> ||
+            <vector>a</vector> &minus;
+            <vector>b</vector>|| = ||
+            <vector>a</vector>||<sup>2</sup> + ||
+            <vector>b</vector>||<sup>2</sup> &minus; 2 ||
+            <vector>a</vector>|| ||
+            <vector>b</vector>||
+            <cos>&theta;</cos><br /> (
+            <vector>a</vector> &minus;
+            <vector>b</vector>) &sdot; (
+            <vector>a</vector> &minus;
+            <vector>b</vector>) =
+            <vector>a</vector> &sdot;
+            <vector>a</vector> +
+            <vector>b</vector> &sdot;
+            <vector>b</vector> &minus; 2 ||
+            <vector>a</vector>|| ||
+            <vector>b</vector>||
+            <cos>&theta;</cos><br />
+            <vector>a</vector> &sdot;
+            <vector>a</vector> &minus;2
+            <vector>a</vector> &sdot;
+            <vector>b</vector> +
+            <vector>b</vector> &sdot;
+            <vector>b</vector> =
+            <vector>a</vector> &sdot;
+            <vector>a</vector> +
+            <vector>b</vector> &sdot;
+            <vector>b</vector> &minus; 2 ||
+            <vector>a</vector>|| ||
+            <vector>b</vector>||
+            <cos>&theta;</cos>
+            <table class="rules">
+                <tr>
+                    <td>
+                        <vector>a</vector> &sdot;
+                        <vector>b</vector> = ||
+                        <vector>a</vector>|| ||
+                        <vector>b</vector>||
+                        <cos>&theta;</cos>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <li>When the dot product of two vectors is 0, they are said to be <u>orthogonal</u> (either perpendicular or
+            <vector>0</vector>) <a href="javascript:void(0)" id="orthogonalProofToggleLink" onclick="toggleSolution('#orthogonalProof', true);">Show Proof</a></li>
+        <div id="orthogonalProof" class="solution">
+            If
+            <vector>a</vector> &sdot;
+            <vector>b</vector> = 0:<br /> 0 = ||
+            <vector>a</vector>|| ||
+            <vector>b</vector>||
+            <cos>&theta;</cos>, implying that either
+            <ol>
+                <li>||
+                    <vector>a</vector>|| = 0 and/or ||
+                    <vector>b</vector>|| = 0 (either and/or both vectors are
+                    <vector>0</vector> vectors)</li>
+                <li>&theta; =
+                    <div class="fraction">
+                        <div class="top">&pi;</div>
+                        <div class="bottom">2</div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <h5>Direction Cosines:</h5>
+        <!--<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Direction_cosine_unit_vector.svg" />-->
+        <canvas id="directionCosinesDiagram" width="300" height="300"></canvas>
+        <script class="renderJS">
+            var directionCosinesDiagram = document.querySelector("#directionCosinesDiagram");
+            var ctx2 = directionCosinesDiagram.getContext("2d");
+            //Axes
+            ctx2.strokeStyle = "green";
+            ctx2.fillStyle = "green"; //Required to make the tip of the arrow the same color
+            drawArrow(ctx2, 100, 200, 100, 0);
+            ctx2.fillText("z", 90, 20);
+            drawArrow(ctx2, 100, 200, 300, 200);
+            ctx2.fillText("y", 270, 210);
+            drawArrow(ctx2, 100, 200, 0, 300);
+            ctx2.fillText("x", 10, 275);
+
+            //Actual vector
+            ctx2.strokeStyle = "red";
+            ctx2.fillStyle = "red"; //Required to make the tip of the arrow the same color
+            drawArrow(ctx2, 100, 200, 200, 50);
+            ctx2.fillText("v", 210, 50);
+            ctx2.stroke();
+            //Angles
+            ctx2.strokeStyle = "blue";
+            ctx2.fillStyle = "blue";
+
+            function drawArrowhead(locx, locy, angle, sizex, sizey) {
+                var hx = sizex / 2;
+                var hy = sizey / 2;
+
+                ctx2.translate((locx), (locy));
+                ctx2.rotate(angle);
+                ctx2.translate(-hx, -hy);
+
+                ctx2.beginPath();
+                ctx2.moveTo(0, 0);
+                ctx2.lineTo(0, 1 * sizey);
+                ctx2.lineTo(1 * sizex, 1 * hy);
+                ctx2.closePath();
+                ctx2.fill();
+
+                ctx2.translate(hx, hy);
+                ctx2.rotate(-angle);
+                ctx2.translate(-locx, -locy);
+            }
+
+            // returns radians
+            function findAngle(sx, sy, ex, ey) {
+                // make sx and sy at the zero point
+                return Math.atan2((ey - sy), (ex - sx));
+            }
+            //Alpha
+            ctx2.moveTo(120, 170);
+            ctx2.quadraticCurveTo(93, 170, 80, 210);
+            ctx2.stroke();
+            drawArrowhead(80, 210, findAngle(93, 170, 80, 210), 10, 10);
+            ctx2.fillText("\u03B1", 90, 175);
+            //Beta
+            ctx2.moveTo(152, 120);
+            ctx2.quadraticCurveTo(210, 135, 215, 200);
+            ctx2.stroke();
+            drawArrowhead(215, 200, findAngle(210, 135, 215, 200), 10, 10);
+            ctx2.fillText("\u03B2", 205, 140);
+            //Gamma
+            ctx2.moveTo(139, 139);
+            ctx2.quadraticCurveTo(118, 120, 100, 130);
+            ctx2.stroke();
+            drawArrowhead(100, 130, findAngle(118, 120, 100, 130), 10, 10);
+            ctx2.fillText("\u03B3", 123, 120);
+            //addCanvasPosition(directionCosinesDiagram);
+        </script>
+        <li>The direction cosines of a non-zero vector are simply the cosines of each angle (&alpha;, &beta;, or &gamma;) as shown in the diagram above.</li>
+        <li>They can be derived using the previously derived formula:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <cos>&alpha;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>x</var></div>
+                        <div class="bottom">||
+                            <vector>v</vector>||</div>
+                    </div>
+                </td>
+                <td>
+                    <cos>&beta;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>y</var></div>
+                        <div class="bottom">||
+                            <vector>v</vector>||</div>
+                    </div>
+                </td>
+                <td>
+                    <cos>&gamma;</cos> =
+                    <div class="fraction">
+                        <div class="top"><var>z</var></div>
+                        <div class="bottom">||
+                            <vector>v</vector>||</div>
+                    </div>
+                </td>
+                <th><a href="javascript:void(0)" id="directionCosinesEquationProofToggleLink" onclick="toggleSolution('#directionCosinesEquationProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="directionCosinesEquationProof" class="solution">
+            We can first look at the fact that the angle &alpha; in between the x-axis and vector
+            <vector>v</vector> would be the same angle as in between
+            <vector>v</vector> and
+            <vector>i</vector><br />
+            <cos>&alpha;</cos> =
+            <div class="fraction">
+                <div class="top">
+                    <vector>v</vector> &#8729;
+                    <vector>i</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>v</vector>|| ||
+                    <vector>i</vector>||</div>
+            </div> =
+            <div class="fraction">
+                <div class="top">&lang;<var>x, y, z</var>&rang; &sdot;
+                    <vector>i</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>v</vector>||(1)</div>
+            </div> =
+            <div class="fraction">
+                <div class="top"><var>x</var></div>
+                <div class="bottom">||
+                    <vector>v</vector>||</div>
+            </div><br />And the same applies to the other two axes
+        </div>
+        <li>Another interesting correlation between these angles would be that:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    cos<sup>2</sup>(<var>&alpha;</var>) + cos<sup>2</sup>(<var>&beta;</var>) + cos<sup>2</sup>(<var>&gamma;</var>) = 1
+                </td>
+                <th><a href="javascript:void(0)" id="directionCosinesIdentityProofToggleLink" onclick="toggleSolution('#directionCosinesIdentityProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="directionCosinesIdentityProof" class="solution">
+            Simple:<br /> cos
+            <sup>2</sup>(<var>&alpha;</var>) + cos<sup>2</sup>(<var>&beta;</var>) + cos<sup>2</sup>(<var>&gamma;</var>) =
+            <div class="fraction">
+                <div class="top"><var>x</var><sup>2</sup></div>
+                <div class="bottom">||
+                    <vector>v</vector>||<sup>2</sup></div>
+            </div> +
+            <div class="fraction">
+                <div class="top"><var>y</var><sup>2</sup></div>
+                <div class="bottom">||
+                    <vector>v</vector>||<sup>2</sup></div>
+            </div> +
+            <div class="fraction">
+                <div class="top"><var>z</var><sup>2</sup></div>
+                <div class="bottom">||
+                    <vector>v</vector>||<sup>2</sup></div>
+            </div>
+            =
+            <div class="fraction">
+                <div class="top"><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup></div>
+                <div class="bottom">||
+                    <vector>v</vector>||<sup>2</sup></div>
+            </div> =
+            <div class="fraction">
+                <div class="top">||
+                    <vector>v</vector>||<sup>2</sup></div>
+                <div class="bottom">||
+                    <vector>v</vector>||<sup>2</sup></div>
+            </div> = 1
+
+        </div>
+        <h5>Projections:</h5>
+        <li>Imagine we have two vectors
+            <vector>a</vector> and
+            <vector>b</vector> as follows, the shadow of vector
+            <vector>b</vector> onto vector
+            <vector>a</vector> is known as the projection of vector
+            <vector>b</vector> onto vector
+            <vector>a</vector> written in the form of proj<sub><vector>a</vector></sub>
+            <vector>b</vector>.
+        </li>
+        <canvas id="vectorProjectionDiagram" width="300" height="150"></canvas>
+        <script class="renderJS">
+            var vectorProjectionDiagram = document.querySelector("#vectorProjectionDiagram");
+            //addCanvasPosition(vectorProjectionDiagram);
+            var ctx3 = vectorProjectionDiagram.getContext("2d");
+            ctx3.strokeStyle = "black";
+            ctx3.fillStyle = "black";
+            drawArrow(ctx3, 0, 130, 300, 130);
+            ctx3.fillText("a", 230, 140);
+            drawArrow(ctx3, 0, 130, 180, 0);
+            ctx3.fillText("b", 80, 50);
+            ctx3.fillText("\u03B8", 20, 125);
+
+            ctx3.strokeStyle = "blue";
+            ctx3.fillStyle = "blue";
+            drawArrow(ctx3, 0, 130, 180, 130);
+            ctx3.fillText("proj b", 70, 140);
+            ctx3.font = "5px arial";
+            ctx3.fillText("a", 87, 142);
+
+            /*ctx3.translate(180, 0);
+            ctx3.rotate(-Math.PI / 4);*/
+        </script>
+        <li>The magnitude of the projection is written in the form of comp<sub><vector>a</vector></sub>
+            <vector>b</vector>. This will come more apparent in the derivation of the formula for a projection.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    comp<sub><vector>a</vector></sub>
+                    <vector>b</vector> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">||
+                            <vector>a</vector>||</div>
+                    </div> = ||proj<sub><vector>a</vector></sub>
+                    <vector>b</vector>||
+                </td>
+
+
+                <th><a href="javascript:void(0)" id="vectorScalarProjectionEquationProofToggleLink" onclick="toggleSolution('#vectorScalarProjectionEquationProof', true);">Show Proof</a></th>
+
+            </tr>
+
+        </table>
+        <div id="vectorScalarProjectionEquationProof" class="solution">
+            We can deduce that
+            <vector>a</vector> is parallel to proj<sub><vector>a</vector></sub>
+            <vector>b</vector>, so proj<sub><vector>a</vector></sub>
+            <vector>b</vector> = <var>c</var>
+            <vector>a</vector><br /> The length of the projection from the diagram would be ||
+            <vector>b</vector>||
+            <cos>&theta;</cos>, but we want to extend this to all vectors so using the angle formula, we can substitute and solve for the scalar projection of
+            <vector>b</vector> onto
+            <vector>a</vector>, we can substitute
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>|| ||
+                    <vector>b</vector>||</div>
+            </div> for
+            <cos>&theta;</cos><br /> ||
+            <vector>b</vector>||
+            <cos>&theta;</cos> = ||
+            <vector>b</vector>||
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>|| ||
+                    <vector>b</vector>||</div>
+            </div> =
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+            </div>
+
+        </div>
+        <table class="rules">
+            <tr>
+                <td>
+                    proj<sub><vector>a</vector></sub>
+                    <vector>b</vector> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>a</vector> &#8729;
+                            <vector>b</vector>
+                        </div>
+                        <div class="bottom">
+                            <vector>a</vector> &#8729;
+                            <vector>a</vector>
+                        </div>
+                    </div>
+                    <vector>a</vector>
+                </td>
+                <th><a href="javascript:void(0)" id="vectorVectorProjectionEquationProofToggleLink" onclick="toggleSolution('#vectorVectorProjectionEquationProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="vectorVectorProjectionEquationProof" class="solution">
+            Now that we know the scalar projection, we can use a unit vector that is parallel to
+            <vector>a</vector> and scale it with comp<sub><vector>a</vector></sub>
+            <vector>b</vector><br />
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+            </div>comp<sub><vector>a</vector></sub>
+            <vector>b</vector> =
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+
+            </div>
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||</div>
+            </div> =
+            <vector>a</vector>
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">||
+                    <vector>a</vector>||<sup>2</sup></div>
+            </div> =
+            <vector>a</vector>
+            <div class="fraction">
+                <div class="top">
+                    <vector>a</vector> &#8729;
+                    <vector>b</vector>
+                </div>
+                <div class="bottom">
+                    <vector>a</vector> &#8729;
+                    <vector>a</vector>
+                </div>
+            </div>
+        </div>
+        <li>In order to find the shortest distance between a line (<var>ax + by + c</var> = 0) and a point (<var>x</var><sub>0</sub>, <var>y</var><sub>0</sub>):</li>
+        <table class="rules">
+            <tr>
+                <td><var>d</var> =
+                    <div class="fraction">
+                        <div class="top">
+                            |<var>ax</var><sub>0</sub> + <var>by</var><sub>0</sub> + <var>c</var>|
+                        </div>
+                        <div class="bottom">
+                            <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                        </div>
+                    </div>
+                </td>
+                <th><a href="javascript:void(0)" id="distanceBetweenPointAndLineEquationProofToggleLink" onclick="toggleSolution('#distanceBetweenPointAndLineEquationProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="distanceBetweenPointAndLineEquationProof" class="solution">
+            <canvas id="distanceBetweenPointAndLineDiagram" width="150" height="120"></canvas>
+            <script class="renderJS">
+                var distanceBetweenPointAndLineDiagram = document.querySelector("#distanceBetweenPointAndLineDiagram");
+                var ctx4 = distanceBetweenPointAndLineDiagram.getContext("2d");
+                //Axes
+                drawArrow(ctx4, 10, 100, 10, 0);
+                drawArrow(ctx4, 10, 100, 110, 100);
+                //Given Line
+                ctx4.beginPath();
+                ctx4.moveTo(0, 25);
+                ctx4.lineTo(85, 108);
+                ctx4.stroke();
+                ctx4.closePath();
+                //Given Point
+                ctx4.beginPath();
+                ctx4.arc(100, 20, 3, 0, 2 * Math.PI);
+                ctx4.fill();
+                ctx4.closePath();
+                ctx4.fillText("(x0, y0)", 110, 20);
+                //Random Point
+                ctx4.beginPath();
+                ctx4.arc(68, 90, 3, 0, 2 * Math.PI);
+                ctx4.fill();
+                ctx4.closePath();
+                ctx4.fillText("(x, y) random", 75, 90);
+                //Vector from given to random points
+                drawArrow(ctx4, 100, 20, 68, 90);
+                ctx4.fillText("v", 95, 58);
+                //Distance d line
+                ctx4.beginPath();
+                ctx4.moveTo(100, 20);
+                ctx4.lineTo(49, 73);
+                ctx4.stroke();
+                ctx4.closePath();
+                ctx4.fillText("d", 58, 44);
+                //Normal Vector
+                drawArrow(ctx4, 100, 20, 10, 112, {
+                    lineDash: [10, 5]
+                });
+                ctx4.fillText("n", 20, 85);
+            </script>
+            <ol>
+                <li>Draw a vector from the point (<var>x</var><sub>0</sub>, <var>y</var><sub>0</sub>) to a random point on the line</li>
+                <vector>v</vector> = &lang;<var>x &minus; x</var><sub>0</sub>, <var>y &minus; y</var><sub>0</sub>&rang;
+                <li>Find the normal vector
+                    <vector>n</vector> to the line by finding the line's opposite slope</li>
+                If the slope <var>m</var> = &minus;
+                <div class="fraction">
+                    <div class="top">a</div>
+                    <div class="bottom">b</div>
+                </div> then <var>m</var><sub>&perp;</sub> =
+                <div class="fraction">
+                    <div class="top">b</div>
+                    <div class="bottom">a</div>
+                </div><br /> Then vector
+                <vector>n</vector> in component form must be &lang;<var>a</var>, <var>b</var>&rang;
+                <li>Now all that's left to do is find the scalar projection of
+                    <vector>v</vector> onto
+                    <vector>n</vector>
+                </li>
+                |comp<sub><vector>n</vector></sub>
+                <vector>v</vector>| =
+                <div class="fraction">
+                    <div class="top">|
+                        <vector>n</vector> &sdot;
+                        <vector>v</vector>|</div>
+                    <div class="bottom">||
+                        <vector>n</vector>||</div>
+                </div> =
+                <div class="fraction">
+                    <div class="top">|&lang;<var>a, b</var>&rang; &sdot;
+                        <vector>v</vector>|</div>
+                    <div class="bottom">
+                        <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                    </div>
+                </div> =
+                <div class="fraction">
+                    <div class="top">
+                        |<var>ax &minus; ax</var><sub>0</sub> + <var>by &minus; by</var><sub>0</sub>|
+                    </div>
+                    <div class="bottom">
+                        <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                    </div>
+                </div><br /> We know from our original equation that <var>ax + by = &minus; c</var> so we can substitute that get our formula<br />
+                <div class="fraction">
+                    <div class="top">
+                        |<var>&minus; ax</var><sub>0</sub> + <var>&minus; by</var><sub>0</sub> &minus; <var>c</var>|
+                    </div>
+                    <div class="bottom">
+                        <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                    </div>
+                </div> =
+                <div class="fraction">
+                    <div class="top">
+                        |<var>ax</var><sub>0</sub> + <var>by</var><sub>0</sub> + <var>c</var>|
+                    </div>
+                    <div class="bottom">
+                        <sqrt><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup></sqrt>
+                    </div>
+                </div>
+            </ol>
+        </div>
+    </ul>
+    <!--12.4-->
+    <h3>12.4: Cross Product:</h3>
+    <ul>
+        <li>A determinant is a number that we associate with square matrices, the determinant function takes in a square matrix and returns a number (cross multiply and subtract the products)</li>
+        Ex: det
+        <matrix dimensionX="2" dimensionY="2" values="<var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>"></matrix> = <var>ad &minus; bc</var>
+        <li>For a 3&times;3 matrix, we do something called expansion by minors</li>
+        <canvas id="expansionByMinorsExample" width="300px" height="65px"></canvas>
+        <script class="renderJS">
+            var expansionByMinorsExample = document.querySelector("#expansionByMinorsExample");
+            var ctx5 = expansionByMinorsExample.getContext("2d");
+
+            function drawQuickMatrix(offsetToTheLeft) {
+                ctx5.moveTo(offsetToTheLeft + 2, 5);
+                ctx5.lineTo(offsetToTheLeft + 2, 60);
+                ctx5.stroke();
+                ctx5.fillText("1", offsetToTheLeft + 10, 15);
+                ctx5.fillText("2", offsetToTheLeft + 30, 15);
+                ctx5.fillText("3", offsetToTheLeft + 50, 15);
+                ctx5.fillText("4", offsetToTheLeft + 10, 35);
+                ctx5.fillText("5", offsetToTheLeft + 30, 35);
+                ctx5.fillText("6", offsetToTheLeft + 50, 35);
+                ctx5.fillText("7", offsetToTheLeft + 10, 55);
+                ctx5.fillText("8", offsetToTheLeft + 30, 55);
+                ctx5.fillText("9", offsetToTheLeft + 50, 55);
+                ctx5.moveTo(offsetToTheLeft + 65, 5);
+                ctx5.lineTo(offsetToTheLeft + 65, 60);
+                ctx5.stroke();
+            }
+            drawQuickMatrix(0);
+            drawQuickMatrix(100);
+            drawQuickMatrix(200);
+
+            //Crossing out for first matrix
+            ctx5.beginPath();
+            ctx5.arc(13, 12, 6, 0, 2 * Math.PI);
+
+            ctx5.moveTo(13 + 6, 12);
+            ctx5.lineTo(60, 12);
+
+            ctx5.moveTo(13, 12 + 6);
+            ctx5.lineTo(13, 60);
+
+            ctx5.stroke();
+            //Crossing out for second matrix
+            ctx5.beginPath();
+            ctx5.arc(132, 12, 6, 0, 2 * Math.PI);
+
+            ctx5.moveTo(105, 12);
+            ctx5.lineTo(132 - 6, 12)
+            ctx5.moveTo(132 + 6, 12);
+            ctx5.lineTo(160, 12);
+
+            ctx5.moveTo(132, 12 + 6);
+            ctx5.lineTo(132, 60);
+
+            ctx5.stroke();
+            //Crossing out for third matrix
+            ctx5.beginPath();
+            ctx5.arc(253, 12, 6, 0, 2 * Math.PI);
+
+            ctx5.moveTo(207, 12);
+            ctx5.lineTo(253 - 6, 12);
+
+            ctx5.moveTo(253, 12 + 6);
+            ctx5.lineTo(253, 60);
+
+            ctx5.stroke();
+        </script>
+        <br /><br />1det
+        <matrix dimensionX="2" dimensionY="2" values="5, 6, 8, 9"></matrix> <span style="border-radius: 1000px; border: 1px solid black; padding: 5px;">&minus;</span> 2det
+        <matrix dimensionX="2" dimensionY="2" values="4, 6, 7, 9"></matrix> + 3det
+        <matrix dimensionX="2" dimensionY="2" values="4, 5, 7, 8"></matrix>
+        <li>Notice the minus in the second term</li>
+        <li>In the same way we can define the cross product of
+            <vector>a</vector> = &lang;<var>a</var><sub>1</sub>, <var>a</var><sub>2</sub>, <var>a</var><sub>3</sub>&rang; and
+            <vector>b</vector> = &lang;<var>b</var><sub>1</sub>, <var>b</var><sub>2</sub>, <var>b</var><sub>3</sub>&rang; as
+        </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>a</vector> &times;
+                    <vector>b</vector> = det
+                    <matrix dimensionX="3" dimensionY="3" values="<vector>i</vector>, <vector>j</vector>, <vector>k</vector>, <var>a</var><sub>1</sub>, <var>a</var><sub>2</sub>, <var>a</var><sub>3</sub>, <var>b</var><sub>1</sub>, <var>b</var><sub>2</sub>, <var>b</var><sub>3</sub>"></matrix>
+                </td>
+            </tr>
+        </table>
+        <li>Properties of the cross product:</li>
+        <ol>
+            <li>
+                <vector>b</vector> &times;
+                <vector>a</vector> = &minus;(
+                <vector>a</vector> &times;
+                <vector>b</vector>) (not commutative)</li>
+            <li>
+                <vector>a</vector> &times;
+                <vector>a</vector> =
+                <vector>0</vector>
+            </li>
+            <li>
+                <vector>a</vector> &times; (
+                <vector>b</vector> +
+                <vector>c</vector>) =
+                <vector>a</vector> &times;
+                <vector>b</vector> +
+                <vector>a</vector> &times;
+                <vector>c</vector><br /> (
+                <vector>a</vector> +
+                <vector>b</vector>) &times;
+                <vector>c</vector> =
+                <vector>a</vector> &times;
+                <vector>c</vector> +
+                <vector>b</vector> &times;
+                <vector>c</vector>
+            </li>
+            <li>(c
+                <vector>a</vector>) &times;
+                <vector>b</vector> = c(
+                <vector>a</vector> &times;
+                <vector>b</vector>) =
+                <vector>a</vector> &times; c
+                <vector>b</vector>
+            </li>
+            <li>
+                <vector>a</vector> &sdot; (
+                <vector>a</vector> &times;
+                <vector>b</vector>) = 0<br />
+                <vector>a</vector> and
+                <vector>a</vector> &times;
+                <vector>b</vector> are orthogonal<br /><br />
+                <vector>b</vector> &sdot; (
+                <vector>a</vector> &times;
+                <vector>b</vector>) = 0<br />
+                <vector>b</vector> and
+                <vector>a</vector> &times;
+                <vector>b</vector> are orthogonal
+            </li>
+        </ol>
+        <li>The magnitude of the cross product is equivalent to the area of the parallelogram enclosed by the two vectors</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    ||
+                    <vector>a</vector> &times;
+                    <vector>b</vector>|| = ||
+                    <vector>a</vector>|| ||
+                    <vector>b</vector>||
+                    <sin>&theta;</sin>
+                </td>
+                <th></th>
+            </tr>
+        </table>
+    </ul>
+    <!--12.5-->
+    <h3>12.5: Lines and Planes:</h3>
+    <ul>
+        <li>Describing a line in &#x211d;<sup>3</sup> is different than in &#x211d;<sup>2</sup></li>
+        <li>The vector equation of a line is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>r</vector> =
+                    <vector>r</vector><sub>0</sub> + <var>t</var>
+                    <vector>v</vector>
+                </td>
+            </tr>
+        </table>
+        <li>From the vector equation of a line you can derive the parametric equations of a line:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>x</var> = <var>x</var><sub>0</sub> + <var>at</var><br />
+                    <var>y</var> = <var>y</var><sub>0</sub> + <var>bt</var><br />
+                    <var>z</var> = <var>z</var><sub>0</sub> + <var>ct</var><br />
+                </td>
+            </tr>
+        </table>
+        <li>You also have the symmetric equations of a line, given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>t</var> =
+                    <div class="fraction">
+                        <div class="top"><var>x &minus; x</var><sub>0</sub></div>
+                        <div class="bottom"><var>a</var></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top"><var>y &minus; y</var><sub>0</sub></div>
+                        <div class="bottom"><var>b</var></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top"><var>z &minus; z</var><sub>0</sub></div>
+                        <div class="bottom"><var>c</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>Planes in space can also be depicted using vectors, but in a different method than that of a line.</li>
+        <li>Using the vector
+            <vector>n</vector> normal to the plane is</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>n</vector> = &lang;<var>A</var>, <var>B</var>, <var>C</var>&rang;
+                </td>
+            </tr>
+        </table>
+        <li>All points <var>Q</var>(<var>x, y, z</var>) such that
+            <vector>PQ</vector> is orthogonal to
+            <vector>n</vector> will result in a plane, so</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <vector>n</vector> &sdot;
+                    <vector>PQ</vector> = 0</td>
+                <td>&lang;<var>A, B, C</var>&rang; &sdot; &lang;<var>x &minus; x</var><sub>0</sub>, <var>y &minus; y</var><sub>0</sub>, <var>z &minus; z</var><sub>0</sub>&rang; = 0</td>
+            </tr>
+        </table>
+        <li>We can also depict planes in &#x211d;<sup>3</sup> using the scalar equation of a plane:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>A</var>(<var>x &minus; x</var><sub>0</sub>) + <var>B</var>(<var>y &minus; y</var><sub>0</sub>) + <var>C</var>(<var>z &minus; z</var><sub>0</sub>) = 0
+                </td>
+            </tr>
+        </table>
+        <li>Or using the linear equation of the plane:</li>
+        <table class="rules">
+            <tr>
+                <td><var>Ax + By + Cz = D</var></td>
+            </tr>
+        </table>
+        <li>Parallel planes have parallel normal vectors.</li>
+        <li>The shortest distance between a point and a plane can be quantified as
+            <table class="rules">
+                <tr>
+                    <td>
+                        <var>d</var> =
+                        <div class="fraction">
+                            <div class="top">
+                                <vector>n</vector> &sdot;
+                                <vector>P<sub>2</sub>P<sub>1</sub></vector>
+                            </div>
+                            <div class="bottom">||
+                                <vector>n</vector>||</div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">&lang;<var>A, B, C</var>&rang; &sdot; &lang;&Delta;<var>x</var>, &Delta;<var>y</var>, &Delta;<var>z</var>&rang;</div>
+                            <div class="bottom">
+                                <sqrt><var>A</var><sup>2</sup> + <var>B</var><sup>2</sup> + <var>C</var><sup>2</sup></sqrt>
+                            </div>
+                        </div>
+                    </td>
+                    <!--Add proof-->
+                </tr>
+            </table>
+            where
+            <vector>n</vector> is the normal to the plane and
+            <vector>P<sub>2</sub>P<sub>1</sub></vector> is a vector from any point on the plane to the point in question.
+        </li>
+    </ul>
+    <!--12.6-->
+    <h3>12.6: Cylinders and Quadratics:</h3>
+    <ul>
+        <li>
+        </li>
+    </ul>
+</div>

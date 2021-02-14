@@ -1,3 +1,10 @@
+document.querySelectorAll("[redir]").forEach((element) => {
+    element.onclick = function() {
+        var link = element.getAttribute("redir");
+        window.location.assign(link);
+    }
+});
+
 document.body.onload = function() {
     //Added an HTML Include Before Everything else so that the HTML renders properly
     document.querySelectorAll("[htmlInclude]").forEach((element) => {
@@ -51,7 +58,7 @@ document.body.onload = function() {
         toggleButton.addEventListener("click", getFile);
 
     });
-
+    /*
     document.querySelectorAll("h1").forEach(function(element) {
         element.onclick = function(event) {
             var link = event.srcElement.attributes.redir.nodeValue;
@@ -64,4 +71,5 @@ document.body.onload = function() {
         a.href = link;
         a.click();
     }
+    */
 };

@@ -2,10 +2,10 @@
 <html>
 
 <head>
-    <title>AP Physics 1 Study Guide</title>
+    <title>AP Physics 2 Study Guide</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="AP Physics 1 Study Guide" />
-    <meta name="keywords" content="newton, kinematics, force, physics, motion, rotational, linear, angled, friction" />
+    <meta name="description" content="AP Physics 2 Study Guide" />
+    <meta name="keywords" content="special relativity, physics, " />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
@@ -130,32 +130,32 @@ font-family: 'Nunito', sans-serif;
 </head>
 
 <body>
-    <h1 redir="..">AP Physics 1 Study Guide</h1>
+    <h1 redir="..">AP Physics 2 Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
-    <h2 class="link">AP Physics 1 Equations</h2>
+    <h2 class="link">AP Physics 2 Equations</h2>
     <div id="modalBackground">
-        <div id="apPhysics1Equations" class="modal">
+        <div id="apPhysics2Equations" class="modal">
             <span class="close">&times;</span>
             <div style="margin: 0 auto;">
-                <embed src="ap-physics-1-equations-table.pdf" height="800px" width="100%" />
-                <a href="ap-physics-1-equations-table.pdf" target="_blank">Download PDF Here</a>
+                <embed src="physics-2-equations-sheet-2020.pdf" height="800px" width="100%" />
+                <a href="physics-2-equations-sheet-2020.pdf" target="_blank">Download PDF Here</a>
             </div>
         </div>
     </div>
 
-    <!--Prerequisites-->
-    <div><span class="toggleButton" id="prerequisitesToggleButton" onclick="toggleDiv('#prerequisites');">&plus;</span>
-        <h2>Prerequisites:</h2>
+    <!--Modern Physics-->
+    <div><span class="toggleButton" id="modernPhysicsToggleButton" onclick="toggleDiv('#modernPhysics');">&plus;</span>
+        <h2>Modern Physics:</h2>
     </div>
-    <div id="prerequisites">
-        <div htmlInclude="Prerequisites.html"></div>
+    <div id="modernPhysics">
+        <div htmlInclude="Modern Physics.html"></div>
     </div>
-    <!--Linear Motion-->
-    <div><span class="toggleButton" id="linearMotionToggleButton" onclick="toggleDiv('#linearMotion');">&plus;</span>
-        <h2>Linear Motion (Kinematics):</h2>
+    <!--Light-->
+    <div><span class="toggleButton" id="lightToggleButton" onclick="toggleDiv('#light');">&plus;</span>
+        <h2>Light:</h2>
     </div>
-    <div id="linearMotion">
-        <div htmlInclude="Linear Motion.html"></div>
+    <div id="light">
+        <div htmlInclude="Light.html"></div>
     </div>
     <!--Forces-->
     <div><span class="toggleButton" id="forcesToggleButton" onclick="toggleDiv('#forces');">&plus;</span>
@@ -188,7 +188,7 @@ font-family: 'Nunito', sans-serif;
     <!--Electricity (add later)-->
     <script>
         document.querySelector("h2.link").onclick = function() {
-            openPopup("apPhysics1Equations");
+            openPopup("apPhysics2Equations");
         };
         //Opens Popup Based on ID
         function openPopup(id) {
@@ -215,8 +215,6 @@ font-family: 'Nunito', sans-serif;
         document.querySelectorAll(".close").forEach(function(elementClose) {
             elementClose.onclick = closeAllPopups;
         });
-        renderMath();
-        addImportanceToFormulas();
     </script>
 
 </body>
