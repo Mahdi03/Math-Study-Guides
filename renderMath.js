@@ -236,6 +236,10 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     context.stroke();
     context.fill();
 }
+
+
+/* Extra Programmer Tools */
+
 //For testing purposes to get exact coordinates
 function addCanvasPosition(canvas) {
     var p = document.createElement("p");
@@ -250,3 +254,5 @@ function addCanvasPosition(canvas) {
         canvasPos.innerHTML = `Pos: ${x}, ${y}`;
     });
 }
+
+//To quickly type out math

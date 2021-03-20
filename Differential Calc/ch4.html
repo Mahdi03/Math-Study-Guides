@@ -1,0 +1,147 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+
+        <h3>4.1: Intro to Linear Differential Equations:</h3>
+        <li>Once again, a linear equation is in the form:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+                    <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+                    <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+                    <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+                    <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)
+                </td>
+            </tr>
+        </table>
+        <h5>Existence of a Unique Solution Theorem 2 (EUST2):</h5>
+        <li>If:
+            <ol>
+                <li>a<sub><var>n</var></sub>(<var>x</var>), <var>a</var><sub><var>n</var> &minus; 1</sub>(<var>x</var>), ..., <var>a</var><sub>0</sub>(<var>x</var>), <var>g</var>(<var>x</var>) are continuous on any interval I</li>
+                <li>a<sub><var>n</var></sub>(<var>x</var>) &ne; 0 on I</li>
+            </ol> then the IVP has a unique solution on I.
+        </li>
+        <li>When given an nth order linear differential equation (OLDEN) without initial conditions, the set of solutions will not be unique.</li>
+        <li>There are two types of OLDEN, the homogeneous (HOLDEN) and the non-homogeneous (NOLDEN),<br />where the HOLDEN comes in the form <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+            <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = 0<br />and NOLDEN comes in the form <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+            <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>) where <var>g</var>(<var>x</var>) &ne; 0</li>
+        <li>With HOLDEN's you can add/subtract two solutions to get a third solution, and any scalar multiple of a solution is also a solution.</li>
+        <li>HOLDEN's technically have unlimited solutions, so we describe a structure of solutions as a linearly independent set { <var>f</var><sub>1</sub>(<var>x</var>), <var>f</var><sub>2</sub>(<var>x</var>), ..., <var>f</var><sub><var>n</var></sub>(<var>x</var>)}</li>
+        <li>Linearly independent means that there's no repetition.</li>
+        <img src="linearDependence.jpg" alt="Colors visual of linear independence" />
+        <li>
+            A set of functions is linearly dependent on an interval I if there exists constants <var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, ..., <var>c</var><sub>3</sub> that are not all 0, so that <var>c</var><sub>1</sub><var>f</var><sub>1</sub>(<var>x</var>)
+            + <var>c</var><sub>2</sub><var>f</var><sub>2</sub>(<var>x</var>) + ... + <var>c</var><sub><var>n</var></sub><var>f</var><sub><var>n</var></sub>(<var>x</var>) = 0 for all <var>x</var> &isin; I. If
+            <var>c</var><sub>1</sub> = <var>c</var><sub>2</sub> = ... = <var>c</var><sub><var>n</var></sub> = 0 is the only solution, then we say that the functions are linearly independent on I.
+        </li>
+        <li>One way to solve for those constants is to differentiate the equation as many times as needed, extending this approach we get a matrix equation:</li><br /><br />
+        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix>
+        <matrix dimensionX="1" dimensionY="4" values="<var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, &vellip;, <var>c</var><sub><var>n</var></sub>"></matrix> =
+        <matrix dimensionX="1" dimensionY="4" values="0, 0, &vellip;, 0"></matrix>
+        <li>A theorem states that if functions are linearly dependent and differentiable, then for all <var>x</var> &isin; I, the Wronskian W</li><br /><br /> det
+        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix> = 0
+        <li>Looking at the contrapositive of this theorem helps us find out whether a set can be considered linearly independent:<br />If there exists at least one <var>x</var> &isin; I such that<br /><br />
+            <table class="rules">
+                <tr>
+                    <td><br />W(
+                        <var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub>) = det
+                        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix> &ne; 0
+                    </td>
+                </tr>
+            </table>
+            <br /><br />then the functions <var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub> are linearly independent.</li>
+        <li>When you have a HOLDEN and a set of solutions that are solutions to the HOLDEN and are linearly independent, that is a fundamental set of solutions, and any solution to a HOLDEN can be written as <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub>            + <var>c</var><sub>2</sub><var>y</var><sub>2</sub> + ... + <var>c</var><sub><var>n</var></sub><var>y</var><sub><var>n</var></sub></li>
+        <li>A HOLDEN of <var>n</var> order will have <var>n</var> solutions</li>
+        <img src="linearIndependenceFlowchart.jpg" alt="A flowchart to find linear independence" />
+        <li>To convert a NOLDEN to HOLDEN we can subtract two solutions </li>
+
+        <h3>4.2: Reduction of Order:</h3>
+
+        <h3>4.3: HOLDEN's with Constant Coefficents:</h3>
+        <li>To solve a HOLDEN we can substitute the derivatives of certain orders with variables <var>m</var> of certain orders. That makes an <u>auxilliary equation</u>.After solving that regular equation the fundamental set of solutions will be {e<sup><var>m</var><sub>1</sub><var>x</var></sup>,
+            e
+            <sup><var>m</var><sub>2</sub><var>x</var></sup>, ..., e<sup><var>m<sub>n</sub>x</var></sup>}
+        </li>
+        <li>In the case of repeated roots, we multiply subsequent terms by another <var>x</var>. The set of solutions for a root of multiplicity <var>k</var> is {e<sup><var>mx</var></sup>, <var>x</var>e<sup><var>mx</var></sup>, <var>x</var><sup>2</sup>e<sup><var>mx</var></sup>,
+            ..., x<sup><var>k</var> &minus; 1</sup>e<sup><var>mx</var></sup>}</li>
+        <li>In the case of imaginary roots (when the root <var>m</var> = <var>a &plusmn; bi</var>), the set looks like {e<sup><var>ax</var></sup>
+            <cos><var>b</var><var>x</var></cos>, <var>e</var><sup><var>ax</var></sup>
+            <sin><var>b</var><var>x</var></sin>}</li>
+
+        <h3>4.4: The Method of Undetermined Coefficients (Guess & Hope):</h3>
+        <li>
+            In the case of NOLDEN's with constant coefficients, we
+            <ol>
+                <li>Find the solution to the corresponding HOLDEN (replace g(<var>x</var>) with 0)</li>
+                <li>Find the particular solution, which is one direct solution to the NOLDEN, and it should be similar to the structure or form of g(<var>x</var>)</li>
+                <li>The solution to the NOLDEN should be <var>y(x)</var> = (particular solution) + (linear combination of HOLDEN solutions) where a linear combination of {e<sup><var>x</var></sup>, e<sup><var>x</var><sup>2</sup></sup>} would be <var>c</var><sub>1</sub>e<sup><var>x</var></sup>                    + <var>c</var><sub>2</sub>e<sup><var>x</var><sup>2</sup></sup> and so forth.</li>
+            </ol>
+        </li>
+
+        <h3>4.5/4.6: Differential Operators:</h3>
+        <li>Another way to make the NOLDEN into a HOLDEN is to differentiate both sides completely until the right side (g(<var>x</var>)) really does become 0. Making that result into an auxilliary equation and solving the HOLDEN should give your answer.</li>
+        <li>The differential operator D(<var>y</var>) is another representation of
+            <derivative of="y" respectTo="x" order=""></derivative>
+        </li>
+        <table class="rules">
+            <tr>
+                <td>D<sup><var>k</var></sup>(<var>y</var>) =
+                    <derivative of="y" respectTo="x" order="<var>k</var>"></derivative>
+                </td>
+            </tr>
+        </table>
+        <li>When it came to differentiating both sides until the right-hand side polynomial was annihilated, we differentiated <var>n</var> + 1 times for a polynomial of highest degree <var>n</var>. This can be rewritten as D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>)
+            = 0</li>
+        <li>When g(<var>x</var>) is an exponential function, we can cancel it out similarly. Some general rules for reference:</li>
+        <table class="rules">
+            <tr>
+                <td>D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>) = 0</td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+            <tr>
+                <td>(D &minus; <var>a</var>)e<sup><var>ax</var></sup> = 0</td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+            <tr>
+                <td>(D &minus; <var>a</var>)<sup><var>n</var> + 1</sup><var>x<sup>n</sup>e<sup>ax</sup></var> = 0</td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    D<sup>2</sup> &minus; 2&alpha;D + (&alpha;<sup>2</sup> + &beta;<sup>2</sup>) of <var>c</var><sub>1</sub><var>e</var><sup><var>&alpha;</var></sup>
+                    <cos>&beta;<var>x</var></cos> + <var>c</var><sub>2</sub><var>e</var><sup><var>&alpha;x</var></sup>
+                    <sin>&beta;<var>x</var></sin> = 0
+                </td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+        </table>
+
+    </ul>
+</div>
+<script>
+    renderMath();
+</script>

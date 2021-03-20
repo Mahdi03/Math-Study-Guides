@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Differential Calculus Study Guide</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Differential Calculus Study Guide" />
+    <meta name="keywords" content="" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
+    <link href="../styles.css" rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-3"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-116674321-3');
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
+            enable_page_level_ads: true
+        });
+    </script>
+    <style>
+        /*
+Oswald Font For Titles, Years
+Used As Such:
+font-family: 'Oswald', sans-serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Oswald');
+        /*
+ZCOOL XiaoWei Font For Titles In Vocabulary Popup
+Used As Such:
+font-family: 'ZCOOL XiaoWei', serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
+        /*
+Nunito Font For Text, Descriptions
+Used As Such:
+font-family: 'Nunito', sans-serif;
+*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Nunito');
+        .link {
+            text-align: center;
+        }
+        
+        .link:hover {
+            color: rgb(0, 180, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 redir="..">Differential Calculus Study Guide</h1>
+    <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
+
+    <!--Chapter 2-->
+    <div><span class="toggleButton" id="ch2ToggleButton" onclick="toggleDiv('#ch2');">&plus;</span>
+        <h2>Chapter 2:</h2>
+    </div>
+    <div id="ch2">
+        <div htmlInclude="ch2.html"></div>
+    </div>
+    <!--Chapter 3-->
+    <div><span class="toggleButton" id="ch3ToggleButton" onclick="toggleDiv('#ch3');">&plus;</span>
+        <h2>Chapter 3:</h2>
+    </div>
+    <div id="ch3">
+        <div htmlInclude="ch3.html"></div>
+    </div>
+    <!--Chapter 4-->
+    <div><span class="toggleButton" id="ch4ToggleButton" onclick="toggleDiv('#ch4');">&plus;</span>
+        <h2>Chapter 4:</h2>
+    </div>
+    <div id="ch4">
+        <div htmlInclude="ch4.html"></div>
+    </div>
+    <script src="../renderMath.js"></script>
+    <script src="../main.js"></script>
+</body>
+
+</html>
