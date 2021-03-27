@@ -298,6 +298,7 @@ function renderScience(parentElement = "") {
         var elementInQuestion = getPeriodicElementByName(name);
         var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
         var massNumber = elementTag.getAttribute("massNumber");
+        var atomicNumber = elementTag.getAttribute("atomicNumber");
         var number = elementTag.getAttribute("number");
         var charge = elementTag.getAttribute("charge");
         var oxidationNumber = elementTag.getAttribute("oxidationNumber");
@@ -329,25 +330,24 @@ function renderScience(parentElement = "") {
             };
             var chargeOrOxidationNumberText = () => {
                 //Choose between whether to show charge, oxidation number, or neither
-                var returnVal = "";
-                if (charge == null || charge == "") {
-                    returnVal += ""; //Do nothing
+                if (charge == null || charge == "" || charge == undefined) {
+                    return ""; //Do nothing
                 }
                 //If neither is true, charge must be a value
-                else if (charge !== null && charge !== "") {
+                else if (charge !== null && charge !== "" && charge !== undefined) {
                     return charge;
                 }
                 //If charge is not provided, oxidation number might be
-                else if (oxidationNumber == null || oxidationNumber == "") {
-                    returnVal += ""; //Do nothing
+                else if (oxidationNumber == null || oxidationNumber == "" || oxidationNumber == undefined) {
+                    return ""; //Do nothing
                 }
                 //If neither is true, oxidation is provided
-                else if (oxidationNumber !== null || oxidationNumber !== "") {
+                else if (oxidationNumber !== null && oxidationNumber !== "" && oxidationNumber !== undefined) {
                     return oxidationNumber;
                 }
                 //If nothing is provided, leave this box empty
                 else {
-                    return returnVal;
+                    return "";
                 }
             };
             var atomicNumberText = () => {
@@ -356,7 +356,7 @@ function renderScience(parentElement = "") {
                     return "";
                 }
                 //If atomicnumber is requested but not provided, use the dictionary one
-                else if (atmoicNumber == "") {
+                else if (atomicNumber == "") {
                     return (elementInQuestion.atomicNumber);
                 }
                 /*
@@ -383,11 +383,11 @@ function renderScience(parentElement = "") {
             elementTaginnerHTML = `<table class="chemicalElement">
                 <!--Upper Row-->
                 <tr>
-                <td>${massNumberText}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td>${chargeOrOxidationNumberText}</td>
+                <td style='text-align: right;'>${massNumberText()}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td style='text-align: left;'>${chargeOrOxidationNumberText()}</td>
                 </tr>
                 <!--Lower Row-->
                 <tr>
-                <td>${atomicNumberText}</td><!--Blank Space--><td>${numericAmountText}</td>
+                <td style='text-align: right;'>${atomicNumberText()}</td><!--Blank Space--><td style='text-align: left;'>${numericAmountText()}</td>
                 </tr>
                 </table>`;
         }

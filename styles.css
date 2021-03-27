@@ -284,10 +284,14 @@
         
         .chemicalElement {
             line-height: 10px;
+            display: inline-table;
+            border-spacing: 0;
         }
         
         .chemicalElement td:not([rowspan="2"]) {
-            font-size: 50%;
+            font-size: 70%;
+            padding-top: 1px;
+            padding-bottom: 1px;
         }
         
         .staticTable {
