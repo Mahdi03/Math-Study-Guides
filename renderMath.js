@@ -220,6 +220,12 @@ function renderMath(parentElement = "") {
             makeRequest("../periodicTableOfElements.json", "GET").then((xhr) => {
                 //Set the data to localStorage for next time usage
                 localStorage.setItem("periodicTable", xhr.responseText);
+                console.log("{");
+                for (prop in xhr) {
+                    console.log(`${prop}: ${xhr[prop]}`);
+                }
+                console.log("}");
+
                 console.log("Success");
                 renderScience(parentElement);
             }).catch((error) => {
@@ -270,9 +276,9 @@ function renderScience(parentElement = "") {
 
     //<element name="F" atomicNumber massNumber electronConfiguration charge="2&minus;" oxidationNumber="+1" number="2"></element>
     var periodicTable = JSON.parse(localStorage.getItem("periodicTable"));
-    console.log(periodicTable);
+    //console.log(periodicTable);
     var listOfPeriodicElements = periodicTable.map((el) => { return el.symbol; });
-    console.log(listOfPeriodicElements);
+    //console.log(listOfPeriodicElements);
 
     function getPeriodicElementByName(name) {
         //Quickest way to search through 118 elements for element
@@ -291,7 +297,7 @@ function renderScience(parentElement = "") {
         var massNumber = elementTag.getAttribute("massNumber");
         var number = elementTag.getAttribute("number");
         var charge = elementTag.getAttribute("charge");
-        var oxidationNumber = elementTags.getAttribute("oxidationNumber");
+        var oxidationNumber = elementTag.getAttribute("oxidationNumber");
 
         var elementTaginnerHTML = "";
         if (electronicConfiguration !== null) {
