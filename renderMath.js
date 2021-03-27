@@ -237,6 +237,9 @@ function renderMath(parentElement = "") {
                 console.log(error);
                 alert("Sorry but elements cannot be shown at this time");
             });
+        } else {
+            //Already stored in localStorage, carry on
+            renderScience(parentElement);
         }
     }
 
@@ -307,7 +310,7 @@ function renderScience(parentElement = "") {
                 elementTaginnerHTML = electronicConfiguration;
             }
         } else {
-            elementTaginnerHTML = html `<table class="chemicalElement">
+            elementTaginnerHTML = `<table class="chemicalElement">
                 <!--Upper Row-->
                 <tr>
                 <td>${() => {
