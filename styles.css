@@ -272,13 +272,22 @@
         }
         
         .sigmaTag td,
-        .matrix td {
+        .matrix td,
+        .chemicalElement td {
             text-align: center;
             border: none;
             border-radius: none;
             border-collapse: collapse;
             border-spacing: 0;
             padding: 0;
+        }
+        
+        .chemicalElement {
+            line-height: 10px;
+        }
+        
+        .chemicalElement td:not([rowspan="2"]) {
+            font-size: 50%;
         }
         
         .staticTable {

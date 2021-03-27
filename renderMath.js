@@ -17,6 +17,7 @@ var loadingLogoHTML = `
   <div class="loader"></div>
 `;
 
+
 function addImportanceToFormulas() {
     var elementQueryList = [".rules td"]; //Use CSS Selectors Here
     elementQueryList.forEach((elementQuery) => {
@@ -28,7 +29,7 @@ function addImportanceToFormulas() {
 }
 
 function removeImportanceFromElements() {
-    var elementQueryList = ["sigma td", "matrix td"]; //Use CSS Selectors Here
+    var elementQueryList = ["sigma td", "matrix td", ".chemicalElement td"]; //Use CSS Selectors Here
     elementQueryList.forEach((elementQuery) => {
         var elementList = document.querySelectorAll(elementQuery);
         elementList.forEach((element) => {
@@ -183,8 +184,191 @@ function renderMath(parentElement = "") {
         eval(script.innerHTML);
     });
 
-}
 
+
+    //Room for science stuff
+    var elementTags = document.querySelectorAll(parentElement + "element");
+    if (elementTags.length > 0) {
+        //If there is no periodic table saved in local storage
+        if (!localStorage.getItem("periodicTable")) {
+            var makeRequest = function(url, httpMethod) {
+                //Load the file
+                var fileRequest = new XMLHttpRequest();
+                return new Promise((resolve, reject) => {
+                    fileRequest.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            resolve(fileRequest);
+                        } else {
+                            reject({
+                                status: fileRequest.status,
+                                statusText: fileRequest.statusText
+                            });
+                        }
+                    }
+                    fileRequest.open(httpMethod || "GET", url, true);
+                    fileRequest.send();
+
+                });
+            }
+            makeRequest("../periodicTableOfElements.json", "GET").then((myData) => {
+                console.log(myData);
+                //Set the data to localStorage for next time usage
+                //localStorage.setItem("periodicTable", this.responseText);
+                renderScience(parentElement);
+            }).catch((error) => { console.error(error);
+                alert("Sorry but elements cannot be shown at this time"); });
+        }
+    }
+
+
+
+}
+/*
+Periodic Table Data Found At https://github.com/andrejewski/periodic-table/blob/master/data.json
+
+Code below to remove unnecessary information to save space and loading time
+var oldListOfElements = [];
+var newListOfElements = oldListOfElements.map(
+function (oldElement) {
+var newElement = oldElement;
+delete newElement.cpkHexColor;
+delete newElement.standardState;
+delete newElement.meltingPoint;
+delete newElement.standardState;
+delete newElement.boilingPoint;
+delete newElement.density;
+delete newElement.ionRadius;
+delete newElement.atomicRadius;
+delete newElement.bondingType;
+delete newElement.yearDiscovered;
+delete newElement.vanDelWaalsRadius;
+delete newElement.electronAffinity;
+newElement.atomicMass = (newElement.symbol == "H") ? Number(parseFloat(String(oldElement.atomicMass).replace("[", "").replace("]", "")).toFixed(3)) : Number(parseFloat(String(oldElement.atomicMass).replace("[", "").replace("]", "")).toFixed(2)) //If Hydrogen, round to 3 decimal places, else round to 2
+newElement.oxidationStates = (String(oldElement.oxidationStates) != "") ? String(oldElement.oxidationStates).split(", ").map((el) => parseInt(el)) : null; //Convert the oxidation states list to an array from a CSV string if it is not empty
+newElement.electronicConfiguration = (oldElement.electronicConfiguration != "") ? oldElement.electronicConfiguration.split(" ").map((el) => { return el.replace(/(?<=[a-z])(\d{1,2})/gi, "<sup>$1</sup>")}).join(" ") : ""; //If it is not empty, take the electron configuration and make all the last numbers into powers, else leave it empty
+return newElement;
+}
+);*/
+
+function renderScience(parentElement = "") {
+    //Defined elementTag
+    var elementTags = document.querySelectorAll(parentElement + "element");
+
+    //<element name="F" atomicNumber massNumber electronConfiguration charge="2&minus;" oxidationNumber="+1" number="2"></element>
+    var periodicTable = JSON.parse(localStorage.getItem("periodicTable"));
+    console.log(periodicTable);
+    var listOfPeriodicElements = periodicTable.map((el) => { return el.symbol; });
+    console.log(listOfPeriodicElements);
+
+    function getPeriodicElementByName(name) {
+        //Quickest way to search through 118 elements for element
+        /*
+        Search through array of listOfPeriodicElements for index
+        and use the same index on other array, that way I am not
+        searching through the entire array of objects
+        */
+        var index = listOfPeriodicElements.indexOf(name);
+        return (index > -1) ? periodicTable[index] : null; //If not found in index then just return a null value
+    }
+    elementTags.forEach((elementTag) => {
+        var name = elementTag.getAttribute("name");
+        var elementInQuestion = getPeriodicElementByName(name);
+        var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
+        var massNumber = elementTag.getAttribute("massNumber");
+        var number = elementTag.getAttribute("number");
+        var charge = elementTag.getAttribute("charge");
+        var oxidationNumber = elementTags.getAttribute("oxidationNumber");
+
+        var elementTaginnerHTML = "";
+        if (electronicConfiguration !== null) {
+            if (electronicConfiguration == "") {
+                elementTaginnerHTML = elementInQuestion.electronicConfiguration;
+            } else {
+                elementTaginnerHTML = electronicConfiguration;
+            }
+        } else {
+            elementTaginnerHTML = html `<table class="chemicalElement">
+                <!--Upper Row-->
+                <tr>
+                <td>${() => {
+                    //If massNumber is not requested, leave it blank
+                    if (massNumber == null) {
+                        return "";
+                    }
+                    //If massnumber is requested but not provided, use the dictionary one
+                    else if (massNumber == "") {
+                        return (elementInQuestion.atomicMass).toFixed(0);
+                    }
+                    /*
+                    If massNumber is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return massNumber;
+                    }
+                }}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td>${
+                    () => {
+                        //Choose between whether to show charge, oxidation number, or neither
+                        var returnVal = "";
+                        if (charge == null || charge == "") {
+                            returnVal += ""; //Do nothing
+                        }
+                        //If neither is true, charge must be a value
+                        else if (charge !== null && charge !== "") {
+                            return charge;
+                        }
+                        //If charge is not provided, oxidation number might be
+                        else if (oxidationNumber == null || oxidationNumber == "") {
+                            returnVal += ""; //Do nothing
+                        }
+                        //If neither is true, oxidation is provided
+                        else if (oxidationNumber !== null || oxidationNumber !== "") {
+                            return oxidationNumber;
+                        }
+                        //If nothing is provided, leave this box empty
+                        else {
+                            return returnVal;
+                        }
+                    }
+                }</td>
+                </tr>
+                <!--Lower Row-->
+                <tr>
+                <td>${() => {
+                    //If atomicNumber is not requested, leave it blank
+                    if (atomicNumber == null) {
+                        return "";
+                    }
+                    //If atomicnumber is requested but not provided, use the dictionary one
+                    else if (atmoicNumber == "") {
+                        return (elementInQuestion.atomicNumber);
+                    }
+                    /*
+                    If atomicNumber is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return atomicNumber;
+                    }
+                }}</td><!--Blank Space--><td>${() => {
+                    //If number is not requested, or not provided with a value, leave it blank
+                    if (number == null || number == "") {
+                        return "";
+                    }
+                    /*
+                    If number is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return number;
+                    }
+                }}</td>
+                </tr>
+                </table>`;
+        }
+        elementTag.innerHTML = elementTaginnerHTML;
+    });
+}
 
 function toggleDiv(id) {
     var element = document.querySelector(id);
