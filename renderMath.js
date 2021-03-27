@@ -195,7 +195,7 @@ function renderMath(parentElement = "") {
                 //Load the file
                 var fileRequest = new XMLHttpRequest();
                 return new Promise((resolve, reject) => {
-                    fileRequest.onreadystatechange = function() {
+                    /*fileRequest.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             resolve(fileRequest);
                         } else {
@@ -204,19 +204,33 @@ function renderMath(parentElement = "") {
                                 statusText: fileRequest.statusText
                             });
                         }
+                    }*/
+                    fileRequest.onload = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            resolve(fileRequest);
+                        } else {
+                            reject(fileRequest);
+                        }
                     }
                     fileRequest.open(httpMethod || "GET", url, true);
                     fileRequest.send();
 
                 });
             }
-            makeRequest("../periodicTableOfElements.json", "GET").then((myData) => {
-                console.log(myData);
+            makeRequest("../periodicTableOfElements.json", "GET").then((xhr) => {
                 //Set the data to localStorage for next time usage
-                //localStorage.setItem("periodicTable", this.responseText);
+                localStorage.setItem("periodicTable", xhr.responseText);
+                console.log("Success");
                 renderScience(parentElement);
-            }).catch((error) => { console.error(error);
-                alert("Sorry but elements cannot be shown at this time"); });
+            }).catch((error) => {
+                console.log("{");
+                for (prop in error) {
+                    console.log(`${prop}: ${error[prop]}`);
+                }
+                console.log("}");
+                console.log(error);
+                alert("Sorry but elements cannot be shown at this time");
+            });
         }
     }
 
