@@ -73,3 +73,27 @@ function createAndClickLink(link) {
 }
 */
 //};
+
+var backToTopButton = document.createElement("div");
+backToTopButton.classList.add("backToTopButton");
+backToTopButton.innerHTML = `<div class="fraction upArrow"><div class="triangle"></div><div class="rectangle"></div></div> Back To Top`;
+document.body.appendChild(backToTopButton);
+window.addEventListener("scroll", () => {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        //Fade in backToTopButton
+        backToTopButton.classList.remove("hide");
+        backToTopButton.classList.add("show");
+    } else {
+        backToTopButton.classList.remove("show");
+        backToTopButton.classList.add("hide");
+    }
+})
+backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    //Fade out backToTopButton
+    backToTopButton.classList.remove("show");
+    backToTopButton.classList.add("hide");
+});

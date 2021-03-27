@@ -320,3 +320,52 @@
             font-weight: bold;
             text-align: center;
         }
+        
+        .backToTopButton {
+            background-color: rgba(0, 0, 0, calc(150/255));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        .backToTopButton:hover {
+            cursor: pointer;
+        }
+        /*To toggle the visibility of the backToTop button by fading*/
+        
+        .backToTopButton.show {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s linear, opacity 500ms ease-in;
+        }
+        
+        .backToTopButton.hide {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 500ms linear, opacity 500ms ease-in;
+        }
+        
+        .upArrow {
+            margin-bottom: 2px;
+        }
+        
+        .upArrow .triangle {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid white;
+            margin: 0 auto;
+        }
+        
+        .upArrow .rectangle {
+            height: 12px;
+            width: 2px;
+            background-color: white;
+            margin: 0 auto;
+        }
