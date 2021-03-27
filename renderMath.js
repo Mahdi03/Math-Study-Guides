@@ -295,7 +295,7 @@ function renderScience(parentElement = "") {
     }
     elementTags.forEach((elementTag) => {
         var name = elementTag.getAttribute("name");
-        var elementInQuestion = getPeriodicElementByName(name);
+        var elementInQuestion = (name == "&alpha;") ? getPeriodicElementByName("He") : getPeriodicElementByName(name); //If alpha particle, use Helium properties, else use element properties
         var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
         var massNumber = elementTag.getAttribute("massNumber");
         var atomicNumber = elementTag.getAttribute("atomicNumber");
@@ -357,7 +357,7 @@ function renderScience(parentElement = "") {
                 }
                 //If atomicnumber is requested but not provided, use the dictionary one
                 else if (atomicNumber == "") {
-                    return (elementInQuestion.atomicNumber);
+                    return elementInQuestion.atomicNumber;
                 }
                 /*
                 If atomicNumber is neither of the above, it must be provided
@@ -447,6 +447,306 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
 }
 
 
+/*
+The below function is stolen directly from https://stackoverflow.com/questions/11217374/html5-render-simple-electrical-circuits
+And modified for personal use
+
+- This class draws circuits in the conventional method of current, positive to negative
+All the methods return the CircuitDiagram object itself, allowing for event chaining
+*/
+
+class CircuitDiagram {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+
+        this.initialX = 0;
+        this.initialY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.d = 0;
+        this.dx = 0;
+        this.dy = 0;
+    }
+    drawWire(length) {
+        this.currentX += this.dx * length;
+        this.currentY += this.dy * length;
+        this.ctx.lineTo(this.currentX, this.currentY);
+        //Not sure if the following line is really necessary or not
+        //this.ctx.moveTo(this.currentX, this.currentY);
+
+        return this;
+    }
+    beginCircuit(a, b) {
+        this.ctx.lineWidth = 1.5;
+        this.ctx.strokeStyle = "#000";
+        this.ctx.beginPath();
+
+        this.currentX = a;
+        this.currentY = b;
+        this.d = 0;
+        this.dx = 1;
+        this.dy = 0;
+        this.initialX = this.currentX;
+        this.initialY = this.currentY;
+        this.ctx.moveTo(this.currentX, this.currentY);
+
+        return this;
+    }
+    endCircuit() {
+        this.ctx.lineTo(this.initialX, this.initialY);
+        this.ctx.stroke();
+        return undefined;
+    }
+    drawSwitch() {
+        //Make triangle at angle then move cursor back to original spot on circuit
+        //Start at 45deg from current pos
+        //(currentX, currentY) = starting pos --> translate 15 dy and dx,
+        //Get angle of movement direction then add 45deg for angle of switch logo 
+        var angle = Math.atan2(this.dy, this.dx) + Math.PI / 4;
+        //Magnitude is just to use the Fsin(@) notation, it's still ensuring 15px dx and dy
+        var magnitude = Math.pow(Math.pow(15, 2) + Math.pow(15, 2), 1 / 2);
+        this.ctx.lineTo(this.currentX + magnitude * Math.cos(angle), this.currentY - magnitude * Math.sin(angle));
+        //console.log(`dx: ${this.dx}\ndy: ${this.dy}\nMagnitude: ${magnitude}\nangle: ${angle}\nDX: ${magnitude * Math.cos(angle)}\nDY: ${magnitude * Math.sin(angle)}`);
+        this.currentX += this.dx * 15;
+        this.currentY += this.dy * 15;
+        this.ctx.moveTo(this.currentX, this.currentY);
+
+        return this;
+    }
+    drawLight() {
+        return this;
+    }
+    drawBattery() {
+        //var n = 1;
+        //this.drawWire(10);
+        //Don't forget to add positive and negative labels on the battery (long end is positive and short-end is negative)
+        this.ctx.moveTo(this.currentX + 5 * this.dy, this.currentY + 5 * this.dx);
+        this.ctx.lineTo(this.currentX - 5 * this.dy, this.currentY - 5 * this.dx);
+        this.currentX += this.dx * 5;
+        this.currentY += this.dy * 5;
+        this.ctx.moveTo(this.currentX + 15 * this.dy, this.currentY + 15 * this.dx);
+        this.ctx.lineTo(this.currentX - 15 * this.dy, this.currentY - 15 * this.dx);
+
+        this.ctx.moveTo(this.currentX, this.currentY);
+        //this.drawWire(10);
+
+        return this;
+    }
+    drawCapacitor() {
+        this.ctx.moveTo(this.currentX + 7 * this.dy, this.currentY + 7 * this.dx);
+        this.ctx.lineTo(this.currentX - 7 * this.dy, this.currentY - 7 * this.dx);
+        this.currentX += this.dx * 5;
+        this.currentY += this.dy * 5;
+        this.ctx.moveTo(this.currentX + 7 * this.dy, this.currentY + 7 * this.dx);
+        this.ctx.lineTo(this.currentX - 7 * this.dy, this.currentY - 7 * this.dx);
+        this.ctx.moveTo(this.currentX, this.currentY);
+
+        return this;
+    }
+    drawResistor() {
+            var n = 5;
+            this.currentX += this.dx * 5;
+            this.currentY += this.dy * 5;
+            while (n--) {
+                this.ctx.lineTo(this.currentX - 5 * this.dy, this.currentY - 5 * this.dx);
+                this.ctx.lineTo(this.currentX + 5 * this.dy, this.currentY + 5 * this.dx);
+                this.currentX += 5 * this.dx;
+                this.currentY += 5 * this.dy;
+            }
+            this.ctx.lineTo(this.currentX, this.currentY);
+
+            return this;
+        }
+        /*
+        drawLight() {
+            var n, xs, ys;
+            this.drawWire(9);
+            n = 2;
+            xs = 1 + Math.abs(this.dy);
+            ys = 1 + Math.abs(this.dx);
+            this.currentX += this.dx * 6;
+            this.currentY += this.dy * 6;
+            this.ctx.scale(xs, ys);
+            while (n--) {
+                this.ctx.moveTo(this.currentX / xs + 5 * Math.abs(this.dx), this.currentY / ys + 5 * this.dy);
+                this.ctx.arc(this.currentX / xs, this.currentY / ys, 5, Math.PI / 2 * this.dy, Math.PI + Math.PI / 2 * this.dy, 1);
+                this.currentX += 6.5 * this.dx;
+                this.currentY += 6.5 * this.dy;
+                if (n != 0) {
+                    if (this.dx >= 0) {
+                        this.ctx.moveTo(this.currentX / xs - 5 * this.dx, this.currentY / ys - 5 * this.dy);
+                    }
+
+                    this.ctx.moveTo(this.dy / xs - 5 * this.dx, this.currentY / ys - 5 * this.dy);
+                    this.ctx.arc(this.dy / xs - 6.5 / 2 * this.dx, this.currentY / ys - 6.5 / 2 * this.dy, 1.5, Math.PI + Math.PI / 2 * this.dy, Math.PI / 2 * this.dy, 1);
+                }
+            }
+            this.ctx.moveTo(this.dy / xs - 1.75 * this.dx, this.currentY / ys - 1.75 * this.dy);
+            this.ctx.scale(1 / xs, 1 / ys);
+            this.ctx.lineTo(this.currentX, this.currentY);
+            this.drawWire(9);
+
+        }*/
+    turnRight() {
+        this.d++;
+        this.dx = Math.round(Math.cos(Math.PI / 2 * this.d));
+        this.dy = Math.round(Math.sin(Math.PI / 2 * this.d));
+
+        return this;
+    }
+    turnLeft() {
+        this.d--;
+        this.dx = Math.round(Math.cos(Math.PI / 2 * this.d));
+        this.dy = Math.round(Math.sin(Math.PI / 2 * this.d));
+
+        return this;
+    }
+}
+/*
+function drawAnElectricalCircuit() {
+    var canvasHTML = document.getElementById("canvas");
+    var ctx = canvasHTML.getContext("2d");
+    var ix;
+    var iy;
+    var x;
+    var y;
+    var d;
+    var dx;
+    var dy;
+
+
+    function beginCircuit(a, b) {
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = "#000";
+        ctx.beginPath();
+        x = a;
+        y = b;
+        d = 0;
+        dx = 1;
+        dy = 0;
+        ix = x;
+        iy = y;
+        ctx.moveTo(x, y);
+        drawWire(50);
+        drawPower();
+    }
+
+    function endCircuit() {
+        ctx.lineTo(ix, iy);
+        ctx.stroke();
+    }
+
+    function drawWire(l) {
+        x += dx * l;
+        y += dy * l;
+        ctx.lineTo(x, y);
+    }
+
+    function drawPower() {
+        var n;
+        drawWire(10);
+        n = 3;
+        ctx.moveTo(x + 10 * dy, y + 10 * dx);
+        ctx.lineTo(x - 10 * dy, y - 10 * dx);
+        x += dx * 5;
+        y += dy * 5;
+        while (n--) {
+            ctx.moveTo(x + 15 * dy, y + 15 * dx);
+            ctx.lineTo(x - 15 * dy, y - 15 * dx);
+            x += dx * 5;
+            y += dy * 5;
+            ctx.moveTo(x + 10 * dy, y + 10 * dx);
+            ctx.lineTo(x - 10 * dy, y - 10 * dx);
+            if (n != 0) {
+                x += dx * 5;
+                y += dy * 5;
+            }
+        }
+        ctx.moveTo(x, y);
+        drawWire(10);
+    }
+
+    function drawCapacitor() {
+        drawWire(22.5);
+        ctx.moveTo(x + 10 * dy, y + 10 * dx);
+        ctx.lineTo(x - 10 * dy, y - 10 * dx);
+        x += dx * 5;
+        y += dy * 5;
+        ctx.moveTo(x + 10 * dy, y + 10 * dx);
+        ctx.lineTo(x - 10 * dy, y - 10 * dx);
+        ctx.moveTo(x, y);
+        drawWire(22.5);
+    }
+
+    function drawInductor() {
+        var n, xs, ys;
+        drawWire(9);
+        n = 4;
+        xs = 1 + Math.abs(dy);
+        ys = 1 + Math.abs(dx);
+        x += dx * 6;
+        y += dy * 6;
+        ctx.scale(xs, ys);
+        while (n--) {
+            ctx.moveTo(x / xs + 5 * Math.abs(dx), y / ys + 5 * dy);
+            ctx.arc(x / xs, y / ys, 5, Math.PI / 2 * dy, Math.PI + Math.PI / 2 * dy, 1);
+            x += 6.5 * dx;
+            y += 6.5 * dy;
+            if (n != 0) {
+                if (dx >= 0) {
+                    ctx.moveTo(x / xs - 5 * dx, y / ys - 5 * dy);
+                }
+
+                ctx.moveTo(x / xs - 5 * dx, y / ys - 5 * dy);
+                ctx.arc(x / xs - 6.5 / 2 * dx, y / ys - 6.5 / 2 * dy, 1.5, Math.PI + Math.PI / 2 * dy, Math.PI / 2 * dy, 1);
+            }
+        }
+        ctx.moveTo(x / xs - 1.75 * dx, y / ys - 1.75 * dy);
+        ctx.scale(1 / xs, 1 / ys);
+        ctx.lineTo(x, y);
+        drawWire(9);
+    }
+
+    function drawTrimmer() {
+        ctx.moveTo(x + 35 * dx - 7 * dy, y + 35 * dy - 7 * dx);
+        ctx.lineTo(x + 15 * dx + 7 * dy, y + 15 * dy + 7 * dx);
+        ctx.moveTo(x + 13 * dx + 4 * dy, y + 13 * dy + 4 * dx);
+        ctx.lineTo(x + 17 * dx + 10 * dy, y + 17 * dy + 10 * dx);
+        ctx.moveTo(x, y);
+        drawCapacitor();
+    }
+
+    function drawResistor() {
+        var n;
+        drawWire(10);
+        n = 5;
+        x += dx * 5;
+        y += dy * 5;
+        while (n--) {
+            ctx.lineTo(x - 5 * dy, y - 5 * dx);
+            ctx.lineTo(x + 5 * dy, y + 5 * dx);
+            x += 5 * dx;
+            y += 5 * dy;
+        }
+        ctx.lineTo(x, y);
+        drawWire(10);
+    }
+
+    function turnClockwise() {
+        d++;
+        dx = Math.cos(1.570796 * d);
+        dy = Math.sin(1.570796 * d);
+    }
+
+    function turnCounterClockwise() {
+        d--;
+        dx = Math.cos(1.570796 * d);
+        dy = Math.sin(1.570796 * d);
+    }
+}
+*/
+
 /* Extra Programmer Tools */
 
 //For testing purposes to get exact coordinates
@@ -454,7 +754,7 @@ function addCanvasPosition(canvas) {
     var p = document.createElement("p");
     p.setAttribute("id", "canvasPos");
     canvas.insertAdjacentElement("afterend", p);
-    var canvasPos = document.querySelector("#canvasPos");
+    //var canvasPos = document.querySelector("#canvasPos");
     canvas.addEventListener("mousemove", (event) => {
         var canvasPos = document.querySelector("#canvasPos");
         var rect = canvas.getBoundingClientRect();
@@ -463,5 +763,3 @@ function addCanvasPosition(canvas) {
         canvasPos.innerHTML = `Pos: ${x}, ${y}`;
     });
 }
-
-//To quickly type out math
