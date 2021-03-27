@@ -310,82 +310,84 @@ function renderScience(parentElement = "") {
                 elementTaginnerHTML = electronicConfiguration;
             }
         } else {
+            var massNumberText = () => {
+                //If massNumber is not requested, leave it blank
+                if (massNumber == null) {
+                    return "";
+                }
+                //If massnumber is requested but not provided, use the dictionary one
+                else if (massNumber == "") {
+                    return (elementInQuestion.atomicMass).toFixed(0);
+                }
+                /*
+                If massNumber is neither of the above, it must be provided
+                so just use the provided value
+                */
+                else {
+                    return massNumber;
+                }
+            };
+            var chargeOrOxidationNumberText = () => {
+                //Choose between whether to show charge, oxidation number, or neither
+                var returnVal = "";
+                if (charge == null || charge == "") {
+                    returnVal += ""; //Do nothing
+                }
+                //If neither is true, charge must be a value
+                else if (charge !== null && charge !== "") {
+                    return charge;
+                }
+                //If charge is not provided, oxidation number might be
+                else if (oxidationNumber == null || oxidationNumber == "") {
+                    returnVal += ""; //Do nothing
+                }
+                //If neither is true, oxidation is provided
+                else if (oxidationNumber !== null || oxidationNumber !== "") {
+                    return oxidationNumber;
+                }
+                //If nothing is provided, leave this box empty
+                else {
+                    return returnVal;
+                }
+            };
+            var atomicNumberText = () => {
+                //If atomicNumber is not requested, leave it blank
+                if (atomicNumber == null) {
+                    return "";
+                }
+                //If atomicnumber is requested but not provided, use the dictionary one
+                else if (atmoicNumber == "") {
+                    return (elementInQuestion.atomicNumber);
+                }
+                /*
+                If atomicNumber is neither of the above, it must be provided
+                so just use the provided value
+                */
+                else {
+                    return atomicNumber;
+                }
+            };
+            var numericAmountText = () => {
+                //If number is not requested, or not provided with a value, leave it blank
+                if (number == null || number == "") {
+                    return "";
+                }
+                /*
+                If number is neither of the above, it must be provided
+                so just use the provided value
+                */
+                else {
+                    return number;
+                }
+            };
             elementTaginnerHTML = `<table class="chemicalElement">
                 <!--Upper Row-->
                 <tr>
-                <td>${() => {
-                    //If massNumber is not requested, leave it blank
-                    if (massNumber == null) {
-                        return "";
-                    }
-                    //If massnumber is requested but not provided, use the dictionary one
-                    else if (massNumber == "") {
-                        return (elementInQuestion.atomicMass).toFixed(0);
-                    }
-                    /*
-                    If massNumber is neither of the above, it must be provided
-                    so just use the provided value
-                    */
-                    else {
-                        return massNumber;
-                    }
-                }}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td>${
-                    () => {
-                        //Choose between whether to show charge, oxidation number, or neither
-                        var returnVal = "";
-                        if (charge == null || charge == "") {
-                            returnVal += ""; //Do nothing
-                        }
-                        //If neither is true, charge must be a value
-                        else if (charge !== null && charge !== "") {
-                            return charge;
-                        }
-                        //If charge is not provided, oxidation number might be
-                        else if (oxidationNumber == null || oxidationNumber == "") {
-                            returnVal += ""; //Do nothing
-                        }
-                        //If neither is true, oxidation is provided
-                        else if (oxidationNumber !== null || oxidationNumber !== "") {
-                            return oxidationNumber;
-                        }
-                        //If nothing is provided, leave this box empty
-                        else {
-                            return returnVal;
-                        }
-                    }
-                }</td>
+                <td>${massNumberText}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td>${chargeOrOxidationNumberText}</td>
                 </tr>
                 <!--Lower Row-->
                 <tr>
-                <td>${() => {
-                    //If atomicNumber is not requested, leave it blank
-                    if (atomicNumber == null) {
-                        return "";
-                    }
-                    //If atomicnumber is requested but not provided, use the dictionary one
-                    else if (atmoicNumber == "") {
-                        return (elementInQuestion.atomicNumber);
-                    }
-                    /*
-                    If atomicNumber is neither of the above, it must be provided
-                    so just use the provided value
-                    */
-                    else {
-                        return atomicNumber;
-                    }
-                }}</td><!--Blank Space--><td>${() => {
-                    //If number is not requested, or not provided with a value, leave it blank
-                    if (number == null || number == "") {
-                        return "";
-                    }
-                    /*
-                    If number is neither of the above, it must be provided
-                    so just use the provided value
-                    */
-                    else {
-                        return number;
-                    }
-                }}</td>
+                <td>${atomicNumberText}</td><!--Blank Space--><td>${numericAmountText}</td>
                 </tr>
                 </table>`;
         }
