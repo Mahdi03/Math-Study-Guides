@@ -885,6 +885,7 @@ class Graph {
         */
         //this.ctx.scale(2, 2);
         this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0] + this.params.padding, dimensions[1] + this.yRange[0] - this.params.padding);
+
     }
     drawAxis() {
         this.ctx.moveTo(0, 0);
@@ -899,7 +900,8 @@ class Graph {
                 this.ctx.save();
                 this.ctx.scale(1, -1);
                 var textPixelSize = this.ctx.measureText(this.params.xAxisTitle)
-                this.ctx.fillText(this.params.xAxisTitle, this.params.width + this.xRange[0] - textPixelSize.width, textPixelSize.height);
+                this.ctx.fillText(this.params.xAxisTitle, this.xRange[1] - textPixelSize.width / 2, this.params.padding);
+                //this.ctx.fillText(this.params.xAxisTitle, this.params.width + this.xRange[0] - textPixelSize.width, textPixelSize.height);
                 this.ctx.restore();
             }
         }
@@ -913,7 +915,9 @@ class Graph {
                 //Add y-axis title
                 this.ctx.save();
                 this.ctx.scale(1, -1);
-                this.ctx.fillText(this.params.yAxisTitle, -5, -(this.params.height + this.yRange[0]));
+                var textPixelSize = this.ctx.measureText(this.params.yAxisTitle)
+                this.ctx.fillText(this.params.yAxisTitle, -textPixelSize.width / 2, -this.yRange[1] - this.params.padding / 2);
+                //this.ctx.fillText(this.params.yAxisTitle, -5, -(this.params.height + this.yRange[0]));
                 this.ctx.restore();
             }
         }
