@@ -746,8 +746,28 @@ function drawAnElectricalCircuit() {
     }
 }
 */
+function distanceBetweenTwoPoints(x1, y1, x2, y2) {
+    var dx = x1 - x2;
+    var dy = y1 - y2;
+    var distance = Math.sqrt(dx * dx + dy * dy);
+    return distance;
+}
+
+function getMinMax(arr) {
+    var min = arr[0];
+    var max = arr[0];
+    var i = arr.length;
+
+    while (i--) {
+        min = arr[i] < min ? arr[i] : min;
+        max = arr[i] > max ? arr[i] : max;
+    }
+    return { min, max };
+}
+
 class Graph {
     constructor(canvasElement, xRange, yRange, params = {
+        padding: 10,
         width: 0,
         height: 0,
         /*Zoom/visibility*/
@@ -771,10 +791,12 @@ class Graph {
         this.xRange = xRange;
         this.yRange = yRange;
         this.params = params;
-
+        if (!this.params.padding) {
+            this.params.padding = 10;
+        }
         //Override canvas width and height values with correct range values for later scaling
-        this.params.width = this.xRange[1] - this.xRange[0];
-        this.params.height = this.yRange[1] - this.yRange[0];
+        this.params.width = this.xRange[1] - this.xRange[0] + 2 * this.params.padding;
+        this.params.height = this.yRange[1] - this.yRange[0] + 2 * this.params.padding;
 
         this.canvasElement = canvasElement;
         this.ctx = this.canvasElement.getContext("2d");
@@ -796,7 +818,7 @@ class Graph {
         setTransform(xScale, ySkew, xSkew, yScale, originX, originY)
         */
         //this.ctx.scale(2, 2);
-        this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0], dimensions[1] + this.yRange[0]);
+        this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0] + this.params.padding, dimensions[1] + this.yRange[0] - this.params.padding);
     }
     drawAxis() {
         this.ctx.moveTo(0, 0);
@@ -804,11 +826,34 @@ class Graph {
         //this.ctx.stroke();
         //this.ctx.strokeRect(0, 0, 100, 100);
         //Draw x-axis
-        drawArrow(this.ctx, 0, 0, this.params.width + this.xRange[0], 0);
-        drawArrow(this.ctx, 0, 0, this.xRange[0], 0);
+        if (this.xRange[1] > 10) {
+            drawArrow(this.ctx, 0, 0, this.params.width + this.xRange[0] - 2 * this.params.padding, 0);
+            if (this.params.showXAxisTitle) {
+                //Add x-axis title
+                this.ctx.save();
+                this.ctx.scale(1, -1);
+                var textPixelSize = this.ctx.measureText(this.params.xAxisTitle)
+                this.ctx.fillText(this.params.xAxisTitle, this.params.width + this.xRange[0] - textPixelSize.width, textPixelSize.height);
+                this.ctx.restore();
+            }
+        }
+        if (this.xRange[0] < -10) {
+            drawArrow(this.ctx, 0, 0, this.xRange[0], 0);
+        }
         //Draw y-axis
-        drawArrow(this.ctx, 0, 0, 0, this.params.height + this.yRange[0]); //Works
-        drawArrow(this.ctx, 0, 0, 0, this.yRange[0]);
+        if (this.yRange[1] > 10) {
+            drawArrow(this.ctx, 0, 0, 0, this.params.height + this.yRange[0] - 2 * this.params.padding);
+            if (this.params.showYAxisTitle) {
+                //Add y-axis title
+                this.ctx.save();
+                this.ctx.scale(1, -1);
+                this.ctx.fillText(this.params.yAxisTitle, -5, -(this.params.height + this.yRange[0]));
+                this.ctx.restore();
+            }
+        }
+        if (this.yRange[0] < -10) {
+            drawArrow(this.ctx, 0, 0, 0, this.yRange[0]);
+        }
 
     }
     addEquation(equationFunction, extraArgs = { color: "black", lineDash: [], type: "cartesian", cartesianInterval: 0.001, thetaBounds: [], thetaInterval: 0 }) {
@@ -824,22 +869,77 @@ class Graph {
             }
             if (extraArgs.type == "cartesian") {
                 var points = [];
+                var pointsAllYValues = [];
                 for (var x = this.xRange[0] / this.params.scaleFactor; x <= this.xRange[1] / this.params.scaleFactor; x += this.params.interval) {
                     var y = equationFunction(x);
                     if (isNaN(y) || !isFinite(y)) {
                         //Skip
                     } else {
-                        //Add [x, y] to array
-                        points.push([x, y]);
+                        //Add [x, y] to array only if the y value also falls in the interval of the axes shown
+                        if (y * this.params.scaleFactor > this.yRange[0] && y * this.params.scaleFactor < this.yRange[1]) {
+                            points.push([x, y]);
+                            pointsAllYValues.push(y);
+                        }
                     }
+
                 }
+                var minmaxY = getMinMax(pointsAllYValues);
                 //console.log(`equationFunction: ${equationFunction}\npoints: ${points}`);
                 //console.log(`points.length: ${points.length}`);
                 this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
                 this.ctx.strokeStyle = extraArgs.color;
                 this.ctx.beginPath();
-                for (var point of points) {
-                    this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                for (var h = 0; h < points.length; h++) {
+                    var point = points[h];
+                    //console.log(point);
+                    if (h != 0 && h != points.length - 1) {
+                        //If not first or last point, look ahead one point and look behind one point to calculate the angle (degree) of change
+                        var previousPoint = points[h - 1];
+                        var currentPoint = points[h];
+                        //var nextPoint = points[h + 1];
+                        /*
+                            Law of cosines: a^2 + b^2 - 2abcos(Cdegrees) = c^2
+                            Cdegrees=???
+                            arccos[(c^2 - a^2 - b^2) / (-2ab)] = Cdegrees
+                            a = distance between previous-current
+                            b = distance between current-next
+                            c = distance between previous-next
+                        */
+                        var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
+                        //var b = distanceBetweenTwoPoints(currentPoint[0], currentPoint[1], nextPoint[0], nextPoint[1]);
+                        //var c = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], nextPoint[0], nextPoint[1]);
+                        //var angleOfChange = Math.acos(((c * c - a * a - b * b) / (-2 * a * b)));
+                        if (Math.ceil(a) > 2) {
+                            console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}\nMath.ceil(a): ${Math.ceil(a)}`);
+                        }
+                        //if (Math.ceil(a) == (this.yRange[1] - this.yRange[0]) / this.params.scaleFactor) {
+                        if (Math.ceil(a) >= Math.ceil(minmaxY.max - minmaxY.min)) {
+                            //console.log(b);
+                            //console.log((this.yRange[1] - this.yRange[0]) / this.params.scaleFactor);
+                            //console.log(angleOfChange);
+                            //console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}\nMath.ceil(a): ${Math.ceil(a)}`);
+                            this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                        } else {
+                            this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                        }
+
+                    }
+                    /*
+                                        if (h != 0) {
+                                            var distanceBetweenCurrentPointAndNextPoint = Math.sqrt(Math.pow((points[h - 1][0] - points[h][0]), 2) + Math.pow((points[h - 1][1] - points[h][1]), 2));
+                                            console.log(distanceBetweenCurrentPointAndNextPoint);
+                                            if (distanceBetweenCurrentPointAndNextPoint > 10) {
+                                                //Then we can say that it is fairly enough a large jump from points, too large to be a function
+                                                this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                                            } else {
+                                                //Draw point normally
+                                                this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                                            }
+                                        }*/
+                    else {
+                        //draw line normally
+                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                    }
                 }
                 this.ctx.stroke();
                 this.ctx.setLineDash([]);
@@ -851,6 +951,7 @@ class Graph {
                     throw new Error("Either you did not provide your theta bounds or you forgot to make it an array");
                 }
                 var cartesianPoints = [];
+                var cartesianPointsAllYValues = [];
                 var thetaIterations = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / extraArgs.thetaInterval;
                 if (thetaIterations > 50000) {
                     var newInterval = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / 50000;
@@ -867,13 +968,35 @@ class Graph {
                         var y = r * Math.sin(theta);
                         //Add [x, y] to array
                         cartesianPoints.push([x, y]);
+                        cartesianPointsAllYValues.push(y);
                     }
                 }
+
+                var minmaxY = getMinMax(cartesianPointsAllYValues);
                 this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
                 this.ctx.strokeStyle = extraArgs.color;
                 this.ctx.beginPath();
-                for (var point of cartesianPoints) {
-                    this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                for (var h = 0; h < cartesianPoints.length; h++) {
+                    var point = cartesianPoints[h];
+                    //console.log(point);
+                    if (h != 0) {
+                        //If not first point, look behind one point to calculate the distance and see if it is close enough to the height to be seen as an awkward jump in the graph, if so, it must be an asymptote, remove it
+                        var previousPoint = cartesianPoints[h - 1];
+                        var currentPoint = cartesianPoints[h];
+                        //a = distance between previous-current
+                        var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
+                        //Difference between minimum and maximum values
+                        console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}`);
+                        if (Math.ceil(a) == (this.yRange[1] - this.yRange[0]) / this.params.scaleFactor) {
+                            this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                        } else {
+                            this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                        }
+
+                    } else {
+                        //draw line normally
+                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                    }
                 }
                 this.ctx.stroke();
                 this.ctx.setLineDash([]);
@@ -887,8 +1010,44 @@ class Graph {
         //Scale canvas by 10 times
 
         //this.ctx.scale(2, 2);
+        this.ctx.save();
+        return undefined;
+
         //this.canvasElement.width = this.params.width * 2;
         //this.canvasElement.height = this.params.height * 2;
+
+        /*
+        var oldWidth = this.canvasElement.width;
+        var oldHeight = this.canvasElement.height;
+        //If 20% of size isn't enough room for 10px, add 10px instead, else add 20%
+        this.canvasElement.style.width = (0.4 * oldWidth > 10) ? (1.4 * oldWidth) + "px" : (oldWidth + 10) + "px";
+        this.canvasElement.style.height = (0.4 * oldHeight > 10) ? (1.4 * oldHeight) + "px" : (oldHeight + 10) + "px";
+        var widthRatio = oldWidth / this.canvasElement.style.width.replace("px", "");
+        console.log(widthRatio)
+        var heightRatio = oldHeight / this.canvasElement.style.height.replace("px", "");
+        this.ctx.scale(widthRatio, heightRatio);
+        //this.ctx.restore();
+        var oldCanvasDataURL = this.canvasElement.toDataURL();
+
+        var oldWidth = this.canvasElement.width;
+        var oldHeight = this.canvasElement.height;
+        //If 20% of size isn't enough room for 10px, add 10px instead, else add 20%
+        var newWidth = (0.4 * oldWidth > 10) ? (1.4 * oldWidth) : (oldWidth + 10);
+        var newHeight = (0.4 * oldHeight > 10) ? (1.4 * oldHeight) : (oldHeight + 10);
+        var oldCanvasImageData = this.ctx.getImageData(oldWidth - newWidth, oldHeight - newHeight, newWidth, newHeight);
+        var newCanvas = document.createElement("canvas");
+        newCanvas.width = newWidth;
+        newCanvas.height = newHeight;
+        var oldCanvasID = this.canvasElement.id;
+        newCanvas.getContext("2d").putImageData(oldCanvasImageData, 0, 0);
+        this.canvasElement.parentElement.appendChild(newCanvas);
+        var img = new Image;
+        img.onload = () => {
+            newCanvas.getContext("2d").drawImage(img, 0, 0);
+            this.canvasElement.parentElement.appendChild(newCanvas);
+        }
+        img.src = oldCanvasDataURL;*/
+
     }
 }
 /* Extra Programmer Tools */
