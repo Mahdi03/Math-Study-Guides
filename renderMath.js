@@ -464,7 +464,7 @@ class CircuitDiagram {
         this.initialY = 0;
         this.currentX = 0;
         this.currentY = 0;
-        this.d = 0;
+        this.direction = 0;
         this.dx = 0;
         this.dy = 0;
     }
@@ -484,7 +484,7 @@ class CircuitDiagram {
 
         this.currentX = a;
         this.currentY = b;
-        this.d = 0;
+        this.direction = 0;
         this.dx = 1;
         this.dy = 0;
         this.initialX = this.currentX;
@@ -589,16 +589,16 @@ class CircuitDiagram {
 
         }*/
     turnRight() {
-        this.d++;
-        this.dx = Math.round(Math.cos(Math.PI / 2 * this.d));
-        this.dy = Math.round(Math.sin(Math.PI / 2 * this.d));
+        this.direction++;
+        this.dx = Math.round(Math.cos(Math.PI / 2 * this.direction));
+        this.dy = Math.round(Math.sin(Math.PI / 2 * this.direction));
 
         return this;
     }
     turnLeft() {
-        this.d--;
-        this.dx = Math.round(Math.cos(Math.PI / 2 * this.d));
-        this.dy = Math.round(Math.sin(Math.PI / 2 * this.d));
+        this.direction--;
+        this.dx = Math.round(Math.cos(Math.PI / 2 * this.direction));
+        this.dy = Math.round(Math.sin(Math.PI / 2 * this.direction));
 
         return this;
     }
@@ -746,10 +746,154 @@ function drawAnElectricalCircuit() {
     }
 }
 */
+class Graph {
+    constructor(canvasElement, xRange, yRange, params = {
+        width: 0,
+        height: 0,
+        /*Zoom/visibility*/
+        scaleFactor: 40,
+        interval: 0.1,
+        //Add support for axis labels and chart labels later
+        /*X-Axis*/
+        xAxisTitle: "",
+        showXAxisTitle: false,
+        xAxisLabelInterval: 0,
+        /*Y-Axis*/
+        yAxisTitle: "",
+        showYAxisTitle: false,
+        yAxisLabelInterval: 0
+    }) {
 
+        if (!Array.isArray(xRange) || !Array.isArray(yRange)) {
+            throw new Error("Your x and y ranges are not in the form of arrays, use [x1, x2], [y1, y2] for your graph");
+        }
+
+        this.xRange = xRange;
+        this.yRange = yRange;
+        this.params = params;
+
+        //Override canvas width and height values with correct range values for later scaling
+        this.params.width = this.xRange[1] - this.xRange[0];
+        this.params.height = this.yRange[1] - this.yRange[0];
+
+        this.canvasElement = canvasElement;
+        this.ctx = this.canvasElement.getContext("2d");
+        var iterationsPerGraph = (this.xRange[1] - this.xRange[0]) / this.params.scaleFactor / this.params.interval;
+        if (iterationsPerGraph > 500000) {
+            var newInterval = (this.xRange[1] - this.xRange[0]) / this.params.scaleFactor / 500000;
+            console.warn("Your combination of xRange, scaleFactor, and interval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your xRange, increase the scaleFactor, or increase the interval.");
+            this.params.interval = newInterval;
+        }
+        //console.log(iterationsPerGraph);
+        this.prepareCanvas();
+        this.drawAxis();
+    }
+    prepareCanvas(dimensions = [this.params.width, this.params.height]) {
+        this.canvasElement.width = dimensions[0];
+        this.canvasElement.height = dimensions[1];
+        /*
+        https://stackoverflow.com/questions/42844470/how-to-rotate-and-mirror-canvas-element
+        setTransform(xScale, ySkew, xSkew, yScale, originX, originY)
+        */
+        //this.ctx.scale(2, 2);
+        this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0], dimensions[1] + this.yRange[0]);
+    }
+    drawAxis() {
+        this.ctx.moveTo(0, 0);
+        //this.ctx.arc(0, 0, 5, 0, Math.PI * 2, false);
+        //this.ctx.stroke();
+        //this.ctx.strokeRect(0, 0, 100, 100);
+        //Draw x-axis
+        drawArrow(this.ctx, 0, 0, this.params.width + this.xRange[0], 0);
+        drawArrow(this.ctx, 0, 0, this.xRange[0], 0);
+        //Draw y-axis
+        drawArrow(this.ctx, 0, 0, 0, this.params.height + this.yRange[0]); //Works
+        drawArrow(this.ctx, 0, 0, 0, this.yRange[0]);
+
+    }
+    addEquation(equationFunction, extraArgs = { color: "black", lineDash: [], type: "cartesian", cartesianInterval: 0.001, thetaBounds: [], thetaInterval: 0 }) {
+        if (Array.isArray(equationFunction)) {
+            for (var equation of equationFunction) {
+                this.addEquation(equation, extraArgs);
+            }
+        } else if (typeof equationFunction !== "function") {
+            throw new Error("The equationFunction is not in the correct format, make sure you put parenthesis around your ES6 inline function\nEx: ((x) => { return Math.sin(x); })");
+        } else {
+            if (extraArgs.type !== "cartesian" && extraArgs.type !== "polar") {
+                extraArgs.type = "cartesian";
+            }
+            if (extraArgs.type == "cartesian") {
+                var points = [];
+                for (var x = this.xRange[0] / this.params.scaleFactor; x <= this.xRange[1] / this.params.scaleFactor; x += this.params.interval) {
+                    var y = equationFunction(x);
+                    if (isNaN(y) || !isFinite(y)) {
+                        //Skip
+                    } else {
+                        //Add [x, y] to array
+                        points.push([x, y]);
+                    }
+                }
+                //console.log(`equationFunction: ${equationFunction}\npoints: ${points}`);
+                //console.log(`points.length: ${points.length}`);
+                this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
+                this.ctx.strokeStyle = extraArgs.color;
+                this.ctx.beginPath();
+                for (var point of points) {
+                    this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                }
+                this.ctx.stroke();
+                this.ctx.setLineDash([]);
+                this.ctx.strokeStyle = "black";
+            } else if (extraArgs.type == "polar") {
+                //Convert from polar to rectangular OR gather all polar points into rectangular format
+                //(r, @) --> (x, y))? ==== (x=rcos(@), y=rsin(@))
+                if (!Array.isArray(extraArgs.thetaBounds)) {
+                    throw new Error("Either you did not provide your theta bounds or you forgot to make it an array");
+                }
+                var cartesianPoints = [];
+                var thetaIterations = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / extraArgs.thetaInterval;
+                if (thetaIterations > 50000) {
+                    var newInterval = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / 50000;
+                    console.warn("Your combination of thetaBounds and thetaInterval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your difference between thetaBounds, or increase the thetaInterval. Remember that for most cases your thetaBounds don't need to be more than 2pi far apart.");
+                    extraArgs.thetaInterval = newInterval;
+                }
+                //console.log("Theta iterations: " + String());
+                for (var theta = extraArgs.thetaBounds[0]; theta <= extraArgs.thetaBounds[1]; theta += extraArgs.thetaInterval) {
+                    var r = equationFunction(theta);
+                    if (isNaN(r) || !isFinite(r)) {
+                        //Skip
+                    } else {
+                        var x = r * Math.cos(theta);
+                        var y = r * Math.sin(theta);
+                        //Add [x, y] to array
+                        cartesianPoints.push([x, y]);
+                    }
+                }
+                this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
+                this.ctx.strokeStyle = extraArgs.color;
+                this.ctx.beginPath();
+                for (var point of cartesianPoints) {
+                    this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                }
+                this.ctx.stroke();
+                this.ctx.setLineDash([]);
+                this.ctx.strokeStyle = "black";
+            }
+        }
+        return this; //return this class so that equations can be chained, removes the requirement of the "with" statement
+    }
+    finalizeGraph() {
+        //Add padding in canvas to all 4 sides of the graph, maybe 5px on all 4 sides by increasing the width
+        //Scale canvas by 10 times
+
+        //this.ctx.scale(2, 2);
+        //this.canvasElement.width = this.params.width * 2;
+        //this.canvasElement.height = this.params.height * 2;
+    }
+}
 /* Extra Programmer Tools */
 
-//For testing purposes to get exact coordinates
+//For testing purposes to get exact coordinates - simply hover over the canvas to find the coordinates of the points where objects need to be drawn
 function addCanvasPosition(canvas) {
     var p = document.createElement("p");
     p.setAttribute("id", "canvasPos");
