@@ -844,10 +844,16 @@ class Graph {
         xAxisTitle: "",
         showXAxisTitle: false,
         xAxisLabelInterval: 0,
+        /*X-Axis tick marks*/
+        showXAxisTickMarks: false,
+        xAxisTickMarksInterval: 0,
         /*Y-Axis*/
         yAxisTitle: "",
         showYAxisTitle: false,
-        yAxisLabelInterval: 0
+        yAxisLabelInterval: 0,
+        /*Y-Axis tick marks*/
+        showYAxisTickMarks: false,
+        yAxisTickMarksInterval: 0
     }) {
 
         if (!Array.isArray(xRange) || !Array.isArray(yRange)) {
@@ -892,7 +898,7 @@ class Graph {
         //this.ctx.arc(0, 0, 5, 0, Math.PI * 2, false);
         //this.ctx.stroke();
         //this.ctx.strokeRect(0, 0, 100, 100);
-        //Draw x-axis
+        //Draw positive x-axis
         if (this.xRange[1] > 10) {
             drawArrow(this.ctx, 0, 0, this.params.width + this.xRange[0] - 2 * this.params.padding, 0);
             if (this.params.showXAxisTitle) {
@@ -900,15 +906,20 @@ class Graph {
                 this.ctx.save();
                 this.ctx.scale(1, -1);
                 var textPixelSize = this.ctx.measureText(this.params.xAxisTitle)
-                this.ctx.fillText(this.params.xAxisTitle, this.xRange[1] - textPixelSize.width / 2, this.params.padding);
+                this.ctx.fillText(this.params.xAxisTitle, this.xRange[1] - textPixelSize.width / 2, this.params.padding / 2);
                 //this.ctx.fillText(this.params.xAxisTitle, this.params.width + this.xRange[0] - textPixelSize.width, textPixelSize.height);
                 this.ctx.restore();
             }
+            if (this.params.showXAxisTickMarks) {
+                //Add tick marks on positive x-axis
+
+            }
         }
+        //Draw negative x-axis
         if (this.xRange[0] < -10) {
             drawArrow(this.ctx, 0, 0, this.xRange[0], 0);
         }
-        //Draw y-axis
+        //Draw positive y-axis
         if (this.yRange[1] > 10) {
             drawArrow(this.ctx, 0, 0, 0, this.params.height + this.yRange[0] - 2 * this.params.padding);
             if (this.params.showYAxisTitle) {
@@ -921,6 +932,7 @@ class Graph {
                 this.ctx.restore();
             }
         }
+        //Draw negative y-axis
         if (this.yRange[0] < -10) {
             drawArrow(this.ctx, 0, 0, 0, this.yRange[0]);
         }
