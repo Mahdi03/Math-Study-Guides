@@ -771,11 +771,13 @@ graph object so that they can be removed if wanted
 
 give each equation its own properties but keep the graph scale the same
 
-maybe animate the drawing of equations?
+maybe animate the drawing of equations? {animate: true, animationSpeed: 10}
 
 allow graph to be dragged around at one possible point?
 
-
+draw 3-D graphs using MS excel pitch and yaw calculations
+*/
+/*
 Examples of usage:
 <canvas id="graphCanvas"></canvas>
 <script>
@@ -831,7 +833,46 @@ graph.addEquation(parametricEquation, {
 graph.finalizeGraph(); //Although this function does nothing now, more functionality has yet to be added
 </script>
 */
+
+/**
+ * This class is used to graph equations onto a JS canvas
+ * 
+ */
 class Graph {
+    /**
+     * This class is used to graph equations onto a JS canvas
+     * @class
+     * @param {HTMLCanvasElement} canvasElement
+     * This should just be a document.querySelector("#myCanvas")
+     * @param {Array} xRange
+     * An array of two values (in pixels) denoting the domain on which to draw
+     * @param {Array} yRange
+     * An array of two values (in pixels) denoting the range on which to draw
+     * @param {Object} [params]
+     * An object for extra parameters, not necessarily required but highly
+     * recommended since default values are wonky
+     *      @param {Number} [params.padding=10]
+     *      A number (in pixels) denoting how much extra padding to be added to
+     *      the canvas
+     *      @param {Number} [params.width=0]
+     *      This number will be overridden no matter what, don't bother
+     *      @param {Number} [params.height=0]
+     *      This number will be overridden no matter what, don't bother
+     *      @param {Number} [scaleFactor=40]
+     *      This the is zoom of the graph, the number is also in pixels and
+     *      is multiplied with all the values to fit onto the canvas on a
+     *      visible size, play around with it in conjunction with the interval
+     *      @param {Number} [interval=0.1]
+     *      This is the interval at which dots will be connected on the x-axis.
+     *      Too small of an interval will cause the canvas to malfunction since
+     *      there will be too many points, it would also slow down the browser. Too
+     *      large of an interval will not result in a correct shape of the graph,
+     *      play around with this in conjunction with the scaleFactor
+     *      @param {String} [xAxisTitle=""]
+     *      Title to put on the x-axis...keep it short
+     *      @param {Boolean} [showXAxisTitle=false]
+     *      Set this to true if you want to include an x-axis interval
+     */
     constructor(canvasElement, xRange, yRange, params = {
         padding: 10,
         width: 0,
@@ -886,6 +927,8 @@ class Graph {
         if (this.params.drawAxis) {
             this.drawAxis();
         }
+
+        this.equations = {};
     }
     prepareCanvas(dimensions = [this.params.width, this.params.height]) {
         this.canvasElement.width = dimensions[0];
@@ -898,6 +941,7 @@ class Graph {
         this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0] + this.params.padding, dimensions[1] + this.yRange[0] - this.params.padding);
 
     }
+
     drawAxis() {
         this.ctx.moveTo(0, 0);
         //this.ctx.arc(0, 0, 5, 0, Math.PI * 2, false);
@@ -943,7 +987,19 @@ class Graph {
         }
 
     }
-    addEquation(equationFunction, extraArgs = { color: "black", lineDash: [], type: "cartesian", cartesianInterval: 0.001, thetaBounds: [], thetaInterval: 0, tBounds: [], tInterval: 0 }) {
+
+    /**
+     * This function adds an equation to the graph
+     * @param {function} equationFunction Function in the form of ES6 syntax taking in one parameter and returning another
+     * @param {object} extraArgs Check the specification on what properties are available for modifying
+     * @returns {Graph} Returns the Graph class to allow chaining of equation adds
+     */
+    addEquation(equationFunction, extraArgs = { id: "", color: "black", lineDash: [], type: "cartesian", cartesianInterval: 0.001, thetaBounds: [], thetaInterval: 0, tBounds: [], tInterval: 0 }) {
+        /*
+        - Refactor the process of graphing cartesian points since that exists in all three of these
+        - Add options for 
+        */
+        //console.log((equationFunction).toString());
         if (Array.isArray(equationFunction)) {
             for (var equation of equationFunction) {
                 this.addEquation(equation, extraArgs);
@@ -951,204 +1007,155 @@ class Graph {
         } else if (typeof equationFunction !== "function") {
             throw new Error("The equationFunction is not in the correct format, make sure you put parenthesis around your ES6 inline function\nEx: ((x) => { return Math.sin(x); })");
         } else {
-            if (extraArgs.type !== "cartesian" && extraArgs.type !== "polar" && extraArgs.type !== "parametric") {
-                extraArgs.type = "cartesian";
+            //Add equation to list of equations in this graph
+            if (extraArgs.id == undefined || extraArgs.id == "") {
+                extraArgs.id = Object.keys(this.equations).length;
             }
-            if (extraArgs.type == "cartesian") {
-                var points = [];
-                var pointsAllYValues = [];
-                for (var x = this.xRange[0] / this.params.scaleFactor; x <= this.xRange[1] / this.params.scaleFactor; x += this.params.interval) {
-                    var y = equationFunction(x);
-                    if (isNaN(y) || !isFinite(y)) {
-                        //Skip
-                    } else {
-                        //Add [x, y] to array only if the y value also falls in the interval of the axes shown
-                        if (y * this.params.scaleFactor > this.yRange[0] && y * this.params.scaleFactor < this.yRange[1]) {
-                            points.push([x, y]);
-                            pointsAllYValues.push(y);
-                        }
-                    }
+            this.equations[extraArgs.id] = { equationFunction: equationFunction, extraArgs: extraArgs };
 
-                }
-                var minmaxY = getMinMax(pointsAllYValues);
-                //console.log(`equationFunction: ${equationFunction}\npoints: ${points}`);
-                //console.log(`points.length: ${points.length}`);
-                this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
-                this.ctx.strokeStyle = extraArgs.color;
-                this.ctx.beginPath();
-                for (var h = 0; h < points.length; h++) {
-                    var point = points[h];
-                    //console.log(point);
-                    if (h != 0 && h != points.length - 1) {
-                        //If not first or last point, look ahead one point and look behind one point to calculate the angle (degree) of change
-                        var previousPoint = points[h - 1];
-                        var currentPoint = points[h];
-                        //var nextPoint = points[h + 1];
-                        /*
-                            Law of cosines: a^2 + b^2 - 2abcos(Cdegrees) = c^2
-                            Cdegrees=???
-                            arccos[(c^2 - a^2 - b^2) / (-2ab)] = Cdegrees
-                            a = distance between previous-current
-                            b = distance between current-next
-                            c = distance between previous-next
-                        */
-                        var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
-                        //var b = distanceBetweenTwoPoints(currentPoint[0], currentPoint[1], nextPoint[0], nextPoint[1]);
-                        //var c = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], nextPoint[0], nextPoint[1]);
-                        //var angleOfChange = Math.acos(((c * c - a * a - b * b) / (-2 * a * b)));
-                        /*
-                        if (Math.ceil(a) > 2) {
-                            console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}\nMath.ceil(a): ${Math.ceil(a)}`);
-                        }
-                        */
-                        //if (Math.ceil(a) == (this.yRange[1] - this.yRange[0]) / this.params.scaleFactor) {
-                        if (Math.ceil(a) >= Math.ceil(minmaxY.max - minmaxY.min)) {
-                            //console.log(b);
-                            //console.log((this.yRange[1] - this.yRange[0]) / this.params.scaleFactor);
-                            //console.log(angleOfChange);
-                            //console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}\nMath.ceil(a): ${Math.ceil(a)}`);
-                            this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        } else {
-                            this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        }
-
-                    }
-                    /*
-                                        if (h != 0) {
-                                            var distanceBetweenCurrentPointAndNextPoint = Math.sqrt(Math.pow((points[h - 1][0] - points[h][0]), 2) + Math.pow((points[h - 1][1] - points[h][1]), 2));
-                                            console.log(distanceBetweenCurrentPointAndNextPoint);
-                                            if (distanceBetweenCurrentPointAndNextPoint > 10) {
-                                                //Then we can say that it is fairly enough a large jump from points, too large to be a function
-                                                this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                                            } else {
-                                                //Draw point normally
-                                                this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                                            }
-                                        }*/
-                    else {
-                        //draw line normally
-                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                    }
-                }
-                this.ctx.stroke();
-                this.ctx.setLineDash([]);
-                this.ctx.strokeStyle = "black";
-            } else if (extraArgs.type == "polar") {
-                //Convert from polar to rectangular OR gather all polar points into rectangular format
-                //(r, @) --> (x, y))? ==== (x=rcos(@), y=rsin(@))
-                if (!Array.isArray(extraArgs.thetaBounds)) {
-                    throw new Error("Either you did not provide your theta bounds or you forgot to make it an array");
-                }
-                var cartesianPoints = [];
-                var cartesianPointsAllYValues = [];
-                var thetaIterations = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / extraArgs.thetaInterval;
-                if (thetaIterations > 50000) {
-                    var newInterval = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / 50000;
-                    console.warn("Your combination of thetaBounds and thetaInterval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your difference between thetaBounds, or increase the thetaInterval. Remember that for most cases your thetaBounds don't need to be more than 2pi far apart.");
-                    extraArgs.thetaInterval = newInterval;
-                }
-                //console.log("Theta iterations: " + String());
-                for (var theta = extraArgs.thetaBounds[0]; theta <= extraArgs.thetaBounds[1]; theta += extraArgs.thetaInterval) {
-                    var r = equationFunction(theta);
-                    if (isNaN(r) || !isFinite(r)) {
-                        //Skip
-                    } else {
-                        var x = r * Math.cos(theta);
-                        var y = r * Math.sin(theta);
-                        //Add [x, y] to array
-                        cartesianPoints.push([x, y]);
-                        cartesianPointsAllYValues.push(y);
-                    }
-                }
-
-                var minmaxY = getMinMax(cartesianPointsAllYValues);
-                this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
-                this.ctx.strokeStyle = extraArgs.color;
-                this.ctx.beginPath();
-                for (var h = 0; h < cartesianPoints.length; h++) {
-                    var point = cartesianPoints[h];
-                    //console.log(point);
-                    if (h != 0) {
-                        //If not first point, look behind one point to calculate the distance and see if it is close enough to the height to be seen as an awkward jump in the graph, if so, it must be an asymptote, remove it
-                        var previousPoint = cartesianPoints[h - 1];
-                        var currentPoint = cartesianPoints[h];
-                        //a = distance between previous-current
-                        var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
-                        //Difference between minimum and maximum values
-                        //console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}`);
-                        if (Math.ceil(a) == (this.yRange[1] - this.yRange[0]) / this.params.scaleFactor) {
-                            this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        } else {
-                            this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        }
-
-                    } else {
-                        //draw line normally
-                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                    }
-                }
-                this.ctx.stroke();
-                this.ctx.setLineDash([]);
-                this.ctx.strokeStyle = "black";
-            } else if (extraArgs.type == "parametric") {
-                if (!Array.isArray(extraArgs.tBounds)) {
-                    throw new Error("Either you did not provide your t bounds or you forgot to make it an array");
-                }
-                var cartesianPoints = [];
-                //var cartesianPointsAllXValues = [];
-                var cartesianPointsAllYValues = [];
-                var tIterations = (extraArgs.tBounds[1] - extraArgs.tBounds[0]) / extraArgs.tInterval;
-                if (tIterations > 500000) {
-                    var newInterval = (extraArgs.tBounds[1] - extraArgs.tBounds[0]) / 500000;
-                    console.warn("Your combination of tBounds and tInterval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your difference between tBounds, or increase the t.");
-                    extraArgs.tInterval = newInterval;
-                }
-                //console.log("Theta iterations: " + String());
-                for (var t = extraArgs.tBounds[0]; t <= extraArgs.tBounds[1]; t += extraArgs.tInterval) {
-                    var xyPoint = equationFunction(t);
-                    if (isNaN(xyPoint[0]) || isNaN(xyPoint[1]) || !isFinite(xyPoint[0]) || !isFinite(xyPoint[1])) {
-                        //Skip
-                    } else {
-                        //Add [x, y] to array
-                        cartesianPoints.push(xyPoint);
-                        cartesianPointsAllYValues.push(xyPoint[1]);
-                    }
-                }
-
-                var minmaxY = getMinMax(cartesianPointsAllYValues);
-                this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
-                this.ctx.strokeStyle = extraArgs.color;
-                this.ctx.beginPath();
-                for (var h = 0; h < cartesianPoints.length; h++) {
-                    var point = cartesianPoints[h];
-                    //console.log(point);
-                    if (h != 0) {
-                        //If not first point, look behind one point to calculate the distance and see if it is close enough to the height to be seen as an awkward jump in the graph, if so, it must be an asymptote, remove it
-                        var previousPoint = cartesianPoints[h - 1];
-                        var currentPoint = cartesianPoints[h];
-                        //a = distance between previous-current
-                        var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
-                        //Difference between minimum and maximum values
-                        //console.log(`max: ${minmaxY.max}\nmin: ${minmaxY.min}\n difference: ${minmaxY.max - minmaxY.min}`);
-                        if (Math.ceil(a) == (this.yRange[1] - this.yRange[0]) / this.params.scaleFactor) {
-                            this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        } else {
-                            this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                        }
-
-                    } else {
-                        //draw line normally
-                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
-                    }
-                }
-                this.ctx.stroke();
-                this.ctx.setLineDash([]);
-                this.ctx.strokeStyle = "black";
-
-            }
+            //Now that the equation has been added to the Graph() object, draw it!
+            this.drawEquation(equationFunction, extraArgs);
+            return this; //return this class so that equations can be chained, removes the requirement of the "with" statement
         }
-        return this; //return this class so that equations can be chained, removes the requirement of the "with" statement
+
     }
+
+    /**
+     * Delete the equation from the graph given an index, either use numbers or strings
+     * @param {number || string} index The index of the equation to be deleted from the Graph class
+     * @returns {object} Returns  the equation object that was deleted in case you want to reuse it later
+     */
+    deleteEquation(index) {
+        var returnValue = this.equations[index];
+        delete this.equations[index];
+        //clean canvas and redraw all equations
+        this.prepareCanvas();
+        if (this.params.drawAxis) {
+            this.drawAxis();
+        }
+        console.log(this.equations);
+        for (var key of Object.keys(this.equations)) {
+            console.log(key);
+            //Change this one to DRAW equation since the equations already exist
+            this.drawEquation(this.equations[key].equationFunction, this.equations[key].extraArgs);
+        }
+        return returnValue;
+    }
+
+    /**
+     * This function actually draws the equation onto the graph - Should not be publicly accessible
+     * @param {function} equationFunction Function in the form of ES6 syntax taking in one parameter and returning another
+     * @param {object} extraArgs Check the specification on what properties are available for modifying
+     */
+    drawEquation(equationFunction, extraArgs) {
+        //Define function in arrow syntax to keep the same `this` value (the Graph class)
+        var drawAllCartesianPoints = (points) => {
+            //All y-values: points.map((point) => point[1])
+            var minmaxY = getMinMax(points.map((point) => point[1]));
+            var minmaxY = getMinMax(points.map((point) => point[1])); //Gets the minimum and maximum y-values
+            //console.log(`Equation:\nMinimum-Y: ${minmaxY.min}\nMaximum-Y: ${minmaxY.max}`);
+            this.ctx.setLineDash((extraArgs.lineDash != undefined) ? extraArgs.lineDash : []);
+            this.ctx.strokeStyle = extraArgs.color;
+            this.ctx.beginPath();
+            for (var h = 0; h < points.length; h++) {
+                var point = points[h];
+                if (h != 0) {
+                    //If not first point, look behind one point to calculate change in distance
+                    var previousPoint = points[h - 1];
+                    var currentPoint = points[h];
+                    /*
+                        a = distance between previous-current
+                    */
+                    var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
+                    //If the distance between just two points is close to the difference in min/max of the function, then it must be a vertical asymptote
+                    if (Math.ceil(a) >= Math.ceil(minmaxY.max - minmaxY.min)) {
+                        this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                    } else {
+                        //draw line normally
+                        this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                    }
+                } else {
+                    //draw line normally
+                    this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                }
+            }
+            this.ctx.stroke();
+            this.ctx.setLineDash([]);
+            this.ctx.strokeStyle = "black";
+        };
+
+        if (extraArgs.type !== "cartesian" && extraArgs.type !== "polar" && extraArgs.type !== "parametric") {
+            extraArgs.type = "cartesian";
+        }
+        if (extraArgs.type == "cartesian") {
+            var points = [];
+            for (var x = this.xRange[0] / this.params.scaleFactor; x <= this.xRange[1] / this.params.scaleFactor; x += this.params.interval) {
+                var y = equationFunction(x);
+                if (isNaN(y) || !isFinite(y)) {
+                    //Skip
+                } else {
+                    //Add [x, y] to array only if the y value also falls in the interval of the axes shown
+                    if (y * this.params.scaleFactor > this.yRange[0] && y * this.params.scaleFactor < this.yRange[1]) {
+                        points.push([x, y]);
+                    }
+                }
+            }
+            drawAllCartesianPoints(points);
+        } else if (extraArgs.type == "polar") {
+            //Convert from polar to rectangular OR gather all polar points into rectangular format
+            //(r, @) --> (x, y))? ==== (x=rcos(@), y=rsin(@))
+            if (!Array.isArray(extraArgs.thetaBounds)) {
+                throw new Error("Either you did not provide your theta bounds or you forgot to make it an array");
+            }
+            var cartesianPoints = [];
+            var thetaIterations = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / extraArgs.thetaInterval;
+            if (thetaIterations > 50000) {
+                var newInterval = (extraArgs.thetaBounds[1] - extraArgs.thetaBounds[0]) / 50000;
+                console.warn("Your combination of thetaBounds and thetaInterval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your difference between thetaBounds, or increase the thetaInterval. Remember that for most cases your thetaBounds don't need to be more than 2pi far apart.");
+                extraArgs.thetaInterval = newInterval;
+            }
+            //console.log("Theta iterations: " + String());
+            for (var theta = extraArgs.thetaBounds[0]; theta <= extraArgs.thetaBounds[1]; theta += extraArgs.thetaInterval) {
+                var r = equationFunction(theta);
+                if (isNaN(r) || !isFinite(r)) {
+                    //Skip
+                } else {
+                    var x = r * Math.cos(theta);
+                    var y = r * Math.sin(theta);
+                    //Add [x, y] to array
+                    cartesianPoints.push([x, y]);
+                }
+            }
+            drawAllCartesianPoints(cartesianPoints);
+        } else if (extraArgs.type == "parametric") {
+            if (!Array.isArray(extraArgs.tBounds)) {
+                throw new Error("Either you did not provide your t bounds or you forgot to make it an array");
+            }
+            var cartesianPoints = [];
+            var tIterations = (extraArgs.tBounds[1] - extraArgs.tBounds[0]) / extraArgs.tInterval;
+            if (tIterations > 500000) {
+                var newInterval = (extraArgs.tBounds[1] - extraArgs.tBounds[0]) / 500000;
+                console.warn("Your combination of tBounds and tInterval needs to be modified, with the current settings there will be too many iterations and it will slow down the browser. The iteration has already been set to " + String(newInterval) + ". Next time, decrease your difference between tBounds, or increase the t.");
+                extraArgs.tInterval = newInterval;
+            }
+            //console.log("Theta iterations: " + String());
+            for (var t = extraArgs.tBounds[0]; t <= extraArgs.tBounds[1]; t += extraArgs.tInterval) {
+                var xyPoint = equationFunction(t);
+                if (isNaN(xyPoint[0]) || isNaN(xyPoint[1]) || !isFinite(xyPoint[0]) || !isFinite(xyPoint[1])) {
+                    //Skip
+                } else {
+                    //Add [x, y] to array
+                    cartesianPoints.push(xyPoint);
+                }
+            }
+            drawAllCartesianPoints(cartesianPoints);
+        }
+    }
+
+    /**
+     * This function closes the graph for further modification
+     * @returns {undefined} Should not return anything
+     */
     finalizeGraph() {
         //Add padding in canvas to all 4 sides of the graph, maybe 5px on all 4 sides by increasing the width
         //Scale canvas by 10 times
