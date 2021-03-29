@@ -880,7 +880,12 @@ class Graph {
         }
         //console.log(iterationsPerGraph);
         this.prepareCanvas();
-        this.drawAxis();
+        if (this.params.drawAxis == undefined) {
+            this.params.drawAxis = true;
+        }
+        if (this.params.drawAxis) {
+            this.drawAxis();
+        }
     }
     prepareCanvas(dimensions = [this.params.width, this.params.height]) {
         this.canvasElement.width = dimensions[0];

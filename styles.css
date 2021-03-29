@@ -382,3 +382,8 @@
             background-color: white;
             margin: 0 auto;
         }
+        
+        .grayedOut,
+        .greyedOut {
+            background: repeating-linear-gradient( 45deg, darkgray, darkgray 2px, white 2px, white 4px);
+        }

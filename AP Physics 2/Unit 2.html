@@ -8,6 +8,11 @@
         enable_page_level_ads: true
     });
 </script>
+<style>
+    .gasLaw {
+        margin: 0 auto;
+    }
+</style>
 <div class="indent">
     <ul>
         <h3>Thermodynamics:</h3>
@@ -16,6 +21,7 @@
         <li>In ideal gasses, these particle collisions are held to be elastic, meaning that no energy is lost within the collisions</li>
         <h5>Maxwell-Boltzmann Distribution:</h5>
         <!--Insert image of graph-->
+        <img src="maxwell-boltzmannDistribution.png" alt="Image of Maxwell-Boltzmann Distribution graph" />
         <li>This is a graph that gives the # of particles each with a certain amount of kinetic energy</li>
         <li>Remember that the Average Kinetic Energy of the particles is directly related to the temperature</li>
         <li>If you know the mass of the particles, you can find the velocity distribution of the same particles from this Kinetic Energy distribution</li>
@@ -31,14 +37,15 @@
             </tr>
         </table>
         <li>Whenever there is an energy difference, heat will transfer from the hotter areas to the colder areas, this is given by the 2nd Law of Thermodynamics</li>
-        <li>This heat transfer occurs until the two items or mediums have reached a thermal equilibrium, remember that in thermal equilibrium there is the most randomness in the assortment of particles, this is also known as ____________</li>
+        <li>This heat transfer occurs until the two items or mediums have reached a thermal equilibrium, remember that in thermal equilibrium there is the most randomness in the assortment of particles, this is also known as <u>entropy</u>.</li>
         <li>There are three types of heat transfer:</li>
         <ol>
             <!--Insert image of all three types of heat transfer-->
+            <img src="3typesOfHeatTransfer.png" alt="Image of three types of heat transfer" />
             <li>
                 <b><u>Conduction</u></b> - heat transfer through physical conduct, this happens when particles of a hotter substance transfer their mechanical energy to particles of a colder substance through collisions where momentum is conserved, and
                 with higher temperatures, an object's particles are moving faster.<br />
-                <!--Insert image of conduction--><br /> The equation for conduction is given by
+                <!--Insert image of conduction--><img src="thermalConductivity.png" alt="Image of thermal conductivity" /><br /> The equation for conduction is given by
                 <table class="rules">
                     <tr>
                         <td><var>
@@ -62,6 +69,463 @@
             <li><b><u>Radiation</u></b> - heat transfer through electromagnetic waves being emitted or absorbed (in fact, everything emits some sort of radiation based on its temperature, and they absorb radiation based on their albedo)</li>
         </ol>
         <h3>Gas Laws:</h3>
+        <li>An ideal gas is an approximation of how a real gas behaves, and all gas molecule collisions are held as elastic.</li>
+        <li>Pressure in general is the combined Force as a result of a collisions from fluid particles, given by the formula:</li>
+        <table class="rules">
+            <tr>
+                <td><var>P</var> =
+                    <div class="fraction">
+                        <div class="top"><var>F</var></div>
+                        <div class="bottom"><var>A</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>There are 4 laws regarding the changes in an ideal gas:</li>
+        <table class="staticTable">
+            <tr>
+                <th>Name of Law:</th>
+                <th>Relationship:</th>
+                <th>Constants</th>
+                <th>Graph:</th>
+            </tr>
+            <tr>
+                <td>Boyle's Law</td>
+                <td><var>PV</var> = some constant
+                    <table class="rules gasLaw">
+                        <tr>
+                            <td><var>P</var><sub>1</sub><var>V</var><sub>1</sub> = <var>P</var><sub>2</sub><var>V</var><sub>2</sub></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>when <var>T</var>, <var>n</var> are constant</td>
+                <td>
+                    <canvas id="boylesLawGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var boylesLawGraphCanvas = document.querySelector("#boylesLawGraphCanvas");
+                        var boylesLawGraph = new Graph(boylesLawGraphCanvas, [0, 100], [0, 100], {
+                            padding: 30,
+                            interval: 0.01,
+                            scaleFactor: 20,
+                            xAxisTitle: "Volume",
+                            showXAxisTitle: true,
+                            yAxisTitle: "Pressure",
+                            showYAxisTitle: true
+                        });
+
+                        boylesLawGraph.addEquation(((x) => {
+                            return 1 / x;
+                        }));
+
+                        boylesLawGraph.finalizeGraph();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>Charles' Law</td>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>P</var></div>
+                        <div class="bottom"><var>T</var></div>
+                    </div> = some constant
+                    <table class="rules gasLaw">
+                        <tr>
+                            <td>
+                                <div class="fraction">
+                                    <div class="top"><var>P</var><sub>1</sub></div>
+                                    <div class="bottom"><var>T</var><sub>1</sub></div>
+                                </div> =
+                                <div class="fraction">
+                                    <div class="top"><var>P</var><sub>2</sub></div>
+                                    <div class="bottom"><var>T</var><sub>2</sub></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>when <var>V</var>, <var>T</var> are constant</td>
+                <td>
+                    <canvas id="charlesLawGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var charlesLawGraphCanvas = document.querySelector("#charlesLawGraphCanvas");
+                        var charlesLawGraph = new Graph(charlesLawGraphCanvas, [0, 100], [0, 100], {
+                            padding: 30,
+                            interval: 0.1,
+                            scaleFactor: 20,
+                            xAxisTitle: "Temperature",
+                            showXAxisTitle: true,
+                            yAxisTitle: "Pressure",
+                            showYAxisTitle: true
+                        });
+                        charlesLawGraph.addEquation(((x) => {
+                            return x;
+                        }));
+                        charlesLawGraph.finalizeGraph();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>Avogadro's Law</td>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>V</var></div>
+                        <div class="bottom"><var>n</var></div>
+                    </div> = some constant
+                    <table class="rules gasLaw">
+                        <tr>
+                            <td>
+                                <div class="fraction">
+                                    <div class="top"><var>V</var><sub>1</sub></div>
+                                    <div class="bottom"><var>n</var><sub>1</sub></div>
+                                </div> =
+                                <div class="fraction">
+                                    <div class="top"><var>V</var><sub>2</sub></div>
+                                    <div class="bottom"><var>n</var><sub>2</sub></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>when <var>P</var>, <var>T</var> are constant</td>
+                <td>
+                    <canvas id="avogadrosLawGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var avogadrosLawGraphCanvas = document.querySelector("#avogadrosLawGraphCanvas");
+                        var avogadrosLawGraph = new Graph(avogadrosLawGraphCanvas, [0, 100], [0, 100], {
+                            padding: 30,
+                            interval: 0.1,
+                            scaleFactor: 20,
+                            xAxisTitle: "moles (n)",
+                            showXAxisTitle: true,
+                            yAxisTitle: "Volume",
+                            showYAxisTitle: true
+                        });
+                        avogadrosLawGraph.addEquation(((x) => {
+                            return x;
+                        }));
+                        avogadrosLawGraph.finalizeGraph();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>Gay-Lussac's Law</td>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>V</var></div>
+                        <div class="bottom"><var>T</var></div>
+                    </div> = some constant
+                    <table class="rules gasLaw">
+                        <tr>
+                            <td>
+                                <div class="fraction">
+                                    <div class="top"><var>V</var><sub>1</sub></div>
+                                    <div class="bottom"><var>T</var><sub>1</sub></div>
+                                </div> =
+                                <div class="fraction">
+                                    <div class="top"><var>V</var><sub>2</sub></div>
+                                    <div class="bottom"><var>T</var><sub>2</sub></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>when <var>P</var>, <var>n</var> are constant</td>
+                <td>
+                    <canvas id="gayLussacsLawGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var gayLussacsLawGraphCanvas = document.querySelector("#gayLussacsLawGraphCanvas");
+                        var gayLussacsLawGraph = new Graph(gayLussacsLawGraphCanvas, [0, 100], [0, 100], {
+                            padding: 30,
+                            interval: 0.1,
+                            scaleFactor: 20,
+                            xAxisTitle: "Temperature",
+                            showXAxisTitle: true,
+                            yAxisTitle: "Volume",
+                            showYAxisTitle: true
+                        });
+                        gayLussacsLawGraph.addEquation(((x) => {
+                            return x;
+                        }));
+                        gayLussacsLawGraph.finalizeGraph();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">When you combine all the above laws (or proportions), you get the combined gas law</td>
+            </tr>
+            <tr>
+                <td>Combined Gas Law</td>
+                <td colspan="2">
+                    <div class="fraction">
+                        <div class="top"><var>P</var><sub>1</sub><var>V</var><sub>1</sub></div>
+                        <div class="bottom"><var>n</var><sub>1</sub><var>T</var><sub>1</sub></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top"><var>P</var><sub>2</sub><var>V</var><sub>2</sub></div>
+                        <div class="bottom"><var>n</var><sub>2</sub><var>T</var><sub>2</sub></div>
+                    </div> = some constant <var>R</var>
+                    <table class="rules gasLaw">
+                        <tr>
+                            <td rowspan="2"><var>PV = nRT</var></td>
+                            <td><var>R</var> = 8.31 J/(mol&sdot;K)</td>
+                        </tr>
+                        <tr>
+                            <td><var>R</var> = 0.08206
+                                <div class="fraction">
+                                    <div class="top">L&sdot;atm</div>
+                                    <div class="bottom">mol&sdot;K</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td colspan="2">Where <var>R</var> is known as the Universal Gas Constant</td>
+            </tr>
+        </table>
+        <h5>The First Law of Thermodynamics:</h5>
+        <li>This law is in a similar essence to that of the conservation of energy:
+            <table class="rules">
+                <tr>
+                    <td><var>&Delta;U = Q  + W</var></td>
+                </tr>
+            </table>where <var>&Delta;U</var> is the total internal energy of the gas which is directly related to the temperature, <var>Q</var> is the heat transferred into the gas (if heat leaves the gas, then <var>Q</var> is negative), and <var>W</var> is
+            work done on the gas. If the gas is compressed, <var>W</var> is positive. But if the gas does work on an environment, <var>W</var> is negative.
+        </li>
+        <li>We can look at Pressure v. Volume graphs (PV-graphs) to see these trends</li>
+        <li>In a PV-graph, the area under the curve(s) is work, which is given by the formula:</li>
+        <table class="rules">
+            <tr>
+                <td><var><var>W</var> = &minus;P&Delta;V</var>
+                </td>
+            </tr>
+        </table>
+        <li>If the overall area under the curve is positive, then the net work done <b><u>BY</u></b> the gas is also positive</li>
+        <li>When change in volume (<var>&Delta;V</var> = 0), work is done on the system, therefore work is negative since the gas is expanding</li>
+        <li>Looking at this diagram:</li>
+        <canvas id="PVgraphExampleCanvas"></canvas>
+        <script class="renderJS">
+            var PVgraphExampleCanvas = document.querySelector("#PVgraphExampleCanvas");
+            var PVgraphExampleGraph = new Graph(PVgraphExampleCanvas, [0, 100], [0, 100], {
+                padding: 30,
+                interval: 0.01,
+                scaleFactor: 20,
+                xAxisTitle: "Volume",
+                showXAxisTitle: true,
+                yAxisTitle: "Pressure",
+                showYAxisTitle: true
+            });
+            //Draw triangle
+            with(PVgraphExampleGraph.ctx) {
+                moveTo(20, 20);
+                lineTo(20, 90);
+                lineTo(90, 90);
+                closePath();
+                stroke();
+                save();
+                scale(1, -1);
+                fillText("A", 18, -12);
+                fillText("B", 19, -92);
+                fillText("C", 90, -92);
+                restore();
+            }
+            drawArrow(PVgraphExampleGraph.ctx, 20, 20, 20, 60);
+            drawArrow(PVgraphExampleGraph.ctx, 20, 90, 60, 90);
+            drawArrow(PVgraphExampleGraph.ctx, 90, 90, 45, 45);
+            addCanvasPosition(PVgraphExampleCanvas);
+            PVgraphExampleGraph.finalizeGraph();
+        </script>
+        <table class="staticTable">
+            <tr>
+                <th>A&rarr;B:</th>
+                <th>B&rarr;C:</th>
+                <th>C&rarr;A:</th>
+            </tr>
+            <tr>
+                <td>
+                    <var>&Delta;V =</var> 0&rarr;<var>W</var> = 0<br /> Since <var>P</var> increases, temperature increases, and so <var>&Delta;U</var> &gt; 0 (direct relation)
+                </td>
+                <td>As volume increases, temperature increases, so <var>&Delta;U</var> &gt; 0</td>
+                <td>Since <var>P</var> and <var>V</var> both decrease, temperature decreases, so <var>&Delta;U</var> &lt; 0</td>
+            </tr>
+        </table>
+        <li>In general, PV graphs come in a couple shapes:</li>
+        <table class="staticTable">
+            <tr>
+                <th>Term:</th>
+                <th>Definition:</th>
+                <th>Graph:</th>
+                <th>Meaning?</th>
+            </tr>
+            <tr>
+                <td>Isobaric</td>
+                <td>constant pressure</td>
+                <td>
+                    <canvas id="isobaricGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var isobaricGraphCanvas = document.querySelector("#isobaricGraphCanvas");
+                        var isobaricGraphGraph = new Graph(isobaricGraphCanvas, [0, 50], [0, 50], {
+                            padding: 15,
+                            interval: 0.1,
+                            scaleFactor: 1,
+                            xAxisTitle: "V",
+                            showXAxisTitle: true,
+                            yAxisTitle: "P",
+                            showYAxisTitle: true
+                        });
+                        with(isobaricGraphGraph.ctx) {
+                            moveTo(10, 40);
+                            lineTo(40, 40);
+                            stroke();
+                        }
+                    </script>
+                </td>
+                <td>
+                    <var>&Delta;U</var> and <var>W</var> have opposite signs<br /> either <var>Q</var> is VERY positive or VERY negative (it has a large magnitude)
+                </td>
+            </tr>
+            <tr>
+                <td>Isochoric</td>
+                <td>constant volume</td>
+                <td>
+                    <canvas id="isochoricGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var isochoricGraphCanvas = document.querySelector("#isochoricGraphCanvas");
+                        var isochoricGraphGraph = new Graph(isochoricGraphCanvas, [0, 50], [0, 50], {
+                            padding: 15,
+                            interval: 0.1,
+                            scaleFactor: 1,
+                            xAxisTitle: "V",
+                            showXAxisTitle: true,
+                            yAxisTitle: "P",
+                            showYAxisTitle: true
+                        });
+                        with(isochoricGraphGraph.ctx) {
+                            moveTo(10, 40);
+                            lineTo(10, 10);
+                            stroke();
+                        }
+                    </script>
+                </td>
+                <td>
+                    <var>W</var> = 0<br /><var>Q = &Delta;U</var>
+                </td>
+            </tr>
+            <tr>
+                <td>Isothermal</td>
+                <td>constant temperature</td>
+                <td>
+                    <canvas id="isothermalGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var isothermalGraphCanvas = document.querySelector("#isothermalGraphCanvas");
+                        var isothermalGraphGraph = new Graph(isothermalGraphCanvas, [0, 50], [0, 50], {
+                            padding: 15,
+                            interval: 0.1,
+                            scaleFactor: 20,
+                            xAxisTitle: "V",
+                            showXAxisTitle: true,
+                            yAxisTitle: "P",
+                            showYAxisTitle: true
+                        });
+                        isothermalGraphGraph.addEquation((x) => {
+                            return 1 / x;
+                        });
+                        isothermalGraphGraph.finalizeGraph();
+                    </script>
+                </td>
+                <td>
+                    <var>&Delta;U</var> = 0<br /><var>Q = &minus;W</var>
+                </td>
+            </tr>
+            <tr>
+                <td>Adiabatic</td>
+                <td>no heat transfer</td>
+                <td>
+                    <canvas id="adiabaticGraphCanvas"></canvas>
+                    <script class="renderJS">
+                        var adiabaticGraphCanvas = document.querySelector("#adiabaticGraphCanvas");
+                        var adiabaticGraphGraph = new Graph(adiabaticGraphCanvas, [0, 50], [0, 50], {
+                            padding: 15,
+                            interval: 0.01,
+                            scaleFactor: 10,
+                            xAxisTitle: "V",
+                            showXAxisTitle: true,
+                            yAxisTitle: "P",
+                            showYAxisTitle: true
+                        });
+                        adiabaticGraphGraph.addEquation(((x) => {
+                            return 1 / x;
+                        }));
+                        adiabaticGraphGraph.finalizeGraph();
+                    </script>
+                </td>
+                <td>
+                    <var>Q</var> = 0<br />
+                    <var>&Delta;U = W</var>
+                </td>
+            </tr>
+        </table>
+        <li>Heat engines are apparatuses that use heat energy to do work. Engines like the combustion engines found in our cars or jet engines follow the otto cycle:</li>
+        <!--Image of otto cycle + image of how cylinder works-->
+        <h5>2nd Law of Thermodynamics:</h5>
+        <li>The overall amount of randomness spread (entropy) increases as time increases. The reason why heat engines aren't 100% effective is because the overall entropy must increase, so a higher heat input results in in a work output of lesser amount.</li>
+        <li>We can say that heat engines do positive work on the environment, and their opposites, refrigerators, do negative work on the environment.</li>
+
+        <!--
         <element name="F" atomicNumber massNumber charge="2&minus;" oxidationNumber="+1" number="2"></element>
+        <canvas id="electricCircuit1" width="250" height="200"></canvas>
+        <script class="renderJS">
+            var electricCircuit1 = document.querySelector("#electricCircuit1");
+            var electricCircuit1Circuit = new CircuitDiagram(electricCircuit1);
+
+            electricCircuit1Circuit.beginCircuit(60, 20); //Initial direction is rightwards, east
+            electricCircuit1Circuit.drawWire(70).drawBattery().drawWire(20)
+                .drawResistor().drawWire(30).turnRight().drawWire(40).drawCapacitor()
+                .drawWire(20).drawResistor().drawWire(15).turnRight().drawWire(20)
+                .drawSwitch().drawWire(20).drawBattery().drawWire(5).drawResistor()
+                .drawWire(15).turnLeft().turnRight().drawWire(2).drawBattery().drawWire(4)
+                .drawSwitch().drawWire(20).drawCapacitor().drawWire(15).turnRight()
+                .drawWire(8).drawBattery().drawWire(20); //drawLight();
+            electricCircuit1Circuit.endCircuit();
+
+            addCanvasPosition(electricCircuit1);
+        </script>
+    -->
+        <!--
+        <canvas id="graphTest"></canvas>
+        <script class="renderJS">
+            var graphTest = document.querySelector("#graphTest");
+            //Define functions to graph
+            var x = (x) => x;
+            var sin = (x) => Math.sin(x);
+            var tan = (x) => Math.tan(x);
+            var arcsin = (x) => Math.asin(x);
+            var sqrt = (x) => Math.sqrt(x);
+            var ln = (x) => Math.log(x);
+            var reciprocalFunction = (x) => {
+                return 1 / x;
+            };
+            var myPolarEquation = (theta) => {
+                //return 5 * Math.cos(4 * theta);
+                //return 8;
+                return Math.sqrt(25 * Math.sin(2 * theta));
+            };
+            //Establish new graph object
+            var firstGraph = new Graph(graphTest, [-200, 200], [-150, 150], {
+                scaleFactor: 30,
+                interval: 0.001,
+                thetaInterval: Math.PI / 24
+            });
+            //Add all the equations
+            firstGraph.addEquation(tan, {
+                color: "red"
+            }).addEquation(myPolarEquation, {
+                type: "polar",
+                thetaBounds: [0, 16 * Math.PI],
+                thetaInterval: Math.PI / 240
+            });
+            //Add finishing touches
+            firstGraph.finalizeGraph();
+        </script>
+        -->
     </ul>
 </div>
