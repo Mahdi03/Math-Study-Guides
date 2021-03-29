@@ -1,0 +1,75 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+        <li>The mirrors we see on a day-to-day basis are flat mirrors that usually show us a virtual and upright "image" of ourselves</li>
+        <li>In both mirrors and lenses, curved in both concave and convex directions, an upright image means that it's a virtual image, and vice versa, an inverted image means it's real</li>
+        <li>Check out these ray diagrams:
+            <!--Show Solutions-->
+        </li>
+        <div id="rayDiagrams"></div>
+        <li>When it comes to calculations with mirrors and lens:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">focal<br />length</div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">object<br />distance</div>
+                    </div> +
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">image<br />distance</div>
+                    </div>
+                </td>
+                <td>M =
+                    <div class="fraction">
+                        <div class="top">image<br />height</div>
+                        <div class="bottom">object<br />height</div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">image<br />distance</div>
+                        <div class="bottom">object<br />distance</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </ul>
+</div>
+<script class="renderJS">
+    class RayDiagram {
+        constructor(canvas, mirrorOrLens, concaveOrConvex, originalPosition) {
+            this.canvas = canvas;
+            this.mirrorOrLens = mirrorOrLens; //"mirror" or "lens"
+            this.concaveOrConvex = concaveOrConvex; //"concave" or "convex"
+            var width = 1000;
+            var height = 300;
+            this.canvas.width = width;
+            this.canvas.height = height;
+            this.ctx = this.canvas.getContext("2d");
+        }
+        drawStage() {
+            this.ctx.moveTo(0, this.canvas.height / 2);
+            this.ctx.lineTo(this.canvas.width, this.canvas.height / 2);
+            //Divide into 6 portions so we can have 2 focus points on each side and then one mirror/lens
+
+        }
+        drawHuman(x, y, scale = 1) {
+            //draw stick figure at x, y with a scale
+        }
+        drawRays(["red", "blue", "purple"]) {
+            //Have three colors ready
+        }
+    }
+</script>
