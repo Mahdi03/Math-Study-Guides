@@ -11,13 +11,12 @@
 <div class="indent">
     <ul>
         <h3>Electric Forces and Fields:</h3>
-        <li>Coulomb's Law gives the force of electric charge between two point charges, but it is up to you to find the direction of the force. Remember that oppostie charges attract and like charges repel.</li>
+        <li>Coulomb's Law gives the force of electric charge between two point charges, in Newtons, from two charges (<var>q</var>) in Coulombs, and the separation between them (<var>r</var>) in meters.</li>
         <table class="rules">
             <tr>
                 <td>
                     |
-                    <vector>F</vector>
-                    <sub>E</sub>| = k
+                    <vector>F</vector><sub>E</sub>| = k
                     <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 0 5 0 5;">
                         <div class="top"><var>q</var><sub>1</sub><var>q</var><sub>2</sub></div>
                         <div class="bottom"><var>r</var><sup>2</sup></div>
@@ -27,10 +26,184 @@
                     <div class="fraction">
                         <div class="top">1</div>
                         <div class="bottom">4&pi;&epsilon;<sub>0</sub></div>
-                    </div> = 9 &times; 10<sup>9</sup>
+                    </div> = 9 &times; 10<sup>9</sup> N&sdot;m<sup>2</sup>/C<sup>2</sup>
                 </td>
             </tr>
         </table>
+        <li>But it is up to you to find the direction of the force. Remember that opposite charges attract and like charges repel. Don't forget that a neutral object and a charged object also attract.</li>
+        <li>An electric field is very similar to an electrostatic force, just that it looks at one charge instead of two. Notice the similarities with the previous equation.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    |
+                    <vector>E</vector><sub>F</sub>| =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">4&pi;&epsilon;<sub>0</sub></div>
+                    </div>
+                    <div class="fraction">
+                        <div class="top">|<var>q</var>|</div>
+                        <div class="bottom"><var>r</var><sup>2</sup></div>
+                    </div> = k
+                    <div class="fraction">
+                        <div class="top">|<var>q</var>|</div>
+                        <div class="bottom"><var>r</var><sup>2</sup></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>F</vector><sub>E</sub></div>
+                        <div class="bottom"><var>q</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>The units for an electric field are Newtons per Coulomb (N/C), meaning how much force would be resultant of a specific amount of charge. Since electric fields are also vectors (or rather vector fields), they have a direction that needs to be accounted
+            for. The direction of an electric field is the same as the direction of the force that a positive charge would feel.</li>
+        <h3>Electrostatic Charge:</h3>
+        <li>Static charge exists in every day aspects of life, when you rub your feet against the carpet and then shock someone, or just simply trying to get out of your car on a hot and dry day. There are three ways to transfer charge:</li>
+        <ol>
+            <li>
+                <h5>Friction:</h5>
+                <ul>
+                    <li>Different objects have different electronegativities, or a want for electrons. When materials are rubbed together, electrons from one object coudl move to the other, charging one object positively in the absence of electrons on the
+                        surface, and charging the other negatively in the excess of electrons on the surface.</li>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="data:image/jpeg;base64,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"
+                                    alt="Image of charge by friction" />
+                            </td>
+                            <td>
+                                <img style="width: 480px; height: 270px; object-fit: none;" src="https://i.ytimg.com/vi/OOWuwEhpSjk/hqdefault.jpg" alt="Another image of charge by friction" />
+                            </td>
+                        </tr>
+                    </table>
+                    <li>The charge transferred between the two objects must be the same due to the Conservation of Charge, so if one object gets &minus;5mC, the other one gains a charge of +5mC.</li>
+                </ul>
+            </li>
+            <li>
+                <h5>Conduction:</h5>
+                <ul>
+                    <li>When charge is built-up, touching the charged object with something of a different charge will cause the charges to transfer and spread evenly, reaching somewhat of an equilibrium of charge. If the object is a conductor, then charge
+                        will spread evenly across the conductor as well.</li>
+                    <li>If an object is an insulator, charge has a hard time getting through, and if the object is a conductor (like metals), charge can easily flow through.</li>
+                    <img src="https://d3jlfsfsyc6yvi.cloudfront.net/image/mw:1024/q:85/https%3A%2F%2Fhaygot.s3.amazonaws.com%3A443%2Fcheatsheet%2F31543_51fdf24d320d46f7b853c002ceacb193.jpg" alt="Image of charging through induction" />
+                </ul>
+            </li>
+            <li>
+                <h5>Induction:</h5>
+                <ul>
+                    <li>This third method only works on conductors as it requires the charge to separate through an object before the object is separated, and with it, the charges.</li>
+                    <li>While this method requires the usage of an already charged object to be held close to the object to-be-charged, there are two ways to do it:</li>
+                    <ol>
+                        <li>The first way involves using a separable conductor and a charged object. You take the charged object a put it close enough to the conductor to polarize the conductor, but not let it touch because touching would transfer the charge
+                            through conduction. Then when the conductor has been polarized, separate that conductor and then take away the initially charged object.</li>
+                        <img src="https://qph.fs.quoracdn.net/main-qimg-f6b9e643285e114622057a137355042c" alt="Image of charging through induction #1" />
+                        <li>The second method is to again take a conductor and polarize it with a charged object, but this time connect it to ground so that either the excess electrons go into ground (if the original charged object is negatively charged),
+                            or the ground supplies excess electrons (if the original charged object is positively charged).</li>
+                        <img src="https://images.ctfassets.net/vrrt8fsfwf0e/gMwSYt2vnnudz91kirCKs/d60240716cd1a12cb4b34ad1c06c3b91/charging_by_inductio_art_1.svg" alt="Image of charging through induction #2" />
+                    </ol>
+                </ul>
+            </li>
+        </ol>
+        <h3>Electric Potential Energy and Potential:</h3>
+        <li>Remember that systems with high potential energy are unstable and ready to go to a state of lower potential energy (stability) at any rate.</li>
+        <li>We say that when two charges are infinitely apart, the electric potential energy between them is 0. Otherwise, it is positive when like charges repel, and negative when opposite charges attract. Remember that a neutral object and a charged object
+            also attract. The Electric Potential Energy between two charges is given by the formula:</li>
+        <table class="rules">
+            <tr>
+                <td><var>U<sub>E</sub></var> = <var>k</var>
+                    <div class="fraction">
+                        <div class="top"><var>q</var><sub>1</sub><var>q</var><sub>2</sub></div>
+                        <div class="bottom"><var>r</var></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>Notice how Electric Potential Energy (<var>U<sub>E</sub></var>) and Electric Force (
+            <vector>F</vector><sub>E</sub>) are related: <var>U<sub>E</sub></var> =
+            <var>r</var> &sdot;
+            <vector>F</vector><sub>E</sub>. This relationship is the same as the work equation <var>W = F&Delta;x</var>. Just a food for thought!</li>
+        <li>Unlike Electric Force, Electric Potential Energy is a scalar, so the number has no directional meaning. In a system of charges, finding the Electric Potential Energy is just as easy as adding up all the Electric Potential Energies between each
+            charge.
+        </li>
+        <li>Analagous to the relationship between Electic Force and Electric Fields, Electric Potential Energy and Electric Potential share the same relationship of being off by a charge. Electric Potential tells us how much Electric Potential Energy there
+            would be at a location in space if there were to be a charge there, just like how Electric Fields tell us how much Electric Force would be applied to a charge at a certain point in space.</li>
+        <li>Electric potential is given by the equation:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>V</var> = <var>k</var>
+                    <div class="fraction">
+                        <div class="top"><var>q</var></div>
+                        <div class="bottom"><var>r</var></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top"><var>U<sub>E</sub></var></div>
+                        <div class="bottom"><var>q</var></div>
+                    </div>
+                </td>
+                <td><var>&Delta;U<sub>E</sub> = q&Delta;V</var></td>
+            </tr>
+        </table>
+        <li>While Electric Potential Energy is measured in Joules (J), Electric Potential is measured in Joules per Coulomb (J/C, just as Electric Fields are measured in Newtons/Coulomb). We abbreviate 1 J/C to 1 Volt (V).</li>
+        <li>In a uniform Electric Field, the change in Electric Potential between two points is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    |
+                    <vector>E</vector><sub>F</sub>| =
+                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 0 5 0 5;">
+                        <div class="top">&Delta;<var>V</var></div>
+                        <div class="bottom">&Delta;<var>r</var></div>
+                    </div>
+                </td>
+                <th><a id="changeInElectricPotentialFormulaProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#changeInElectricPotentialFormulaProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="changeInElectricPotentialFormulaProof" class="solution">
+            <ol>
+                <li>Looking at the formula for Electric Fields, we can rearrange that to show that
+                    <vector>F</vector><sub>E</sub> = <var>q</var>
+                    <vector>E</vector><sub>F</sub></li>
+                <li>We know that <var>W = <vector>F</vector>&Delta;x</var></li>
+                <li>So substituting in the Electric Force into the Work formula gives us <var>W</var><sub>electric force</sub> = <var>q</var>
+                    <vector>E</vector><sub>F</sub><var>&Delta;x</var>
+                </li>
+                <li>We know by the Work-Energy Theorem that the Work done by the Electric Force is the same as the change in Electric Potential Energy, so <var>W</var><sub>electric force</sub> = &Delta;<var>U</var><sub>E</sub> and &Delta;<var>U</var><sub>E</sub>                    = <var>q</var>
+                    <vector>E</vector><sub>F</sub><var>&Delta;x</var></li>
+                <li>Finally solve for voltage by dividing by <var>q</var>:
+                    <div class="fraction">
+                        <div class="top">&Delta;<var>U<sub>E</sub></var></div>
+                        <div class="bottom"><var>q</var></div>
+                    </div> =
+                    <vector>E</vector><sub>F</sub><var>&Delta;x</var> = <var>&Delta;V</var> or |
+                    <vector>E</vector><sub>F</sub>| =
+                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 0 5 0 5;">
+                        <div class="top">&Delta;<var>V</var></div>
+                        <div class="bottom">&Delta;<var>x</var></div>
+                    </div>
 
+                </li>
+            </ol>
+        </div>
+        <li>Electric Potential Energy increases when:</li>
+        <ul>
+            <li>positive charges move against the Electric Field</li>
+            <li>negative charges move with the Electric Field</li>
+            <li>positive charges move to a spot of higher Electric Potential</li>
+            <li>negative charges move to a spot of lower Electric Potential</li>
+        </ul>
+        <li>We draw electric fields from a charge in the direction of the electric field:</li>
+        <table>
+            <tr>
+                <td>
+                    <img src="https://cdn.kastatic.org/googleusercontent/2-vYxPNTgsokPbHjXKfuKWWx0Adg3HYEROujHHRHLBAh4i2eRbTWEW1Y47AARJopJg803LdLzNzatYAsIdgDvgx4oA" alt="First image of electric fields around point charges" />
+                </td>
+                <td>
+                    <img style="width: 100%;" src="https://i.ytimg.com/vi/H6lb46AiXHQ/maxresdefault.jpg" alt="Second image of electric fields around point charges" />
+                </td>
+            </tr>
+        </table>
     </ul>
 </div>
