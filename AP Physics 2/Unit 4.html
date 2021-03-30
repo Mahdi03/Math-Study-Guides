@@ -9,13 +9,168 @@
     });
 </script>
 <div class="indent">
+    <style>
+        #rayDiagrams canvas:hover {
+            cursor: pointer;
+        }
+    </style>
     <ul>
         <li>The mirrors we see on a day-to-day basis are flat mirrors that usually show us a virtual and upright "image" of ourselves</li>
         <li>In both mirrors and lenses, curved in both concave and convex directions, an upright image means that it's a virtual image, and vice versa, an inverted image means it's real</li>
         <li>Check out these ray diagrams:
             <!--Show Solutions-->
         </li>
-        <div id="rayDiagrams"></div>
+        <div id="rayDiagrams">
+            <ul>
+                <li>Click on the ray diagram to see the solution:</li>
+            </ul>
+            <div>
+                <canvas id="rayDiagram1"></canvas>
+                <script class="renderJS">
+                    var rayDiagram1Canvas = document.querySelector("#rayDiagram1");
+                    var rayDiagram1RayDiagram = new RayDiagram(rayDiagram1Canvas, "mirror", "concave", ">C", document.body.offsetWidth);
+                    rayDiagram1Canvas.onclick = () => {
+                        rayDiagram1RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram2"></canvas>
+                <script class="renderJS">
+                    var rayDiagram2Canvas = document.querySelector("#rayDiagram2");
+                    var rayDiagram2RayDiagram = new RayDiagram(rayDiagram2Canvas, "mirror", "concave", "C", document.body.offsetWidth);
+                    rayDiagram2Canvas.onclick = () => {
+                        rayDiagram2RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram3"></canvas>
+                <script class="renderJS">
+                    var rayDiagram3Canvas = document.querySelector("#rayDiagram3");
+                    var rayDiagram3RayDiagram = new RayDiagram(rayDiagram3Canvas, "mirror", "concave", "C>x>F", document.body.offsetWidth);
+                    rayDiagram3Canvas.onclick = () => {
+                        rayDiagram3RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram4"></canvas>
+                <script class="renderJS">
+                    var rayDiagram4Canvas = document.querySelector("#rayDiagram4");
+                    var rayDiagram4RayDiagram = new RayDiagram(rayDiagram4Canvas, "mirror", "concave", "F", document.body.offsetWidth);
+                    rayDiagram4Canvas.onclick = () => {
+                        rayDiagram4RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram5"></canvas>
+                <script class="renderJS">
+                    var rayDiagram5Canvas = document.querySelector("#rayDiagram5");
+                    var rayDiagram5RayDiagram = new RayDiagram(rayDiagram5Canvas, "mirror", "concave", "F>x>mirror", document.body.offsetWidth);
+                    rayDiagram5Canvas.onclick = () => {
+                        rayDiagram5RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram6"></canvas>
+                <script class="renderJS">
+                    var rayDiagram6Canvas = document.querySelector("#rayDiagram6");
+                    var rayDiagram6RayDiagram = new RayDiagram(rayDiagram6Canvas, "mirror", "convex", "mirror>x>-F", document.body.offsetWidth);
+                    rayDiagram6Canvas.onclick = () => {
+                        rayDiagram6RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram7"></canvas>
+                <script class="renderJS">
+                    var rayDiagram7Canvas = document.querySelector("#rayDiagram7");
+                    var rayDiagram7RayDiagram = new RayDiagram(rayDiagram7Canvas, "mirror", "convex", "mirror>x>-2F", document.body.offsetWidth);
+                    rayDiagram7Canvas.onclick = () => {
+                        rayDiagram7RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram8"></canvas>
+                <script class="renderJS">
+                    var rayDiagram8Canvas = document.querySelector("#rayDiagram8");
+                    var rayDiagram8RayDiagram = new RayDiagram(rayDiagram8Canvas, "lens", "convex", ">2F", document.body.offsetWidth);
+                    rayDiagram8Canvas.onclick = () => {
+                        rayDiagram8RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram9"></canvas>
+                <script class="renderJS">
+                    var rayDiagram9Canvas = document.querySelector("#rayDiagram9");
+                    var rayDiagram9RayDiagram = new RayDiagram(rayDiagram9Canvas, "lens", "convex", "2F", document.body.offsetWidth);
+                    rayDiagram9Canvas.onclick = () => {
+                        rayDiagram9RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram10"></canvas>
+                <script class="renderJS">
+                    var rayDiagram10Canvas = document.querySelector("#rayDiagram10");
+                    var rayDiagram10RayDiagram = new RayDiagram(rayDiagram10Canvas, "lens", "convex", "2F>x>F", document.body.offsetWidth);
+                    rayDiagram10Canvas.onclick = () => {
+                        rayDiagram10RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram11"></canvas>
+                <script class="renderJS">
+                    var rayDiagram11Canvas = document.querySelector("#rayDiagram11");
+                    var rayDiagram11RayDiagram = new RayDiagram(rayDiagram11Canvas, "lens", "convex", "F", document.body.offsetWidth);
+                    var bool = true;
+                    rayDiagram11Canvas.onclick = () => {
+                        rayDiagram11RayDiagram.toggleRays();
+                        if (bool) {
+                            rayDiagram11RayDiagram.ctx.font = "25px Arial";
+                            rayDiagram11RayDiagram.ctx.fillText(":( Nothing to see here - LITERALLY :)", rayDiagram11RayDiagram.canvas.width / 1.9, rayDiagram11RayDiagram.canvas.height / 4);
+                        }
+                        bool = !bool;
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram12"></canvas>
+                <script class="renderJS">
+                    var rayDiagram12Canvas = document.querySelector("#rayDiagram12");
+                    var rayDiagram12RayDiagram = new RayDiagram(rayDiagram12Canvas, "lens", "convex", "F>x>lens", document.body.offsetWidth);
+                    rayDiagram12Canvas.onclick = () => {
+                        rayDiagram12RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram13"></canvas>
+                <script class="renderJS">
+                    var rayDiagram13Canvas = document.querySelector("#rayDiagram13");
+                    var rayDiagram13RayDiagram = new RayDiagram(rayDiagram13Canvas, "lens", "concave", ">2F", document.body.offsetWidth);
+                    rayDiagram13Canvas.onclick = () => {
+                        rayDiagram13RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+            <div>
+                <canvas id="rayDiagram14"></canvas>
+                <script class="renderJS">
+                    var rayDiagram14Canvas = document.querySelector("#rayDiagram14");
+                    var rayDiagram14RayDiagram = new RayDiagram(rayDiagram14Canvas, "lens", "concave", "F>x>lens", document.body.offsetWidth);
+                    rayDiagram14Canvas.onclick = () => {
+                        rayDiagram14RayDiagram.toggleRays();
+                    };
+                </script>
+            </div>
+        </div>
         <li>When it comes to calculations with mirrors and lens:</li>
         <table class="rules">
             <tr>
@@ -47,29 +202,3 @@
         </table>
     </ul>
 </div>
-<script class="renderJS">
-    class RayDiagram {
-        constructor(canvas, mirrorOrLens, concaveOrConvex, originalPosition) {
-            this.canvas = canvas;
-            this.mirrorOrLens = mirrorOrLens; //"mirror" or "lens"
-            this.concaveOrConvex = concaveOrConvex; //"concave" or "convex"
-            var width = 1000;
-            var height = 300;
-            this.canvas.width = width;
-            this.canvas.height = height;
-            this.ctx = this.canvas.getContext("2d");
-        }
-        drawStage() {
-            this.ctx.moveTo(0, this.canvas.height / 2);
-            this.ctx.lineTo(this.canvas.width, this.canvas.height / 2);
-            //Divide into 6 portions so we can have 2 focus points on each side and then one mirror/lens
-
-        }
-        drawHuman(x, y, scale = 1) {
-            //draw stick figure at x, y with a scale
-        }
-        drawRays(["red", "blue", "purple"]) {
-            //Have three colors ready
-        }
-    }
-</script>
