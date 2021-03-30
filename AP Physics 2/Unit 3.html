@@ -45,17 +45,65 @@
                 <td><var>P</var> = <var>P</var><sub>atm</sub> + <var>&rho;gh</var></td>
                 <th>
                     <!--Show Proof-->
+                    <a id="pressureAtDepthFormulaProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#pressureAtDepthFormulaProof', true);">Show Proof</a>
                 </th>
             </tr>
         </table>
+        <div id="pressureAtDepthFormulaProof" class="solution">
+            <ol>
+                <li>We know from our density equation that &rho;<var>V = m</var></li>
+                <li>Looking at the following diagram we see that <var>V = Ah</var></li>
+                <img src="https://s3-us-west-2.amazonaws.com/courses-images-archive-read-only/wp-content/uploads/sites/222/2014/12/20103719/Figure_12_04_01a.jpg" alt="Water in a tank" />
+                <li>Since pressure (P) =
+                    <div class="fraction">
+                        <div class="top"><var>F</var><sub><var>g</var></sub></div>
+                        <div class="bottom"><var>A</var></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top"><var>m</var><var>g</var></div>
+                        <div class="bottom"><var>A</var></div>
+                    </div>, we can substitute for <var>m</var> and <var>V</var> to better apply this to fluids:<br /> P =
+                    <div class="fraction">
+                        <div class="top"><var>m</var><var>g</var></div>
+                        <div class="bottom"><var>A</var></div>
+                    </div> =
+                    <var>
+                    <div class="fraction">
+                        <div class="top">&rho;Vg</div>
+                        <div class="bottom">A</div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">&rho;<del>A</del>hg</div>
+                        <div class="bottom"><del>A</del></div>
+                    </div>
+                = &rho;gh</var>
+                </li>
+                <li>The last step is to account for all the air pressure that is above the liquid, so <span class="answer"><var>P = P</var><sub>atm</sub> + <var>&rho;gh</var></span> where <var>P</var><sub>atm</sub> is normally 10<sup>5</sup> Pascals.</li>
+            </ol>
+        </div>
         <li>Pascals' Principle is that pressure spreads to all over the fluid, so in hydraulic brakes, a small force in a small area equates to a large force in a large area</li>
-        <li>Water exerts a force on the surface area, but most of those forces cancel out, leaving the change in pressure from top to bottom to be the cause of a buoyant force:</li>
+        <img style="width: 50%;" src="https://cdn.britannica.com/06/156806-050-3D1E6425/principle-press-Illustration-work-force-Pascal-pressure.jpg" alt="Diagram for Pascal's Principle" />
+        <li>Water exerts a force on the surface area, but most of those forces cancel out, leaving the change in pressure from top to bottom to be the cause of a buoyant force:
+            <table class="rules">
+                <tr>
+                    <td><var>F<sub>b</sub> = &rho;Vg</var></td>
+                </tr>
+            </table>where <var>V</var> in this case stands for the volume of fluid displaced, <b><u>not</u></b> the volume of your object</li>
+        <li>The buoyant force resembles the weight of the fluid displaced</li>
+        <li>If an object floats in water, that means it is at rest, or the &Sigma;<var>F</var><sub>net</sub> = <var>F<sub>b</sub> &minus; F<sub>g</sub></var> = 0</li>
+        <li>With objects submerged in fluids, you can find the volume or depth of an object in a liquid using:</li>
         <table class="rules">
             <tr>
-                <td>F<sub>b</sub> = &rho;Vg</td>
-                <th>
-                    <!--Show Proof-->
-                </th>
+                <td>
+                    <div class="fraction">
+                        <div class="top"><var>V</var><sub>displaced</sub></div>
+                        <div class="bottom"><var>V</var><sub>object</sub></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">&rho;<sub>object</sub></div>
+                        <div class="bottom">&rho;<sub>fluid</sub></div>
+                    </div>
+                </td>
             </tr>
         </table>
         <h3>Fluid Dynamics:</h3>
@@ -70,33 +118,45 @@
 </var>
 </td>
 <th>
-    <!--Show Proof-->
+    <!--Show Proof--><a id="flowRateFormulaProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#flowRateFormulaProof', true);">Show Proof</a>
 </th>
 </tr>
 </table>
+<div id="flowRateFormulaProof" class="solution">
+    <ol>
+        <img style="width: 50%;" src="https://cdn.kastatic.org/ka-perseus-images/fbdd837acf22e3e1aa7a2d27b712e311ee22d088.png" alt="Image for flow rate" />
+        <li>The image (above) stolen from Khan Academy does a perfect description of the derivation.</li>
+    </ol>
+</div>
 <li>Within the same fluid, the flow rate must be the same, so we have the continuity equation <var>Q</var><sub>1</sub> = <var>Q</var><sub>2</sub>, or:</li>
 <table class="rules">
     <tr>
-        <td>A<sub>1</sub><var>v</var><sub>1</sub> = <var>A</var><sub>2</sub><var>v</var><sub>2</sub></td>
-        <th>
-            <!--Show Proof-->
-        </th>
+        <td><var>A</var><sub>1</sub><var>v</var><sub>1</sub> = <var>A</var><sub>2</sub><var>v</var><sub>2</sub></td>
     </tr>
 </table>
+<img style="width: 50%;" src="https://cdn.kastatic.org/ka-perseus-images/1ed502672a1583ad6bb57e2c9fb380a9b024fc69.png" alt="Image of continuity equation in action" />
+<li>Again, the image (above) stolen from Khan Academy does the concept justice. For clarification, as the cross-sectional area decreases, the velocity of the fluid must increase since the volume flow rate is the same.</li>
+<h5>Bernoulli's Equation:</h5>
+<li>When the velocity increases, that energy change has to be coming from somewhere. Either there has to be a difference in potential energies or pressures. A pressure difference (due to difference cross-sectional areas) means there is a net force doing work
+    on the fluid, increasing the kinetic energy. Similarly, as velocity increases (&uarr;), pressure drops (&darr;).</li>
+<li>In flight, air is a fluid, so the wings of planes are designed to create a pressure difference that provide for some lift (an upwards net force).</li>
+<img style="width: 50%;" src="https://www.mpoweruk.com/images/Lift%20by%20Bernoulli.gif" alt="Diagram of lift in airplane wings through Bernoulli's Equation" />
+<li>With a lower pressure above the wing, and a higher pressure underneath, the resultant force is upwards (&uarr;).</li>
 <li>When it comes to conservation of energy in fluids, there is a Bernoulli's Equation that resembles the regular conservation of energy formula:</li>
 <table class="rules">
     <tr>
-        <td>P<sub>1</sub> + &rho;gy<sub>1</sub> +
+        <td><var>P</var><sub>1</sub> + <var>&rho;gy</var><sub>1</sub> +
             <div class="fraction">
                 <div class="top">1</div>
                 <div class="bottom">2</div>
-            </div> &rho;v<sup>2</sup> = P<sub>2</sub> + &rho;gy<sub>2</sub> +
+            </div> <var>&rho;v</var><sup>2</sup> = <var>P</var><sub>2</sub> + <var>&rho;gy</var><sub>2</sub> +
             <div class="fraction">
                 <div class="top">1</div>
                 <div class="bottom">2</div>
-            </div> &rho;v<sup>2</sup></td>
+            </div> <var>&rho;v</var><sup>2</sup></td>
     </tr>
 </table>
-<li>When the pressures are equal, they cancel out, leaving you with an equation looking a lot like the conservation of energy</li>
+<li>When the pressures are equal, they cancel out, leaving you with an easier-to-solve equation looking a lot like the conservation of energy.</li>
+<li>Bernoulli's Equation only works when the liquid is in a calm stream, i.e. there is no turbulence</li>
 </ul>
 </div>

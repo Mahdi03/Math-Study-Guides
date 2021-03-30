@@ -10,6 +10,17 @@
 </script>
 <div class="indent">
     <style>
+        #rayDiagrams {
+            /*display: none;*/
+        }
+        
+        #rayDiagramsToggleButton {
+            background-color: turquoise;
+            border: 1px solid black;
+            border-radius: 25px;
+        }
+        
+        #rayDiagramsToggleButton:hover,
         #rayDiagrams canvas:hover {
             cursor: pointer;
         }
@@ -17,159 +28,316 @@
     <ul>
         <li>The mirrors we see on a day-to-day basis are flat mirrors that usually show us a virtual and upright "image" of ourselves</li>
         <li>In both mirrors and lenses, curved in both concave and convex directions, an upright image means that it's a virtual image, and vice versa, an inverted image means it's real</li>
-        <li>Check out these ray diagrams:
-            <!--Show Solutions-->
-        </li>
-        <div id="rayDiagrams">
+        <li>A converging lens is just a convex lens, and a diverging lens is a convex lens.</li>
+        <li>Real images can only form with concave mirrors and convex (converging) lens, but that doesn't mean they always do. However, convex mirrors and concave (diverging) lens always produce virtual images.</li>
+        <li>Check out these ray diagrams: <button id="rayDiagramsToggleButton" href="javascript:void(0)" onclick="toggleDiv('#rayDiagrams')">&plus;</button></li>
+        <div id="rayDiagrams" class="solution">
             <ul>
                 <li>Click on the ray diagram to see the solution:</li>
+                <h5>Concave Mirrors:</h5>
+                <div>
+                    <li>The object is past the center of curvature (C):</li>
+                    <canvas id="rayDiagram1"></canvas>
+                    <li class="solution answer" id="rayDiagram1Answer">The image is between the center of curvature (C) and the focal point (F), inverted, reduced, and real.</li>
+                    <script class="renderJS">
+                        var rayDiagram1Canvas = document.querySelector("#rayDiagram1");
+                        var rayDiagram1RayDiagram = new RayDiagram(rayDiagram1Canvas, "mirror", "concave", ">C", document.body.offsetWidth);
+                        var bool1 = true;
+                        rayDiagram1Canvas.onclick = () => {
+                            rayDiagram1RayDiagram.toggleRays();
+                            if (bool1) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram1Answer").style.display = "block";
+                                drawArrow(rayDiagram1RayDiagram.ctx, 225 / 1011 * rayDiagram1RayDiagram.canvas.width, rayDiagram1RayDiagram.canvas.height / 2, 225 / 1011 * rayDiagram1RayDiagram.canvas.width, 190 / 303 * rayDiagram1RayDiagram.canvas.height);
+                            } else if (!bool1) {
+                                document.querySelector("#rayDiagram1Answer").style.display = "none";
+                            }
+                            bool1 = !bool1;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is at the center of curvature (C):</li>
+                    <canvas id="rayDiagram2"></canvas>
+                    <li class="solution answer" id="rayDiagram2Answer">The image is at the center of curvature (C), inverted, the same size, real.</li>
+                    <script class="renderJS">
+                        var rayDiagram2Canvas = document.querySelector("#rayDiagram2");
+                        var rayDiagram2RayDiagram = new RayDiagram(rayDiagram2Canvas, "mirror", "concave", "C", document.body.offsetWidth);
+                        var bool2 = true;
+                        rayDiagram2Canvas.onclick = () => {
+                            rayDiagram2RayDiagram.toggleRays();
+                            if (bool2) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram2Answer").style.display = "block";
+                                drawArrow(rayDiagram2RayDiagram.ctx, rayDiagram2RayDiagram.canvas.width * 1 / 6, rayDiagram2RayDiagram.canvas.height / 2, rayDiagram2RayDiagram.canvas.width * 1 / 6, 210 / 303 * rayDiagram2RayDiagram.canvas.height);
+                            } else if (!bool2) {
+                                document.querySelector("#rayDiagram2Answer").style.display = "none";
+                            }
+                            bool2 = !bool2;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is between the center of curvature (C) and the focal point (F):</li>
+                    <canvas id="rayDiagram3"></canvas>
+                    <li class="solution answer" id="rayDiagram3Answer">The image is past the center of curvature (C), inverted, magnified, and real.</li>
+                    <script class="renderJS">
+                        var rayDiagram3Canvas = document.querySelector("#rayDiagram3");
+                        var rayDiagram3RayDiagram = new RayDiagram(rayDiagram3Canvas, "mirror", "concave", "C>x>F", document.body.offsetWidth);
+                        var bool3 = true;
+                        rayDiagram3Canvas.onclick = () => {
+                            rayDiagram3RayDiagram.toggleRays();
+                            if (bool3) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram3Answer").style.display = "block";
+                                drawArrow(rayDiagram3RayDiagram.ctx, 1 / 1011 * rayDiagram3RayDiagram.canvas.width, rayDiagram3RayDiagram.canvas.height / 2, 1 / 1011 * rayDiagram3RayDiagram.canvas.width, 266 / 303 * rayDiagram3RayDiagram.canvas.height);
+                            } else if (!bool3) {
+                                document.querySelector("#rayDiagram3Answer").style.display = "none";
+                            }
+                            bool3 = !bool3;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is at F:</li>
+                    <canvas id="rayDiagram4"></canvas>
+                    <li class="solution answer" id="rayDiagram4Answer">There is no image since the line through the focus is parallel to the mirror and never hits the mirror.</li>
+                    <script class="renderJS">
+                        var rayDiagram4Canvas = document.querySelector("#rayDiagram4");
+                        var rayDiagram4RayDiagram = new RayDiagram(rayDiagram4Canvas, "mirror", "concave", "F", document.body.offsetWidth);
+                        rayDiagram4Canvas.onclick = () => {
+                            rayDiagram4RayDiagram.toggleRays();
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is between F and the mirror:</li>
+                    <canvas id="rayDiagram5"></canvas>
+                    <li class="solution answer" id="rayDiagram5Answer">The image is on the other side of the mirror, upright, magnified, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram5Canvas = document.querySelector("#rayDiagram5");
+                        var rayDiagram5RayDiagram = new RayDiagram(rayDiagram5Canvas, "mirror", "concave", "F>x>mirror", document.body.offsetWidth);
+                        var bool5 = true;
+                        rayDiagram5Canvas.onclick = () => {
+                            rayDiagram5RayDiagram.toggleRays();
+                            if (bool5) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram5Answer").style.display = "block";
+                                drawArrow(rayDiagram5RayDiagram.ctx, 673 / 1011 * rayDiagram5RayDiagram.canvas.width, rayDiagram5RayDiagram.canvas.height / 2, 673 / 1011 * rayDiagram5RayDiagram.canvas.width, 38 / 303 * rayDiagram5RayDiagram.canvas.height);
+                            } else if (!bool5) {
+                                document.querySelector("#rayDiagram5Answer").style.display = "none";
+                            }
+                            bool5 = !bool5;
+                        };
+                    </script>
+                </div>
+                <h5>Convex Mirrors:</h5>
+                <div>
+                    <li>The object is close to the mirror:</li>
+                    <canvas id="rayDiagram6"></canvas>
+                    <li class="solution answer" id="rayDiagram6Answer">The image is inside F, upright, reduced, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram6Canvas = document.querySelector("#rayDiagram6");
+                        var rayDiagram6RayDiagram = new RayDiagram(rayDiagram6Canvas, "mirror", "convex", "mirror>x>-F", document.body.offsetWidth);
+                        var bool6 = true;
+                        rayDiagram6Canvas.onclick = () => {
+                            rayDiagram6RayDiagram.toggleRays();
+                            if (bool6) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram6Answer").style.display = "block";
+                                drawArrow(rayDiagram6RayDiagram.ctx, 448 / 1011 * rayDiagram6RayDiagram.canvas.width, rayDiagram6RayDiagram.canvas.height / 2, 448 / 1011 * rayDiagram6RayDiagram.canvas.width, 113 / 303 * rayDiagram6RayDiagram.canvas.height);
+                            } else if (!bool6) {
+                                document.querySelector("#rayDiagram6Answer").style.display = "none";
+                            }
+                            bool6 = !bool6;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is far from the mirror:</li>
+                    <canvas id="rayDiagram7"></canvas>
+                    <li class="solution answer" id="rayDiagram7Answer">The image is inside F, upright, reduced, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram7Canvas = document.querySelector("#rayDiagram7");
+                        var rayDiagram7RayDiagram = new RayDiagram(rayDiagram7Canvas, "mirror", "convex", "mirror>x>-2F", document.body.offsetWidth);
+                        var bool7 = true;
+                        rayDiagram7Canvas.onclick = () => {
+                            rayDiagram7RayDiagram.toggleRays();
+                            if (bool7) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram7Answer").style.display = "block";
+                                drawArrow(rayDiagram7RayDiagram.ctx, 385 / 1011 * rayDiagram7RayDiagram.canvas.width, rayDiagram7RayDiagram.canvas.height / 2, 385 / 1011 * rayDiagram7RayDiagram.canvas.width, 135 / 303 * rayDiagram7RayDiagram.canvas.height);
+                            } else if (!bool7) {
+                                document.querySelector("#rayDiagram7Answer").style.display = "none";
+                            }
+                            bool7 = !bool7;
+                        };
+                        var bool3 = true;
+                        rayDiagram3Canvas.onclick = () => {
+                            rayDiagram3RayDiagram.toggleRays();
+                            if (bool3) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram3Answer").style.display = "block";
+                                drawArrow(rayDiagram3RayDiagram.ctx, 1 / 1011 * rayDiagram3RayDiagram.canvas.width, rayDiagram3RayDiagram.canvas.height / 2, 1 / 1011 * rayDiagram3RayDiagram.canvas.width, 266 / 303 * rayDiagram3RayDiagram.canvas.height);
+                            } else if (!bool3) {
+                                document.querySelector("#rayDiagram3Answer").style.display = "none";
+                            }
+                            bool3 = !bool3;
+                        };
+                    </script>
+                </div>
+                <h5>Convex (Converging) Lens:</h5>
+                <div>
+                    <li>The object is past 2F:</li>
+                    <canvas id="rayDiagram8"></canvas>
+                    <li class="solution answer" id="rayDiagram8Answer">The image is between F and 2F on the other side, inverted, reduced, and real.</li>
+                    <script class="renderJS">
+                        var rayDiagram8Canvas = document.querySelector("#rayDiagram8");
+                        var rayDiagram8RayDiagram = new RayDiagram(rayDiagram8Canvas, "lens", "convex", ">2F", document.body.offsetWidth);
+                        var bool8 = true;
+                        rayDiagram8Canvas.onclick = () => {
+                            rayDiagram8RayDiagram.toggleRays();
+                            if (bool8) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram8Answer").style.display = "block";
+                                drawArrow(rayDiagram8RayDiagram.ctx, 787 / 1011 * rayDiagram8RayDiagram.canvas.width, rayDiagram8RayDiagram.canvas.height / 2, 787 / 1011 * rayDiagram8RayDiagram.canvas.width, 190 / 303 * rayDiagram8RayDiagram.canvas.height);
+                            } else if (!bool8) {
+                                document.querySelector("#rayDiagram8Answer").style.display = "none";
+                            }
+                            bool8 = !bool8;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is at 2F:</li>
+                    <canvas id="rayDiagram9"></canvas>
+                    <li class="solution answer" id="rayDiagram9Answer">The image is at 2F on the opposite side, inverted, the same size, and real.</li>
+                    <script class="renderJS">
+                        var rayDiagram9Canvas = document.querySelector("#rayDiagram9");
+                        var rayDiagram9RayDiagram = new RayDiagram(rayDiagram9Canvas, "lens", "convex", "2F", document.body.offsetWidth);
+                        var bool9 = true;
+                        rayDiagram9Canvas.onclick = () => {
+                            rayDiagram9RayDiagram.toggleRays();
+                            if (bool9) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram9Answer").style.display = "block";
+                                drawArrow(rayDiagram9RayDiagram.ctx, rayDiagram9RayDiagram.canvas.width * 5 / 6, rayDiagram9RayDiagram.canvas.height / 2, rayDiagram9RayDiagram.canvas.width * 5 / 6, 208 / 303 * rayDiagram9RayDiagram.canvas.height);
+                            } else if (!bool9) {
+                                document.querySelector("#rayDiagram9Answer").style.display = "none";
+                            }
+                            bool9 = !bool9;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is between 2F and F:</li>
+                    <canvas id="rayDiagram10"></canvas>
+                    <li class="solution answer" id="rayDiagram10Answer">The image is beyond 2F on the opposite side, inverted, magnified, and real.</li>
+                    <script class="renderJS">
+                        var rayDiagram10Canvas = document.querySelector("#rayDiagram10");
+                        var rayDiagram10RayDiagram = new RayDiagram(rayDiagram10Canvas, "lens", "convex", "2F>x>F", document.body.offsetWidth);
+                        var bool10 = true;
+                        rayDiagram10Canvas.onclick = () => {
+                            rayDiagram10RayDiagram.toggleRays();
+                            if (bool10) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram10Answer").style.display = "block";
+                                drawArrow(rayDiagram10RayDiagram.ctx, 1010 / 1011 * rayDiagram10RayDiagram.canvas.width, rayDiagram10RayDiagram.canvas.height / 2, 1010 / 1011 * rayDiagram10RayDiagram.canvas.width, 266 / 303 * rayDiagram10RayDiagram.canvas.height);
+                            } else if (!bool10) {
+                                document.querySelector("#rayDiagram10Answer").style.display = "none";
+                            }
+                            bool10 = !bool10;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is located at F:</li>
+                    <canvas id="rayDiagram11"></canvas>
+                    <li class="solution answer" id="rayDiagram11Answer">There is no image because the rays are parallel</li>
+                    <script class="renderJS">
+                        var rayDiagram11Canvas = document.querySelector("#rayDiagram11");
+                        var rayDiagram11RayDiagram = new RayDiagram(rayDiagram11Canvas, "lens", "convex", "F", document.body.offsetWidth);
+                        var bool11 = true;
+                        rayDiagram11Canvas.onclick = () => {
+                            rayDiagram11RayDiagram.toggleRays();
+                            if (bool11) {
+                                rayDiagram11RayDiagram.ctx.font = "25px Arial";
+                                rayDiagram11RayDiagram.ctx.fillText(":( Nothing to see here - LITERALLY :)", rayDiagram11RayDiagram.canvas.width * 0.01, rayDiagram11RayDiagram.canvas.height / 4);
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram11Answer").style.display = "block";
+                                //drawArrow(rayDiagram11RayDiagram.ctx, 335 / 1011 * rayDiagram11RayDiagram.canvas.width, rayDiagram11RayDiagram.canvas.height / 2, 335 / 1011 * rayDiagram11RayDiagram.canvas.width, 38 / 303 * rayDiagram11RayDiagram.canvas.height);
+                            } else if (!bool11) {
+                                document.querySelector("#rayDiagram11Answer").style.display = "none";
+                            }
+                            bool11 = !bool11;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is between F and the lens</li>
+                    <canvas id="rayDiagram12"></canvas>
+                    <li class="solution answer" id="rayDiagram12Answer">The image is behind F on the same side as the object, upright, magnified, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram12Canvas = document.querySelector("#rayDiagram12");
+                        var rayDiagram12RayDiagram = new RayDiagram(rayDiagram12Canvas, "lens", "convex", "F>x>lens", document.body.offsetWidth);
+                        var bool12 = true;
+                        rayDiagram12Canvas.onclick = () => {
+                            rayDiagram12RayDiagram.toggleRays();
+                            if (bool12) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram12Answer").style.display = "block";
+                                drawArrow(rayDiagram12RayDiagram.ctx, 335 / 1011 * rayDiagram12RayDiagram.canvas.width, rayDiagram12RayDiagram.canvas.height / 2, 335 / 1011 * rayDiagram12RayDiagram.canvas.width, 38 / 303 * rayDiagram12RayDiagram.canvas.height);
+                            } else if (!bool12) {
+                                document.querySelector("#rayDiagram12Answer").style.display = "none";
+                            }
+                            bool12 = !bool12;
+                        };
+                    </script>
+                </div>
+                <h5>Concave (Diverging) Lens:</h5>
+                <div>
+                    <li>The object is far from the lens:</li>
+                    <canvas id="rayDiagram13"></canvas>
+                    <li id="rayDiagram13Answer" class="solution answer">The image is inside F, upright, reduced, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram13Canvas = document.querySelector("#rayDiagram13");
+                        var rayDiagram13RayDiagram = new RayDiagram(rayDiagram13Canvas, "lens", "concave", ">2F", document.body.offsetWidth);
+                        var bool13 = true;
+                        rayDiagram13Canvas.onclick = () => {
+                            rayDiagram13RayDiagram.toggleRays();
+                            if (bool13) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram13Answer").style.display = "block";
+                                drawArrow(rayDiagram13RayDiagram.ctx, 385 / 1011 * rayDiagram13RayDiagram.canvas.width, rayDiagram13RayDiagram.canvas.height / 2, 385 / 1011 * rayDiagram13RayDiagram.canvas.width, 135 / 303 * rayDiagram13RayDiagram.canvas.height);
+                            } else if (!bool13) {
+                                document.querySelector("#rayDiagram13Answer").style.display = "none";
+                            }
+                            bool13 = !bool13;
+                        };
+                    </script>
+                </div>
+                <div>
+                    <li>The object is close to the lens:</li>
+                    <canvas id="rayDiagram14"></canvas>
+                    <li id="rayDiagram14Answer" class="solution answer">The image is inside F, upright, reduced, and virtual.</li>
+                    <script class="renderJS">
+                        var rayDiagram14Canvas = document.querySelector("#rayDiagram14");
+                        var rayDiagram14RayDiagram = new RayDiagram(rayDiagram14Canvas, "lens", "concave", "F>x>lens", document.body.offsetWidth);
+                        var bool14 = true;
+                        rayDiagram14Canvas.onclick = () => {
+                            rayDiagram14RayDiagram.toggleRays();
+                            if (bool14) {
+                                //Draw resultant image vector
+                                document.querySelector("#rayDiagram14Answer").style.display = "block";
+                                drawArrow(rayDiagram14RayDiagram.ctx, 450 / 1011 * rayDiagram14RayDiagram.canvas.width, rayDiagram14RayDiagram.canvas.height / 2, 450 / 1011 * rayDiagram14RayDiagram.canvas.width, 115 / 303 * rayDiagram14RayDiagram.canvas.height);
+                            } else if (!bool14) {
+                                document.querySelector("#rayDiagram14Answer").style.display = "none";
+                            }
+                            bool14 = !bool14;
+                        };
+                    </script>
+                </div>
             </ul>
-            <div>
-                <canvas id="rayDiagram1"></canvas>
-                <script class="renderJS">
-                    var rayDiagram1Canvas = document.querySelector("#rayDiagram1");
-                    var rayDiagram1RayDiagram = new RayDiagram(rayDiagram1Canvas, "mirror", "concave", ">C", document.body.offsetWidth);
-                    rayDiagram1Canvas.onclick = () => {
-                        rayDiagram1RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram2"></canvas>
-                <script class="renderJS">
-                    var rayDiagram2Canvas = document.querySelector("#rayDiagram2");
-                    var rayDiagram2RayDiagram = new RayDiagram(rayDiagram2Canvas, "mirror", "concave", "C", document.body.offsetWidth);
-                    rayDiagram2Canvas.onclick = () => {
-                        rayDiagram2RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram3"></canvas>
-                <script class="renderJS">
-                    var rayDiagram3Canvas = document.querySelector("#rayDiagram3");
-                    var rayDiagram3RayDiagram = new RayDiagram(rayDiagram3Canvas, "mirror", "concave", "C>x>F", document.body.offsetWidth);
-                    rayDiagram3Canvas.onclick = () => {
-                        rayDiagram3RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram4"></canvas>
-                <script class="renderJS">
-                    var rayDiagram4Canvas = document.querySelector("#rayDiagram4");
-                    var rayDiagram4RayDiagram = new RayDiagram(rayDiagram4Canvas, "mirror", "concave", "F", document.body.offsetWidth);
-                    rayDiagram4Canvas.onclick = () => {
-                        rayDiagram4RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram5"></canvas>
-                <script class="renderJS">
-                    var rayDiagram5Canvas = document.querySelector("#rayDiagram5");
-                    var rayDiagram5RayDiagram = new RayDiagram(rayDiagram5Canvas, "mirror", "concave", "F>x>mirror", document.body.offsetWidth);
-                    rayDiagram5Canvas.onclick = () => {
-                        rayDiagram5RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram6"></canvas>
-                <script class="renderJS">
-                    var rayDiagram6Canvas = document.querySelector("#rayDiagram6");
-                    var rayDiagram6RayDiagram = new RayDiagram(rayDiagram6Canvas, "mirror", "convex", "mirror>x>-F", document.body.offsetWidth);
-                    rayDiagram6Canvas.onclick = () => {
-                        rayDiagram6RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram7"></canvas>
-                <script class="renderJS">
-                    var rayDiagram7Canvas = document.querySelector("#rayDiagram7");
-                    var rayDiagram7RayDiagram = new RayDiagram(rayDiagram7Canvas, "mirror", "convex", "mirror>x>-2F", document.body.offsetWidth);
-                    rayDiagram7Canvas.onclick = () => {
-                        rayDiagram7RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram8"></canvas>
-                <script class="renderJS">
-                    var rayDiagram8Canvas = document.querySelector("#rayDiagram8");
-                    var rayDiagram8RayDiagram = new RayDiagram(rayDiagram8Canvas, "lens", "convex", ">2F", document.body.offsetWidth);
-                    rayDiagram8Canvas.onclick = () => {
-                        rayDiagram8RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram9"></canvas>
-                <script class="renderJS">
-                    var rayDiagram9Canvas = document.querySelector("#rayDiagram9");
-                    var rayDiagram9RayDiagram = new RayDiagram(rayDiagram9Canvas, "lens", "convex", "2F", document.body.offsetWidth);
-                    rayDiagram9Canvas.onclick = () => {
-                        rayDiagram9RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram10"></canvas>
-                <script class="renderJS">
-                    var rayDiagram10Canvas = document.querySelector("#rayDiagram10");
-                    var rayDiagram10RayDiagram = new RayDiagram(rayDiagram10Canvas, "lens", "convex", "2F>x>F", document.body.offsetWidth);
-                    rayDiagram10Canvas.onclick = () => {
-                        rayDiagram10RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram11"></canvas>
-                <script class="renderJS">
-                    var rayDiagram11Canvas = document.querySelector("#rayDiagram11");
-                    var rayDiagram11RayDiagram = new RayDiagram(rayDiagram11Canvas, "lens", "convex", "F", document.body.offsetWidth);
-                    var bool = true;
-                    rayDiagram11Canvas.onclick = () => {
-                        rayDiagram11RayDiagram.toggleRays();
-                        if (bool) {
-                            rayDiagram11RayDiagram.ctx.font = "25px Arial";
-                            rayDiagram11RayDiagram.ctx.fillText(":( Nothing to see here - LITERALLY :)", rayDiagram11RayDiagram.canvas.width / 1.9, rayDiagram11RayDiagram.canvas.height / 4);
-                        }
-                        bool = !bool;
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram12"></canvas>
-                <script class="renderJS">
-                    var rayDiagram12Canvas = document.querySelector("#rayDiagram12");
-                    var rayDiagram12RayDiagram = new RayDiagram(rayDiagram12Canvas, "lens", "convex", "F>x>lens", document.body.offsetWidth);
-                    rayDiagram12Canvas.onclick = () => {
-                        rayDiagram12RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram13"></canvas>
-                <script class="renderJS">
-                    var rayDiagram13Canvas = document.querySelector("#rayDiagram13");
-                    var rayDiagram13RayDiagram = new RayDiagram(rayDiagram13Canvas, "lens", "concave", ">2F", document.body.offsetWidth);
-                    rayDiagram13Canvas.onclick = () => {
-                        rayDiagram13RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
-            <div>
-                <canvas id="rayDiagram14"></canvas>
-                <script class="renderJS">
-                    var rayDiagram14Canvas = document.querySelector("#rayDiagram14");
-                    var rayDiagram14RayDiagram = new RayDiagram(rayDiagram14Canvas, "lens", "concave", "F>x>lens", document.body.offsetWidth);
-                    rayDiagram14Canvas.onclick = () => {
-                        rayDiagram14RayDiagram.toggleRays();
-                    };
-                </script>
-            </div>
         </div>
         <li>When it comes to calculations with mirrors and lens:</li>
         <table class="rules">

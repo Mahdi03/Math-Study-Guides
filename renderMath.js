@@ -422,12 +422,13 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     var headlen = 10;
     var angle = Math.atan2(toy - fromy, tox - fromx);
     //starting path of the arrow from the start square to the end square and drawing the stroke
+    context.beginPath();
+    context.setLineDash([]);
     if (extraArgs !== undefined) {
         if (extraArgs.lineDash !== undefined) {
             context.setLineDash(extraArgs.lineDash);
         }
     }
-    context.beginPath();
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
     context.stroke();
@@ -1708,6 +1709,15 @@ class RayDiagram {
                 var finalY = this.canvas.height / 2 + magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
                 this.ctx.stroke();
+                if (this.concaveOrConvex == "convex" && this.humanPos.x > this.canvas.width * 2 / 6) {
+                    this.ctx.beginPath();
+                    this.ctx.setLineDash([10, 5]);
+                    this.ctx.moveTo(this.humanPos.x, this.humanPos.y);
+                    finalX = this.canvas.width / 2 - magnitude * Math.cos(angle);
+                    finalY = this.canvas.height / 2 - magnitude * Math.sin(angle);
+                    this.ctx.lineTo(finalX, finalY);
+                    this.ctx.stroke();
+                }
             }
             this.ctx.strokeStyle = "black";
             //Once done drawing all the rays, draw arrows for all the line intersections
