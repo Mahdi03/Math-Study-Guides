@@ -385,5 +385,5 @@
         
         .grayedOut,
         .greyedOut {
-            background: repeating-linear-gradient( 45deg, darkgray, darkgray 2px, white 2px, white 4px);
+            background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) 2px, white 2px, white 8px);
         }
