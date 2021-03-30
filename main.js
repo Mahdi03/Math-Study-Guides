@@ -37,6 +37,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
                         toggleButton.innerHTML = "&minus;";
 
                     }).catch((errorMessage) => {
+                        console.log(errorMessage);
                         console.error("This function isn't even called how did we get here???");
                     });
 
