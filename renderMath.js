@@ -1230,6 +1230,7 @@ class RayDiagram {
             this.ctx.lineTo(xPos, yPos - height / 2);
             this.ctx.stroke();
         }
+        this.ctx.font = "15px Arial";
         for (var xPos = 0; xPos <= this.canvas.width; xPos += interval) {
             if (xPos === 0) {
                 //Do nothing, it's the beginning of the line
@@ -1264,19 +1265,32 @@ class RayDiagram {
             } else if (xPos === this.canvas.width * 1 / 6) {
                 //Draw tick mark
                 drawTickMark(xPos, this.canvas.height / 2, 10);
-                //Then label with either C or F2
+                //Then label with either C or 2F
+                if (this.mirrorOrLens == "mirror") {
+                    var width = this.ctx.measureText("C").width;
+                    this.ctx.fillText("C", xPos - width / 2, this.canvas.height / 2 + 20);
+                } else if (this.mirrorOrLens == "lens") {
+                    var width = this.ctx.measureText("2F").width;
+                    this.ctx.fillText("2F", xPos - width / 2, this.canvas.height / 2 + 20);
+                }
             } else if (xPos === this.canvas.width * 2 / 6) {
                 //Draw tick mark
                 drawTickMark(xPos, this.canvas.height / 2, 10);
                 //Then label with F
+                var width = this.ctx.measureText("F").width;
+                this.ctx.fillText("F", xPos - width / 2, this.canvas.height / 2 + 20);
             } else if (xPos === this.canvas.width * 4 / 6 && this.mirrorOrLens !== "mirror") {
                 //Draw tick mark - mirrors don't need labels on opposite side
                 drawTickMark(xPos, this.canvas.height / 2, 10);
                 //Then label with F
+                var width = this.ctx.measureText("F").width;
+                this.ctx.fillText("F", xPos - width / 2, this.canvas.height / 2 + 20);
             } else if (xPos === this.canvas.width * 5 / 6 && this.mirrorOrLens !== "mirror") {
                 //Draw tick mark
                 drawTickMark(xPos, this.canvas.height / 2, 10);
                 //Then label with either C or F2
+                var width = this.ctx.measureText("2F").width;
+                this.ctx.fillText("2F", xPos - width / 2, this.canvas.height / 2 + 20);
             }
         }
         //Call drawHuman
