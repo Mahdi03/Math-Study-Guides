@@ -187,7 +187,14 @@ function renderMath(parentElement = "") {
 
 
 
-    //Room for science stuff
+    //Room for science stuff:
+    /*
+    If there are element tags, make sure the file is downloaded before you proceed.
+    if not, then proceed to renderScience anyways, since there is an `if` block there
+    that conditionally uses the periodicTableOfElements.json file depending on whether
+    or not there are any element tags, because the funciton still has other science tags
+    to render
+    */
     var elementTags = document.querySelectorAll(parentElement + "element");
     if (elementTags.length > 0) {
         //If there is no periodic table saved in local storage
@@ -242,8 +249,9 @@ function renderMath(parentElement = "") {
             //Already stored in localStorage, carry on
             renderScience(parentElement);
         }
+    } else {
+        renderScience(parentElement);
     }
-
 
 
 }
@@ -277,111 +285,111 @@ return newElement;
 function renderScience(parentElement = "") {
     //Defined elementTag
     var elementTags = document.querySelectorAll(parentElement + "element");
+    if (elementTags.length > 0) {
+        //<element name="F" atomicNumber massNumber electronConfiguration charge="2&minus;" oxidationNumber="+1" number="2"></element>
+        var periodicTable = JSON.parse(localStorage.getItem("periodicTable"));
+        //console.log(periodicTable);
+        var listOfPeriodicElements = periodicTable.map((el) => { return el.symbol; });
+        //console.log(listOfPeriodicElements);
 
-    //<element name="F" atomicNumber massNumber electronConfiguration charge="2&minus;" oxidationNumber="+1" number="2"></element>
-    var periodicTable = JSON.parse(localStorage.getItem("periodicTable"));
-    //console.log(periodicTable);
-    var listOfPeriodicElements = periodicTable.map((el) => { return el.symbol; });
-    //console.log(listOfPeriodicElements);
+        function getPeriodicElementByName(name) {
+            //Quickest way to search through 118 elements for element
+            /*
+            Search through array of listOfPeriodicElements for index
+            and use the same index on other array, that way I am not
+            searching through the entire array of objects
+            */
+            var index = listOfPeriodicElements.indexOf(name);
+            return (index > -1) ? periodicTable[index] : null; //If not found in index then just return a null value
+        }
+        elementTags.forEach((elementTag) => {
+            var name = elementTag.getAttribute("name");
+            var elementInQuestion = (name == "&alpha;") ? getPeriodicElementByName("He") : getPeriodicElementByName(name); //If alpha particle, use Helium properties, else use element properties
+            var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
+            var massNumber = elementTag.getAttribute("massNumber");
+            var atomicNumber = elementTag.getAttribute("atomicNumber");
+            var number = elementTag.getAttribute("number");
+            var charge = elementTag.getAttribute("charge");
+            var oxidationNumber = elementTag.getAttribute("oxidationNumber");
 
-    function getPeriodicElementByName(name) {
-        //Quickest way to search through 118 elements for element
-        /*
-        Search through array of listOfPeriodicElements for index
-        and use the same index on other array, that way I am not
-        searching through the entire array of objects
-        */
-        var index = listOfPeriodicElements.indexOf(name);
-        return (index > -1) ? periodicTable[index] : null; //If not found in index then just return a null value
-    }
-    elementTags.forEach((elementTag) => {
-        var name = elementTag.getAttribute("name");
-        var elementInQuestion = (name == "&alpha;") ? getPeriodicElementByName("He") : getPeriodicElementByName(name); //If alpha particle, use Helium properties, else use element properties
-        var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
-        var massNumber = elementTag.getAttribute("massNumber");
-        var atomicNumber = elementTag.getAttribute("atomicNumber");
-        var number = elementTag.getAttribute("number");
-        var charge = elementTag.getAttribute("charge");
-        var oxidationNumber = elementTag.getAttribute("oxidationNumber");
-
-        var elementTaginnerHTML = "";
-        if (electronicConfiguration !== null) {
-            if (electronicConfiguration == "") {
-                elementTaginnerHTML = elementInQuestion.electronicConfiguration;
+            var elementTaginnerHTML = "";
+            if (electronicConfiguration !== null) {
+                if (electronicConfiguration == "") {
+                    elementTaginnerHTML = elementInQuestion.electronicConfiguration;
+                } else {
+                    elementTaginnerHTML = electronicConfiguration;
+                }
             } else {
-                elementTaginnerHTML = electronicConfiguration;
-            }
-        } else {
-            var massNumberText = () => {
-                //If massNumber is not requested, leave it blank
-                if (massNumber == null) {
-                    return "";
-                }
-                //If massnumber is requested but not provided, use the dictionary one
-                else if (massNumber == "") {
-                    return (elementInQuestion.atomicMass).toFixed(0);
-                }
-                /*
-                If massNumber is neither of the above, it must be provided
-                so just use the provided value
-                */
-                else {
-                    return massNumber;
-                }
-            };
-            var chargeOrOxidationNumberText = () => {
-                //Choose between whether to show charge, oxidation number, or neither
-                if (charge == null || charge == "" || charge == undefined) {
-                    return ""; //Do nothing
-                }
-                //If neither is true, charge must be a value
-                else if (charge !== null && charge !== "" && charge !== undefined) {
-                    return charge;
-                }
-                //If charge is not provided, oxidation number might be
-                else if (oxidationNumber == null || oxidationNumber == "" || oxidationNumber == undefined) {
-                    return ""; //Do nothing
-                }
-                //If neither is true, oxidation is provided
-                else if (oxidationNumber !== null && oxidationNumber !== "" && oxidationNumber !== undefined) {
-                    return oxidationNumber;
-                }
-                //If nothing is provided, leave this box empty
-                else {
-                    return "";
-                }
-            };
-            var atomicNumberText = () => {
-                //If atomicNumber is not requested, leave it blank
-                if (atomicNumber == null) {
-                    return "";
-                }
-                //If atomicnumber is requested but not provided, use the dictionary one
-                else if (atomicNumber == "") {
-                    return elementInQuestion.atomicNumber;
-                }
-                /*
-                If atomicNumber is neither of the above, it must be provided
-                so just use the provided value
-                */
-                else {
-                    return atomicNumber;
-                }
-            };
-            var numericAmountText = () => {
-                //If number is not requested, or not provided with a value, leave it blank
-                if (number == null || number == "") {
-                    return "";
-                }
-                /*
-                If number is neither of the above, it must be provided
-                so just use the provided value
-                */
-                else {
-                    return number;
-                }
-            };
-            elementTaginnerHTML = `<table class="chemicalElement">
+                var massNumberText = () => {
+                    //If massNumber is not requested, leave it blank
+                    if (massNumber == null) {
+                        return "";
+                    }
+                    //If massnumber is requested but not provided, use the dictionary one
+                    else if (massNumber == "") {
+                        return (elementInQuestion.atomicMass).toFixed(0);
+                    }
+                    /*
+                    If massNumber is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return massNumber;
+                    }
+                };
+                var chargeOrOxidationNumberText = () => {
+                    //Choose between whether to show charge, oxidation number, or neither
+                    if (charge == null || charge == "" || charge == undefined) {
+                        return ""; //Do nothing
+                    }
+                    //If neither is true, charge must be a value
+                    else if (charge !== null && charge !== "" && charge !== undefined) {
+                        return charge;
+                    }
+                    //If charge is not provided, oxidation number might be
+                    else if (oxidationNumber == null || oxidationNumber == "" || oxidationNumber == undefined) {
+                        return ""; //Do nothing
+                    }
+                    //If neither is true, oxidation is provided
+                    else if (oxidationNumber !== null && oxidationNumber !== "" && oxidationNumber !== undefined) {
+                        return oxidationNumber;
+                    }
+                    //If nothing is provided, leave this box empty
+                    else {
+                        return "";
+                    }
+                };
+                var atomicNumberText = () => {
+                    //If atomicNumber is not requested, leave it blank
+                    if (atomicNumber == null) {
+                        return "";
+                    }
+                    //If atomicnumber is requested but not provided, use the dictionary one
+                    else if (atomicNumber == "") {
+                        return elementInQuestion.atomicNumber;
+                    }
+                    /*
+                    If atomicNumber is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return atomicNumber;
+                    }
+                };
+                var numericAmountText = () => {
+                    //If number is not requested, or not provided with a value, leave it blank
+                    if (number == null || number == "") {
+                        return "";
+                    }
+                    /*
+                    If number is neither of the above, it must be provided
+                    so just use the provided value
+                    */
+                    else {
+                        return number;
+                    }
+                };
+                elementTaginnerHTML = `<table class="chemicalElement">
                 <!--Upper Row-->
                 <tr>
                 <td style='text-align: right;'>${massNumberText()}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td style='text-align: left;'>${chargeOrOxidationNumberText()}</td>
@@ -391,9 +399,21 @@ function renderScience(parentElement = "") {
                 <td style='text-align: right;'>${atomicNumberText()}</td><!--Blank Space--><td style='text-align: left;'>${numericAmountText()}</td>
                 </tr>
                 </table>`;
-        }
-        elementTag.innerHTML = elementTaginnerHTML;
-    });
+            }
+            elementTag.innerHTML = elementTaginnerHTML;
+        });
+    }
+    //Defined compound tag - <compound>5C6H12O6^-7</compund>
+    var compoundTags = document.querySelectorAll(parentElement + "compound");
+    for (var i = 0; i < compoundTags.length; i++) {
+        var compound = compoundTags[i].innerHTML;
+        //The first RegExp takes care of subscripts, looks for 1-2 numbers found after a letter
+        //The second RegExp looks for the ^ sign and makes 1-3 characters after it into a superscript (for ions)
+        compound = compound.replace(/(?<=[A-Za-z])(\d{1,2})/g, "<sub>$1</sub>").replace(/\^([\d+-]{1,3})/g, "<sup>$1</sup>").replace("-", "&minus;");
+        compoundTags[i].innerHTML = compound;
+    }
+
+
 }
 
 function toggleDiv(id) {
