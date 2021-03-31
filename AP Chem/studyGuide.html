@@ -130,17 +130,17 @@ font-family: 'Nunito', sans-serif;
 <body>
     <h1 redir="..">AP Chemistry Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
-    <h2 class="link">AP Chemistry Equations</h2>
+    <h2 class="link">AP Chemistry Periodic Table and Equations</h2>
     <div id="modalBackground">
         <div id="apChemistryEquations" class="modal">
             <span class="close">&times;</span>
             <div style="margin: 0 auto;">
                 <!--AP Chem Periodic Table Of Elements-->
-                <iframe src="ap-physics-1-equations-table.pdf" height="800px" width="100%" scrolling="auto"></iframe>
-                <a href="ap-physics-1-equations-table.pdf" target="_blank">Download Periodic Table of Elements Here</a>
+                <iframe src="chemistry-periodic-table-2020.pdf" height="800px" width="100%" scrolling="auto"></iframe>
+                <a href="chemistry-periodic-table-2020.pdf" target="_blank">Download Periodic Table of Elements Here</a>
                 <!--AP chem Equation Sheet-->
-                <iframe src="ap-physics-1-equations-table.pdf" height="800px" width="100%" scrolling="auto"></iframe>
-                <a href="ap-physics-1-equations-table.pdf" target="_blank">Download Equation Sheet Here</a>
+                <iframe src="chemistry-equations-sheet-2020.pdf" height="800px" width="100%" scrolling="auto"></iframe>
+                <a href="chemistry-equations-sheet-2020.pdf" target="_blank">Download Equation Sheet Here</a>
             </div>
         </div>
     </div>
@@ -152,48 +152,12 @@ font-family: 'Nunito', sans-serif;
     <div id="prerequisites">
         <div htmlInclude="Prerequisites.html"></div>
     </div>
-    <!--Linear Motion-->
-    <div><span class="toggleButton" id="linearMotionToggleButton" onclick="toggleDiv('#linearMotion');">&plus;</span>
-        <h2>Linear Motion (Kinematics):</h2>
-    </div>
-    <div id="linearMotion">
-        <div htmlInclude="Linear Motion.html"></div>
-    </div>
-    <!--Forces-->
-    <div><span class="toggleButton" id="forcesToggleButton" onclick="toggleDiv('#forces');">&plus;</span>
-        <h2>Forces:</h2>
-    </div>
-    <div id="forces">
-        <div htmlInclude="Forces.html"></div>
-    </div>
-    <!--Energy (add collisions)-->
-    <div><span class="toggleButton" id="energyToggleButton" onclick="toggleDiv('#energy');">&plus;</span>
-        <h2>Energy:</h2>
-    </div>
-    <div id="energy">
-        <div htmlInclude="Energy.html"></div>
-    </div>
-    <!--Rotational Motion-->
-    <div><span class="toggleButton" id="rotationalMotionToggleButton" onclick="toggleDiv('#rotationalMotion');">&plus;</span>
-        <h2>Rotational Motion:</h2>
-    </div>
-    <div id="rotationalMotion">
-        <div htmlInclude="Rotational Motion.html"></div>
-    </div>
-    <!--Simple Harmonic Motion and Waves (add later)-->
-    <div><span class="toggleButton" id="wavesToggleButton" onclick="toggleDiv('#waves');">&plus;</span>
-        <h2>Simple Harmonic Motion and Waves:</h2>
-    </div>
-    <div id="waves">
-        <div htmlInclude="Waves.html"></div>
-    </div>
-    <!--Electricity (add later)-->
     <script src="../renderMath.js"></script>
     <script src="../main.js"></script>
 
     <script>
         document.querySelector("h2.link").onclick = function() {
-            openPopup("apPhysics1Equations");
+            openPopup("apChemistryEquations");
         };
         //Opens Popup Based on ID
         function openPopup(id) {
@@ -220,8 +184,6 @@ font-family: 'Nunito', sans-serif;
         document.querySelectorAll(".close").forEach(function(elementClose) {
             elementClose.onclick = closeAllPopups;
         });
-        renderMath();
-        addImportanceToFormulas();
     </script>
 
 </body>
