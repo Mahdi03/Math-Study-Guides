@@ -64,7 +64,13 @@ font-family: 'Nunito', sans-serif;
 <body>
     <h1 redir="..">Differential Calculus Study Guide</h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman</h3>
-
+    <!--Prerequisites-->
+    <div><span class="toggleButton" id="prerequisitesToggleButton" onclick="toggleDiv('#prerequisites');">&plus;</span>
+        <h2>Prerequisites:</h2>
+    </div>
+    <div id="prerequisites">
+        <div htmlInclude="Prerequisites.html"></div>
+    </div>
     <!--Chapter 2-->
     <div><span class="toggleButton" id="ch2ToggleButton" onclick="toggleDiv('#ch2');">&plus;</span>
         <h2>Chapter 2:</h2>
