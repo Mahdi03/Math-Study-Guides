@@ -176,8 +176,9 @@ function renderMath(parentElement = "") {
     var sigmaTags = document.querySelectorAll(parentElement + "sigma");
     for (var r = 0; r < sigmaTags.length; r++) {
         var startValue = sigmaTags[r].getAttribute("start");
-        var endValue = sigmaTags[r].getAttribute("end");
-        sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td>&Sigma;</td></tr><tr><td>" + startValue + "</td></tr></table>";
+        var endValue = (sigmaTags[r].getAttribute("end") !== null) ? sigmaTags[r].getAttribute("end") : "";
+        var sigmaInnerHTML = sigmaTags[r].innerHTML;
+        sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td style='font-size: 200%;'>&Sigma;</td><td>" + sigmaInnerHTML + "</td></tr><tr><td>" + startValue + "</td></tr></table>";
     }
     var renderJS = document.querySelectorAll("script.renderJS");
     renderJS.forEach((script) => {
@@ -598,8 +599,15 @@ class CircuitDiagram {
     }
     turnLeft() {
         this.direction--;
-        this.dx = Math.round(Math.cos(Math.PI / 2 * this.direction));
-        this.dy = Math.round(Math.sin(Math.PI / 2 * this.direction));
+        this.dx = Math.round(Math.cos((Math.PI / 2) * this.direction));
+        this.dy = Math.round(Math.sin((Math.PI / 2) * this.direction));
+
+        return this;
+    }
+    moveTo(a, b) {
+        this.ctx.moveTo(a, b);
+        this.currentX = a;
+        this.currentY = b;
 
         return this;
     }

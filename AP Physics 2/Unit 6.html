@@ -10,7 +10,246 @@
 </script>
 <div class="indent">
     <ul>
-        <h3>Resistors:</h3>
-        <h3>Capacitors:</h3>
+        <li>A basic electric circuit is comprised of a source of power, something that requires power, and a complete connection for the flow of electrons. For our purposes, we will use batteries, wall outlets, and capacitors (later in this unit) as sources
+            of power. Things like resistors will take up some of that power and we use wires to complete a full path for electricity.</li>
+        <li>Circuits have a couple basic quantitites:</li>
+        <ol>
+            <li><u><b>Current</b></u> - The amount of charge flowing over time (flow rate when it comes to electricity). Its units are Amps (A), short for Amperes, which is really just Coulombs per second (C/s). The formula matches exactly that:
+                <table class="rules">
+                    <tr>
+                        <td><var>I = <div class="fraction"><div class="top">&Delta;Q</div><div class="bottom">&Delta;t</div></div></var></td>
+                    </tr>
+                </table>
+            </li>
+            <li><u><b>Resistance</b></u> - How much the component restricts the flow of current. The resistance (<var>R</var>) of a resistor depends on length (<var>l</var>) and cross-sectional area (<var>A</var>), as well as a property unique to different
+                elements known as the resistivity (&rho;). Its units are in Ohms (&Omega;) as explained by Ohm's Law. The relation is as follows:
+                <table class="rules">
+                    <tr>
+                        <td><var>R = &rho; <div class="fraction"><div class="top">l</div><div class="bottom">A</div></div></var></td>
+                    </tr>
+                </table>
+                The reason why is because the resistance is directly proportional to the length, as length increases, the more current is restricted, and resistance is indirectly proportional to the cross-sectional area, as the cross-sectional area increases, the resistance
+                goes down since there is less constriction of the current, it can flow more freely.<br />
+                <img style="width: 50%;" src="https://d1yqpar94jqbqm.cloudfront.net/styles/media_full/s3/images/8a556384c665250773869401ee575b0ee71557fc.jpg" alt="" />
+            </li>
+            <li><u><b>Voltage</b></u> - The change in Electric Potential Energy between two locations. Again, its units are in Volts (V). Voltage is related to Current (var{I}) and Resistance (Var{R}) through Ohm's Law:
+                <table class="rules">
+                    <tr>
+                        <td><var>V = IR</var></td>
+                    </tr>
+                </table>
+            </li>
+            <li><u><b>Power</b></u> - The rate at which energy being used up. Its units are in Watts (W), which is really just Joules per second (J/s). There are a couple mathematical definitions of power, including the basic definition, its relation to circuits,
+                and how rearranging/substituting Ohm's Law helps us find other values:
+                <table class="rules">
+                    <tr>
+                        <td><var>P = <div class="fraction"><div class="top">&Delta;E</div><div class="bottom">&Delta;t</div></div></var></td>
+                        <td><var>P = I&Delta;V</var></td>
+                        <td><var>P = I</var><sup>2</sup><var>R</var></td>
+                        <td><var>P</var> =
+                            <div class="fraction">
+                                <div class="top"><var>V</var><sup>2</sup></div>
+                                <div class="bottom"><var>R</var></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+        <li>A resistor is a circuit componenet uses up electrical energy, they are usually lights or other appliances, but resistors can also come in the form of just plain resistors that have no function other than to slow down the current in the circuit.</li>
+        <li>In a circuit diagram, we draw resistors like so:</li>
+        <canvas id="resistorDrawingCanvas" width="40" height="20"></canvas>
+        <script class="renderJS">
+            var resistorDrawingCanvas = document.querySelector("#resistorDrawingCanvas");
+            var resistorDrawingCircuitDiagram = new CircuitDiagram(resistorDrawingCanvas);
+            resistorDrawingCircuitDiagram.beginCircuit(5, 10).drawResistor();
+            resistorDrawingCircuitDiagram.ctx.stroke();
+        </script>
+
+        <li>The power of a light will correlate with how bright that light will shine</li>
+
+        <h5>Series vs Parallel:</h5>
+        <table class="staticTable">
+            <tr>
+                <th>In Series:</th>
+                <th>In Parallel:</th>
+            </tr>
+            <tr>
+                <td>
+                    <canvas id="seriesCircuitCanvas" width="130" height="130"></canvas>
+                    <script class="renderJS">
+                        var seriesCircuitCanvas = document.querySelector("#seriesCircuitCanvas");
+                        var seriesCircuitDiagram = new CircuitDiagram(seriesCircuitCanvas);
+                        seriesCircuitDiagram.beginCircuit(15, seriesCircuitCanvas.height / 2).turnLeft()
+                            .drawBattery().drawWire(50).turnRight()
+                            .drawWire(100).turnRight()
+                            .drawWire(40).drawResistor().drawWire(40).turnRight()
+                            .drawWire(100)
+                            .endCircuit();
+                    </script>
+                </td>
+                <td>
+                    <canvas id="parallelCircuitCanvas" width="130" height="130"></canvas>
+                    <script class="renderJS">
+                        var parallelCircuitCanvas = document.querySelector("#parallelCircuitCanvas");
+                        var parallelCircuitDiagram = new CircuitDiagram(parallelCircuitCanvas);
+                        parallelCircuitDiagram.beginCircuit(15, parallelCircuitCanvas.height / 2).turnLeft()
+                            .drawBattery().drawWire(50).turnRight()
+                            .drawWire(50).turnRight()
+                            .drawWire(40).drawResistor().drawWire(40).turnLeft()
+                            //Now go back and draw the second part to make a parallel circuit
+                            .moveTo(15 + 50, parallelCircuitCanvas.height / 2 - 50 - 5).drawWire(50).turnRight()
+                            .drawWire(40).drawResistor().drawWire(40).turnRight().drawWire(100)
+                            .endCircuit();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>When we say that components of a circuit are in series, they are directly connected to each other by a wire, meaning that the current that flows through one component also flows through the other.</td>
+                <td>When we say that components of a circuit are in parallel, current runs through these components simultaneously. Not necessarily at the same amount of current either</td>
+            </tr>
+        </table>
+
+        <li>Capacitors are another type of component used in circuits. Like resistors, and really any circuit component, they can be placed in series or parallel. Unlike resistors, the capacitor has no resistive abiliites. Instead, it is capable of storing
+            up charge from a power source.</li>
+
+        <li>Capacitors are two conducting plates that are separated from one another by a material. This separating material is called the dielectric.</li>
+        <li>The way capacitors work is that the current starts accumulating charge on one plate, but it has no way to pass through the capacitor to the other end and complete a circuit. However, when enough charge accumulates on one plate, it induces a charge
+            of opposite sign on the other plate, thus completing the circuit.</li>
+        <li>There is one very positively charged plate, and one very negatively charged plate, when the capacitor is charged. This causes an Electric Field between the plates, and you can solve for that electric field through:
+            <table class="rules">
+                <tr>
+                    <td>
+                        <vector>E</vector><sub>F</sub> =
+                        <div class="fraction">
+                            <div class="top"><var>Q</var></div>
+                            <div class="bottom">&epsilon;<sub>0</sub><var>A</var></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>where &epsilon;<sub>0</sub> is the vacuum of permitivity on your equation sheet, <var>A</var> is the cross-sectional area of the plates, and <var>Q</var> is the charge that is stored on the capacitor. </li>
+        <li>Capacitors can only hold so much charge, though, because at one point, so much charge will accumulate that it will start to push the current backwards and the current will stop flowing. When the capacitor is fully charged, current no longer flows.</li>
+        <li>The capacitance of a capacitor&mdash;in Farads (F)&mdash; tells us how well a capacitor can store charge, and it is defined to be:
+            <table class="rules">
+                <tr>
+                    <td><var>C = &kappa;&epsilon;</var><sub>0</sub>
+                        <div class="fraction">
+                            <div class="top"><var>A</var></div>
+                            <div class="bottom"><var>d</var></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>where &kappa; represents a unitless number that is the dielectric constant, a value intrinsic to different materials that just says how good of a conductor the material is. For air, the dielectric constant is 1. &epsilon;<sub>0</sub> is the
+            vacuum of permitivity, it is a constant on the equation sheet, &epsilon;<sub>0</sub> = 8.85 &times; 10<sup>&minus;12</sup>
+            <div class="fraction">
+                <div class="top">C<sup>2</sup></div>
+                <div class="bottom">N&sdot;m<sup>2</sup></div>
+            </div>. <var>A</var> is just the area of the plates, and <var>d</var> is just the separation of the plates.
+        </li>
+        <li>We can connect capacitors to circuits through the following equations:
+            <table class="rules">
+                <tr>
+                    <td><var>&Delta;V = <div class="fraction"><div class="top">Q</div><div class="bottom">C</div></div></var></td>
+                    <td><var>U<sub>C</sub></var> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div><var>Q&Delta;V</var> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div><var>C(&Delta;V)</var><sup>2</sup>
+                    </td>
+                </tr>
+            </table>where <var>U<sub>C</sub></var> is the Electric Potential Energy of the capacitor (how much energy is stored in the capacitor), <var>&Delta;V</var> is the change in voltage across the capacitor, <var>Q</var> is the charge on the plates, and
+            <var>C</var> is the capacitance.
+        </li>
+        <li>One thing about capacitors is that once they are fully charged and then reconnected with a circuit, they lose their charge at an exponential rate.</li>
+        <li>Resistors and capacitors have the opposite properties when it comes to their summations in series and in parallel. (See table below)</li>
+
+        <table class="staticTable">
+            <tr>
+                <th></th>
+                <th>Resistors:</th>
+                <th>Capacitors:</th>
+            </tr>
+            <tr>
+                <th>In Series:</th>
+                <td>
+                    <ul>
+                        <li>Equivalent Resistance:
+                            <table class="rules" style="margin: 0 auto;">
+                                <td><var>R<sub>S</sub></var> =
+                                    <sigma start="<var>i</var>"><var>R<sub>i</sub></var></sigma>
+                                </td>
+                            </table>
+                        </li>
+                        <li>Same current</li>
+                        <li>Voltages add up to total</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Equivalent Capacitance:
+                            <table class="rules" style="margin: 0 auto;">
+                                <td>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>C<sub>S</sub></var></div>
+                                    </div> =
+                                    <sigma start="<var>i</var>"></sigma>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>C<sub>i</sub></var></div>
+                                    </div>
+                                </td>
+                            </table>
+                        </li>
+                        <li>Same charge</li>
+                        <li>Voltages add up to total</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>In Parallel:</th>
+                <td>
+                    <ul>
+                        <li>Equivalent Resistance:
+                            <table class="rules" style="margin: 0 auto;">
+                                <td>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>R<sub>P</sub></var></div>
+                                    </div> =
+                                    <sigma start="<var>i</var>"></sigma>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>R<sub>i</sub></var></div>
+                                    </div>
+                                </td>
+                            </table>
+                        </li>
+                        <li>Same volatages</li>
+                        <li>Currents add up to total</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Equivalent Capacitance:
+                            <table class="rules" style="margin: 0 auto;">
+                                <td><var>C<sub>P</sub></var> =
+                                    <sigma start="<var>i</var>"><var>C<sub>i</sub></var></sigma>
+                                </td>
+                            </table>
+                        </li>
+                        <li>Same voltages</li>
+                        <li>Charges add up to total</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <li>The reason why resistors are more effective in series is because when they are in parallel, the current has more options on where it can go through.</li>
+        <li>The reason why capacitors are more ineffective in series is due to their charging nature, they require the current to flow around them as they "bridge the gap", so capacitors in parallel have a better ability to induce current from the other side
+            as opposed to multiple capacitors in series.</li>
     </ul>
 </div>

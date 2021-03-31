@@ -271,15 +271,18 @@
             text-align: end;
         }
         
+        .sigmaTag,
         .sigmaTag td,
+        .sigmaTag tr,
         .matrix td,
         .chemicalElement td {
-            text-align: center;
-            border: none;
-            border-radius: none;
-            border-collapse: collapse;
-            border-spacing: 0;
-            padding: 0;
+            text-align: center !important;
+            border: none !important;
+            border-radius: 0 !important;
+            border-collapse: collapse !important;
+            border-spacing: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         
         .chemicalElement {
