@@ -417,11 +417,16 @@ function renderScience(parentElement = "") {
                 elementTaginnerHTML = `<table class="chemicalElement">
                 <!--Upper Row-->
                 <tr>
-                <td style='text-align: right;'>${massNumberText()}</td><td rowspan="2">${/*Name will always be provided*/name}</td><td style='text-align: left;'>${chargeOrOxidationNumberText()}</td>
+                <td style='text-align: right;'>${massNumberText()}</td><td></td><td style='text-align: left;'>${chargeOrOxidationNumberText()}</td>
+                </tr>
+                <!--Main Row-->
+                <tr>
+                <td></td>
+                <td class='elementName'>${/*Name will always be provided*/name}</td>
                 </tr>
                 <!--Lower Row-->
                 <tr>
-                <td style='text-align: right;'>${atomicNumberText()}</td><!--Blank Space--><td style='text-align: left;'>${numericAmountText()}</td>
+                <td style='text-align: right;'>${atomicNumberText()}</td><td></td><td style='text-align: left;'>${numericAmountText()}</td>
                 </tr>
                 </table>`;
             }

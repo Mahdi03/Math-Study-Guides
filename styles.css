@@ -289,9 +289,10 @@
             line-height: 10px;
             display: inline-table;
             border-spacing: 0;
+            transform: translateY(-40%);
         }
         
-        .chemicalElement td:not([rowspan="2"]) {
+        .chemicalElement td:not(.elementName) {
             font-size: 70%;
             padding-top: 1px;
             padding-bottom: 1px;
