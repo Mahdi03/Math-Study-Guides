@@ -437,9 +437,9 @@ function renderScience(parentElement = "") {
     var compoundTags = document.querySelectorAll(parentElement + "compound");
     for (var i = 0; i < compoundTags.length; i++) {
         var compound = compoundTags[i].innerHTML;
-        //The first RegExp takes care of subscripts, looks for 1-2 numbers found after a letter
+        //The first RegExp takes care of subscripts, looks for 1-2 numbers found after a letter or parenthesis (like `(OH)2`)
         //The second RegExp looks for the ^ sign and makes 1-3 characters after it into a superscript (for ions)
-        compound = compound.replace(/(?<=[A-Za-z])(\d{1,2})/g, "<sub>$1</sub>").replace(/\^([\d+-]{1,3})/g, "<sup>$1</sup>").replace("-", "&minus;");
+        compound = compound.replace(/(?<=[A-Za-z\)])(\d{1,2})/g, "<sub>$1</sub>").replace(/\^([\d+-]{1,3})/g, "<sup>$1</sup>").replace("-", "&minus;");
         compoundTags[i].innerHTML = compound;
     }
 
@@ -475,6 +475,25 @@ function toggleSolution(id, proof) {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+/*Extra Tools:*/
+
+
+
+
+
+
+
+
 
 function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     //variables to be used when creating the arrow
