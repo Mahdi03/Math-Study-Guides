@@ -431,10 +431,18 @@ function toggleSolution(id, proof) {
     var element = document.querySelector(id);
     if (element.style.display === "block") {
         element.style.display = "none";
-        document.querySelector(id + "ToggleLink").innerHTML = proof == true ? "Show Proof" : "Show Solution";
+        if (typeof proof != typeof "") {
+            document.querySelector(id + "ToggleLink").innerHTML = (proof == true) ? "Show Proof" : "Show Solution";
+        } else {
+            document.querySelector(id + "ToggleLink").innerHTML = "Show " + proof;
+        }
     } else {
         element.style.display = "block";
-        document.querySelector(id + "ToggleLink").innerHTML = proof == true ? "Hide Proof" : "Hide Solution";
+        if (typeof proof != typeof "") {
+            document.querySelector(id + "ToggleLink").innerHTML = (proof == true) ? "Hide Proof" : "Hide Solution";
+        } else {
+            document.querySelector(id + "ToggleLink").innerHTML = "Hide " + proof;
+        }
     }
 }
 
@@ -801,6 +809,8 @@ graph object so that they can be removed if wanted
 give each equation its own properties but keep the graph scale the same
 
 maybe animate the drawing of equations? {animate: true, animationSpeed: 10}
+if animating, make the calculations and canvas drawings offscreen using web workers
+so that it doesn't affect webpage performance - ie: OffscreenCanvas
 
 allow graph to be dragged around at one possible point?
 
