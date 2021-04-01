@@ -306,6 +306,7 @@ function renderScience(parentElement = "") {
             var name = elementTag.getAttribute("name");
             var elementInQuestion = (name == "&alpha;") ? getPeriodicElementByName("He") : getPeriodicElementByName(name); //If alpha particle, use Helium properties, else use element properties
             var electronicConfiguration = elementTag.getAttribute("electronConfiguration");
+            var fullElectronicConfiguration = elementTag.getAttribute("fullElectronConfiguration");
             var massNumber = elementTag.getAttribute("massNumber");
             var atomicNumber = elementTag.getAttribute("atomicNumber");
             var number = elementTag.getAttribute("number");
@@ -318,6 +319,30 @@ function renderScience(parentElement = "") {
                     elementTaginnerHTML = elementInQuestion.electronicConfiguration;
                 } else {
                     elementTaginnerHTML = electronicConfiguration;
+                }
+            } else if (fullElectronicConfiguration !== null) {
+                if (fullElectronicConfiguration == "") {
+                    //Recursively get the electron configurations of all the electrons
+                    function getFullElectronConfiguration(abbreviatedElectronConfiguration) {
+                        var returnVal = abbreviatedElectronConfiguration;
+                        if (abbreviatedElectronConfiguration.includes("[")) {
+                            var regex = /\[([A-Za-z]{1,2})\]/;
+                            var newElementInQuestion = regex.exec(abbreviatedElectronConfiguration)[1];
+                            //var newElementInQuestion = abbreviatedElectronConfiguration.split("]")[0].split("[")[1];
+                            var newElementInQuestionElectronConfiguration = getPeriodicElementByName(newElementInQuestion).electronicConfiguration;
+                            returnVal = abbreviatedElectronConfiguration.replace(/\[[A-Za-z]{1,2}\]/, newElementInQuestionElectronConfiguration);
+                            if (returnVal.includes("[")) {
+                                return getFullElectronConfiguration(returnVal);
+                            } else {
+                                return returnVal;
+                            }
+                        } else {
+                            return returnVal;
+                        }
+                    }
+                    elementTaginnerHTML = getFullElectronConfiguration(elementInQuestion.electronicConfiguration);
+                } else {
+                    elementTaginnerHTML = fullElectronicConfiguration;
                 }
             } else {
                 var massNumberText = () => {
