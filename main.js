@@ -15,7 +15,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
 
     function getFile() {
         //Give it a wait logo so that the user knows that the website isn't frozen
-        document.body.style.cursor = "wait";
+        document.body.parentElement.style.cursor = "wait";
         toggleButton.innerHTML = loadingLogoHTML;
         var fileRequest = new XMLHttpRequest();
         fileRequest.onreadystatechange = function() {
@@ -33,7 +33,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
                     });
                     renderingHTMLFunction.then((successMessage) => {
                         //End the wait cursor
-                        document.body.style.cursor = "initial";
+                        document.body.parentElement.style.cursor = "initial";
                         toggleButton.innerHTML = "&minus;";
 
                     }).catch((errorMessage) => {
