@@ -311,7 +311,7 @@ function renderScience(parentElement = "") {
             var atomicNumber = elementTag.getAttribute("atomicNumber");
             var number = elementTag.getAttribute("number");
             var charge = elementTag.getAttribute("charge");
-            var oxidationNumber = elementTag.getAttribute("oxidationNumber");
+            var oxidationNumber = elementTag.getAttribute("oxidationState");
 
             var elementTaginnerHTML = "";
             if (electronicConfiguration !== null) {
@@ -365,19 +365,16 @@ function renderScience(parentElement = "") {
                 var chargeOrOxidationNumberText = () => {
                     //Choose between whether to show charge, oxidation number, or neither
                     if (charge == null || charge == "" || charge == undefined) {
-                        return ""; //Do nothing
+                        //If charge is not provided, check if oxidation is
+                        if (oxidationNumber == null || oxidationNumber == "" || oxidationNumber == undefined) {
+                            return ""; //Do nothing
+                        } else if (oxidationNumber !== null && oxidationNumber !== "" && oxidationNumber !== undefined) {
+                            return oxidationNumber;
+                        }
                     }
                     //If neither is true, charge must be a value
                     else if (charge !== null && charge !== "" && charge !== undefined) {
                         return charge;
-                    }
-                    //If charge is not provided, oxidation number might be
-                    else if (oxidationNumber == null || oxidationNumber == "" || oxidationNumber == undefined) {
-                        return ""; //Do nothing
-                    }
-                    //If neither is true, oxidation is provided
-                    else if (oxidationNumber !== null && oxidationNumber !== "" && oxidationNumber !== undefined) {
-                        return oxidationNumber;
                     }
                     //If nothing is provided, leave this box empty
                     else {
@@ -433,14 +430,16 @@ function renderScience(parentElement = "") {
             elementTag.innerHTML = elementTaginnerHTML;
         });
     }
-    //Defined compound tag - <compound>5C6H12O6^-7</compund>
+    /*Try combining the element and compound tags*/
+    //Defined compound tag - <compound>5C6H12O6^-7</compound>
     var compoundTags = document.querySelectorAll(parentElement + "compound");
     for (var i = 0; i < compoundTags.length; i++) {
         var compound = compoundTags[i].innerHTML;
+        var stateOfMatter = compoundTags[i].getAttribute("state");
         //The first RegExp takes care of subscripts, looks for 1-2 numbers found after a letter or parenthesis (like `(OH)2`)
         //The second RegExp looks for the ^ sign and makes 1-3 characters after it into a superscript (for ions)
         compound = compound.replace(/(?<=[A-Za-z\)])(\d{1,2})/g, "<sub>$1</sub>").replace(/\^([\d+-]{1,3})/g, "<sup>$1</sup>").replace("-", "&minus;");
-        compoundTags[i].innerHTML = compound;
+        compoundTags[i].innerHTML = (stateOfMatter != undefined && stateOfMatter != "") ? compound + " (<var>" + stateOfMatter + "</var>)" : compound;
     }
 
 
