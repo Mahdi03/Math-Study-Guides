@@ -1,0 +1,104 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <!--
+Check out:
+http://farside.ph.utexas.edu/teaching/em/lectures/node26.html
+For all the information on electrostatics and magnetostatics
+
+    -->
+    <ul>
+
+        <li>Magnetism is the most complex force we've seen so far. It is always the result of moving/charged particles, which would mean that current moving through a wire must induce magnetism.</li>
+        <li>In a random material, the spin of electrons is randomized and pointed in random directions, so overall the electron spins cancel out. But in ferromagnetic materials (like iron), their electron spins can be aligned to cause a net magnetic field.
+            Bar magnets have ferromagnetism.</li>
+        <li>Magnetic fields are measured in Teslas (T), and 1T is really powerful, most of our problems will deal with magnetic fields in the mT to &mu;T range.</li>
+        <li>In a uniform magnetic field, electrons move in circular motion. This happens because with centripetal motion, the force is perpendicular to the direction of motion (the Force vector and the velocity vector are orthogonal).</li>
+        <!--Insert Diagram of perpendicular vectors-->
+        <canvas id="centripetalVectorsCanvas" width="50" height="50"></canvas>
+        <script class="renderJS">
+            var centripetalVectorsCanvas = document.querySelector("#centripetalVectorsCanvas");
+            var centripetalVectorsCTX = centripetalVectorsCanvas.getContext("2d");
+            centripetalVectorsCTX.font = "15px Arial";
+            //Velocity Vector
+            drawArrow(centripetalVectorsCTX, 10, 10, 10, 50);
+            centripetalVectorsCTX.fillText("v", 30, 20);
+            //Force Vector
+            drawArrow(centripetalVectorsCTX, 10, 10, 50, 10);
+            centripetalVectorsCTX.fillText("F", 15, 40);
+        </script>
+        <li>Forces applied to moving charge by a magnetic field obeys the right-hand rule, where your thumb is the direction of velocity, and your four fingers point in the direction of the magnetic field. If the charge is negative, the force is in the direction
+            of your back-hand. If the charge is positive, it is in the direction of the palm.</li>
+        <img style="width: 50%;" src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1989/2017/06/13230236/figure-23-04-01a.jpeg" />
+        <li>We've seen from previous physics formulas that dot products and cross products relate to vectors. In scenarios where we only care about the parallel components of vectors, we employ the dot product (see the formula for work). And for scenarios
+            where we only care about the perpendicular components of vectors, we employ the cross product. Remember that the result of a cross-product of two vectors is always a vector that is orthogonal to the first two vectors. This is why we need 3-D
+            representations of space on 2-D papers for this unit.</li>
+        <li>We give the magnetic force on a motionary point-charge to be:
+            <table class="rules">
+                <tr>
+                    <td>
+                        <vector>F<sub>M</sub></vector> =
+                        <var>q</var>
+                        <vector>v</vector> &Cross;
+                        <vector>B</vector>
+                    </td>
+                    <td>
+                        ||
+                        <vector>F<sub>M</sub></vector>|| = ||<var>q</var>
+                        <vector>v</vector>|| ||
+                        <vector>B</vector>||
+                        <sin>&theta;</sin>
+                    </td>
+                </tr>
+            </table>where <var>q</var> is the charge of the particle,
+            <vector>v</vector> is the velocity, and
+            <vector>B</vector> gives the magnetic field. For the second equation we can apply the properties of the vector cross-product to allow us to deal with the magnitudes of the vectors and the angle in between them.</li>
+        <li>We can find the force of magnetism exerted by a straight wire using a very similar formula:
+            <table class="rules">
+                <tr>
+                    <td>
+                        <vector>F<sub>M</sub></vector> =
+                        <var>I</var>
+                        <vector>l</vector> &Cross;
+                        <vector>B</vector>
+                    </td>
+                    <td>
+                        ||
+                        <vector>F<sub>M</sub></vector>|| = ||<var>I</var>
+                        <vector>l</vector>|| ||
+                        <vector>B</vector>||
+                        <sin>&theta;</sin>
+                    </td>
+                </tr>
+            </table>where <var>I</var> is the current, <var>l</var> is the length vector, and once again <var>B</var> is the magnetic field.</li>
+        <li>Magnets in general try to line up with their external magnetic field, we know how with charges, negative and positive attract, North and South poles of magnets attract.</li>
+        <li>Since current running through a wire also exerts a magnetic field, the magnetic field calculated at a distance <var>r</var> from a straight wire is given by the Biot-Savart Law:
+            <table class="rules">
+                <tr>
+                    <td><var>B</var> =
+                        <div class="fraction">
+                            <div class="top">&mu;<sub>0</sub></div>
+                            <div class="bottom">2&pi;</div>
+                        </div>
+                        <div class="fraction">
+                            <div class="top"><var>I</var></div>
+                            <div class="bottom"><var>r</var></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>where &mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> (T&sdot;m/A) is a constant representing the permeability of a vacuum (how well a magnetic field can permeate in free space), <var>I</var> is the current, <var>r</var> is the distance
+            from the wire, and <var>B</var> is the magnitude of the magnetic field.</li>
+        <li>Check out a lecture from UT Austin explaining the derivation of the Biot-Savart law here: <a href="http://farside.ph.utexas.edu/teaching/em/lectures/node38.html" target="_blank">Part 1</a> and <a href="http://farside.ph.utexas.edu/teaching/em/lectures/node39.html"
+                target="_blank">Part 2</a>. <span style="color: red;">This derivation consists of heavy Multivariable Calculus and as such is not required by AP Physics 2 curriculum.</span></li>
+        <li>We can find the direction of this magnetic field by using another modified right-hand rule, simply stick your thumb in the direction of current and let your 4 fingers "wrap" around the wire.</li>
+        <img style="width: 50%;" src="https://www.pasco.com/media/files/static/guides/right-hand-rule/curl_rhr.png" />
+    </ul>
+</div>
