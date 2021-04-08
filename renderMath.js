@@ -45,7 +45,7 @@ function renderMath(parentElement = "") {
     var sqrtTags = document.querySelectorAll(parentElement + "sqrt");
     for (var e = 0; e < sqrtTags.length; e++) {
         var sqrtInput = sqrtTags[e].innerHTML;
-        sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid black;'>" + sqrtInput + "</span>";
+        sqrtTags[e].innerHTML = "&radic;<span style='border-top: 0.5px solid;'>" + sqrtInput + "</span>";
     }
     //Defined all Limit Tags
     var limTags = document.querySelectorAll(parentElement + "lim");
