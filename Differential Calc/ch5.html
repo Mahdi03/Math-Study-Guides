@@ -1,0 +1,152 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+
+        <h3>5.1: Introduction to Simple Harmonic Motion:</h3>
+        <li>Objects such as springs do not move in a linear path, instead, they move in a back and forth path continuously, they exhibit forms of Simple Harmonic Motion.</li>
+        <li>All this is, is when an object oscillates back and forth uninterrupted as the system tries to restore itself to equilibrium (the center point where the system no longer moves, or when displacement is 0), such that when its motion is graphed on
+            a line, it produces a sinusoidal function (it moves like a sine graph).</li>
+        <li>We can (and shortly will) prove that simple harmonic motion is sinusoidal.</li>
+        <li>Springs have a Spring Force Constant (<var>k</var>) that varies from spring to spring.</li>
+        <ol>
+            <li>When you stretch a spring, as it tries to bring itself back to equilibrium, the Restoring Force is given by Hooke's Law:
+                <table class="rules">
+                    <tr>
+                        <td><var>F<sub>s</sub> = &minus;kx</var></td>
+                    </tr>
+                </table>
+                The (&minus;) is there to tell you that the force is in the opposite direction of the displacement, and the formula tells you that displacement is proportional to the Restoring Force.</li>
+            <li>We also know from Newton's Second Law that:</li>
+            <table class="rules">
+                <tr>
+                    <td><var>F</var><sub>net</sub> = <var>ma</var></td>
+                </tr>
+            </table>
+            <li>We can set <var>F</var><sub>net</sub> = <var>F<sub>s</sub></var>, and we know that acceleration <var>a</var> is just the second derivative of displacement <var>x</var>
+                <derivative order="2" of="x" respectTo="t"></derivative>. So we can substitute these in and we have ourselves a second-order homogeneous differential equation!
+            </li>
+            <var>F</var><sub>net</sub> = <var>F<sub>s</sub></var><br />
+            <var>ma = &minus;kx</var><br />
+            <var>m</var>
+            <derivative order="2" of="x" respectTo="t"></derivative> = <var>&minus;kx</var>
+            <li>Now let's bring everything to one side, and then divide by <var>m</var> to isolate the derivative.</li>
+            <derivative order="2" of="x" respectTo="t"></derivative> +
+            <div class="fraction">
+                <div class="top"><var>k</var></div>
+                <div class="bottom"><var>m</var></div>
+            </div><var>x</var> = 0
+            <li>Just to remove the fraction from our math, we'll substitute <var>&omega;</var><sup>2</sup> =
+                <div class="fraction">
+                    <div class="top"><var>k</var></div>
+                    <div class="bottom"><var>m</var></div>
+                </div>
+
+            </li>
+            <derivative order="2" of="x" respectTo="t"></derivative> +
+            <var>&omega;</var><sup>2</sup><var>x</var> = 0<br />
+            <li>Time for an auxiliary equation!!!</li>
+            <var>m</var><sup>2</sup> + &omega;<sup>2</sup> = 0<br /> &minus;
+            <var>&omega;</var><sup>2</sup> = <var>m</var><sup>2</sup><br /> &plusmn;
+            <var>i&omega;</var> = <var>m</var>
+            <li>We already know the set of solutions to equations that are imaginary roots for the auxiliary equation. And since our HOLDEN is of order 2, we are guaranteed two linearly independent solutions, which is now given by:</li>
+            <var>x(t)</var> = <var>c</var><sub>1</sub>
+            <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
+            <sin>&omega;t</sin><br />
+            <li>But wait, the actual scenario gives us a graph of only one wave! The truth of the matter is, when we add two waves, they can either add constructively or destructively. And as long as they don't destructively interfere, we can try to shape
+                our equation into a summation identity. Let's try a trigonometric substitution to form it into one of our summation identities like
+                <sin>&alpha; + &beta;</sin>
+            </li>
+            <table style="color: purple; border-color: purple !important;">
+                <tr>
+                    <td>
+                        <sqrt style="position: absolute; z-index: 1;"><var>c</var><sub>1</sub><sup>2</sup> +
+                            <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                        <canvas width="100" height="60" id="hookesLawAntiderivationTrigSubCanvas"></canvas>
+                        <script class="renderJS">
+                            var hookesLawAntiderivationTrigSubCanvas = document.querySelector("#hookesLawAntiderivationTrigSubCanvas");
+                            var hookesLawAntiderivationTrigSubCTX = hookesLawAntiderivationTrigSubCanvas.getContext("2d");
+
+                            //Draw a triangle
+                            hookesLawAntiderivationTrigSubCTX.moveTo(5, 55);
+                            hookesLawAntiderivationTrigSubCTX.lineTo(115 - 20, 55);
+                            hookesLawAntiderivationTrigSubCTX.lineTo(115 - 20, 5);
+                            hookesLawAntiderivationTrigSubCTX.lineTo(5, 55);
+                            //Draw the right angle
+                            hookesLawAntiderivationTrigSubCTX.moveTo(115 - 20 - 10, 55);
+                            hookesLawAntiderivationTrigSubCTX.lineTo(115 - 20 - 10, 55 - 10);
+                            hookesLawAntiderivationTrigSubCTX.lineTo(115 - 20, 55 - 10);
+                            //Draw the main angle
+                            hookesLawAntiderivationTrigSubCTX.font = "14px Cambria";
+                            hookesLawAntiderivationTrigSubCTX.fillStyle = "purple";
+                            hookesLawAntiderivationTrigSubCTX.fillText("\u03C6", 27, 50);
+                            hookesLawAntiderivationTrigSubCTX.moveTo(22, 55);
+                            hookesLawAntiderivationTrigSubCTX.quadraticCurveTo(27, 48, 19, 45)
+                            hookesLawAntiderivationTrigSubCTX.strokeStyle = "purple";
+                            hookesLawAntiderivationTrigSubCTX.stroke();
+                        </script>
+
+                    </td>
+                    <td><var>c</var><sub>2</sub></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><var>c</var><sub>1</sub></td>
+                </tr>
+            </table>
+            <var>x(t)</var> = <var>c</var><sub>1</sub>
+            <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
+            <sin>&omega;t</sin><br />
+            <var>x(t)</var> =
+            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+            [
+            <cos>&omega;t</cos>
+            <div class="fraction">
+                <div class="top"><var>c</var><sub>1</sub></div>
+                <div class="bottom">
+                    <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                        <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                </div>
+            </div> +
+            <sin>&omega;t</sin>
+            <div class="fraction">
+                <div class="top"><var>c</var><sub>2</sub></div>
+                <div class="bottom">
+                    <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                        <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                </div>
+            </div>]<br />
+            <var>x(t)</var> =
+            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+            [
+            <cos>&omega;t</cos>
+            <cos>&phi;</cos> +
+            <sin>&omega;t</sin>
+            <sin>&phi;</sin>]<br />
+            <var>x(t)</var> =
+            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+            <cos>&omega;t &minus; &phi;</cos>
+            <li>And tada! The same derivation works if you switch <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub>, just this time around you'll get <var>x(t)</var> =
+                <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                    <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                <sin>&omega;t + &phi;</sin>
+            </li>
+        </ol>
+        <li>Now when we solve these kinds of equations, we can solve for <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> given initial conditions <var>x(t)</var> and <var>x'(t)</var> by plugging in and solving, and we can solve for our <var>&omega;</var>            if we know <var>k</var> and <var>m</var> through our original substitution <var>&omega;</var><sup>2</sup><var> =
+                <div class="fraction">
+                    <div class="top"><var>k</var></div>
+<div class="bottom"><var>m</var></div>
+</div>
+</li>
+</ul>
+</div>
