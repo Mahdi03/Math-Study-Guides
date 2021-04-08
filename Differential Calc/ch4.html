@@ -80,10 +80,11 @@
         </li>
         <li>In the case of repeated roots, we multiply subsequent terms by another <var>x</var>. The set of solutions for a root of multiplicity <var>k</var> is {e<sup><var>mx</var></sup>, <var>x</var>e<sup><var>mx</var></sup>, <var>x</var><sup>2</sup>e<sup><var>mx</var></sup>,
             ..., x<sup><var>k</var> &minus; 1</sup>e<sup><var>mx</var></sup>}</li>
+        <!--Show Proof-->
         <li>In the case of imaginary roots (when the root <var>m</var> = <var>a &plusmn; bi</var>), the set looks like {e<sup><var>ax</var></sup>
             <cos><var>b</var><var>x</var></cos>, <var>e</var><sup><var>ax</var></sup>
             <sin><var>b</var><var>x</var></sin>}</li>
-
+        <!--Show Proof-->
         <h3>4.4: The Method of Undetermined Coefficients (Guess & Hope):</h3>
         <li>
             In the case of NOLDEN's with constant coefficients, we
@@ -139,7 +140,162 @@
                 </th>
             </tr>
         </table>
+        <h3>4.7: Variations of Parameters:</h3>
+        <li>In order to solve NOLDEN's for which annihilation is not possible (particularly those of second-order), we solve the corresponding HOLDEN and then vary the parameters <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub></li>
+        <li>The first step is to always <u>normalize</u> the Differential Equation, which just means to divide the entire equation by the coefficient of the derivative, that way we isolate the derivative into a more formidable form.</li>
+        <li>More often than not, it is easier to solve the corresponding HOLDEN than the NOLDEN itself, so we do exactly that. Once the NOLDEN is normalized, solve the corresponding HOLDEN to get the set of general solutions.</li>
+        <li>The catch is solving for the particular solution so that we can find the solution to the entire NOLDEN.</li>
+        <li>The solution to a NOLDEN of the form <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var> is given by:
+            <!--Insert table.rules showing another way to find the particular solution-->
+            <table class="rules">
+                <tr>
+                    <td>
+                        <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>y</var><sub>2</sub>(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)
+                        + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)
+                    </td>
+                    <td>
+                        <var>u</var><sub>1</sub>'(<var>x</var>) =
+                        <div style="transform: translateY(20%);" class="fraction">
+                            <div class="top">
+                                det
+                                <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            </div>
+                            <div class="bottom">
+                                det
+                                <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            </div>
+                        </div>
+                        =
+                        <div class="fraction">
+                            <div class="top">W<sub>1</sub></div>
+                            <div class="bottom">W</div>
+                        </div>
+                    </td>
+                    <td>
+                        <var>u</var><sub>2</sub>'(<var>x</var>) =
+                        <div style="transform: translateY(20%);" class="fraction">
+                            <div class="top">
+                                det
+                                <matrix class="matricInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            </div>
+                            <div class="bottom">
+                                det
+                                <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            </div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">W<sub>2</sub></div>
+                            <div class="bottom">W</div>
+                        </div>
+                    </td>
+                    <th><a id="particularSolutionProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#particularSolutionProof', true)">Show Proof</a></th>
+                </tr>
+            </table>
+        </li>
+        <div id="particularSolutionProof" class="solution">
+            <ol>
+                <li>We look at a basic general solution to a second-order HOLDEN <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = 0</li>
+                <var>y(x) = c</var><sub>1</sub><var> y</var><sub>1</sub><var>(x) + c</var><sub>2</sub><var> y</var><sub>2</sub><var>(x)</var>
+                <li>Replacing <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> with functions <var>u</var><sub>1</sub>(<var>x</var>) and <var>u</var><sub>2</sub>(<var>x</var>) gets us:</li>
+                <var>y</var>(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)<br /> and
+                <br />
+                <var>y</var>'(<var>x</var>) = <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span>                + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)
+                <li>We need to solve for our two unknowns: <var>u</var><sub>1</sub>(<var>x</var>) and <var>u</var><sub>2</sub>(<var>x</var>). This means we need two equations
+                    <br />We can set a condition:
 
+                    <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span> =
+                    0
+                    <br /> Even though it seems unnatural to impose a condition like letting it equal to 0, by adding an extra variable we are essentially given another degree of freedom, and that allows us to set these relationships between our introduced
+                    variable and the original variable.
+                </li>
+                <li>Now our equation looks simpler, and we can take the next derivative so we can substitute back into our original normalized NOLDEN</li>
+                <var>y</var>'(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)<br />
+                <var>y</var>''(<var>x</var>) = <var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var>''(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)
+                + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>''(<var>x</var>)
+                <li>Now that we know <var>y</var>, <var>y</var>', and <var>y</var>'', we can plug it back in to our original NOLDEN <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var>. It's too much algebra to simplify here, but you should
+                    be left with:</li>
+                <var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) = <var>f</var>(<var>x</var>)
+                <li>Try to simplify it out and then factor into groups such that the terms resemble the HOLDEN. Since the HOLDEN is = 0, those terms should just disappear. And back from our original imposition of a relationship between our variable and the
+                    original variable, we have:</li>
+                <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span> = 0
+                <li>Now we have two equations, we can solve for both <var>u</var><sub>1</sub>'(<var>x</var>) and <var>u</var><sub>2</sub>'(<var>x</var>) in terms of the same variables, which gets us:</li>
+                <table class="staticTable">
+                    <tr>
+                        <td>
+                            <var>u</var><sub>1</sub>'(<var>x</var>) =
+                            <div class="fraction">
+                                <div class="top">
+                                    &minus;<var>y</var><sub>2</sub>(x)<var>f</var>(x)
+                                </div>
+                                <div class="bottom">
+                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <var>u</var><sub>2</sub>'(<var>x</var>) =
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>f</var>(<var>x</var>)
+                                </div>
+                                <div class="bottom">
+                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <li>The thing is, these formulas are too large to remember, so we can transform these with the Wronskian:</li>
+                <style>
+                    .matrixInFraction .matrix {
+                        transform: translateY(2px);
+                    }
+                </style>
+
+                <table class="staticTable">
+                    <tr>
+                        <td>
+                            <var>u</var><sub>1</sub>'(<var>x</var>) =
+                            <div style="transform: translateY(20%);" class="fraction">
+                                <div class="top">
+                                    det
+                                    <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                </div>
+                                <div class="bottom">
+                                    det
+                                    <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                </div>
+                            </div>
+                            =
+                            <div class="fraction">
+                                <div class="top">W<sub>1</sub></div>
+                                <div class="bottom">W</div>
+                            </div>
+                        </td>
+                        <td>
+                            <var>u</var><sub>2</sub>'(<var>x</var>) =
+                            <div style="transform: translateY(20%);" class="fraction">
+                                <div class="top">
+                                    det
+                                    <matrix class="matricInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                </div>
+                                <div class="bottom">
+                                    det
+                                    <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                </div>
+                            </div> =
+                            <div class="fraction">
+                                <div class="top">W<sub>2</sub></div>
+                                <div class="bottom">W</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </ol>
+        </div>
+
+        <!--End proof for particular solution formula-->
+        <li>With this method, we can find the original equations <var>u</var><sub>1</sub> and <var>u</var><sub>2</sub> by integrating <var>u</var><sub>1</sub>' and <var>u</var><sub>2</sub>' respectively.</li>
     </ul>
 </div>
 <script>
