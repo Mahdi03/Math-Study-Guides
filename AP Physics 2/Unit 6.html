@@ -10,6 +10,7 @@
 </script>
 <div class="indent">
     <ul>
+        <h3>Basic Circuits:</h3>
         <li>A basic electric circuit is comprised of a source of power, something that requires power, and a complete connection for the flow of electrons. For our purposes, we will use batteries, wall outlets, and capacitors (later in this unit) as sources
             of power. Things like resistors will take up some of that power and we use wires to complete a full path for electricity.</li>
         <li>Circuits have a couple basic quantities:</li>
@@ -56,6 +57,7 @@
                 </table>
             </li>
         </ol>
+        <h3>Resistors:</h3>
         <li>A resistor is a circuit component uses up electrical energy, they are usually lights or other appliances, but resistors can also come in the form of just plain resistors that have no function other than to slow down the current in the circuit.</li>
         <li>In a circuit diagram, we draw resistors like so:</li>
         <canvas id="resistorDrawingCanvas" width="40" height="20"></canvas>
@@ -109,10 +111,16 @@
                 <td>When we say that components of a circuit are in parallel, current runs through these components simultaneously. Not necessarily at the same amount of current either</td>
             </tr>
         </table>
-
+        <h3>Kirchhoff's Laws:</h3>
+        <h5>Kirchhoff's Loop Rule:</h5>
+        <li>This rule states that all the voltage must be used up in a loop (any closed circuit of wires). So if you have two resistors in parallel, then you would have two "loops", or paths to go from the positive end to the negative end of the power source.</li>
+        <img src="https://learn.digilentinc.com/Documents/Analog/P04_03-KVL/Verify_KVL.png" />
+        <h5>Kirchhoff's Junction Rule:</h5>
+        <li>This rule states that all the current going into a "junction" (a connection of more than one wire) must be equivalent to the sum of the currents leaving the junction.</li>
+        <img src="https://www.electronics-tutorials.ws/wp-content/uploads/2017/05/dcp93.gif" />
+        <h3>Capacitors:</h3>
         <li>Capacitors are another type of component used in circuits. Like resistors, and really any circuit component, they can be placed in series or parallel. Unlike resistors, the capacitor has no resistive abilities. Instead, it is capable of storing
             up charge from a power source.</li>
-
         <li>Capacitors are two conducting plates that are separated from one another by a material. This separating material is called the dielectric.</li>
         <li>The way capacitors work is that the current starts accumulating charge on one plate, but it has no way to pass through the capacitor to the other end and complete a circuit. However, when enough charge accumulates on one plate, it induces a charge
             of opposite sign on the other plate, thus completing the circuit.</li>
@@ -165,6 +173,7 @@
             <var>C</var> is the capacitance.
         </li>
         <li>One thing about capacitors is that once they are fully charged and then reconnected with a circuit, they lose their charge at an exponential rate.</li>
+        <h3>Combined Circuits:</h3>
         <li>Resistors and capacitors have the opposite properties when it comes to their summations in series and in parallel. (See table below)</li>
 
         <table class="staticTable">
