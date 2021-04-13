@@ -12,6 +12,17 @@
     <ul>
 
         <h3>5.1: Introduction to Simple Harmonic Motion:</h3>
+        <li>We are starting to delve into a little physics, and so for this class we'll use an approximation for the acceleration of gravity (<var>g</var>):</li>
+        <table class="rules">
+            <tr>
+                <td><var>g</var> = 10
+                    <div class="fraction">
+                        <div class="top">m</div>
+                        <div class="bottom">s<sup>2</sup></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <li>Objects such as springs do not move in a linear path, instead, they move in a back and forth path continuously, they exhibit forms of Simple Harmonic Motion.</li>
         <li>All this is, is when an object oscillates back and forth uninterrupted as the system tries to restore itself to equilibrium (the center point where the system no longer moves, or when displacement is 0), such that when its motion is graphed on
             a line, it produces a sinusoidal function (it moves like a sine graph).</li>
@@ -58,9 +69,15 @@
             <var>&omega;</var><sup>2</sup> = <var>m</var><sup>2</sup><br /> &plusmn;
             <var>i&omega;</var> = <var>m</var>
             <li>We already know the set of solutions to equations that are imaginary roots for the auxiliary equation. And since our HOLDEN is of order 2, we are guaranteed two linearly independent solutions, which is now given by:</li>
-            <var>x(t)</var> = <var>c</var><sub>1</sub>
-            <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
-            <sin>&omega;t</sin><br />
+            <table class="rules">
+                <tr>
+                    <td>
+                        <var>x(t)</var> = <var>c</var><sub>1</sub>
+                        <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
+                        <sin>&omega;t</sin>
+                    </td>
+                </tr>
+            </table>
             <li>But wait, the actual scenario gives us a graph of only one wave! The truth of the matter is, when we add two waves, they can either add constructively or destructively. And as long as they don't destructively interfere, we can try to shape
                 our equation into a summation identity. Let's try a trigonometric substitution to form it into one of our summation identities like
                 <sin>&alpha; + &beta;</sin>
@@ -142,11 +159,83 @@
                 <sin>&omega;t + &phi;</sin>
             </li>
         </ol>
-        <li>Now when we solve these kinds of equations, we can solve for <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> given initial conditions <var>x(t)</var> and <var>x'(t)</var> by plugging in and solving, and we can solve for our <var>&omega;</var>            if we know <var>k</var> and <var>m</var> through our original substitution <var>&omega;</var><sup>2</sup><var> =
-                <div class="fraction">
-                    <div class="top"><var>k</var></div>
-<div class="bottom"><var>m</var></div>
-</div>
-</li>
-</ul>
+        <li>Now when we solve these kinds of equations, we can solve for <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> given initial conditions <var>x(t)</var> and <var>x'(t)</var> by plugging in and solving, and we can solve for our <var>&omega;</var>            if we know <var>k</var> and <var>m</var> through our original substitution <var>&omega;</var><sup>2</sup> =
+            <div class="fraction">
+                <div class="top"><var>k</var></div>
+                <div class="bottom"><var>m</var></div>
+            </div>
+        </li>
+        <h3>5.2: Springs with Dampers:</h3>
+        <li>The previous section is heavily physics-related. Naturally, we assumed there was no friction to keep the model simpler, but in reality there is friction, and with friction we have Simple Harmonic Motion that slowly decays.</li>
+        <!--Insert graph of (e^-3x)cos(x)-->
+        <li>In these kinds of situations we say that the spring exhibits <u>damped motion</u>.</li>
+        <li>Originally we had a differential equation in the form of <var>m</var>
+            <derivative order="2" of="x" respectTo="t"></derivative> + <var>kx</var> = 0. But now we have to account for damping over time. We modify our differential equation to include a damping constant (&beta;)</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <var>m</var>
+                    <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
+                    <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = 0
+                </td>
+            </tr>
+        </table>
+        <li>Once we convert into the auxiliary equation and solve using the quadratic formula, there are three possibilities with the discriminant (&beta;<sup>2</sup> &minus; 4<var>mk</var>):</li>
+        <ol>
+            <li>
+                Discriminant &gt; 0:<br /> We get 2 real solutions, and we say that the system is <u>overdamped</u>
+                <table class="rules">
+                    <tr>
+                        <td>
+                            <var>x</var>(<var>t</var>) = <var>c</var><sub>1</sub><var>e</var><sup><var>r</var><sub>1</sub><var>t</var></sup> + <var>c</var><sub>2</sub><var>e</var><sup><var>r</var><sub>2</sub><var>t</var></sup>
+                        </td>
+                        <th>where <var>r</var><sub>1</sub> and <var>r</var><sub>2</sub> &lt; 0</th>
+                    </tr>
+                </table>
+                <!--Insert graph of overdamped motion-->
+            </li>
+            <li>
+                Discriminant = 0:<br /> We get 1 real solution, and we say that the system is <u>critically damped</u>
+                <table class="rules">
+                    <tr>
+                        <td>
+                            <var>x</var>(<var>t</var>) = <var>e</var><sup><var>rt</var></sup>(<var>c</var><sub>1</sub>+<var>c</var><sub>2</sub><var>t</var>)
+                        </td>
+                        <th>where <var>r</var> &lt; 0</th>
+                    </tr>
+                </table>
+                <!--Insert graph of critically damped motion-->
+            </li>
+            <li>
+                Discriminant &lt; 0:<br /> We get 2 unreal solutions and we say that the system is <u>underdamped</u>
+                <table class="rules">
+                    <tr>
+                        <td>
+                            <var>e</var><sup>&minus;<div class="fraction"><div class="top">&beta;</div><div class="bottom">2<var>m</var></div></div><var>t</var></sup>(<var>c</var><sub>1</sub>
+                            <cos>
+                                <div class="fraction">
+                                    <div class="top">
+                                        <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
+                                    </div>
+                                    <div class="bottom">
+                                        2<var>m</var>
+                                    </div>
+                                </div>
+                                t</cos>+ <var>c</var><sub>2</sub>
+                            <sin>
+                                <div class="fraction">
+                                    <div class="top">
+                                        <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
+                                    </div>
+                                    <div class="bottom">
+                                        2<var>m</var>
+                                    </div>
+                                </div>t</sin>)
+                        </td>
+                    </tr>
+                </table>
+                <!--Insert graph of underdamped motion-->
+            </li>
+        </ol>
+    </ul>
 </div>
