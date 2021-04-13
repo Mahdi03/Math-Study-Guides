@@ -16,7 +16,7 @@ For all the information on electrostatics and magnetostatics
 
     -->
     <ul>
-
+<h3>Magnetic Fields:</h3>
         <li>Magnetism is the most complex force we've seen so far. It is always the result of moving/charged particles, which would mean that current moving through a wire must induce magnetism.</li>
         <li>In a random material, the spin of electrons is randomized and pointed in random directions, so overall the electron spins cancel out. But in ferromagnetic materials (like iron), their electron spins can be aligned to cause a net magnetic field.
             Bar magnets have ferromagnetism.</li>
@@ -100,5 +100,64 @@ For all the information on electrostatics and magnetostatics
                 target="_blank">Part 2</a>. <span style="color: red;">This derivation consists of heavy Multivariable Calculus and as such is not required by AP Physics 2 curriculum.</span></li>
         <li>We can find the direction of this magnetic field by using another modified right-hand rule, simply stick your thumb in the direction of current and let your 4 fingers "wrap" around the wire.</li>
         <img style="width: 50%;" src="https://www.pasco.com/media/files/static/guides/right-hand-rule/curl_rhr.png" />
+  <h3>Electromagnetic Induction:</h3>
+  <li>Traffic lights use loops that function as circuits with little currents that run through them. This current induces a magnetic field.</li>
+  <li>Since the car is made of ferromagnetic materials, the car itself becomes magnetized, and in turn, the magnetized car now adds to the magnetic field. With an increased magnetic field, more current is induced in the loop, and the sensor accounts for the change in current.</li>
+  <li>From this we see that just how an electric circuit induces a magnetic field, a magnetic field can also induce a current. We call this <u>Electromagnetic Induction</u> and it is the converse of a changing electric field to cause magnetism (first part of this unit).</li>
+  <li>We use <u>Electromagnetic Induction</u> to generate power in most ways (except solar panels). We convert mechanical energy in wind and water turbines to electric energy through the usage of changing magnetic fields.</li>
+  <li>We measure the amount of magnetic field <vector>B</vector> passing through an area <vector>A</vector> as magnetic flux, denoted by <var>&Phi;</var><sub><var>B</var></sub>.</li>
+  <img src="https://qph.fs.quoracdn.net/main-qimg-ddc8a2173c036ec656f18f0727813cd9.webp" />
+  <li>We say that the area is a vector <vector>A</vector> because we need a way to multiply with the magnetic field vector <vector>B</vector>, and we denote the area vector to be perpendicular to the plane of the area (like a cross product, it will stick out of the plane).</li>
+  <li>Since <vector>A</vector> and <vector>B</vector> run parallel (see image above), we only care about the parallel parts of the vectors, so we would employ a dot product in this place. Magnetic Flux is given by
+  <table class="rules">
+    <tr>
+      <td>
+          &Phi;<sub><var>B</var></sub> = <vector>A</vector> &sdot; <vector>B</vector>
+      </td>
+      <td>
+          &Phi;<sub><var>B</var></sub> = ||<vector>A</vector>|| ||<vector>B</vector>|| <cos>&theta;</cos>
+      </td>
+    </tr>
+  </table>
+  </li>
+  <li>From this formula we can see that the units for magnetic flux would be in tesla&sdot;meters<sup>2</sup> (T&sdot;m<sup>2</sup>).</li>
+  <h5>Faraday's Law:</h5>
+  <li>The reason we want to measure magnetic flux in the first place is to see how the change in the magnetic field vector <vector>B</vector> changes the current in the circuit.</li>
+  <li>This is given by Faraday's Law, that in fact, the rate of change in the magnetic flux directly correleates to the induced current. Faraday's Law is in terms of &epsilon;, which is just an electromotive force (emf). Emf is just the archaic term for the induced voltage, so we can hold &epsilon; = V to be true.</li>
+  <li>Faraday's Law is as follows:</li>
+  <table class="rules">
+    <tr>
+      <td>
+        &epsilon; = &minus;<div class="fraction">
+          <div class="top">&Delta;&Phi;<sub><var>B</var></sub></div>
+          <div class="bottom">&Delta;<var>t</var></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <li>One thing to keep in mind is that some places add a coefficient <var>N</var> to the mix, this just signifies that in the case of a coil with multiple turns, each turn counts as a loop so you would multiply by the number of loops.</li>
+  <li>From the voltage, if we know the resistance in the wire, we can calculate the current using Ohm's Law.</li>
+  <h5>Lenz's Law:</h5>
+  <li>The reason there is a (&minus;) sign as a coefficient of the equation is actually given by another law that is sound with other fundamental forces.</li>
+  <li>Lenz's Law states that induced current wants to oppose the direction of change in magnetic flux, which is just nature's way of keeping equilibrium. If you're in chemistry, this is similar to Le Chatelier's Principle in equilibrium reactions. Also think of Hooke's Law, the spring force opposes the direction of movement in an effort to bring the spring back to equilibrium.</li>
+  <li>From Lenz's Law we can actually create an alternating current (AC).</li>
+  <li>The way we do this is by taking a loop and spinning it using mechanical energy.</li>
+  <li>As you can see from the diagram below, as the loop rotates, the magnetic flux changes, and with it, the direction of the current. Because the loop wants to counteract the direction of the magnetic field, it will create a current that&mdash;while obeying the right-hand rule&mdash;will create an opposing magnetic field:</li>
+        <!--Add rotating diagram here based on JS, vectors, and trig/algebra on change in magnetic flux, and change in current => Alternating Current (AC)-->
+  <canvas id="loopCreatingAlternatingCurrentLenzsLawCanvas"></canvas>
+  <script class="renderJS"></script>
+  <li>The reason why we have AC power in our walls instead of DC power is because most of our power is generated in this way.</li>
+<h5>Motional emf:</h5>
+<li>Although this method is rarely used since the energy cannot be harnessed from it, it is still possible to create a voltage difference without a loop/circuit.</li>
+<li>When you move a straight wire through a magnetic field, the electrons in the wire will move in the opposite direction as the protons based on the right-hand rule of charged particles in a magnetic field. As the charged particles separate, the wire itself is polarized, and the separation causes a voltage difference we can also quantify with emf &epsilon;:</li>
+<table class="rules">
+  <tr>
+    <td>&epsilon;||<vector>B</vector>||<var>lv</var></td>
+  </tr>
+</table>
+        <!--Add diagram on motional emf ==> See which of the two diagrams below actually show-->
+        <img src="http://www.physicsbootcamp.org/images/em-effect/faraday-mech-emf-1.png" />
+        <img src="https://lh3.googleusercontent.com/proxy/yZiT-yjptw7oWtHHiCrmBZ2QPZal5HPI143xsREprmgN30Df0czyV3oNsmy6Yj1BGhOpPVANsvJs0aLsEpNmckZ4r-W0jLDnO2kLt8TFwcFBh8JyR8rxcMiV3PSsCQ" />
+<li>However, there is no way to really harness the voltage difference without a circuit.</li>
     </ul>
 </div>
