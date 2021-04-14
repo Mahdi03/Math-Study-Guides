@@ -237,5 +237,22 @@
                 <!--Insert graph of underdamped motion-->
             </li>
         </ol>
+        <h3>5.3: Forced Motion:</h3>
+        <li>Building off of our last model (<var>m</var>
+            <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
+            <derivative of="x" respectTo="t"></derivative> &minus; <var>kx</var>), sometimes there are scenarios where there is a mechanical force that also affects our system. We call this the forcing function, as denoted by <var>f (x)</var> in <var>m</var>
+            <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
+            <derivative of="x" respectTo="t"></derivative> &minus; <var>kx + f(t)</var>. When we rewrite this as follows, we start to see a difference.</li>
+        <table class="rules">
+            <tr>
+                <td><var>m</var>
+                    <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
+                    <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = <var>f(t)</var>
+                </td>
+            </tr>
+        </table>
+        <li>While Damped Motion dealt with HOLDEN's, Forced Motion deals with NOLDEN's. Other than that, we already know how to solve these kinds of problems using the annihilator and what not.</li>
+        <li>Sometimes the particular solution might not match up with sinusoidal behavior, but if the limit at <var>t</var> &rarr; &infin; cancels out a part of the solution, we call it the <u>transient solution</u>, but if the part of the solution remains,
+            we call it the <u>steady-state solution</u>.</li>
     </ul>
 </div>
