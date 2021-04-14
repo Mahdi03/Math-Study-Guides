@@ -164,6 +164,7 @@ For all the information on electrostatics and magnetostatics
         <!--Add rotating diagram here based on JS, vectors, and trig/algebra on change in magnetic flux, and change in current => Alternating Current (AC)-->
         <p>Choose a magnetic field strength: <input id="magnitudeOfMagneticFieldBRangeInput" type="range" max="40" min="0" step="0.001" /><input id="magnitudeOfMagneticFieldBNumberInput" type="number" min="0" max="40" step="0.5" /></p>
         <p>Choose a radius for the loop: <input id="rOfLoopRangeInput" type="range" min="0" max="5" step="0.001" /><input id="rOfLoopNumberInput" type="number" min="0" max="5" step="0.5" /></p>
+        <p><input id="showAreaVector" type="checkbox" /> Show Area Vector</p>
         <button id="pausePlayButton">Pause</button><br />
         <canvas id="loopCreatingAlternatingCurrentLenzsLawCanvas" width="200" height="200"></canvas>
         <table class="staticTable">
@@ -204,6 +205,7 @@ For all the information on electrostatics and magnetostatics
             var rOfLoopRangeInput = document.querySelector("#rOfLoopRangeInput");
             var rOfLoopNumberInput = document.querySelector("#rOfLoopNumberInput");
 
+            var showAreaVector = document.querySelector("#showAreaVector");
             var pausePlayButton = document.querySelector("#pausePlayButton");
 
             var loopCreatingAlternatingCurrentLenzsLawCanvas = document.querySelector("#loopCreatingAlternatingCurrentLenzsLawCanvas");
@@ -283,6 +285,15 @@ For all the information on electrostatics and magnetostatics
                 loopCreatingAlternatingCurrentLenzsLawCTX.transform(Math.cos(angleOfRotation), 0, 0, 1, 200 / 2, 200 / 2);
                 loopCreatingAlternatingCurrentLenzsLawCTX.arc(0, 0, rOfLoop * 20, 0, 2 * Math.PI);
                 loopCreatingAlternatingCurrentLenzsLawCTX.stroke();
+                if (showAreaVector.checked) {
+                    if (Math.abs(Math.cos(angleOfRotation)) == 1) {
+                        loopCreatingAlternatingCurrentLenzsLawCTX.beginPath();
+                        loopCreatingAlternatingCurrentLenzsLawCTX.arc(0, 0, 1, 0, 2 * Math.PI);
+                        loopCreatingAlternatingCurrentLenzsLawCTX.fill();
+                    } else {
+                        drawArrow(loopCreatingAlternatingCurrentLenzsLawCTX, 0, 0, 100 * Math.sin(angleOfRotation), 0);
+                    }
+                }
                 loopCreatingAlternatingCurrentLenzsLawCTX.restore();
             }
             //Step 4: Draw the circle at different angles - also update all the values in table
