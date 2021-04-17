@@ -318,11 +318,11 @@ function renderScience(parentElement = "") {
                 if (electronicConfiguration == "") {
                     elementTaginnerHTML = elementInQuestion.electronicConfiguration;
                 } else {
-                    elementTaginnerHTML = electronicConfiguration;
+                    elementTaginnerHTML = electronicConfiguration.split(" ").map((el) => { return el.replace(/(?<=[a-z])(\d{1,2})/gi, "<sup>$1</sup>") }).join(" ");
                 }
             } else if (fullElectronicConfiguration !== null) {
                 if (fullElectronicConfiguration == "") {
-                    //Recursively get the electron configurations of all the electrons
+                    //Recursively get the electron configurations of all the electrons - since it only comes in noble gas form
                     function getFullElectronConfiguration(abbreviatedElectronConfiguration) {
                         var returnVal = abbreviatedElectronConfiguration;
                         if (abbreviatedElectronConfiguration.includes("[")) {
