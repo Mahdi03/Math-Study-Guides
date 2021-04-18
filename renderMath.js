@@ -89,17 +89,33 @@ function renderMath(parentElement = "") {
     var logTags = document.querySelectorAll(parentElement + "log");
     for (var p = 0; p < logTags.length; p++) {
         var logInput = logTags[p].innerHTML;
-        if (logTags[p].getAttribute("base") !== null) {
-            var base = logTags[p].getAttribute("base");
-            logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
+        var base = logTags[p].getAttribute("base");
+        //If there are elements or compounds in the tag, don't italicize by default
+        if (logTags[p].querySelectorAll("compound, element").length > 0) {
+            if (base !== null) {
+                var base = logTags[p].getAttribute("base");
+                logTags[p].innerHTML = "log<sub>" + base + "</sub>(" + logInput + ")";
+            } else {
+                logTags[p].innerHTML = "log(" + logInput + ")";
+            }
         } else {
-            logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
+            if (base !== null) {
+                var base = logTags[p].getAttribute("base");
+                logTags[p].innerHTML = "log<sub>" + base + "</sub>(<var>" + logInput + "</var>)";
+            } else {
+                logTags[p].innerHTML = "log(<var>" + logInput + "</var>)";
+            }
         }
     }
     var lnTags = document.querySelectorAll(parentElement + "ln");
     for (var q = 0; q < lnTags.length; q++) {
         var lnInput = lnTags[q].innerHTML;
-        lnTags[q].innerHTML = "ln(<var>" + lnInput + "</var>)";
+        //If there are elements or compounds in the tag, don't italicize by default
+        if (lnTags[p].querySelectorAll("compound, element").length > 0) {
+            lnTags[q].innerHTML = "ln(" + lnInput + ")";
+        } else {
+            lnTags[q].innerHTML = "ln(<var>" + lnInput + "</var>)";
+        }
     }
     //Defined Derivative Tags (Will need to be changed further as we learn new concepts)
     //<nDeriv of="f" respectTo="t"></nDeriv> === df/dt
