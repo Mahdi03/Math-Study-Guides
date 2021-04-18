@@ -9,6 +9,7 @@
     });
 </script>
 <div class="indent">
+    <h3>Equilibrium in Reversible Reactions:</h3>
     <ul>
         <li>In this unit, the focus is reversible reactions, reactions with low enough energy differences such that they can work both forwards and backwards.</li>
     </ul>
@@ -31,6 +32,7 @@
         <li>If k<sub>eq</sub> &gt; 1, the reaction favors the forwards direction since there is a higher concentration of products.</li>
         <li>Reversible reactions at equilibrium with different states of matter are said to be in <u>Heterogeneous Equilibrium</u>. In these cases we ignore the solvents and the solids because they are in excess, so it makes sense to not take into account
             such high concentrations into our formula for the equilibrium constant.</li>
+        <li>In equilibrium reactions, pay attention to the state of matter. Concentrations of solids and liquids are omitted from all calculations.</li>
     </ul>
     <h5>Le Ch&acirc;telier's Principle:</h5>
     <ul>
@@ -48,6 +50,17 @@
     <h5>The Reaction Quotient:</h5>
     <ul>
         <li>The reaction quotient is the same thing as the equilibrium constant, except the usage varies. While k<sub>c</sub> gives us information when the reaction is at equilibrium, Q<sub>c</sub> can be calculated at any time.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    Q<sub>c</sub> =
+                    <div class="fraction">
+                        <div class="top">[C]<sup>c</sup>[D]<sup>d</sup></div>
+                        <div class="bottom">[A]<sup>a</sup>[B]<sup>b</sup></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <li>The reaction quotient can vary [0, &infin;), if it is 0, the reaction is all reactants, and if it is &infin;, the reaction is all products.</li>
         <li>When the reaction is at equilibrium, Q<sub>c</sub> = K<sub>c</sub>.</li>
         <li>When Q<sub>c</sub> &gt; K<sub>c</sub>, that means the reaction wants to get closer to equilibrium, by Le Ch&acirc;telier's Principle, so it would favor the reactants.</li>
@@ -94,10 +107,133 @@
         </div>
     </ul>
     <h5>Small x approximation:</h5>
-    <li>This method works best when it strongly favors one side of the reaction, either k<sub>c</sub> &le; 10<sup>&minus;4</sup> or k<sub>c</sub> &ge; 10<sup>4</sup>. If it is not, use the quadratic method.</li>
-    <li>You want to assume that the reaction is completely on one side or the other, depending on <var>k</var></li>
+    <ul>
+        <li>This method works best when it strongly favors one side of the reaction, either k<sub>c</sub> &le; 10<sup>&minus;4</sup> or k<sub>c</sub> &ge; 10<sup>4</sup>. If it is not, use the quadratic method.</li>
+        <li>You want to assume that the reaction is completely on one side or the other, depending on <var>k</var></li>
+        <li>We make an ICE table for all the contents in the reaction, here's an example ICE table for a reaction {aA + bB &rarr; cC} that is going forward (Q<sub>c</sub> &lt; K<sub>c</sub>):</li>
+        <table class="staticTable">
+            <tr>
+                <td style="border-top: none; border-left: none;"></td>
+                <th>aA</th>
+                <th>bB</th>
+                <th>&rarr;</th>
+                <th>cC</th>
+            </tr>
+            <tr>
+                <th><u>I</u>nitial</th>
+                <td>Initial Concentration of A</td>
+                <td>Initial Concentration Of B</td>
+                <td rowspan="3"></td>
+                <td>Initial Concentration of C</td>
+            </tr>
+            <tr>
+                <th><u>C</u>hange</th>
+                <td>&minus;a<var>x</var></td>
+                <td>&minus;b<var>x</var></td>
+                <td>+c<var>x</var></td>
+            </tr>
+            <tr>
+                <th>Concentration at <u>E</u>quilibrium</th>
+                <td>Initial + Change</td>
+                <td>Initial + Change</td>
+                <td>Initial + Change</td>
+            </tr>
+        </table>
+        <li>You want to pick coefficients to your change variables based on the term of the balanced equation with the lowest stoichiometric coefficient.</li>
+        <li>Make sure all the units are the same, like in Molars, Partial Pressures, or amounts.</li>
+        <li>Once we find the Equilibrium Concentrations, we can use that to calculate K<sub>c</sub>.</li>
+        <li>Here is an example: For the reaction
+            <compound state="g">2NH3</compound> &rlhar;
+            <compound state="g">N2</compound> +
+            <compound state="g">3H2</compound>, with 3<var>M</var>
+            <compound>NH3</compound>, 2<var>M</var>
+            <compound>N2</compound>, 5<var>M</var>
+            <compound>H2</compound>, and k<sub>c</sub> = 0.054, solve for the final concentrations at equilibrium.
+            <a href="javascript:void(0)" id="equilibriumICETableExampleSolutionToggleLink" onclick="toggleSolution('#equilibriumICETableExampleSolution');">Show Solution</a>
+        </li>
+        <div class="solution" id="equilibriumICETableExampleSolution">
+            <ol>
+                <li>Q
+                    <sub>c</sub> =
+                    <div class="fraction">
+                        <div class="top">[B]<sup>b</sup>[C]<sup>c</sup></div>
+                        <div class="bottom">[A]<sup>a</sup></div>
+                    </div>
+                    =
+                    <div class="fraction">
+                        <div class="top">[
+                            <compound>N2</compound>]<sup>1</sup>[
+                            <compound>H2</compound>]<sup>3</sup></div>
+                        <div class="bottom">[
+                            <compound>NH3</compound>]<sup>2</sup></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">(2M)(5M)<sup>3</sup></div>
+                        <div class="bottom">(3M)<sup>2</sup></div>
+                    </div> = 27.777</li>
+                <li>We were given k<sub>c</sub> = 0.054, so since Q<sub>c</sub> &gt; k<sub>c</sub>, the reaction runs reverse.</li>
+                <li>This means our products will decrease and the reactants will increase, so we can now reflect that into our ICE table and solve using small x approximation.</li>
+                <table class="staticTable">
+                    <tr>
+                        <td style="border-top: none; border-left: none;"></td>
+                        <th>
+                            <compound state="g">2NH3</compound>
+                        </th>
+                        <th>&rlhar;</th>
+                        <th>
+                            <compound state="g">N2</compound>
+                        </th>
+                        <th>
+                            <compound state="g">3H2</compound>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><u>I</u>nitial</th>
+                        <td>3M</td>
+                        <td rowspan="3"></td>
+                        <td>2M</td>
+                        <td>5M</td>
+                    </tr>
+                    <tr>
+                        <th><u>C</u>hange</th>
+                        <td>+2<var>x</var></td>
+                        <td>&minus;1<var>x</var></td>
+                        <td>&minus;3<var>x</var></td>
+                    </tr>
+                    <tr>
+                        <th><u>E</u>quilibrium</th>
+                        <td>3 + 2<var>x</var></td>
+                        <td>2 &minus; <var>x</var></td>
+                        <td>5 &minus; 3<var>x</var></td>
+                    </tr>
+                </table>
+                <li>Now we can substitute those values into our equation for the equilibrium constant and solve for <var>x</var>.</li>
+                k<sub>c</sub> =
+                <div class="fraction">
+                    <div class="top">[B]<sup>b</sup>[C]<sup>c</sup></div>
+                    <div class="bottom">[A]<sup>a</sup></div>
+                </div>
+                =
+                <div class="fraction">
+                    <div class="top">(2 &minus; <var>x</var>)(5 &minus; 3<var>x</var>)<sup>3</sup></div>
+                    <div class="bottom">(3 + 2<var>x</var>)<sup>2</sup></div>
+                </div> = 0.054
+                <li>Before we go on about solving this equation for <var>x</var>, we can look at the powers above and below to see that this is in fact a quadratic equation, so we can solve using the quadratic formula once we multiply it all out. Solving
+                    it however you want, we get <var>x</var> = 1.4.</li>
+                <li>Now we just plug this back in to our equilibrium concentration equations to get our equilibrium concentrations.</li>
+                <compound>N2</compound>: (2 &minus; <var>x</var>) =&gt; 0.6M<br />
+                <compound>H2</compound>: (5 &minus; 3<var>x</var>) =&gt; 0.8M<br />
+                <compound>NH3</compound>: (3 + 2<var>x</var>) =&gt; 5.8M
+                <p style="color: red;">Disclaimer: These numbers were completely made up and are probably not true (the math/concepts are ok tho).</p>
+            </ol>
+        </div>
+    </ul>
+
     <h3>Solubility:</h3>
     <ul>
         <li></li>
     </ul>
 </div>
+<script>
+    renderMath()
+</script>
