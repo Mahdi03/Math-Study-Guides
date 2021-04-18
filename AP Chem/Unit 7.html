@@ -10,10 +10,94 @@
 </script>
 <div class="indent">
     <ul>
-        <h3>The Equilibrium Constant:</h3>
-        <h3>Le Ch&acirc;telier's Principle:</h3>
-        <h3>Changes In The Equilibrium Constant:</h3>
-        <h3>The Reaction Quotient:</h3>
-        <h3>Solubility:</h3>
+        <li>In this unit, the focus is reversible reactions, reactions with low enough energy differences such that they can work both forwards and backwards.</li>
+    </ul>
+    <h5>The Equilibrium Constant:</h5>
+    <ul>
+        <li>Equilibrium occurs when in a reversible reaction, the rate of reactants becoming products is equivalent to the rate of products becoming reactants. However, just because the rates are the same, does NOT mean the concentrations are the same.</li>
+        <li>For a reaction {aA + bB &rlhar; cC + dD}, the equilibrium constant is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    k<sub>eq</sub> =
+                    <div class="fraction">
+                        <div class="top">[C]<sup>c</sup>[D]<sup>d</sup></div>
+                        <div class="bottom">[A]<sup>a</sup>[B]<sup>b</sup></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <li>If k<sub>eq</sub> &lt; 1, the reaction favors the backwards direction since there is a higher concentration of reactants.</li>
+        <li>If k<sub>eq</sub> &gt; 1, the reaction favors the forwards direction since there is a higher concentration of products.</li>
+        <li>Reversible reactions at equilibrium with different states of matter are said to be in <u>Heterogeneous Equilibrium</u>. In these cases we ignore the solvents and the solids because they are in excess, so it makes sense to not take into account
+            such high concentrations into our formula for the equilibrium constant.</li>
+    </ul>
+    <h5>Le Ch&acirc;telier's Principle:</h5>
+    <ul>
+        <li>Simply put, Le Ch&acirc;telier's Principle tells us that when we "stress" out one side of a reversible reaction, the reaction will favor reaching equilibrium by going in the direction of the other side.</li>
+        <li>If we add more of one reactant, there is a higher probability of it colliding with other reactants, so other reactants would be used up more, and the forward reaction rate increases. When that happens, more products are created, and a new equilibrium
+            will be reached, favoring the forward direction.</li>
+        <li>When the pressure is increased, the molecules are closer together, and have a higher probability of colliding. When pressure increases, the reaction favors the side with less molecules because it is easier to compress fewer molecules (think PV
+            = nRT, as pressure goes up, moles goes down to keep it the same).</li>
+
+    </ul>
+    <h5>Changes In The Equilibrium Constant:</h5>
+    <ul>
+        <li></li>
+    </ul>
+    <h5>The Reaction Quotient:</h5>
+    <ul>
+        <li>The reaction quotient is the same thing as the equilibrium constant, except the usage varies. While k<sub>c</sub> gives us information when the reaction is at equilibrium, Q<sub>c</sub> can be calculated at any time.</li>
+        <li>The reaction quotient can vary [0, &infin;), if it is 0, the reaction is all reactants, and if it is &infin;, the reaction is all products.</li>
+        <li>When the reaction is at equilibrium, Q<sub>c</sub> = K<sub>c</sub>.</li>
+        <li>When Q<sub>c</sub> &gt; K<sub>c</sub>, that means the reaction wants to get closer to equilibrium, by Le Ch&acirc;telier's Principle, so it would favor the reactants.</li>
+        <li>When Q<sub>c</sub> &lt; K<sub>c</sub>, the reaction favors the products.</li>
+    </ul>
+    <h5></h5>
+    <ul>
+        <li>For gaseous reactions, we can also express the equilibrium constant in terms of the partial pressures (K<sub>p</sub>):
+            <table class="rules">
+                <tr>
+                    <td>
+                        K<sub>p</sub> =
+                        <div class="fraction">
+                            <div class="top">(P<sub>C</sub>)<sup>c</sup>(P<sub>D</sub>)<sup>d</sup></div>
+                            <div class="bottom">(P<sub>A</sub>)<sup>a</sup>(P<sub>B</sub>)<sup>b</sup></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>where &Delta;n is the difference in moles between the products and the reactants.</li>
+        <li>It differs from K<sub>c</sub> by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    K<sub>p</sub> = K<sub>c</sub>(RT)<sup>&Delta;n</sup>
+                </td>
+                <th><a href="javascript:void(0)" id="KpRelationToKcProofToggleLink" onclick="toggleSolution('#KpRelationToKcProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="KpRelationToKcProof" class="solution">
+            <ol>
+                <li>First recall the Ideal Gas Law, PV = nRT.</li>
+                <li>If we solve for P, we get PV =
+                    <div class="fraction">
+                        <div class="top">n</div>
+                        <div class="bottom">V</div>
+                    </div>RT, and we know
+                    <div class="fraction">
+                        <div class="top">n</div>
+                        <div class="bottom">V</div>
+                    </div> to be moles/Liters, which is synonymous to molarity. So we can substitute in K<sub>p</sub> and K<sub>c</sub>. This turns into:</li>
+                <li>K<sub>p</sub> = K<sub>c</sub>(RT)<sup>&Delta;n</sup></li>
+                <li>Check out <a href="https://www.khanacademy.org/science/ap-chemistry/chemical-equilibrium-ap/equilibrium-constant-ap/a/calculating-equilibrium-constant-kp-using-partial-pressures?modal=1">Khan Academy</a> for a full derivation.</li>
+            </ol>
+        </div>
+    </ul>
+    <h5>Small x approximation:</h5>
+    <li>This method works best when it strongly favors one side of the reaction, either k<sub>c</sub> &le; 10<sup>&minus;4</sup> or k<sub>c</sub> &ge; 10<sup>4</sup>. If it is not, use the quadratic method.</li>
+    <li>You want to assume that the reaction is completely on one side or the other, depending on <var>k</var></li>
+    <h3>Solubility:</h3>
+    <ul>
+        <li></li>
     </ul>
 </div>
