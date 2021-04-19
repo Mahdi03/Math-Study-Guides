@@ -8,14 +8,134 @@
         enable_page_level_ads: true
     });
 </script>
+
+<!-- Import MathJax -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>window.MathJax = {tex: {packages: {'[+]': ['mhchem']}},loader: {load: ['[tex]/mhchem']},};</script>
+
 <div class="indent">
+    <h3>Entropy:</h3>
     <ul>
-        <h3>Entropy:</h3>
-        <h3>Gibb's Free Energy:</h3>
-        <!--Free Energy Change &Delta;G-->
-        <!--&Delta;G, &Delta;H, and &Delta;S-->
-        <h3>Galvanic Cells:</h3>
-        <h3>Electrolytic Cells:</h3>
-        <h3>Voltage and Favorability:</h3>
+        <li>Entropy, represented by \(S\), describes the randomness and disorder of the system. 0 entropy is defined as a solid crystal at 0 K. Standard entropies are calculated
+            at \(25^{\circ}\).
+        </li>
+        <li>
+            Standard entropy chance:
+            <table class="rules">
+                <tr>
+                    <td>\(\Delta S^{\circ} = \sum \Delta S^{\circ}_{products} - \sum \Delta S^{\circ}_{reactants} \)</td>
+                </tr>
+            </table>
+        </li>
     </ul>
+    <h3>Gibb's Free Energy:</h3>
+    <ul>
+        <li>
+            <strong>Gibb's free energy</strong>, \(G\), is the measure of whether or not a process will proceed without input of outside energy.
+            A process that proceeds without outside energy is called <strong>thermodynamically favored</strong> while the opposite is unfavored (also called spontaneous and nonspontaneous respectively).
+        </li>
+        <h5>Free Energy Chance, \(\Delta G^{\circ}\):</h5>
+            <table class="rules">
+                <tr>
+                    <td>
+                        \(\Delta G^{\circ} = \sum \Delta G^{\circ}_{f \text{ } products} - \sum \Delta G^{\circ}_{f \text{ } reactants}\)
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <li>
+                If \(\Delta G^{\circ}\) is negative, reaction is thermodynamically favored.
+            </li>
+            <li>
+                If \(\Delta G^{\circ}\) is positive, the reaction is thermodynamically unfavored.
+            </li>
+            <li>
+                If \(\Delta G^{\circ}\) is 0, the reaction is at equillibrium.
+            </li>
+        <h5>\(\Delta G, \Delta H, \text{and } \Delta S\):</h5>
+        <li>
+            Nature likes to move toward low energy and high disorder, so thermodynamically favored processes result in decreasing enthalpy or increasing enrtopy or both. The following equation links these energies together:
+        </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    \(\Delta G^{\circ} = \Delta H^{\circ} - T\Delta S^{\circ}\)
+                    <br>
+                    \(T\) = absolute temperature (K)
+                </td>
+            </tr>
+        </table>
+        <br>
+        <li>
+            Here's an example: <br> <br>
+            \(\ce{CO(g) + H2O(g) -> CO2(g) + H2(g) \quad \Delta H^{\circ} = -41.2 kJ/mol \quad \Delta S^{\circ} = -135 J/mol\cdot K}\)
+            <br>
+            <br>
+            (a) Is the above reaction thermodynamically favorable at \(\ce{25^{\circ}C}\)?
+            <br>
+            (b) At what temperature would the reaction no longer be thermodynamically favored? Assume the enthalpy and entropy values are independent of temperature.
+            <br>
+            <a id="gibbsFreeEnergyExampleToggleLink" href="javascript:void(0);" onclick="toggleSolution('#gibbsFreeEnergyExample', 'Example')">Show Solution</a>
+        
+            <div id="gibbsFreeEnergyExample" class="solution">
+                (a)  \(\ce{\Delta G^{\circ} = (-41.2 kJ/mol) - (298 K)(-0.135 kJ/mol\cdot K)}\)
+                <br>
+                \(\quad \ce{\Delta G^{\circ} = -0.97 kJ/mol}\)
+                <br>
+                (b) Set the gibbs energy to 0.
+                <br>
+                \(\quad \ce{0=(-41.2 kJ/mol) - (T)(-0.135 kJ/mol\cdot K)}\)
+                <br>
+                \(\quad T = 305 K\), thus its dynamically unfavorable if it is above that temperature.
+            </div>
+        </li>
+        
+        <h5>\(\Delta G^{\circ}\) and Phase Changes:</h5>
+        <li>
+            Since phase changes are not chemical reactions, their free energy is 0. So, we can determine substance's melting or boiling points.
+        </li>
+        <h5>Standard Free Energy Change and the Equilibrium Constant:</h5>
+        <li>
+            Free energy can be calculated if you know the equilibrium constant:
+            <table class="rules">
+                <tr>
+                    <td>
+                        \(\Delta G^{\circ} = -RT\ln K\)
+                        <br>
+                        <br>
+                        \(R\) = the gas constant, 8.31 J/molK <br>
+                        \(T\) = absolute temperature (K) <br>
+                        \(K\) = the equilibrium constant
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <h5>Reduction Potentials:</h5>
+        <li>
+            Every half-reaction has a voltage. You will be given the values for the standard reduction potential for any question regarding it. They are always
+            given as reduciton half-reactions, reading the reaction in reverse and flipping the sign will give the oxidatio potential. <br>
+            The larger the potential, the more likely it is to occur.
+            When calculating the potential of a reox reaction remember:
+            <ul>
+                <li>
+                    Add the potention for the oxidation half-reaction and the reduction half-reaction.
+                </li>
+                <li>
+                    Never multiply the potential for a half-reaction by a coefficient.
+                </li>
+            </ul>
+            <li>
+                When a solid metal is placed into a metallic solution and a new solid forms, the reduction potential of the metal in solution is greater
+                than that of the solid meta. If no solid forms, the reduciton potential of the solid metal is higher.
+            </li>
+        </li>
+    </ul>
+    
+    <h3>Galvanic Cells:</h3>
+    <h3>Electrolytic Cells:</h3>
+    <ul>
+        <h5>Electroplating:</h5>
+    </ul>
+    <h3>Voltage and Favorability:</h3>
 </div>
