@@ -8,6 +8,19 @@
         enable_page_level_ads: true
     });
 </script>
+<!--Use this to edit MathJax: https://en.wikipedia.org/wiki/Quadratic_equation?veaction=edit-->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    MathJax = {
+        chtml: {
+            scale: 1.3
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
 <div class="indent">
     <h3>Polarity:</h3>
     <ul>
@@ -47,10 +60,10 @@
     <h3>Kinetic Molecular Theory (KMT):</h3>
     <ul>
         <li>We normalize all gases to an "ideal gas" that closely resembles the behavior of real gases without the minor intricacies.</li>
-        <li>Gases are composed of molecules that are in continuous motion, traveling in straight lines and changing direction only when they collide with other molecules or the walls of the container</li>
+        <li>Gases are composed of molecules that are in continuous motion, traveling in straight lines and changing direction only when they collide with other molecules or the walls of the container.</li>
         <li>The pressure exerted by a gas in a container results from collisions between the gas molecules and the container walls</li>
         <li>The average kinetic energy of the gas molecules that is proportional to the kelvin temperature of the gas</li>
-        <li>The molecules composing the gas are negligibly small compared to the distances between them (negligible volume)</li>
+        <li>The molecules composing the gas are negligibly small compared to the distances between them (negligible volume).</li>
         <li>Gas molecules exert no attractive or repulsive forces on each other or the container walls as we assume them to be nonpolar.</li>
         <li>Their collisions are elastic (don’t involve a loss of energy)</li>
         <h5>Maxwell-Boltzmann Distribution:</h5>
@@ -63,18 +76,139 @@
         <li>This direct relationship is given by the equation (where T is temperature is in kelvin):</li>
         <table class="rules">
             <tr>
-                <td>KE<sub>avg</sub> =
+                <td>
+                    <equation>
+                        KE<sub>avg</sub> =
+                        <div class="fraction">
+                            <div class="top">3</div>
+                            <div class="bottom">2</div>
+                        </div><var>k</var><sub><var>b</var></sub><var>T</var>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <var>K = C</var> + 273.15
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Using the above formula, we can actually find the average velocity of the gas particles that have that average kinetic energy. We call this value the root mean square speed, represented by <var>u</var><sub>rms</sub> in the equation:</li>
+        <!--\(u_{rms} = \sqrt {3kT \over m}\)             u_{rms} = \sqrt {3RT \over M}-->
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation><var>u</var><sub>rms</sub> =
+                        <sqrt>
+                            <div class="fraction">
+                                <div class="top">3kT</div>
+                                <div class="bottom">m</div>
+                            </div>
+                        </sqrt>
+                    </equation>
+                </td>
+                <td>
+                    <equation><var>u</var><sub>rms</sub> =
+                        <sqrt>
+                            <div class="fraction">
+                                <div class="top">3RT</div>
+                                <div class="bottom">M</div>
+                            </div>
+                        </sqrt>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="u_rmsProofToggleLink" onclick="toggleSolution('#u_rmsProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="u_rmsProof" class="solution">
+            <ol>
+                <li>First we take the proportional relationship of temperature to average kinetic energy and let that equal our formula for kinetic energy</li>
+                <equation>
+                    KE<sub>avg</sub> = KE
+                </equation>
+                <br />
+                <equation>
                     <div class="fraction">
                         <div class="top">3</div>
                         <div class="bottom">2</div>
-                    </div> <var>k</var><sub><var>b</var></sub> <var>T</var></td>
-                <td><var>K = C</var> + 273.15</td>
+                    </div><var>k</var><sub><var>b</var></sub> <var>T</var> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div><var>mv</var><sup>2</sup>
+                </equation>
+                <li>When we solve for <var>v</var>, we get our first equation.</li>
+            </ol>
+        </div>
+    </ul>
+    <h3>Effusion:</h3>
+    <ul>
+        <li>Diffusion is when two gasses are mixed, and effusion is when gas travels through a small hole.</li>
+        <li>We can quantify the effusion rate of two gasses at the same temperature since Thomas Graham found the rate of effusion to be inversely proportional to the square root of the molar mass.</li>
+        <li>By Graham's law of effusion:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <div class="fraction">
+                        <div class="top">rate of effusion for gas 1</div>
+                        <div class="bottom">rate of effusion for gas 2</div>
+                    </div> =
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt>M<sub>2</sub></sqrt>
+                            </div>
+                            <div class="bottom">
+                                <sqrt>M<sub>1</sub></sqrt>
+                            </div>
+                        </div>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="grahamsLawOFEffusionProofToggleLink" onclick="toggleSolution('#grahamsLawOFEffusionProof', true);">Show Proof</a></th>
             </tr>
         </table>
+        <div id="grahamsLawOFEffusionProof" class="solution">
+            <ol>
+                <li>We can simply use our formula for <var>u</var><sub>rms</sub> for two gasses:</li>
+                <div class="fraction">
+                    <div class="top">rate of effusion for gas 1</div>
+                    <div class="bottom">rate of effusion for gas 2</div>
+                </div> =
+                <div class="fraction">
+                    <div class="top"><var>u</var><sub>rms</sub> of gas 1</div>
+                    <div class="bottom"><var>u</var><sub>rms</sub> of gas 2</div>
+                </div>
+                <li>Once we substitute in our formula, we get:</li>
+                <equation>
+                    <div class="fraction">
+                        <div class="top">
+                            <sqrt>
+                                <div class="fraction">
+                                    <div class="top">3<var>RT</var></div>
+                                    <div class="bottom"><var>M</var><sub>1</sub></div>
+                                </div>
+                            </sqrt>
+                        </div>
+                        <div class="bottom">
+                            <sqrt>
+                                <div class="fraction">
+                                    <div class="top">3<var>RT</var></div>
+                                    <div class="bottom"><var>M</var><sub>2</sub></div>
+                                </div>
+                            </sqrt>
+                        </div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">
+                            <sqrt>M<sub>2</sub></sqrt>
+                        </div>
+                        <div class="bottom">
+                            <sqrt>M<sub>1</sub></sqrt>
+                        </div>
+                    </div>
+                </equation>
+            </ol>
+        </div>
     </ul>
-
-    <h3>Effusion:</h3>
-
     <h3>The Ideal Gas Law:</h3>
     <ul>
         <li>There are 4 laws regarding the changes in an ideal gas:</li>
@@ -91,7 +225,9 @@
                 <td><var>PV</var> = some constant
                     <table class="rules gasLaw">
                         <tr>
-                            <td><var>P</var><sub>1</sub><var>V</var><sub>1</sub> = <var>P</var><sub>2</sub><var>V</var><sub>2</sub></td>
+                            <td>
+                                <equation><var>P</var><sub>1</sub><var>V</var><sub>1</sub> = <var>P</var><sub>2</sub><var>V</var><sub>2</sub></equation>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -131,14 +267,16 @@
                     <table class="rules gasLaw">
                         <tr>
                             <td>
-                                <div class="fraction">
-                                    <div class="top"><var>P</var><sub>1</sub></div>
-                                    <div class="bottom"><var>T</var><sub>1</sub></div>
-                                </div> =
-                                <div class="fraction">
-                                    <div class="top"><var>P</var><sub>2</sub></div>
-                                    <div class="bottom"><var>T</var><sub>2</sub></div>
-                                </div>
+                                <equation>
+                                    <div class="fraction">
+                                        <div class="top"><var>P</var><sub>1</sub></div>
+                                        <div class="bottom"><var>T</var><sub>1</sub></div>
+                                    </div> =
+                                    <div class="fraction">
+                                        <div class="top"><var>P</var><sub>2</sub></div>
+                                        <div class="bottom"><var>T</var><sub>2</sub></div>
+                                    </div>
+                                </equation>
                             </td>
                         </tr>
                     </table>
@@ -175,14 +313,16 @@
                     <table class="rules gasLaw">
                         <tr>
                             <td>
-                                <div class="fraction">
-                                    <div class="top"><var>V</var><sub>1</sub></div>
-                                    <div class="bottom"><var>n</var><sub>1</sub></div>
-                                </div> =
-                                <div class="fraction">
-                                    <div class="top"><var>V</var><sub>2</sub></div>
-                                    <div class="bottom"><var>n</var><sub>2</sub></div>
-                                </div>
+                                <equation>
+                                    <div class="fraction">
+                                        <div class="top"><var>V</var><sub>1</sub></div>
+                                        <div class="bottom"><var>n</var><sub>1</sub></div>
+                                    </div> =
+                                    <div class="fraction">
+                                        <div class="top"><var>V</var><sub>2</sub></div>
+                                        <div class="bottom"><var>n</var><sub>2</sub></div>
+                                    </div>
+                                </equation>
                             </td>
                         </tr>
                     </table>
@@ -221,14 +361,16 @@
                     <table class="rules gasLaw">
                         <tr>
                             <td>
-                                <div class="fraction">
-                                    <div class="top"><var>V</var><sub>1</sub></div>
-                                    <div class="bottom"><var>T</var><sub>1</sub></div>
-                                </div> =
-                                <div class="fraction">
-                                    <div class="top"><var>V</var><sub>2</sub></div>
-                                    <div class="bottom"><var>T</var><sub>2</sub></div>
-                                </div>
+                                <equation>
+                                    <div class="fraction">
+                                        <div class="top"><var>V</var><sub>1</sub></div>
+                                        <div class="bottom"><var>T</var><sub>1</sub></div>
+                                    </div> =
+                                    <div class="fraction">
+                                        <div class="top"><var>V</var><sub>2</sub></div>
+                                        <div class="bottom"><var>T</var><sub>2</sub></div>
+                                    </div>
+                                </equation>
                             </td>
                         </tr>
                     </table>
@@ -271,7 +413,9 @@
                     </div> = some constant <var>R</var>
                     <table class="rules gasLaw">
                         <tr>
-                            <td rowspan="2"><var>PV = nRT</var></td>
+                            <td rowspan="2">
+                                <equation><var>PV = nRT</var></equation>
+                            </td>
                             <td><var>R</var> = 8.31 J/(mol&sdot;K)</td>
                         </tr>
                         <tr>
@@ -287,6 +431,7 @@
                 <td colspan="2">Where <var>R</var> is known as the Universal Gas Constant</td>
             </tr>
         </table>
+        <li>If we plug in 1atm for Pressure, and 273.15K for Temperature (0&deg;C), we find the Molar Volume of Gas at STP to be 22.4L/mol.</li>
         <h5>Dalton's Law:</h5>
         <li>Dalton's Law of Partial Pressures simply states that the total pressure of multiple gases mixed together is simply the sum of all the pressures of each individual gas as the pressure exerted by each component is independent of the other components.</li>
         <h5>Deviations from Ideal Behavior:</h5>
@@ -294,14 +439,33 @@
             <tr>
                 <th>Ideal Gases:</th>
                 <th>Real Gases:</th>
+                <th>Correction:</th>
             </tr>
             <tr>
                 <td>We assume the volume to be negligible</td>
                 <td>In reality gas particles do have volume, and with low temperatures and high pressures the volume is no longer negligible in comparison to that of the container</td>
+                <td><var>V</var> =&gt;
+                    <equation><var>V &minus; nb</var></equation>
+                </td>
             </tr>
             <tr>
                 <td>We assume that gas molecules have no attraction/repulsion forces with other gas molecules</td>
                 <td>In reality gas particles do have attractive/repulsive tendencies with other molecules, the attractive or repulsive forces can impact the strengths of the collisions.</td>
+                <td><var>P</var> =&gt;
+                    <equation><var>P + an</var><sup>2</sup>/<var>V</var><sup>2</sup></equation>
+                </td>
+            </tr>
+        </table>
+        <li>Since real gasses differ from those we model with the Ideal Gas Law, we need to correct our Ideal Gas Law for gasses in reality.</li>
+        <li>In reality, the gas particles have volume, so that takes away from the overall volume in our equation, and the more moles of gas we have, the more particles of gas we have, taking away from the overall volume. Our <var>V</var> becomes <var>V &minus; nb</var>,
+            where <var>b</var> is a constant that pertains to a specific gas.</li>
+        <li>The attractive/repulsive tendencies of particles takes away from the force of the collisions, we can correct that with the concentration (M<sup>2</sup>). Since each gas is different, we need a different constant <var>a</var>, so we add <var>an</var><sup>2</sup>/<var>V</var><sup>2</sup>.</li>
+        <li>When we combine these, we get van der Waals equation:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>(P + an<sup>2</sup>/V<sup>2</sup>)(V &minus; nb) = nRT</equation>
+                </td>
             </tr>
         </table>
     </ul>
@@ -315,7 +479,9 @@
         <li>The frequency of a light wave is given by <var>f</var>, the number of waves passing in one second, or Hertz (Hz)</li>
         <table class="rules">
             <tr>
-                <td><var>v = &lambda;f</var></td>
+                <td>
+                    <equation><var>v = &lambda;f</var></equation>
+                </td>
             </tr>
         </table>
         <li>In the case of light through a vacuum, the velocity <var>v</var> would actually be the speed of light in a vacuum <var>c</var> = 2.998 &times; 10<sup>8</sup>. <u>Note:</u> all other types of electromagnetic radiation (microwaves, radio waves)
@@ -326,7 +492,9 @@
         <li>Using spectrophotometry to measure the absorbance of certain wavelengths of light, we can find the concentration of a compound within a solution, this is given by the Beer-Lambert Law:
             <table class="rules">
                 <tr>
-                    <td><var>A = &epsilon;LC</var></td>
+                    <td>
+                        <equation><var>A = &epsilon;LC</var></equation>
+                    </td>
                 </tr>
             </table>where <var>A</var> is the absorbance, <var>&epsilon;</var> is the molar absorptivity, <var>L</var> is the length of the light path, and <var>C</var> is the concentration of the compound.</li>
     </ul>
