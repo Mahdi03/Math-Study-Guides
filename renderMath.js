@@ -39,6 +39,105 @@ function removeImportanceFromElements() {
 }
 
 function renderMath(parentElement = "") {
+
+
+    //Convert my format of showing Math to MathJax - leave commented out for now until further use...only use on chem study guide for now
+
+    function createHTMLNodesFromString(htmlString) {
+        var div = document.createElement("div");
+        div.innerHTML = htmlString;
+        return div.childNodes;
+    }
+    var equationTags = document.querySelectorAll("equation");
+    equationTags.forEach((equationTag) => {
+        var innerMath = "\\(";
+        //Convert the innerHTML into DOM
+        var dom = equationTag.cloneNode(true); //Set true for a deep copy
+        //var myString = equationTag.innerHTML;
+        //Replace sup{} with ^{}
+        dom.innerHTML.replace(/&minus;/gi, "-").replace(/\s/gi, "");
+        while (dom.querySelector("sup") != undefined) {
+            var oldSUP = dom.querySelector("sup");
+            var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
+            oldSUP.replaceWith(...newSUP);
+            console.log(dom.innerHTML)
+        }
+        //Replace sub{} with _{}
+        while (dom.querySelector("sub") != undefined) {
+            var oldSUB = dom.querySelector("sub");
+            var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
+            oldSUB.replaceWith(...newSUB);
+            console.log(dom.innerHTML)
+        }
+        //Replace var with nothing since MathJax automatically styles text
+        while (dom.querySelector("var") != undefined) {
+            var oldVAR = dom.querySelector("var");
+            var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
+            oldVAR.replaceWith(...newVAR);
+            console.log(dom.innerHTML)
+        }
+        //Replace sqrt{} with \sqrt {}
+        while (dom.querySelector("sqrt") != undefined) {
+            var oldSQRT = dom.querySelector("sqrt");
+            var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+            oldSQRT.replaceWith(...newSQRT);
+            console.log(dom.innerHTML)
+        }
+        while (dom.querySelector("div.fraction") != undefined) {
+            var oldFrac = dom.querySelector("div.fraction");
+            var top = oldFrac.querySelector("div.top").innerHTML;
+            var bottom = oldFrac.querySelector("div.bottom").innerHTML;
+            var newFrac = createHTMLNodesFromString("\\frac{" + top + "}{" + bottom + "}");
+            oldFrac.replaceWith(...newFrac);
+            console.log(dom.innerHTML)
+        }
+        var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
+        for (var i = 0; i < otherFunctions.length; i++) {
+            while (dom.querySelector(otherFunctions[i]) != undefined) {
+                var oldFunc = dom.querySelector(otherFunctions[i]);
+                var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
+                oldFunc.replaceWith(...newFunc);
+            }
+        }
+        while (dom.querySelector("log") != undefined) {
+            var oldLog = dom.querySelector("log");
+            var base = oldLog.getAttribute("base");
+            var newLog = "";
+            if (base !== null) {
+                newLog = "\\log_{" + base + "} {" + oldLog.innerHTML + "}";
+            } else {
+                newLog = "\\log {" + oldLog.innerHTML + "}";
+            }
+            newLog = createHTMLNodesFromString(newLog);
+            oldSQRT.replaceWith(...newLog);
+            console.log(dom.innerHTML)
+        }
+        while (dom.querySelector("vector") != undefined) {
+            var oldVector = dom.querySelector("vector");
+            var newVector = createHTMLNodesFromString("\\overrightarrow {" + oldVector.innerHTML + "}");
+            oldVector.replaceWith(...newVector);
+        }
+
+
+        //Replace vector{} with \overrightarrow{}
+        //myString.replace(/<sup>()<\/sup>/, "^{$1}");
+
+        innerMath += dom.innerHTML;
+        innerMath += "\\)";
+        equationTag.innerHTML = innerMath;
+        console.log(innerMath);
+
+    });
+    try {
+        MathJax.typesetPromise();
+    } catch (err) {
+        console.warn("MathJax not yet supported on this page. Error:" + err);
+    }
+
+
+
+
+
     //Replaced/Defined all math function 
     //Defined all Sqrt Tags
 
@@ -200,6 +299,7 @@ function renderMath(parentElement = "") {
     renderJS.forEach((script) => {
         eval(script.innerHTML);
     });
+
 
 
 
