@@ -60,10 +60,10 @@ function renderMath(parentElement = "") {
             .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/g, "\\left\\vert {$1} \\right\\vert");
         while (dom.querySelector("sigma") != undefined) {
             var oldSigma = dom.querySelector("sigma");
-            var startValue = oldSigma.getAttribute("start");
+            var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
             var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
             var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
-            oldSigma.replaceWith(newSigma);
+            oldSigma.replaceWith(...newSigma);
         }
         while (dom.querySelector("sup") != undefined) {
             var oldSUP = dom.querySelector("sup");
@@ -92,11 +92,16 @@ function renderMath(parentElement = "") {
             oldSQRT.replaceWith(...newSQRT);
             console.log(dom.innerHTML)
         }
+        while (dom.querySelector("text") != undefined) {
+            var oldText = dom.querySelector("text");
+            var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
+            oldText.replaceWith(...newText);
+        }
         while (dom.querySelector("div.fraction") != undefined) {
             var oldFrac = dom.querySelector("div.fraction");
             var top = oldFrac.querySelector("div.top").innerHTML;
             var bottom = oldFrac.querySelector("div.bottom").innerHTML;
-            var newFrac = createHTMLNodesFromString("\\frac{" + top + "}{" + bottom + "}");
+            var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
             oldFrac.replaceWith(...newFrac);
             console.log(dom.innerHTML)
         }
@@ -144,14 +149,28 @@ function renderMath(parentElement = "") {
 
     });
     try {
-        MathJax = {
+        /*
+        MathJax.chtml.scale = 1.3;
+        MathJax.options.enableMenu = false;
+        MathJax.tex.packages = { '[+]': ['mhchem'] };
+        MathJax.loader.load = ['[tex]/mhchem'];
+        
+        window.MathJax = {
             chtml: {
                 scale: 1.3
             },
             options: {
                 enableMenu: false
+            },
+            tex: {
+                packages: {
+                    '[+]': ['mhchem']
+                }
+            },
+            loader: {
+                load: ['[tex]/mhchem']
             }
-        };
+        };*/
         MathJax.typesetPromise();
     } catch (err) {
         console.warn("MathJax not yet supported on this page. Error:" + err);
