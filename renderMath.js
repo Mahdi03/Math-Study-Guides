@@ -139,25 +139,12 @@ function renderMath(parentElement = "") {
             oldLim.replaceWith(...newLim);
         }
         while (dom.querySelector("integral") != undefined) {
-            var lowerBound = oldIntegral.getAttribute("lowerBound");
-            var upperBound = oldIntegral.getAttribute("upperBound");
-            var respectTo = oldIntegral.getAttribute("respectTo");
-            var span = document.createElement("span");
-            span.innerHTML = "<var>d" + respectTo + "</var>";
-            if (lowerBound !== null || upperBound !== null) {
-                integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'>" + lowerBound + "</sub><sup style='display: inline-block; transform: translateY(-11px);'>" + upperBound + "</sup><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
-            } else {
-                integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
-            }
-            integralTags[h].parentNode.insertBefore(span, integralTags[h].nextSibling);
-
-
-
-
-
-
             var oldIntegral = dom.querySelector("integral");
-            var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "}")
+            var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
+            var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
+            var respectTo = oldIntegral.getAttribute("respectTo");
+            var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
+            oldIntegral.replaceWith(...newIntegral);
         }
         //Replace vector{} with \overrightarrow{}
         //myString.replace(/<sup>()<\/sup>/, "^{$1}");
