@@ -138,7 +138,27 @@ function renderMath(parentElement = "") {
             var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \to " + limApproaches + "}");
             oldLim.replaceWith(...newLim);
         }
+        while (dom.querySelector("integral") != undefined) {
+            var lowerBound = oldIntegral.getAttribute("lowerBound");
+            var upperBound = oldIntegral.getAttribute("upperBound");
+            var respectTo = oldIntegral.getAttribute("respectTo");
+            var span = document.createElement("span");
+            span.innerHTML = "<var>d" + respectTo + "</var>";
+            if (lowerBound !== null || upperBound !== null) {
+                integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'>" + lowerBound + "</sub><sup style='display: inline-block; transform: translateY(-11px);'>" + upperBound + "</sup><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
+            } else {
+                integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
+            }
+            integralTags[h].parentNode.insertBefore(span, integralTags[h].nextSibling);
 
+
+
+
+
+
+            var oldIntegral = dom.querySelector("integral");
+            var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "}")
+        }
         //Replace vector{} with \overrightarrow{}
         //myString.replace(/<sup>()<\/sup>/, "^{$1}");
 
@@ -275,21 +295,38 @@ function renderMath(parentElement = "") {
         var pDerivativeOrder = pDerivativeTags[s].getAttribute("order") ? "<sup>" + pDerivativeTags[s].getAttribute("order") + "</sup>" : "";
         pDerivativeTags[s].innerHTML = "<div class='fraction'><div class='top'>&part;" + pDerivativeOrder + "<var>" + pDerivativeOf + "</var></div><div class='bottom'>&part;<var>" + pDerivativeRespectTo + "</var>" + pDerivativeOrder + "</div></div>";
     }
-
     var integralTags = document.querySelectorAll(parentElement + "integral");
     for (var h = 0; h < integralTags.length; h++) {
+        integralTags[h].classList.add("notYetStyled")
+    }
+    var integralTags = document.querySelectorAll(parentElement + "integral");
+    while (document.querySelector(parentElement + "integral.notYetStyled") != undefined) {
+        var integralTag = document.querySelector(parentElement + "integral.notYetStyled");
+        var lowerBound = integralTag.getAttribute("lowerBound");
+        var upperBound = integralTag.getAttribute("upperBound");
+        var respectTo = integralTag.getAttribute("respectTo");
+        var span = document.createElement("span");
+        span.innerHTML = "<var>d" + respectTo + "</var>";
+        if (lowerBound !== null || upperBound !== null) {
+            integralTag.innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'>" + lowerBound + "</sub><sup style='display: inline-block; transform: translateY(-11px);'>" + upperBound + "</sup><span style='transform: translateY(50px);'>" + integralTag.innerHTML + "</span>";
+        } else {
+            integralTag.innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><span style='transform: translateY(50px);'>" + integralTag.innerHTML + "</span>";
+        }
+        console.log(integralTag.parentNode);
+        integralTag.parentNode.insertBefore(span, integralTag.nextSibling);
+        integralTag.classList.remove("notYetStyled");
+
+    }
+    /*
+    for (var h = 0; h < integralTags.length; h++) {
+        console.log(integralTags[h]);
         var lowerBound = integralTags[h].getAttribute("lowerBound");
         var upperBound = integralTags[h].getAttribute("upperBound");
         var respectTo = integralTags[h].getAttribute("respectTo");
         var span = document.createElement("span");
         span.innerHTML = "<var>d" + respectTo + "</var>";
-        if (lowerBound !== null || upperBound !== null) {
-            integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'>" + lowerBound + "</sub><sup style='display: inline-block; transform: translateY(-11px);'>" + upperBound + "</sup><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
-        } else {
-            integralTags[h].innerHTML = "<span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><span style='transform: translateY(50px);'>" + integralTags[h].innerHTML + "</span>";
-        }
-        integralTags[h].parentNode.insertBefore(span, integralTags[h].nextSibling);
     }
+    */
     var evaluatedTags = document.querySelectorAll(parentElement + "evaluated");
     for (var t = 0; t < evaluatedTags.length; t++) {
         var from = evaluatedTags[t].getAttribute("from");
