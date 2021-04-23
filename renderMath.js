@@ -39,6 +39,128 @@ function removeImportanceFromElements() {
 }
 
 function renderMath(parentElement = "") {
+
+
+    //Convert my format of showing Math to MathJax - leave commented out for now until further use...only use on chem study guide for now
+
+    function createHTMLNodesFromString(htmlString) {
+        var div = document.createElement("div");
+        div.innerHTML = htmlString;
+        return div.childNodes;
+    }
+    var equationTags = document.querySelectorAll(parentElement + " equation");
+    equationTags.forEach((equationTag) => {
+        var innerMath = "\\(";
+        //Convert the innerHTML into DOM
+        var dom = equationTag.cloneNode(true); //Set true for a deep copy
+        //var myString = equationTag.innerHTML;
+        //Replace sup{} with ^{}
+        dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
+            .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
+            .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/g, "\\left\\vert {$1} \\right\\vert");
+        while (dom.querySelector("sigma") != undefined) {
+            var oldSigma = dom.querySelector("sigma");
+            var startValue = oldSigma.getAttribute("start");
+            var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
+            var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
+            oldSigma.replaceWith(newSigma);
+        }
+        while (dom.querySelector("sup") != undefined) {
+            var oldSUP = dom.querySelector("sup");
+            var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
+            oldSUP.replaceWith(...newSUP);
+            console.log(dom.innerHTML)
+        }
+        //Replace sub{} with _{}
+        while (dom.querySelector("sub") != undefined) {
+            var oldSUB = dom.querySelector("sub");
+            var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
+            oldSUB.replaceWith(...newSUB);
+            console.log(dom.innerHTML)
+        }
+        //Replace var with nothing since MathJax automatically styles text
+        while (dom.querySelector("var") != undefined) {
+            var oldVAR = dom.querySelector("var");
+            var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
+            oldVAR.replaceWith(...newVAR);
+            console.log(dom.innerHTML)
+        }
+        //Replace sqrt{} with \sqrt {}
+        while (dom.querySelector("sqrt") != undefined) {
+            var oldSQRT = dom.querySelector("sqrt");
+            var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+            oldSQRT.replaceWith(...newSQRT);
+            console.log(dom.innerHTML)
+        }
+        while (dom.querySelector("div.fraction") != undefined) {
+            var oldFrac = dom.querySelector("div.fraction");
+            var top = oldFrac.querySelector("div.top").innerHTML;
+            var bottom = oldFrac.querySelector("div.bottom").innerHTML;
+            var newFrac = createHTMLNodesFromString("\\frac{" + top + "}{" + bottom + "}");
+            oldFrac.replaceWith(...newFrac);
+            console.log(dom.innerHTML)
+        }
+        var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
+        for (var i = 0; i < otherFunctions.length; i++) {
+            while (dom.querySelector(otherFunctions[i]) != undefined) {
+                var oldFunc = dom.querySelector(otherFunctions[i]);
+                var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
+                oldFunc.replaceWith(...newFunc);
+            }
+        }
+        while (dom.querySelector("log") != undefined) {
+            var oldLog = dom.querySelector("log");
+            var base = oldLog.getAttribute("base");
+            var newLog = "";
+            if (base !== null) {
+                newLog = "\\log_{" + base + "} {" + oldLog.innerHTML + "}";
+            } else {
+                newLog = "\\log {" + oldLog.innerHTML + "}";
+            }
+            newLog = createHTMLNodesFromString(newLog);
+            oldSQRT.replaceWith(...newLog);
+            console.log(dom.innerHTML)
+        }
+        while (dom.querySelector("vector") != undefined) {
+            var oldVector = dom.querySelector("vector");
+            var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
+            oldVector.replaceWith(...newVector);
+        }
+        while (dom.querySelector("lim") != undefined) {
+            var oldLim = dom.querySelector("lim");
+            var limAs = oldLim.getAttribute("as");
+            var limApproaches = oldLim.getAttribute("approaches");
+            var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \to " + limApproaches + "}");
+            oldLim.replaceWith(...newLim);
+        }
+
+        //Replace vector{} with \overrightarrow{}
+        //myString.replace(/<sup>()<\/sup>/, "^{$1}");
+
+        innerMath += dom.innerHTML;
+        innerMath += "\\)";
+        equationTag.innerHTML = innerMath;
+        console.log(innerMath);
+
+    });
+    try {
+        MathJax = {
+            chtml: {
+                scale: 1.3
+            },
+            options: {
+                enableMenu: false
+            }
+        };
+        MathJax.typesetPromise();
+    } catch (err) {
+        console.warn("MathJax not yet supported on this page. Error:" + err);
+    }
+
+
+
+
+
     //Replaced/Defined all math function 
     //Defined all Sqrt Tags
 
@@ -200,6 +322,7 @@ function renderMath(parentElement = "") {
     renderJS.forEach((script) => {
         eval(script.innerHTML);
     });
+
 
 
 
@@ -1519,23 +1642,23 @@ class RayDiagram {
             //Draw the rays!!
 
             /*Ray #1 -
-            Concave mirrors:
-            Ray#1: to mirror, then bounce back to focus
-            Ray#2: through focus to mirror, bounce horizontally back
+                Concave mirrors:
+                Ray#1: to mirror, then bounce back to focus
+                Ray#2: through focus to mirror, bounce horizontally back
             
-            convex mirrors:
-            Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
-            Ray#2: through mirror dashed to focus, bounce backwards horizontally
+                convex mirrors:
+                Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
+                Ray#2: through mirror dashed to focus, bounce backwards horizontally
             
-            convex lens:
-            Ray#1: to lens, through focus
-            Ray#2: through center (if F>x>lens then extend dotted backwards)
-            Ray#3: to focus, through lens
+                convex lens:
+                Ray#1: to lens, through focus
+                Ray#2: through center (if F>x>lens then extend dotted backwards)
+                Ray#3: to focus, through lens
             
-            concave lens:
-            Ray#1: to lens, dash backwards to focus, launch forwards
-            Ray#2: 
-            */
+                concave lens:
+                Ray#1: to lens, dash backwards to focus, launch forwards
+                Ray#2: 
+                */
             this.ctx.save();
 
             //Ray#1:
