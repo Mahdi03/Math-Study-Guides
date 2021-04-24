@@ -12,24 +12,44 @@
 <!-- Import MathJax -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <div class="indent">
     <h3>Entropy:</h3>
     <ul>
-        <li>Entropy, represented by <var>S</var>, describes the randomness and disorder of the system. 0 entropy is defined as a solid crystal at 0 K. Standard entropies are calculated at 25&deg;C.</li>
+        <li>Entropy, represented by <var>S</var>, describes the randomness and disorder of a system. 0 entropy is defined as a solid crystal at 0 K. Standard entropies are calculated at 25&deg;C.</li>
         <li>
-            Standard entropy chance:
+            Standard entropy (of a chemical reaction; \(n_p, n_r\) represent moles of products and reactants respectively):
         </li>
         <table class="rules">
             <tr>
                 <td>
-                    <equation>
-                        &Delta;S&deg; =
-                        <sigma></sigma>&Delta;S&deg;<sub><text>products</text></sub> &minus;
-                        <sigma></sigma>&Delta;S&deg;<sub><text>reactants</text></sub>
-                    </equation>
+                    \(\Delta S^{\circ}_{reaction} = \sum n_p S^{\circ}_{products} - \sum n_r S^{\circ}_{reactants}\)
                 </td>
             </tr>
         </table>
+        <li>The second law of thermodynamics states: in any spontaneous process there is always an increase in the entropy of the universe. Thus, entropy
+            is not conserverd.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    \(\Delta S_{univ} = \Delta S_{sys} + \Delta S_{surr}\)
+                </td>
+            </tr>
+        </table>
+        <li>If \(\Delta S_{univ}\) is positive, entropy increases and the process it decribes is spontaneous in the direction written. If \(\Delta S_{univ}\) is negative, then the process
+            is spontaneous in the opposite direciton. If \(\Delta S_{univ}\) is 0, then the process will not occur spontaneously and the system is at equilibrium.
+        </li>
+        <li>The sign of entropy changes in the surroundings are primarily determined by heat flow: exothermic processes increase surrounding entropy and endothermic is the opposite.
+            The magnitude of surrounding entropy depends on temperature.
+        </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    \(\Delta S_{surr} = -\dfrac{\Delta H}{T}\)
+                </td>
+            </tr>
+        </table>
+        <li>Entropy will increase as volume increases and increase as pressure decreases.</li>
     </ul>
     <h3>Gibb's Free Energy:</h3>
     <ul>
@@ -40,18 +60,14 @@
         <table class="rules">
             <tr>
                 <td>
-                    <equation>
-                        &Delta;G&deg; =
-                        <sigma></sigma>&Delta;G&deg;<sub>f<text>-products</text></sub> &minus;
-                        <sigma></sigma>&Delta;G&deg;<sub>f<text>-reactants</text></sub>
-                    </equation>
+                    \(\Delta G^{\circ}_{reaction} = \sum n_p G^{\circ}_{products} - \sum n_r G^{\circ}_{reactants}\)
                 </td>
             </tr>
         </table>
         <li>If
-            <equation>&Delta;G&deg;</equation> is negative, reaction is thermodynamically favored.</li>
+            <equation>&Delta;G&deg;</equation> is negative, reaction is thermodynamically favored and will proceed spontaneously.</li>
         <li>If
-            <equation>&Delta;G&deg;</equation> is positive, the reaction is thermodynamically unfavored.</li>
+            <equation>&Delta;G&deg;</equation> is positive, the reaction is thermodynamically unfavored and the opposite reaction will proceed spontaneously.</li>
         <li>If
             <equation>&Delta;G&deg;</equation> is 0, the reaction is at equilibrium.</li>
         <h5>&Delta;G, &Delta;H, and &Delta;S:</h5>
@@ -63,7 +79,19 @@
                 </td>
             </tr>
         </table>
-        <li>Here's an example:<br/> \(\ce{CO(g) + H2O(g) -&gt; CO2(g) + H2(g) \quad \Delta H^{\circ} = -41.2 kJ/mol \quad \Delta S^{\circ} = -135 J/mol\cdot K}\)
+        <li>This formula can be derived from the formula for the entropy of the universe:</li>
+        <table>
+            <tr>
+                <td>
+                    <br>
+                    \(\Delta S_{univ} = \Delta S_{surr} + \Delta S_{sys}\) <br> <br>
+                    \(\Delta S_{univ} = -\dfrac{\Delta G}{T} \quad \Delta S_{surr} = -\dfrac{\Delta H}{T}\) <br> <br>
+                    \(-\dfrac{\Delta G}{T} = -\dfrac{\Delta H}{T} + \Delta S_{(sys)}\) <br> <br>
+                    \(\Delta G = \Delta H - T\Delta S\)
+                </td>
+            </tr>
+        </table> <br>
+        <li>Here's an example: <br /> <br/> \(\ce{CO(g) + H2O(g) -&gt; CO2(g) + H2(g) \quad \Delta H^{\circ} = -41.2 kJ/mol \quad \Delta S^{\circ} = -135 J/mol\cdot K}\) <br> <br>
             <ol type="a">
                 <li>Is the above reaction thermodynamically favorable at 25&deg;C?</li>
                 <li>At what temperature would the reaction no longer be thermodynamically favored? Assume the enthalpy and entropy values are independent of temperature.</li>
@@ -81,28 +109,128 @@
         <h5>&Delta;G&deg; and Phase Changes:</h5>
         <li>Since phase changes are not chemical reactions, their free energy is 0. So, we can determine a substance's melting or boiling points.</li>
         <h5>Standard Free Energy Change and the Equilibrium Constant:</h5>
-        <li>Free energy can be calculated if you know the equilibrium constant using the following equation, where <var>R</var> is the gas constant, <var>T</var> = absolute temperature in Kelvin (K), and <var>K</var> is the equilibrium constant:</li>
+        <li>Free energy can be calculated if you know Q or K of a specific reaction. \(\Delta G^{\circ}\) represents the free energy change when there is 1 atm while the other
+            represents free energy change for a specified pressure. \(R = \ce{8.3145 J/K \cdot mol}\)
+        </li>
         <table class="rules">
             <tr>
                 <td>
-                    <equation>
-                        &Delta;G&deg; = &minus;RT
-                        <ln>K</ln>
-                    </equation>
+                    Reaction not at Equilibrium: \(\Delta G = \Delta G^{\circ} + R T \ln Q\) <br>
+                    Reaction at Equilibrium: \(\Delta G^{\circ} = -R T \ln K\)
+                    
                 </td>
             </tr>
         </table>
-        <h5>Reduction Potentials:</h5>
-        <li>Every half-reaction has a voltage. You will be given the values for the standard reduction potential for any question regarding it. They are always given as reduction half-reactions, reading the reaction in reverse and flipping the sign will give
-            the oxidation potential.</li>
-        <li>The larger the potential, the more likely it is to occur. When calculating the potential of a redox reaction remember:</li>
+    </ul>
+    <h3>Redox Reactions:</h3>
+    <ul>
+        <h5>Half-Reactions:</h5>
         <ul>
-            <li>Add the potential for the oxidation half-reaction and the reduction half-reaction.</li>
-            <li>Never multiply the potential for a half-reaction by a coefficient.</li>
+            <li>A <strong>half-reaction</strong> is composed of a molecule that is either oxidized or reduced during a specific reaction. They can be used to balance redox reactions.</li>
+            <li>Example: The following equation is not balanced. <br>
+                \(\ce{Ce^4+(aq) + Sn^2+(aq) -> Ce^3+(aq) + Sn^4+(aq)}\) <br>
+                Separate the oxidized and reduces species into their own half-reactions, and balance them so electrons cancel: <br>
+                Reduced: \(\ce{2Ce^4+(aq) + 2e- -> 2Ce^3+(aq)}\) <br>
+                Oxidized: \(\ce{Sn^2+(aq) -> Sn^4+(aq) + 2e-}\) <br>
+                Sum of half-reactions: <br>
+                \(\ce{2Ce^4+(aq) + Sn^2+(aq) + 2e- -> 2Ce^3+(aq) + Sn^4+(aq) + 2e-}\) <br>
+                \(\ce{2Ce^4+(aq) + Sn^2+(aq) -> 2Ce^3+(aq) + Sn^4+(aq)}\)
+            </li>
         </ul>
-        <li>When a solid metal is placed into a metallic solution and a new solid forms, the reduction potential of the metal in solution is greater than that of the solid metal. If no solid forms, the reduction potential of the solid metal is higher.</li>
+        <h5>Redox Reactions Occurring in an Acidic Solutions:</h5>
+        <ul>
+            <li>In these types of redox reactions, water molecules, protons, or hydroxide ions may be needed to balance the equations.
+                Here is how to balance such equations:
+            </li>
+            <ol>
+                <li>Write separate equatiosn for the oxidation and reduction half-reactions.</li>
+                <li>For each half-reaciton,
+                    <ol type="a">
+                        <li>balance all the elements except hydrogen and oxygen.</li>
+                        <li>balance oxygen using \(\ce{H2O}\)</li>
+                        <li>balance hydrogen using \(\ce{H+}\)</li>
+                        <li>balance charge using electrons</li>
+                    </ol>
+                </li>
+                <li>If necessary, multiply one or both half-reactions by an integer to equalize the number of electrons transferred.</li>
+                <li>Add the half-reactions, and cancel identical species.</li>
+            </ol>
+            <li>Example: The following equation is not balanced. <br>
+                \(\ce{Cu(s) + NO3-(aq) -> Cu^2+(aq) NO2(g)}\) <br>
+                Write the half-reactions, <br>
+                Oxidation: \(\ce{Cu(s) -> Cu^2+(aq)}\) <br>
+                Reduction: \(\ce{NO3-(aq) -> NO2(g)}\) <br>
+                Now, balance each half reaction, <br>
+                Oxidation: \(\ce{Cu(s) -> Cu^2+(aq) + 2e-}\) <br>
+                Reduction: <br>
+                <div class="indent">
+                    \(\ce{NO3-(aq) -> NO2(g) + H2O(l)}\) (Notice that the Oxygens are now balanced)<br>
+                    \(\ce{NO3-(aq) + 2H+(aq) -> NO2(g) + H2O(l)}\) (Now the hydrogens are balanced) <br>
+                    \(\ce{NO3-(aq) + 2H+(aq) + e- -> NO2(g) + H2O(l)}\) (The net charge on both sides is now 0) <br>
+                </div>
+                Now we must equalize the number of electrons transferred: <br>
+                Reduction: \(\ce{2NO3-(aq) + 4H+(aq) + 2e- -> 2NO2(g) + 2H2O(l)}\) <br>
+                Summing both reactions yields us: <br>
+                \(\ce{Cu(s) + 2NO3-(aq) + 4H+(aq) -> Cu^2+(aq) + 2NO2(g) + 2H2O(l)}\)
+            </li> <br>
+            <li><strong>Note:</strong> when dealing with acidic solutions use \(\ce{H+}\) and with basic solutions its more complicated:</li>
+        </ul>
+        <h5>Redox Reactions Occurring in an Acidic Solutions:</h5>
+        <ul>
+            <ol>
+                <li>Use the half-reaction method as in acidic solutions (we are assuming that hydrogen ions are present).</li>
+                <li>To both sides of the equation affected, add a number of hydroxide ions that is equal to the number of hydrogen ions. This will
+                    eliminate the hydrogen ions by forming water.
+                </li>
+                <li>Form water on the side containing both hydrogen and hydroxide ions, and eliminate the number of water molecules that appear
+                    on both sides of the equation.
+                </li>
+                <li>Check that elements and charges are balanced.</li>
+            </ol>
+            <li>Example: The following reaction is not balanced. <br>
+                \(\ce{Ag(s) + CN-(aq) + O2(g) ->[Base] Ag(CN)2-(aq)}\) <br>
+                Oxidation: 
+                <div class="indent">
+                    \(\ce{CN-(aq) + Ag(s) -> Ag(CN)2-(aq)}\) <br>
+                    \(\ce{2CN-(aq) + Ag(s) -> Ag(CN)2-(aq) + e-}\) <br>
+                </div>
+                Reduction:
+                <div class="indent">
+                    \(\ce{O2(g) ->}\) <br>
+                    \(\ce{O2(g) -> 2H2O(l)}\) <br>
+                    \(\ce{O2(g) + 4H+(aq) -> 2H2O(l)}\) <br>
+                    \(\ce{4e- + O2(g) + 4H+(aq) -> 2H2O(l)}\) <br>
+                </div>
+                After multiplying the oxidation half-reaction by 4, the complete, balanced reaciton is: <br>
+                \(\ce{8CN-(aq) + 4Ag(s) + O2(g) +} \underbrace{\ce{4H+(aq) + 4OH-(aq)}}_{\ce{4H2O(l)}} \ce{-> 4Ag(CN)2-(aq) + 2H2O(l) + 4OH-(aq)}\) <br>
+                After eliminating the water molecules from both sides: <br>
+                \(\ce{8CN-(aq) + 4Ag(s) + O2(g) + 2H2O(l) -> 4Ag(CN)2-(aq) + 4OH-(aq)}\)
+            </li>
+        </ul>
     </ul>
     <h3>Galvanic Cells:</h3>
+    <ul>
+        <li>A favored redox reaction is used to generate a flow of <strong>current</strong> (the flow of electrons). As shown in the figure below, two half-reactions take place in separate chambers, and electrons are
+            released by the oxidation reaction pass through the wire to the reduction reaction's chamber. Oxidation takes place at the electrode called the <strong>anode</strong>
+            and reduction takes place at the <strong>cathode</strong>.
+        </li>
+        <li>
+            The salt bridge maintains electrical neutrality in the cell. At the cathode, reduction occurs causing the solution to become less positively charged,
+            so positive cations from the salt bridge solution flow into the half-cell. The opposite happens at the anode.
+        </li>
+        <img src="galvanic_cell.png" width="40%"/>
+        <!-- <h5>Reduction Potentials:</h5>
+            <li>Every half-reaction has a voltage. You will be given the values for the standard reduction potential for any question regarding it. They are always given as reduction half-reactions, reading the reaction in reverse and flipping the sign will give
+            the oxidation potential.</li>
+            <li>The larger the potential, the more likely it is to occur. When calculating the potential of a redox reaction remember:</li>
+            <ul>
+                <li>Add the potential for the oxidation half-reaction and the reduction half-reaction.</li>
+                <li>Never multiply the potential for a half-reaction by a coefficient.</li>
+            </ul>
+            <li>When a solid metal is placed into a metallic solution and a new solid forms, the reduction potential of the metal in solution is greater than that of the solid metal. 
+                If no solid forms, the reduction potential of the solid metal is higher.</li> -->
+    </ul>
+        
     <h3>Electrolytic Cells:</h3>
     <ul>
         <h5>Electroplating:</h5>
