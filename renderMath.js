@@ -39,10 +39,7 @@ function removeImportanceFromElements() {
 }
 
 function renderMath(parentElement = "") {
-
-
     //Convert my format of showing Math to MathJax - leave commented out for now until further use...only use on chem study guide for now
-
     function createHTMLNodesFromString(htmlString) {
         var div = document.createElement("div");
         div.innerHTML = htmlString;
@@ -135,8 +132,24 @@ function renderMath(parentElement = "") {
             var oldLim = dom.querySelector("lim");
             var limAs = oldLim.getAttribute("as");
             var limApproaches = oldLim.getAttribute("approaches");
-            var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \to " + limApproaches + "}");
+            var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \\to " + limApproaches + "}");
             oldLim.replaceWith(...newLim);
+        }
+        while (dom.querySelector("derivative") != undefined) {
+            var oldDerivative = dom.querySelector("derivative");
+            var derivativeOf = oldDerivative.getAttribute("of") ? oldDerivative.getAttribute("of") : "";
+            var derivativeRespectTo = oldDerivative.getAttribute("respectTo") ? oldDerivative.getAttribute("respectTo") : "x";
+            var derivativeOrder = oldDerivative.getAttribute("order") ? "^{" + oldDerivative.getAttribute("order") + "}" : "";
+            var newDerivative = createHTMLNodesFromString("\\dfrac{d" + derivativeOrder + derivativeOf + "}{d" + derivativeRespectTo + derivativeOrder + "}");
+            oldDerivative.replaceWith(...newDerivative);
+        }
+        while (dom.querySelector("pDerivative") != undefined) {
+            var oldPDerivative = dom.querySelector("pDerivative");
+            var pDerivativeOf = oldPDerivative.getAttribute("of") ? oldPDerivative.getAttribute("of") : "";
+            var pDerivativeRespectTo = oldPDerivative.getAttribute("respectTo") ? oldPDerivative.getAttribute("respectTo") : "x";
+            var pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
+            var newPDerivative = createHTMLNodesFromString("\\dfrac{\\part" + pDerivativeOrder + pDerivativeOf + "}{\\part" + pDerivativeRespectTo + pDerivativeOrder + "}");
+            oldPDerivative.replaceWith(...newPDerivative);
         }
         while (dom.querySelector("integral") != undefined) {
             var oldIntegral = dom.querySelector("integral");
@@ -146,14 +159,38 @@ function renderMath(parentElement = "") {
             var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
             oldIntegral.replaceWith(...newIntegral);
         }
+        while (dom.querySelector("matrix") != undefined) {
+            var oldMatrix = dom.querySelector("matrix");
+            var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
+            var dimensionY = parseInt(oldMatrix.getAttribute("dimensionY"));
+            var values = oldMatrix.getAttribute("values").split(", ");
+            if (values.length !== dimensionX * dimensionY) {
+                console.log(values);
+                oldMatrix.innerHTML = "Could not display matrix, Dimension Error";
+            } else {
+                var newMatrixString = "\\begin{bmatrix}";
+                for (var row = 1; row <= dimensionY; row++) {
+                    for (var col = 1; col <= dimensionX; col++) {
+                        newMatrixString += values[(row - 1) * dimensionX + (col - 1)];
+                        if (col != dimensionX) {
+                            newMatrixString += " & ";
+                        }
+                    }
+                    if (row != dimensionY) {
+                        newMatrixString += "\\\\";
+                    }
+                }
+                newMatrixString += "\\end{bmatrix}";
+                var newMatrix = createHTMLNodesFromString(newMatrixString);
+                oldMatrix.replaceWith(...newMatrix);
+            }
+        }
         //Replace vector{} with \overrightarrow{}
         //myString.replace(/<sup>()<\/sup>/, "^{$1}");
-
         innerMath += dom.innerHTML;
         innerMath += "\\)";
         equationTag.innerHTML = innerMath;
         console.log(innerMath);
-
     });
     try {
         /*
@@ -182,10 +219,6 @@ function renderMath(parentElement = "") {
     } catch (err) {
         console.warn("MathJax not yet supported on this page. Error:" + err);
     }
-
-
-
-
 
     //Replaced/Defined all math function 
     //Defined all Sqrt Tags
