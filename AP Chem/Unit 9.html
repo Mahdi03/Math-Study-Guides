@@ -114,10 +114,19 @@
         </li>
         <table class="rules">
             <tr>
+                <th>
+                    At Equilibrium:
+                </th>
+                <th>
+                    Not At Equilibrium:
+                </th>
+            </tr>
+            <tr>
                 <td>
-                    Reaction not at Equilibrium: \(\Delta G = \Delta G^{\circ} + R T \ln Q\) <br>
-                    Reaction at Equilibrium: \(\Delta G^{\circ} = -R T \ln K\)
-                    
+                    \(\Delta G = \Delta G^{\circ} + R T \ln Q\)
+                </td>
+                <td>
+                    \(\Delta G^{\circ} = -R T \ln K\)
                 </td>
             </tr>
         </table>
@@ -219,21 +228,107 @@
             so positive cations from the salt bridge solution flow into the half-cell. The opposite happens at the anode.
         </li>
         <img src="galvanic_cell.png" width="40%"/>
-        <!-- <h5>Reduction Potentials:</h5>
-            <li>Every half-reaction has a voltage. You will be given the values for the standard reduction potential for any question regarding it. They are always given as reduction half-reactions, reading the reaction in reverse and flipping the sign will give
-            the oxidation potential.</li>
-            <li>The larger the potential, the more likely it is to occur. When calculating the potential of a redox reaction remember:</li>
-            <ul>
-                <li>Add the potential for the oxidation half-reaction and the reduction half-reaction.</li>
-                <li>Never multiply the potential for a half-reaction by a coefficient.</li>
-            </ul>
-            <li>When a solid metal is placed into a metallic solution and a new solid forms, the reduction potential of the metal in solution is greater than that of the solid metal. 
-                If no solid forms, the reduction potential of the solid metal is higher.</li> -->
+        <li>
+            For electrochemical cells, we use <strong>line notation</strong> and in this notation the anode components are listed on the left and the cathode components are listed on the right.
+            As shown above, phase difference is indicated by a single line. The substance constituting the anode is on the far left and the substance constituting the cathode is on the far right.
+            Double lines separate the anode and cathode.
+        </li>
+        <li>For an electrochemical cell containing ions (an aqueous solution) instead of a solid, platinum (a non-reactive, conducting metal) can be used to serve as an electrode. Thus,
+            the line notation will contain commas separating the components of the half-reaction and a line separating those from platinum. Here is an electrochemical cell using two non-solid
+            substances:<br>
+            \(\ce{Pt(s)|ClO3-(aq), ClO4-(aq), H+(aq)||H+(aq), MnO4-(aq), Mn2+(aq)|Pt(s)}\)
+        </li>
+        <h5>Reduction Potential:</h5>
+            <li>
+                The driving force on electrons in a ce ll is called the <strong>cell potential</strong> (\(E_{cell}\)) and is measured in volts (a volt is defined as 1 joule of work
+                per coulomb of charge transferred). \(E^{\circ}\) has a superscript indicating that standard states are used (1 atm gases and 1 M solutes).
+            </li>
+            <li>
+                Each half-reaction in a redox reaction is assigned a half-cell potential. The half-reaction of \(\ce{2H+ + 2e- -> H2}\) is defined to have a half-cell potential of 0 V.
+                Convention: potentials of half-reactions are given as reduction processes (so you would see an electron being in the reactant side). Because the oxidation process is written
+                as a reduction process, the cell potential is given by:
+                <table class="rules">
+                    <tr>
+                        <td>
+                            \(E^{\circ}_{cell} = E^{\circ}_{cathode} - E^{\circ}_{anode}\)
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li><strong>Note:</strong> although half-reactions may not have equal amounts of electrons if they are unbalanced, standard reduction potential is an intensive property so therefore
+            it does not depend on how many times the reaction occurs. (Do not multiply the potential by any integer when balancing a redox reaction). Also, the sign of the cell potential flips
+            when the reaction is flipped.</li>
+            <li>A fast way to determine which half-reaction should go first is to see which order of half-cell potentials will yield a positive cell potiental. Only a positive one will
+                create a spontaneous reaction.
+            </li>
     </ul>
-        
     <h3>Electrolytic Cells:</h3>
     <ul>
-        <h5>Electroplating:</h5>
+        <li>
+            An electrolytic cell uses an outside source of voltage to force an unfavored redox reaction to take place. Most occur in aqueous solutions and either ions or the water molecules can be reduced
+            oxidized.
+        </li>
+        <li>Example: <br>
+            For a reaction involving an aqueous solution of nickel (II) chloride in water, we must determine which substance is reduced and which is oxidized. <br>
+            <div class="indent">
+                \(\ce{Ni^2+ + 2e- -> Ni(s) \quad E^{\circ} = -0.25 V}\) <br>
+                \(\ce{2H2O(l) + 2e- -> H2O(g) + 2OH- \quad E^{\circ} = -0.80 V}\)
+            </div>
+            Since the half-reaction involving nickel has a higher voltage, it is more favored. It will occur over the one involving water. <br>
+            <div class="indent">
+                \(\ce{2Cl- -> Cl2(g) + 2e- \quad E^{\circ} = -1.36 V}\) <br>
+                \(\ce{2H2O(l) -> O2(g) + 4H+ + 4e- \quad E^{\circ} = -1.23 V}\)
+            </div>
+            Since the half-reaction for water has a higher voltage, it is more favored. <br>
+            Thus, the complete redox reaction is:
+            <div class="indent">
+                \(\ce{2Ni^2+ + 2H2O(l) -> 2Ni(s) + O2(g) + 4H+}\) <br>
+                \(E = -0.25 V + -1.24 V = -1.49 V\)
+            </div>
+        </li>
+        <li>
+            The total cell potential in an electrolytic cell is always negative as an outside source (like a battery) is needed to power the reaction. They usually use two non-reactive
+            metal bars as electrodes since the components are aqueous or water.
+        </li>
     </ul>
-    <h3>Voltage and Favorability:</h3>
+    <h3>Electroplating</h3>
+    <ul>
+        <li>
+            Electroplating refers how metal ions will congregate on the surface of the cathode or where the reduced half-reaction takes place. This process is usually implemented in
+            an electrolytic cell.
+        </li>
+        <li>The most common problem type asks you to find how much a component "plates out" or congregates on an electrode (usually in grams). First, the idea of current is needed 
+            to find this amount:
+            <table class="rules">
+                <tr>
+                    <td>
+                        \(I = \dfrac{q}{t}\) <br>
+                        <div style="text-align: left">
+                            \(I\) = current (amperes, A) <br>
+                            \(q\) = charge (coulombs, C) <br>
+                            \(t\) =  time (seconds, s)
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <li>
+            Faraday's constant will also be needed:
+            <table class="rules">
+                <tr>
+                    <td>\(F = 96500 \frac{C}{mol}\)</td>
+                </tr>
+            </table>
+        </li>
+        <li>Using those equations, you can figure out how many moles of electrons are produced or needed in a reaction with a given current and time. Also, utilizing stoichiometry (not forgetting the coefficient
+            on the electron), you can find the mass of any redox component.
+        </li>
+    </ul>
+    <h3>Voltage and Favorability</h3>
+    <ul>
+        <li>
+            
+        </li>
+    </ul>
 </div>
