@@ -96,8 +96,8 @@ function renderMath(parentElement = "") {
         }
         while (dom.querySelector("div.fraction") != undefined) {
             var oldFrac = dom.querySelector("div.fraction");
-            var top = oldFrac.querySelector("div.top").innerHTML;
-            var bottom = oldFrac.querySelector("div.bottom").innerHTML;
+            var top = oldFrac.children[0].innerHTML;
+            var bottom = oldFrac.children[1].innerHTML;
             var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
             oldFrac.replaceWith(...newFrac);
             console.log(dom.innerHTML)
