@@ -22,10 +22,12 @@
                         <div class="top">&Delta;concentration</div>
                         <div class="bottom">&Delta;time</div>
                     </div> =
-                    <div class="fraction">
-                        <div class="top">&Delta;[A]</div>
-                        <div class="bottom">&Delta;<var>t</var></div>
-                    </div>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&Delta;[A]</div>
+                            <div class="bottom">&Delta;<var>t</var></div>
+                        </div>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -35,7 +37,9 @@
         <li>Looking at the reactants of a reaction, we can create a general rate law:
             <table class="rules">
                 <tr>
-                    <td>R = k[A]<sup>x</sup>[B]<sup>y</sup>[C]<sup>z</sup></td>
+                    <td>
+                        <equation>R = k[A]<sup>x</sup>[B]<sup>y</sup>[C]<sup>z</sup></equation>
+                    </td>
                 </tr>
             </table>where k is the rate constant, and x, y, and z are the orders of their respective reactants.</li>
         <li>The orders are given only through experiment, they are not necessarily the same as the same coefficients found stoichiometrically.</li>
@@ -49,58 +53,89 @@
         <table class="rules">
             <tr>
                 <td>
-                    <ln>[A]<sub><var>t</var></sub></ln> &minus;
-                    <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var></td>
+                    <equation>
+                        <ln>[A]<sub><var>t</var></sub></ln> &minus;
+                        <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var>
+                    </equation>
+                </td>
                 <th><a href="javascript:void(0)" id="firstOrderIntegratedRateLawProofToggleLink" onclick="toggleSolution('#firstOrderIntegratedRateLawProof', true);">Show Proof</a></th>
             </tr>
         </table>
         <div id="firstOrderIntegratedRateLawProof" class="solution">
             <ol>
-                <li>If we have a first order reaction with only one reactant (A): A &rarr; products, then we can try setting the rate law of this reaction equal to the rate of disappearance of reactant A. We look at this reaction from time <var>t</var> =
-                    0 and initial concentration [A]<sub>0</sub> to time <var>t</var> = <var>t</var> and concentration [A]<sub><var>t</var></sub>.</li>
+                <li>If we have a first order reaction with only one reactant (A): A &rarr; products, then we can try setting the rate law of this reaction equal to the rate of disappearance of reactant A. We look at this reaction from time
+                    <equation><var>t</var> = 0
+                    </equation> and initial concentration
+                    <equation>[A]<sub>0</sub></equation> to time
+                    <equation><var>t</var> = <var>t</var></equation> and concentration
+                    <equation>[A]<sub><var>t</var></sub></equation>.</li>
                 <li>Since the rate of disappearance of the reactants is equal and opposite to the rate of appearance of the products in a reaction, we add a negative to our equation</li>
-                R = &minus;
-                <div class="fraction">
-                    <div class="top">&Delta;[A]</div>
-                    <div class="bottom">&Delta;<var>t</var></div>
-                </div>
+                <equation>
+                    R = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;[A]</div>
+                        <div class="bottom">&Delta;<var>t</var></div>
+                    </div>
+                </equation>
                 <li>However, this is analogous to the derivative.</li>
-                R = &minus;
-                <derivative of="[A]" respectTo="t"></derivative>
-                <li>Our rate law for this equation is R = k[A]<sup>1</sup>, so we get:</li>
-                R = R<br /> &minus;
-                <derivative of="[A]" respectTo="t"></derivative> = k[A]
+                <equation>
+                    R = &minus;
+                    <derivative of="[A]" respectTo="t"></derivative>
+                </equation>
+                <li>Our rate law for this equation is
+                    <equation>R = k[A]<sup>1</sup></equation>, so we get:</li>
+                <equation>
+                    <span class="alignedEquations">
+                    R = R<br /> &minus;
+                    <derivative of="[A]" respectTo="t"></derivative> = k[A]
+                </span>
+                </equation>
                 <li>Since this is a separable differential equation, we can integrate to find a function for the concentration of A ([A]) at any given time <var>t</var>.</li>
-                <div class="fraction">
-                    <div class="top">d[A]</div>
-                    <div class="bottom">[A]</div>
-                </div> = &minus;<var>k</var>d<var>t</var><br />
-                <integral lowerBound="[A]<sub>0</sub>" upperBound="[A]<sub><var>t</var></sub>" respectTo="[A]">
+                <equation><span class="alignedEquations">
+                    <div class="fraction">
+                        <div class="top">d[A]</div>
+                        <div class="bottom">[A]</div>
+                    </div> = &minus;<var>k</var>d<var>t</var>
+                <br />
+                    <integral lowerBound="[A]<sub>0</sub>" upperBound="[A]<sub><var>t</var></sub>" respectTo="[A]">
                     <div class="fraction">
                         <div class="top">1</div>
                         <div class="bottom">[A]</div>
                     </div>
-                </integral> = &minus;<var>k</var>
-                <integral lowerBound="0" upperBound="<var>t</var>" respectTo="t"></integral><br /><br />
-                <ln>[A]</ln>
-                <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = &minus;<var>kt</var>
-                <evaluated from="0" to="<var>t</var>"></evaluated><br /><br />
-                <span class="answer">
-                    <ln>[A]<sub><var>t</var></sub></ln> &minus;
-                    <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var>
-                </span>
+                    </integral> = &minus;<var>k</var>
+                    <integral lowerBound="0" upperBound="<var>t</var>" respectTo="t"></integral>
+                <br /><br />
+                    <ln>[A]</ln>
+                    <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = &minus;<var>kt</var>
+                    <evaluated from="0" to="<var>t</var>"></evaluated>
+                <br />
+                    </span>
+                </equation>
+                <div>
+                    <equation>
+                        <span class="answer">
+                        <ln>[A]<sub><var>t</var></sub></ln> &minus;
+                        <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var>
+                    </span>
+                    </equation>
+                </div>
             </ol>
         </div>
         <li>This function actually graphs a straight line with a negative slope, where
-            <ln>[A]<sub>0</sub></ln> is the y-intercept. If given a graph, the slope of the graph gives us our rate constant &minus;<var>k</var></li>
+            <equation>
+                <ln>[A]<sub>0</sub></ln>
+            </equation> is the y-intercept. If given a graph, the slope of the graph gives us our rate constant &minus;<var>k</var></li>
         <li>The half-life of a first-order reaction is given by:</li>
         <table class="rules">
             <tr>
-                <td><var>t</var><sub>half</sub> =
-                    <div class="fraction">
-                        <div class="top">0.693</div>
-                        <div class="bottom">k</div>
-                    </div>
+                <td>
+                    <equation>
+                        <var>t</var><sub><text>half</text></sub> =
+                        <div class="fraction">
+                            <div class="top">0.693</div>
+                            <div class="bottom">k</div>
+                        </div>
+                    </equation>
                 </td>
                 <th><a href="javascript:void(0)" id="firstOrderHalfLifeProofToggleLink" onclick="toggleSolution('#firstOrderHalfLifeProof', true);">Show Proof</a></th>
             </tr>
@@ -108,36 +143,42 @@
         <div class="solution" id="firstOrderHalfLifeProof">
             <ol>
                 <li>Taking our integrated rate law for first-order reactions a step further, and solving for the concentration at time <var>t</var> ([A]<sub><var>t</var></sub>) using logarithmic and exponential properties, we get:</li>
-                [A]<sub><var>t</var></sub> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup>
-                <li>Now we find the time when the concentration is half of when it started by substituting [A]<sub>0</sub>/2 back in to the equation and solving for <var>t</var></li>
-                <div class="fraction">
-                    <div class="top">[A]<sub>0</sub></div>
-                    <div class="bottom">2</div>
-                </div> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup><br />
+                <equation>[A]<sub><var>t</var></sub> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup></equation>
+                <li>Now we find the time when the concentration is half of when it started by substituting
+                    <equation>[A]<sub>0</sub>/2</equation> back in to the equation and solving for <var>t</var></li>
+                <equation><span class="alignedEquations">
+    <div class="fraction">
+        <div class="top">[A]<sub>0</sub></div>
+        <div class="bottom">2</div>
+    </div> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup><br /><br />
+    <div class="fraction">
+        <div class="top">1</div>
+        <div class="bottom">2</div>
+    </div> = e<sup>&minus;<var>kt</var></sup><br /><br />
+    <ln>
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom">2</div>
+        </div>
+    </ln> = &minus;<var>kt</var><br /><br />
+    <div class="fraction">
+        <div class="top">
+            <ln>
                 <div class="fraction">
                     <div class="top">1</div>
                     <div class="bottom">2</div>
-                </div> = e<sup>&minus;<var>kt</var></sup><br />
-                <ln>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">2</div>
-                    </div>
-                </ln> = &minus;<var>kt</var><br />
-                <div class="fraction">
-                    <div class="top">
-                        <ln>
-                            <div class="fraction">
-                                <div class="top">1</div>
-                                <div class="bottom">2</div>
-                            </div>
-                        </ln>
-                    </div>
-                    <div class="bottom">&minus;<var>k</var></div>
-                </div> = <var>t</var> =
-                <div class="fraction">
-                    <div class="top">0.693</div>
-                    <div class="bottom"><var>k</var></div>
+                </div>
+            </ln>
+        </div>
+        <div class="bottom">&minus;<var>k</var></div>
+    </div> = <var>t</var>
+</span></equation>
+                <div>
+                    <equation><span class="answer"><var>t</var> =
+    <div class="fraction">
+        <div class="top">0.693</div>
+        <div class="bottom"><var>k</var></div>
+    </div></span></equation>
                 </div>
             </ol>
         </div>
@@ -146,14 +187,16 @@
         <table class="rules">
             <tr>
                 <td>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">[A]<sub><var>t</var></sub></div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">[A]<sub>0</sub></div>
-                    </div> = <var>kt</var></td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">[A]<sub><var>t</var></sub></div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">[A]<sub>0</sub></div>
+                        </div> = <var>kt</var></equation>
+                </td>
                 <th><a href="javascript:void(0)" id="secondOrderIntegratedRateLawProofToggleLink" onclick="toggleSolution('#secondOrderIntegratedRateLawProof', true);">Show Proof</a></th>
             </tr>
         </table>

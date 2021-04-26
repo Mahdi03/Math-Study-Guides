@@ -39,153 +39,246 @@ function removeImportanceFromElements() {
 }
 
 function renderMath(parentElement = "") {
-
-
     //Convert my format of showing Math to MathJax - leave commented out for now until further use...only use on chem study guide for now
-
     function createHTMLNodesFromString(htmlString) {
         var div = document.createElement("div");
         div.innerHTML = htmlString;
         return div.childNodes;
     }
     var equationTags = document.querySelectorAll(parentElement + " equation");
-    equationTags.forEach((equationTag) => {
-        var innerMath = "\\(";
-        //Convert the innerHTML into DOM
-        var dom = equationTag.cloneNode(true); //Set true for a deep copy
-        //var myString = equationTag.innerHTML;
-        //Replace sup{} with ^{}
-        dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
-            .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
-            .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/g, "\\left\\vert {$1} \\right\\vert");
-        while (dom.querySelector("sigma") != undefined) {
-            var oldSigma = dom.querySelector("sigma");
-            var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
-            var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
-            var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
-            oldSigma.replaceWith(...newSigma);
-        }
-        while (dom.querySelector("sup") != undefined) {
-            var oldSUP = dom.querySelector("sup");
-            var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
-            oldSUP.replaceWith(...newSUP);
-            console.log(dom.innerHTML)
-        }
-        //Replace sub{} with _{}
-        while (dom.querySelector("sub") != undefined) {
-            var oldSUB = dom.querySelector("sub");
-            var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
-            oldSUB.replaceWith(...newSUB);
-            console.log(dom.innerHTML)
-        }
-        //Replace var with nothing since MathJax automatically styles text
-        while (dom.querySelector("var") != undefined) {
-            var oldVAR = dom.querySelector("var");
-            var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
-            oldVAR.replaceWith(...newVAR);
-            console.log(dom.innerHTML)
-        }
-        //Replace sqrt{} with \sqrt {}
-        while (dom.querySelector("sqrt") != undefined) {
-            var oldSQRT = dom.querySelector("sqrt");
-            var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
-            oldSQRT.replaceWith(...newSQRT);
-            console.log(dom.innerHTML)
-        }
-        while (dom.querySelector("text") != undefined) {
-            var oldText = dom.querySelector("text");
-            var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
-            oldText.replaceWith(...newText);
-        }
-        while (dom.querySelector("div.fraction") != undefined) {
-            var oldFrac = dom.querySelector("div.fraction");
-            var top = oldFrac.querySelector("div.top").innerHTML;
-            var bottom = oldFrac.querySelector("div.bottom").innerHTML;
-            var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
-            oldFrac.replaceWith(...newFrac);
-            console.log(dom.innerHTML)
-        }
-        var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
-        for (var i = 0; i < otherFunctions.length; i++) {
-            while (dom.querySelector(otherFunctions[i]) != undefined) {
-                var oldFunc = dom.querySelector(otherFunctions[i]);
-                var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
-                oldFunc.replaceWith(...newFunc);
-            }
-        }
-        while (dom.querySelector("log") != undefined) {
-            var oldLog = dom.querySelector("log");
-            var base = oldLog.getAttribute("base");
-            var newLog = "";
-            if (base !== null) {
-                newLog = "\\log_{" + base + "} {" + oldLog.innerHTML + "}";
-            } else {
-                newLog = "\\log {" + oldLog.innerHTML + "}";
-            }
-            newLog = createHTMLNodesFromString(newLog);
-            oldSQRT.replaceWith(...newLog);
-            console.log(dom.innerHTML)
-        }
-        while (dom.querySelector("vector") != undefined) {
-            var oldVector = dom.querySelector("vector");
-            var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
-            oldVector.replaceWith(...newVector);
-        }
-        while (dom.querySelector("lim") != undefined) {
-            var oldLim = dom.querySelector("lim");
-            var limAs = oldLim.getAttribute("as");
-            var limApproaches = oldLim.getAttribute("approaches");
-            var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \to " + limApproaches + "}");
-            oldLim.replaceWith(...newLim);
-        }
-        while (dom.querySelector("integral") != undefined) {
-            var oldIntegral = dom.querySelector("integral");
-            var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
-            var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
-            var respectTo = oldIntegral.getAttribute("respectTo");
-            var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
-            oldIntegral.replaceWith(...newIntegral);
-        }
-        //Replace vector{} with \overrightarrow{}
-        //myString.replace(/<sup>()<\/sup>/, "^{$1}");
+    if (equationTags.length > 0) {
 
-        innerMath += dom.innerHTML;
-        innerMath += "\\)";
-        equationTag.innerHTML = innerMath;
-        console.log(innerMath);
-
-    });
-    try {
-        /*
-        MathJax.chtml.scale = 1.3;
-        MathJax.options.enableMenu = false;
-        MathJax.tex.packages = { '[+]': ['mhchem'] };
-        MathJax.loader.load = ['[tex]/mhchem'];
-        
-        window.MathJax = {
-            chtml: {
-                scale: 1.3
-            },
-            options: {
-                enableMenu: false
-            },
-            tex: {
-                packages: {
-                    '[+]': ['mhchem']
+        /* Session Storage failed on refresh
+        //If sessionStorage doesn't have pages saved where mathjax was loaded or if this page hasn't already loaded mathjax
+        if (!sessionStorage.getItem("pagesThatLoadedMathJax") || !JSON.parse(sessionStorage.getItem("pagesThatLoadedMathJax")).includes(window.location.href))
+        */
+        if (document.querySelector("#MathJax-Script") == null) {
+            //Set MathJax Config
+            window.MathJax = {
+                chtml: {
+                    scale: 1.3
+                },
+                options: {
+                    enableMenu: false
+                },
+                tex: {
+                    packages: {
+                        '[+]': ['mhchem']
+                    }
+                },
+                loader: {
+                    load: ['[tex]/mhchem']
                 }
-            },
-            loader: {
-                load: ['[tex]/mhchem']
+            };
+            /*
+            Import MathJax
+            <!--Use this to edit MathJax: https://en.wikipedia.org/wiki/Quadratic_equation?veaction=edit-->
+            <!-- Import MathJax -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+            */
+            var polyfillScript = document.createElement("script");
+            polyfillScript.setAttribute("src", "https://polyfill.io/v3/polyfill.min.js?features=es6");
+            var mathjaxScript = document.createElement("script");
+            mathjaxScript.setAttribute("id", "MathJax-script");
+            mathjaxScript.setAttribute("async", "");
+            mathjaxScript.setAttribute("src", "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js");
+            document.head.appendChild(polyfillScript);
+            document.head.appendChild(mathjaxScript);
+
+            /*
+                        //Take care of saving the information that this page has saved mathjax once and does not need to repeat
+                        if (!sessionStorage.getItem("pagesThatLoadedMathJax")) {
+                            var array = [];
+                            array.push(window.location.href);
+                            sessionStorage.setItem("pagesThatLoadedMathJax", JSON.stringify(array));
+                        } else {
+                            var array = JSON.parse(sessionStorage.getItem("pagesThatLoadedMathJax"));
+                            array.push(window.location.href);
+                            sessionStorage.setItem("pagesThatLoadedMathJax", JSON.stringify(array));
+                        }
+                        */
+        }
+        //Convert my math to TeX for MathJax
+        equationTags.forEach((equationTag) => {
+            var innerMath = "\\(";
+            //Convert the innerHTML into DOM
+            var dom = equationTag.cloneNode(true); //Set true for a deep copy
+            //var myString = equationTag.innerHTML;
+            //Replace sup{} with ^{}
+            dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
+                .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
+                .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/g, "\\left\\vert {$1} \\right\\vert");
+            while (dom.querySelector("sigma") != undefined) {
+                var oldSigma = dom.querySelector("sigma");
+                var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
+                var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
+                var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
+                oldSigma.replaceWith(...newSigma);
             }
-        };*/
-        MathJax.typesetPromise();
-    } catch (err) {
-        console.warn("MathJax not yet supported on this page. Error:" + err);
+            //Replace sqrt{} with \sqrt {}
+            while (dom.querySelector("sqrt") != undefined) {
+                var oldSQRT = dom.querySelector("sqrt");
+                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+                oldSQRT.replaceWith(...newSQRT);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("div.fraction") != undefined) {
+                var oldFrac = dom.querySelector("div.fraction");
+                var top = oldFrac.children[0].innerHTML;
+                var bottom = oldFrac.children[1].innerHTML;
+                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
+                oldFrac.replaceWith(...newFrac);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("log") != undefined) {
+                var oldLog = dom.querySelector("log");
+                var base = oldLog.getAttribute("base");
+                var newLog = "";
+                if (base !== null) {
+                    newLog = "\\log_{" + base + "} {" + oldLog.innerHTML + "}";
+                } else {
+                    newLog = "\\log {" + oldLog.innerHTML + "}";
+                }
+                newLog = createHTMLNodesFromString(newLog);
+                oldSQRT.replaceWith(...newLog);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("lim") != undefined) {
+                var oldLim = dom.querySelector("lim");
+                var limAs = oldLim.getAttribute("as");
+                var limApproaches = oldLim.getAttribute("approaches");
+                var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \\to " + limApproaches + "}");
+                oldLim.replaceWith(...newLim);
+            }
+            while (dom.querySelector("derivative") != undefined) {
+                var oldDerivative = dom.querySelector("derivative");
+                var derivativeOf = oldDerivative.getAttribute("of") ? oldDerivative.getAttribute("of") : "";
+                var derivativeRespectTo = oldDerivative.getAttribute("respectTo") ? oldDerivative.getAttribute("respectTo") : "x";
+                var derivativeOrder = oldDerivative.getAttribute("order") ? "^{" + oldDerivative.getAttribute("order") + "}" : "";
+                var newDerivative = createHTMLNodesFromString("\\dfrac{d" + derivativeOrder + derivativeOf + "}{d" + derivativeRespectTo + derivativeOrder + "}");
+                oldDerivative.replaceWith(...newDerivative);
+            }
+            while (dom.querySelector("pDerivative") != undefined) {
+                var oldPDerivative = dom.querySelector("pDerivative");
+                var pDerivativeOf = oldPDerivative.getAttribute("of") ? oldPDerivative.getAttribute("of") : "";
+                var pDerivativeRespectTo = oldPDerivative.getAttribute("respectTo") ? oldPDerivative.getAttribute("respectTo") : "x";
+                var pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
+                var newPDerivative = createHTMLNodesFromString("\\dfrac{\\part" + pDerivativeOrder + pDerivativeOf + "}{\\part" + pDerivativeRespectTo + pDerivativeOrder + "}");
+                oldPDerivative.replaceWith(...newPDerivative);
+            }
+            while (dom.querySelector("integral") != undefined) {
+                var oldIntegral = dom.querySelector("integral");
+                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
+                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
+                var respectTo = oldIntegral.getAttribute("respectTo");
+                var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
+                oldIntegral.replaceWith(...newIntegral);
+            }
+            while (dom.querySelector("evaluated") != undefined) {
+                var oldEvaluated = dom.querySelector("evaluated");
+                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
+                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
+                var newEvaluated = createHTMLNodesFromString("\\Bigr|_{" + from + "}^{" + to + "}");
+                oldEvaluated.replaceWith(...newEvaluated);
+            }
+            while (dom.querySelector("matrix") != undefined) {
+                var oldMatrix = dom.querySelector("matrix");
+                var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
+                var dimensionY = parseInt(oldMatrix.getAttribute("dimensionY"));
+                var values = oldMatrix.getAttribute("values").split(", ");
+                if (values.length !== dimensionX * dimensionY) {
+                    console.log(values);
+                    oldMatrix.innerHTML = "Could not display matrix, Dimension Error";
+                } else {
+                    var newMatrixString = "\\begin{bmatrix}";
+                    for (var row = 1; row <= dimensionY; row++) {
+                        for (var col = 1; col <= dimensionX; col++) {
+                            newMatrixString += values[(row - 1) * dimensionX + (col - 1)];
+                            if (col != dimensionX) {
+                                newMatrixString += " & ";
+                            }
+                        }
+                        if (row != dimensionY) {
+                            newMatrixString += "\\\\";
+                        }
+                    }
+                    newMatrixString += "\\end{bmatrix}";
+                    var newMatrix = createHTMLNodesFromString(newMatrixString);
+                    oldMatrix.replaceWith(...newMatrix);
+                }
+            }
+            //Remember that MathJax does not support boxed answers in aligned equations
+            while (dom.querySelector("span.answer") != undefined) {
+                var oldSpan = dom.querySelector("span.answer");
+                //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
+                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
+                oldSpan.replaceWith(...newSpan);
+            }
+            while (dom.querySelector("span.alignedEquations") != undefined) {
+                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
+                while (oldSpanAlignedEquations.querySelector("br") != undefined) {
+                    var oldBR = oldSpanAlignedEquations.querySelector("br");
+                    var newBR = createHTMLNodesFromString("\n\\\\\n");
+                    oldBR.replaceWith(...newBR);
+                }
+                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=");
+                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
+                oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
+            }
+            while (dom.querySelector("sup") != undefined) {
+                var oldSUP = dom.querySelector("sup");
+                var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
+                oldSUP.replaceWith(...newSUP);
+                //console.log(dom.innerHTML)
+            }
+            //Replace sub{} with _{}
+            while (dom.querySelector("sub") != undefined) {
+                var oldSUB = dom.querySelector("sub");
+                var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
+                oldSUB.replaceWith(...newSUB);
+                //console.log(dom.innerHTML)
+            }
+            //Replace var with nothing since MathJax automatically styles text
+            while (dom.querySelector("var") != undefined) {
+                var oldVAR = dom.querySelector("var");
+                var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
+                oldVAR.replaceWith(...newVAR);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("text") != undefined) {
+                var oldText = dom.querySelector("text");
+                var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
+                oldText.replaceWith(...newText);
+            }
+            var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
+            for (var i = 0; i < otherFunctions.length; i++) {
+                while (dom.querySelector(otherFunctions[i]) != undefined) {
+                    var oldFunc = dom.querySelector(otherFunctions[i]);
+                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
+                    oldFunc.replaceWith(...newFunc);
+                }
+            }
+            while (dom.querySelector("vector") != undefined) {
+                var oldVector = dom.querySelector("vector");
+                var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
+                oldVector.replaceWith(...newVector);
+            }
+            //Replace vector{} with \overrightarrow{}
+            //myString.replace(/<sup>()<\/sup>/, "^{$1}");
+            innerMath += dom.innerHTML;
+            innerMath += "\\)";
+            equationTag.innerHTML = innerMath;
+            console.log(innerMath);
+        });
+        try {
+            //MathJax.typesetPromise();
+        } catch (err) {
+            console.warn("MathJax not yet supported on this page. Error:\n" + err);
+        }
+
     }
-
-
-
-
 
     //Replaced/Defined all math function 
     //Defined all Sqrt Tags
