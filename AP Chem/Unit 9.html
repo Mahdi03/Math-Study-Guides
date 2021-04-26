@@ -67,19 +67,47 @@
         <table class="rules">
             <tr>
                 <td>
-                    \(\Delta G^{\circ} = \Delta H^{\circ} - T\Delta S^{\circ}\)
+                    <equation>&Delta;G&deg; = &Delta;H&deg; &minus; T&Delta;S&deg;</equation>
+                    <!--\(\Delta G^{\circ} = \Delta H^{\circ} - T\Delta S^{\circ}\)-->
                 </td>
+                <th><a id="ghsRelationProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#ghsRelationProof', true)">Show Proof</a></th>
             </tr>
         </table>
-        <li>This formula can be derived from the formula for the entropy of the universe:</li>
-        <table>
-            <tr>
-                <td>
-                    <br> \(\Delta S_{univ} = \Delta S_{surr} + \Delta S_{sys}\) <br> <br> \(\Delta S_{univ} = -\dfrac{\Delta G}{T} \quad \Delta S_{surr} = -\dfrac{\Delta H}{T}\) <br> <br> \(-\dfrac{\Delta G}{T} = -\dfrac{\Delta H}{T} + \Delta S_{(sys)}\)
-                    <br> <br> \(\Delta G = \Delta H - T\Delta S\)
-                </td>
-            </tr>
-        </table> <br>
+        <div id="ghsRelationProof" class="solution">
+            <ol>
+                <li>This formula can be derived from the formula for the entropy of the universe:</li>
+                <equation>
+                    &Delta;S<sub><text>universe</text></sub> = &Delta;S<sub><text>surrounding</text></sub> + &Delta;S<sub><text>system</text></sub>
+                </equation>
+                <br />
+                <equation>&Delta;S
+                    <sub><text>universe</text></sub> = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;G</div>
+                        <div class="bottom">T</div>
+                    </div>
+                </equation>&emsp;&emsp;&emsp;
+                <equation>&Delta;S<sub>surrounding</sub> = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;H</div>
+                        <div class="bottom">T</div>
+                    </div>
+                </equation>
+                <br />
+                <equation><span class="alignedEquations">
+                    &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;G</div>
+                        <div class="bottom">T</div>
+                    </div> = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;H</div>
+                        <div class="bottom">T</div>
+                    </div> + &Delta;S<sub><text>system</text></sub><br />
+                    &Delta;G&deg; = &Delta;H&deg; &minus; T&Delta;S&deg;
+                </span></equation>
+            </ol>
+        </div>
         <li>Here's an example: <br /> <br/> \(\ce{CO(g) + H2O(g) -&gt; CO2(g) + H2(g) \quad \Delta H^{\circ} = -41.2 kJ/mol \quad \Delta S^{\circ} = -135 J/mol\cdot K}\) <br> <br>
             <ol type="a">
                 <li>Is the above reaction thermodynamically favorable at 25&deg;C?</li>
@@ -91,7 +119,7 @@
             <ol type="a">
                 <li>We can use our equation above to plug in our values.</li>
                 \(\ce{\Delta G^{\circ} = (-41.2 kJ/mol) - (298 K)(-0.135 kJ/mol\cdot K)}\)<br /> \(\quad \ce{\Delta G^{\circ} = -0.97 kJ/mol}\)
-                <li>Set the gibbs energy to 0 and then solve.</li>
+                <li>Set the Gibbs Energy to 0 and then solve.</li>
                 \(\quad \ce{0=(-41.2 kJ/mol) - (T)(-0.135 kJ/mol\cdot K)}\)<br /> \(\quad T = 305 K\), thus its dynamically unfavorable if it is above that temperature.
             </ol>
         </div>
@@ -103,19 +131,21 @@
         </li>
         <table class="rules">
             <tr>
-                <th>
-                    At Equilibrium:
-                </th>
-                <th>
-                    Not At Equilibrium:
-                </th>
+                <th>At Equilibrium:</th>
+                <th>Not At Equilibrium:</th>
             </tr>
             <tr>
                 <td>
-                    \(\Delta G = \Delta G^{\circ} + R T \ln Q\)
+                    <equation>
+                        &Delta;G = &Delta;G&deg; + <var>RT</var>
+                        <ln>Q</ln>
+                    </equation>
                 </td>
                 <td>
-                    \(\Delta G^{\circ} = -R T \ln K\)
+                    <equation>&Delta;G&deg; = &minus;
+                        <var>RT</var>
+                        <ln>K</ln>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -209,14 +239,14 @@
             <table class="rules">
                 <tr>
                     <td>
-                        \(E^{\circ}_{cell} = E^{\circ}_{cathode} - E^{\circ}_{anode}\)
+                        <equation>E&deg;<sub><text>cell</text></sub> = E&deg;<sub><text>cathode</text></sub> &minus; E&deg;<sub><text>anode</text></sub></equation>
                     </td>
                 </tr>
             </table>
         </li>
         <li><strong>Note:</strong> although half-reactions may not have equal amounts of electrons if they are unbalanced, standard reduction potential is an intensive property so therefore it does not depend on how many times the reaction occurs. (Do not
             multiply the potential by any integer when balancing a redox reaction). Also, the sign of the cell potential flips when the reaction is flipped.</li>
-        <li>A fast way to determine which half-reaction should go first is to see which order of half-cell potentials will yield a positive cell potiental. Only a positive one will create a spontaneous reaction.
+        <li>A fast way to determine which half-reaction should go first is to see which order of half-cell potentials will yield a positive cell potential. Only a positive one will create a spontaneous reaction.
         </li>
     </ul>
     <h3>Electrolytic Cells:</h3>
@@ -243,33 +273,38 @@
     </ul>
     <h3>Electroplating</h3>
     <ul>
-        <li>
-            Electroplating refers how metal ions will congregate on the surface of the cathode or where the reduced half-reaction takes place. This process is usually implemented in an electrolytic cell.
-        </li>
-        <li>The most common problem type asks you to find how much a component "plates out" or congregates on an electrode (usually in grams). First, the idea of current is needed to find this amount:
-            <table class="rules">
-                <tr>
-                    <td>
-                        \(I = \dfrac{q}{t}\) <br>
-                        <div style="text-align: left">
-                            \(I\) = current (amperes, A) <br> \(q\) = charge (coulombs, C) <br> \(t\) = time (seconds, s)
+        <li>Electroplating refers how metal ions will congregate on the surface of the cathode or where the reduced half-reaction takes place. This process is usually implemented in an electrolytic cell.</li>
+        <li>The most common problem type asks you to find how much a component "plates out" or congregates on an electrode (usually in grams). First, the idea of current is needed to find this amount. Current is defined as the change in charge
+            <equation><var>&Delta;Q</var></equation> over time
+            <equation><var>t</var></equation>. We write this as:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <var>I</var> =
+                        <div class="fraction">
+                            <div class="top">&Delta;Q</div>
+                            <div class="bottom">t</div>
                         </div>
-
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            Faraday's constant will also be needed:
-            <table class="rules">
-                <tr>
-                    <td>\(F = 96485 \frac{C}{mol}\)</td>
-                </tr>
-            </table>
-            It represents the charge of 1 mole of electrons.
-        </li>
-        <li>Using those equations, you can figure out how many moles of electrons are produced or needed in a reaction with a given current and time. Also, utilizing stoichiometry (not forgetting the coefficient on the electron), you can find the mass of
-            any redox component.
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Faraday's constant gives us the charge of 1 mole of electrons:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>F = 96485
+                        <div class="fraction">
+                            <div class="top">C</div>
+                            <div class="bottom">mol</div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Using these equations, we can figure out how many moles of electrons are produced or needed in a reaction with a given current and time. Also, utilizing stoichiometry (not forgetting the coefficient on the electron), you can find the mass of any
+            redox component.
         </li>
     </ul>
     <h3>Voltage and Favorability:</h3>
@@ -278,39 +313,52 @@
             <table class="rules">
                 <tr>
                     <td>
-                        \(\Delta G^{\circ} = -nFE^{\circ}\)
+                        <equation>&Delta;G&deg; = &minus;<var>nFE</var>&deg;</equation>
                     </td>
                 </tr>
             </table>
-            Basically, the maximum cell potential is directly proportional to the free energy difference between
-            reactants and products in the cell. \(n\) represents the number of moles of electrons exchanged in the reaction.
+            Basically, the maximum cell potential is directly proportional to the free energy difference between reactants and products in the cell.
+            <equation><var>n</var></equation> represents the number of moles of electrons exchanged in the reaction.
         </li>
         <li>
-            <strong>Concentration</strong>: by Le Châtelier's principle, an increase in the concentration of the reactants will favor the favor reaction and thus increase
-            flow of electrons. Thus, cell potential will increase. An increase in concentration of the product will oppose the forward reaction and thus decrease the cell potential.
+            <strong>Concentration</strong>: by Le Ch&acirc;telier's principle, an increase in the concentration of the reactants will favor the favor reaction and thus increase flow of electrons. Thus, cell potential will increase. An increase in concentration
+            of the product will oppose the forward reaction and thus decrease the cell potential.
         </li>
         <li>
-            Because of concentration, it is possible to produce a positive voltage with the same component in two different half-cells at different concentrations (a concentration cell).
-            The half-cell with less concentration will donate electrons to the half-cell with more concentration in order to increase its concentration of ions and decrease the half-cell's.
+            Because of concentration, it is possible to produce a positive voltage with the same component in two different half-cells at different concentrations (a concentration cell). The half-cell with less concentration will donate electrons to the half-cell
+            with more concentration in order to increase its concentration of ions and decrease the half-cell's.
         </li>
-        <h5>THe Nernst Equation:</h5>
+        <h5>The Nernst Equation:</h5>
         <li>
-            Using the equation: \(\Delta G = \Delta G^{\circ} + RT \ln (Q)\), we can use the equation above to find a relationship for voltage and concentration.
+            Using the equation:
+            <equation>&Delta;G = &Delta;G&deg; +
+                <var>RT</var>
+                <ln>Q</ln>
+            </equation>, we can use the equation above to find a relationship for voltage and concentration.
             <table class="rules">
                 <tr>
                     <td>
-                        \(E = E^{\circ} - \dfrac{RT}{nF} \ln (Q)\)
+                        <equation>E = E&deg; &minus;
+                            <div class="fraction">
+                                <div class="top">RT</div>
+                                <div class="bottom">nF</div>
+                            </div>
+                            <ln>Q</ln>
+                        </equation>
                     </td>
                 </tr>
             </table>
         </li>
         <li>
-            The cell potential calcuated with this equation is the maximum potential before any current flows. Thus, as current does flow, concentrations change and so an equilibrium
-            will be reached. The cell will spontaneously discharge until it reaches equilibrium. <br>
+            The cell potential calculated with this equation is the maximum potential before any current flows. Thus, as current does flow, concentrations change and so an equilibrium will be reached. The cell will spontaneously discharge until it reaches equilibrium.
+            <br>
             <table class="rules">
                 <tr>
                     <td>
-                        \(Q = K \quad \text{and} \quad E_{cell} = 0\)
+                        <equation><var>Q = K</var></equation>
+                    </td>
+                    <td>
+                        <equation>E<sub><text>cell</text></sub> = 0</equation>
                     </td>
                 </tr>
             </table>
