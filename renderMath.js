@@ -99,7 +99,6 @@ function renderMath(parentElement = "") {
                         }
                         */
         }
-
         //Convert my math to TeX for MathJax
         equationTags.forEach((equationTag) => {
             var innerMath = "\\(";
@@ -117,37 +116,12 @@ function renderMath(parentElement = "") {
                 var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
             }
-            while (dom.querySelector("sup") != undefined) {
-                var oldSUP = dom.querySelector("sup");
-                var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
-                oldSUP.replaceWith(...newSUP);
-                //console.log(dom.innerHTML)
-            }
-            //Replace sub{} with _{}
-            while (dom.querySelector("sub") != undefined) {
-                var oldSUB = dom.querySelector("sub");
-                var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
-                oldSUB.replaceWith(...newSUB);
-                //console.log(dom.innerHTML)
-            }
-            //Replace var with nothing since MathJax automatically styles text
-            while (dom.querySelector("var") != undefined) {
-                var oldVAR = dom.querySelector("var");
-                var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
-                oldVAR.replaceWith(...newVAR);
-                //console.log(dom.innerHTML)
-            }
             //Replace sqrt{} with \sqrt {}
             while (dom.querySelector("sqrt") != undefined) {
                 var oldSQRT = dom.querySelector("sqrt");
                 var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
                 oldSQRT.replaceWith(...newSQRT);
                 //console.log(dom.innerHTML)
-            }
-            while (dom.querySelector("text") != undefined) {
-                var oldText = dom.querySelector("text");
-                var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
-                oldText.replaceWith(...newText);
             }
             while (dom.querySelector("div.fraction") != undefined) {
                 var oldFrac = dom.querySelector("div.fraction");
@@ -156,14 +130,6 @@ function renderMath(parentElement = "") {
                 var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
                 oldFrac.replaceWith(...newFrac);
                 //console.log(dom.innerHTML)
-            }
-            var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
-            for (var i = 0; i < otherFunctions.length; i++) {
-                while (dom.querySelector(otherFunctions[i]) != undefined) {
-                    var oldFunc = dom.querySelector(otherFunctions[i]);
-                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
-                    oldFunc.replaceWith(...newFunc);
-                }
             }
             while (dom.querySelector("log") != undefined) {
                 var oldLog = dom.querySelector("log");
@@ -177,11 +143,6 @@ function renderMath(parentElement = "") {
                 newLog = createHTMLNodesFromString(newLog);
                 oldSQRT.replaceWith(...newLog);
                 //console.log(dom.innerHTML)
-            }
-            while (dom.querySelector("vector") != undefined) {
-                var oldVector = dom.querySelector("vector");
-                var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
-                oldVector.replaceWith(...newVector);
             }
             while (dom.querySelector("lim") != undefined) {
                 var oldLim = dom.querySelector("lim");
@@ -214,6 +175,13 @@ function renderMath(parentElement = "") {
                 var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
             }
+            while (dom.querySelector("evaluated") != undefined) {
+                var oldEvaluated = dom.querySelector("evaluated");
+                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
+                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
+                var newEvaluated = createHTMLNodesFromString("\\Bigr|_{" + from + "}^{" + to + "}");
+                oldEvaluated.replaceWith(...newEvaluated);
+            }
             while (dom.querySelector("matrix") != undefined) {
                 var oldMatrix = dom.querySelector("matrix");
                 var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
@@ -239,6 +207,62 @@ function renderMath(parentElement = "") {
                     var newMatrix = createHTMLNodesFromString(newMatrixString);
                     oldMatrix.replaceWith(...newMatrix);
                 }
+            }
+            //Remember that MathJax does not support boxed answers in aligned equations
+            while (dom.querySelector("span.answer") != undefined) {
+                var oldSpan = dom.querySelector("span.answer");
+                //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
+                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
+                oldSpan.replaceWith(...newSpan);
+            }
+            while (dom.querySelector("span.alignedEquations") != undefined) {
+                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
+                while (oldSpanAlignedEquations.querySelector("br") != undefined) {
+                    var oldBR = oldSpanAlignedEquations.querySelector("br");
+                    var newBR = createHTMLNodesFromString("\n\\\\\n");
+                    oldBR.replaceWith(...newBR);
+                }
+                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=");
+                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
+                oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
+            }
+            while (dom.querySelector("sup") != undefined) {
+                var oldSUP = dom.querySelector("sup");
+                var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
+                oldSUP.replaceWith(...newSUP);
+                //console.log(dom.innerHTML)
+            }
+            //Replace sub{} with _{}
+            while (dom.querySelector("sub") != undefined) {
+                var oldSUB = dom.querySelector("sub");
+                var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
+                oldSUB.replaceWith(...newSUB);
+                //console.log(dom.innerHTML)
+            }
+            //Replace var with nothing since MathJax automatically styles text
+            while (dom.querySelector("var") != undefined) {
+                var oldVAR = dom.querySelector("var");
+                var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
+                oldVAR.replaceWith(...newVAR);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("text") != undefined) {
+                var oldText = dom.querySelector("text");
+                var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
+                oldText.replaceWith(...newText);
+            }
+            var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
+            for (var i = 0; i < otherFunctions.length; i++) {
+                while (dom.querySelector(otherFunctions[i]) != undefined) {
+                    var oldFunc = dom.querySelector(otherFunctions[i]);
+                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
+                    oldFunc.replaceWith(...newFunc);
+                }
+            }
+            while (dom.querySelector("vector") != undefined) {
+                var oldVector = dom.querySelector("vector");
+                var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
+                oldVector.replaceWith(...newVector);
             }
             //Replace vector{} with \overrightarrow{}
             //myString.replace(/<sup>()<\/sup>/, "^{$1}");
