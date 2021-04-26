@@ -71,6 +71,14 @@
             margin-left: 4em;
         }
         
+        equation.scrollable {
+            display: inline-grid;
+        }
+        
+        equation.scrollable>mjx-container {
+            overflow-x: auto;
+        }
+        
         .fraction {
             display: inline-block;
             margin: 2px;
