@@ -9,11 +9,289 @@
     });
 </script>
 <div class="indent">
+    <h3>Equilibrium in Reversible Reactions:</h3>
     <ul>
-        <h3>The Equilibrium Constant:</h3>
-        <h3>Le Ch&ahat;telier's Principle:</h3>
-        <h3>Changes In The Equilibrium Constant:</h3>
-        <h3>The Reaction Quotient:</h3>
-        <h3>Solubility:</h3>
+        <li>In this unit, the focus is reversible reactions, reactions with low enough energy differences such that they can work both forwards and backwards.</li>
+    </ul>
+    <h5>The Equilibrium Constant:</h5>
+    <ul>
+        <li>Equilibrium occurs when in a reversible reaction, the rate of reactants becoming products is equivalent to the rate of products becoming reactants. However, just because the rates are the same, does NOT mean the concentrations are the same.</li>
+        <li>For a reaction {aA + bB &rlhar; cC + dD}, the equilibrium constant is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        k<sub>eq</sub> =
+                        <div class="fraction">
+                            <div class="top">[C]<sup>c</sup>[D]<sup>d</sup></div>
+                            <div class="bottom">[A]<sup>a</sup>[B]<sup>b</sup></div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>If
+            <equation>k<sub>eq</sub> &lt; 1</equation>, the reaction favors the backwards direction since there is a higher concentration of reactants.</li>
+        <li>If
+            <equation>k<sub>eq</sub> &gt; 1</equation>, the reaction favors the forwards direction since there is a higher concentration of products.</li>
+        <li>Reversible reactions at equilibrium with different states of matter are said to be in <u>Heterogeneous Equilibrium</u>. In these cases we ignore the solvents and the solids because they are in excess, so it makes sense to not take into account
+            such high concentrations into our formula for the equilibrium constant.</li>
+        <li>In equilibrium reactions, pay attention to the state of matter. <strong style="color:mediumvioletred;">Concentrations of solids and liquids are omitted from all calculations</strong>.</li>
+    </ul>
+    <h5>Le Ch&acirc;telier's Principle:</h5>
+    <ul>
+        <li>Simply put, Le Ch&acirc;telier's Principle tells us that when we "stress" out one side of a reversible reaction, the reaction will favor reaching equilibrium by going in the direction of the other side.</li>
+        <li>If we add more of one reactant, there is a higher probability of it colliding with other reactants, so other reactants would be used up more, and the forward reaction rate increases. When that happens, more products are created, and a new equilibrium
+            will be reached, favoring the forward direction.</li>
+        <li>When the pressure is increased, the molecules are closer together, and have a higher probability of colliding. When pressure increases, the reaction favors the side with less molecules because it is easier to compress fewer molecules (think PV
+            = nRT, as pressure goes up, moles goes down to keep it the same).</li>
+
+    </ul>
+    <h5>Changes In The Equilibrium Constant:</h5>
+    <ul>
+        <li></li>
+    </ul>
+    <h5>The Reaction Quotient:</h5>
+    <ul>
+        <li>The reaction quotient is the same thing as the equilibrium constant, except the usage varies. While k<sub>c</sub> gives us information when the reaction is at equilibrium, Q<sub>c</sub> can be calculated at any time.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        Q<sub>c</sub> =
+                        <div class="fraction">
+                            <div class="top">[C]<sup>c</sup>[D]<sup>d</sup></div>
+                            <div class="bottom">[A]<sup>a</sup>[B]<sup>b</sup></div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>The reaction quotient can vary [0, &infin;), if it is 0, the reaction is all reactants, and if it is &infin;, the reaction is all products.</li>
+        <li>When the reaction is at equilibrium,
+            <equation>Q<sub>c</sub> = K<sub>c</sub></equation>.</li>
+        <li>When
+            <equation>Q<sub>c</sub> &gt; K<sub>c</sub></equation>, that means the reaction wants to get closer to equilibrium, by Le Ch&acirc;telier's Principle, so it would favor the reactants.</li>
+        <li>When
+            <equation>Q<sub>c</sub> &lt; K<sub>c</sub></equation>, the reaction favors the products.</li>
+    </ul>
+    <h5></h5>
+    <ul>
+        <li>For gaseous reactions, we can also express the equilibrium constant in terms of the partial pressures (K<sub>p</sub>):
+            <table class="rules">
+                <tr>
+                    <td>
+                        <equation>
+                            K<sub>p</sub> =
+                            <div class="fraction">
+                                <div class="top">(P<sub>C</sub>)<sup>c</sup>(P<sub>D</sub>)<sup>d</sup></div>
+                                <div class="bottom">(P<sub>A</sub>)<sup>a</sup>(P<sub>B</sub>)<sup>b</sup></div>
+                            </div>
+                        </equation>
+                    </td>
+                </tr>
+            </table>where
+            <equation>&Delta;n</equation> is the difference in moles between the products and the reactants.</li>
+        <li>It differs from
+            <equation>K<sub>c</sub></equation> by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>K<sub>p</sub> = K<sub>c</sub>(RT)<sup>&Delta;n</sup></equation>
+                </td>
+                <th><a href="javascript:void(0)" id="KpRelationToKcProofToggleLink" onclick="toggleSolution('#KpRelationToKcProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="KpRelationToKcProof" class="solution">
+            <ol>
+                <li>First recall the Ideal Gas Law,
+                    <equation>PV = nRT</equation>.</li>
+                <li>If we solve for P, we get
+                    <equation>PV =
+                        <div class="fraction">
+                            <div class="top">n</div>
+                            <div class="bottom">V</div>
+                        </div>RT</equation>, and we know
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">n</div>
+                            <div class="bottom">V</div>
+                        </div>
+                    </equation> to be moles/Liters, which is synonymous to molarity. So we can substitute in
+                    <equation>K<sub>p</sub></equation> and
+                    <equation>K<sub>c</sub></equation>. This turns into:</li>
+                <li>
+                    <equation>K<sub>p</sub> = K<sub>c</sub>(RT)<sup>&Delta;n</sup></equation>
+                </li>
+                <li>Check out <a href="https://www.khanacademy.org/science/ap-chemistry/chemical-equilibrium-ap/equilibrium-constant-ap/a/calculating-equilibrium-constant-kp-using-partial-pressures?modal=1">Khan Academy</a> for a full derivation.</li>
+            </ol>
+        </div>
+    </ul>
+    <h5>Small x approximation:</h5>
+    <ul>
+        <li>This method works best when it strongly favors one side of the reaction, either
+            <equation>k<sub>c</sub> &le; 10<sup>&minus;4</sup></equation> or
+            <equation>k<sub>c</sub> &ge; 10<sup>4</sup></equation>. If it is not, use the quadratic method.</li>
+        <li>You want to assume that the reaction is completely on one side or the other, depending on <var>k</var></li>
+        <li>We make an ICE table for all the contents in the reaction, here's an example ICE table for a reaction {aA + bB &rarr; cC} that is going forward (Q<sub>c</sub> &lt; K<sub>c</sub>):</li>
+        <table class="staticTable">
+            <tr>
+                <td style="border-top: none; border-left: none;"></td>
+                <th>aA</th>
+                <th>bB</th>
+                <th>&rarr;</th>
+                <th>cC</th>
+            </tr>
+            <tr>
+                <th><u>I</u>nitial</th>
+                <td>Initial Concentration of A</td>
+                <td>Initial Concentration Of B</td>
+                <td rowspan="3"></td>
+                <td>Initial Concentration of C</td>
+            </tr>
+            <tr>
+                <th><u>C</u>hange</th>
+                <td>&minus;a<var>x</var></td>
+                <td>&minus;b<var>x</var></td>
+                <td>+c<var>x</var></td>
+            </tr>
+            <tr>
+                <th>Concentration at <u>E</u>quilibrium</th>
+                <td>Initial + Change</td>
+                <td>Initial + Change</td>
+                <td>Initial + Change</td>
+            </tr>
+        </table>
+        <li>You want to pick coefficients to your change variables based on the term of the balanced equation with the lowest stoichiometric coefficient.</li>
+        <li>Make sure all the units are the same, like in Molars, Partial Pressures, or amounts.</li>
+        <li>Once we find the Equilibrium Concentrations, we can use that to calculate K<sub>c</sub>.</li>
+        <li>Here is an example: For the reaction
+            <compound state="g">2NH3</compound> &rlhar;
+            <compound state="g">N2</compound> +
+            <compound state="g">3H2</compound>, with 3<var>M</var>
+            <compound>NH3</compound>, 2<var>M</var>
+            <compound>N2</compound>, 5<var>M</var>
+            <compound>H2</compound>, and k<sub>c</sub> = 0.054, solve for the final concentrations at equilibrium.
+            <a href="javascript:void(0)" id="equilibriumICETableExampleSolutionToggleLink" onclick="toggleSolution('#equilibriumICETableExampleSolution');">Show Solution</a>
+        </li>
+        <div class="solution" id="equilibriumICETableExampleSolution">
+            <ol>
+                <li>Q
+                    <sub>c</sub> =
+                    <div class="fraction">
+                        <div class="top">[B]<sup>b</sup>[C]<sup>c</sup></div>
+                        <div class="bottom">[A]<sup>a</sup></div>
+                    </div>
+                    =
+                    <div class="fraction">
+                        <div class="top">[
+                            <compound>N2</compound>]<sup>1</sup>[
+                            <compound>H2</compound>]<sup>3</sup></div>
+                        <div class="bottom">[
+                            <compound>NH3</compound>]<sup>2</sup></div>
+                    </div> =
+                    <div class="fraction">
+                        <div class="top">(2M)(5M)<sup>3</sup></div>
+                        <div class="bottom">(3M)<sup>2</sup></div>
+                    </div> = 27.777</li>
+                <li>We were given k<sub>c</sub> = 0.054, so since Q<sub>c</sub> &gt; k<sub>c</sub>, the reaction runs reverse.</li>
+                <li>This means our products will decrease and the reactants will increase, so we can now reflect that into our ICE table and solve using small x approximation.</li>
+                <table class="staticTable">
+                    <tr>
+                        <td style="border-top: none; border-left: none;"></td>
+                        <th>
+                            <compound state="g">2NH3</compound>
+                        </th>
+                        <th>&rlhar;</th>
+                        <th>
+                            <compound state="g">N2</compound>
+                        </th>
+                        <th>
+                            <compound state="g">3H2</compound>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><u>I</u>nitial</th>
+                        <td>3M</td>
+                        <td rowspan="3"></td>
+                        <td>2M</td>
+                        <td>5M</td>
+                    </tr>
+                    <tr>
+                        <th><u>C</u>hange</th>
+                        <td>+2<var>x</var></td>
+                        <td>&minus;1<var>x</var></td>
+                        <td>&minus;3<var>x</var></td>
+                    </tr>
+                    <tr>
+                        <th><u>E</u>quilibrium</th>
+                        <td>3 + 2<var>x</var></td>
+                        <td>2 &minus; <var>x</var></td>
+                        <td>5 &minus; 3<var>x</var></td>
+                    </tr>
+                </table>
+                <li>Now we can substitute those values into our equation for the equilibrium constant and solve for <var>x</var>.</li>
+                k<sub>c</sub> =
+                <div class="fraction">
+                    <div class="top">[B]<sup>b</sup>[C]<sup>c</sup></div>
+                    <div class="bottom">[A]<sup>a</sup></div>
+                </div>
+                =
+                <div class="fraction">
+                    <div class="top">(2 &minus; <var>x</var>)(5 &minus; 3<var>x</var>)<sup>3</sup></div>
+                    <div class="bottom">(3 + 2<var>x</var>)<sup>2</sup></div>
+                </div> = 0.054
+                <li>Before we go on about solving this equation for <var>x</var>, we can look at the powers above and below to see that this is in fact a quadratic equation, so we can solve using the quadratic formula once we multiply it all out. Solving
+                    it however you want, we get <var>x</var> = 1.4.</li>
+                <li>Now we just plug this back in to our equilibrium concentration equations to get our equilibrium concentrations.</li>
+                <compound>N2</compound>: (2 &minus; <var>x</var>) =&gt; 0.6M<br />
+                <compound>H2</compound>: (5 &minus; 3<var>x</var>) =&gt; 0.8M<br />
+                <compound>NH3</compound>: (3 + 2<var>x</var>) =&gt; 5.8M
+                <p style="color: red;">Disclaimer: These numbers were completely made up and are probably not true (the math/concepts are ok tho).</p>
+            </ol>
+        </div>
+    </ul>
+    <h3>Solubility:</h3>
+    <ul>
+        <li>When you dissolve salt into water, you are putting the <u>solute</u>
+            <compound state="s">NaCl</compound> into the <u>solvent</u>
+            <compound state="l">H2O</compound> through the process of <u>hydration</u>.</li>
+        <li>The water molecules are able to pull apart the ionic bond and create
+            <compound>Na^+</compound> and
+            <compound>Cl^-</compound> ions because water molecules are polar dipoles. They attract the ions and surround them in the form of an ion-dipole interaction.</li>
+        <li>This process is also known as <u>dissolution</u>, when a solid is made into a solution. The opposite of this would be <u>precipitation</u>, where ions in a solution form a solid.</li>
+        <li>For weak acids/bases and other slightly soluble molecules, we like to measure just how much is actually dissolved. We can measure the solubility based on how many grams are dissolved per liter. We can also convert this to Molars (mol/L) for easier
+            use with our other equations.</li>
+        <li>We represent the dissolution of weak acids/bases and other slightly soluble molecules with reversible reactions, so naturally, they will reach an equilibrium when that certain amount dissolves. We can solve for an equilibrium constant for the
+            solubility reaction K<sub>sp</sub>, we call this the <u>solubility product constant</u>.</li>
+        <li>We can find K<sub>sp</sub> by setting up an ICE table, and allowing our found solubility molar to be the change in the reactant's molarity. From there, and assuming the reaction has just started, we can fill in the rest of the table to solve for
+            K
+            <sub>sp</sub>. Since we don't take into account solids in equilibrium reactions, we only need the concentrations of the products. For a reaction<br />
+            <compound state="s">M<sub>x</sub>A<sub>y</sub></compound> &rlhar;
+            <compound state="aq">xM<sup>x</sup>^+</compound> +
+            <compound state="aq">yA<sup>y</sup>^-</compound>, we can find the solubility product constant:
+        </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    K<sub>sp</sub> =
+                    <compound>[M<sup>y</sup>^+]<sup>x</sup>[A<sup>x</sup>^-]<sup>y</sup></compound>
+                </td>
+            </tr>
+        </table>
+        <li>Here's an example:</li>
+        <!--Add example on finding Ksp with ICE table-->
+        <li>The common-ion effect is when you try to dissolve a molecule into a solution that already has one of the ions, like
+            <compound state="s">PbCl2</compound> into
+            <compound state="aq">KCl</compound>, since there are already
+            <compound>Cl^-</compound> ions in the solution, less of the
+            <compound state="s">PbCl2</compound> will dissolve into the solution. We can back this up with Le Ch&acirc;telier's Principle, since we are adding more "stress" to the products side with the extra
+            <compound>Cl^-</compound>, the reversible solubility reaction for
+            <compound state="s">PbCl2</compound> will shift more towards the reactants, thus having a lower molar solubility in
+            <compound state="aq">KCl</compound> as opposed to just pure water.</li>
+        <li>We can use the common-ion effect to separate out a solid that is slightly soluble. By adding in more of a common-ion, we can make more of the solid by stressing the products side of the reversible solubility reaction.</li>
     </ul>
 </div>
+<script>
+    renderMath()
+</script>

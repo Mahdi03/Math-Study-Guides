@@ -9,12 +9,109 @@
     });
 </script>
 <div class="indent">
+    <h3>pH:</h3>
     <ul>
-        <h3>pH:</h3>
-        <h3>Acid Strengths:</h3>
-        <h3>Neutralization Reactions:</h3>
-        <h3>Buffers:</h3>
-        <h3>Indicators:</h3>
-        <h3>Titration:</h3>
+        <li><u>pH</u> is just a mathematical abbreviation describing the concentration of
+            <compound>H^+</compound> ions in a solution</li>
+        <li>Likewise, <u>pOH</u> is a mathematical abbreviation describing the concentration of
+            <compound>OH^-</compound> ions in a solution</li>
+        <li>The formulas below give the actual longhand for the mathematics behind acidity concentrations:</li>
+        <table class="rules">
+            <tr>
+                <td>pH =
+                    <log base="10">
+                        <compound>[H^+]</compound>
+                    </log>
+                </td>
+                <td>
+                    <compound>[H^+]</compound> = 10<sup>&minus;pH</sup></td>
+            </tr>
+            <tr>
+                <td>pOH = &minus;
+                    <log base="10">
+                        <compound>[OH^-]</compound>
+                    </log>
+                </td>
+                <td>
+                    <compound>[OH^-]</compound> = 10<sup>&minus;pOH</sup></td>
+            </tr>
+        </table>
+        <li>So as you can see, the "p" is shorthand for the &minus;log of something.</li>
+        <li>While H+ ions make acids, OH- ions make bases</li>
+        <li>For aqueous solutions at 25&deg;:</li>
+        <table class="rules">
+            <tr>
+                <td>pH + pOH = 14</td>
+            </tr>
+        </table>
+        <li>However, pH isn't always a measurement of the strength of acidity, for instance, while strong acids completely disassociate into H+ ions, weak acids of the same concentration won't, thus having a lesser pH</li>
+    </ul>
+    <h3>Acid Strengths:</h3>
+    <ul>
+        <li>There are strong acids and weak acids.</li>
+        <li>Strong acids completely disassociate in a solution and thusly have more
+            <compound>H^+</compound> ions freely moving about. Their disassociation reactions are one-way since they are able to completely separate. With a higher concentration of
+            <compound>H^+</compound> ions, their pH is lower, making them stronger acids.</li>
+        <li>Weak acids aren't able to completely disassociate in a solution, so they have some molecules floating around, and some ions floating around. Because they don't disassociate completely, their disassociation reactions are reversible. They have a
+            lower concentration of
+            <compound>H^+</compound> ions floating around, giving them a higher pH and an overall lower acidity.</li>
+        <li>We can see how much an acid disassociates through the acid disassociation constant K<sub>a</sub>, which is just the equilibrium constant of the disassociation reaction (minus the water of course since that is an abundant reactant). The higher
+            the K<sub>a</sub> value, the more the acid disassociates (since it leans more towards products).</li>
+        <li>The lower the pK<sub>a</sub> value, the stronger the acid (p represents a negative logarithmic graph, so as input increases, the output decreases). The stronger the acid, the more stable its conjugate base.</li>
+        <li>The percent disassociation is the concentration of the acidic/basic component of the compound over the concentration of the entire compound.</li>
+        <li>If we are given the k<sub>a</sub> value as well as the initial concentrations, we can use the small x approximation methods with ICE tables to find the equilibrium concentrations, and then use those concentrations to find the pH or pOH of the
+            solution.
+        </li>
+        <li>With bases, the same thing applies, but this time with a base disassociation constant k<sub>b</sub> even though bases don't disassociate, rather, they ionize.</li>
+        <li>The same concepts apply, and at 25&deg;C k<sub>b</sub> is related to k<sub>a</sub> by:</li>
+        <table class="rules">
+            <tr>
+                <td>pk<sub>a</sub> + pk<sub>b</sub> = 14</td>
+                <td>k<sub>a</sub> &times; k<sub>b</sub> = k<sub>w</sub></td>
+            </tr>
+        </table>
+        <li>We get the second equation from the first using log properties, and k<sub>w</sub> is the autoionization constant for water.</li>
+        <li>Autoionization of water is when water molecules react with themselves to form slightly acidic and slightly basic molecules from time to time, this reaction is reversible. The reaction looks like:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <compound state="l">H2O</compound> +
+                    <compound state="l">H2O</compound> &rlhar;
+                    <compound state="aq">H3O^+</compound> +
+                    <compound state="aq">OH^-</compound>
+                </td>
+                <td>k<sub>w</sub> = [
+                    <compound>H3O^+</compound>][
+                    <compound>OH^-</compound>] = 10<sup>&minus;14</sup> at 25&deg;C</td>
+            </tr>
+        </table>
+    </ul>
+    <h3>Neutralization Reactions:</h3>
+    <ul>
+        <li>When acids and bases react, they form a salt and usually water. When they cancel out, these are called neutralization reactions.</li>
+    </ul>
+    <h3>Buffers:</h3>
+    <ul>
+        <li>Buffer solutions resist change to strong acids and bases, minimizing the effect on the pH/pOH.</li>
+        <!--Is the following list-element correct or no?-->
+        <li>Let's say we have a dissolution reaction of a weak acid. If we add a molecule into the solution such that it creates another source for those
+            <compound>H^+</compound> ions, then by Le Ch&acirc;telier's Principle, that added molecule acts as a buffer, since it adds stress to the products side of the dissolution reaction.</li>
+        <li>But even at one point buffers can't withstand pH changes forever, they reach a point called the buffering capacity where the buffer can no longer neutralize the solution, which can be found from titration.</li>
+    </ul>
+    <h3>Indicators:</h3>
+    <ul>
+        <li></li>
+    </ul>
+    <h3>Titration:</h3>
+    <ul>
+        <!--Add more information on titration from notes and add diagram of titration-->
+        <li>A titration is an experiment that can be used to calculate the amount of moles or the concentration of one chemical by reacting it with a known quantity of another chemical.</li>
+        <li>The standard solution of known concentration is known as the titrant and the solution of unknown concentration is known as the analyte.</li>
+        <li>The titrant is added slowly to the analyte by using a buret which drops it into a flask.</li>
+        <img src="https://cdn.kastatic.org/ka-perseus-images/afa22014f70bfd3e3ae7d0a3f80e05ac6431493f.svg" />
+        <li>The equivalence point in a titration is the point at which just enough titrant has been added to react with all of the analyte. This point may be indicated by a color change in the flask.</li>
     </ul>
 </div>
+<script>
+    renderMath()
+</script>

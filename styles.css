@@ -79,6 +79,18 @@
             margin-left: 2em;
         }
         
+        equation:not(table.rules equation):not(li equation),
+        equation.scrollable {
+            display: inline-grid;
+            width: 100%;
+        }
+        
+        equation:not(table.rules equation):not(li equation)>mjx-container,
+        equation.scrollable>mjx-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        
         .fraction {
             display: inline-block;
             margin: 2px;
