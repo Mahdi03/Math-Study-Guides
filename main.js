@@ -17,8 +17,11 @@ if (mobileCheck()) {
 } else {
     document.body.classList.add("desktop");
 }
-//document.body.onload = function() {
-//Added an HTML Include Before Everything else so that the HTML renders properly
+document.querySelectorAll(".toggleButton").forEach((toggleLink) => {
+        toggleLink.parentNode.classList.add("studyGuideDropdown");
+    })
+    //document.body.onload = function() {
+    //Added an HTML Include Before Everything else so that the HTML renders properly
 document.querySelectorAll("[htmlInclude]").forEach((element) => {
     var fileLink = element.getAttribute("htmlInclude");
     //Take file name, remove space, make first letter lowercase, and remove ".html" to make into the ToggleButton id
