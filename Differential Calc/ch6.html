@@ -89,6 +89,24 @@
         <li>In this scenario, <var>P(x)</var> and <var>Q(x)</var> need to be able to expressed in the form of a power series. We say these equations are <u>analytic</u> at their centers
             <equation><var>x = x<sub>c</sub></var></equation>.</li>
         <li>For the differential equation, we say the center to those functions <var>P(x)</var> and <var>Q(x)</var> is considered an <u>ordinary point</u>.</li>
+        <li>Be aware that while most power series we encounter in summation notation can be written as a function, sometimes they just don't have recognizable function.</li>
+        <h3>6.4</h3>
+        <li>If either or both <var>P(x)</var> and <var>Q(x)</var> are not analytic at <var>x =</var> 0, then <var>x =</var> 0 is a singular point.</li>
+        <li>If <var>xP(x)</var> and <var>x</var><sup>2</sup><var>Q(x)</var> are both analytic at <var>x =</var> 0, we can say that <var>x =</var> 0 is a <u>regular singular point</u>. If not, then it is an <u>irregular singular point</u>.</li>
+        <li>When <var>x =</var> 0 is a regular singular point, our solution is in the form:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <sigma start="n = 0" end="&infin;"></sigma>
+                        <var>c<sub>n</sub>(x &minus; x<sub>0</sub>)<sup>n + r</sup></var>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>In the equation above, we need to solve for our value <var>r</var>. Since we must solve for <var>r</var>, it is not guaranteed that <var>r</var> will be a pleasant number, and for this reason we cannot say that the formula above is a power series
+            (since <var>r</var> would need to be a positive whole number).</li>
+        <li>Another thing to note is that when we differentiate the above equation, we must keep the index the same, unlike regular differentiation in summation notation.</li>
     </ul>
 </div>
 <script>
