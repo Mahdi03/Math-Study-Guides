@@ -52,22 +52,31 @@ function renderMath(parentElement = "") {
         //If sessionStorage doesn't have pages saved where mathjax was loaded or if this page hasn't already loaded mathjax
         if (!sessionStorage.getItem("pagesThatLoadedMathJax") || !JSON.parse(sessionStorage.getItem("pagesThatLoadedMathJax")).includes(window.location.href))
         */
+        
         if (document.querySelector("#MathJax-Script") == null) {
             //Set MathJax Config
+            
             window.MathJax = {
                 chtml: {
-                    scale: 1.3
+                    scale: 1
                 },
                 options: {
-                    enableMenu: false
+                    enableMenu: true
                 },
-                tex: {
+                TeX: {
                     packages: {
                         '[+]': ['mhchem']
-                    }
+                    },
+                    extensions: ['mhchem.js']
                 },
                 loader: {
                     load: ['[tex]/mhchem']
+                },
+                styles: {
+
+                    ".MathJax_Display": {
+                      "overflow-x": "auto",
+                    }
                 }
             };
             /*
@@ -78,13 +87,12 @@ function renderMath(parentElement = "") {
             <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
             */
-            var polyfillScript = document.createElement("script");
-            polyfillScript.setAttribute("src", "https://polyfill.io/v3/polyfill.min.js?features=es6");
+            // var polyfillScript = document.createElement("script");
+            // polyfillScript.setAttribute("src", "https://polyfill.io/v3/polyfill.min.js?features=es6");
             var mathjaxScript = document.createElement("script");
-            mathjaxScript.setAttribute("id", "MathJax-script");
+            mathjaxScript.setAttribute("type", "text/javascript");
             mathjaxScript.setAttribute("async", "");
-            mathjaxScript.setAttribute("src", "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js");
-            document.head.appendChild(polyfillScript);
+            mathjaxScript.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML");
             document.head.appendChild(mathjaxScript);
 
             /*
@@ -223,7 +231,7 @@ function renderMath(parentElement = "") {
                     var newBR = createHTMLNodesFromString("\n\\\\\n");
                     oldBR.replaceWith(...newBR);
                 }
-                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
+                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=");
                 var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
                 oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
             }
