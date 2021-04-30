@@ -231,7 +231,7 @@ function renderMath(parentElement = "") {
                     var newBR = createHTMLNodesFromString("\n\\\\\n");
                     oldBR.replaceWith(...newBR);
                 }
-                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=");
+                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
                 var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
                 oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
             }
