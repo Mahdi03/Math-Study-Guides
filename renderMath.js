@@ -47,7 +47,6 @@ function renderMath(parentElement = "") {
     }
     var equationTags = document.querySelectorAll(parentElement + " equation");
     if (equationTags.length > 0) {
-
         /* Session Storage failed on refresh
         //If sessionStorage doesn't have pages saved where mathjax was loaded or if this page hasn't already loaded mathjax
         if (!sessionStorage.getItem("pagesThatLoadedMathJax") || !JSON.parse(sessionStorage.getItem("pagesThatLoadedMathJax")).includes(window.location.href))
@@ -109,12 +108,13 @@ function renderMath(parentElement = "") {
             //Replace sup{} with ^{}
             dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
-                .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/g, "\\left\\vert {$1} \\right\\vert");
+                .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
+                .replace(/[\[]]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)");
             while (dom.querySelector("sigma") != undefined) {
                 var oldSigma = dom.querySelector("sigma");
                 var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
                 var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
-                var newSigma = createHTMLNodesFromString("\\sum_{" + startValue + "}^{" + endValue + "}");
+                var newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
             }
             //Replace sqrt{} with \sqrt {}
@@ -256,7 +256,7 @@ function renderMath(parentElement = "") {
             for (var i = 0; i < otherFunctions.length; i++) {
                 while (dom.querySelector(otherFunctions[i]) != undefined) {
                     var oldFunc = dom.querySelector(otherFunctions[i]);
-                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {" + oldFunc.innerHTML + "}");
+                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {\\left(" + oldFunc.innerHTML + "\\right)}");
                     oldFunc.replaceWith(...newFunc);
                 }
             }
