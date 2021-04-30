@@ -90,6 +90,11 @@
             overflow-x: auto;
             overflow-y: hidden;
         }
+
+.       table.rules equation::selection, table.rules equation::-moz-selection {
+            background-color: rgb(0, 208, 255);
+            color: white;
+        }
         
         .fraction {
             display: inline-block;
