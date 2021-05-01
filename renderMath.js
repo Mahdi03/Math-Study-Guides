@@ -51,10 +51,10 @@ function renderMath(parentElement = "") {
         //If sessionStorage doesn't have pages saved where mathjax was loaded or if this page hasn't already loaded mathjax
         if (!sessionStorage.getItem("pagesThatLoadedMathJax") || !JSON.parse(sessionStorage.getItem("pagesThatLoadedMathJax")).includes(window.location.href))
         */
-        
+
         if (document.querySelector("#MathJax-Script") == null) {
             //Set MathJax Config
-            
+
             window.MathJax = {
                 chtml: {
                     scale: 1
@@ -70,26 +70,39 @@ function renderMath(parentElement = "") {
                 },
                 loader: {
                     load: ['[tex]/mhchem']
-                },
+                }
+                /*,
                 styles: {
 
                     ".MathJax_Display": {
-                      "overflow-x": "auto",
+                        "overflow-x": "auto",
                     }
-                }
+                }*/
             };
+            /*
+            MathJax.Hub.Config({
+                text2jax: {
+                    inlineMath: [
+                        ["\\(", "\\)"]
+                    ]
+                }
+            });
+            */
             /*
             Import MathJax
             <!--Use this to edit MathJax: https://en.wikipedia.org/wiki/Quadratic_equation?veaction=edit-->
-            <!-- Import MathJax -->
+            <!-- Import MathJax 3.x -->
             <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
             <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+            <!-- Import MathJax 2.7 -->
+            <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js"></script>
             */
             var mathjaxScript = document.createElement("script");
-            mathjaxScript.setAttribute("type", "text/javascript");
-            mathjaxScript.setAttribute("async", "");
+            mathjaxScript.setAttribute("id", "MathJax-script");
             mathjaxScript.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js");
+            mathjaxScript.innerHTML = "MathJax.Hub.Config({\n" +
+                "  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] }\n" +
+                "});";
             document.head.appendChild(mathjaxScript);
 
             /*
