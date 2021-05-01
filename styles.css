@@ -19,6 +19,10 @@
             overflow-y: scroll;
         }
         
+        body.mobile {
+            width: 90%;
+        }
+        
         h1 {
             text-align: center;
             font-family: 'Rock Salt', cursive;
@@ -69,6 +73,10 @@
         
         .indent {
             margin-left: 4em;
+        }
+        
+        .mobile .indent {
+            margin-left: 2em;
         }
         
         equation:not(table.rules equation):not(li equation),
