@@ -92,7 +92,7 @@ function renderMath(parentElement = "") {
             var mathjaxScript = document.createElement("script");
             mathjaxScript.setAttribute("type", "text/javascript");
             mathjaxScript.setAttribute("async", "");
-            mathjaxScript.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML");
+            mathjaxScript.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js");
             document.head.appendChild(mathjaxScript);
 
             /*
