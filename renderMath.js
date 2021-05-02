@@ -216,6 +216,11 @@ function renderMath(parentElement = "") {
                 var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
                 oldSpan.replaceWith(...newSpan);
             }
+            while (dom.querySelector("span.cancel") != undefined) {
+                var oldSpan = dom.querySelector("span.cancel");
+                var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
+                oldSpan.replaceWith(...newSpan);
+            }
             while (dom.querySelector("span.alignedEquations") != undefined) {
                 var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
                 while (oldSpanAlignedEquations.querySelector("br") != undefined) {
