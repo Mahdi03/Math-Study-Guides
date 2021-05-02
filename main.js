@@ -67,8 +67,8 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
                 }
             }
         }
-
         fileRequest.open("GET", fileLink, true);
+        //fileRequest.open("GET", fileLink + "?cacheBusting", true); //Use to clear cache on refresh (developmental purposes only)
         fileRequest.send();
     }
     toggleButton.addEventListener("click", getFile);

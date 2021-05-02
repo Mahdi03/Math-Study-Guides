@@ -9,12 +9,367 @@
     });
 </script>
 <div class="indent">
+    <h3>Rate Law:</h3>
     <ul>
-        <h3>Rate Law:</h3>
-        <h5>Using Initial Concentrations:</h5>
-        <h5>Using Concentrations And Time:</h5>
-        <h3>Collision Theory:</h3>
-        <h3>Reaction Mechanisms:</h3>
-        <h3>Catalysts:</h3>
+        <h5>Differential Rate Law:</h5>
+        <li>We want to measure the speed of a reaction, and we do this by quantifying how fast the reactants of a reaction disappear and how fast the products appear. We can quantify the change in reactants by seeing how fast the concentration changes.</li>
+        <li>The concentration of an element A is denoted as [A]</li>
+        <li>We define our rate to be:</li>
+        <table class="rules">
+            <tr>
+                <td>average rate =
+                    <div class="fraction">
+                        <div class="top">&Delta;concentration</div>
+                        <div class="bottom">&Delta;time</div>
+                    </div> =
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&Delta;[A]</div>
+                            <div class="bottom">&Delta;<var>t</var></div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>The rate is measured in Molarity/Molars (M) per second (s), so M/s, not to be confused with the units for velocity in physics m/s!</li>
+        <li>The rate of disappearance of the reactants is equal and opposite to the rate of appearance of the products in a reaction.</li>
+        <li>When we have the rate of one term in a chemical equation, we can find the rates for all the other terms based on their mole ratios.</li>
+        <li>Looking at the reactants of a reaction, we can create a general rate law:
+            <table class="rules">
+                <tr>
+                    <td>
+                        <equation>R = k[A]<sup>x</sup>[B]<sup>y</sup>[C]<sup>z</sup></equation>
+                    </td>
+                </tr>
+            </table>where k is the rate constant, and x, y, and z are the orders of their respective reactants.</li>
+        <li>The orders are given only through experiment, they are not necessarily the same as the same coefficients found stoichiometrically.</li>
+        <li>In the above equation, which we call the <u>Differential Rate Law</u>, feel free to add more elements and orders as seen fit for the equation.</li>
+        <li>The rate constant is usually constant, but it does depend on temperature. The units for the rate constant differ based on reaction. For zero order reactions, it is in M/s, in first order reactions it is in 1/s, in second order reactions it is
+            in 1/Ms and so forth, following the format of M/s * 1/M^order</li>
+        <li>Reactants in a reaction have "orders" which affect how much the rate changes when the concentration is changed. For zero order reactions, the rate is kept constant no matter how much the concentration changes.</li>
+        <li>The overall order of the reaction is the sum of all the orders.</li>
+        <h5>First-Order Reactions:</h5>
+        <li>We can find an integrated rate law for a first-order reaction to be:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <ln>[A]<sub><var>t</var></sub></ln> &minus;
+                        <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="firstOrderIntegratedRateLawProofToggleLink" onclick="toggleSolution('#firstOrderIntegratedRateLawProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="firstOrderIntegratedRateLawProof" class="solution">
+            <ol>
+                <li>If we have a first order reaction with only one reactant (A): A &rarr; products, then we can try setting the rate law of this reaction equal to the rate of disappearance of reactant A. We look at this reaction from time
+                    <equation><var>t</var> = 0
+                    </equation> and initial concentration
+                    <equation>[A]<sub>0</sub></equation> to time
+                    <equation><var>t</var> = <var>t</var></equation> and concentration
+                    <equation>[A]<sub><var>t</var></sub></equation>.</li>
+                <li>Since the rate of disappearance of the reactants is equal and opposite to the rate of appearance of the products in a reaction, we add a negative to our equation</li>
+                <equation>
+                    R = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;[A]</div>
+                        <div class="bottom">&Delta;<var>t</var></div>
+                    </div>
+                </equation>
+                <li>However, this is analogous to the derivative.</li>
+                <equation>
+                    R = &minus;
+                    <derivative of="[A]" respectTo="t"></derivative>
+                </equation>
+                <li>Our rate law for this equation is
+                    <equation>R = k[A]<sup>1</sup></equation>, so we get:</li>
+                <equation>
+                    <span class="alignedEquations">
+                    R = R<br /> &minus;
+                    <derivative of="[A]" respectTo="t"></derivative> = k[A]
+                </span>
+                </equation>
+                <li>Since this is a separable differential equation, we can integrate to find a function for the concentration of A ([A]) at any given time <var>t</var>.</li>
+                <equation><span class="alignedEquations">
+                    <div class="fraction">
+                        <div class="top">d[A]</div>
+                        <div class="bottom">[A]</div>
+                    </div> = &minus;<var>k</var>d<var>t</var>
+                <br />
+                    <integral lowerBound="[A]<sub>0</sub>" upperBound="[A]<sub><var>t</var></sub>" respectTo="[A]">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">[A]</div>
+                    </div>
+                    </integral> = &minus;<var>k</var>
+                    <integral lowerBound="0" upperBound="<var>t</var>" respectTo="t"></integral>
+                <br /><br />
+                    <ln>[A]</ln>
+                    <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = &minus;<var>kt</var>
+                    <evaluated from="0" to="<var>t</var>"></evaluated>
+                <br />
+                    </span>
+                </equation>
+                <div>
+                    <equation>
+                        <span class="answer">
+                        <ln>[A]<sub><var>t</var></sub></ln> &minus;
+                        <ln>[A]<sub>0</sub></ln> = &minus;<var>kt</var>
+                    </span>
+                    </equation>
+                </div>
+            </ol>
+        </div>
+        <li>This function actually graphs a straight line with a negative slope, where
+            <equation>
+                <ln>[A]<sub>0</sub></ln>
+            </equation> is the y-intercept. If given a graph, the slope of the graph gives us our rate constant &minus;<var>k</var></li>
+        <li>The half-life of a first-order reaction is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <var>t</var><sub><text>half</text></sub> =
+                        <div class="fraction">
+                            <div class="top">0.693</div>
+                            <div class="bottom">k</div>
+                        </div>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="firstOrderHalfLifeProofToggleLink" onclick="toggleSolution('#firstOrderHalfLifeProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div class="solution" id="firstOrderHalfLifeProof">
+            <ol>
+                <li>Taking our integrated rate law for first-order reactions a step further, and solving for the concentration at time <var>t</var> ([A]<sub><var>t</var></sub>) using logarithmic and exponential properties, we get:</li>
+                <equation>[A]<sub><var>t</var></sub> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup></equation>
+                <li>Now we find the time when the concentration is half of when it started by substituting
+                    <equation>[A]<sub>0</sub>/2</equation> back in to the equation and solving for <var>t</var></li>
+                <equation><span class="alignedEquations">
+    <div class="fraction">
+        <div class="top">[A]<sub>0</sub></div>
+        <div class="bottom">2</div>
+    </div> = [A]<sub>0</sub>e<sup>&minus;<var>kt</var></sup><br /><br />
+    <div class="fraction">
+        <div class="top">1</div>
+        <div class="bottom">2</div>
+    </div> = e<sup>&minus;<var>kt</var></sup><br /><br />
+    <ln>
+        <div class="fraction">
+            <div class="top">1</div>
+            <div class="bottom">2</div>
+        </div>
+    </ln> = &minus;<var>kt</var><br /><br />
+    <div class="fraction">
+        <div class="top">
+            <ln>
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2</div>
+                </div>
+            </ln>
+        </div>
+        <div class="bottom">&minus;<var>k</var></div>
+    </div> = <var>t</var>
+</span></equation>
+                <div>
+                    <equation><span class="answer"><var>t</var> =
+    <div class="fraction">
+        <div class="top">0.693</div>
+        <div class="bottom"><var>k</var></div>
+    </div></span></equation>
+                </div>
+            </ol>
+        </div>
+        <h5>Second-Order Reactions:</h5>
+        <li>We can find an integrated rate law for a second-order reaction to be:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">[A]<sub><var>t</var></sub></div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">[A]<sub>0</sub></div>
+                        </div> = <var>kt</var></equation>
+                </td>
+                <th><a href="javascript:void(0)" id="secondOrderIntegratedRateLawProofToggleLink" onclick="toggleSolution('#secondOrderIntegratedRateLawProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="secondOrderIntegratedRateLawProof" class="solution">
+            <ol>
+                <li>If we have a second order reaction with only one reactant (A): A &rarr; products, then we can try setting the rate law of this reaction equal to the rate of disappearance of reactant A. We look at this reaction from time <var>t</var> =
+                    0 and initial concentration [A]<sub>0</sub> to time <var>t</var> = <var>t</var> and concentration [A]<sub><var>t</var></sub>.</li>
+                <li>Since the rate of disappearance of the reactants is equal and opposite to the rate of appearance of the products in a reaction, we add a negative to our equation</li>
+                <equation>R = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;[A]</div>
+                        <div class="bottom">&Delta;<var>t</var></div>
+                    </div>
+                </equation>
+                <li>However, this is analogous to the derivative.</li>
+                <equation>R = &minus;
+                    <derivative of="[A]" respectTo="t"></derivative>
+                </equation>
+                <li>This time our rate law for this equation is
+                    <equation>R = k[A]<sup>2</sup></equation>, so we get:</li>
+                <equation><span class="alignedEquations">
+                    R = R<br /> &minus;
+                    <derivative of="[A]" respectTo="t"></derivative> = k[A]<sup>2</sup>
+                </span></equation>
+                <li>Since this is a separable differential equation, we can integrate to find a function for the concentration of A ([A]) at any given time <var>t</var>.</li>
+                <equation><span class="alignedEquations">
+                    &minus;
+                    <div class="fraction">
+                        <div class="top">d[A]</div>
+                        <div class="bottom">[A]<sup>2</sup></div>
+                    </div> = <var>k</var>d<var>t</var><br /> &minus;
+                    <integral lowerBound="[A]<sub>0</sub>" upperBound="[A]<sub><var>t</var></sub>" respectTo="[A]">
+                        [A]<sup>&minus;2</sup>
+                    </integral> = <var>k</var>
+                    <integral lowerBound="0" upperBound="<var>t</var>" respectTo="t"></integral><br /><br /> &minus;
+                    <div class="fraction">
+                        <div class="top">[A]<sup>&minus;1</sup></div>
+                        <div class="bottom">&minus;1</div>
+                    </div>
+                    <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = <var>kt</var>
+                    <evaluated from="0" to="<var>t</var>"></evaluated><br /><br />
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">[A]</div>
+                    </div>
+                    <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = <var>kt</var><br /><br />
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">[A]<sub><var>t</var></sub></div>
+                    </div> &minus;
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">[A]<sub>0</sub></div>
+                    </div> = <var>kt</var>
+                </span></equation>
+            </ol>
+        </div>
+        <li>Again, this graph also gives us a line, this time sloping positively, and we can find the rate constant by finding the slope of the line.</li>
+        <li>In order to find the half-life of a second-order reaction, we follow the same steps we did with the first-order reaction, and it gets us:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <var>t</var><sub><text>half</text></sub> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>k</var>[A]<sub>0</sub></div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <h5>Zero-Order Reactions:</h5>
+        <li>We can find an integrated rate law for a second-order reaction to be:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        [A]<sub><var>t</var></sub> &minus; [A]
+                        <sub>0</sub> = &minus;<var>kt</var>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="zeroOrderIntegratedRateLawProofToggleLink" onclick="toggleSolution('#zeroOrderIntegratedRateLawProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="zeroOrderIntegratedRateLawProof" class="solution">
+            <ol>
+                <li>If we have a zero order reaction with only one reactant (A): A &rarr; products, then we can try setting the rate law of this reaction equal to the rate of disappearance of reactant A. We look at this reaction from time <var>t</var> = 0
+                    and initial concentration [A]<sub>0</sub> to time <var>t</var> = <var>t</var> and concentration [A]<sub><var>t</var></sub>.</li>
+                <li>Since the rate of disappearance of the reactants is equal and opposite to the rate of appearance of the products in a reaction, we add a negative to our equation</li>
+                <equation>
+                    R = &minus;
+                    <div class="fraction">
+                        <div class="top">&Delta;[A]</div>
+                        <div class="bottom">&Delta;<var>t</var></div>
+                    </div>
+                </equation>
+                <li>However, this is analogous to the derivative.</li>
+                <equation>
+                    R = &minus;
+                    <derivative of="[A]" respectTo="t"></derivative>
+                </equation>
+                <li>Our rate law for this equation is
+                    <equation>R = k[A]<sup>0</sup></equation>, so we get:</li>
+                <equation><span class="alignedEquations">
+                    R = R<br /> &minus;
+                    <derivative of="[A]" respectTo="t"></derivative> = k
+                </span></equation>
+                <li>Since this is a separable differential equation, we can integrate to find a function for the concentration of A ([A]) at any given time <var>t</var>.</li>
+                <equation><span class="alignedEquations">
+                d[A] = &minus;<var>k</var>d<var>t</var><br />
+                <integral lowerBound="[A]<sub>0</sub>" upperBound="[A]<sub><var>t</var></sub>" respectTo="[A]"></integral> = &minus;<var>k</var>
+                <integral lowerBound="0" upperBound="<var>t</var>" respectTo="t"></integral><br /><br /> [A]
+                <evaluated from="[A]<sub>0</sub>" to="[A]<sub><var>t</var></sub>"></evaluated> = &minus;<var>kt</var>
+                <evaluated from="0" to="<var>t</var>"></evaluated><br /><br /></span></equation>
+                <div>
+                    <equation>
+                        <span class="answer">
+                    [A]<sub><var>t</var></sub> &minus;
+                    [A]<sub>0</sub> = &minus;<var>kt</var>
+                </span>
+                    </equation>
+                </div>
+            </ol>
+        </div>
+        <li>Again, this graph also gives us a line, this time sloping negatively, and we can find the rate constant by finding the slope of the line.</li>
+        <li>The half-life equation for zero-order reactions is:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation><var>t</var><sub>half</sub> =
+                        <div class="fraction">
+                            <div class="top">[A]<sub>0</sub></div>
+                            <div class="bottom">2k</div>
+                        </div>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+    </ul>
+    <h3>Collision Theory:</h3>
+    <ul>
+        <li>Collision Theory describes chemical reactions and how they occur on a molecular level.</li>
+        <li>
+            Molecules must:
+            <ul>
+                <li>collide in order to react</li>
+                <li>have the correct orientation</li>
+                <li>have enough energy</li>
+            </ul>
+        </li>
+        <h5>Catalysts:</h5>
+    </ul>
+    <h3>Reaction Mechanisms:</h3>
+    <ul>
+        <li>A reaction mechanism is the process by which a reaction occurs, meaning that the reaction does not occur in one step. Rather, there are multiple elementary steps that make up the overall reaction.</li>
+        <li>Elements created as tools to be used up in other elementary equations such that they don't make it to the final products are called intermediates.</li>
+        <li>The slowest of these elementary reactions are called the "rate determining step" as they take up the most time, so when adding the overall times up to get the net time of the overall reaction, it's really only the slow step that determines the
+            time of the overall reaction. For this reason, we can estimate the rate of the overall reaction from the rate of the "rate determining step".</li>
+        <li>The benefit in this is that in elementary reactions, you can use the coefficients of the balanced equation in the rate law formula as the orders of the elements.</li>
+    </ul>
+    <h3>Catalysts:</h3>
+    <ul>
+        <li>Catalysts are substances that are added to a reaction to speed up the overall reaction without being consumed. They either increase the number of effective collisions, provide a reaction path with lower activation energy, or change the reaction
+            mechanism. For instance, enzymes are the catalysts in biological processes.</li>
+        <li>There are 3 types of catalysts:</li>
+        <ol>
+            <li>Binding catalysis - Reactants are either oriented more favorably or react with lower activation energy</li>
+            <li>Acid-Base catalysis - A reactant or intermediate either gains or loses a proton</li>
+            <li>Surface Catalysis - A reactant or intermediate binds to, or forms a covalent bond with the surface</li>
+        </ol>
     </ul>
 </div>
+<script>
+    renderMath()
+</script>

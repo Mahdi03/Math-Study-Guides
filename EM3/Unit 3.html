@@ -7,53 +7,65 @@
     <table class="rules">
         <tr>
             <td>
-                <log>a &times; b</log> =
-                <log>a</log> &plus;
-                <log>b</log>
+                <equation>
+                    <log>a &times; b</log> =
+                    <log>a</log> &plus;
+                    <log>b</log>
+                </equation>
             </td>
             <td>
-                <log>
+                <equation>
+                    <log>
+                        <div class="fraction">
+                            <div class="top">a</div>
+                            <div class="bottom">b</div>
+                        </div>
+                    </log> =
+                    <log>a</log> &minus;
+                    <log>b</log>
+                </equation>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <equation>
+                    <var>n</var>
+                    <log>a</log> =
+                    <log>a<sup><var>n</var></sup></log>
+                </equation>
+            </td>
+            <td>
+                <equation>
+                    <log base="<var>a</var>">b</log> =
                     <div class="fraction">
-                        <div class="top">a</div>
-                        <div class="bottom">b</div>
+                        <div class="top">
+                            <log>b</log>
+                        </div>
+                        <div class="bottom">
+                            <log>a</log>
+                        </div>
                     </div>
-                </log> =
-                <log>a</log> &minus;
-                <log>b</log>
+                </equation>
             </td>
         </tr>
         <tr>
             <td>
-                <var>n</var>
-                <log>a</log> =
-                <log>a<sup><var>n</var></sup></log>
-            </td>
-            <td>
-                <log base="<var>a</var>">b</log> =
-                <div class="fraction">
-                    <div class="top">
-                        <log>b</log>
-                    </div>
-                    <div class="bottom">
-                        <log>a</log>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <var>e</var><sup><ln>e</ln></sup> = <var>e</var>
+                <equation><var>e</var><sup><ln>e</ln></sup> = <var>e</var></equation>
             </td>
         </tr>
     </table>
     <h3>Graphing Logarithmic Functions:</h3>
     <ul>
-        <li>Parent Function: y =
-            <log>x</log><br />
+        <li>Parent Function:
+            <equation>y =
+                <log>x</log>
+            </equation><br />
             <iframe id="logGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
         </li>
-        <li>Parent Function: y =
-            <ln>x</ln><br />
+        <li>Parent Function:
+            <equation>y =
+                <ln>x</ln>
+            </equation><br />
             <iframe id="lnGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe>
         </li>
     </ul>
