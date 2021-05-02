@@ -27,7 +27,6 @@ document.querySelectorAll(".toggleButton").forEach((toggleButton) => {
 
     var studyGuideDropdown = toggleButtonTDWrapper.parentNode;
     studyGuideDropdown.addEventListener("click", (event) => {
-        console.log(event);
         //Use .contains() instead of .includes() because it is a DOMTokenList and not an Array
         if (!event.target.classList.contains("toggleButton")) {
             toggleButton.click();
@@ -52,6 +51,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
     function getFile() {
         //Give it a wait logo so that the user knows that the website isn't frozen
         document.body.parentElement.style.cursor = "wait";
+        toggleButton.classList.add("loading");
         toggleButton.innerHTML = loadingLogoHTML;
         var fileRequest = new XMLHttpRequest();
         fileRequest.onreadystatechange = function() {
@@ -70,6 +70,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
                     renderingHTMLFunction.then((successMessage) => {
                         //End the wait cursor
                         document.body.parentElement.style.cursor = "initial";
+                        toggleButton.classList.remove("loading");
                         toggleButton.innerHTML = "&minus;";
 
                     }).catch((errorMessage) => {
@@ -124,7 +125,7 @@ window.addEventListener("scroll", () => {
         backToTopButton.classList.remove("show");
         backToTopButton.classList.add("hide");
     }
-})
+});
 backToTopButton.addEventListener("click", () => {
     window.scrollTo({
         top: 0,
