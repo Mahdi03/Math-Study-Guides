@@ -17,11 +17,32 @@ if (mobileCheck()) {
 } else {
     document.body.classList.add("desktop");
 }
-document.querySelectorAll(".toggleButton").forEach((toggleLink) => {
-        toggleLink.parentNode.classList.add("studyGuideDropdown");
-    })
-    //document.body.onload = function() {
-    //Added an HTML Include Before Everything else so that the HTML renders properly
+document.querySelectorAll(".toggleButton").forEach((toggleButton) => {
+    toggleButton.parentNode.classList.add("studyGuideDropdown");
+    //Wrap all the toggleButtons in a wrapper that can be styled to be a table-cell in layout
+    var toggleButtonTDWrapper = document.createElement("div");
+    toggleButtonTDWrapper.classList.add("toggleButtonTDWrapper");
+    toggleButton.parentNode.replaceChild(toggleButtonTDWrapper, toggleButton);
+    toggleButtonTDWrapper.appendChild(toggleButton);
+
+    var studyGuideDropdown = toggleButtonTDWrapper.parentNode;
+    studyGuideDropdown.addEventListener("click", (event) => {
+        console.log(event);
+        //Use .contains() instead of .includes() because it is a DOMTokenList and not an Array
+        if (!event.target.classList.contains("toggleButton")) {
+            toggleButton.click();
+        }
+    });
+    /*
+    studyGuideDropdown.addEventListener("mouseover", () => {
+        toggleButton.style.backgroundColor = "rgb(0, 208, 255)";
+        studyGuideDropdown.querySelector("h2").style.color = "rgb(0, 180, 255)";
+        studyGuideDropdown.style.cursor = "pointer";
+    });
+    */
+});
+//document.body.onload = function() {
+//Added an HTML Include Before Everything else so that the HTML renders properly
 document.querySelectorAll("[htmlInclude]").forEach((element) => {
     var fileLink = element.getAttribute("htmlInclude");
     //Take file name, remove space, make first letter lowercase, and remove ".html" to make into the ToggleButton id
