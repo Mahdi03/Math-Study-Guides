@@ -22,6 +22,7 @@
         body.mobile {
             width: 90%;
         }
+        /* Header Styles */
         
         h1 {
             text-align: center;
@@ -41,7 +42,7 @@
         
         .mobile h2 {
             font-size: 35pt;
-            margin: 10px;
+            margin: 0;
         }
         
         h3 {
@@ -58,6 +59,7 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        /*Styles for main bullet points*/
         
         li:not(var) {
             font-size: 12pt;
@@ -88,6 +90,7 @@
         .mobile .indent {
             margin-left: 2em;
         }
+        /*To make equation tags Scrollable*/
         
         equation:not(table.rules equation):not(li equation),
         equation.scrollable {
@@ -100,11 +103,13 @@
             overflow-x: auto;
             overflow-y: hidden;
         }
-
-.       table.rules equation::selection, table.rules equation::-moz-selection {
+        
+        table.rules equation::selection,
+        table.rules equation::-moz-selection {
             background-color: rgb(0, 208, 255);
             color: white;
         }
+        /*Begin supplementary math styles*/
         
         .fraction {
             display: inline-block;
@@ -142,6 +147,7 @@
          :not(.limTable) .fraction {
             transform: translateY(30%);
         }
+        /*Style popup tables*/
         
         .rules td {
             border: 2px solid black;
@@ -234,9 +240,9 @@
             display: inline-table;
             margin: 5px;
             text-align: center;
+            float: none;
             font-size: 40pt;
             border: 2px solid grey;
-            ;
             width: 50px;
             height: 50px;
             line-height: 50px;
@@ -244,14 +250,30 @@
             border-radius: 50px;
         }
         
+        .mobile .tableOfContents {
+            margin: 0 auto;
+        }
+        
         .mobile .studyGuideDropdown {
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
             align-items: center;
+            /*justify-content: space-evenly;
+            align-items: center;
+            display: table-row;*/
+            padding: 0;
         }
         
-        .loader {
+        .mobile .studyGuideDropdown>span.toggleButton,
+        .mobile .studyGuideDropdown>span.toggleButton+h2 {
+            display: table-cell;
+        }
+        
+        .mobile .studyGuideDropdown>span.toggleButton+h2 {
+            padding-left: 1em;
+        }
+        
+        .mobile .studyGuideDropdown .loader {
             border: 3px solid #f3f3f3;
             /* Light grey */
             border-top: 3px solid #3498db;
