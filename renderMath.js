@@ -55,7 +55,7 @@ function renderMath(parentElement = "") {
             //Set MathJax Config
             window.MathJax = {
                 chtml: {
-                    scale: 1.3
+                    scale: 1
                 },
                 options: {
                     enableMenu: false
