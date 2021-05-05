@@ -118,9 +118,15 @@ function renderMath(parentElement = "") {
             //var myString = equationTag.innerHTML;
             //Replace sup{} with ^{}
             dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
+                .replaceAll("||", "\\|")
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
-                .replaceAll("||", "\\|").replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
-                .replace(/[\[]]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)");
+                .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
+                .replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
+                .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
+                /*
+                .replace(/[\[]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)")
+            .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
+            ;
             while (dom.querySelector("sigma") != undefined) {
                 var oldSigma = dom.querySelector("sigma");
                 var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
