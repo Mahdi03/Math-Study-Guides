@@ -1,0 +1,127 @@
+<link href="../styles.css" rel="stylesheet" />
+<script src="../renderMath.js"></script>
+<script src="main.js" async></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+    });
+</script>
+<div class="indent">
+    <ul>
+
+        <h3>7.1: LaPlace Transforms:</h3>
+        <li>When we have differential equations in the form of
+            <equation><var>y'' + y = f(t)</var></equation>, we could have initial conditions and
+            <equation><var>f(t)</var></equation> might not always be continuous. For this reason, we cannot use the annihilator since if it is not continuous, it would not be differentiable. If
+            <equation><var>f(t)</var></equation> was piecewise, we would need to solve the differential equation for each piece.</li>
+        <li>We can try to "smooth out" these piecewise equations through, since if we integrate the piecewise, our result will be differentiable.</li>
+        <li>The Fundamental Theorem of Calculus connects the dots between differentiation and integration, and the properties of the integrand are that it must be piecewise continuous on the integrating domain.</li>
+        <li>Since we want our integral to converge, and to converge to some function of a different variable (notice how in the FTLI the function goes from <var>f(t)dt</var> to <var>F(x)</var> i.e. a change in variable) we want to add an exponential decay
+            function to force infinite values to converge in most cases, so to this we add an extra independent variable that remains at the end of integration.</li>
+        <li>We call this method of integration the LaPlace Transform, and the LaPlace Transform of
+            <equation><var>f(t)</var></equation> is given by the following equation as long as the integral converges:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation><var><laPlaceTransform>f(x)</laPlaceTransform> = <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>&minus;st</sup>f(t)</var></integral>
+                        </var>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Using this formula, it would be tedious to calculate out all the certain LaPlace Transforms over and over again, so here are some of the more generic ones:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <laPlaceTransform>t<sup>n</sup></var>
+                        </laPlaceTransform> =
+                        <div class="fraction">
+                            <div class="top"><var>n</var>!</div>
+                            <div class="bottom"><var>s<sup>n + 1</sup></var></div>
+                        </div>
+                    </equation>
+                </td>
+                <!--<th><a href="javascript:void(0)" id="polynomialLaPlaceTransformProofToggleLink" onclick="toggleSolution('#polynomialLaPlaceTransformProof', true);">Show Proof</a></th>-->
+            </tr>
+            <div id="polynomialLaPlaceTransformProof" class="solution">
+                <ol>
+                    <li>Let's see if we can discover a trend that applies with all polynomials of this form.</li>
+                    <li>For
+                        <equation>
+                            <laPlaceTransform>1</laPlaceTransform>
+                        </equation>:</li>
+                    <equation><span class="alignedEquations">
+                            <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>-st</sup></var></integral> =
+                            <lim as="a" approaches="&infin;"></lim>
+                            <integral lowerBound="0" upperBound="a" respectTo="t"><var>e<sup>-st</sup></var></integral><br />
+
+                        </span></equation>
+                    <li>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+            <tr>
+                <td>
+                    <equation>
+                        <laPlaceTransform>e<sup>at</sup></laPlaceTransform> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>s &minus; a</var></div>
+                        </div>
+                    </equation>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <laPlaceTransform>
+                            <sin>kt</sin>
+                        </laPlaceTransform> =
+                        <div class="fraction">
+                            <div class="top"><var>k</var></div>
+                            <div class="bottom"><var>s<sup>2</sup> + k<sup>2</sup></var></div>
+                        </div>
+                    </equation>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <laPlaceTransform>
+                            <cos>kt</cos>
+                        </laPlaceTransform> =
+                        <div class="fraction">
+                            <div class="top"><var>s</var></div>
+                            <div class="bottom"><var>s<sup>2</sup> + k<sup>2</sup></var></div>
+                        </div>
+                    </equation>
+                </td>
+
+            </tr>
+        </table>
+        <li>Some properties of the LaPlace Transform can be taken directly from integration properties:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>&Laplacetrf;{c<var>f(x)</var>} = c
+                        <laPlaceTransform>f(x)</laPlaceTransform>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <laPlaceTransform>f(x) + g(x)</laPlaceTransform> =
+                        <laPlaceTransform>f(x)</laPlaceTransform> +
+                        <laPlaceTransform>g(x)</laPlaceTransform>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+    </ul>
+</div>
