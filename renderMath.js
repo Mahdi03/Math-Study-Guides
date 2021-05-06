@@ -200,6 +200,11 @@ function renderMath(parentElement = "") {
                 var newEvaluated = createHTMLNodesFromString("\\Bigr|_{" + from + "}^{" + to + "}");
                 oldEvaluated.replaceWith(...newEvaluated);
             }
+            while (dom.querySelector("laPlaceTransform") != undefined) {
+                var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
+                var newLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;\\left\\{" + oldLaPlaceTransform.innerHTML + "\\right\\}");
+                oldLaPlaceTransform.replaceWith(...newLaPlaceTransform);
+            }
             while (dom.querySelector("matrix") != undefined) {
                 var oldMatrix = dom.querySelector("matrix");
                 var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
@@ -292,14 +297,16 @@ function renderMath(parentElement = "") {
             innerMath += dom.innerHTML;
             innerMath += "\\)";
             equationTag.innerHTML = innerMath;
-            console.log(innerMath);
+            //Use for debugging purposes:
+            //console.log(innerMath);
         });
+        /* Technnically now useless block of code since it typesets automatically
         try {
             //MathJax.typesetPromise();
         } catch (err) {
             console.warn("MathJax not yet supported on this page. Error:\n" + err);
         }
-
+        */
     }
 
     //Replaced/Defined all math function 
@@ -347,6 +354,12 @@ function renderMath(parentElement = "") {
     for (var o = 0; o < cotTags.length; o++) {
         var cotInput = cotTags[o].innerHTML;
         cotTags[o].innerHTML = "cot(<var>" + cotInput + "</var>)";
+    }
+    //Defined LaPlaceTransform tags
+    var laPlaceTransformTags = document.querySelectorAll(parentElement + "laPlaceTransform");
+    for (var t = 0; t < laPlaceTransformTags.length; t++) {
+        var laPlaceTransformInput = laPlaceTransformTags[t].innerHTML;
+        laPlaceTransformTags[t].innerHTML = "&Laplacetrf;{<var>" + laPlaceTransformInput + "</var>}";
     }
     //Defined log tag and ln tag
     var logTags = document.querySelectorAll(parentElement + "log");
