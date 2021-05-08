@@ -176,7 +176,7 @@ function renderMath(parentElement = "") {
                 var oldLim = dom.querySelector("lim");
                 var limAs = oldLim.getAttribute("as");
                 var limApproaches = oldLim.getAttribute("approaches");
-                var newLim = createHTMLNodesFromString("\\lim_{" + limAs + " \\to " + limApproaches + "}");
+                var newLim = createHTMLNodesFromString("\\displaystyle\\lim_{" + limAs + " \\to " + limApproaches + "}");
                 oldLim.replaceWith(...newLim);
             }
             while (dom.querySelector("derivative") != undefined) {
