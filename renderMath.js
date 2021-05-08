@@ -122,7 +122,8 @@ function renderMath(parentElement = "") {
                 .replaceAll("||", "\\|")
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
-                .replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
+                .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
+                //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
                 .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
                 //Replace HTML entities so they don't show up small on mobile
                 .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
@@ -306,9 +307,9 @@ function renderMath(parentElement = "") {
             innerMath += "\\)";
             equationTag.innerHTML = innerMath;
             //Use for debugging purposes:
-            //console.log(innerMath);
+            equationTag.setAttribute("LaTeX", innerMath);
         });
-        /* Technnically now useless block of code since it typesets automatically
+        /* Technically now useless block of code since it typesets automatically
         try {
             //MathJax.typesetPromise();
         } catch (err) {
