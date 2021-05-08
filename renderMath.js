@@ -118,14 +118,22 @@ function renderMath(parentElement = "") {
             //var myString = equationTag.innerHTML;
             //Replace sup{} with ^{}
             dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
+                //Replace the grouping punctuation with those that resize
                 .replaceAll("||", "\\|")
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
                 .replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
                 .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
+                //Replace HTML entities so they don't show up small on mobile
+                .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
+                .replace(/&beta;/gi, "\\beta").replace(/&gamma;/gi, "\\gamma")
+                .replace(/&pi;/gi, "\\pi").replace(/&rho;/gi, "\\rho").replace(/&phi;/gi, "\\phi")
+                .replace(/&omega;/gi, "\\omega").replace(/&tau;/gi, "\\tau")
+                .replace(/&epsilon;/gi, "\\epsilon").replace(/&kappa;/gi, "\\kappa")
+                .replace(/&mu;/gi, "\\mu")
                 /*
-                .replace(/[\[]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)")
-            .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
+                    .replace(/[\[]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)")
+                .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
             ;
             while (dom.querySelector("sigma") != undefined) {
                 var oldSigma = dom.querySelector("sigma");
@@ -159,7 +167,7 @@ function renderMath(parentElement = "") {
                     newLog = "\\log {" + oldLog.innerHTML + "}";
                 }
                 newLog = createHTMLNodesFromString(newLog);
-                oldSQRT.replaceWith(...newLog);
+                oldLog.replaceWith(...newLog);
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("lim") != undefined) {
