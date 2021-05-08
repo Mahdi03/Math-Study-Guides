@@ -122,6 +122,7 @@ function renderMath(parentElement = "") {
                 .replaceAll("||", "\\|")
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
+                //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
                 .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
@@ -213,6 +214,11 @@ function renderMath(parentElement = "") {
                 var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
                 var newLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;\\left\\{" + oldLaPlaceTransform.innerHTML + "\\right\\}");
                 oldLaPlaceTransform.replaceWith(...newLaPlaceTransform);
+            }
+            while (dom.querySelector("invLaPlaceTransform") != undefined) {
+                var oldInvLaPlaceTransform = dom.querySelector("invLaPlaceTransform");
+                var newInvLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;^{-1}\\left\\{" + oldInvLaPlaceTransform.innerHTML + "\\right\\}");
+                oldInvLaPlaceTransform.replaceWith(...newInvLaPlaceTransform);
             }
             while (dom.querySelector("matrix") != undefined) {
                 var oldMatrix = dom.querySelector("matrix");
@@ -369,6 +375,11 @@ function renderMath(parentElement = "") {
     for (var t = 0; t < laPlaceTransformTags.length; t++) {
         var laPlaceTransformInput = laPlaceTransformTags[t].innerHTML;
         laPlaceTransformTags[t].innerHTML = "&Laplacetrf;{<var>" + laPlaceTransformInput + "</var>}";
+    }
+    var invLaPlaceTransformTags = document.querySelectorAll(parentElement + "invLaPlaceTransform");
+    for (var t = 0; t < invLaPlaceTransformTags.length; t++) {
+        var invLaPlaceTransformInput = invLaPlaceTransformTags[t].innerHTML;
+        invLaPlaceTransformTags[t].innerHTML = "&Laplacetrf;<sup>&minus;1</sup>{<var>" + invLaPlaceTransformInput + "</var>}";
     }
     //Defined log tag and ln tag
     var logTags = document.querySelectorAll(parentElement + "log");
