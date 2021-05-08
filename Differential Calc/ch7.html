@@ -10,7 +10,6 @@
 </script>
 <div class="indent">
     <ul>
-
         <h3>7.1: LaPlace Transforms:</h3>
         <li>When we have differential equations in the form of
             <equation><var>y'' + y = f(t)</var></equation>, we could have initial conditions and
@@ -25,8 +24,9 @@
         <table class="rules">
             <tr>
                 <td>
-                    <equation><var><laPlaceTransform>f(x)</laPlaceTransform> = <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>&minus;st</sup>f(t)</var></integral>
-                        </var>
+                    <equation>
+                        <laPlaceTransform>f(x)</laPlaceTransform> =
+                        <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>&minus;st</sup>f(t)</var></integral>
                     </equation>
                 </td>
             </tr>
@@ -36,47 +36,211 @@
             <tr>
                 <td>
                     <equation>
-                        <laPlaceTransform>t<sup>n</sup></var>
-                        </laPlaceTransform> =
+                        <laPlaceTransform>t<sup>n</sup></laPlaceTransform> =
                         <div class="fraction">
                             <div class="top"><var>n</var>!</div>
                             <div class="bottom"><var>s<sup>n + 1</sup></var></div>
                         </div>
                     </equation>
                 </td>
-                <!--<th><a href="javascript:void(0)" id="polynomialLaPlaceTransformProofToggleLink" onclick="toggleSolution('#polynomialLaPlaceTransformProof', true);">Show Proof</a></th>-->
+                <th><a href="javascript:void(0)" id="polynomialLaPlaceTransformProofToggleLink" onclick="toggleSolution('#polynomialLaPlaceTransformProof', true);">Show Proof</a></th>
             </tr>
-            <div id="polynomialLaPlaceTransformProof" class="solution">
-                <ol>
-                    <li>Let's see if we can discover a trend that applies with all polynomials of this form.</li>
+        </table>
+        <div id="polynomialLaPlaceTransformProof" class="solution">
+            <ol>
+                <li style="list-style-type: none;">Let's see if we can discover a trend that applies with all polynomials of this form.</li>
+                <ol type="a">
                     <li>For
                         <equation>
                             <laPlaceTransform>1</laPlaceTransform>
                         </equation>:</li>
                     <equation><span class="alignedEquations">
-                            <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>-st</sup></var></integral> =
+                            <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>-st</sup></var>(1)</integral> =
                             <lim as="a" approaches="&infin;"></lim>
                             <integral lowerBound="0" upperBound="a" respectTo="t"><var>e<sup>-st</sup></var></integral><br />
-
+                            = <lim as="a" approaches="&infin;"></lim><div class="fraction">
+                                <div class="top"><var>e<sup>-st</sup></var></div>
+                                <div class="bottom"><var>&minus;s</var></div>
+                            </div><evaluated from="0" to="<var>a</var>"></evaluated><br />
+                            = <lim as="a" approaches="&infin;"></lim>[<div class="fraction">
+                                <div class="top"><var>e<sup>-sa</sup></var></div>
+                                <div class="bottom"><var>&minus;s</var></div>
+                            </div> &minus; <div class="fraction">
+                                <div class="top"><var>e<sup>0</sup></var></div>
+                                <div class="bottom"><var>&minus;s</var></div>
+                            </div>]<br />
+                            = [0 &minus; <div class="fraction">
+                                <div class="top"><var>e<sup>0</sup></var></div>
+                                <div class="bottom"><var>&minus;s</var></div>
+                            </div>]
+                        </span></equation><br />
+                    <equation><span class="answer"><div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>s</var></div>
+                        </div></span></equation>
+                    <li>For
+                        <equation>
+                            <laPlaceTransform>t</laPlaceTransform>
+                        </equation>:</li>
+                    <equation><span class="alignedEquations">
+                        <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>-st</sup>(t)</var></integral> = <lim as="a" approaches="&infin;"></lim>
+                        <integral lowerBound="0" upperBound="a" respectTo="t"><var>e<sup>-st</sup>t</var></integral><br />
                         </span></equation>
-                    <li>
+                    <br />
+                    <text>If we use the tabular method here (left as an exercise to the reader) we should end up with:</text><br />
+                    <equation><span class="alignedEquations">
+                        = <lim as="a" approaches="&infin;"></lim>
+                        <var>e<sup>&minus;st</sup></var>(<div class="fraction"><div class="top">&minus;t</div>
+                        <div class="bottom">s</div>
+                        </div> &minus; <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>s</var><sup>2</sup></div>
+                        </div>)<evaluated from="0" to="<var>a</var>"></evaluated><br />
+                        = <lim as="a" approaches="&infin;"></lim>[
+                        <var>e<sup>&minus;sa</sup></var>(<div class="fraction"><div class="top">&minus;<var>a</var></div>
+                        <div class="bottom">s</div>
+                        </div> &minus; <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>s</var><sup>2</sup></div>
+                        </div>) &minus; <var>e</var><sup>0</sup>(0 &minus; <div class="fraction"><div class="top">1</div>
+                        <div class="bottom"><var>s</var><sup>2</sup></div>
+                    </div>
+                        )
+                        ]<br />
+                        = <lim as="a" approaches="&infin;"></lim>(
+                            <div class="fraction">
+                                <div class="top">&minus;<div class="fraction">
+                                    <div class="top">
+                                        <var>a</var>
+                                    </div>
+                                    <div class="bottom"><var>s</var></div>
+                                </div> &minus; <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>s</var><sup>2</sup></div>
+                                </div></div>
+                                <div class="bottom"><var>e<sup>sa</sup></var></div>
+                            </div> + <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>s</var><sup>2</sup></div>
+                            </div>)<br />
+                        </span></equation>
+                    <br />
+                    <text>Now we apply L'H&ocirc;pital's Rule since the limit of the first term is &minus;<div class="fraction">
+                                <div class="top">&infin;</div>
+                                <div class="bottom">&infin;</div>
+                            </div></text><br />
+                    <equation><span class="alignedEquations">
+                            = <lim as="a" approaches="&infin;"></lim>(
+                                <div class="fraction">
+                                    <div class="top">
+                                        &minus;<div class="fraction">
+                                        <div class="top"><var>1</var></div>
+                                        <div class="bottom"><var>s</var></div>
+                                    </div> &minus; <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>s</var><sup>2</sup></div>
+                                    </div></div>
+                                    <div class="bottom"><var>se<sup>sa</sup></var></div>
+                                </div> + <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>s</var><sup>2</sup></div>
+                                </div>)<br />
+                                = 0 + <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>s</var><sup>2</sup></div>
+                                </div>
+                    </span></equation><br />
+                    <equation><span class="answer">
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>s</var><sup>2</sup></div>
+                        </div>
+                    </span></equation>
+                    <li>Following this pattern we start to see that
+                        <equation>
+                            <laPlaceTransform>t<sup>2</sup></laPlaceTransform> =
+                            <div class="fraction">
+                                <div class="top">2</div>
+                                <div class="bottom"><var>s</var><sup>3</sup></div>
+                            </div>
+                        </equation> and
+                        <equation>
+                            <laPlaceTransform>t<sup>3</sup></laPlaceTransform> =
+                            <div class="fraction">
+                                <div class="top">6</div>
+                                <div class="bottom"><var>s</var><sup>4</sup></div>
+                            </div>
+                        </equation> (you can check for yourself).
                     </li>
-                    <li></li>
-                    <li></li>
+                    <li>With this logic we deduce that the actual formula for any
+                        <equation>
+                            <laPlaceTransform>t<sup>n</sup></laPlaceTransform>
+                        </equation> is
+                        <equation>
+                            <div class="fraction">
+                                <div class="top"><var>n</var>!</div>
+                                <div class="bottom"><var>s<sup>n + 1</sup></var></div>
+                            </div>
+                        </equation>.</li>
                 </ol>
-            </div>
+            </ol>
+        </div>
+        <table class="rules">
             <tr>
                 <td>
                     <equation>
-                        <laPlaceTransform>e<sup>at</sup></laPlaceTransform> =
+                        <laPlaceTransform>e<sup>kt</sup></laPlaceTransform> =
                         <div class="fraction">
                             <div class="top">1</div>
-                            <div class="bottom"><var>s &minus; a</var></div>
+                            <div class="bottom"><var>s &minus; k</var></div>
                         </div>
                     </equation>
                 </td>
-
+                <th><a href="javascript:void(0)" id="exponentialLaPlaceTransformProofToggleLink" onclick="toggleSolution('#exponentialLaPlaceTransformProof', true);">Show Proof</a></th>
             </tr>
+        </table>
+        <div id="exponentialLaPlaceTransformProof" class="solution">
+            <ol>
+                <li>Setting up the same integral and combining the exponents we can integrate to find our result:</li>
+                <equation><span class="alignedEquations">
+                    <integral lowerBound="0" upperBound="&infin;" respectTo="t"><var>e<sup>-st</sup>e<sup>kt</sup></var></integral> =
+                    <lim as="a" approaches="&infin;"></lim>
+                    <integral lowerBound="0" upperBound="<var>a</var>" respectTo="t"><var>e<sup>(-s + k)t</sup></var></integral><br />
+                    = <lim as="a" approaches="&infin;"></lim>
+                    <div class="fraction">
+                        <div class="top"><var>e<sup>(&minus;s + k)t</sup></var></div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div><evaluated from="0" to="<var>a</var>"></evaluated><br />
+                    = <lim as="a" approaches="&infin;"></lim>
+                    [<div class="fraction">
+                        <div class="top"><var>e<sup>(&minus;s + k)a</sup></var></div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div> &minus; <div class="fraction">
+                        <div class="top"><var>e</var><sup>0</sup></div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div>]<br />
+        </span></equation>
+                <li>Since the first term of that limit represents exponential decay (notice the numerator), the term drops to 0 as <var>a</var> &rarr; &infin;, so all we are left with is the last term.</li>
+                <equation><span class="alignedEquations">
+                    <lim as="a" approaches="&infin;"></lim>
+                    [<div class="fraction">
+                        <div class="top"><var>e<sup>(&minus;s + k)a</sup></var></div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div> &minus; <div class="fraction">
+                        <div class="top"><var>e</var><sup>0</sup></div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div>] = [0 &minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>&minus;s + k</var></div>
+                    </div>]<br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>s &minus; k</var></div>
+                    </div>
+                </span></equation>
+            </ol>
+        </div>
+        <table class="rules">
             <tr>
                 <td>
                     <equation>
@@ -89,8 +253,128 @@
                         </div>
                     </equation>
                 </td>
-
+                <th><a href="javascript:void(0)" id="sinLaPlaceTransformProofToggleLink" onclick="toggleSolution('#sinLaPlaceTransformProof', true);">Show Proof</a></th>
             </tr>
+        </table>
+        <div id="sinLaPlaceTransformProof" class="solution">
+            <ol>
+                <li>
+                    First let's use Euler's Formula
+                    <equation>
+                        <var>e<sup>ix</sup></var> =
+                        <cos>x</cos> + <var>i</var>
+                        <sin>x</sin>
+                    </equation> to convert
+                    <equation>
+                        <sin></sin>
+                    </equation> into a function in the form of exponentials (we'll do this to avoid having to do integration by parts with a sin and an exponential function, before applying the Sandwich "Squeeze" Theorem in our limit):
+                </li>
+                <li>The first step is to solve for sine, but we need to get rid of cosine first, we can do that by manipulating Euler's Formula with a negative sign and bringing the two equations together:</li>
+                <equation><span class="alignedEquations">
+                    <var>e<sup>ix</sup></var> =
+                        <cos>x</cos> + <var>i</var>
+                        <sin>x</sin><br />
+                        <var>e<sup>i(&minus;x)</sup></var> =
+                        <cos>&minus;x</cos> + <var>i</var>
+                        <sin>&minus;x</sin><br />
+                        <text>cos is even, sin is odd</text><br />
+                        <var>e<sup>&minus;ix</sup></var> =
+                        <cos>x</cos> &minus; <var>i</var>
+                        <sin>x</sin>
+                </span></equation>
+                <li>Now if we subtract the first and simplified (last) equations we should get an equation where we can solve for
+                    <sin></sin>:</li>
+                <equation><span class="alignedEquations">
+                    <var>e<sup>ix</sup></var> =
+                        <span class="cancel">
+                            <cos>x</cos>
+                        </span> + <var>i</var>
+                    <sin>x</sin><br /> &minus; [<var>e<sup>&minus;ix</sup></var>] = &minus;[
+                    <span class="cancel">
+                            <cos>x</cos>
+                        </span> &minus; <var>i</var>
+                    <sin>x</sin>]<br />
+                    <var>e<sup>ix</sup></var> &minus; <var>e<sup>&minus;ix</sup></var> = <var>i</var>
+                    <sin>x</sin> + <var>i</var>
+                    <sin>x</sin><br />
+                    <var>e<sup>ix</sup></var> &minus; <var>e<sup>&minus;ix</sup></var> = 2<var>i</var>
+                    <sin>x</sin><br />
+                    <div class="fraction">
+                        <div class="top"><var>e<sup>ix</sup></var> &minus; <var>e<sup>&minus;ix</sup></var></div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div> =
+                    <sin>x</sin>
+                    </span>
+                </equation>
+                <li>With sin in exponential form we can now integrate with ease:</li>
+                <equation><span class="alignedEquations">
+                    <laPlaceTransform>
+                        <sin>kt</sin>
+                    </laPlaceTransform> = <laPlaceTransform>
+                        <div class="fraction">
+                            <div class="top"><var>e<sup>ix</sup></var> &minus; <var>e<sup>&minus;ix</sup></var></div>
+                            <div class="bottom">2<var>i</var></div>
+                        </div>
+                    </laPlaceTransform><br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div>
+                    [<laPlaceTransform>e<sup>ix</sup></laPlaceTransform> &minus; <laPlaceTransform>e<sup>&minus;ix</sup></laPlaceTransform>]<br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div>[
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>s &minus; ik</var></div>
+                    </div> &minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>s &minus; (&minus;ik)</var></div>
+                    </div>
+                    ]<br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div>[
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>s &minus; ik</var></div>
+                    </div>(<div class="fraction">
+                        <div class="top"><var>s + ik</var></div>
+                        <div class="bottom"><var>s + ik</var></div>
+                    </div>) &minus; <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>s &minus; (&minus;ik)</var></div>
+                    </div>(<div class="fraction">
+                        <div class="top"><var>s &minus; ik</var></div>
+                        <div class="bottom"><var>s &minus; ik</var></div>
+                    </div>)
+                    ]<br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div> &times; <div class="fraction">
+                        <div class="top"><var>(s + ik) &minus; (s &minus; ik)</var></div>
+                        <div class="bottom"><var>(s &minus; ik)(s + ik)</var></div>
+                    </div><br />
+                    = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2<var>i</var></div>
+                    </div> &times; <div class="fraction">
+                        <div class="top">2<var>ik</var></div>
+                        <div class="bottom">
+                            <var>s</var><sup>2</sup> &minus;<var>i</var><sup>2</sup><var>k</var><sup>2</sup>
+                        </div>
+                    </div><br />
+                    = <div class="fraction">
+                        <div class="top"><var>k</var></div>
+                        <div class="bottom"><var>s</var><sup>2</sup> + <var>k</var><sup>2</sup></div>
+                    </div>
+                </span></equation>
+            </ol>
+        </div>
+        <table class="rules">
             <tr>
                 <td>
                     <equation>
@@ -103,25 +387,160 @@
                         </div>
                     </equation>
                 </td>
-
+                <!--<th><a href="javascript:void(0)" id="cosLaPlaceTransformProofToggleLink" onclick="toggleSolution('#cosLaPlaceTransformProof', true);">Show Proof</a></th>-->
             </tr>
         </table>
-        <li>Some properties of the LaPlace Transform can be taken directly from integration properties:</li>
+        <div id="cosLaPlaceTransformProof" class="solution">
+            <ol></ol>
+        </div>
         <table class="rules">
             <tr>
                 <td>
-                    <equation>&Laplacetrf;{c<var>f(x)</var>} = c
-                        <laPlaceTransform>f(x)</laPlaceTransform>
-                    </equation>
-                </td>
-                <td>
                     <equation>
-                        <laPlaceTransform>f(x) + g(x)</laPlaceTransform> =
-                        <laPlaceTransform>f(x)</laPlaceTransform> +
-                        <laPlaceTransform>g(x)</laPlaceTransform>
+                        <laPlaceTransform>sinh(<var>kt</var>)</laPlaceTransform> =
+                        <div class="fraction">
+                            <div class="top"><var>k</var></div>
+                            <div class="bottom"><var>s</var><sup>2</sup> &minus; <var>k</var><sup>2</sup></div>
+                        </div>
                     </equation>
                 </td>
+                <th><a href="javascript:void(0)" id="sinhLaPlaceTransformProofToggleLink" onclick="toggleSolution('#sinhLaPlaceTransformProof', true);">Show Proof</a></th>
             </tr>
         </table>
-    </ul>
+        <div id="sinhLaPlaceTransformProof" class="solution">
+            <ol>
+                <li>First we define
+                    <equation>sinh()</equation>:</li>
+                <equation>
+                    <laPlaceTransform>sinh(<var>kt</var>)</laPlaceTransform> =
+                    <laPlaceTransform>
+                        <div class="fraction">
+                            <div class="top"><var>e<sup>kt</sup> &minus; e<sup>&minus;kt</sup></var></div>
+                            <div class="bottom">2</div>
+                        </div>
+                    </laPlaceTransform>
+                </equation>
+                <li>Now we can pull out the one half from our LaPlace Transform and use what we already know about
+                    <equation>
+                        <laPlaceTransform>e<sup>kt</sup></laPlaceTransform>
+                    </equation> to solve:</li>
+                <equation><span class="alignedEquations">
+                            <laPlaceTransform>
+                                <div class="fraction">
+                                    <div class="top"><var>e<sup>kt</sup> &minus; e<sup>&minus;kt</sup></var></div>
+                                    <div class="bottom">2</div>
+                                </div>
+                            </laPlaceTransform> = <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2</div>
+                            </div><laPlaceTransform>e<sup>kt</sup> &minus; e<sup>&minus;kt</sup></laPlaceTransform><br />
+                            = <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2</div>
+                            </div>(<div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>s &minus; k</var></div>
+                            </div> &minus; <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>s &minus; (&minus;k)</var></div>
+                            </div>)<br />
+                            = <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2</div>
+                            </div>[<div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>s &minus; k</var></div>
+                            </div>(<div class="fraction">
+                                <div class="top"><var>s + k</var></div>
+                                <div class="bottom"><var>s + k</var></div>
+                            </div>) &minus; <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>s &minus; (&minus;k)</var></div>
+                            </div>(<div class="fraction">
+                                <div class="top"><var>s &minus; k</var></div>
+                                <div class="bottom"><var>s &minus; k</var></div>
+                            </div>)]<br />
+                            = <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2</div>
+                            </div>(<div class="fraction">
+                                <div class="top"><var>(s + k) &minus; (s &minus; k)</var></div>
+                                <div class="bottom"><var>(s &minus; k)(s + k)</var></div>
+                            </div>)<br />
+                            = <div class="fraction">
+                                <div class="top"><span class="cancel">2</span><var>k</var></div>
+        <div class="bottom"><span class="cancel">2</span><var>s</var><sup>2</sup> &minus; <var>k</var><sup>2</sup></div>
 </div>
+</span>
+</equation>
+<br />
+<equation><span class="answer">
+                            <laPlaceTransform>sinh(<var>kt</var>)</laPlaceTransform> = <div class="fraction">
+                                <div class="top"><var>k</var></div>
+                                <div class="bottom"><var>s</var><sup>2</sup> &minus; <var>k</var><sup>2</sup></div>
+                            </div>
+                        </span></equation>
+</ol>
+</div>
+<table class="rules">
+    <tr>
+        <td>
+            <equation>
+                <laPlaceTransform>cosh(<var>kt</var>)</laPlaceTransform> =
+                <div class="fraction">
+                    <div class="top"><var>s</var></div>
+                    <div class="bottom"><var>s</var><sup>2</sup> &minus; <var>k</var><sup>2</sup></div>
+                </div>
+            </equation>
+        </td>
+    </tr>
+</table>
+<li>Some properties of the LaPlace Transform can be taken directly from integration properties:</li>
+<table class="rules">
+    <tr>
+        <td>
+            <equation>&Laplacetrf;{c<var>f(x)</var>} = c
+                <laPlaceTransform>f(x)</laPlaceTransform>
+            </equation>
+        </td>
+        <td>
+            <equation>
+                <laPlaceTransform>f(x) + g(x)</laPlaceTransform> =
+                <laPlaceTransform>f(x)</laPlaceTransform> +
+                <laPlaceTransform>g(x)</laPlaceTransform>
+            </equation>
+        </td>
+    </tr>
+</table>
+<h3>7.2: Inverse LaPlace Transforms:</h3>
+<li>The inverse of a LaPlace Transform is defined by
+    <equation>
+        <invLaPlaceTransform>F(s)</invLaPlaceTransform> = <var>f(t)</var>
+    </equation> where
+    <equation>
+        <laPlaceTransform>f(t)</laPlaceTransform> = <var>F(s)</var>
+    </equation>.
+</li>
+<li>There is a way to solve for the inverse LaPlace Transform but that involves complex numbers, for now we'll steer clear of that.</li>
+<li>
+    Since LaPlace Transforms only exist for those functions where the LaPlace Transform integral converges, we need to make sure that the exponential decay in the integral is stronger than the actual input of the LaPlace Transform. Functions where an exponential
+    function eventually beats the original function are said to be of <u>exponential order</u>. Functions that have vertical asymptotes on a positive <var>t</var> value (since our LaPlace Transform integral is integrated only over the positive <var>t</var>-axis)
+    cannot be of exponential order.
+</li>
+<li>For all the LaPlace Tranforms we've seen, we can deduce that if <var>f(t)</var> is piecewise continuous and contains no vertical asymptotes for <var>t</var> &gt; 0:</li>
+<table class="rules">
+    <tr>
+        <td>
+            <equation>
+                <lim as="s" approaches="&infin;"></lim>
+                <laPlaceTransform>f(t)</laPlaceTransform> = 0
+            </equation>
+        </td>
+    </tr>
+</table>
+<li>By this idea, if the limit of the LaPlace Transform is not 0, the Inverse LaPlace Transform does not exist!!</li>
+</ul>
+</div>
+<script>
+    renderMath();
+</script>
