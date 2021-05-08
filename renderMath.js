@@ -559,7 +559,7 @@ function renderMath(parentElement = "") {
                 //Set the data to localStorage for next time usage
                 localStorage.setItem("periodicTable", xhr.responseText);
                 console.log("{");
-                for (prop in xhr) {
+                for (var prop in xhr) {
                     console.log(`${prop}: ${xhr[prop]}`);
                 }
                 console.log("}");
@@ -568,7 +568,7 @@ function renderMath(parentElement = "") {
                 renderScience(parentElement);
             }).catch((error) => {
                 console.log("{");
-                for (prop in error) {
+                for (var prop in error) {
                     console.log(`${prop}: ${error[prop]}`);
                 }
                 console.log("}");
