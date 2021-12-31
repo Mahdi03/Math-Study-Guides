@@ -48,11 +48,14 @@
         <script class="renderJS">
             var projectileExample = document.querySelector("#projectileExample");
             var ctx1 = projectileExample.getContext("2d");
+            ctx1.beginPath();
             ctx1.arc(10, 150, 3, 0, Math.PI * 2);
             ctx1.fill();
+            ctx1.beginPath();
             ctx1.moveTo(390, 150);
             ctx1.ellipse(390, 150, 10, 3, 0, 0, Math.PI * 2);
             ctx1.fill();
+            ctx1.beginPath();
             ctx1.moveTo(10, 150);
             ctx1.quadraticCurveTo(200, -100, 390, 150);
             ctx1.stroke();
