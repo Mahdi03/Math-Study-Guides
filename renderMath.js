@@ -253,7 +253,14 @@ function renderMath(parentElement = "") {
             }
             while (dom.querySelector("det") != undefined) {
                 var oldDet = dom.querySelector("det");
-                var newDet = createHTMLNodesFromString("\\det" + oldDet.innerHTML);
+                var newDet;
+                //If the child of the determinant has already converted something other than a variable name, then print just as
+                if (oldDet.firstChild.wholeText.includes("\\begin")) {
+                    newDet = createHTMLNodesFromString(oldDet.innerHTML);
+                } else {
+                    //Else use determinant as function instead of bracket notation defined in matrix tags
+                    newDet = createHTMLNodesFromString("\\det\\left(" + oldDet.innerHTML + "\\right)");
+                }
                 oldDet.replaceWith(...newDet);
             }
             //Remember that MathJax does not support boxed answers in aligned equations
