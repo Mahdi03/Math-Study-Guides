@@ -119,7 +119,7 @@ function renderMath(parentElement = "") {
             //Replace sup{} with ^{}
             dom.innerHTML = dom.innerHTML.replace(/&minus;/gi, "-")
                 //Replace the grouping punctuation with those that resize
-                .replaceAll("||", "\\|")
+                .replaceAll("||", "&#x2225;") //Allows to show magnitude of vectors
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
                 //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
@@ -229,7 +229,12 @@ function renderMath(parentElement = "") {
                     console.log(values);
                     oldMatrix.innerHTML = "Could not display matrix, Dimension Error";
                 } else {
-                    var newMatrixString = "\\begin{bmatrix}";
+                    var punctuation = "bmatrix";
+                    //If it is a direct sibling of determinant <det> then make it absolute value signs instead
+                    if (oldMatrix.parentElement.localName === "det") {
+                        punctuation = "vmatrix";
+                    }
+                    var newMatrixString = "\\begin{" + punctuation + "}";
                     for (var row = 1; row <= dimensionY; row++) {
                         for (var col = 1; col <= dimensionX; col++) {
                             newMatrixString += values[(row - 1) * dimensionX + (col - 1)];
@@ -241,10 +246,15 @@ function renderMath(parentElement = "") {
                             newMatrixString += "\\\\";
                         }
                     }
-                    newMatrixString += "\\end{bmatrix}";
+                    newMatrixString += "\\end{" + punctuation + "}";
                     var newMatrix = createHTMLNodesFromString(newMatrixString);
                     oldMatrix.replaceWith(...newMatrix);
                 }
+            }
+            while (dom.querySelector("det") != undefined) {
+                var oldDet = dom.querySelector("det");
+                var newDet = createHTMLNodesFromString("\\det" + oldDet.innerHTML);
+                oldDet.replaceWith(...newDet);
             }
             //Remember that MathJax does not support boxed answers in aligned equations
             while (dom.querySelector("span.answer") != undefined) {
