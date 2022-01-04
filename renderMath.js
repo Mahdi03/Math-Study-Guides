@@ -526,7 +526,7 @@ function renderMath(parentElement = "") {
         var sigmaInnerHTML = sigmaTags[r].innerHTML;
         sigmaTags[r].innerHTML = "<table class='sigmaTag' style='display: inline-table; transform: translateY(-30%);'><tr><td>" + endValue + "</td></tr><tr><td style='font-size: 200%;'>&Sigma;</td><td>" + sigmaInnerHTML + "</td></tr><tr><td>" + startValue + "</td></tr></table>";
     }
-    var renderJS = document.querySelectorAll("script.renderJS");
+    var renderJS = document.querySelectorAll(parentElement + "script.renderJS");
     renderJS.forEach((script) => {
         eval(script.innerHTML);
     });
@@ -2198,6 +2198,21 @@ function checkLineIntersection(line1StartX, line1StartY, line1EndX, line1EndY, l
     }
     // if line1 and line2 are segments, they intersect if both of the above are true
     return result;
+}
+
+
+// https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
+// Use to make canvas lines clearer on-screen
+function oversampleCanvas(tgtCanvas, ctx, factor) {
+    var width = tgtCanvas.width;
+    var height = tgtCanvas.height;
+    tgtCanvas.width = Math.trunc(width * factor);
+    tgtCanvas.height = Math.trunc(height * factor);
+    tgtCanvas.style.width = width + 'px';
+    tgtCanvas.style.height = height + 'px';
+    ctx.scale(factor, factor);
+    tgtCanvas.style.width = width + 'px';
+    tgtCanvas.style.height = height + 'px';
 }
 
 
