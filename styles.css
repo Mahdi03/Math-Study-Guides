@@ -407,7 +407,7 @@
         }
         
         .staticTable td,
-        .staticTable th {
+        .staticTable th:not(.rules th) {
             margin: 5px;
             padding: 10px;
             text-align: center;
