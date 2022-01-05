@@ -63,7 +63,7 @@
         <canvas id="resistorDrawingCanvas" width="40" height="20"></canvas>
         <script class="renderJS">
             var resistorDrawingCanvas = document.querySelector("#resistorDrawingCanvas");
-            var resistorDrawingCircuitDiagram = new CircuitDiagram(resistorDrawingCanvas);
+            var resistorDrawingCircuitDiagram = new CircuitDiagram(resistorDrawingCanvas, 40, 20);
             resistorDrawingCircuitDiagram.beginCircuit(5, 10).drawResistor();
             resistorDrawingCircuitDiagram.ctx.stroke();
         </script>
@@ -81,8 +81,8 @@
                     <canvas id="seriesCircuitCanvas" width="130" height="130"></canvas>
                     <script class="renderJS">
                         var seriesCircuitCanvas = document.querySelector("#seriesCircuitCanvas");
-                        var seriesCircuitDiagram = new CircuitDiagram(seriesCircuitCanvas);
-                        seriesCircuitDiagram.beginCircuit(15, seriesCircuitCanvas.height / 2).turnLeft()
+                        var seriesCircuitDiagram = new CircuitDiagram(seriesCircuitCanvas, 130, 130);
+                        seriesCircuitDiagram.beginCircuit(15, seriesCircuitDiagram.originalCanvasHeight / 2).turnLeft()
                             .drawBattery().drawWire(50).turnRight()
                             .drawWire(100).turnRight()
                             .drawWire(40).drawResistor().drawWire(40).turnRight()
@@ -94,13 +94,13 @@
                     <canvas id="parallelCircuitCanvas" width="130" height="130"></canvas>
                     <script class="renderJS">
                         var parallelCircuitCanvas = document.querySelector("#parallelCircuitCanvas");
-                        var parallelCircuitDiagram = new CircuitDiagram(parallelCircuitCanvas);
-                        parallelCircuitDiagram.beginCircuit(15, parallelCircuitCanvas.height / 2).turnLeft()
+                        var parallelCircuitDiagram = new CircuitDiagram(parallelCircuitCanvas, 130, 130);
+                        parallelCircuitDiagram.beginCircuit(15, parallelCircuitDiagram.originalCanvasHeight / 2).turnLeft()
                             .drawBattery().drawWire(50).turnRight()
                             .drawWire(50).turnRight()
                             .drawWire(40).drawResistor().drawWire(40).turnLeft()
                             //Now go back and draw the second part to make a parallel circuit
-                            .moveTo(15 + 50, parallelCircuitCanvas.height / 2 - 50 - 5).drawWire(50).turnRight()
+                            .moveTo(15 + 50, parallelCircuitDiagram.originalCanvasHeight / 2 - 50 - 5).drawWire(50).turnRight()
                             .drawWire(40).drawResistor().drawWire(40).turnRight().drawWire(100)
                             .endCircuit();
                     </script>

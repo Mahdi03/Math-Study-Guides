@@ -834,12 +834,17 @@ function toggleSolution(id, proof) {
 /*Extra Tools:*/
 
 
-
-
-
-
-
-
+// https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
+// Use to make canvas lines clearer on-screen
+function oversampleCanvas(tgtCanvas, ctx, factor) {
+    var width = tgtCanvas.width;
+    var height = tgtCanvas.height;
+    tgtCanvas.width = Math.trunc(width * factor);
+    tgtCanvas.height = Math.trunc(height * factor);
+    tgtCanvas.style.width = width + 'px';
+    tgtCanvas.style.height = height + 'px';
+    ctx.scale(factor, factor);
+}
 
 function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     //variables to be used when creating the arrow
@@ -881,10 +886,14 @@ All the methods return the CircuitDiagram object itself, allowing for event chai
 */
 
 class CircuitDiagram {
-    constructor(canvas) {
+    constructor(canvas, width, height) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-
+        this.canvas.width = width;
+        this.originalCanvasWidth = width;
+        this.canvas.height = height;
+        this.originalCanvasHeight = height;
+        oversampleCanvas(this.canvas, this.ctx, 4);
         this.initialX = 0;
         this.initialY = 0;
         this.currentX = 0;
@@ -1178,19 +1187,6 @@ function drawAnElectricalCircuit() {
     }
 }
 */
-
-// https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
-// Use to make canvas lines clearer on-screen
-function oversampleCanvas(tgtCanvas, ctx, factor) {
-    var width = tgtCanvas.width;
-    var height = tgtCanvas.height;
-    tgtCanvas.width = Math.trunc(width * factor);
-    tgtCanvas.height = Math.trunc(height * factor);
-    tgtCanvas.style.width = width + 'px';
-    tgtCanvas.style.height = height + 'px';
-    ctx.scale(factor, factor);
-}
-
 
 function distanceBetweenTwoPoints(x1, y1, x2, y2) {
     var dx = x1 - x2;
