@@ -445,7 +445,7 @@
         <li>When an equation in 3-D space is missing a variable, it extends indefinitely on that variable's axis:</li>
         <table class="rules">
             <tr>
-                <th><iframe loading="lazy" src="https://www.geogebra.org/3d/pqaabqve?embed" width="400" height="300" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe></th>
+                <th><iframe src="https://www.geogebra.org/3d/pqaabqve?embed" width="400" height="300" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe></th>
                 <th><iframe src="https://www.geogebra.org/3d/pntrbryv?embed" width="400" height="300" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe></th>
             </tr>
             <tr>
@@ -2204,6 +2204,7 @@
                     <canvas id="xyTraceExample2Diagram"></canvas><br />
                     <script class="renderJS">
                         var xyTraceExample2Diagram = document.querySelector("#xyTraceExample2Diagram");
+                        var scaleFactor = 15;
                         var xyTraceExample2DiagramGraph = new Graph(xyTraceExample2Diagram, [-6, 6].map((a) => {
                             return a * scaleFactor
                         }), [-6, 6].map((a) => {
@@ -2252,6 +2253,41 @@
                 </td>
             </tr>
         </table>
-        <!--Still need to add cones, hyperboloids of one sheet, two sheet red sheet blue sheet a>0, a=0, a<0 -->
+        <li>Let's look at
+            <equation><var>z</var><sup>2</sup> = <var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>a</var></equation>:</li>
+        <ul>
+            <li>The only difference between this equation and the equation above is that the
+                <equation><var>z</var></equation> is squared and we are adding a constant <var>a</var>.</li>
+            <li>We have 3 possible scenarios:
+                <equation><var>a</var> &lt; 0</equation>,
+                <equation><var>a</var> = 0</equation>,
+                <equation><var>a</var> &gt; 0</equation>. Try sketching each one before you look below. Let's look at each one:
+            </li>
+            <table class="staticTable">
+                <tr>
+                    <th>
+                        <equation><var>a</var> &lt; 0</equation>
+                    </th>
+                    <th>
+                        <equation><var>a</var> = 0</equation>
+                    </th>
+                    <th>
+                        <equation><var>a</var> &gt; 0</equation>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        Use the slider to change the value of
+                        <equation><var>a</var></equation><br />
+                        <iframe src="https://www.geogebra.org/3d/weqznbkq?embed" width="1000" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <td>This is called a hyperboloid of one sheet</td>
+                    <td>These are cones!!</td>
+                    <td>This is called a hyperboloid of two sheets</td>
+                </tr>
+            </table>
+        </ul>
     </ul>
 </div>
