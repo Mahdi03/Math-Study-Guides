@@ -1694,19 +1694,22 @@ class RayDiagram {
         var height = 3 / 10 * width;
         this.canvas.width = width;
         this.canvas.height = height;
+        this.originalCanvasWidth = width;
+        this.originalCanvasHeight = height;
         this.ctx = this.canvas.getContext("2d");
         this.humanPos = { x: 0, y: 0 };
         this.raysDrawn = false;
+        oversampleCanvas(this.canvas, this.ctx, 8);
         this.drawStage();
     }
     drawStage() {
         this.ctx.beginPath();
         //Draw platform line
-        this.ctx.moveTo(0, this.canvas.height / 2);
-        this.ctx.lineTo(this.canvas.width, this.canvas.height / 2);
+        this.ctx.moveTo(0, this.originalCanvasHeight / 2);
+        this.ctx.lineTo(this.originalCanvasWidth, this.originalCanvasHeight / 2);
         this.ctx.stroke();
         //Divide into 6 portions so we can have 2 focus points on each side and then one mirror/lens
-        var interval = this.canvas.width / 6;
+        var interval = this.originalCanvasWidth / 6;
         //Use ES6 syntax to preserve the `this` keyword reference to the class
         var drawTickMark = (xPos, yPos, height) => {
             this.ctx.moveTo(xPos, yPos + height / 2);
@@ -1714,66 +1717,66 @@ class RayDiagram {
             this.ctx.stroke();
         }
         this.ctx.font = "15px Arial";
-        for (var xPos = 0; xPos <= this.canvas.width; xPos += interval) {
+        for (var xPos = 0; xPos <= this.originalCanvasWidth; xPos += interval) {
             if (xPos === 0) {
                 //Do nothing, it's the beginning of the line
-            } else if (xPos === this.canvas.width) {
+            } else if (xPos === this.originalCanvasWidth) {
                 //Do nothing, it's the end of the line
-            } else if (xPos === this.canvas.width / 2) {
+            } else if (xPos === this.originalCanvasWidth / 2) {
                 //Draw mirror or lens either concave or convex
                 if (this.mirrorOrLens == "mirror") {
-                    drawTickMark(xPos, this.canvas.height / 2, this.canvas.height - 15 - 20); //Total height to be 15 less
+                    drawTickMark(xPos, this.originalCanvasHeight / 2, this.originalCanvasHeight - 15 - 20); //Total height to be 15 less
 
-                    this.ctx.ellipse(this.canvas.width / 2 - (this.canvas.width / 24) / 4, this.canvas.height / 24, this.canvas.width / 24 / 4, this.canvas.height / 24, 0, 0, -Math.PI / 2, true);
-                    this.ctx.moveTo(this.canvas.width / 2, this.canvas.height - 15 - 20);
-                    this.ctx.ellipse(this.canvas.width / 2 - (this.canvas.width / 24) / 4, this.canvas.height * 23 / 24, this.canvas.width / 24 / 4, this.canvas.height / 24, 0, 0, Math.PI / 2, false);
+                    this.ctx.ellipse(this.originalCanvasWidth / 2 - (this.originalCanvasWidth / 24) / 4, this.originalCanvasHeight / 24, this.originalCanvasWidth / 24 / 4, this.originalCanvasHeight / 24, 0, 0, -Math.PI / 2, true);
+                    this.ctx.moveTo(this.originalCanvasWidth / 2, this.originalCanvasHeight - 15 - 20);
+                    this.ctx.ellipse(this.originalCanvasWidth / 2 - (this.originalCanvasWidth / 24) / 4, this.originalCanvasHeight * 23 / 24, this.originalCanvasWidth / 24 / 4, this.originalCanvasHeight / 24, 0, 0, Math.PI / 2, false);
                     //Draw curves on top and bottom of mirror
                 } else {
                     //Must be Lens
-                    drawTickMark(xPos, this.canvas.height / 2, this.canvas.height - 15);
+                    drawTickMark(xPos, this.originalCanvasHeight / 2, this.originalCanvasHeight - 15);
                     if (this.concaveOrConvex == "convex") {
                         //Draw oval
-                        this.ctx.moveTo(this.canvas.width / 2 + (this.canvas.width / 24) / 2, this.canvas.height / 2);
-                        this.ctx.ellipse(this.canvas.width / 2, this.canvas.height / 2, (this.canvas.width / 24) / 2, (this.canvas.height - 15) / 2, 0, 0, 2 * Math.PI);
+                        this.ctx.moveTo(this.originalCanvasWidth / 2 + (this.originalCanvasWidth / 24) / 2, this.originalCanvasHeight / 2);
+                        this.ctx.ellipse(this.originalCanvasWidth / 2, this.originalCanvasHeight / 2, (this.originalCanvasWidth / 24) / 2, (this.originalCanvasHeight - 15) / 2, 0, 0, 2 * Math.PI);
                     } else if (this.concaveOrConvex == "concave") {
                         //Draw backwards oval thingy * 2
-                        //this.ctx.moveTo(this.canvas.width / 2 - (this.canvas.width / 24) / 2, this.canvas.height / 2);
+                        //this.ctx.moveTo(this.originalCanvasWidth / 2 - (this.originalCanvasWidth / 24) / 2, this.originalCanvasHeight / 2);
                         this.ctx.beginPath();
-                        //this.ctx.lineTo(this.canvas.width / 2 - (this.canvas.width / 24), this.canvas.height / 2 + 17);
-                        this.ctx.ellipse(this.canvas.width / 2 - (this.canvas.width / 24), this.canvas.height / 2, (this.canvas.width / 24) / 2, (this.canvas.height - 15) / 2, 0, -Math.PI / 2, Math.PI / 2);
-                        this.ctx.ellipse(this.canvas.width / 2 + (this.canvas.width / 24), this.canvas.height / 2, (this.canvas.width / 24) / 2, (this.canvas.height - 15) / 2, 0, Math.PI / 2, -Math.PI / 2, false);
+                        //this.ctx.lineTo(this.originalCanvasWidth / 2 - (this.originalCanvasWidth / 24), this.originalCanvasHeight / 2 + 17);
+                        this.ctx.ellipse(this.originalCanvasWidth / 2 - (this.originalCanvasWidth / 24), this.originalCanvasHeight / 2, (this.originalCanvasWidth / 24) / 2, (this.originalCanvasHeight - 15) / 2, 0, -Math.PI / 2, Math.PI / 2);
+                        this.ctx.ellipse(this.originalCanvasWidth / 2 + (this.originalCanvasWidth / 24), this.originalCanvasHeight / 2, (this.originalCanvasWidth / 24) / 2, (this.originalCanvasHeight - 15) / 2, 0, Math.PI / 2, -Math.PI / 2, false);
                         this.ctx.closePath();
                     }
                 }
-            } else if (xPos === this.canvas.width * 1 / 6) {
+            } else if (xPos === this.originalCanvasWidth * 1 / 6) {
                 //Draw tick mark
-                drawTickMark(xPos, this.canvas.height / 2, 10);
+                drawTickMark(xPos, this.originalCanvasHeight / 2, 10);
                 //Then label with either C or 2F
                 if (this.mirrorOrLens == "mirror") {
                     var width = this.ctx.measureText("C").width;
-                    this.ctx.fillText("C", xPos - width / 2, this.canvas.height / 2 + 20);
+                    this.ctx.fillText("C", xPos - width / 2, this.originalCanvasHeight / 2 + 20);
                 } else if (this.mirrorOrLens == "lens") {
                     var width = this.ctx.measureText("2F").width;
-                    this.ctx.fillText("2F", xPos - width / 2, this.canvas.height / 2 + 20);
+                    this.ctx.fillText("2F", xPos - width / 2, this.originalCanvasHeight / 2 + 20);
                 }
-            } else if (xPos === this.canvas.width * 2 / 6) {
+            } else if (xPos === this.originalCanvasWidth * 2 / 6) {
                 //Draw tick mark
-                drawTickMark(xPos, this.canvas.height / 2, 10);
+                drawTickMark(xPos, this.originalCanvasHeight / 2, 10);
                 //Then label with F
                 var width = this.ctx.measureText("F").width;
-                this.ctx.fillText("F", xPos - width / 2, this.canvas.height / 2 + 20);
-            } else if (xPos === this.canvas.width * 4 / 6 && this.mirrorOrLens !== "mirror") {
+                this.ctx.fillText("F", xPos - width / 2, this.originalCanvasHeight / 2 + 20);
+            } else if (xPos === this.originalCanvasWidth * 4 / 6 && this.mirrorOrLens !== "mirror") {
                 //Draw tick mark - mirrors don't need labels on opposite side
-                drawTickMark(xPos, this.canvas.height / 2, 10);
+                drawTickMark(xPos, this.originalCanvasHeight / 2, 10);
                 //Then label with F
                 var width = this.ctx.measureText("F").width;
-                this.ctx.fillText("F", xPos - width / 2, this.canvas.height / 2 + 20);
-            } else if (xPos === this.canvas.width * 5 / 6 && this.mirrorOrLens !== "mirror") {
+                this.ctx.fillText("F", xPos - width / 2, this.originalCanvasHeight / 2 + 20);
+            } else if (xPos === this.originalCanvasWidth * 5 / 6 && this.mirrorOrLens !== "mirror") {
                 //Draw tick mark
-                drawTickMark(xPos, this.canvas.height / 2, 10);
+                drawTickMark(xPos, this.originalCanvasHeight / 2, 10);
                 //Then label with either C or F2
                 var width = this.ctx.measureText("2F").width;
-                this.ctx.fillText("2F", xPos - width / 2, this.canvas.height / 2 + 20);
+                this.ctx.fillText("2F", xPos - width / 2, this.originalCanvasHeight / 2 + 20);
             }
         }
         //Call drawHuman
@@ -1781,47 +1784,47 @@ class RayDiagram {
         switch (this.originalPosition) {
             //Farther than the center of curvature for mirrors
             case ">C":
-                humanXPos = this.canvas.width * 1 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 1 / 6 / 2;
                 break;
                 //On the center of curvature (for mirrors)
             case "C":
-                humanXPos = this.canvas.width * 1 / 6;
+                humanXPos = this.originalCanvasWidth * 1 / 6;
                 break;
                 //2F on the left of the lens
             case "2F":
-                humanXPos = this.canvas.width * 1 / 6;
+                humanXPos = this.originalCanvasWidth * 1 / 6;
                 break;
                 //Greater than 2F on the left of the lens
             case ">2F":
-                humanXPos = this.canvas.width * 1 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 1 / 6 / 2;
                 break;
                 //In between C and F on the left for mirrors
             case "2F>x>F":
-                humanXPos = this.canvas.width * 3 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 3 / 6 / 2;
                 break;
                 //In between C and F on the left for mirrors
             case "C>x>F":
-                humanXPos = this.canvas.width * 3 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 3 / 6 / 2;
                 break;
                 //F on the left for mirrors and lens
             case "F":
-                humanXPos = this.canvas.width * 2 / 6;
+                humanXPos = this.originalCanvasWidth * 2 / 6;
                 break;
                 //In between F and mirror
             case "F>x>mirror":
-                humanXPos = this.canvas.width * 5 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 5 / 6 / 2;
                 break;
                 //In between F and lens
             case "F>x>lens":
-                humanXPos = this.canvas.width * 5 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 5 / 6 / 2;
                 break;
                 //Between convex mirror and -F
             case "mirror>x>-F":
-                humanXPos = this.canvas.width * 7 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 7 / 6 / 2;
                 break;
                 //Between convex mirror and -2F
             case "mirror>x>-2F":
-                humanXPos = this.canvas.width * 11 / 6 / 2;
+                humanXPos = this.originalCanvasWidth * 11 / 6 / 2;
                 break;
                 /* The human will never be on the right side of the lens
                 //F on the right for lens
@@ -1832,7 +1835,7 @@ class RayDiagram {
                 break;
                 */
         }
-        this.humanPos = this.drawHuman(humanXPos, this.canvas.height / 2, this.canvas.height / 300);
+        this.humanPos = this.drawHuman(humanXPos, this.originalCanvasHeight / 2, this.originalCanvasHeight / 300);
         //console.log(this.humanPos);
     }
     drawHuman(x, y, scale = 1) {
@@ -1889,7 +1892,7 @@ class RayDiagram {
 
         if (this.raysDrawn == true) {
             //Clear canvas and reset
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.clearRect(0, 0, this.originalCanvasWidth, this.originalCanvasHeight);
             this.ctx.beginPath();
             this.ctx.setLineDash([]);
             this.drawStage();
@@ -1922,14 +1925,14 @@ class RayDiagram {
             this.ctx.beginPath();
             this.ctx.strokeStyle = colors[0];
             this.ctx.moveTo(this.humanPos.x, this.humanPos.y);
-            this.ctx.lineTo(this.canvas.width / 2, this.humanPos.y);
+            this.ctx.lineTo(this.originalCanvasWidth / 2, this.humanPos.y);
             this.ctx.stroke();
             if (this.concaveOrConvex == "concave" && this.mirrorOrLens == "mirror") {
                 //Find F, connect to F w/ solid line, and then extend all the way
 
-                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 2 / 6, this.humanPos.y)
-                //F is at (this.canvas.width * 2 / 6, this.canvas.height / 2)
-                //Current point is (this.canvas.width / 2, this.humanPos.y)
+                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 2 / 6, this.humanPos.y)
+                //F is at (this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2)
+                //Current point is (this.originalCanvasWidth / 2, this.humanPos.y)
                 /*
                            Law of cosines: a^2 + b^2 - 2abcos(Cdegrees) = c^2
                            Cdegrees=???
@@ -1938,21 +1941,21 @@ class RayDiagram {
                            b = distance between current-next
                            c = distance between previous-next
                        */
-                var a = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width / 2, this.humanPos.y);
-                var b = distanceBetweenTwoPoints(this.canvas.width / 2, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
-                var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
+                var a = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth / 2, this.humanPos.y);
+                var b = distanceBetweenTwoPoints(this.originalCanvasWidth / 2, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                var magnitude = 2 * this.canvas.height;
-                var finalX = this.canvas.width / 2 - magnitude * Math.cos(angle);
+                var magnitude = 2 * this.originalCanvasHeight;
+                var finalX = this.originalCanvasWidth / 2 - magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y + magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
 
-                if (this.humanPos.x > this.canvas.width * 2 / 6) {
+                if (this.humanPos.x > this.originalCanvasWidth * 2 / 6) {
                     this.ctx.stroke();
                     this.ctx.beginPath();
                     this.ctx.setLineDash([10, 5]);
-                    this.ctx.moveTo(this.canvas.width / 2, this.humanPos.y);
-                    finalX = this.canvas.width / 2 + magnitude * Math.cos(angle);
+                    this.ctx.moveTo(this.originalCanvasWidth / 2, this.humanPos.y);
+                    finalX = this.originalCanvasWidth / 2 + magnitude * Math.cos(angle);
                     finalY = this.humanPos.y - magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
                     this.ctx.stroke();
@@ -1964,46 +1967,46 @@ class RayDiagram {
             } else if (this.concaveOrConvex == "convex" && this.mirrorOrLens == "mirror") {
                 //Find F, connect to F w/ dotted line, move back to mirror, and then extend on opposite direction
 
-                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 2 / 6, this.humanPos.y)
-                //F is at (this.canvas.width * 2 / 6, this.canvas.height / 2)
-                //Current point is (this.canvas.width / 2, this.humanPos.y)
+                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 2 / 6, this.humanPos.y)
+                //F is at (this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2)
+                //Current point is (this.originalCanvasWidth / 2, this.humanPos.y)
                 this.ctx.stroke();
                 //this.ctx.beginPath();
                 this.ctx.setLineDash([10, 5]);
-                this.ctx.lineTo(this.canvas.width * 2 / 6, this.canvas.height / 2);
+                this.ctx.lineTo(this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 this.ctx.stroke();
                 this.ctx.beginPath();
-                this.ctx.moveTo(this.canvas.width / 2, this.humanPos.y);
+                this.ctx.moveTo(this.originalCanvasWidth / 2, this.humanPos.y);
                 this.ctx.setLineDash([]);
 
-                var a = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width / 2, this.humanPos.y);
-                var b = distanceBetweenTwoPoints(this.canvas.width / 2, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
-                var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
+                var a = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth / 2, this.humanPos.y);
+                var b = distanceBetweenTwoPoints(this.originalCanvasWidth / 2, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                var magnitude = 2 * this.canvas.height;
-                var finalX = this.canvas.width / 2 + magnitude * Math.cos(angle);
+                var magnitude = 2 * this.originalCanvasHeight;
+                var finalX = this.originalCanvasWidth / 2 + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y - magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
             } else if (this.concaveOrConvex == "convex" && this.mirrorOrLens == "lens") {
                 //Find -F on other side, connect to -F w/ solid line, then extend
 
-                //Altitude of -F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 4 / 6, this.humanPos.y)
-                //F is at (this.canvas.width * 4 / 6, this.canvas.height / 2)
-                //Current point is (this.canvas.width / 2, this.humanPos.y)
-                var a = distanceBetweenTwoPoints(this.canvas.width * 4 / 6, this.humanPos.y, this.canvas.width / 2, this.humanPos.y);
-                var b = distanceBetweenTwoPoints(this.canvas.width / 2, this.humanPos.y, this.canvas.width * 4 / 6, this.canvas.height / 2);
-                var c = distanceBetweenTwoPoints(this.canvas.width * 4 / 6, this.humanPos.y, this.canvas.width * 4 / 6, this.canvas.height / 2);
+                //Altitude of -F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 4 / 6, this.humanPos.y)
+                //F is at (this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2)
+                //Current point is (this.originalCanvasWidth / 2, this.humanPos.y)
+                var a = distanceBetweenTwoPoints(this.originalCanvasWidth * 4 / 6, this.humanPos.y, this.originalCanvasWidth / 2, this.humanPos.y);
+                var b = distanceBetweenTwoPoints(this.originalCanvasWidth / 2, this.humanPos.y, this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2);
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 4 / 6, this.humanPos.y, this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2);
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                var magnitude = 2 * this.canvas.height;
-                var finalX = this.canvas.width / 2 + magnitude * Math.cos(angle);
+                var magnitude = 2 * this.originalCanvasHeight;
+                var finalX = this.originalCanvasWidth / 2 + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y + magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
-                if (this.humanPos.x > this.canvas.width * 2 / 6) {
+                if (this.humanPos.x > this.originalCanvasWidth * 2 / 6) {
                     this.ctx.stroke();
                     this.ctx.beginPath();
                     this.ctx.setLineDash([10, 5]);
-                    this.ctx.moveTo(this.canvas.width / 2, this.humanPos.y);
-                    finalX = this.canvas.width / 2 - magnitude * Math.cos(angle);
+                    this.ctx.moveTo(this.originalCanvasWidth / 2, this.humanPos.y);
+                    finalX = this.originalCanvasWidth / 2 - magnitude * Math.cos(angle);
                     finalY = this.humanPos.y - magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
                     this.ctx.stroke();
@@ -2016,24 +2019,24 @@ class RayDiagram {
             } else if (this.concaveOrConvex == "concave" && this.mirrorOrLens == "lens") {
                 //Find F, connect back to F w/ dotted line, move back to mirror, and then extend in opposite direction
 
-                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 2 / 6, this.humanPos.y)
-                //F is at (this.canvas.width * 2 / 6, this.canvas.height / 2)
-                //Current point is (this.canvas.width / 2, this.humanPos.y)
+                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 2 / 6, this.humanPos.y)
+                //F is at (this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2)
+                //Current point is (this.originalCanvasWidth / 2, this.humanPos.y)
                 this.ctx.stroke();
                 //this.ctx.beginPath();
                 this.ctx.setLineDash([10, 5]);
-                this.ctx.lineTo(this.canvas.width * 2 / 6, this.canvas.height / 2);
+                this.ctx.lineTo(this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 this.ctx.stroke();
                 this.ctx.beginPath();
-                this.ctx.moveTo(this.canvas.width / 2, this.humanPos.y);
+                this.ctx.moveTo(this.originalCanvasWidth / 2, this.humanPos.y);
                 this.ctx.setLineDash([]);
 
-                var a = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width / 2, this.humanPos.y);
-                var b = distanceBetweenTwoPoints(this.canvas.width / 2, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
-                var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2);
+                var a = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth / 2, this.humanPos.y);
+                var b = distanceBetweenTwoPoints(this.originalCanvasWidth / 2, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                var magnitude = 2 * this.canvas.height;
-                var finalX = this.canvas.width / 2 + magnitude * Math.cos(angle);
+                var magnitude = 2 * this.originalCanvasHeight;
+                var finalX = this.originalCanvasWidth / 2 + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y - magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
             }
@@ -2047,35 +2050,35 @@ class RayDiagram {
             if (this.concaveOrConvex == "concave" && this.mirrorOrLens == "mirror") {
                 //Draw line through focus to mirror, then reflect back horizonally and extend (unless parallel to mirror, in which case do nothing)
 
-                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 2 / 6, this.humanPos.y)
-                //F is at (this.canvas.width * 2 / 6, this.canvas.height / 2)
+                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 2 / 6, this.humanPos.y)
+                //F is at (this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2)
                 //Current point is (this.humanPos.x, this.humanPos.y)
-                if (this.humanPos.x == this.canvas.width * 2 / 6) {
+                if (this.humanPos.x == this.originalCanvasWidth * 2 / 6) {
                     //Object is on focal point, nothing can be drawn
                     this.ctx.font = "25px Arial";
-                    this.ctx.fillText(":( Whoops, nothing to see here", this.canvas.width / 1.9, this.canvas.height / 4);
-                } else if (this.humanPos.x > this.canvas.width * 2 / 6) {
+                    this.ctx.fillText(":( Whoops, nothing to see here", this.originalCanvasWidth / 1.9, this.originalCanvasHeight / 4);
+                } else if (this.humanPos.x > this.originalCanvasWidth * 2 / 6) {
                     //Object is F>x>mirror, different instructions
                     //Draw line back to F, then all the way to mirror, horizontally backwards solid and forwards dotted
-                    this.ctx.lineTo(this.canvas.width * 2 / 6, this.canvas.height / 2);
+                    this.ctx.lineTo(this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                     this.ctx.moveTo(this.humanPos.x, this.humanPos.y);
-                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.canvas.height / 2, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between ground and F
-                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between head and F
-                    var c = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.humanPos.x, this.canvas.height / 2); //Distance between ground and head
+                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.originalCanvasHeight / 2, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between ground and F
+                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between head and F
+                    var c = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.humanPos.x, this.originalCanvasHeight / 2); //Distance between ground and head
 
-                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.canvas.width / 2 - this.humanPos.x)
-                    //so (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
+                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
+                    //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                     var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                    var magnitude = b * (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle));
+                    var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                     var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                     var finalY = this.humanPos.y - magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
-                    this.ctx.lineTo(finalX - 2 * this.canvas.height, finalY);
+                    this.ctx.lineTo(finalX - 2 * this.originalCanvasHeight, finalY);
                     this.ctx.stroke();
                     this.ctx.beginPath();
                     this.ctx.setLineDash([10, 5]);
                     this.ctx.moveTo(finalX, finalY);
-                    this.ctx.lineTo(finalX + 2 * this.canvas.height, finalY);
+                    this.ctx.lineTo(finalX + 2 * this.originalCanvasHeight, finalY);
 
                 } else {
                     /*
@@ -2086,88 +2089,88 @@ class RayDiagram {
                            b = distance between current-next
                            c = distance between previous-next
                        */
-                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
-                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between head and F
-                    var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between F and altitude of F
+                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
+                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between head and F
+                    var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between F and altitude of F
 
-                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.canvas.width / 2 - this.humanPos.x)
-                    //so (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
+                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
+                    //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                     var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                    var magnitude = b * (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle));
+                    var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                     var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                     var finalY = this.humanPos.y + magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
-                    this.ctx.lineTo(finalX - 2 * this.canvas.height, finalY);
+                    this.ctx.lineTo(finalX - 2 * this.originalCanvasHeight, finalY);
                 }
 
             } else if (this.concaveOrConvex == "convex" && this.mirrorOrLens == "mirror") {
                 //Draw line through mirror to F, make dotted on other side
                 //then come back to mirror and make a horizontal line, dotted on left and solid on right
-                var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
-                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between head and F
-                var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between F and altitude of F
-                //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.canvas.width / 2 - this.humanPos.x)
-                //so (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
+                var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
+                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between head and F
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between F and altitude of F
+                //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
+                //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
                 console.log(angle * 180 / Math.PI);
-                var magnitude = b * (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle));
+                var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                 var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y - magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
-                this.ctx.lineTo(finalX + 2 * this.canvas.height, finalY);
+                this.ctx.lineTo(finalX + 2 * this.originalCanvasHeight, finalY);
                 this.ctx.stroke();
                 this.ctx.beginPath();
                 this.ctx.moveTo(finalX, finalY);
                 this.ctx.setLineDash([10, 5]);
-                this.ctx.lineTo(this.canvas.width * 2 / 6, this.canvas.height / 2);
+                this.ctx.lineTo(this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2);
                 this.ctx.moveTo(finalX, finalY);
-                this.ctx.lineTo(finalX - 2 * this.canvas.height, finalY);
+                this.ctx.lineTo(finalX - 2 * this.originalCanvasHeight, finalY);
                 this.ctx.stroke();
 
             } else if (this.concaveOrConvex == "convex" && this.mirrorOrLens == "lens") {
-                if (this.humanPos.x > this.canvas.width * 2 / 6) {
+                if (this.humanPos.x > this.originalCanvasWidth * 2 / 6) {
                     //Yikes let's "pull it back"
                     //Line goes back to F, then all the way forwards to lens, but let's leave it blank out of laziness since the other two rays will suffice
                 } else {
                     //Line straight through focus to lens, then horizontal through lens
-                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
-                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between head and F
-                    var c = distanceBetweenTwoPoints(this.canvas.width * 2 / 6, this.humanPos.y, this.canvas.width * 2 / 6, this.canvas.height / 2); //Distance between F and altitude of F
+                    var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.humanPos.y); //Distance between head and altitude of F
+                    var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between head and F
+                    var c = distanceBetweenTwoPoints(this.originalCanvasWidth * 2 / 6, this.humanPos.y, this.originalCanvasWidth * 2 / 6, this.originalCanvasHeight / 2); //Distance between F and altitude of F
 
-                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.canvas.width / 2 - this.humanPos.x)
-                    //so (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
+                    //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
+                    //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                     var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                    var magnitude = b * (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle));
+                    var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                     var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                     var finalY = this.humanPos.y + magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
-                    this.ctx.lineTo(finalX + 2 * this.canvas.height, finalY);
+                    this.ctx.lineTo(finalX + 2 * this.originalCanvasHeight, finalY);
                 }
             } else if (this.concaveOrConvex == "concave" && this.mirrorOrLens == "lens") {
                 //Line straight through lens to -F on right side (dotted on right side; solid on left), then come back to lens where go backwards dotted line and forwards solid line horizontally
 
-                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.canvas.width * 4 / 6, this.humanPos.y)
-                //-F is at (this.canvas.width * 4 / 6, this.canvas.height / 2)
+                //Altitude of F onto ray going directly to mirror is at x of F and y of ray (this.originalCanvasWidth * 4 / 6, this.humanPos.y)
+                //-F is at (this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2)
                 //Current point is (this.humanPos.x, this.humanPos.y)
-                var a = distanceBetweenTwoPoints(this.canvas.width * 4 / 6, this.canvas.height / 2, this.humanPos.x, this.canvas.height / 2); //Distance between -F and ground
-                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width * 4 / 6, this.canvas.height / 2); //Distance between head and -F
-                var c = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.humanPos.x, this.canvas.height / 2); //Distance between head and ground
+                var a = distanceBetweenTwoPoints(this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2, this.humanPos.x, this.originalCanvasHeight / 2); //Distance between -F and ground
+                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2); //Distance between head and -F
+                var c = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.humanPos.x, this.originalCanvasHeight / 2); //Distance between head and ground
 
-                //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.canvas.width / 2 - this.humanPos.x)
-                //so (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
+                //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
+                //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b)); //By Alternate Interior angles, this angle is equivalent to the elicited one
-                var magnitude = b * (this.canvas.width / 2 - this.humanPos.x) / (b * Math.cos(angle));
+                var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                 var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y + magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
-                this.ctx.lineTo(finalX + 2 * this.canvas.height, finalY);
+                this.ctx.lineTo(finalX + 2 * this.originalCanvasHeight, finalY);
                 this.ctx.stroke();
                 this.ctx.beginPath();
                 this.ctx.setLineDash([10, 5]);
                 this.ctx.moveTo(finalX, finalY);
-                this.ctx.lineTo(this.canvas.width * 4 / 6, this.canvas.height / 2);
+                this.ctx.lineTo(this.originalCanvasWidth * 4 / 6, this.originalCanvasHeight / 2);
                 this.ctx.moveTo(finalX, finalY);
-                this.ctx.lineTo(finalX - 2 * this.canvas.height, finalY);
+                this.ctx.lineTo(finalX - 2 * this.originalCanvasHeight, finalY);
             }
             this.ctx.stroke();
 
@@ -2180,23 +2183,23 @@ class RayDiagram {
                 //Draw line straight from head through center of lens and all the way forward
 
                 //current point = (this.humanPos.x, this.humanPos.y)
-                //center point = (this.canvas.width / 2, this.canvas.height / 2)
-                //third point to construct a triangle = (this.canvas.width / 2, this.humanPos.y)
-                var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width / 2, this.humanPos.y); //Distance between head and extra point
-                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.canvas.width / 2, this.canvas.height / 2); //Distance between head and center point
-                var c = distanceBetweenTwoPoints(this.canvas.width / 2, this.humanPos.y, this.canvas.width / 2, this.canvas.height / 2); //Distance between center point and extra point
+                //center point = (this.originalCanvasWidth / 2, this.originalCanvasHeight / 2)
+                //third point to construct a triangle = (this.originalCanvasWidth / 2, this.humanPos.y)
+                var a = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth / 2, this.humanPos.y); //Distance between head and extra point
+                var b = distanceBetweenTwoPoints(this.humanPos.x, this.humanPos.y, this.originalCanvasWidth / 2, this.originalCanvasHeight / 2); //Distance between head and center point
+                var c = distanceBetweenTwoPoints(this.originalCanvasWidth / 2, this.humanPos.y, this.originalCanvasWidth / 2, this.originalCanvasHeight / 2); //Distance between center point and extra point
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                var magnitude = 2 * this.canvas.height;
-                var finalX = this.canvas.width / 2 + magnitude * Math.cos(angle);
-                var finalY = this.canvas.height / 2 + magnitude * Math.sin(angle);
+                var magnitude = 2 * this.originalCanvasHeight;
+                var finalX = this.originalCanvasWidth / 2 + magnitude * Math.cos(angle);
+                var finalY = this.originalCanvasHeight / 2 + magnitude * Math.sin(angle);
                 this.ctx.lineTo(finalX, finalY);
                 this.ctx.stroke();
-                if (this.concaveOrConvex == "convex" && this.humanPos.x > this.canvas.width * 2 / 6) {
+                if (this.concaveOrConvex == "convex" && this.humanPos.x > this.originalCanvasWidth * 2 / 6) {
                     this.ctx.beginPath();
                     this.ctx.setLineDash([10, 5]);
                     this.ctx.moveTo(this.humanPos.x, this.humanPos.y);
-                    finalX = this.canvas.width / 2 - magnitude * Math.cos(angle);
-                    finalY = this.canvas.height / 2 - magnitude * Math.sin(angle);
+                    finalX = this.originalCanvasWidth / 2 - magnitude * Math.cos(angle);
+                    finalY = this.originalCanvasHeight / 2 - magnitude * Math.sin(angle);
                     this.ctx.lineTo(finalX, finalY);
                     this.ctx.stroke();
                 }
