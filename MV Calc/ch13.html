@@ -1,6 +1,6 @@
 <link href="../styles.css" rel="stylesheet" />
 <script src="../renderMath.js"></script>
-<script src="main.js" async></script>
+<!--<script src="main.js" async></script>-->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -12,9 +12,15 @@
     <h3>13.1: Vector-Valued Functions:</h3>
     <ul>
         <li>The function notation for a vector-valued function is
-            <vector>r</vector>: &#x211d; &rarr; &#x211d;<sup>3</sup> (translates to a one-dimensional input and a three-dimensional output)</li>
+            <equation>
+                <vector>r</vector>: &#x211d; &rarr; &#x211d;<sup>3</sup>
+            </equation> (translates to a one-dimensional input and a three-dimensional output)</li>
         <li>
-            <vector>r</vector>(<var>t</var>) = &lang;<var>x(t), y(t), z(t)</var>&rang;</li>
+            <equation>
+                <vector>r</vector>(<var>t</var>) = &lang;<var>x(t), y(t), z(t)</var>&rang;
+            </equation>
+        </li>
+        <!--Add example problems from Patrick's Notes (pg 10/12 in pdf)-->
     </ul>
     <h3>13.2: The Calculus of Vector-Valued Functions:</h3>
     <ul>
@@ -22,24 +28,43 @@
         <table class="rules">
             <tr>
                 <td>
-                    <vector>r</vector>(<var>t</var>) = &lang;<var>x(t), y(t), z(t)</var>&rang;
+                    <equation>
+                        <vector>r</vector>(<var>t</var>) = &lang;<var>x(t), y(t), z(t)</var>&rang;
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <lim as="t" approaches="<var>a</var>"></lim>
+                        <vector>r</vector>(<var>t</var>) = &lang;
+                        <lim as="t" approaches="<var>a</var>"></lim>
+                        <vector>x</vector>(<var>t</var>),
+                        <lim as="t" approaches="<var>a</var>"></lim>
+                        <vector>y</vector>(<var>t</var>),
+                        <lim as="t" approaches="<var>a</var>"></lim>
+                        <vector>z</vector>(<var>t</var>)&rang;
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <vector>r</vector>'(<var>t</var>) = &lang;<var>x'(t), y'(t), z'(t)</var>&rang;
+                    <equation>
+                        <vector>r</vector>'(<var>t</var>) = &lang;<var>x'(t), y'(t), z'(t)</var>&rang;
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <integral lowerBound="a" upperBound="b" respectTo="t">
-                        <vector>r</vector>(<var>t</var>)</integral> = &lang;
-                    <integral lowerBound="a" upperBound="b" respectTo="t"><var>x(t)</var></integral>,
-                    <integral lowerBound="a" upperBound="b" respectTo="t"><var>y(t)</var></integral>,
-                    <integral lowerBound="a" upperBound="b" respectTo="t"><var>xz(t)</var></integral>&rang;
+                    <equation>
+                        <integral lowerBound="a" upperBound="b" respectTo="t">
+                            <vector>r</vector>(<var>t</var>)</integral> = &lang;
+                        <integral lowerBound="a" upperBound="b" respectTo="t"><var>x(t)</var></integral>,
+                        <integral lowerBound="a" upperBound="b" respectTo="t"><var>y(t)</var></integral>,
+                        <integral lowerBound="a" upperBound="b" respectTo="t"><var>z(t)</var></integral>&rang;
+                    </equation>
                 </td>
             </tr>
         </table>
+
     </ul>
     <h3>13.3: Arc Length and Curvature:</h3>
     <ul></ul>
