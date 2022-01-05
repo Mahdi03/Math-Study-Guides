@@ -194,7 +194,7 @@ function renderMath(parentElement = "") {
                 var pDerivativeOf = oldPDerivative.getAttribute("of") ? oldPDerivative.getAttribute("of") : "";
                 var pDerivativeRespectTo = oldPDerivative.getAttribute("respectTo") ? oldPDerivative.getAttribute("respectTo") : "x";
                 var pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
-                var newPDerivative = createHTMLNodesFromString("\\dfrac{\\part" + pDerivativeOrder + pDerivativeOf + "}{\\part" + pDerivativeRespectTo + pDerivativeOrder + "}");
+                var newPDerivative = createHTMLNodesFromString("\\dfrac{\\partial " + pDerivativeOrder + pDerivativeOf + "}{\\partial " + pDerivativeRespectTo + pDerivativeOrder + "}");
                 oldPDerivative.replaceWith(...newPDerivative);
             }
             while (dom.querySelector("integral") != undefined) {
