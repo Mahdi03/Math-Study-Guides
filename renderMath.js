@@ -857,6 +857,9 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
         if (extraArgs.lineDash !== undefined) {
             context.setLineDash(extraArgs.lineDash);
         }
+        if (extraArgs.headlen !== undefined) {
+            headlen = extraArgs.headlen;
+        }
     }
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
