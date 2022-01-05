@@ -1178,6 +1178,20 @@ function drawAnElectricalCircuit() {
     }
 }
 */
+
+// https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
+// Use to make canvas lines clearer on-screen
+function oversampleCanvas(tgtCanvas, ctx, factor) {
+    var width = tgtCanvas.width;
+    var height = tgtCanvas.height;
+    tgtCanvas.width = Math.trunc(width * factor);
+    tgtCanvas.height = Math.trunc(height * factor);
+    tgtCanvas.style.width = width + 'px';
+    tgtCanvas.style.height = height + 'px';
+    ctx.scale(factor, factor);
+}
+
+
 function distanceBetweenTwoPoints(x1, y1, x2, y2) {
     var dx = x1 - x2;
     var dy = y1 - y2;
@@ -1285,6 +1299,9 @@ class Graph {
      * @param {Object} [params]
      * An object for extra parameters, not necessarily required but highly
      * recommended since default values are wonky
+     *      @param {Number} [params.overscaleFactor=4]
+     *      A number denoting what factor to overscale the graph for--used to
+     *      prettify the graph and make the drawings smoother. Default is 4
      *      @param {Number} [params.padding=10]
      *      A number (in pixels) denoting how much extra padding to be added to
      *      the canvas
@@ -1307,37 +1324,62 @@ class Graph {
      *      @param {Boolean} [showXAxisTitle=false]
      *      Set this to true if you want to include an x-axis interval
      */
-    constructor(canvasElement, xRange, yRange, params = {
-        padding: 10,
-        width: 0,
-        height: 0,
+    constructor(canvasElement, xRange, yRange, {
+        overscaleFactor = 4,
+        padding = 10,
+        width = 0,
+        height = 0,
         /*Zoom/visibility*/
-        scaleFactor: 40,
-        interval: 0.1,
+        scaleFactor = 40,
+        interval = 0.1,
         //Add support for axis labels and chart labels later
+        drawAxis = false,
         /*X-Axis*/
-        xAxisTitle: "",
-        showXAxisTitle: false,
-        xAxisLabelInterval: 0,
+        xAxisTitle = "",
+        showXAxisTitle = false,
+        xAxisLabelInterval = 0,
         /*X-Axis tick marks*/
-        showXAxisTickMarks: false,
-        xAxisTickMarksInterval: 0,
+        showXAxisTickMarks = false,
+        xAxisTickMarksInterval = 0,
         /*Y-Axis*/
-        yAxisTitle: "",
-        showYAxisTitle: false,
-        yAxisLabelInterval: 0,
+        yAxisTitle = "",
+        showYAxisTitle = false,
+        yAxisLabelInterval = 0,
         /*Y-Axis tick marks*/
-        showYAxisTickMarks: false,
-        yAxisTickMarksInterval: 0
-    }) {
+        showYAxisTickMarks = false,
+        yAxisTickMarksInterval = 0
+    } = {}) {
 
         if (!Array.isArray(xRange) || !Array.isArray(yRange)) {
             throw new Error("Your x and y ranges are not in the form of arrays, use [x1, x2], [y1, y2] for your graph");
         }
-
         this.xRange = xRange;
         this.yRange = yRange;
-        this.params = params;
+        this.params = {
+            overscaleFactor: overscaleFactor,
+            padding: padding,
+            width: width,
+            height: height,
+            /*Zoom/visibility*/
+            scaleFactor: scaleFactor,
+            interval: interval,
+            //Add support for axis labels and chart labels later
+            drawAxis: drawAxis,
+            /*X-Axis*/
+            xAxisTitle: xAxisTitle,
+            showXAxisTitle: showXAxisTitle,
+            xAxisLabelInterval: xAxisLabelInterval,
+            /*X-Axis tick marks*/
+            showXAxisTickMarks: showYAxisTickMarks,
+            xAxisTickMarksInterval: xAxisTickMarksInterval,
+            /*Y-Axis*/
+            yAxisTitle: yAxisTitle,
+            showYAxisTitle: showYAxisTitle,
+            yAxisLabelInterval: yAxisLabelInterval,
+            /*Y-Axis tick marks*/
+            showYAxisTickMarks: showYAxisTickMarks,
+            yAxisTickMarksInterval: yAxisTickMarksInterval
+        }
         if (!this.params.padding) {
             this.params.padding = 10;
         }
@@ -1372,8 +1414,14 @@ class Graph {
         setTransform(xScale, ySkew, xSkew, yScale, originX, originY)
         */
         //this.ctx.scale(2, 2);
-        this.ctx.setTransform(1, 0, 0, -1, 0 - this.xRange[0] + this.params.padding, dimensions[1] + this.yRange[0] - this.params.padding);
-
+        oversampleCanvas(this.canvasElement, this.ctx, this.params.overscaleFactor); //Try to clear up the blur with overscale factor of 4
+        //this.params.width = Math.trunc(this.params.width * 4);
+        //this.params.height = Math.trunc(this.params.height * 4);
+        console.log(`this.params.width: ${this.params.width}\nthis.params.height: ${this.params.height}\n`);
+        //this.ctx.save(); //Save the canvas context to undo the transformations later
+        this.ctx.setTransform(this.params.overscaleFactor, 0, 0, -this.params.overscaleFactor,
+            (0 - this.xRange[0] + this.params.padding) * this.params.overscaleFactor,
+            (dimensions[1] + this.yRange[0] - this.params.padding) * this.params.overscaleFactor);
     }
 
     drawAxis() {
@@ -1382,7 +1430,7 @@ class Graph {
         //this.ctx.stroke();
         //this.ctx.strokeRect(0, 0, 100, 100);
         //Draw positive x-axis
-        if (this.xRange[1] > 10) {
+        if (this.xRange[1] >= 10) {
             drawArrow(this.ctx, 0, 0, this.params.width + this.xRange[0] - 2 * this.params.padding, 0);
             if (this.params.showXAxisTitle) {
                 //Add x-axis title
@@ -1399,7 +1447,7 @@ class Graph {
             }
         }
         //Draw negative x-axis
-        if (this.xRange[0] < -10) {
+        if (this.xRange[0] <= -10) {
             drawArrow(this.ctx, 0, 0, this.xRange[0], 0);
         }
         //Draw positive y-axis
@@ -1457,7 +1505,7 @@ class Graph {
     /**
      * Delete the equation from the graph given an index, either use numbers or strings
      * @param {number || string} index The index of the equation to be deleted from the Graph class
-     * @returns {object} Returns  the equation object that was deleted in case you want to reuse it later
+     * @returns {object} Returns the equation object that was deleted in case you want to reuse it later
      */
     deleteEquation(index) {
         var returnValue = this.equations[index];
@@ -1595,7 +1643,8 @@ class Graph {
         //Scale canvas by 10 times
 
         //this.ctx.scale(2, 2);
-        this.ctx.save();
+        //this.ctx.restore();
+        //oversampleCanvas(this.canvasElement, this.ctx, 4);
         return undefined;
 
         //this.canvasElement.width = this.params.width * 2;
@@ -2198,21 +2247,6 @@ function checkLineIntersection(line1StartX, line1StartY, line1EndX, line1EndY, l
     }
     // if line1 and line2 are segments, they intersect if both of the above are true
     return result;
-}
-
-
-// https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
-// Use to make canvas lines clearer on-screen
-function oversampleCanvas(tgtCanvas, ctx, factor) {
-    var width = tgtCanvas.width;
-    var height = tgtCanvas.height;
-    tgtCanvas.width = Math.trunc(width * factor);
-    tgtCanvas.height = Math.trunc(height * factor);
-    tgtCanvas.style.width = width + 'px';
-    tgtCanvas.style.height = height + 'px';
-    ctx.scale(factor, factor);
-    tgtCanvas.style.width = width + 'px';
-    tgtCanvas.style.height = height + 'px';
 }
 
 
