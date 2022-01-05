@@ -1,6 +1,6 @@
 <link href="../styles.css" rel="stylesheet" />
 <script src="../renderMath.js"></script>
-<!--<script src="main.js" async></script>-->
+<script src="main.js" async></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -968,48 +968,23 @@
             ctx2.strokeStyle = "blue";
             ctx2.fillStyle = "blue";
 
-            function drawArrowhead(locx, locy, angle, sizex, sizey) {
-                var hx = sizex / 2;
-                var hy = sizey / 2;
-
-                ctx2.translate((locx), (locy));
-                ctx2.rotate(angle);
-                ctx2.translate(-hx, -hy);
-
-                ctx2.beginPath();
-                ctx2.moveTo(0, 0);
-                ctx2.lineTo(0, 1 * sizey);
-                ctx2.lineTo(1 * sizex, 1 * hy);
-                ctx2.closePath();
-                ctx2.fill();
-
-                ctx2.translate(hx, hy);
-                ctx2.rotate(-angle);
-                ctx2.translate(-locx, -locy);
-            }
-
-            // returns radians
-            function findAngle(sx, sy, ex, ey) {
-                // make sx and sy at the zero point
-                return Math.atan2((ey - sy), (ex - sx));
-            }
             //Alpha
             ctx2.moveTo(120, 170);
             ctx2.quadraticCurveTo(93, 170, 80, 210);
             ctx2.stroke();
-            drawArrowhead(80, 210, findAngle(93, 170, 80, 210), 10, 10);
+            drawArrowhead(ctx2, 80, 210, findAngle(93, 170, 80, 210), 10, 10);
             ctx2.fillText("\u03B1", 90, 175);
             //Beta
             ctx2.moveTo(152, 120);
             ctx2.quadraticCurveTo(210, 135, 215, 200);
             ctx2.stroke();
-            drawArrowhead(215, 200, findAngle(210, 135, 215, 200), 10, 10);
+            drawArrowhead(ctx2, 215, 200, findAngle(210, 135, 215, 200), 10, 10);
             ctx2.fillText("\u03B2", 205, 140);
             //Gamma
             ctx2.moveTo(139, 139);
             ctx2.quadraticCurveTo(118, 120, 100, 130);
             ctx2.stroke();
-            drawArrowhead(100, 130, findAngle(118, 120, 100, 130), 10, 10);
+            drawArrowhead(ctx2, 100, 130, findAngle(118, 120, 100, 130), 10, 10);
             ctx2.fillText("\u03B3", 123, 120);
             //addCanvasPosition(directionCosinesDiagram);
         </script>
@@ -2072,33 +2047,6 @@
             const LIGHT_MAGENTA = "#fbb6fa";
             const DARK_MAGENTA = "#f425f1";
             surfaceOfRevolutionDiagramCTX.strokeStyle = LIGHT_MAGENTA;
-
-
-            function drawArrowhead(ctx, locx, locy, angle, sizex, sizey) {
-                var hx = sizex / 2;
-                var hy = sizey / 2;
-
-                ctx.translate((locx), (locy));
-                ctx.rotate(angle);
-                ctx.translate(-hx, -hy);
-
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(0, 1 * sizey);
-                ctx.lineTo(1 * sizex, 1 * hy);
-                ctx.closePath();
-                ctx.fill();
-
-                ctx.translate(hx, hy);
-                ctx.rotate(-angle);
-                ctx.translate(-locx, -locy);
-            }
-
-            // returns radians
-            function findAngle(sx, sy, ex, ey) {
-                // make sx and sy at the zero point
-                return Math.atan2((ey - sy), (ex - sx));
-            }
             with(surfaceOfRevolutionDiagramCTX) {
                 beginPath();
                 //Draw arrow loop

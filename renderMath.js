@@ -133,6 +133,8 @@ function renderMath(parentElement = "") {
                 .replace(/&omega;/gi, "\\omega").replace(/&tau;/gi, "\\tau")
                 .replace(/&epsilon;/gi, "\\epsilon").replace(/&kappa;/gi, "\\kappa")
                 .replace(/&mu;/gi, "\\mu")
+                //.replaceAll("⟨", "\\big\\langle").replaceAll("⟩", "\\right\\langle")
+                //.replaceAll(",", ",\\,") //adds a space after every comma
                 /*
                     .replace(/[\[]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)")
                 .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
@@ -326,7 +328,7 @@ function renderMath(parentElement = "") {
             }
             //Replace vector{} with \overrightarrow{}
             //myString.replace(/<sup>()<\/sup>/, "^{$1}");
-            innerMath += dom.innerHTML;
+            innerMath += dom.innerHTML.replaceAll(",", ",\\,"); //adds a space after every comma - Added it down here since my matrix tags used commas and I didn't want to replace those until they were latex-ified
             innerMath += "\\)";
             equationTag.innerHTML = innerMath;
             //Use for debugging purposes:
@@ -877,6 +879,32 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     //draws the paths created above
     context.stroke();
     context.fill();
+}
+// returns radians
+function findAngle(sx, sy, ex, ey) {
+    // make sx and sy at the zero point
+    return Math.atan2((ey - sy), (ex - sx));
+}
+
+//Taken from above
+function drawArrowhead(ctx, locx, locy, angle, sizex, sizey) {
+    var hx = sizex / 2;
+    var hy = sizey / 2;
+
+    ctx.translate((locx), (locy));
+    ctx.rotate(angle);
+    ctx.translate(-hx, -hy);
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, 1 * sizey);
+    ctx.lineTo(1 * sizex, 1 * hy);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.translate(hx, hy);
+    ctx.rotate(-angle);
+    ctx.translate(-locx, -locy);
 }
 
 
@@ -1901,23 +1929,23 @@ class RayDiagram {
             //Draw the rays!!
 
             /*Ray #1 -
-                Concave mirrors:
-                Ray#1: to mirror, then bounce back to focus
-                Ray#2: through focus to mirror, bounce horizontally back
+                    Concave mirrors:
+                    Ray#1: to mirror, then bounce back to focus
+                    Ray#2: through focus to mirror, bounce horizontally back
             
-                convex mirrors:
-                Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
-                Ray#2: through mirror dashed to focus, bounce backwards horizontally
+                    convex mirrors:
+                    Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
+                    Ray#2: through mirror dashed to focus, bounce backwards horizontally
             
-                convex lens:
-                Ray#1: to lens, through focus
-                Ray#2: through center (if F>x>lens then extend dotted backwards)
-                Ray#3: to focus, through lens
+                    convex lens:
+                    Ray#1: to lens, through focus
+                    Ray#2: through center (if F>x>lens then extend dotted backwards)
+                    Ray#3: to focus, through lens
             
-                concave lens:
-                Ray#1: to lens, dash backwards to focus, launch forwards
-                Ray#2: 
-                */
+                    concave lens:
+                    Ray#1: to lens, dash backwards to focus, launch forwards
+                    Ray#2: 
+                    */
             this.ctx.save();
 
             //Ray#1:
