@@ -27,6 +27,7 @@ For all the information on electrostatics and magnetostatics
         <script class="renderJS">
             var centripetalVectorsCanvas = document.querySelector("#centripetalVectorsCanvas");
             var centripetalVectorsCTX = centripetalVectorsCanvas.getContext("2d");
+            oversampleCanvas(centripetalVectorsCanvas, centripetalVectorsCTX, 4);
             centripetalVectorsCTX.font = "15px Arial";
             //Velocity Vector
             drawArrow(centripetalVectorsCTX, 10, 10, 10, 50);
@@ -214,6 +215,7 @@ For all the information on electrostatics and magnetostatics
 
             var loopCreatingAlternatingCurrentLenzsLawCanvas = document.querySelector("#loopCreatingAlternatingCurrentLenzsLawCanvas");
             var loopCreatingAlternatingCurrentLenzsLawCTX = loopCreatingAlternatingCurrentLenzsLawCanvas.getContext("2d");
+            oversampleCanvas(loopCreatingAlternatingCurrentLenzsLawCanvas, loopCreatingAlternatingCurrentLenzsLawCTX, 4); //try but it's ok if it doesn't work
             var upDownArrMagneticFlux = document.querySelector("#upDownArrMagneticFlux");
             var magneticFluxValue = document.querySelector("#magneticFluxValue");
             var changeInMagneticFluxValue = document.querySelector("#changeInMagneticFluxValue");

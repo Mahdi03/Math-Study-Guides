@@ -1413,7 +1413,7 @@ class Graph {
         oversampleCanvas(this.canvasElement, this.ctx, this.params.overscaleFactor); //Try to clear up the blur with overscale factor of 4
         //this.params.width = Math.trunc(this.params.width * 4);
         //this.params.height = Math.trunc(this.params.height * 4);
-        console.log(`this.params.width: ${this.params.width}\nthis.params.height: ${this.params.height}\n`);
+        //console.log(`this.params.width: ${this.params.width}\nthis.params.height: ${this.params.height}\n`);
         //this.ctx.save(); //Save the canvas context to undo the transformations later
         this.ctx.setTransform(this.params.overscaleFactor, 0, 0, -this.params.overscaleFactor,
             (0 - this.xRange[0] + this.params.padding) * this.params.overscaleFactor,
@@ -2108,7 +2108,7 @@ class RayDiagram {
                 //var b = distance b/t head & F, so b * Math.cos(angle) is proportional to (this.originalCanvasWidth / 2 - this.humanPos.x)
                 //so (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle)) = dilation
                 var angle = Math.acos(((c * c) - (a * a) - (b * b)) / (-2 * a * b));
-                console.log(angle * 180 / Math.PI);
+                //console.log(angle * 180 / Math.PI);
                 var magnitude = b * (this.originalCanvasWidth / 2 - this.humanPos.x) / (b * Math.cos(angle));
                 var finalX = this.humanPos.x + magnitude * Math.cos(angle);
                 var finalY = this.humanPos.y - magnitude * Math.sin(angle);
