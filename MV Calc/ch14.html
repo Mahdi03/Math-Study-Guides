@@ -13,8 +13,14 @@
     <h3>14.1: Introduction to Multivariable Functions:</h3>
     <ul>
         <li>Normally we reserve the vertical axis in a graph for the dependent variable.</li>
-        <li>Since <var>z</var> is the dependent variable, we want to see how <var>z</var> changes with respect to <var>x</var> and <var>y</var>. We only care about the traces in the <var>xy</var>-plane, we call these Level Curves.</li>
-        <li>When given a 3-D function, <var>w = f(x, y)</var>, we draw 2-D Level Curves. When given a 4-D function <var>w = f(x, y, z)</var>, we draw 3-D Level Surfaces.</li>
+        <li>Since
+            <equation><var>z</var></equation> is the dependent variable, we want to see how
+            <equation><var>z</var></equation> changes with respect to
+            <equation><var>x</var></equation> and
+            <equation><var>y</var></equation>. We only care about the traces in the <var>xy</var>-plane, we call these Level Curves.</li>
+        <li>When given a 3-D function,
+            <equation><var>w = f(x, y)</var></equation>, we draw 2-D Level Curves. When given a 4-D function
+            <equation><var>w = f(x, y, z)</var></equation>, we draw 3-D Level Surfaces.</li>
     </ul>
     <!--14.2-->
     <h3>14.2: Limits:</h3>
@@ -39,41 +45,66 @@
         <table class="rules">
             <tr>
                 <td>
-                    <lim as="h" approaches="0"></lim>
-                    <div class="fraction">
-                        <div class="top"><var>f (x + h, y)</var> &minus; <var>f (x, y)</var></div>
-                        <div class="bottom"><var>h</var></div>
-                    </div> =
-                    <pDerivative of="f" respectTo="x"></pDerivative>
+                    <equation>
+                        <lim as="h" approaches="0"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>f (x + h, y)</var> &minus; <var>f (x, y)</var></div>
+                            <div class="bottom"><var>h</var></div>
+                        </div> =
+                        <pDerivative of="f" respectTo="x"></pDerivative>
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <lim as="h" approaches="0"></lim>
-                    <div class="fraction">
-                        <div class="top"><var>f (x, y + h)</var> &minus; <var>f (x, y)</var></div>
-                        <div class="bottom"><var>h</var></div>
-                    </div> =
-                    <pDerivative of="f" respectTo="y"></pDerivative>
+                    <equation>
+                        <lim as="h" approaches="0"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>f (x, y + h)</var> &minus; <var>f (x, y)</var></div>
+                            <div class="bottom"><var>h</var></div>
+                        </div> =
+                        <pDerivative of="f" respectTo="y"></pDerivative>
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>Here are some simple shorthands:</li>
-        <var>f<sub>x</sub></var> =
-        <pDerivative of="f" respectTo="x"></pDerivative>
-        <var>f<sub>y</sub></var> =
-        <pDerivative of="f" respectTo="y"></pDerivative><br />
-        <var>f<sub>xx</sub></var> =
-        <pDerivative respectTo="x"></pDerivative>
-        <pDerivative of="f" respectTo="x"></pDerivative> =
-        <pDerivative of="f" respectTo="x" order="2"></pDerivative>
-        <li>The differentiation shortcuts from one-variable calculus do carry over, but when you get undefined partial derivatives, use the limit definition (when you get 0 in a denominator).</li>
-        <li>A multivariable function (<var>f</var> : &#x211d;<sup>2</sup> &rarr; &#x211d;) is considered to be harmonic if <var>f </var>satisfies Laplace's equation:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <pDerivative of="f" respectTo="x" order="2"></pDerivative> +
-                    <pDerivative of="f" respectTo="y" order="2"></pDerivative> = 0
+                    <equation><var>f<sub>x</sub></var> =
+                        <pDerivative of="f" respectTo="x"></pDerivative>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <var>f<sub>y</sub></var> =
+                        <pDerivative of="f" respectTo="y"></pDerivative>
+                    </equation>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <equation>
+                        <var>f<sub>xx</sub></var> =
+                        <pDerivative respectTo="x"></pDerivative>
+                        <pDerivative of="f" respectTo="x"></pDerivative> =
+                        <pDerivative of="f" respectTo="x" order="2"></pDerivative>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>The differentiation shortcuts from one-variable calculus do carry over, but when you get undefined partial derivatives, use the limit definition (when you get 0 in a denominator).</li>
+        <li>A multivariable function (
+            <equation><var>f</var> : &#x211d;<sup>2</sup> &rarr; &#x211d;</equation>) is considered to be harmonic if
+            <equation><var>f </var></equation> satisfies Laplace's equation:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <pDerivative of="f" respectTo="x" order="2"></pDerivative> +
+                        <pDerivative of="f" respectTo="y" order="2"></pDerivative> = 0
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -81,64 +112,316 @@
     <!--14.4-->
     <h3>14.4: Tangent Planes and Linear Approximation:</h3>
     <ul>
+        <li>Like how in 2-D we had the concept of "locally linear", in 3-D Space we have the concept of "locally planar".</li>
         <li>Using partial derivatives and vectors we can derive a tangent plane to the point on a function, given by the formula:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>z &minus; c</var> =
-                    <pDerivative of="z" respectTo="x"></pDerivative>(<var>x &minus; a</var>) +
-                    <pDerivative of="z" respectTo="y"></pDerivative>(<var>y &minus; b</var>)
+                    <equation>
+                        <var>z &minus; c</var> =
+                        <pDerivative of="z" respectTo="x"></pDerivative>(<var>x &minus; a</var>) +
+                        <pDerivative of="z" respectTo="y"></pDerivative>(<var>y &minus; b</var>)
+                    </equation>
                 </td>
-                <th>
-                    <!--Add Proof-->
-                </th>
+                <th><a href="javascript:void(0)" id="tangentPlaneEquationProofToggleLink" onclick="toggleSolution('#tangentPlaneEquationProof', true);">Show Proof</a></th>
             </tr>
         </table>
-        <li>As it turns out, the formula above can also be used for the linearization of functions in &#x211d;<sup>3</sup>.</li>
-        <li>Another method of approximation involves the usage of differentials, given by the following for <var>z = f </var>(<var>x</var>, <var>y</var>):</li>
+        <div id="tangentPlaneEquationProof" class="solution">
+            <ol>
+                <li>First let's draw out a tangential plane to a point on an arbitrary 3-D surface. We can add vectors to signify the change of
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&Delta;<var>z</var></div>
+                            <div class="bottom">&Delta;<var>x</var></div>
+                        </div>
+                    </equation> and
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&Delta;<var>z</var></div>
+                            <div class="bottom">&Delta;<var>y</var></div>
+                        </div>
+                    </equation> (since
+                    <equation><var>x</var></equation> and
+                    <equation><var>y</var></equation> are our dependent variables)
+                </li>
+                <canvas id="tangentialPlaneDiagram" width="300" height="300"></canvas>
+                <script class="renderJS">
+                    var tangentialPlaneDiagram = document.querySelector("#tangentialPlaneDiagram");
+                    var tangentialPlaneDiagramCTX = tangentialPlaneDiagram.getContext("2d");
+                    oversampleCanvas(tangentialPlaneDiagram, tangentialPlaneDiagramCTX, 4);
+
+                    //Axes
+                    tangentialPlaneDiagramCTX.font = "10px Arial";
+                    tangentialPlaneDiagramCTX.strokeStyle = "black";
+                    tangentialPlaneDiagramCTX.fillStyle = "black"; //Required to make the tip of the arrow the same color
+                    drawArrow(tangentialPlaneDiagramCTX, 100, 200, 100, 0);
+                    tangentialPlaneDiagramCTX.fillText("z", 90, 20);
+                    drawArrow(tangentialPlaneDiagramCTX, 100, 200, 300, 200);
+                    tangentialPlaneDiagramCTX.fillText("y", 270, 210);
+                    drawArrow(tangentialPlaneDiagramCTX, 100, 200, 0, 300);
+                    tangentialPlaneDiagramCTX.fillText("x", 10, 275);
+
+                    var a = [140, 120];
+
+                    with(tangentialPlaneDiagramCTX) {
+                            //Draw the plane
+                            beginPath();
+                            moveTo(20, 130 + 30);
+                            lineTo(200, 130 + 30);
+                            lineTo(230, 75);
+                            lineTo(230 - 180, 75);
+                            closePath();
+                            stroke();
+
+                            //Draw point
+                            beginPath();
+                            moveTo(a[0], a[1]);
+                            arc(a[0], a[1], 2, 0, 2 * Math.PI); //Point A
+                            fillText("(a, b, c)", a[0] - measureText("(a, b, c)").width / 2 - 10, a[1] + 10);
+                            fill();
+                        }
+                        //Draw vectors
+                    drawArrow(tangentialPlaneDiagramCTX, a[0], a[1], a[0] + 40 * Math.cos(Math.PI / 20), a[1] - 40 * Math.sin(Math.PI / 20), {
+                        headlen: 5
+                    });
+                    tangentialPlaneDiagramCTX.fillText("w", a[0] + 40 * Math.cos(Math.PI / 20) / 2 - 5, a[1] - 40 * Math.sin(Math.PI / 20) + 10);
+                    drawArrow(tangentialPlaneDiagramCTX, a[0], a[1], a[0] + 40 * Math.cos(Math.PI / 2.2), a[1] - 40 * Math.sin(Math.PI / 2.2), {
+                        headlen: 5
+                    });
+                    tangentialPlaneDiagramCTX.fillText("v", a[0] + 40 * Math.cos(Math.PI / 2.2) - 11, a[1] - 40 * Math.sin(Math.PI / 2.2) / 2 + 5);
+                </script>
+                <li>We made it so that:</li>
+                <table>
+                    <tr>
+                        <td>
+                            <equation><span class="alignedEquations">
+                                <vector>v</vector> = &lang;&Delta;<var>x</var>, 0, &Delta;<var>z</var>&rang;
+                                <br />
+                                <vector>v</vector> = &Delta;<var>x</var>&lang;1, 0, <div class="fraction">
+                                    <div class="top">&Delta;<var>z</var></div>
+                                    <div class="bottom">&Delta;<var>x</var></div>
+                                </div>&rang;
+                            </span></equation>
+                        </td>
+                        <td>
+                            <equation><span class="alignedEquations">
+                                <vector>w</vector> = &lang;0, &Delta;<var>y</var>, &Delta;<var>z</var>&rang;
+                                <br />
+                                <vector>w</vector> = &Delta;<var>y</var>&lang;0, 1, <div class="fraction">
+                                    <div class="top">&Delta;<var>z</var></div>
+                                    <div class="bottom">&Delta;<var>y</var></div>
+                                </div>&rang;
+                            </span></equation>
+                        </td>
+                    </tr>
+                </table>
+                <li>Locally planar only holds true at very miniscule intervals, so our
+                    <equation>&Delta;<var>x</var></equation> and
+                    <equation>&Delta;<var>y</var></equation> are small enough to be negligible, we can rewrite the above as:</li>
+                <table>
+                    <tr>
+                        <td>
+                            <equation>
+                                <vector>v</vector> = &lang;1, 0,
+                                <pDerivative of="z" respectTo="x"></pDerivative>&rang;
+                            </equation>
+                        </td>
+                        <td>
+                            <equation>
+                                <vector>w</vector> = &lang;0, 1,
+                                <pDerivative of="z" respectTo="y"></pDerivative>&rang;
+                            </equation>
+                        </td>
+                    </tr>
+                </table>
+                <li>In order to find the plane wherein two vectors lie, we cross the two vectors to find the normal vector to the plane&mdash;from which we can derive our equation of the plane:</li>
+                <equation><span class="alignedEquations">
+                    <vector>w</vector> &Cross;
+                    <vector>v</vector> =
+                    <vector>n</vector><br />= &lang;&minus;
+                    <pDerivative of="z" respectTo="x"></pDerivative>, &minus;
+                    <pDerivative of="z" respectTo="y"></pDerivative>, 1&rang;
+                </span></equation>
+                <li>Recall the scalar equation of a plane from Chapter 12.5:</li>
+                <equation>
+                    <vector>n</vector> = &lang;<var>A, B, C</var>&rang;</equation><br />
+                <equation><var>A</var>(<var>x &minus; x</var><sub>0</sub>) + <var>B</var>(<var>y &minus; y</var><sub>0</sub>) + <var>C</var>(<var>z &minus; z</var><sub>0</sub>) = 0</equation>
+                <li>We can plug in our values into the equation and rearrange:</li>
+                <equation>
+                    <vector>n</vector> = &lang;&minus;
+                    <pDerivative of="z" respectTo="x"></pDerivative>, &minus;
+                    <pDerivative of="z" respectTo="y"></pDerivative>, 1&rang;
+                </equation><br />
+                <equation>&minus;
+                    <pDerivative of="z" respectTo="x"></pDerivative>(<var>x &minus; a</var>) &minus;
+                    <pDerivative of="z" respectTo="y"></pDerivative>(<var>y &minus; b</var>) + 1(<var>z &minus; c</var>) = 0</equation><br />
+                <equation><span class="answer"><var>z &minus; c</var> =
+                    <pDerivative of="z" respectTo="x"></pDerivative>(<var>x &minus; a</var>) +
+                    <pDerivative of="z" respectTo="y"></pDerivative>(<var>y &minus; b</var>)</span></equation>
+                <li>In order to use this equation we need to find
+                    <equation>
+                        <pDerivative of="z" respectTo="x"></pDerivative>,
+                        <pDerivative of="z" respectTo="y"></pDerivative>, <text>and</text> (<var>a, b, f (a, b)</var>)</equation>
+                </li>
+            </ol>
+        </div>
+        <li>As it turns out, the formula above can also be used for the linearization of functions in
+            <equation>&#x211d;<sup>3</sup></equation>.</li>
+        <li>Another method of approximation involves the usage of differentials, given by the following for
+            <equation><var>z = f </var>(<var>x</var>, <var>y</var>)</equation>:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>dz</var> =
-                    <pDerivative of="z" respectTo="x"></pDerivative><var>dx</var> +
-                    <pDerivative of="z" respectTo="y"></pDerivative><var>dy</var>
+                    <equation>
+                        <var>dz</var> =
+                        <pDerivative of="z" respectTo="x"></pDerivative><var>dx</var> +
+                        <pDerivative of="z" respectTo="y"></pDerivative><var>dy</var>
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>We can conclude a function is differentiable at a point when the partial derivatives exist and are continuous at the point in question. If the partial derivatives are not continuous, then the tangent plane approximation is bad.</li>
+
     </ul>
     <!--14.5-->
     <h3>14.5: Chain Rule</h3>
     <ul>
         <li>Just like how in single-variable calculus you can use the Chian Rule to differentiate composite functions, a similar rule can be applied with Multivariable Calculus.</li>
-        <li>Given a function <var>z</var> in terms of <var>x</var> and <var>y</var>, both of which defined by <var>t</var> such that <var>z</var> is a function of <var>t</var>:<br />
-            <var>z</var> = cos(<var>x</var> + 4<var>y</var>)<br />
-            <var>x</var> = <var>t</var><sup>4</sup>, <var>y</var> = <var>e<sup>t</sup></var>
+        <li>Given a function
+            <equation><var>z</var></equation> in terms of
+            <equation><var>x</var></equation> and
+            <equation><var>y</var></equation>, both of which defined by
+            <equation><var>t</var></equation> such that
+            <equation><var>z</var></equation> is a function of
+            <equation><var>t</var></equation>:<br />
+            <equation>
+                <var>z</var> =
+                <cos><var>x</var> + 4<var>y</var></cos>
+            </equation>
+            <br />
+            <equation><var>x</var> = <var>t</var><sup>4</sup>, <var>y</var> = <var>e<sup>t</sup></var></equation>
         </li>
+        <canvas id="trickleDownChainRuleDiagram1" width="100" height="100"></canvas>
+        <script class="renderJS">
+            var trickleDownChainRuleDiagram1 = document.querySelector("#trickleDownChainRuleDiagram1");
+            var trickleDownChainRuleDiagram1CTX = trickleDownChainRuleDiagram1.getContext("2d");
+            oversampleCanvas(trickleDownChainRuleDiagram1, trickleDownChainRuleDiagram1CTX, 4);
+            with(trickleDownChainRuleDiagram1CTX) {
+                font = "17px Arial";
+                fillText("z", 40, 10);
+                moveTo(38, 12);
+                lineTo(18, 38);
+                fillText("x", 10, 50);
+                moveTo(18, 52);
+                lineTo(38, 86);
+                fillText("t", 41.5, 95);
+
+                fillText("y", 70, 50);
+                moveTo(50, 12);
+                lineTo(70, 38);
+                moveTo(70, 52);
+                lineTo(50, 86);
+                stroke();
+            }
+        </script>
         <table class="rules">
             <tr>
                 <td>
-                    <pDerivative of="z" respectTo="t"></pDerivative> =
-                    <pDerivative of="z" respectTo="x"></pDerivative> &sdot;
-                    <pDerivative of="x" respectTo="t"></pDerivative> +
-                    <pDerivative of="z" respectTo="y"></pDerivative> &sdot;
-                    <pDerivative of="y" respectTo="t"></pDerivative>
+                    <equation>
+                        <pDerivative of="z" respectTo="t"></pDerivative> =
+                        <pDerivative of="z" respectTo="x"></pDerivative> &sdot;
+                        <pDerivative of="x" respectTo="t"></pDerivative> +
+                        <pDerivative of="z" respectTo="y"></pDerivative> &sdot;
+                        <pDerivative of="y" respectTo="t"></pDerivative>
+                    </equation>
                 </td>
             </tr>
         </table>
+        <li>A more complex problem of this form would be:</li>
+        <equation><var>g</var>(<var>u, v</var>) = <var>f</var>(<var>x, y</var>)</equation> where
+        <equation><span class="alignedEquations">
+            <var>x</var> = <var>e<sup>u</sup></var> + <sin>v</sin><br />
+            <var>y</var> = <var>e<sup>u</sup></var> + <cos>v</cos>
+        </span></equation>. Find
+        <equation><var>g<sub>u</sub></var></equation>.&emsp;<a href="javascript:void(0)" id="complexChainRuleProblemSolutionToggleLink" onclick="toggleSolution('#complexChainRuleProblemSolution');">Show Solution</a>
+        <div id="complexChainRuleProblemSolution" class="solution">
+            <ol>
+                <li>First draw the variable trees to follow what your chain rule equation will look like for all terms with respect to
+                    <equation><var>u</var></equation>:</li>
+                <canvas id="trickleDownChainRuleDiagram2" width="220" height="120"></canvas>
+                <script class="renderJS">
+                    var trickleDownChainRuleDiagram2 = document.querySelector("#trickleDownChainRuleDiagram2");
+                    var trickleDownChainRuleDiagram2CTX = trickleDownChainRuleDiagram2.getContext("2d");
+                    oversampleCanvas(trickleDownChainRuleDiagram2, trickleDownChainRuleDiagram2CTX, 4);
+                    with(trickleDownChainRuleDiagram2CTX) {
+                        font = "17px Arial";
+                        fillStyle = "black";
+                        strokeStyle = "black";
+                        //First Tree
+                        fillText("g", 40, 10 + 10);
+                        moveTo(38, 12 + 10);
+                        lineTo(18, 38 + 10);
+                        fillText("u", 10, 50 + 10);
+                        fillText("v", 70, 50 + 10);
+                        moveTo(50, 12 + 10);
+                        lineTo(70, 38 + 10);
+                        stroke();
+                        //Second Tree
+                        beginPath();
+                        fillText("f", 180, 20);
+                        strokeStyle = "green";
+                        fillStyle = "green";
+                        moveTo(180 - 2, 20 + 2);
+                        lineTo(180 - 2 - 20, 20 + 2 + 26);
+                        fillText("x", 180 - 30, 20 + 40);
+                        moveTo(150 - 2, 60 + 2);
+                        lineTo(150 - 2 - 10, 60 + 2 + 26);
+                        fillText("u", 180 - 50, 20 + 80);
+                        stroke();
+                        beginPath();
+                        strokeStyle = "turquoise";
+                        fillStyle = "turquoise";
+                        moveTo(180 + 10, 20 + 2);
+                        lineTo(180 + 10 + 20, 20 + 2 + 26);
+                        fillText("y", 180 + 30, 20 + 40);
+                        moveTo(180 + 30 - 2, 60 + 2);
+                        lineTo(180 + 30 - 2 - 10, 60 + 2 + 26);
+                        fillText("u", 180 + 10, 20 + 80);
+                        stroke();
+                        beginPath();
+                        fillStyle = "black";
+                        strokeStyle = "black";
+                        moveTo(150 + 10, 60 + 2);
+                        lineTo(150 + 10 + 10, 60 + 2 + 26);
+                        fillText("v", 170, 100);
+                        moveTo(180 + 30 + 10, 60 + 2);
+                        lineTo(180 + 30 + 10 + 10, 60 + 2 + 26);
+                        fillText("v", 230, 100);
+                        stroke();
+                    }
+                </script>
+                <li>Now just follow the paths to
+                    <equation><var>u</var></equation> (highlighted in green and blue).</li>
+                <equation><span class="answer">
+                        <pDerivative of="g" respectTo="u"></pDerivative> = <pDerivative of="f" respectTo="x"></pDerivative>&sdot;<pDerivative of="x" respectTo="u"></pDerivative> + <pDerivative of="f" respectTo="y"></pDerivative>&sdot;<pDerivative of="y" respectTo="u"></pDerivative>
+                    </span></equation>
+            </ol>
+        </div>
         <li>When we implicitly differentiate multivariable functions, we can use a common formula that has interchangeable differentials for whichever variables are required:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y"></derivative> =
-                    <div class="fraction">
-                        <div class="top">&minus;
-                            <pDerivative of="F" respectTo="x"></pDerivative>
+                    <equation>
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top">&minus;
+                                <pDerivative of="F" respectTo="x"></pDerivative>
+                            </div>
+                            <div class="bottom">
+                                <pDerivative of="F" respectTo="y"></pDerivative>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <pDerivative of="F" respectTo="y"></pDerivative>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
                 <th>
                     <a href="javascript:void(0)" id="implicitDifferentiationProofToggleLink" onclick="toggleSolution('#implicitDifferentiationProof', true);">Show Proof</a>
@@ -148,98 +431,130 @@
         <div id="implicitDifferentiationProof" class="solution">
             <ol>
                 <li>
-                    F(<var>x, y</var>) = 0 &lt;-- implicit function (<var>y</var> is still a function of <var>x</var>)
+                    <equation>F(<var>x, y</var>) = 0</equation>&larr; implicit function (
+                    <equation><var>y</var></equation> is still a function of
+                    <equation><var>x</var></equation>)
                 </li>
                 <li>
-                    <derivative></derivative>F(<var>x, y</var>) = 0 &times;
-                    <derivative></derivative>
+                    <equation>
+                        <derivative></derivative>F(<var>x, y</var>) = 0 &times;
+                        <derivative></derivative>
+                    </equation>
                 </li>
                 <li>
-                    <pDerivative of="F" respectTo="x"></pDerivative> &times;
-                    <derivative of="x"></derivative> +
-                    <pDerivative of="F" respectTo="y"></pDerivative> &times;
-                    <derivative of="y"></derivative> = 0
+                    <equation>
+                        <pDerivative of="F" respectTo="x"></pDerivative> &times;
+                        <derivative of="x"></derivative> +
+                        <pDerivative of="F" respectTo="y"></pDerivative> &times;
+                        <derivative of="y"></derivative> = 0
+                    </equation>
                 </li>
                 <li>
-                    <pDerivative of="F" respectTo="x"></pDerivative> +
-                    <pDerivative of="F" respectTo="y"></pDerivative> &times;
-                    <derivative of="y"></derivative> = 0
+                    <equation>
+                        <pDerivative of="F" respectTo="x"></pDerivative> +
+                        <pDerivative of="F" respectTo="y"></pDerivative> &times;
+                        <derivative of="y"></derivative> = 0
+                    </equation>
                 </li>
                 <li>
-                    <pDerivative of="F" respectTo="y"></pDerivative> &times;
-                    <derivative of="y"></derivative> = &minus;
-                    <pDerivative of="F" respectTo="x"></pDerivative>
+                    <equation>
+                        <pDerivative of="F" respectTo="y"></pDerivative> &times;
+                        <derivative of="y"></derivative> = &minus;
+                        <pDerivative of="F" respectTo="x"></pDerivative>
+                    </equation>
                 </li>
                 <li>
-                    <derivative of="y"></derivative> =
-                    <div class="fraction">
-                        <div class="top">&minus;
-                            <pDerivative of="F" respectTo="x"></pDerivative>
+                    <equation><span class="answer">
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top">&minus;
+                                <pDerivative of="F" respectTo="x"></pDerivative>
+                            </div>
+                            <div class="bottom">
+                                <pDerivative of="F" respectTo="y"></pDerivative>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <pDerivative of="F" respectTo="y"></pDerivative>
-                        </div>
-                    </div>
+                    </span></equation>
                 </li>
             </ol>
         </div>
-
     </ul>
     <!--14.6-->
     <h3>14.6: The Directional Derivative:</h3>
     <ul>
+        <li>We can broaden the same concept used in the derivation of the equation of a tangent plane, setting vectors for the rise/run of z/x and z/y</li>
         <li>The gradient is a vector whereas the directional derivative is a scalar.</li>
-        <li>The gradient of <var>z = f (x, y)</var> is given by:</li>
+        <li>The gradient of
+            <equation><var>z = f (x, y)</var></equation> is given by:</li>
         <table class="rules">
             <tr>
                 <td>
-                    &nabla;<var>f (x, y) =</var> &lang;
-                    <pDerivative of="f" respectTo="x"></pDerivative>,
-                    <pDerivative of="f" respectTo="y"></pDerivative>&rang;
+                    <equation>
+                        &nabla;<var>f (x, y) =</var> &lang;
+                        <pDerivative of="f" respectTo="x"></pDerivative>,
+                        <pDerivative of="f" respectTo="y"></pDerivative>&rang;
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>The directional derivative of <var>z = f (x, y)</var> in the direction of the unit vector
-            <vector>u</vector> is given by:</li>
+        <li>The directional derivative of
+            <equation><var>z = f (x, y)</var></equation> in the direction of the unit vector
+            <equation>
+                <vector>u</vector>
+            </equation> is given by:</li>
         <table class="rules">
             <tr>
                 <td>
-                    D<sub><vector>u</vector></sub><var>f</var> = &lang;
-                    <pDerivative of="f" respectTo="x"></pDerivative>,
-                    <pDerivative of="f" respectTo="y"></pDerivative>&rang; &sdot;
-                    <vector>u</vector> = &nabla;<var>f (x, y)</var> &sdot;
-                    <vector>u</vector>
+                    <equation>
+                        D<sub><vector>u</vector></sub><var>f</var> = &lang;
+                        <pDerivative of="f" respectTo="x"></pDerivative>,
+                        <pDerivative of="f" respectTo="y"></pDerivative>&rang; &sdot;
+                        <vector>u</vector> = &nabla;<var>f (x, y)</var> &sdot;
+                        <vector>u</vector>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>These also apply to functions of more variables &nabla;<var>f (x, y, z) =</var> &lang;
-            <pDerivative of="f" respectTo="x"></pDerivative>,
-            <pDerivative of="f" respectTo="y"></pDerivative>,
-            <pDerivative of="f" respectTo="z"></pDerivative>&rang; and so forth.</li>
-        <li>We can maximize and minimize D<sub><vector>u</vector></sub><var>f</var> (find the fastest/slowest rate of increase/decrease) using an old vector property.</li>
-        <li>When you maximize D<sub><vector>u</vector></sub><var>f</var>, &nabla;<var>f (P)</var> is parallel to
-            <vector>u</vector> and</li>
+        <li>These also apply to functions of more variables
+            <equation>&nabla;<var>f (x, y, z) =</var> &lang;
+                <pDerivative of="f" respectTo="x"></pDerivative>,
+                <pDerivative of="f" respectTo="y"></pDerivative>,
+                <pDerivative of="f" respectTo="z"></pDerivative>&rang;</equation> and so forth.</li>
+        <li>We can maximize and minimize
+            <equation>D<sub><vector>u</vector></sub><var>f</var></equation> (find the fastest/slowest rate of increase/decrease) using an old vector property.</li>
+        <li>When you maximize
+            <equation>D<sub><vector>u</vector></sub><var>f</var>, &nabla;<var>f (P)</var></equation> is parallel to
+            <equation>
+                <vector>u</vector>
+            </equation> and</li>
         <table class="rules">
             <tr>
                 <td>
-                    <vector>u</vector> =
-                    <div class="fraction">
-                        <div class="top">&nabla;<var>f (P)</var></div>
-                        <div class="bottom">||&nabla;<var>f (P)</var>||</div>
-                    </div>
+                    <equation>
+                        <vector>u</vector> =
+                        <div class="fraction">
+                            <div class="top">&nabla;<var>f (P)</var></div>
+                            <div class="bottom">||&nabla;<var>f (P)</var>||</div>
+                        </div>
+                    </equation>
                 </td>
-                <td>D<sub><vector>u</vector></sub><var>f</var> = ||&nabla;<var>f (P)</var>||</td>
+                <td>
+                    <equation>D<sub><vector>u</vector></sub><var>f</var> = ||&nabla;<var>f (P)</var>||</equation>
+                </td>
             </tr>
         </table>
-        <li>To minimize D<sub><vector>u</vector></sub><var>f</var>, the direction vector would be:</li>
+        <li>To minimize
+            <equation>D<sub><vector>u</vector></sub><var>f</var></equation>, the direction vector would be:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <vector>u</vector> = &minus;
-                    <div class="fraction">
-                        <div class="top">&nabla;<var>f (P)</var></div>
-                        <div class="bottom">||&nabla;<var>f (P)</var>||</div>
-                    </div>
+                    <equation>
+                        <vector>u</vector> = &minus;
+                        <div class="fraction">
+                            <div class="top">&nabla;<var>f (P)</var></div>
+                            <div class="bottom">||&nabla;<var>f (P)</var>||</div>
+                        </div>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -250,11 +565,19 @@
     <ul>
         <table class="staticTable">
             <tr>
+                <th>Formal Definition:</th>
+                <th>In Plain English:</th>
+                <th colspan="2">Diagrams:</th>
+            </tr>
+            <tr>
                 <td>
-                    <var>f(a, b)</var> is an absolute maximum if for all (<var>x, y</var>) &isin; D, <var>f(x, y) &le;&nbsp;&nbsp;f(a, b)</var>
+                    <equation><var>f(a, b)</var></equation> is an absolute maximum if for all
+                    <equation>(<var>x, y</var>) &isin; D, <var>f(x, y) &le;&nbsp;&nbsp;f(a, b)</var></equation>
                 </td>
                 <td>
-                    (If for all <var>xy</var>-pair values in a restricted domain, <var>f(x, y)</var> is less than <var>f(a, b)</var>)
+                    (If for all <var>xy</var>-pair values in a restricted domain,
+                    <equation><var>f(x, y)</var></equation> is less than
+                    <equation><var>f(a, b)</var></equation>)
                 </td>
                 <td rowspan="2" colspan="2">
                     <img style="width: 150px; height: auto;" src="data:image/jpeg;base64,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"
@@ -263,7 +586,8 @@
             </tr>
             <tr>
                 <td>
-                    <var>f(a, b)</var> is an absolute minimum if for all (<var>x, y</var>) &isin; D, <var>f(x, y) &ge;&nbsp;&nbsp;f(a, b)</var>
+                    <equation><var>f(a, b)</var></equation> is an absolute minimum if for all
+                    <equation>(<var>x, y</var>) &isin; D, <var>f(x, y) &ge;&nbsp;&nbsp;f(a, b)</var></equation>
                 </td>
                 <td>
                     (The exact opposite as above)
@@ -271,7 +595,10 @@
             </tr>
             <tr>
                 <td>
-                    <var>f(a, b)</var> is a local maximum if there exists a disc D of positive radius centered at <var>f(a, b)</var>such that for all (<var>x, y</var>) &isin; D, <var>f(x, y) &le; f(a, b)</var>
+                    <equation><var>f(a, b)</var></equation> is a local maximum if there exists a disc
+                    <equation>D</equation> of positive radius centered at
+                    <equation><var>f(a, b)</var></equation> such that for all
+                    <equation>(<var>x, y</var>) &isin; D, <var>f(x, y) &le; f(a, b)</var></equation>
                 </td>
                 <td>
                     If you can draw a disc within the function and no part of the disk comes above the chosen point, your chosen point classifies as a local maximum.
@@ -286,7 +613,12 @@
                 </td>
             </tr>
             <tr>
-                <td><var>f(a, b)</var> is a local minimum if there exists a disc D of positive radius centered at <var>f(a, b)</var>such that for all (<var>x, y</var>) &isin; D, <var>f(x, y) &ge; f(a, b)</var></td>
+                <td>
+                    <equation><var>f(a, b)</var></equation> is a local minimum if there exists a disc
+                    <equation>D</equation> of positive radius centered at
+                    <equation><var>f(a, b)</var></equation> such that for all
+                    <equation>(<var>x, y</var>) &isin; D, <var>f(x, y) &ge; f(a, b)</var></equation>
+                </td>
                 <td>If you can draw a disk within the function and no part of the disk goes underneath your chosen point, your point classifies as a local minimum.</td>
             </tr>
         </table>
@@ -295,44 +627,65 @@
         <br />
         <br />
         <div>
-            <var>f(a, b) + &nabla;f(a, b) &sdot;&lang;x &minus; a, y &minus; b&rang;</var> +
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom">2!</div>
-            </div>
-            <matrix dimensionX="2" dimensionY="1" values="<var>x &minus; a&nbsp;&nbsp;</var>, <var>y &minus; b</var>"></matrix>
+            <equation>
+                <var>f(a, b) + &nabla;f(a, b) &sdot; &lang;x &minus; a, y &minus; b&rang;</var> +
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2!</div>
+                </div>
+                <matrix dimensionX="2" dimensionY="1" values="<var>x &minus; a&nbsp;&nbsp;</var>, <var>y &minus; b</var>"></matrix>
+            </equation>
             <table class="matrix" style="border-color:blue;">
                 <tr>
                     <td>
-                        <pDerivative of="f" order="2"></pDerivative>(<var>a, b</var>)</td>
+                        <equation>
+                            <pDerivative of="f" order="2"></pDerivative>(<var>a, b</var>)
+                        </equation>
+                    </td>
                     <td>
-                        <div class="fraction">
-                            <div class="top">&part;<sup>2</sup><var>f</var></div>
-                            <div class="bottom"><var>&part;y&part;x</var></div>
-                        </div>(<var>a, b</var>)
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">&part;<sup>2</sup><var>f</var></div>
+                                <div class="bottom"><var>&part;y&part;x</var></div>
+                            </div>(<var>a, b</var>)
+                        </equation>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="fraction">
-                            <div class="top">&part;<sup>2</sup><var>f</var></div>
-                            <div class="bottom"><var>&part;x&part;y</var></div>
-                        </div>(<var>a, b</var>)
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">&part;<sup>2</sup><var>f</var></div>
+                                <div class="bottom"><var>&part;x&part;y</var></div>
+                            </div>(<var>a, b</var>)
+                        </equation>
                     </td>
                     <td>
-                        <pDerivative of="f" respectTo="y" order="2"></pDerivative>(<var>a, b</var>)
+                        <equation>
+                            <pDerivative of="f" respectTo="y" order="2"></pDerivative>(<var>a, b</var>)
+                        </equation>
                     </td>
                 </tr>
             </table>
-            <matrix dimensionX="1" dimensionY="2" values="<var>x &minus; a</var>, <var>y &minus; b</var>"></matrix>
+            <equation>
+                <matrix dimensionX="1" dimensionY="2" values="<var>x &minus; a</var>, <var>y &minus; b</var>"></matrix>
+            </equation><br />
         </div>
         <li>In the equation above (written with matrices for brevity), the matrix with the blue borders is called the Hessian Matrix or the Hessian Field (Abbreviated hf). Using the table below we can predict the behavior of multivariable functions at certain
             points
         </li>
         <table class="staticTable">
             <tr>
-                <td><strong>det|Hf|</strong></td>
-                <td><strong><pDerivative of="f" order="2"></pDerivative></strong></td>
+                <th>
+                    <equation>
+                        <det>|Hf|</det>
+                    </equation>
+                </th>
+                <th>
+                    <equation>
+                        <pDerivative of="f" order="2"></pDerivative>
+                    </equation>
+                </th>
                 <td><strong>Graph:</strong></td>
                 <td><strong>Classification:</strong></td>
             </tr>
@@ -373,16 +726,27 @@
                 <td>cry but don't worry</td>
             </tr>
         </table>
-        <li>Look for critical points of the multivariable function, when &nabla;<var>f(x, y)</var> = 0 or DNE (when both partial derivatives are either 0 or undefined).</li>
+        <li>Look for critical points of the multivariable function, when
+            <equation>&nabla;<var>f(x, y)</var> = 0</equation> or DNE (when both partial derivatives are either 0 or undefined).</li>
         <h5>The Extreme Value Theorem:</h5>
+        <!--Add information+diagrams about open and closed sets-->
         <li>
-            Suppose <var>z = f(x, y)</var> is defined on D&sube;&#x211d;<sup>2</sup> with:
+            Suppose
+            <equation><var>z = f(x, y)</var></equation> is defined on
+            <equation>D&sube;&#x211d;<sup>2</sup></equation> with:
             <ol>
-                <li><var>f (x, y)</var> is continuous on D</li>
-                <li>D is a closed set (a region is considered a closed set if the set of all other points are considered open)</li>
-                <li>D is a bounded set</li>
+                <li>
+                    <equation><var>f (x, y)</var></equation> is continuous on
+                    <equation>D</equation>
+                </li>
+                <li>
+                    <equation>D</equation> is a closed set (a region is considered a closed set if the set of all other points are considered open)</li>
+                <li>
+                    <equation>D</equation> is a bounded set</li>
             </ol>
-            then <var>f(x, y)</var> achieves both an absolute maximum and a absolute minimum on D.
+            then
+            <equation><var>f(x, y)</var></equation> achieves both an absolute maximum and a absolute minimum on
+            <equation>D</equation>.
         </li>
         <li>Remember to check all the components of the EVT before looking at critical points as well as boundaries and intersections of boundaries.</li>
     </ul>
@@ -390,16 +754,21 @@
     <h3>14.8: The Method of LaGrange Multipliers:</h3>
     <ul>
         <li>Another way we can find extrema of multivariable functions is by giving the function a constraint, which guarantees absolute extrema by the Extreme Value Theorem</li>
-        <li>Given a function <var>z = f (x, y)</var> constrained by <var>g(x, y) = c</var>, the extrema will satisfy (where &lambda; is a constant):</li>
+        <li>Given a function
+            <equation><var>z = f (x, y)</var></equation> constrained by
+            <equation><var>g(x, y) = c</var></equation>, the extrema will satisfy (where
+            <equation>&lambda;</equation> is a constant):</li>
         <table class="rules">
             <tr>
                 <td>
-                    &nabla;<var>f (x, y) = </var>&lambda;&nabla;<var>g(x, y)</var>
+                    <equation>&nabla;<var>f (x, y) = </var>&lambda;&nabla;<var>g(x, y)</var></equation>
                 </td>
-                <td><var>g(x, y) = c</var></td>
+                <td>
+                    <equation><var>g(x, y) = c</var></equation>
+                </td>
             </tr>
         </table>
         <li>Using these, we can setup a system of multiple equations (break apart the gradient vectors into their equivalent components) and solve for our extrema.</li>
-        <li>Remember to find the critical points, </li>
+        <li>Remember to find the critical points using the constraint equation with the actual equation, and then plug them back in to check whether they are absolute or local extrema.</li>
     </ul>
 </div>
