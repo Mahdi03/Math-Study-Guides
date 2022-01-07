@@ -146,21 +146,6 @@ function renderMath(parentElement = "") {
                 var newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
             }
-            //Replace sqrt{} with \sqrt {}
-            while (dom.querySelector("sqrt") != undefined) {
-                var oldSQRT = dom.querySelector("sqrt");
-                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
-                oldSQRT.replaceWith(...newSQRT);
-                //console.log(dom.innerHTML)
-            }
-            while (dom.querySelector("div.fraction") != undefined) {
-                var oldFrac = dom.querySelector("div.fraction");
-                var top = oldFrac.children[0].innerHTML;
-                var bottom = oldFrac.children[1].innerHTML;
-                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
-                oldFrac.replaceWith(...newFrac);
-                //console.log(dom.innerHTML)
-            }
             while (dom.querySelector("log") != undefined) {
                 var oldLog = dom.querySelector("log");
                 var base = oldLog.getAttribute("base");
@@ -199,10 +184,18 @@ function renderMath(parentElement = "") {
             }
             while (dom.querySelector("integral") != undefined) {
                 var oldIntegral = dom.querySelector("integral");
+                var numberOfIntegrals = 1;
+                if (oldIntegral.hasAttribute("double")) {
+                    //Then it is a double integral
+                    numberOfIntegrals = 2;
+                }
+                if (oldIntegral.hasAttribute("triple")) {
+                    numberOfIntegrals = 3;
+                }
                 var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
                 var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
-                var respectTo = oldIntegral.getAttribute("respectTo");
-                var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
+                var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
+                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
             }
             while (dom.querySelector("evaluated") != undefined) {
@@ -306,6 +299,21 @@ function renderMath(parentElement = "") {
                 var oldVAR = dom.querySelector("var");
                 var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
                 oldVAR.replaceWith(...newVAR);
+                //console.log(dom.innerHTML)
+            }
+            //Replace sqrt{} with \sqrt {}
+            while (dom.querySelector("sqrt") != undefined) {
+                var oldSQRT = dom.querySelector("sqrt");
+                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+                oldSQRT.replaceWith(...newSQRT);
+                //console.log(dom.innerHTML)
+            }
+            while (dom.querySelector("div.fraction") != undefined) {
+                var oldFrac = dom.querySelector("div.fraction");
+                var top = oldFrac.children[0].innerHTML;
+                var bottom = oldFrac.children[1].innerHTML;
+                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
+                oldFrac.replaceWith(...newFrac);
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("text") != undefined) {
