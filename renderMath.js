@@ -847,13 +847,15 @@ function toggleSolution(id, proof) {
 // https://stackoverflow.com/questions/34506036/how-do-i-draw-thin-but-sharper-lines-in-html-canvas
 // Use to make canvas lines clearer on-screen
 function oversampleCanvas(tgtCanvas, ctx, factor) {
-    var width = tgtCanvas.width;
-    var height = tgtCanvas.height;
-    tgtCanvas.width = Math.trunc(width * factor);
-    tgtCanvas.height = Math.trunc(height * factor);
-    tgtCanvas.style.width = width + 'px';
-    tgtCanvas.style.height = height + 'px';
-    ctx.scale(factor, factor);
+    if (!tgtCanvas.classList.contains("alreadyOversampled")) {
+        var width = tgtCanvas.width;
+        var height = tgtCanvas.height;
+        tgtCanvas.width = Math.trunc(width * factor);
+        tgtCanvas.height = Math.trunc(height * factor);
+        tgtCanvas.style.width = width + 'px';
+        tgtCanvas.style.height = height + 'px';
+        ctx.scale(factor, factor);
+    }
 }
 
 function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
