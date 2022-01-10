@@ -18,7 +18,8 @@
             currentX = 0;
             currentY = 0;
 
-            drawFlag = false; //Used for 
+            drawFlag = false; //Used for freeform drawing
+            polylineEvents = [];
 
             canvasPastMoves = [];
             canvasUndidMovesStoredForRedos = [];
@@ -115,14 +116,16 @@
             draw(eventName, event) {
                 var a1 = performance.now();
                 /*************************Attempt one - add all to array, then join and push*/
-                var polylineEvents = [];
                 if (["pointerdown", "touchstart"].includes(eventName)) {
                     //Start drawing and save to polyline
                     this.drawFlag = true;
                 } else if (["pointerup", "pointerout", "pointerleave", "touchcancel", "touchend"].includes(eventName)) {
                     //Stop drawing and save the current polyline
                     this.drawFlag = false;
-                    this.addToActionHistory(polylineEvents.join(" "));
+                    if (this.polylineEvents.length > 0) {
+                        this.addToActionHistory(this.polylineEvents.join(" "));
+                        this.polylineEvents.length = 0;
+                    }
                 }
                 //Moves the cursor to wherever the pen is regardless of whether it will move
                 this.previousX = this.currentX;
@@ -136,48 +139,15 @@
                     ctx.lineTo(this.currentX, this.currentY);
                     ctx.stroke();
                     ctx.closePath();
-                    polylineEvents.push(`ctx.beginPath();
-ctx.moveTo(${this.previousX}, ${this.previousY});
-ctx.lineTo(this.currentX, this.currentY);
-ctx.stroke();
-ctx.closePath();`);
+                    this.polylineEvents.push(`this.ctx.beginPath();
+this.ctx.moveTo(${this.previousX}, ${this.previousY});
+this.ctx.lineTo(${this.currentX}, ${this.currentY});
+this.ctx.stroke();
+this.ctx.closePath();`);
                 }
                 var a2 = performance.now();
                 //console.log(`Previous Point: (${this.previousX}, ${this.previousY})`);
                 //console.log(`Current Point: (${this.currentX}, ${this.currentY})`);
-                var b1 = performance.now();
-                /*************************Attempt two - add all to string, and push*/
-                var polylineEvents = "";
-                if (["pointerdown", "touchstart"].includes(eventName)) {
-                    //Start drawing and save to polyline
-                    this.drawFlag = true;
-                } else if (["pointerup", "pointerout", "pointerleave", "touchcancel", "touchend"].includes(eventName)) {
-                    //Stop drawing and save the current polyline
-                    this.drawFlag = false;
-                    this.addToActionHistory(polylineEvents);
-                }
-                //Moves the cursor to wherever the pen is regardless of whether it will move
-                this.previousX = this.currentX;
-                this.previousY = this.currentY;
-                this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
-                this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
-                if (this.drawFlag) {
-                    var ctx = this.ctx;
-                    ctx.beginPath();
-                    ctx.moveTo(this.previousX, this.previousY);
-                    ctx.lineTo(this.currentX, this.currentY);
-                    ctx.stroke();
-                    ctx.closePath();
-                    polylineEvents += `ctx.beginPath();
-ctx.moveTo(${this.previousX}, ${this.previousY});
-ctx.lineTo(this.currentX, this.currentY);
-ctx.stroke();
-ctx.closePath();`;
-                }
-                var b2 = performance.now();
-                //Check times
-                console.log(`Push to array, .join() then push: ${a2 - a1}`);
-                console.log(`Append to string and push: ${b2 - b1}`);
             }
 
             /*
@@ -194,7 +164,7 @@ ctx.closePath();`;
                             this.draw(eventName, event);
                         });
                         //console.log(this.canvas);
-                    }, false);
+                    });
 
                 }
                 /*
