@@ -1722,6 +1722,352 @@ class Graph {
     }
 }
 
+class SketchGraph {
+    previousX = 0;
+    previousY = 0;
+    currentX = 0;
+    currentY = 0;
+
+    drawFlag = false; //Used for freeform drawing
+    polylineEvents = [];
+
+    canvasPastMoves = [];
+    canvasUndidMovesStoredForRedos = [];
+
+    constructor(canvas, width = 300, height = 150) {
+            this.canvas = canvas;
+            this.ctx = this.canvas.getContext("2d");
+            this.width = width;
+            this.height = height;
+            this.canvas.width = this.width;
+            this.canvas.height = this.height;
+            oversampleCanvas(this.canvas, this.ctx, 4);
+            document.body.style.touchAction = "none";
+            this.canvas.style.touchAction = "auto";
+            this.canvas.style.border = "3px solid black";
+            this.init();
+        }
+        /*Add buttons to canvas for editing with their eventListeners*/
+    init() {
+        var html = `<style>
+.toolbar {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.toolbar button {
+    /*padding: 2px;*/
+}
+.toolbar button.active {
+
+}
+</style>
+<div class="toolbar">
+<button id="drawFreeform" title="Draw freehand">~</button>
+<button id="drawLine" title="Draw a straight line">&minus;</button>
+<button id="drawDot" title="Place a dot">&sdot;</button>
+<button id="drawArrow" title="Draw an arrow">&rarr;</button>
+<button id="fillText" title="Add text">Aa</button>
+<button id="undo" class="neverActive" title="Undo">&#x21A9;</button>
+<button id="redo" class="neverActive" title="Redo">&#x21AA;</button>
+<button id="clearAll" class="neverActive" title="Restart">&#8634;</button>
+<button id="save" class="neverActive" title="Save">&#128190;</button>
+</div>`;
+        var div = document.createElement("div");
+        div.style.display = "inline-flex";
+        div.style.float = "left";
+        div.innerHTML = html;
+        this.canvas.insertAdjacentElement("afterend", div);
+
+        var drawFreeformButton = document.querySelector("#drawFreeformButton");
+        var buttons = ["drawFreeform", "drawLine", "drawDot", "drawArrow", "fillText", "undo", "redo", "clearAll", "save"];
+
+        function disableAllButtons(buttons) {
+            buttons.forEach((buttonName) => {
+                var button = document.querySelector("#" + buttonName);
+                button.classList.remove("active");
+            });
+        }
+        buttons.forEach((buttonName) => {
+            var button = document.querySelector("#" + buttonName);
+            button.addEventListener("click", () => {
+                if (button.classList.contains("active") && !button.classList.contains("neverActive")) {
+                    //Disable the button
+                    disableAllButtons(buttons);
+                    this.removeAllEventListeners();
+                } else {
+                    //Disable any old buttons, enable the button, and call its respective function
+                    disableAllButtons(buttons);
+                    button.classList.add("active");
+                    eval("this." + buttonName + "()");
+                }
+            });
+        });
+        /*Establish Ctrl+Z and Ctrl+Y as undo and redo*/
+        window.addEventListener("keypress", (keypressEvent) => {
+            console.log(keypressEvent);
+            //Ctrl-Z is code: 'KeyZ', ctrlKey: true
+            //Ctrl-Y is code: 'KeyY', ctrlKey: true
+            if (keypressEvent.ctrlKey) {
+                if (keypressEvent.code == 'KeyZ') {
+                    keypressEvent.preventDefault();
+                    //Ctrl-Z was pressed, undo
+                    this.undo();
+                } else if (keypressEvent.code == 'KeyY') {
+                    keypressEvent.preventDefault();
+                    //Ctrl-Y was pressed, redo
+                    this.redo();
+                } else if (keypressEvent.code == "KeyS") {
+                    keypressEvent.preventDefault();
+                    //Export to file and save
+                }
+            }
+        });
+    }
+
+    /*
+    This function will return the ctx of the canvas so that we can
+    draw on the canvas using canvas methods
+    */
+    get allowDrawable() {
+        return this.ctx;
+    }
+    draw(eventName, event) {
+        if (["pointerdown", "touchstart"].includes(eventName)) {
+            //Start drawing and save to polyline
+            this.drawFlag = true;
+        } else if (["pointerup", "pointerout", "pointerleave", "touchcancel", "touchend"].includes(eventName)) {
+            //Stop drawing and save the current polyline
+            this.drawFlag = false;
+            if (this.polylineEvents.length > 0) {
+                this.addToActionHistory(this.polylineEvents.join(" "));
+                this.polylineEvents.length = 0;
+            }
+        }
+        //Moves the cursor to wherever the pen is regardless of whether it will move
+        this.previousX = this.currentX;
+        this.previousY = this.currentY;
+        this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+        this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+        if (this.drawFlag) {
+            var ctx = this.ctx;
+            ctx.beginPath();
+            ctx.moveTo(this.previousX, this.previousY);
+            ctx.lineTo(this.currentX, this.currentY);
+            ctx.stroke();
+            ctx.closePath();
+            this.polylineEvents.push(`this.ctx.beginPath();
+this.ctx.moveTo(${this.previousX}, ${this.previousY});
+this.ctx.lineTo(${this.currentX}, ${this.currentY});
+this.ctx.stroke();
+this.ctx.closePath();`);
+        }
+        //console.log(`Previous Point: (${this.previousX}, ${this.previousY})`);
+        //console.log(`Current Point: (${this.currentX}, ${this.currentY})`);
+    }
+
+    /*
+    This function will enable all the drawing capabilities using
+    the finger or the pen
+    */
+    drawFreeform() {
+            //Reset from everything else
+            this.removeAllEventListeners();
+            ["pointerdown", "pointermove", "pointerup", "pointerout", "pointerleave",
+                /*"touchstart", "touchmove", "touchcancel", "touchend"*/
+            ].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    this.draw(eventName, event);
+                });
+                //console.log(this.canvas);
+            });
+
+        }
+        /*
+        This function will draw a straight line on the canvas from start to finish
+        */
+    drawLine() {
+            //Reset from everything else
+            this.removeAllEventListeners();
+            ["pointerdown"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    this.drawFlag = true;
+                    this.previousX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+                    this.previousY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+
+                    this.ctx.moveTo(this.previousX, this.previousY);
+                    this.addToActionHistory(`this.ctx.moveTo(${this.previousX}, ${this.previousY});`);
+                    //console.log(`pointerdown - drawFlag: ${this.drawFlag}`);
+                });
+            });
+            ["pointermove"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    if (this.drawFlag) {
+                        this.undo(); //Erases last line that was drawn
+                        this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+                        this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+                        //Now temporarily draw the line so that we know where we are going and what it looks like
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(this.previousX, this.previousY);
+                        this.ctx.lineTo(this.currentX, this.currentY);
+                        this.ctx.stroke();
+                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.moveTo(${this.previousX}, ${this.previousY}); this.ctx.lineTo(${this.currentX}, ${this.currentY}); this.ctx.stroke();`);
+                    }
+                    //console.log(`pointermove - drawFlag" ${this.drawFlag}`);
+                });
+            });
+            ["pointerup", "pointerout", "pointerleave"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    this.drawFlag = false;
+                    console.log(`pointerbye - ${this.drawFlag}`);
+                    this.clearRedoCache();
+                });
+            })
+        }
+        /*Draws arrow*/
+    drawArrow() {
+            //Reset from everything else
+            this.removeAllEventListeners();
+            ["pointerdown"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    this.drawFlag = true;
+                    this.previousX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+                    this.previousY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+
+                    this.ctx.moveTo(this.previousX, this.previousY);
+                    this.addToActionHistory(`this.ctx.moveTo(${this.previousX}, ${this.previousY});`);
+                    console.log(`pointerdown - drawFlag: ${this.drawFlag}`);
+                    console.log(this.canvasPastMoves)
+                });
+            });
+            ["pointermove"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    if (this.drawFlag) {
+                        this.undo();
+                        this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+                        this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+                        //Now temporarily draw the line so that we know where we are going and what it looks like
+                        //this.ctx.beginPath();
+                        //this.ctx.moveTo(this.previousX, this.previousY);
+                        drawArrow(this.ctx, this.previousX, this.previousY, this.currentX, this.currentY);
+                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.moveTo(${this.previousX}, ${this.previousY}); drawArrow(this.ctx, ${this.previousX}, ${this.previousY}, ${this.currentX}, ${this.currentY});`);
+                    }
+                    console.log(`pointermove - drawFlag: ${this.drawFlag}`);
+                });
+            });
+            ["pointerup", "pointerout", "pointerleave"].forEach((eventName) => {
+                this.canvas.addEventListener(eventName, (event) => {
+                    this.drawFlag = false;
+                    console.log(`pointerbye - ${this.drawFlag}`);
+                    this.clearRedoCache();
+                });
+            });
+        }
+        /*Click on the canvas where you want the text, type your text in the textbox, then press enter*/
+    fillText() {
+            this.removeAllEventListeners();
+            this.canvas.addEventListener("click", (event) => {
+                this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+                this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+
+                //Create a DOM text input and edit text there
+                var input = document.createElement("input");
+                input.setAttribute("type", "text");
+                this.canvas.insertAdjacentElement("afterend", input);
+                input.focus();
+                //When the enter key is pressed, remove the element and add it to 
+                input.addEventListener("keydown", (keyEvent) => {
+                    if (keyEvent.key.toLowerCase() == "enter") {
+                        var textToInsert = input.value;
+                        input.parentElement.removeChild(input);
+                        //var clickX, clickY;
+                        console.log(`(${this.currentX}, ${this.currentY})`);
+                        console.log(textToInsert);
+                        this.ctx.fillText(textToInsert, this.currentX, this.currentY);
+                        //Add to history
+                        this.addToActionHistory(`this.ctx.fillText("${textToInsert}", ${this.currentX}, ${this.currentY});`)
+                    }
+                });
+            });
+        }
+        /*draws a dot wherever you click*/
+    drawDot() {
+        this.removeAllEventListeners();
+        this.canvas.addEventListener("click", (event) => {
+            this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+            this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.currentX, this.currentY);
+            this.ctx.arc(this.currentX, this.currentY, 2, 0, 2 * Math.PI);
+            this.ctx.fill();
+            this.ctx.closePath();
+            //Then add to history
+            this.addToActionHistory(`this.ctx.beginPath();
+this.ctx.moveTo(${this.currentX}, ${this.currentY});
+this.ctx.arc(${this.currentX}, ${this.currentY}, 2, 0, 2 * Math.PI);
+this.ctx.fill();
+this.ctx.closePath();`);
+        });
+    }
+    addToActionHistory(actions) {
+        this.canvasPastMoves.push(actions);
+        //And clear redo array because there is no more redo's allowed
+        this.clearRedoCache();
+    }
+    clearRedoCache() {
+        this.canvasUndidMovesStoredForRedos.length = 0; //Or could have set it to a new array entirely var a = [];
+    }
+    undo() {
+        //Make sure that this only works when there are undo-able moves
+        if (this.canvasPastMoves.length > 0) {
+            this.ctx.clearRect(0, 0, this.width, this.height);
+            this.canvasUndidMovesStoredForRedos.push(this.canvasPastMoves.pop()); //Store the undid move in the redo place
+            eval(this.canvasPastMoves.join(" "));
+        }
+    }
+    redo() {
+        //Make sure that this only works when there are redo-able moves
+        if (this.canvasUndidMovesStoredForRedos.length > 0) {
+            var lastMove = this.canvasUndidMovesStoredForRedos.pop();
+            this.canvasPastMoves.push(lastMove);
+            eval(lastMove);
+        }
+    }
+    removeAllEventListeners(emptyCanvas) {
+        var imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+        var newCanvas = this.canvas.cloneNode(false);
+        this.canvas.parentNode.replaceChild(newCanvas, this.canvas);
+        this.canvas = newCanvas;
+        this.ctx = this.canvas.getContext("2d");
+        //oversampleCanvas(this.canvas, this.ctx, 4);
+        if (!emptyCanvas) {
+            this.ctx.putImageData(imageData, 0, 0);
+        }
+        this.ctx.scale(4, 4); //(Re-enable the oversampling part)
+        //console.log(this.canvas);
+    }
+    clearAll() {
+        this.removeAllEventListeners(true); //Clears the canvas and removes all event listeners at the same time
+        this.clearRedoCache(); //Clear redo cache
+        this.canvasPastMoves = []; //Clear undo cache
+        //Reset all points
+        this.previousX = 0;
+        this.previousY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
+    }
+    save() {
+        var query = prompt("querySelector:").replace("#", "");
+        `var ${query} = document.querySelector("#${query}");
+        class query[0].toUpperCase() + query.substring(1) {
+            constructor() {
+
+            }
+        }`;
+    }
+}
+
+
 class RayDiagram {
     constructor(canvas, mirrorOrLens, concaveOrConvex, originalPosition, width) {
         this.canvas = canvas;
