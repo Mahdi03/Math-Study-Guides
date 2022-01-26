@@ -1228,6 +1228,23 @@ function drawAnElectricalCircuit() {
     }
 }
 */
+function copyStringToClipboard(string) {
+    //If navigator.clipboard exists, use it
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(string);
+    }
+    //Else fallback
+    else {
+        var p = document.createElement("p");
+        p.innerHTML = string;
+        p.focus().select();
+        try {
+            document.execCommand("copy");
+        } catch (e) {
+            console.error("Copy operation failed");
+        }
+    }
+}
 
 function distanceBetweenTwoPoints(x1, y1, x2, y2) {
     var dx = x1 - x2;
@@ -1723,13 +1740,14 @@ class Graph {
 }
 
 class SketchGraph {
+    //Used for drawing
     previousX = 0;
     previousY = 0;
     currentX = 0;
     currentY = 0;
 
     drawFlag = false; //Used for freeform drawing
-    polylineEvents = [];
+    polylineEvents = []; // Used to store one drawing
 
     canvasPastMoves = [];
     canvasUndidMovesStoredForRedos = [];
@@ -2057,13 +2075,16 @@ this.ctx.closePath();`);
         this.currentY = 0;
     }
     save() {
+        //Get canvas name from me
         var query = prompt("querySelector:").replace("#", "");
-        `var ${query} = document.querySelector("#${query}");
-        class query[0].toUpperCase() + query.substring(1) {
-            constructor() {
+        //Finalize canvas code for later use
+        let jsCode = `var ${query} = document.querySelector("#${query}");
+        var ${query}CTX = ${query}.getContext("2d");`;
+        jsCode += this.canvasPastMoves.join("\n").replace(/this.ctx/g, `${query}CTX`);
+        //Now all of the canvas code is available, console.log it to verify
+        console.log(jsCode);
+        copyStringToClipboard(jsCode);
 
-            }
-        }`;
     }
 }
 
