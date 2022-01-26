@@ -133,6 +133,7 @@ function renderMath(parentElement = "") {
                 .replace(/&omega;/gi, "\\omega").replace(/&tau;/gi, "\\tau")
                 .replace(/&epsilon;/gi, "\\epsilon").replace(/&kappa;/gi, "\\kappa")
                 .replace(/&mu;/gi, "\\mu")
+                //.replace(/−/g, "-").replace(/Δ/g, "\\Delta")
                 //.replaceAll("⟨", "\\big\\langle").replaceAll("⟩", "\\right\\langle")
                 //.replaceAll(",", ",\\,") //adds a space after every comma
                 /*
@@ -878,6 +879,10 @@ function drawArrow(context, fromx, fromy, tox, toy, extraArgs) {
     if (extraArgs !== undefined) {
         if (extraArgs.lineDash !== undefined) {
             context.setLineDash(extraArgs.lineDash);
+        }
+        if (extraArgs.color !== undefined) {
+            context.fillStyle = extraArgs.color;
+            context.strokeStyle = extraArgs.color;
         }
         if (extraArgs.headlen !== undefined) {
             headlen = extraArgs.headlen;
@@ -1770,7 +1775,13 @@ class SketchGraph {
     previousY = 0;
     currentX = 0;
     currentY = 0;
+
     drawingStrokeWidth = 1;
+    colorValue = "black";
+    opacityValue = 1;
+
+    fontSize = 10;
+    fontFamily = "Arial";
 
     drawFlag = false; //Used for freeform drawing
     polylineEvents = []; // Used to store one drawing
@@ -1789,6 +1800,13 @@ class SketchGraph {
             document.body.style.touchAction = "none";
             this.canvas.style.touchAction = "auto";
             this.canvas.style.border = "3px solid black";
+
+            //Set up canvas and add additional primer stuff
+            this.ctx.setLineDash([]); //Clears Line Dash
+            this.ctx.globalAlpha = this.opacityValue; //Resets opacity
+            this.changeColorValues("black"); // Resets colors
+            this.ctx.lineWidth = this.drawingStrokeWidth;
+
             this.init();
         }
         /*Add buttons to canvas for editing with their eventListeners*/
@@ -1898,12 +1916,14 @@ class SketchGraph {
             var ctx = this.ctx;
             ctx.beginPath();
             ctx.lineWidth = this.drawingStrokeWidth;
+            ctx.globalAlpha = this.opacityValue;
             ctx.moveTo(this.previousX, this.previousY);
             ctx.lineTo(this.currentX, this.currentY);
             ctx.stroke();
             ctx.closePath();
             this.polylineEvents.push(`this.ctx.beginPath();
             this.ctx.lineWidth = ${this.drawingStrokeWidth};
+            this.ctx.globalAlpha = ${this.opacityValue};
 this.ctx.moveTo(${this.previousX}, ${this.previousY});
 this.ctx.lineTo(${this.currentX}, ${this.currentY});
 this.ctx.stroke();
@@ -1929,7 +1949,9 @@ this.ctx.closePath();`);
             //console.log(this.canvas);
             this.canvas.style.cursor = "crosshair";
         });
-        this.createRangeAndInputAboveCanvas(1, 20, 1);
+        this.createRangeAndInputAboveCanvas(1, 20, 1, 1, "drawingStrokeWidth");
+        this.createRangeAndInputAboveCanvas(0, 1, 0.01, 1, "opacityValue");
+        this.createColorPickerAndInputAboveCanvas();
     }
 
     eraseStuff(eventName, event) {
@@ -1972,7 +1994,7 @@ this.ctx.closePath();`);
                 });
                 //console.log(this.canvas);
             });
-            this.createRangeAndInputAboveCanvas(1, 20, 1);
+            this.createRangeAndInputAboveCanvas(1, 20, 1, 5, "drawingStrokeWidth");
         }
         /*
         This function will draw a straight line on the canvas from start to finish
@@ -2000,10 +2022,11 @@ this.ctx.closePath();`);
                         //Now temporarily draw the line so that we know where we are going and what it looks like
                         this.ctx.beginPath();
                         this.ctx.lineWidth = this.drawingStrokeWidth;
+                        this.ctx.globalAlpha = this.opacityValue;
                         this.ctx.moveTo(this.previousX, this.previousY);
                         this.ctx.lineTo(this.currentX, this.currentY);
                         this.ctx.stroke();
-                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.lineWidth = ${this.drawingStrokeWidth}; this.ctx.moveTo(${this.previousX}, ${this.previousY}); this.ctx.lineTo(${this.currentX}, ${this.currentY}); this.ctx.stroke();`);
+                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.lineWidth = ${this.drawingStrokeWidth}; this.ctx.globalAlpha = ${this.opacityValue}; this.ctx.moveTo(${this.previousX}, ${this.previousY}); this.ctx.lineTo(${this.currentX}, ${this.currentY}); this.ctx.stroke();`);
                     }
                     //console.log(`pointermove - drawFlag" ${this.drawFlag}`);
                 });
@@ -2015,7 +2038,9 @@ this.ctx.closePath();`);
                     this.clearRedoCache();
                 });
             });
-            this.createRangeAndInputAboveCanvas(1, 20, 1);
+            this.createRangeAndInputAboveCanvas(1, 20, 1, 1, "drawingStrokeWidth");
+            this.createRangeAndInputAboveCanvas(0, 1, 0.01, 1, "opacityValue");
+            this.createColorPickerAndInputAboveCanvas();
         }
         /*Draws arrow*/
     drawArrow() {
@@ -2042,8 +2067,10 @@ this.ctx.closePath();`);
                         //Now temporarily draw the line so that we know where we are going and what it looks like
                         //this.ctx.beginPath();
                         //this.ctx.moveTo(this.previousX, this.previousY);
-                        drawArrow(this.ctx, this.previousX, this.previousY, this.currentX, this.currentY);
-                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.moveTo(${this.previousX}, ${this.previousY}); drawArrow(this.ctx, ${this.previousX}, ${this.previousY}, ${this.currentX}, ${this.currentY});`);
+                        this.ctx.globalAlpha = this.opacityValue;
+                        this.ctx.lineWidth = this.drawingStrokeWidth;
+                        drawArrow(this.ctx, this.previousX, this.previousY, this.currentX, this.currentY, { color: this.colorValue });
+                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.globalAlpha = ${this.opacityValue}; this.ctx.lineWidth = ${this.drawingStrokeWidth}; this.ctx.moveTo(${this.previousX}, ${this.previousY}); drawArrow(this.ctx, ${this.previousX}, ${this.previousY}, ${this.currentX}, ${this.currentY}, { color: "${this.colorValue}" });`);
                     }
                     console.log(`pointermove - drawFlag: ${this.drawFlag}`);
                 });
@@ -2055,6 +2082,9 @@ this.ctx.closePath();`);
                     this.clearRedoCache();
                 });
             });
+            this.createRangeAndInputAboveCanvas(1, 20, 1, 1, "drawingStrokeWidth");
+            this.createRangeAndInputAboveCanvas(0, 1, 0.01, 1, "opacityValue");
+            this.createColorPickerAndInputAboveCanvas();
         }
         /*Click on the canvas where you want the text, type your text in the textbox, then press enter*/
     fillText() {
@@ -2076,14 +2106,18 @@ this.ctx.closePath();`);
                         //var clickX, clickY;
                         console.log(`(${this.currentX}, ${this.currentY})`);
                         console.log(textToInsert);
+                        this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
                         this.ctx.fillText(textToInsert, this.currentX, this.currentY);
                         //Add to history
-                        this.addToActionHistory(`this.ctx.fillText("${textToInsert}", ${this.currentX}, ${this.currentY});`);
+                        this.addToActionHistory(`this.ctx.font = "${this.fontSize}px ${this.fontFamily}"; this.ctx.fillText("${textToInsert}", ${this.currentX}, ${this.currentY});`);
                         this.canvas.focus();
                     }
                 });
             });
             this.canvas.style.cursor = "text";
+            this.createRangeAndInputAboveCanvas(1, 50, 1, 10, "fontSize");
+            //Add a dropdown for font-families later
+            this.createColorPickerAndInputAboveCanvas();
         }
         /*draws a dot wherever you click*/
     drawDot() {
@@ -2092,18 +2126,23 @@ this.ctx.closePath();`);
             this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
             this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
             this.ctx.beginPath();
+            this.ctx.globalAlpha = this.opacityValue;
             this.ctx.moveTo(this.currentX, this.currentY);
-            this.ctx.arc(this.currentX, this.currentY, 2, 0, 2 * Math.PI);
+            this.ctx.arc(this.currentX, this.currentY, this.drawingStrokeWidth, 0, 2 * Math.PI);
             this.ctx.fill();
             this.ctx.closePath();
             //Then add to history
             this.addToActionHistory(`this.ctx.beginPath();
+            this.ctx.globalAlpha = ${this.opacityValue};
 this.ctx.moveTo(${this.currentX}, ${this.currentY});
-this.ctx.arc(${this.currentX}, ${this.currentY}, 2, 0, 2 * Math.PI);
+this.ctx.arc(${this.currentX}, ${this.currentY}, ${this.drawingStrokeWidth}, 0, 2 * Math.PI);
 this.ctx.fill();
 this.ctx.closePath();`);
         });
         this.canvas.style.cursor = "pointer";
+        this.createRangeAndInputAboveCanvas(1, 20, 1, 2, "drawingStrokeWidth");
+        this.createRangeAndInputAboveCanvas(0, 1, 0.01, 1, "opacityValue");
+        this.createColorPickerAndInputAboveCanvas();
     }
     addToActionHistory(actions) {
         this.canvasPastMoves.push(actions);
@@ -2165,44 +2204,48 @@ this.ctx.closePath();`);
         Copies an HTML snippet for the main study guide and the backing JS code to be put into a separate file
          */
     save() {
-        //Get canvas name from me
-        var query = prompt("querySelector:").replace("#", "");
-        //Finalize canvas code for later use
-        var htmlCanvasCodeOutput =
-            `<canvas id="${query}" width="${this.width}" height="${this.height}"></canvas>
+            //Get canvas name from me
+            var query = prompt("querySelector:").replace("#", "");
+            //Finalize canvas code for later use
+            var htmlCanvasCodeOutput =
+                `<canvas id="${query}" width="${this.width}" height="${this.height}"></canvas>
         <script src="./drawingScripts/${query}.js"></script>`;
-        let jsCode = `var ${query} = document.querySelector("#${query}");
+            let jsCode = `var ${query} = document.querySelector("#${query}");
         var ${query}CTX = ${query}.getContext("2d");
         oversampleCanvas(${query}, ${query}CTX, 4);`;
-        jsCode += this.canvasPastMoves.join("\n").replace(/this.ctx/g, `${query}CTX`);
-        //Now all of the canvas code is available, console.log it to verify
-        //htmlCanvasCodeOutput += jsCode + "</script>";
-        console.log(htmlCanvasCodeOutput);
-        copyStringToClipboard(htmlCanvasCodeOutput);
-        copyStringToClipboard(jsCode);
-    }
-    createRangeAndInputAboveCanvas = (minValue, maxValue, initValue) => {
+            jsCode += this.canvasPastMoves.join("\n").replace(/this.ctx/g, `${query}CTX`);
+            //Now all of the canvas code is available, console.log it to verify
+            //htmlCanvasCodeOutput += jsCode + "</script>";
+            console.log(htmlCanvasCodeOutput);
+            copyStringToClipboard(htmlCanvasCodeOutput);
+            copyStringToClipboard(jsCode);
+        }
+        // Function that creates range and input to modify drawingStrokeWidth while drawing (used for eraser too)
+    createRangeAndInputAboveCanvas = (minValue, maxValue, stepValue = 1, initValue, valueToAffect) => {
         var rangeInput = document.createElement("input");
         rangeInput.type = "range";
         //rangeInput.style.display = "block";
         rangeInput.setAttribute("min", minValue);
         rangeInput.setAttribute("max", maxValue);
+        rangeInput.setAttribute("step", stepValue);
         rangeInput.value = initValue;
-        this.drawingStrokeWidth = initValue;
+        eval(`this.${valueToAffect} = initValue;`);
         var inputInput = document.createElement("input");
         inputInput.type = "number";
         inputInput.setAttribute("min", minValue);
         inputInput.setAttribute("max", maxValue);
+        inputInput.setAttribute("step", stepValue);
         inputInput.value = initValue;
         var events = ["change", "keyup", "input"];
         for (var eventName of events) {
             rangeInput.addEventListener(eventName, () => {
                 inputInput.value = rangeInput.value;
-                this.drawingStrokeWidth = inputInput.value;
+                eval(`this.${valueToAffect} = inputInput.value;`);
+                //valueToAffect = inputInput.value;
             });
             inputInput.addEventListener(eventName, () => {
                 rangeInput.value = inputInput.value;
-                this.drawingStrokeWidth = inputInput.value;
+                eval(`this.${valueToAffect} = inputInput.value;`);
             });
         }
         var div = document.createElement("div");
@@ -2212,6 +2255,55 @@ this.ctx.closePath();`);
         ////////////////////maybe add a datalist with possible values
         this.canvas.insertAdjacentElement("beforebegin", div);
     };
+    createColorPickerAndInputAboveCanvas = () => {
+        var inputColor = document.createElement("input");
+        inputColor.type = "color";
+        inputColor.value = this.colorValue;
+        var inputInput = document.createElement("input");
+        inputInput.type = "text";
+
+        function hexToRGB(color) {
+            color = color.toString();
+            var r = parseInt(color.substring(1, 3), 16);
+            var g = parseInt(color.substring(3, 5), 16);
+            var b = parseInt(color.substring(5, 7), 16);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        /**
+         * Just some functions for funsies
+        function RGBComponentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+        function rgbToHex(r, g, b) {
+            return "#" + RGBComponentToHex(r)+ RGBComponentToHex(g)+ RGBComponentToHex(b);
+        }
+        */
+        inputInput.value = this.colorValue;
+        var events = ["change", "keyup", "input"];
+        for (var eventName of events) {
+            inputColor.addEventListener(eventName, () => {
+                inputInput.value = hexToRGB(inputColor.value);
+                this.changeColorValues(inputInput.value);
+
+            });
+            inputInput.addEventListener(eventName, () => {
+                inputColor.value = inputInput.value;
+                this.changeColorValues(inputInput.value);
+            });
+        }
+        var div = document.createElement("div");
+        div.classList.add("removableOnChange"); //Remove div on button selection change
+        div.appendChild(inputColor);
+        div.appendChild(inputInput);
+        ////////////////////maybe add a datalist with possible values
+        this.canvas.insertAdjacentElement("beforebegin", div);
+    };
+    changeColorValues(colorValue) {
+        this.colorValue = colorValue;
+        this.ctx.fillStyle = colorValue;
+        this.ctx.strokeStyle = colorValue;
+    }
 }
 
 
@@ -2432,23 +2524,23 @@ class RayDiagram {
             //Draw the rays!!
 
             /*Ray #1 -
-                        Concave mirrors:
-                        Ray#1: to mirror, then bounce back to focus
-                        Ray#2: through focus to mirror, bounce horizontally back
+                            Concave mirrors:
+                            Ray#1: to mirror, then bounce back to focus
+                            Ray#2: through focus to mirror, bounce horizontally back
             
-                        convex mirrors:
-                        Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
-                        Ray#2: through mirror dashed to focus, bounce backwards horizontally
+                            convex mirrors:
+                            Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
+                            Ray#2: through mirror dashed to focus, bounce backwards horizontally
             
-                        convex lens:
-                        Ray#1: to lens, through focus
-                        Ray#2: through center (if F>x>lens then extend dotted backwards)
-                        Ray#3: to focus, through lens
+                            convex lens:
+                            Ray#1: to lens, through focus
+                            Ray#2: through center (if F>x>lens then extend dotted backwards)
+                            Ray#3: to focus, through lens
             
-                        concave lens:
-                        Ray#1: to lens, dash backwards to focus, launch forwards
-                        Ray#2: 
-                        */
+                            concave lens:
+                            Ray#1: to lens, dash backwards to focus, launch forwards
+                            Ray#2: 
+                            */
             this.ctx.save();
 
             //Ray#1:
