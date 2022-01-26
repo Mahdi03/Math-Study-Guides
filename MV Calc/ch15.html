@@ -14,21 +14,23 @@
     <ul>
         <li>Integrating functions of two variables will give the volume (assuming the function is positive) between graph and <var>xy</var>-plane.</li>
         <li>We can derive a double integral the same way we derived single integrals (check out Unit 2 in the <a href="../AP Calc BC/studyGuide.html">AP Calculus BC Study Guide</a>), this time partitioning the volume twice and having a double Riemann sum.</li>
-        <canvas id="threeDimensionalRectangularSum" width="390" height="300"></canvas>
+        <canvas id="threeDimensionalRectangularSum" width="220" height="220"></canvas>
         <script class="renderJS">
             var threeDimensionalRectangularSum = document.querySelector("#threeDimensionalRectangularSum");
-            var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 390, 300);
-            var threeDimensionalRectangularSumCTX = threeDimensionalRectangularSumSketch.allowDrawable();
+            var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 220, 220);
             threeDimensionalRectangularSumSketch.load(`this.ctx.font = "10px Arial";
             this.ctx.strokeStyle = "black";
             this.ctx.fillStyle = "black"; //Required to make the tip of the arrow the same color
-            drawArrow(this.ctx, 100, 200, 100, 0);
-            this.ctx.fillText("z", 90, 20);
-            drawArrow(this.ctx, 100, 200, 380, 200);
-            this.ctx.fillText("y", 380, 210);
-            drawArrow(this.ctx, 100, 200, 0, 300);
-            this.ctx.fillText("x", 10, 275);`);
+            drawArrow(this.ctx, 10, 200, 10, 0);
+            this.ctx.fillText("y", 0, 20);
+            drawArrow(this.ctx, 10, 200, 210, 200);
+            this.ctx.fillText("x", 210, 210);
+            `);
         </script>
+        <canvas id="twoDimensionalPartitionGraphDiagram" width="340" height="300"></canvas>
+        <script src="./twoDimensionalPartitionGraphDiagram.js"></script>
+        <canvas id="twoDimensionalPartitionGraphDiagramCartesianPlane" width="220" height="220"></canvas>
+        <script src="./twoDimensionalPartitionGraphDiagramCartesianPlane.js"></script>
     </ul>
     <h3>15.2: Double Integrals Over General Regions:</h3>
     <ul></ul>
