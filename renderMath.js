@@ -1231,12 +1231,13 @@ function drawAnElectricalCircuit() {
 function copyStringToClipboard(string) {
     //If navigator.clipboard exists, use it
     if (navigator.clipboard) {
+        document.body.focus();
         navigator.clipboard.writeText(string);
     }
     //Else fallback
     else {
         var p = document.createElement("p");
-        p.innerHTML = string;
+        p.innerText = string;
         p.focus().select();
         try {
             document.execCommand("copy");
@@ -1745,6 +1746,7 @@ class SketchGraph {
     previousY = 0;
     currentX = 0;
     currentY = 0;
+    drawingStrokeWidth = 1;
 
     drawFlag = false; //Used for freeform drawing
     polylineEvents = []; // Used to store one drawing
@@ -1785,6 +1787,7 @@ class SketchGraph {
 <button id="drawLine" title="Draw a straight line">&minus;</button>
 <button id="drawDot" title="Place a dot">&sdot;</button>
 <button id="drawArrow" title="Draw an arrow">&rarr;</button>
+<button id="erase" title="Erase">&#x25A1;</button>
 <button id="fillText" title="Add text">Aa</button>
 <button id="undo" class="neverActive" title="Undo">&#x21A9;</button>
 <button id="redo" class="neverActive" title="Redo">&#x21AA;</button>
@@ -1798,7 +1801,7 @@ class SketchGraph {
         this.canvas.insertAdjacentElement("afterend", div);
 
         var drawFreeformButton = document.querySelector("#drawFreeformButton");
-        var buttons = ["drawFreeform", "drawLine", "drawDot", "drawArrow", "fillText", "undo", "redo", "clearAll", "save"];
+        var buttons = ["drawFreeform", "drawLine", "drawDot", "drawArrow", "erase", "fillText", "undo", "redo", "clearAll", "save"];
 
         function disableAllButtons(buttons) {
             buttons.forEach((buttonName) => {
@@ -1826,7 +1829,7 @@ class SketchGraph {
             console.log(keypressEvent);
             //Ctrl-Z is code: 'KeyZ', ctrlKey: true
             //Ctrl-Y is code: 'KeyY', ctrlKey: true
-            if (keypressEvent.ctrlKey) {
+            if (navigator.platform.match("Mac") ? keypressEvent.metaKey : keypressEvent.ctrlKey) {
                 if (keypressEvent.code == 'KeyZ') {
                     keypressEvent.preventDefault();
                     //Ctrl-Z was pressed, undo
@@ -1847,7 +1850,7 @@ class SketchGraph {
     This function will return the ctx of the canvas so that we can
     draw on the canvas using canvas methods
     */
-    get allowDrawable() {
+    allowDrawable() {
         return this.ctx;
     }
     draw(eventName, event) {
@@ -1870,11 +1873,13 @@ class SketchGraph {
         if (this.drawFlag) {
             var ctx = this.ctx;
             ctx.beginPath();
+            ctx.lineWidth = this.drawingStrokeWidth;
             ctx.moveTo(this.previousX, this.previousY);
             ctx.lineTo(this.currentX, this.currentY);
             ctx.stroke();
             ctx.closePath();
             this.polylineEvents.push(`this.ctx.beginPath();
+            this.ctx.lineWidth = ${this.drawingStrokeWidth};
 this.ctx.moveTo(${this.previousX}, ${this.previousY});
 this.ctx.lineTo(${this.currentX}, ${this.currentY});
 this.ctx.stroke();
@@ -1889,17 +1894,61 @@ this.ctx.closePath();`);
     the finger or the pen
     */
     drawFreeform() {
-            //Reset from everything else
+        //Reset from everything else
+        this.removeAllEventListeners();
+        ["pointerdown", "pointermove", "pointerup", "pointerout", "pointerleave",
+            /*"touchstart", "touchmove", "touchcancel", "touchend"*/
+        ].forEach((eventName) => {
+            this.canvas.addEventListener(eventName, (event) => {
+                this.draw(eventName, event);
+            });
+            //console.log(this.canvas);
+            this.canvas.style.cursor = "crosshair";
+        });
+        this.createRangeAndInputAboveCanvas(1, 20, 1);
+    }
+
+    eraseStuff(eventName, event) {
+        if (["pointerdown", "touchstart"].includes(eventName)) {
+            //Start drawing and save to polyline
+            this.drawFlag = true;
+        } else if (["pointerup", "pointerout", "pointerleave", "touchcancel", "touchend"].includes(eventName)) {
+            //Stop drawing and save the current polyline
+            this.drawFlag = false;
+            if (this.polylineEvents.length > 0) {
+                this.addToActionHistory(this.polylineEvents.join(" "));
+                this.polylineEvents.length = 0;
+            }
+        }
+        //Moves the cursor to wherever the pen is regardless of whether it will move
+        this.previousX = this.currentX;
+        this.previousY = this.currentY;
+        this.currentX = event.clientX - this.canvas.getBoundingClientRect().left - 4;
+        this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
+        //this.ctx.beginPath();
+        /*
+        this.ctx.rect(this.currentX - this.drawingStrokeWidth / 2, this.currentY - this.drawingStrokeWidth / 2, this.drawingStrokeWidth, this.drawingStrokeWidth);
+        this.ctx.stroke();
+        this.addToActionHistory(`this.ctx.rect(${this.currentX - this.drawingStrokeWidth / 2}, this.currentY - this.drawingStrokeWidth / 2, this.drawingStrokeWidth, this.drawingStrokeWidth);
+            this.ctx.stroke();`);
+            */
+        if (this.drawFlag) {
+            this.ctx.clearRect(this.currentX - this.drawingStrokeWidth / 2, this.currentY - this.drawingStrokeWidth / 2, this.drawingStrokeWidth, this.drawingStrokeWidth);
+            this.polylineEvents.push(`this.ctx.clearRect(${this.currentX - this.drawingStrokeWidth / 2}, ${this.currentY - this.drawingStrokeWidth / 2}, ${this.drawingStrokeWidth}, ${this.drawingStrokeWidth});`);
+        }
+    }
+    erase() {
+            this.addToActionHistory("//Dummy move for erase");
             this.removeAllEventListeners();
             ["pointerdown", "pointermove", "pointerup", "pointerout", "pointerleave",
                 /*"touchstart", "touchmove", "touchcancel", "touchend"*/
             ].forEach((eventName) => {
                 this.canvas.addEventListener(eventName, (event) => {
-                    this.draw(eventName, event);
+                    this.eraseStuff(eventName, event);
                 });
                 //console.log(this.canvas);
             });
-
+            this.createRangeAndInputAboveCanvas(1, 20, 1);
         }
         /*
         This function will draw a straight line on the canvas from start to finish
@@ -1926,10 +1975,11 @@ this.ctx.closePath();`);
                         this.currentY = event.clientY - this.canvas.getBoundingClientRect().top - 2;
                         //Now temporarily draw the line so that we know where we are going and what it looks like
                         this.ctx.beginPath();
+                        this.ctx.lineWidth = this.drawingStrokeWidth;
                         this.ctx.moveTo(this.previousX, this.previousY);
                         this.ctx.lineTo(this.currentX, this.currentY);
                         this.ctx.stroke();
-                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.moveTo(${this.previousX}, ${this.previousY}); this.ctx.lineTo(${this.currentX}, ${this.currentY}); this.ctx.stroke();`);
+                        this.addToActionHistory(`this.ctx.beginPath(); this.ctx.lineWidth = ${this.drawingStrokeWidth}; this.ctx.moveTo(${this.previousX}, ${this.previousY}); this.ctx.lineTo(${this.currentX}, ${this.currentY}); this.ctx.stroke();`);
                     }
                     //console.log(`pointermove - drawFlag" ${this.drawFlag}`);
                 });
@@ -1940,7 +1990,8 @@ this.ctx.closePath();`);
                     console.log(`pointerbye - ${this.drawFlag}`);
                     this.clearRedoCache();
                 });
-            })
+            });
+            this.createRangeAndInputAboveCanvas(1, 20, 1);
         }
         /*Draws arrow*/
     drawArrow() {
@@ -1955,7 +2006,7 @@ this.ctx.closePath();`);
                     this.ctx.moveTo(this.previousX, this.previousY);
                     this.addToActionHistory(`this.ctx.moveTo(${this.previousX}, ${this.previousY});`);
                     console.log(`pointerdown - drawFlag: ${this.drawFlag}`);
-                    console.log(this.canvasPastMoves)
+                    console.log(this.canvasPastMoves);
                 });
             });
             ["pointermove"].forEach((eventName) => {
@@ -2003,10 +2054,12 @@ this.ctx.closePath();`);
                         console.log(textToInsert);
                         this.ctx.fillText(textToInsert, this.currentX, this.currentY);
                         //Add to history
-                        this.addToActionHistory(`this.ctx.fillText("${textToInsert}", ${this.currentX}, ${this.currentY});`)
+                        this.addToActionHistory(`this.ctx.fillText("${textToInsert}", ${this.currentX}, ${this.currentY});`);
+                        this.canvas.focus();
                     }
                 });
             });
+            this.canvas.style.cursor = "text";
         }
         /*draws a dot wherever you click*/
     drawDot() {
@@ -2026,6 +2079,7 @@ this.ctx.arc(${this.currentX}, ${this.currentY}, 2, 0, 2 * Math.PI);
 this.ctx.fill();
 this.ctx.closePath();`);
         });
+        this.canvas.style.cursor = "pointer";
     }
     addToActionHistory(actions) {
         this.canvasPastMoves.push(actions);
@@ -2040,7 +2094,7 @@ this.ctx.closePath();`);
         if (this.canvasPastMoves.length > 0) {
             this.ctx.clearRect(0, 0, this.width, this.height);
             this.canvasUndidMovesStoredForRedos.push(this.canvasPastMoves.pop()); //Store the undid move in the redo place
-            eval(this.canvasPastMoves.join(" "));
+            eval(this.canvasPastMoves.join("\n"));
         }
     }
     redo() {
@@ -2052,6 +2106,7 @@ this.ctx.closePath();`);
         }
     }
     removeAllEventListeners(emptyCanvas) {
+        this.canvas.style.cursor = "default";
         var imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
         var newCanvas = this.canvas.cloneNode(false);
         this.canvas.parentNode.replaceChild(newCanvas, this.canvas);
@@ -2063,6 +2118,10 @@ this.ctx.closePath();`);
         }
         this.ctx.scale(4, 4); //(Re-enable the oversampling part)
         //console.log(this.canvas);
+        //Remove all external input ranges and what not
+        document.querySelectorAll(".removableOnChange").forEach((element) => {
+            element.parentElement.removeChild(element);
+        });
     }
     clearAll() {
         this.removeAllEventListeners(true); //Clears the canvas and removes all event listeners at the same time
@@ -2074,18 +2133,61 @@ this.ctx.closePath();`);
         this.currentX = 0;
         this.currentY = 0;
     }
+    load(actions) {
+            this.addToActionHistory(actions);
+            eval(this.canvasPastMoves.join("\n"));
+        }
+        /*
+        Copies an HTML snippet for the main study guide and the backing JS code to be put into a separate file
+         */
     save() {
         //Get canvas name from me
         var query = prompt("querySelector:").replace("#", "");
         //Finalize canvas code for later use
+        var htmlCanvasCodeOutput =
+            `<canvas id="${query}" width="${this.width}" height="${this.height}"></canvas>
+        <script src="./drawingScripts/${query}.js"></script>`;
         let jsCode = `var ${query} = document.querySelector("#${query}");
-        var ${query}CTX = ${query}.getContext("2d");`;
+        var ${query}CTX = ${query}.getContext("2d");
+        oversampleCanvas(${query}, ${query}CTX, 4);`;
         jsCode += this.canvasPastMoves.join("\n").replace(/this.ctx/g, `${query}CTX`);
         //Now all of the canvas code is available, console.log it to verify
-        console.log(jsCode);
+        //htmlCanvasCodeOutput += jsCode + "</script>";
+        console.log(htmlCanvasCodeOutput);
+        copyStringToClipboard(htmlCanvasCodeOutput);
         copyStringToClipboard(jsCode);
-
     }
+    createRangeAndInputAboveCanvas = (minValue, maxValue, initValue) => {
+        var rangeInput = document.createElement("input");
+        rangeInput.type = "range";
+        //rangeInput.style.display = "block";
+        rangeInput.setAttribute("min", minValue);
+        rangeInput.setAttribute("max", maxValue);
+        rangeInput.value = initValue;
+        this.drawingStrokeWidth = initValue;
+        var inputInput = document.createElement("input");
+        inputInput.type = "number";
+        inputInput.setAttribute("min", minValue);
+        inputInput.setAttribute("max", maxValue);
+        inputInput.value = initValue;
+        var events = ["change", "keyup", "input"];
+        for (var eventName of events) {
+            rangeInput.addEventListener(eventName, () => {
+                inputInput.value = rangeInput.value;
+                this.drawingStrokeWidth = inputInput.value;
+            });
+            inputInput.addEventListener(eventName, () => {
+                rangeInput.value = inputInput.value;
+                this.drawingStrokeWidth = inputInput.value;
+            });
+        }
+        var div = document.createElement("div");
+        div.classList.add("removableOnChange"); //Remove div on button selection change
+        div.appendChild(rangeInput);
+        div.appendChild(inputInput);
+        ////////////////////maybe add a datalist with possible values
+        this.canvas.insertAdjacentElement("beforebegin", div);
+    };
 }
 
 
@@ -2306,23 +2408,23 @@ class RayDiagram {
             //Draw the rays!!
 
             /*Ray #1 -
-                    Concave mirrors:
-                    Ray#1: to mirror, then bounce back to focus
-                    Ray#2: through focus to mirror, bounce horizontally back
+                        Concave mirrors:
+                        Ray#1: to mirror, then bounce back to focus
+                        Ray#2: through focus to mirror, bounce horizontally back
             
-                    convex mirrors:
-                    Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
-                    Ray#2: through mirror dashed to focus, bounce backwards horizontally
+                        convex mirrors:
+                        Ray#1: to mirror, then bounce backwards away from focus (line dash through focus)
+                        Ray#2: through mirror dashed to focus, bounce backwards horizontally
             
-                    convex lens:
-                    Ray#1: to lens, through focus
-                    Ray#2: through center (if F>x>lens then extend dotted backwards)
-                    Ray#3: to focus, through lens
+                        convex lens:
+                        Ray#1: to lens, through focus
+                        Ray#2: through center (if F>x>lens then extend dotted backwards)
+                        Ray#3: to focus, through lens
             
-                    concave lens:
-                    Ray#1: to lens, dash backwards to focus, launch forwards
-                    Ray#2: 
-                    */
+                        concave lens:
+                        Ray#1: to lens, dash backwards to focus, launch forwards
+                        Ray#2: 
+                        */
             this.ctx.save();
 
             //Ray#1:
