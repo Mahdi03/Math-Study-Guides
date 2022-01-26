@@ -538,7 +538,17 @@ function renderMath(parentElement = "") {
     }
     var renderJS = document.querySelectorAll(parentElement + "script.renderJS");
     renderJS.forEach((script) => {
-        eval(script.innerHTML);
+        //console.log(script.innerHTML == "");
+        if (script.innerHTML == "" && script.hasAttribute("src")) {
+            //If the inner body is empty but I have provided an SRC (meaning that it is probably one of those auto-generated drawing scripts)
+            //Then fetch the script and run it manually
+            fetch(script.getAttribute("src")).then((response) => response.text()).then((jsCode) => {
+                eval(jsCode);
+            });
+        } else {
+            //Else just evaluate whatever is inside the script
+            eval(script.innerHTML);
+        }
     });
 
 
@@ -1739,7 +1749,21 @@ class Graph {
 
     }
 }
-
+/*
+<canvas id="threeDimensionalRectangularSum" width="220" height="220"></canvas>
+        <script class="renderJS">
+            var threeDimensionalRectangularSum = document.querySelector("#threeDimensionalRectangularSum");
+            var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 220, 220);
+            threeDimensionalRectangularSumSketch.load(`this.ctx.font = "10px Arial";
+            this.ctx.strokeStyle = "black";
+            this.ctx.fillStyle = "black"; //Required to make the tip of the arrow the same color
+            drawArrow(this.ctx, 10, 200, 10, 0);
+            this.ctx.fillText("y", 0, 20);
+            drawArrow(this.ctx, 10, 200, 210, 200);
+            this.ctx.fillText("x", 210, 210);
+            `);
+        </script>
+*/
 class SketchGraph {
     //Used for drawing
     previousX = 0;

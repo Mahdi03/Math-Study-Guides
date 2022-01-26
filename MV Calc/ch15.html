@@ -13,24 +13,75 @@
     <h3>15.1: Double Integrals Over Rectangles:</h3>
     <ul>
         <li>Integrating functions of two variables will give the volume (assuming the function is positive) between graph and <var>xy</var>-plane.</li>
-        <li>We can derive a double integral the same way we derived single integrals (check out Unit 2 in the <a href="../AP Calc BC/studyGuide.html">AP Calculus BC Study Guide</a>), this time partitioning the volume twice and having a double Riemann sum.</li>
-        <canvas id="threeDimensionalRectangularSum" width="220" height="220"></canvas>
-        <script class="renderJS">
-            var threeDimensionalRectangularSum = document.querySelector("#threeDimensionalRectangularSum");
-            var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 220, 220);
-            threeDimensionalRectangularSumSketch.load(`this.ctx.font = "10px Arial";
-            this.ctx.strokeStyle = "black";
-            this.ctx.fillStyle = "black"; //Required to make the tip of the arrow the same color
-            drawArrow(this.ctx, 10, 200, 10, 0);
-            this.ctx.fillText("y", 0, 20);
-            drawArrow(this.ctx, 10, 200, 210, 200);
-            this.ctx.fillText("x", 210, 210);
-            `);
-        </script>
-        <canvas id="twoDimensionalPartitionGraphDiagram" width="340" height="300"></canvas>
-        <script src="./drawingScripts/twoDimensionalPartitionGraphDiagram.js"></script>
-        <canvas id="twoDimensionalPartitionGraphDiagramCartesianPlane" width="220" height="220"></canvas>
-        <script src="./drawingScripts/twoDimensionalPartitionGraphDiagramCartesianPlane.js"></script>
+        <li>We can derive a double integral the same way we derived single integrals (check out Unit 2 in the <a href="../AP Calc BC/studyGuide.html">AP Calculus BC Study Guide</a>), this time partitioning the volume twice and having a double Riemann sum.
+            When we partition it twice instead of once, we end up with large rectangular beams:</li>
+        <canvas id="threeDimensionalRectangularSumSketch" width="340" height="300"></canvas>
+        <script src="./drawingScripts/threeDimensionalRectangularSumSketch.js" class="renderJS"></script>
+        <li>Assuming the function is positive, integrating a function of two variables will give the volume between the graph and the
+            <equation><var>xy</var></equation>-plane.</li>
+        <li>Finally, we can say that the double integral of
+            <equation><var>f (x, y)</var></equation> over a rectangle
+            <equation><var>R</var></equation>:
+        </li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>R</var>" respectTo="<var>A</var>" double><var>f (x, y)</var></integral>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="doubleIntegralRiemannSumProofToggleLink" onclick="toggleSolution('#doubleIntegralRiemannSumProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <li>Click <b>Show Proof</b> to see more about double Riemann Sums.</li>
+        <div id="doubleIntegralRiemannSumProof" class="solution">
+            <ol>
+                <li>When we partition
+                    <equation>[<var>a, b</var>]</equation> and
+                    <equation>[<var>c, d</var>]</equation> into
+                    <equation><var>m</var></equation> and
+                    <equation><var>n</var></equation> our area into small rectangles, it should look something like this:<br />
+                    <canvas id="twoDimensionalPartitionGraphDiagramCartesianPlane" width="220" height="220"></canvas>
+                    <script src="./drawingScripts/twoDimensionalPartitionGraphDiagramCartesianPlane.js" class="renderJS"></script>
+                </li>
+                <li>We can define this rectangle
+                    <equation><var>R</var></equation> as
+                    <equation>[<var>a, b</var>] &Cross; [<var>c, d</var>]</equation>. We call this a cartesian product. It is the same as defining
+                    <equation><var>a &le; x &le; b</var></equation> and
+                    <equation><var>c &le; y &le; d</var></equation>
+                </li>
+                <li>Mathematically speaking, we can denote each subinterval as</li>
+                <equation><var>a = x<sub>0</sub> &lt; x<sub>1</sub> &lt; x<sub>2</sub> &lt; ... &lt; x<sub>m</sub> = b</var></equation><br />
+                <equation><var>c = y<sub>0</sub> &lt; y<sub>1</sub> &lt; y<sub>2</sub> &lt; ... &lt; y<sub>n</sub> = d</var></equation><br /> And find the
+                <li>We can use
+                    <equation>(<var>x<sub>i</sub>, y<sub>j</sub></var>)</equation> and the heights
+                    <equation><var>f (x<sub>i</sub>, y<sub>j</sub>)</var></equation> to find our volumes. The volume of a single sub-interval rectangular prism can be found like so:</li>
+                <equation><span class="alignedEquations">
+                    &Delta;<var>V<sub>ij</sub></var> = <text>height</text> &sdot; A<text> of base</text><br />
+                    = <var>f (x<sub>i</sub>, y<sub>j</sub>)</var>&Delta;<var>x<sub>i</sub></var>&Delta;<var>y<sub>j</sub></var>
+                </span></equation>
+                <li>Now to add up all the tiny sub-volumes for an approximation of our whole volume:</li>
+                <equation>
+                    <var>V</var> &asymp;
+                    <sigma start="<var>i</var> = 1" end="<var>m</var>"></sigma>
+                    <sigma start="<var>j</var> = 1" end="<var>n</var>"></sigma>&Delta;<var>V<sub>ij</sub></var> =
+                    <sigma start="<var>i</var> = 1" end="<var>m</var>"></sigma>
+                    <sigma start="<var>j</var> = 1" end="<var>n</var>"></sigma><var>f (x<sub>i</sub>, y<sub>j</sub>)</var>&Delta;<var>x<sub>i</sub></var>&Delta;<var>y<sub>j</sub></var>
+                </equation>
+                <li>When we take the limit of this double Riemann sum, as
+                    <equation><var>m, n</var> &rarr; &infin;</equation>, we get our double integral, where
+                    <equation><var>dA</var></equation> represents where the cuts are being made.</li>
+                <table class="rules">
+                    <tr>
+                        <td>
+                            <equation>
+                                <integral lowerBound="<var>R</var>" respectTo="<var>A</var>" double><var>f (x, y)</var></integral>
+                            </equation>
+                        </td>
+                    </tr>
+                </table>
+            </ol>
+        </div>
     </ul>
     <h3>15.2: Double Integrals Over General Regions:</h3>
     <ul></ul>
