@@ -52,7 +52,12 @@
                 </li>
                 <li>Mathematically speaking, we can denote each subinterval as</li>
                 <equation><var>a = x<sub>0</sub> &lt; x<sub>1</sub> &lt; x<sub>2</sub> &lt; ... &lt; x<sub>m</sub> = b</var></equation><br />
-                <equation><var>c = y<sub>0</sub> &lt; y<sub>1</sub> &lt; y<sub>2</sub> &lt; ... &lt; y<sub>n</sub> = d</var></equation><br /> And find the
+                <equation><var>c = y<sub>0</sub> &lt; y<sub>1</sub> &lt; y<sub>2</sub> &lt; ... &lt; y<sub>n</sub> = d</var></equation><br /> And find the sides of each rectangle as<br />
+                <equation><span class="alignedEquations">
+                    &Delta;x<sub>i</sub> = x<sub>i</sub> &minus; x<sub>i &minus; 1</sub><br />
+                    &Delta;y<sub>j</sub> = y<sub>j</sub> &minus; y<sub>j &minus; 1</sub>
+                </span></equation><br />
+                <b>Note:</b> The difference could be anything, in a Riemann sum they don't have to be uniform, but we purposefully make them uniform when we get into integrals.
                 <li>We can use
                     <equation>(<var>x<sub>i</sub>, y<sub>j</sub></var>)</equation> and the heights
                     <equation><var>f (x<sub>i</sub>, y<sub>j</sub>)</var></equation> to find our volumes. The volume of a single sub-interval rectangular prism can be found like so:</li>
@@ -71,17 +76,99 @@
                 <li>When we take the limit of this double Riemann sum, as
                     <equation><var>m, n</var> &rarr; &infin;</equation>, we get our double integral, where
                     <equation><var>dA</var></equation> represents where the cuts are being made.</li>
-                <table class="rules">
-                    <tr>
-                        <td>
-                            <equation>
+
+                <equation><span class="answer">
+                                <lim as="m, n" approaches="&infin;"></lim>
+                                <sigma start="<var>i</var> = 1" end="<var>m</var>"></sigma>
+                                <sigma start="<var>j</var> = 1" end="<var>n</var>"></sigma><var>f (x<sub>i</sub>, y<sub>j</sub>)</var>&Delta;<var>x<sub>i</sub></var>&Delta;<var>y<sub>j</sub></var> =
                                 <integral lowerBound="<var>R</var>" respectTo="<var>A</var>" double><var>f (x, y)</var></integral>
-                            </equation>
-                        </td>
-                    </tr>
-                </table>
+                            </span></equation>
+
             </ol>
         </div>
+        <li>We also have iterated integrals:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>y = c</var>" upperBound="<var>d</var>" respectTo="y">[
+                            <integral lowerBound="<var>x = a</var>" upperBound="<var>b</var>" respectTo="x">
+                                <var>f (x, y)</var>
+                            </integral>]
+                        </integral>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>x = a</var>" upperBound="<var>b</var>" respectTo="x">[
+                            <integral lowerBound="<var>y = c</var>" upperBound="<var>d</var>" respectTo="y">
+                                <var>f (x, y)</var>
+                            </integral>]
+                        </integral>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="iteratedIntegralsProofToggleLink" onclick="toggleSolution('#iteratedIntegralsProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="iteratedIntegralsProof" class="solution">
+            <ol>
+                <li>When we derived the above, we decided to make double cuts instead of singular cuts like we did in AP Calculus BC, what if, instead, we kept the same Fundamental Theorem of Calculus?</li>
+                <li>If we only make singular cuts, slicing parallel to the xz-plane, we can try to approximate the volume of each of these slices:</li>
+                <canvas id="iteratedIntegralsLoafSliceDiagram" width="340" height="310"></canvas>
+                <script src="./drawingScripts/iteratedIntegralsLoafSliceDiagram.js"></script>
+                <li>Let's look at a trace parallel to the xz-plane:</li>
+                <canvas id="volumeOfSingleSliceOfXZPlaneDiagram" width="220" height="220"></canvas>
+                <script src="./drawingScripts/volumeOfSingleSliceOfXZPlaneDiagram.js"></script>
+                <li>We can deduce that the volume of one of those 3-D loaf slices is the same as the area under the trace curve (single-variable integral) muliplied by how wide each slice is (
+                    <equation>&Delta;y<sub>j</sub></equation>):<br />
+                    <equation><span class="alignedEquations">
+                    &Delta;V<sub>j</sub> = (<text>area</text>)(<text>thickness</text>)<br />
+                    = [<integral lowerBound="a" upperBound="b" respectTo="x">f (x, y<sub>j</sub>)</integral>]&Delta;y<sub>j</sub>
+                </span></equation><br /> In the equation above, notice how the function inside the single-varaible integral seems to have two values. In reality the
+                    <equation><var>y</var></equation> is held constant because we are only looking at the xz-trace in this instance.
+                </li>
+                <li>To find our total volume, all we have to do is add up the volumes of each slice:</li>
+                <equation>
+                    V &asymp;
+                    <sigma start="<var>j</var> = 1" end="<var>n</var>"></sigma>[
+                    <integral lowerBound="a" upperBound="b" respectTo="x">f (x, y<sub>j</sub>)</integral>]&Delta;y<sub>j</sub>
+                </equation>
+                <li>This is the same thing as a Riemann Sum, only difference is that our function inside of it is already an integral but that's ok, let's take the limit as
+                    <equation><var>n</var></equation> &rarr; &infin;:</li>
+                <equation>
+                    V =
+                    <lim as="n" approaches="&infin;"></lim>
+                    <sigma start="<var>j</var> = 1" end="<var>n</var>"></sigma>[
+                    <integral lowerBound="a" upperBound="b" respectTo="x">f (x, y<sub>j</sub>)</integral>]&Delta;y<sub>j</sub></equation><br />
+                <equation><span class="answer">
+                    =
+                    <integral lowerBound="<var>y &#61; c</var>" upperBound="<var>d</var>" respectTo="y">[
+                        <integral lowerBound="<var>x = a</var>" upperBound="<var>b</var>" respectTo="x"><var>f (x, y)</var></integral>]</integral>
+                    </span></equation>
+                <li>From here all we have to do is switch the nesting to get our other iterated integral. The way we evaluate these is from the inside out, so first we would start with
+                    <equation><var>dx</var></equation> holding <var>y</var> constant as we integrate (and evaluate the bounds) and then we should be left with a function that is only with respect to
+                    <equation><var>y</var></equation>, at which point we evaluate the second integral.</li>
+            </ol>
+        </div>
+        <h5>Fubini's Theorem:</h5>
+        <li>We're still missing one piece of the puzzle. Now that we know the definition of an integral, how do we actually mathematically evaluate it, given a function?</li>
+        <li>If
+            <equation><var>f (x, y)</var></equation> is continuous on
+            <equation><var>R = [a, b] &Cross; [c, d]</var></equation>, then:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>R</var>" respectTo="A" double><var>f (x, y)</var></integral> =
+                        <integral lowerBound="<var>x = a</var>" upperBound="<var>b</var>" respectTo="x">[
+                            <integral lowerBound="<var>y = c</var>" upperBound="<var>d</var>" respectTo="y"><var>f (x, y)</var></integral>]</integral> =
+                        <integral lowerBound="<var>y = c</var>" upperBound="<var>d</var>" respectTo="y">[
+                            <integral lowerBound="<var>x = a</var>" upperBound="<var>b</var>" respectTo="x"><var>f (x, y)</var></integral>]</integral>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Now we know that the iterated integrals are equivalent no matter which way they are swapped, this will come handy in solving more complex nested integrals when the variables just won't go away.</li>
     </ul>
     <h3>15.2: Double Integrals Over General Regions:</h3>
     <ul></ul>
