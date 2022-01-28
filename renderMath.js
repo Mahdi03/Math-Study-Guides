@@ -259,29 +259,6 @@ function renderMath(parentElement = "") {
                 }
                 oldDet.replaceWith(...newDet);
             }
-            //Remember that MathJax does not support boxed answers in aligned equations
-            while (dom.querySelector("span.answer") != undefined) {
-                var oldSpan = dom.querySelector("span.answer");
-                //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
-                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
-                oldSpan.replaceWith(...newSpan);
-            }
-            while (dom.querySelector("span.cancel") != undefined) {
-                var oldSpan = dom.querySelector("span.cancel");
-                var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
-                oldSpan.replaceWith(...newSpan);
-            }
-            while (dom.querySelector("span.alignedEquations") != undefined) {
-                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
-                while (oldSpanAlignedEquations.querySelector("br") != undefined) {
-                    var oldBR = oldSpanAlignedEquations.querySelector("br");
-                    var newBR = createHTMLNodesFromString("\n\\\\\n");
-                    oldBR.replaceWith(...newBR);
-                }
-                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
-                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
-                oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
-            }
             while (dom.querySelector("sup") != undefined) {
                 var oldSUP = dom.querySelector("sup");
                 var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
@@ -334,6 +311,29 @@ function renderMath(parentElement = "") {
                 var oldVector = dom.querySelector("vector");
                 var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
                 oldVector.replaceWith(...newVector);
+            }
+            //Remember that MathJax does not support boxed answers in aligned equations
+            while (dom.querySelector("span.answer") != undefined) {
+                var oldSpan = dom.querySelector("span.answer");
+                //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
+                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
+                oldSpan.replaceWith(...newSpan);
+            }
+            while (dom.querySelector("span.cancel") != undefined) {
+                var oldSpan = dom.querySelector("span.cancel");
+                var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
+                oldSpan.replaceWith(...newSpan);
+            }
+            while (dom.querySelector("span.alignedEquations") != undefined) {
+                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
+                while (oldSpanAlignedEquations.querySelector("br") != undefined) {
+                    var oldBR = oldSpanAlignedEquations.querySelector("br");
+                    var newBR = createHTMLNodesFromString("\n\\\\\n");
+                    oldBR.replaceWith(...newBR);
+                }
+                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
+                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
+                oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
             }
             //Replace vector{} with \overrightarrow{}
             //myString.replace(/<sup>()<\/sup>/, "^{$1}");
@@ -1623,9 +1623,13 @@ class Graph {
                             a = distance between previous-current
                         */
                         var a = distanceBetweenTwoPoints(previousPoint[0], previousPoint[1], currentPoint[0], currentPoint[1]);
+                        var b = Math.abs(previousPoint[1] - currentPoint[1]);
+                        /*if (Math.round(b) !== 0)
+                            console.log(`b=${b}Math.round(b)=${Math.round(b)}\n minMaxDiff: ${minmaxY.max - minmaxY.min}\n${equationFunction}`);*/
                         //If the distance between just two points is close to the difference in min/max of the function, then it must be a vertical asymptote
-                        if (Math.ceil(a) >= Math.ceil(minmaxY.max - minmaxY.min)) {
+                        if (Math.round(b) >= (minmaxY.max - minmaxY.min)) {
                             this.ctx.moveTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
+                            //console.log("yeah we did this")
                         } else {
                             //draw line normally
                             this.ctx.lineTo(point[0] * this.params.scaleFactor, point[1] * this.params.scaleFactor);
@@ -1647,8 +1651,13 @@ class Graph {
                 var points = [];
                 for (var x = this.xRange[0] / this.params.scaleFactor; x <= this.xRange[1] / this.params.scaleFactor; x += this.params.interval) {
                     var y = equationFunction(x);
+                    //console.log(y);
                     if (isNaN(y) || !isFinite(y)) {
                         //Skip
+                        /*console.log(y);
+                        console.log(x);
+                        console.log(equationFunction);
+                        break;*/
                     } else {
                         //Add [x, y] to array only if the y value also falls in the interval of the axes shown
                         if (y * this.params.scaleFactor > this.yRange[0] && y * this.params.scaleFactor < this.yRange[1]) {
