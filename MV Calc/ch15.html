@@ -1,6 +1,6 @@
 <link href="../styles.css" rel="stylesheet" />
 <script src="../renderMath.js"></script>
-<!--<script src="main.js" async></script>-->
+<script src="main.js" async></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -174,7 +174,6 @@
     </ul>
     <h3>15.2: Double Integrals Over General Regions:</h3>
     <ul>
-
         <li>Imagine your function is
             <equation><var>h(x, y)</var></equation>. There are 3 types of regions we will be integrating over. Looking at the xy-plane:</li>
         <ol>
@@ -239,7 +238,7 @@
                 <tr>
                     <td>
                         <canvas id="regionType3Diagram"></canvas>
-                        <script>
+                        <script class="renderJS">
                             var regionType3Diagram = document.querySelector("#regionType3Diagram");
                             var regionType3DiagramGraph = new Graph(regionType3Diagram, [-4 * 30, 4 * 30], [0, 4 * 30], {
                                 padding: 10,
@@ -330,9 +329,168 @@
         </div>
     </ul>
     <h3>15.6: Triple Integrals:</h3>
-    <ul></ul>
+    <ul>
+        <li>Let's do a comparison of the different dimensions of integrals we are familiar with:</li>
+        <table class="staticTable">
+            <tr>
+                <th>Integral:</th>
+                <th>Depiction of Bounds on Integral:</th>
+                <th>Depiction of What Integral Means:</th>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th>Integral:</th>
+                <th>Depiction of What Integral Means:</th>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x"><var>f (x)</var></integral>
+                    </equation>
+                </td>
+                <td>
+                    <canvas id="lineChartWithDomainNoted" width="100" height="40"></canvas>
+                    <script src="./drawingScripts/lineChartWithDomainNoted.js" class="renderJS"></script>
+                    <!--Line Chart-->
+                </td>
+                <td>
+                    <!--Area Under the Curve Diagram-->
+                    <canvas id="areaUnderTheCurveDiagram" width="100" height="100"></canvas>
+                    <script src="./drawingScripts/areaUnderTheCurveDiagram.js" class="renderJS"></script>
+                </td>
+                <td>Area</td>
+                <td style="border-top: none; border-bottom: none;">
+                    <!--Empty for spacing to assume there are two different tables-->
+                </td>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x">1</integral> = <var>b &minus; a</var>
+                    </equation>
+                </td>
+                <td>
+                    <!--Line Chart-->
+                    <canvas id="lineChartWithoutDomainNoted" width="100" height="40"></canvas>
+                    <script src="./drawingScripts/lineChartWithoutDomainNoted.js" class="renderJS"></script>
+                </td>
+                <td>Length</td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>D</var>" respectTo="A" double><var>f (x, y)</var></integral>
+                    </equation>
+                </td>
+                <td>
+                    <!--Ellipse Domain Chart-->
+                    <canvas id="ellipseDomainChart1" width="100" height="100"></canvas>
+                    <script class="renderJS">
+                        var ellipseDomainChart1 = document.querySelector("#ellipseDomainChart1");
+                        var ellipseDomainChart1CTX = ellipseDomainChart1.getContext("2d");
+                        oversampleCanvas(ellipseDomainChart1, ellipseDomainChart1CTX, 4);
+                        ellipseDomainChart1CTX.font = "10px Arial";
+                        ellipseDomainChart1CTX.strokeStyle = "black";
+                        ellipseDomainChart1CTX.fillStyle = "black"; //Required to make the tip of the arrow the same color
+                        drawArrow(ellipseDomainChart1CTX, 10, 90, 10, 0);
+                        ellipseDomainChart1CTX.fillText("y", 2, 20);
+                        drawArrow(ellipseDomainChart1CTX, 10, 90, 100, 90);
+                        ellipseDomainChart1CTX.fillText("x", 90, 100);
+                        ellipseDomainChart1CTX.moveTo(50 + 25, 50)
+                        ellipseDomainChart1CTX.ellipse(50, 50, 25, 15, 0, 0, 2 * Math.PI);
+                        ellipseDomainChart1CTX.stroke();
+
+                        ellipseDomainChart1CTX.font = "10px Arial";
+                        ellipseDomainChart1CTX.fillText("D", 47, 53);
+                    </script>
+                </td>
+                <td>
+                    <!--Volume Uner the Curve Diagram-->
+                    <canvas id="volumeUnderTheCurveDiagram" width="100" height="100"></canvas>
+                    <script src="./drawingScripts/volumeUnderTheCurveDiagram.js" class="renderJS"></script>
+                </td>
+                <td>Volume</td>
+                <td style="border-top: none; border-bottom: none;">
+                    <!--Empty for spacing to assume there are two different tables-->
+                </td>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>D</var>" respectTo="A" double>1</integral> = <var>D</var>
+                    </equation>
+                </td>
+                <td>
+                    <!--Same Ellipse Domain Chart-->
+                    <canvas id="ellipseDomainChart2" width="100" height="100"></canvas>
+                    <script class="renderJS">
+                        var ellipseDomainChart1 = document.querySelector("#ellipseDomainChart2");
+                        var ellipseDomainChart2CTX = ellipseDomainChart2.getContext("2d");
+                        oversampleCanvas(ellipseDomainChart2, ellipseDomainChart2CTX, 4);
+                        ellipseDomainChart2CTX.font = "10px Arial";
+                        ellipseDomainChart2CTX.strokeStyle = "black";
+                        ellipseDomainChart2CTX.fillStyle = "black"; //Required to make the tip of the arrow the same color
+                        drawArrow(ellipseDomainChart2CTX, 10, 90, 10, 0);
+                        ellipseDomainChart2CTX.fillText("y", 2, 20);
+                        drawArrow(ellipseDomainChart2CTX, 10, 90, 100, 90);
+                        ellipseDomainChart2CTX.fillText("x", 90, 100);
+                        ellipseDomainChart2CTX.moveTo(50 + 25, 50)
+                        ellipseDomainChart2CTX.ellipse(50, 50, 25, 15, 0, 0, 2 * Math.PI);
+                        ellipseDomainChart2CTX.stroke();
+
+                        ellipseDomainChart2CTX.font = "10px Arial";
+                        ellipseDomainChart2CTX.fillText("D", 47, 53);
+                    </script>
+
+                </td>
+                <td>Area</td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>W</var>" respectTo="V" triple><var>f (x, y, z)</var></integral>
+                    </equation>
+                </td>
+                <td>
+                    <!--Pumpkin Graph?-->
+                    <canvas id="pumpkinGraphThingy1" width="100" height="100"></canvas>
+                    <script src="./drawingScripts/pumpkinGraphThingy1.js" class="renderJS"></script>
+                    <!--<canvas id="threeDimensionalRectangularSum" width="100" height="100"></canvas>
+                    <script class="renderJS">
+                        var threeDimensionalRectangularSum = document.querySelector("#threeDimensionalRectangularSum");
+                        var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 100, 100);
+                        threeDimensionalRectangularSumSketch.load(`
+                        this.ctx.font = "10px Arial";
+            this.ctx.strokeStyle = "black";
+            this.ctx.fillStyle = "black"; //Required to make the tip of the arrow the same color
+            drawArrow(this.ctx, 30, 70, 30, 0);
+            this.ctx.fillText("z", 22, 20);
+            drawArrow(this.ctx, 30, 70, 100, 70);
+            this.ctx.fillText("y", 90, 80);
+            drawArrow(this.ctx, 30, 70, 0, 100);
+            this.ctx.fillText("x", 10, 100);
+                        `);
+                    </script>-->
+                </td>
+                <td>?</td>
+                <td>Exotic</td>
+                <td style="border-top: none; border-bottom: none;">
+                    <!--Empty for spacing to assume there are two different tables-->
+                </td>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>W</var>" respectTo="V" triple>1</integral> = <var>W</var>
+                    </equation>
+                </td>
+                <td>
+                    <!--Same Pumpkin Graph?-->
+                    <canvas id="pumpkinGraphThingy2" width="100" height="100"></canvas>
+                    <script src="./drawingScripts/pumpkinGraphThingy2.js" class="renderJS"></script>
+                </td>
+                <td>Volume</td>
+            </tr>
+        </table>
+        <li>Just how we had iterated integrals with respect to 2 variables, we can increase that to any number of nested integrals, as long as we don't mess up the order of the bounds and the differentials.</li>
+    </ul>
     <h3>15.9: U-Sub For Double and Triple Integrals</h3>
-    <ul></ul>
+    <ul>
+        <li>When doing u-subs for single variable calculus, we found that while the domain (bounds) and the function (integrand) change, the area under the curve still stays the same.</li>
+    </ul>
     <h3>15.7: Triple Integrals in Cylindrical Coordinates:</h3>
     <ul></ul>
     <h3>15.8: Triple Integrals in Spherical Coordinates:</h3>
@@ -372,6 +530,3 @@
         </table>
     </ul>
 </div>
-<script>
-    renderMath();
-</script>

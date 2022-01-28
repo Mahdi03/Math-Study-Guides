@@ -1,0 +1,16 @@
+var lineChartWithoutDomainNoted = document.querySelector("#lineChartWithoutDomainNoted");
+var lineChartWithoutDomainNotedCTX = lineChartWithoutDomainNoted.getContext("2d");
+oversampleCanvas(lineChartWithoutDomainNoted, lineChartWithoutDomainNotedCTX, 4);
+lineChartWithoutDomainNotedCTX.beginPath();
+lineChartWithoutDomainNotedCTX.lineWidth = 1;
+lineChartWithoutDomainNotedCTX.moveTo(5, 20);
+lineChartWithoutDomainNotedCTX.lineTo(95, 20);
+lineChartWithoutDomainNotedCTX.lineWidth = 1;
+lineChartWithoutDomainNotedCTX.moveTo(13, 15);
+lineChartWithoutDomainNotedCTX.lineTo(13, 25);
+lineChartWithoutDomainNotedCTX.lineWidth = 1;
+lineChartWithoutDomainNotedCTX.moveTo(87, 15);
+lineChartWithoutDomainNotedCTX.lineTo(87, 25);
+lineChartWithoutDomainNotedCTX.stroke();
+lineChartWithoutDomainNotedCTX.fillText("a", 15, 30);
+lineChartWithoutDomainNotedCTX.fillText("b", 80, 30);
