@@ -324,6 +324,7 @@ function renderMath(parentElement = "") {
                 var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
                 oldSpan.replaceWith(...newSpan);
             }
+            //Remember that this tag does not like a verbose usage of <var></var> inside of it, try to remove unnecessary brackets in the event of "Misplaced &"
             while (dom.querySelector("span.alignedEquations") != undefined) {
                 var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
                 while (oldSpanAlignedEquations.querySelector("br") != undefined) {
