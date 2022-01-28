@@ -340,7 +340,7 @@
 
                                     ellipseGraphDiagramGraph.addEquation(ellipseFunctionTop).addEquation(ellipseFunctionBottom).finalizeGraph();
 
-                                    var ctxB = ellipseGraphDiagram.getContext("2d");
+                                    var ctxB = ellipseGraphDiagramGraph.allowDrawable();
 
                                     var c = Math.sqrt(93 ** 2 - 70 ** 2);
                                     ctxB.setLineDash([]);

@@ -110,15 +110,16 @@
                 <th><a href="javascript:void(0)" id="iteratedIntegralsProofToggleLink" onclick="toggleSolution('#iteratedIntegralsProof', true);">Show Proof</a></th>
             </tr>
         </table>
+        <li>Click <b>Show Proof</b> to see more about where Iterated Integrals come from.</li>
         <div id="iteratedIntegralsProof" class="solution">
             <ol>
                 <li>When we derived the above, we decided to make double cuts instead of singular cuts like we did in AP Calculus BC, what if, instead, we kept the same Fundamental Theorem of Calculus?</li>
                 <li>If we only make singular cuts, slicing parallel to the xz-plane, we can try to approximate the volume of each of these slices:</li>
                 <canvas id="iteratedIntegralsLoafSliceDiagram" width="340" height="310"></canvas>
-                <script src="./drawingScripts/iteratedIntegralsLoafSliceDiagram.js"></script>
+                <script src="./drawingScripts/iteratedIntegralsLoafSliceDiagram.js" class="renderJS"></script>
                 <li>Let's look at a trace parallel to the xz-plane:</li>
                 <canvas id="volumeOfSingleSliceOfXZPlaneDiagram" width="220" height="220"></canvas>
-                <script src="./drawingScripts/volumeOfSingleSliceOfXZPlaneDiagram.js"></script>
+                <script src="./drawingScripts/volumeOfSingleSliceOfXZPlaneDiagram.js" class="renderJS"></script>
                 <li>We can deduce that the volume of one of those 3-D loaf slices is the same as the area under the trace curve (single-variable integral) muliplied by how wide each slice is (
                     <equation>&Delta;y<sub>j</sub></equation>):<br />
                     <equation><span class="alignedEquations">
@@ -168,10 +169,166 @@
                 </td>
             </tr>
         </table>
-        <li>Now we know that the iterated integrals are equivalent no matter which way they are swapped, this will come handy in solving more complex nested integrals when the variables just won't go away.</li>
+        <li>Now we know that the iterated integrals are equivalent no matter which way they are swapped, this will come handy in solving more complex nested integrals when the variables just won't go away. Just don't forget to check that your function is
+            continuous on the domain, or else Fubini's Theorem does not apply.</li>
     </ul>
     <h3>15.2: Double Integrals Over General Regions:</h3>
-    <ul></ul>
+    <ul>
+
+        <li>Imagine your function is
+            <equation><var>h(x, y)</var></equation>. There are 3 types of regions we will be integrating over. Looking at the xy-plane:</li>
+        <ol>
+            <li>Type 1: Sides are flat</li>
+            <table>
+                <tr>
+                    <td>
+                        <canvas id="regionType1Diagram" width="220" height="220"></canvas>
+                        <script src="./drawingScripts/regionType1Diagram.js" class="renderJS"></script>
+                    </td>
+                    <td>
+                        <table class="staticTable">
+                            <tr>
+                                <td>
+                                    <equation><var>a &le; x &le; b</var></equation><br />
+                                    <equation><var>g(x) &le; y &le; f (x)</var></equation>
+                                </td>
+                                <td>
+                                    <equation>
+                                        <integral lowerBound="<var>D</var>" respectTo="A" double><var>h(x, y)</var></integral>
+                                        =
+                                        <integral lowerBound="<var>x = a</var>" upperBound="b" respectTo="x">
+                                            <integral lowerBound="<var>y = g(x)</var>" upperBound="<var>f (x)</var>" respectTo="y"><var>h(x, y)</var></integral>
+                                        </integral>
+                                    </equation>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <li>Type 2:</li>
+            <table>
+                <tr>
+                    <td>
+                        <canvas id="regionType2Diagram" width="220" height="220"></canvas>
+                        <script src="./drawingScripts/regionType2Diagram.js" class="renderJS"></script>
+                    </td>
+                    <td>
+                        <table class="staticTable">
+                            <tr>
+                                <td>
+                                    <equation><var>c &le; y &le; d</var></equation><br />
+                                    <equation><var>l(y) &le; x &le; r(y)</var></equation>
+                                </td>
+                                <td>
+                                    <equation>
+                                        <integral lowerBound="<var>D</var>" respectTo="A" double><var>h(x, y)</var></integral>
+                                        =
+                                        <integral lowerBound="<var>y = c</var>" upperBound="d" respectTo="y">
+                                            <integral lowerBound="<var>x = l(y)</var>" upperBound="<var>r(y)</var>" respectTo="x"><var>h(x, y)</var></integral>
+                                        </integral>
+                                    </equation>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <li>Type 3: (both Type 1 &amp; Type 2)</li>
+            <table>
+                <tr>
+                    <td>
+                        <canvas id="regionType3Diagram"></canvas>
+                        <script>
+                            var regionType3Diagram = document.querySelector("#regionType3Diagram");
+                            var regionType3DiagramGraph = new Graph(regionType3Diagram, [-4 * 30, 4 * 30], [0, 4 * 30], {
+                                padding: 10,
+                                interval: 0.00001,
+                                scaleFactor: 30,
+                                drawAxis: true,
+                                xAxisTitle: "x",
+                                showXAxisTitle: true,
+                                yAxisTitle: "y",
+                                showYAxisTitle: true
+                            });
+                            regionType3DiagramGraph.addEquation((x) => {
+                                return Math.sqrt(9 - x ** 2);
+                            });
+                            var regionType3DiagramCTX = regionType3DiagramGraph.allowDrawable("invert");
+                            //Have to use different coordinates since this is a graph context that has not been rotated back
+                            //regionType3DiagramCTX.scale(1, -1); // Flips the canvas upside down just so we can draw our text right-side up
+                            regionType3DiagramCTX.fillText("-3", -3.25 * 30, 10);
+                            regionType3DiagramCTX.fillText("0", -3, 10);
+                            regionType3DiagramCTX.fillText("3", 0, -3 * 30);
+                            regionType3DiagramCTX.fillText("3", 3 * 30, 10);
+                        </script>
+                    </td>
+                    <td>
+                        <table class="staticTable">
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <th>Type 1:</th>
+                                            <th>&emsp;</th>
+                                            <th>Type 2:</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <equation>&minus;3 &le; <var>x</var> &le; 3</equation><br />
+                                                <equation>0 &le; <var>y</var> &le;
+                                                    <sqrt>9 &minus; <var>x</var><sup>2</sup></sqrt>
+                                                </equation>
+                                            </td>
+                                            <td>&emsp;</td>
+                                            <td style="text-align: center;">
+                                                <equation>0 &le; <var>y</var> &le; 3</equation><br />
+                                                <equation>&minus;
+                                                    <sqrt>9 &minus; <var>y</var><sup>2</sup></sqrt> &le; <var>x</var> &le;
+                                                    <sqrt>9 &minus; <var>y</var><sup>2</sup></sqrt>
+                                                </equation>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>Since it classifies as both Type 1 and Type 2, we are allowed to choose the bounds ourselves and set the order of integration</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </ol>
+        <li>The main trick here is to find your bounds of integration depending on the region that you are given, and then reorder the integrals so that when you reach the outmost integral, you are only left with terms of that variable.</li>
+        <li>When solving the integrals, another thing to note that will come in handy in the next section is that:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>D</var>" respectTo="A" double>1</integral> = <var>D</var>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="doubleIntegralOfConstantProofToggleLink" onclick="toggleSolution('#doubleIntegralOfConstantProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="doubleIntegralOfConstantProof" class="solution">
+            <ol>
+                <li>Think of it as one dimension less than what the output normally is:</li>
+                <equation><span class="alignedEquations">
+                    <integral lowerBound="<var>D</var>" respectTo="A" double>1</integral> = <text>volume of solid</text><br />
+                    = <text>Area of base</text> &sdot; <text>height</text><br />
+                    = <text>Area of base</text> &sdot; 1<br />
+                    = <text>Area of </text>D
+                </span></equation>
+                <li>The same holds true with integrals of one variable:<br />
+                    <equation><span class="alignedEquations">
+                    <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x">1</integral> = <text>base</text> &sdot; <text>height</text><br />
+                    = (<var>b &minus; a</var>) &sdot; 1<br />
+                    = <var>b &minus; a</var>
+                </span></equation><br /> which is the equivalent of length.
+                </li>
+            </ol>
+        </div>
+    </ul>
     <h3>15.6: Triple Integrals:</h3>
     <ul></ul>
     <h3>15.9: U-Sub For Double and Triple Integrals</h3>
@@ -215,3 +372,6 @@
         </table>
     </ul>
 </div>
+<script>
+    renderMath();
+</script>

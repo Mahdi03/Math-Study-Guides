@@ -406,8 +406,10 @@
             border-collapse: collapse;
         }
         
-        .staticTable td,
-        .staticTable th:not(.rules th) {
+        .staticTable>tr>td,
+        .staticTable>tbody>tr>td,
+        .staticTable>tr>th:not(.rules th),
+        .staticTable>tbody>tr>th:not(.rules th) {
             margin: 5px;
             padding: 10px;
             text-align: center;
