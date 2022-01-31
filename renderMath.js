@@ -220,7 +220,27 @@ function renderMath(parentElement = "") {
                 var oldMatrix = dom.querySelector("matrix");
                 var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
                 var dimensionY = parseInt(oldMatrix.getAttribute("dimensionY"));
-                var values = oldMatrix.getAttribute("values").split(", ");
+                /*
+                Since this attribute is stored in string format, everything that comes before it is not actually rendered
+                since it is not a DOM element, so for matrices of pDerivatives and what not, also support innerHTML
+                Still support getAttribute("values") for backwards compatability, since there are a lot of matrices already on these study guides
+                */
+                var values = [];
+                if (oldMatrix.hasAttribute("values")) {
+                    values = oldMatrix.getAttribute("values").split(", "); //Insert values in comma separated list format
+                } else {
+                    // Rely on innerHTML, still comma-separated values - maybe change that to something else?
+                    // NVMD we can't rely on comma separated values, commas are too common in math - prone to throw avoidable errors
+                    // Use a new <cell> element for each cell of the matrix
+                    while (oldMatrix.querySelector("cell") != undefined) {
+                        var oldCell = oldMatrix.querySelector("cell");
+                        values.push(oldCell.innerHTML); //still keep the same `values` functionality, just change the `values` collection method
+                        //Now we need to remove this cell from the matrix so that we don't accidentally loop back to it again
+                        oldCell.replaceWith(...createHTMLNodesFromString("")); // Replace with empty string node since I am lazy to find the right way to actually take care of this
+                    }
+                    //values = oldMatrix.innerHTML.split(",");
+                }
+
                 if (values.length !== dimensionX * dimensionY) {
                     console.log(values);
                     oldMatrix.innerHTML = "Could not display matrix, Dimension Error";
@@ -249,10 +269,14 @@ function renderMath(parentElement = "") {
             }
             while (dom.querySelector("det") != undefined) {
                 var oldDet = dom.querySelector("det");
+                var writeDet = false;
+                if (oldDet.hasAttribute("writeDet")) {
+                    writeDet = true;
+                }
                 var newDet;
                 //If the child of the determinant has already converted something other than a variable name, then print just as
                 if (oldDet.firstChild.wholeText.includes("\\begin")) {
-                    newDet = createHTMLNodesFromString(oldDet.innerHTML);
+                    newDet = createHTMLNodesFromString(((writeDet) ? "\\det" : "") + oldDet.innerHTML);
                 } else {
                     //Else use determinant as function instead of bracket notation defined in matrix tags
                     newDet = createHTMLNodesFromString("\\det\\left(" + oldDet.innerHTML + "\\right)");
@@ -1831,8 +1855,6 @@ class SketchGraph {
             this.canvas.width = this.width;
             this.canvas.height = this.height;
             oversampleCanvas(this.canvas, this.ctx, 4);
-            document.body.style.touchAction = "none";
-            this.canvas.style.touchAction = "auto";
             this.canvas.style.border = "3px solid black";
 
             //Set up canvas and add additional primer stuff
@@ -1878,13 +1900,16 @@ class SketchGraph {
 
         var drawFreeformButton = document.querySelector("#drawFreeformButton");
         var buttons = ["drawFreeform", "drawLine", "drawDot", "drawArrow", "erase", "fillText", "undo", "redo", "clearAll", "save"];
-
-        function disableAllButtons(buttons) {
+        //Changed to ES6 function notation to allow global `this` to trickle down
+        var disableAllButtons = (buttons) => {
             buttons.forEach((buttonName) => {
                 var button = document.querySelector("#" + buttonName);
                 button.classList.remove("active");
             });
-        }
+            //Since the canvas is no longer active, re-enable touch because it gets annoying without it
+            document.body.style.touchAction = "auto";
+            this.canvas.style.touchAction = "none";
+        };
         buttons.forEach((buttonName) => {
             var button = document.querySelector("#" + buttonName);
             button.addEventListener("click", () => {
@@ -1896,6 +1921,9 @@ class SketchGraph {
                     //Disable any old buttons, enable the button, and call its respective function
                     disableAllButtons(buttons);
                     button.classList.add("active");
+                    //Disable touch since we are enabling the button
+                    document.body.style.touchAction = "none";
+                    this.canvas.style.touchAction = "auto";
                     eval("this." + buttonName + "()");
                 }
             });

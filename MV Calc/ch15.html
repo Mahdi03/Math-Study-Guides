@@ -436,7 +436,6 @@
                         ellipseDomainChart2CTX.font = "10px Arial";
                         ellipseDomainChart2CTX.fillText("D", 47, 53);
                     </script>
-
                 </td>
                 <td>Area</td>
             </tr>
@@ -450,22 +449,6 @@
                     <!--Pumpkin Graph?-->
                     <canvas id="pumpkinGraphThingy1" width="100" height="100"></canvas>
                     <script src="./drawingScripts/pumpkinGraphThingy1.js" class="renderJS"></script>
-                    <!--<canvas id="threeDimensionalRectangularSum" width="100" height="100"></canvas>
-                    <script class="renderJS">
-                        var threeDimensionalRectangularSum = document.querySelector("#threeDimensionalRectangularSum");
-                        var threeDimensionalRectangularSumSketch = new SketchGraph(threeDimensionalRectangularSum, 100, 100);
-                        threeDimensionalRectangularSumSketch.load(`
-                        this.ctx.font = "10px Arial";
-            this.ctx.strokeStyle = "black";
-            this.ctx.fillStyle = "black"; //Required to make the tip of the arrow the same color
-            drawArrow(this.ctx, 30, 70, 30, 0);
-            this.ctx.fillText("z", 22, 20);
-            drawArrow(this.ctx, 30, 70, 100, 70);
-            this.ctx.fillText("y", 90, 80);
-            drawArrow(this.ctx, 30, 70, 0, 100);
-            this.ctx.fillText("x", 10, 100);
-                        `);
-                    </script>-->
                 </td>
                 <td>?</td>
                 <td>Exotic</td>
@@ -489,7 +472,448 @@
     </ul>
     <h3>15.9: U-Sub For Double and Triple Integrals</h3>
     <ul>
-        <li>When doing u-subs for single variable calculus, we found that while the domain (bounds) and the function (integrand) change, the area under the curve still stays the same.</li>
+        <li>We now need tools to solve these more complex integrals.</li>
+        <li>When doing u-subs for single variable calculus, we found that while the domain (bounds) and the function (integrand) change, the area under the curve still stays the same. <a id="singleVariableU-SubExampleToggleLink" href="javascript:void(0);"
+                onclick="toggleSolution('#singleVariableU-SubExample', 'Example')">Show Example</a></li>
+        <div id="singleVariableU-SubExample" class="solution">
+            <ol>
+                Integrate
+                <equation>
+                    <integral lowerBound="0" upperBound="&pi;/2" respectTo="x">
+                        <sin>2x</sin>
+                    </integral>
+                </equation>
+                <li>First we let
+                    <equation><var>u = 2x</var></equation> from which we get:</li>
+                <equation><span class="alignedEquations">
+                    u = 2x<br />
+                    <derivative of="u"></derivative> = 2 <span class="cancel">
+                        <derivative of="x"></derivative>
+                    </span><br /><br /> du = 2dx<br />
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div>du = dx
+                    </span>
+                </equation>
+                <li>Now substituting it back in, our integral becomes:</li>
+                <equation>
+                    <integral lowerBound="0" upperBound="&pi;/2" respectTo="x">
+                        <sin>2x</sin>
+                    </integral> &rarr;
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">2</div>
+                    </div>
+                    <integral lowerBound="<var>u</var>(0)" upperBound="<var>u</var>(&pi;/2)" respectTo="u">
+                        <sin>u</sin>
+                    </integral>
+                </equation>
+                <li>Now we can easily calculate it! Let's graphically interpret the two integrals, before and after u-sub:</li>
+                <table class="staticTable">
+                    <tr>
+                        <td>
+                            <equation>
+                                <integral lowerBound="0" upperBound="&pi;/2" respectTo="x">
+                                    <sin>2x</sin>
+                                </integral>
+                            </equation>
+                        </td>
+                        <td>
+                            <equation>
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom">2</div>
+                                </div>
+                                <integral lowerBound="<var>u</var>(0)" upperBound="<var>u</var>(&pi;/2)" respectTo="u">
+                                    <sin>u</sin>
+                                </integral>
+                            </equation>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <canvas id="sinXGraph"></canvas>
+                            <script class="renderJS">
+                                var sinXGraph = document.querySelector("#sinXGraph");
+                                var scaleFactor = 30;
+                                var sinXGraphGraph = new Graph(sinXGraph, [0, 2 * Math.PI * scaleFactor], [-2 * scaleFactor, 2 * scaleFactor], {
+                                    interval: 0.1,
+                                    scaleFactor: scaleFactor,
+                                    xAxisTitle: "x",
+                                    showXAxisTitle: true,
+                                    yAxisTitle: "y",
+                                    showYAxisTitle: true,
+                                    drawAxis: true
+                                });
+                                sinXGraphGraph.addEquation((x) => {
+                                    return Math.sin(2 * x);
+                                });
+                                //Shade in the graph from [0, Math.PI/2]
+                                var sinXGraphCTX = sinXGraphGraph.allowDrawable();
+                                for (var x = 0; x < (Math.PI / 2); x += 0.1) {
+                                    sinXGraphCTX.moveTo(x * scaleFactor, 0);
+                                    sinXGraphCTX.lineTo(x * scaleFactor, Math.sin(2 * x) * scaleFactor);
+                                }
+                                sinXGraphCTX.stroke();
+                            </script>
+                        </td>
+                        <td>
+                            <canvas id="sin2XGraph"></canvas>
+                            <script class="renderJS">
+                                var sin2XGraph = document.querySelector("#sin2XGraph");
+                                var scaleFactor = 30;
+                                var sin2XGraphGraph = new Graph(sin2XGraph, [0, 2 * Math.PI * scaleFactor], [-2 * scaleFactor, 2 * scaleFactor], {
+                                    interval: 0.001,
+                                    scaleFactor: scaleFactor,
+                                    xAxisTitle: "x",
+                                    showXAxisTitle: true,
+                                    yAxisTitle: "y",
+                                    showYAxisTitle: true,
+                                    drawAxis: true
+                                });
+                                sin2XGraphGraph.addEquation((x) => {
+                                    return (Math.sin(x) / 2);
+                                });
+
+                                //Shade in the graph from [0, Math.PI/2]
+                                var sin2XGraphCTX = sin2XGraphGraph.allowDrawable();
+                                for (var x = 0; x < (Math.PI); x += 0.1) {
+                                    sin2XGraphCTX.moveTo(x * scaleFactor, 0);
+                                    sin2XGraphCTX.lineTo(x * scaleFactor, Math.sin(x) / 2 * scaleFactor);
+                                }
+                                sin2XGraphCTX.stroke();
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+                <li>As you can see, the bounds of our integral changed, and the period of the function changed, but the area under the curve actually remains the same.</li>
+            </ol>
+        </div>
+        <li>Now let's make it 3-D:</li>
+        <ol>Find the volume of the circular paraboloid given by
+            <equation><var>z</var> = 16 &minus; <var>x</var><sup>2</sup> &minus; <var>y</var><sup>2</sup></equation> in the region
+            <equation><var>R</var></equation> defined by
+            <equation><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> &le; 16</equation>
+            <li>First step is to always draw a picture, so we know it looks like:</li>
+            <!--Insert picture of upside-down paraboloid -->
+            <!--Maybe Geogebra for z=16-x^2-y^2-->
+            <li>We can set up the integral from concepts in 15.2:</li>
+            <equation>
+                <integral lowerBound="<var>R</var>" respectTo="A" double>(16 &minus; <var>x</var><sup>2</sup> &minus; <var>y</var><sup>2</sup>)</integral> =
+                <integral lowerBound="<var>x</var> = &minus;4" upperBound="4" respectTo="x">
+                    <integral lowerBound="<var>y</var> = &minus;<sqrt>16 &minus; <var>x</var><sup>2</sup></sqrt>" upperBound="<sqrt>16 &minus; <var>x</var><sup>2</sup></sqrt>" respectTo="y">
+                        (16 &minus; <var>x</var><sup>2</sup> &minus; <var>y</var><sup>2</sup>)
+                    </integral>
+                </integral>
+            </equation>
+            <li>In order to start solving this, we would need to use trigonometric substitutions, but let's veer away from that. Instead we can see that the function has circles embedded in it, and the bounds are circular, so why don't we try polar coordinates?
+                The circles tell us to try polar coordinates.</li>
+            <li>As a recap of polar coordinates, we replace
+                <equation><var>x</var></equation> and
+                <equation><var>y</var></equation> with
+                <equation><var>&theta;</var></equation> and
+                <equation><var>r</var></equation> according to the diagram below:</li>
+            <!--Right triangle drawing with x, y, r sides and angle &theta;-->
+            <canvas id="polarCoordinateRightTriangleSketch" width="150" height="80"></canvas>
+            <script src="./drawingScripts/polarCoordinateRightTriangleSketch.js" class="renderJS"></script><br>
+            <equation><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> = <var>r</var><sup>2</sup></equation><br />
+            <equation>&theta; = tan<sup>&minus;1</sup>(
+                <div class="fraction">
+                    <div class="top"><var>y</var></div>
+                    <div class="bottom"><var>x</var></div>
+                </div>)
+            </equation>
+            <li>Using these, we can now substitute
+                <equation><var>r</var></equation> into our inner function:</li>
+            <equation>(16 &minus; <var>x</var><sup>2</sup> &minus; <var>y</var><sup>2</sup>) &rarr; (16 &minus; <var>r</var><sup>2</sup>)</equation>
+            <li>Just for reference, our new function looks like this:</li>
+            <!--Diagram of infinite upside down parabola on axes &theta;, r, z-->
+            <canvas id="threeDimensionalConversionToPolarCoordinates" width="320" height="280"></canvas>
+            <script src="./drawingScripts/threeDimensionalConversionToPolarCoordinates.js" class="renderJS"></script>
+
+            <li>But we still have
+                <equation><var>dA = dydx</var></equation> in our integral when our function is now in terms of
+                <equation><var>&theta;</var></equation> and
+                <equation><var>r</var></equation>. How do we fix this?
+            </li>
+            <ol type="i">
+                <li>Using the same concept of partitions in defining a double integral, let's look at how the partition changes as we go from one coordinate system to the other (cartesian &rarr; polar)</li>
+                <!--Diagram of rectangular partitions &rarr; diagram of non rectangular partitions-->
+                <table>
+                    <tr>
+                        <td>
+                            <canvas id="rectangularPartitionsOfThePolarPlaneSketch" width="220" height="210"></canvas>
+                            <script src="./drawingScripts/rectangularPartitionsOfThePolarPlaneSketch.js" class="renderJS"></script>
+                        </td>
+                        <td>&rarr;</td>
+                        <td>
+                            <canvas id="polarPartitionsOfThePolarPlaneSketch"></canvas>
+                            <script src="./drawingScripts/polarPartitionsOfThePolarPlaneSketch.js" class="renderJS"></script>
+                        </td>
+                    </tr>
+                </table>
+                <li>
+                    If we take a closer look at the pie slices we can see that as we get infinetessimally smaller, things start to get locally linear and we can actually approximate the area of that little slice using the formula for the area of a rectangle.
+                    <br />We can find the "length" of the said rectangle by using our formula for the length of an arc:
+                </li>
+                <equation>
+                    <text>Circumference</text> = 2&pi;<var>r</var>
+                </equation><br />
+                <equation><text>Arc length</text> = (
+                    <div class="fraction">
+                        <div class="top">&theta;</div>
+                        <div class="bottom">2&pi;</div>
+                    </div>)(<text>Circumference</text>) =
+                    <div class="fraction">
+                        <div class="top">&theta;</div>
+                        <div class="bottom"><span class="cancel">2&pi;</span></div>
+                    </div><span class="cancel">2&pi;</span>r = &theta;r</equation><br />
+                <!--Diagram of individual pie slice with one sector shaded in-->
+                <canvas id="polarPieSliceSectorDiagram"></canvas>
+                <script src="./drawingScripts/polarPieSliceSectorDiagram.js" class="renderJS"></script><br>
+                <equation>&Delta;<var>A</var> = <var>r</var>&Delta;<var>r</var>&Delta;<var>&theta;</var></equation>
+                <li>Once again, that is the area of just one slice of a sector, let's add them all up, and with the limit of a Riemann sum we see that it becomes:</li>
+                <equation><span class="alignedEquations">
+                    &Delta;A = r&Delta;r&Delta;&theta;<br />
+                    dA = rdrd&theta;
+                </span></equation>
+                <li>So overall we can say that when converting from cartesian to polar coordinates:</li>
+                <table class="rules">
+                    <tr>
+                        <td>
+                            <equation>
+                                <integral lowerBound="<var>R</var>" double>f (x, y)dydx</integral>
+                                &rarr;
+                                <integral lowerBound="<var>R</var>" double>f (r
+                                    <cos>&theta;</cos>, r
+                                    <sin>&theta;</sin>)rdrd&theta;</integral>
+                            </equation>
+                        </td>
+                    </tr>
+                </table>
+            </ol>
+            <li>The last thing we need to do is switch our bounds, we know that the region
+                <equation><var>R</var></equation> we are integrating over is a circle of radius
+                <equation><var>r</var> = 4</equation> and it is the full circle so
+                <equation><var>&theta;</var> = 2&pi;</equation>. Since we are integrating over the full circle, our new bounds become:</li>
+            <equation><span class="alignedEquations">
+    <var>r</var>= [0, 4]<br /><var>&theta;</var> = [0, 2&pi;]
+</span></equation>
+            <li>Lastly let's plug it all in to our new integral:</li>
+            <equation>
+                <integral lowerBound="<var>R</var>" respectTo="A" double>(16 &minus; <var>x</var><sup>2</sup> &minus; <var>y</var><sup>2</sup>)</integral> =
+                <integral lowerBound="<var>&theta;</var> = 0" upperBound="2&pi;" respectTo="&theta;">
+                    <integral lowerBound="<var>r</var> = 0" upperBound="4" respectTo="r">
+                        (16 &minus; <var>r</var><sup>2</sup>)
+                        <!--Add the Jacobian here since there is no support for that yet--><var>r</var>
+                    </integral>
+                </integral>
+            </equation>
+            <li>A really neat trick we can employ to simplify the solving of this nested integral is to split it into two integrals.</li>
+            <ol type="i">
+                <li>Notice that all of our bounds are number values. Essentially they would make up a rectangle, and the area of a rectangle is simply
+                    <equation><text>base</text> &times; <text>height</text></equation>.</li>
+                <li>Also notice that the integrand is the product of two functions, a function of
+                    <equation><var>r</var></equation> and a function of
+                    <equation><var>&theta;</var></equation> (Remember that
+                    <equation><var>&theta;</var> = 1</equation> is a function nonetheless).</li>
+                <equation>(1)(16 &minus; r<sup>2</sup>)r</equation>
+                <li>If we can fit both of those criteria, then we can separate the integrals:</li>
+                <equation>
+                    <integral lowerBound="<var>&theta;</var> = 0" upperBound="2&pi;" respectTo="&theta;">
+                        <integral lowerBound="<var>r</var> = 0" upperBound="4" respectTo="r">
+                            (16 &minus; <var>r</var><sup>2</sup>)
+                            <!--Add the Jacobian here since there is no support for that yet--><var>r</var>
+                        </integral>
+                    </integral> =
+                    <integral lowerBound="<var>&theta;</var> = 0" upperBound="2&pi;" respectTo="&theta;">1</integral>
+                    <integral lowerBound="<var>r</var> = 0" upperBound="4" respectTo="r">(16 &minus; <var>r</var><sup>2</sup>)
+                        <!--Add the Jacobian here since there is no support for that yet--><var>r</var></integral>
+                </equation>
+            </ol>
+            <li>After we split the integral, it's only a matter of solving.</li>
+            <equation> =
+                <integral lowerBound="<var>&theta;</var> = 0" upperBound="2&pi;" respectTo="&theta;">1</integral>
+                <integral lowerBound="<var>r</var> = 0" upperBound="4" respectTo="r">(16 &minus; <var>r</var><sup>2</sup>)
+                    <!--Add the Jacobian here since there is no support for that yet--><var>r</var></integral>
+            </equation><br />
+            <equation><span class="alignedEquations">
+                = 2&pi;<integral lowerBound="0" upperBound="4" respectTo="r">(16 &minus; r<sup>3</sup>)</integral><br />
+                = 2&pi;(<div class="fraction">
+                    <div class="top">16r<sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> &minus; <div class="fraction">
+                    <div class="top">r<sup>4</sup></div>
+                    <div class="bottom">4</div>
+                </div>)<evaluated from="0" to="4"></evaluated><br />
+                = 2&pi;(<div class="fraction">
+                    <div class="top">16(4)<sup>2</sup></div>
+                    <div class="bottom">2</div>
+                </div> &minus; <div class="fraction">
+                    <div class="top">(4)<sup>4</sup></div>
+                    <div class="bottom">4</div>
+                </div>)<br />
+                = 2&pi;(8(4)<sup>2</sup> &minus; 4<sup>3</sup>)<br />
+                = (2&pi;)(4<sup>3</sup>)(2 &minus; 1)
+            </span></equation><br />
+            <equation><span class="answer">= 128&pi;</span></equation>
+        </ol>
+        <li>That was a long process, but there is a shorter way to account for the change in
+            <equation><var>dA</var></equation> when we substitute values. We call the "
+            <equation><var>r</var></equation>" in
+            <equation><var>rdrd&theta;</var></equation> "<u>The Jacobian</u>"<br />Given two functions
+            <equation><span class="alignedEquations">
+                x = x(u, v)<br />
+                y = y(u, v)
+            </span></equation>, the Jacobian is defined to be:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <det writeDet>
+                            <matrix dimensionX="1" dimensionY="1">
+                                <cell>
+                                    <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>
+                                </cell>
+                            </matrix>
+                        </det> =
+                        <det writeDet>
+                            <matrix dimensionX="1" dimensionY="2">
+                                <cell>
+                                    &nabla;<var>x(u, v)</var>
+                                </cell>
+                                <cell>
+                                    &nabla;<var>y(u, v)</var>
+                                </cell>
+                            </matrix>
+                        </det> =
+                        <det writeDet>
+                            <matrix dimensionX="2" dimensionY="2">
+                                <cell>
+                                    <pDerivative of='x' respectTo='u'></pDerivative>
+                                </cell>
+                                <cell>
+                                    <pDerivative of='x' respectTo='v'></pDerivative>
+                                </cell>
+                                <cell>
+                                    <pDerivative of='y' respectTo='u'></pDerivative>
+                                </cell>
+                                <cell>
+                                    <pDerivative of='y' respectTo='v'></pDerivative>
+                                </cell>
+                            </matrix>
+                        </det>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="jacobianProofToggleLink" onclick="toggleSolution('#jacobianProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="jacobianProof" class="solution">
+            <ol>
+                <li>
+                    Our goal is to find
+                    <equation><var>dA</var></equation> for any given transformation of the coordinate system, not just cartesian &rarr; polar. When we did regular u-sub, we first let there be a function
+                    <equation><var>u = u(x)</var></equation>. We can try to apply the differential and see where that takes us. If we can model single-variable u-substitutions in this way, then we should be able to do multivariable u-substitutions as well.
+                </li>
+                <li>To get there, we can look at a first term Taylor Series and rearrange the terms to reformat it into the type we want.</li>
+                <equation><span class="alignedEquations">
+                    u(x) = u(x<sub>1</sub>) + u'(x<sub>1</sub>)(x &minus; x<sub>1</sub>)<br />
+                    u(x) &minus; u(x<sub>1</sub>) = u'(x<sub>1</sub>)(x &minus; x<sub>1</sub>)<br />
+                    &Delta;u = u'(x<sub>1</sub>)&Delta;x
+                </span></equation>
+                <li>If we made
+                    <equation>&Delta;<var>x</var></equation> really really small, we can rewrite the above using the differential to be:</li>
+                <equation>du = u'dx</equation>
+                <li>This looks exactly like a regular u-sub, so let's extend it to 2 dimensions. The first-term Taylor series for a 2-variable function would look something like:</li>
+                <equation>
+                    z = f (x, y) &asymp; f (a, b) + &nabla;f (a, b) &sdot; &lang;x &minus; a, y &minus; b&rang;
+                </equation>
+                <li>Let's try to apply this to our polar example and see how that goes:</li>
+                <equation>
+                    <matrix dimensionX="1" dimensionY="2" values="x, y"></matrix> =
+                    <matrix dimensionX="1" dimensionY="2">
+                        <cell>r<sub>1</sub>
+                            <cos>&theta;<sub>1</sub></cos>
+                        </cell>
+                        <cell>r<sub>1</sub>
+                            <sin>&theta;<sub>1</sub></sin>
+                        </cell>
+                    </matrix> +
+                    <matrix dimensionX="1" dimensionY="2">
+                        <cell>&nabla;x(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                        <cell>&nabla;y(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                    </matrix>
+                    <matrix dimensionX="1" dimensionY="2">
+                        <cell>r &minus; r<sub>1</sub></cell>
+                        <cell>&theta; &minus; &theta;<sub>1</sub></cell>
+                    </matrix>
+                </equation>
+                <li>It's really the
+                    <equation>&nabla;f (a, b)</equation> that determines how your function will change from one point to another, so it makes sense that the matrix version of that tells us how we transform the coordinate system from one system of variables to the
+                    other. In this case we defined
+                    <equation><var>x, y</var></equation> in terms of
+                    <equation><var>r, &theta;</var></equation>, and that transformation matrix tells us how the coordinates change from cartesian to polar. We can rewrite that matrix in the following way:</li>
+                <equation>
+                    <matrix dimensionX="1" dimensionY="2">
+                        <cell>&nabla;x(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                        <cell>&nabla;y(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                    </matrix>
+                    =
+                    <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>
+                </equation>
+                <li>The determinant of a matrix tells us the scaling factor of its transformation, if we were to apply the matrix as a transformation, so simply taking the determinant of this matrix will give us our requested value.</li>
+                <equation>
+                    |
+                    <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>| =
+                    <det>
+                        <matrix dimensionX="1" dimensionY="2">
+                            <cell>&nabla;x(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                            <cell>&nabla;y(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
+                        </matrix>
+                    </det> =
+                    <det>
+                        <matrix dimensionX="2" dimensionY="2">
+                            <cell>
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell>&minus;r
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>r
+                                <cos>&theta;</cos>
+                            </cell>
+                        </matrix>
+                    </det> = rcos<sup>2</sup>(&theta;) + rsin<sup>2</sup>(&theta;) = <span class="answer">r</span>
+                </equation>
+                <li>All of that effort gives us the
+                    <equation><var>r</var></equation> in
+                    <equation><var>rdrd&theta;</var></equation>. We call this the <u>Jacobian</u> of the transformation.</li>
+                <li>But now we can do any substitution of two variables as long as we find the Jacobian and make sure to include that in our integral when we solve.</li>
+            </ol>
+        </div>
+        <li>This means that your overall integral will change into:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>R</var>" double>f (x, y)dxdy</integral> =
+                        <integral lowerBound="<var>R<sup>*</sup></var>" double>
+                            f (x(u, v), y(u, v))
+                            <det>
+                                <matrix dimensionX="1" dimensionY="1">
+                                    <cell>
+                                        <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>
+                                    </cell>
+                                </matrix>
+                            </det>dudv</integral>
+                    </equation>
+                </td>
+            </tr>
+        </table>
     </ul>
     <h3>15.7: Triple Integrals in Cylindrical Coordinates:</h3>
     <ul></ul>
