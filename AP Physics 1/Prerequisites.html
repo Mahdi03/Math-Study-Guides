@@ -17,6 +17,7 @@
         <script class="renderJS">
             var rightTriangleDiagram = document.querySelector("#rightTriangleDiagram");
             var ctx = rightTriangleDiagram.getContext("2d");
+            oversampleCanvas(rightTriangleDiagram, ctx, 4);
             //Draw Triangle
             ctx.beginPath();
             ctx.moveTo(90, 90);
@@ -57,10 +58,14 @@
         </li>
         <li>Velocity is how quickly it's changing position in a certain direction.</li>
         <li>Average velocity is
-            <div class="fraction">
-                <div class="top">&Delta;<var>x</var></div>
-                <div class="bottom">&Delta;<var>t</var></div>
-            </div> where &Delta; simply means "change in," so &Delta;<var>x</var> is equal to your final position minus your initial position, or <br />(<var>x<sub>f</sub></var> &minus; <var>x<sub>i</sub></var>)
+            <equation>
+                <div class="fraction">
+                    <div class="top">&Delta;<var>x</var></div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div>
+            </equation> where &Delta; simply means "change in," so
+            <equation>&Delta;<var>x</var></equation> is equal to your final position minus your initial position, or <br />(
+            <equation><var>x<sub>f</sub></var> &minus; <var>x<sub>i</sub></var></equation>)
         </li>
         <li>Vectors can be broken apart into x-direction and y-direction components, like a right triangle. It is helpful to do this when adding and subtracting vectors.</li>
         <h5>Parallel Vectors:</h5>
@@ -74,25 +79,35 @@
             <ol>
                 <li>First draw a diagram, especially when approaching most physics problems, just to picture the scenario.</li>
                 <canvas id="vectorAdditionSolution1" width="180" height="120"></canvas>
-                <li>In order to add the vectors, break them up into their <var>x</var> and <var>y</var> components so that they can be added together to create a resultant vector.</li>
+                <li>In order to add the vectors, break them up into their
+                    <equation><var>x</var></equation> and
+                    <equation><var>y</var></equation> components so that they can be added together to create a resultant vector.</li>
                 <canvas id="vectorAdditionSolution2" width="210" height="100"></canvas>
                 <canvas id="vectorAdditionSolution3" width="210" height="100"></canvas>
                 <li>Now add the vectors that go in the same direction and subtract those going in opposing directions.</li>
-                &Delta;<var>x</var> = 83sin(65&deg;) &minus; 45cos(65&deg;) &asymp; 31.76mi
-                <br /> &Delta;<var>y</var> = 83cos(65&deg;) + 45sin(15&deg;) &asymp; 46.72mi
+                <equation>&Delta;<var>x</var> = 83
+                    <sin>65&deg;</sin> &minus; 45
+                    <cos>65&deg;</cos> &asymp; 31.76 <text>mi</text></equation><br />
+                <equation>&Delta;<var>y</var> = 83
+                    <cos>65&deg;</cos> + 45
+                    <sin>15&deg;</sin> &asymp; 46.72 <text>mi</text></equation>
                 <li>Now visualize the resultant vector, and solve for the new magnitude and angle.</li>
-                <canvas id="vectorAdditionSolution4" width="210" height="130"></canvas>
-                <br />tan<sup>&minus;1</sup>(
-                <div class="fraction">
-                    <div class="top">&Delta;<var>x</var></div>
-                    <div class="bottom">&Delta;<var>y</var></div>
-                </div>) = &theta; &asymp; <span class="answer">34.20&deg; West of North or 55.79&deg; North of West</span>
+                <canvas id="vectorAdditionSolution4" width="210" height="130"></canvas><br />
+                <equation>
+                    tan
+                    <sup>&minus;1</sup>(
+                    <div class="fraction">
+                        <div class="top">&Delta;<var>x</var></div>
+                        <div class="bottom">&Delta;<var>y</var></div>
+                    </div>) = &theta; &asymp; </equation> <span class="answer">34.20&deg; West of North or 55.79&deg; North of West</span>
                 <br />
-                <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt> &asymp; <span class="answer">56.49mi</span>
+                <equation>
+                    <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt> &asymp; </equation> <span class="answer">56.49mi</span>
                 <script class="renderJS">
                     //First Step
                     var vectorAdditionSolution1 = document.querySelector("#vectorAdditionSolution1");
                     var ctx3 = vectorAdditionSolution1.getContext("2d");
+                    oversampleCanvas(vectorAdditionSolution1, ctx3, 4);
                     ctx3.translate(-48, -105);
                     ctx3.arc(200, 200, 20, 0, Math.PI * 2);
                     ctx3.fill();
@@ -121,6 +136,7 @@
                     //Second Step
                     var vectorAdditionSolution2 = document.querySelector("#vectorAdditionSolution2");
                     var ctx4 = vectorAdditionSolution2.getContext("2d");
+                    oversampleCanvas(vectorAdditionSolution2, ctx4, 4);
                     ctx4.translate(-48, -105);
                     //Move #1
                     ctx4.fillStyle = "blue";
@@ -140,6 +156,7 @@
                     //Second Step Second Triangle
                     var vectorAdditionSolution3 = document.querySelector("#vectorAdditionSolution3");
                     var ctx5 = vectorAdditionSolution3.getContext("2d");
+                    oversampleCanvas(vectorAdditionSolution3, ctx5, 4);
                     ctx5.translate(-48, -105);
                     //Move #2
                     ctx5.fillStyle = "green";
@@ -159,6 +176,7 @@
                     //Third Step
                     var vectorAdditionSolution4 = document.querySelector("#vectorAdditionSolution4");
                     var ctx6 = vectorAdditionSolution4.getContext("2d");
+                    oversampleCanvas(vectorAdditionSolution4, ctx6, 4);
                     ctx6.translate(-48, -85);
                     ctx6.arc(200, 200, 20, 0, Math.PI * 2);
                     ctx6.fill();

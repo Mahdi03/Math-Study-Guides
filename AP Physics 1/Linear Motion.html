@@ -19,35 +19,52 @@
         <li>The area under the curve of an acceleration versus time graph is the velocity.</li>
         <li>The area under the curve of a velocity versus time graph is the displacement.</li>
         <li>The area under the graph can be represented by integrals if you've taken calculus or are concurrently enrolled.</li>
-        <li>As previously stated, velocity (<var>V</var>) is
-            <div class="fraction">
-                <div class="top">&Delta;<var>x</var></div>
-                <div class="bottom">&Delta;<var>t</var></div>
-            </div>, and acceleration (<var>a</var>) is
-            <div class="fraction">
-                <div class="top">&Delta;<var>V</var></div>
-                <div class="bottom">&Delta;<var>t</var></div>
-            </div>
+        <li>As previously stated, velocity (
+            <equation><var>V</var></equation>) is
+            <equation>
+                <div class="fraction">
+                    <div class="top">&Delta;<var>x</var></div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div>
+            </equation>, and acceleration (
+            <equation><var>a</var></equation>) is
+            <equation>
+                <div class="fraction">
+                    <div class="top">&Delta;<var>V</var></div>
+                    <div class="bottom">&Delta;<var>t</var></div>
+                </div>
+            </equation>
         </li>
         <li>In this section our main focus will be the first 3 equations of the AP Physics 1 Equation Sheet. (hover over the equations if you would like to know what each variable means)</li>
         <table class="rules">
             <tr>
-                <td title="Equation 1 states that final velocity is equal to the initial velocity plus the acceleration &times; time.">V<sub>F</sub> = V<sub>I</sub> + <var>at</var></td>
-                <td title="Equation 2 states that the final position is equal to the initial position plus initial velocity &times; time plus 1/2 acceleration &times; time squared."><var>x</var><sub>F</sub> = <var>x</var><sub>I</sub> + V<sub>I</sub><var>t</var> +
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">2</div>
-                    </div><var>at</var><sup>2</sup></td>
-                <td title="Equation 3 states that velocity final squared is equal to initial velocity squared plus 2 &times; acceleration &times; displacement.">V<sub>F</sub><sup>2</sup> = V<sub>I</sub><sup>2</sup> + 2<var>a</var>&Delta;<var>x</var></td>
+                <td title="Equation 1 states that final velocity is equal to the initial velocity plus the acceleration &times; time.">
+                    <equation>V<sub>F</sub> = V<sub>I</sub> + <var>at</var></equation>
+                </td>
+                <td title="Equation 2 states that the final position is equal to the initial position plus initial velocity &times; time plus 1/2 acceleration &times; time squared.">
+                    <equation>
+                        <var>x</var><sub>F</sub> = <var>x</var><sub>I</sub> + V<sub>I</sub><var>t</var> +
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div><var>at</var><sup>2</sup>
+                    </equation>
+                </td>
+                <td title="Equation 3 states that velocity final squared is equal to initial velocity squared plus 2 &times; acceleration &times; displacement.">
+                    <equation>V<sub>F</sub><sup>2</sup> = V<sub>I</sub><sup>2</sup> + 2<var>a</var>&Delta;<var>x</var></equation>
+                </td>
             </tr>
         </table>
-        <li>Use these equations in any order to solve for any value. Just make sure to keep all your variables in one direction, so if you are solving for the <var>x</var> distance traveled, then don't use the <var>y</var> velocity.</li>
+        <li>Use these equations in any order to solve for any value. Just make sure to keep all your variables in one direction, so if you are solving for the
+            <equation><var>x</var></equation> distance traveled, then don't use the
+            <equation><var>y</var></equation> velocity.</li>
         <h3>Projectile Motion:</h3>
         <li>When launching objects, imagine a projectile as follows:</li>
         <canvas id="projectileExample" style="border: 3px solid black;" width="400" height="160"></canvas>
         <script class="renderJS">
             var projectileExample = document.querySelector("#projectileExample");
             var ctx1 = projectileExample.getContext("2d");
+            oversampleCanvas(projectileExample, ctx1, 4);
             ctx1.beginPath();
             ctx1.arc(10, 150, 3, 0, Math.PI * 2);
             ctx1.fill();
@@ -66,6 +83,7 @@
         <script class="renderJS">
             var projectileExampleWithMath = document.querySelector("#projectileExampleWithMath");
             var ctx2 = projectileExampleWithMath.getContext("2d");
+            oversampleCanvas(projectileExampleWithMath, ctx2, 4);
             //Starting Point
             ctx2.arc(10, 230, 3, 0, Math.PI * 2);
             ctx2.fill();
@@ -122,15 +140,24 @@
             ctx2.restore(); //Go back to default settings
             ctx2.fillText("Vi", 35, 170);
         </script>
-        <li>Where V<sub>I</sub>
-            <sin>&theta;</sin> is your initial <var>y</var>-velocity, and V<sub>I</sub>
-            <cos>&theta;</cos> is your initial (and final) <var>x</var>-velocity (because there is no acceleration in the <var>x</var>-direction, the object will continue at the same <var>x</var>-velocity).
+        <li>Where
+            <equation>V<sub>I</sub>
+                <sin>&theta;</sin>
+            </equation> is your initial <var>y</var>-velocity, and
+            <equation>V<sub>I</sub>
+                <cos>&theta;</cos>
+            </equation> is your initial (and final) <var>x</var>-velocity (because there is no acceleration in the <var>x</var>-direction, the object will continue at the same <var>x</var>-velocity).
         </li>
-        <li>The equation to use with projectiles is the second equation, but in terms of the <var>y</var>-direction, &Delta;<var>y</var> = V<sub>I<var>y</var></sub><var>t</var> +
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom">2</div>
-            </div><var>a<sub>y</sub>t</var><sup>2</sup> where <var>a<sub>y</sub></var> is simply the acceleration due to gravity (<var>g</var> = &minus;9.8 m/s<sup>2</sup>)
+        <li>The equation to use with projectiles is the second equation, but in terms of the <var>y</var>-direction,
+            <equation>
+                &Delta;<var>y</var> = V<sub>I<var>y</var></sub><var>t</var> +
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2</div>
+                </div><var>a<sub>y</sub>t</var><sup>2</sup>
+            </equation> where
+            <equation><var>a<sub>y</sub></var></equation> is simply the acceleration due to gravity (
+            <equation><var>g</var> = &minus;9.8</equation> m/s<sup>2</sup>)
         </li>
     </ul>
 </div>
