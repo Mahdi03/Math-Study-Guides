@@ -891,6 +891,7 @@ function oversampleCanvas(tgtCanvas, ctx, factor) {
         tgtCanvas.style.width = width + 'px';
         tgtCanvas.style.height = height + 'px';
         ctx.scale(factor, factor);
+        tgtCanvas.classList.add("alreadyOversampled");
     }
 }
 
