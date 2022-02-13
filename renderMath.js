@@ -126,6 +126,8 @@ function renderMath(parentElement = "") {
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
                 .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
+                //.replaceAll("&lang;", "hello")
+                //.replace(/[⟨⟨]/gi, "hello").replace(/⟩/gi, "\\right&rang;")
                 //Replace HTML entities so they don't show up small on mobile
                 .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
                 .replace(/&beta;/gi, "\\beta").replace(/&gamma;/gi, "\\gamma")
@@ -340,6 +342,11 @@ function renderMath(parentElement = "") {
                 var oldVector = dom.querySelector("vector");
                 var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
                 oldVector.replaceWith(...newVector);
+            }
+            while (dom.querySelector("magnitude") != undefined) {
+                var oldMagnitude = dom.querySelector("magnitude");
+                var newMagnitude = createHTMLNodesFromString("\\left\\vert\\left\\vert" + oldMagnitude.innerHTML + "\\right\\vert\\right\\vert");
+                oldMagnitude.replaceWith(...newMagnitude);
             }
             //Remember that MathJax does not support boxed answers in aligned equations
             while (dom.querySelector("span.answer") != undefined) {
