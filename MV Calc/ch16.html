@@ -38,7 +38,7 @@ This link provides information about a lot of stuff!!!!
             </tr>
         </table>
         <li>Assuming we have a scalar-valued function
-            <equation>x = f(x, y)</equation>, we say that the gradient vector field is given by:</li>
+            <equation>x = f (x, y)</equation>, we say that the gradient vector field is given by:</li>
         <table class="rules">
             <tr>
                 <td>
@@ -52,7 +52,315 @@ This link provides information about a lot of stuff!!!!
         </table>
     </ul>
     <h3>16.2: Scalar and Vector Line Integrals:</h3>
-    <ul></ul>
+    <ul>
+        <li>The formula for a scalar line integral (cut along a curve
+            <equation><var>C</var></equation> with respect to arc length) is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>C</var>" respectTo="S">f (x, y)</integral>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="scalarLineIntegralProofToggleLink" onclick="toggleSolution('#scalarLineIntegralProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="scalarLineIntegralProof" class="solution">
+            <ol>
+                <li>Imagine we are trying to find the area under a fence that is bounded on the bottom by a curve
+                    <equation><var>C</var></equation> in the xy-plane and on the top by a function
+                    <equation>z = f (x, y)</equation>.</li>
+                <!--Drawing of Fence in 3-D space-->
+                <li>We can partition the curve
+                    <equation><var>C</var></equation> and split the "fence" into rectangles.</li>
+                <li>We know the height of each rectangle is simply
+                    <equation>z = f (x, y)</equation>, and the width would be the partitions on our curve. Since our curve spans in the xy-plane, we should factor in both the x and y components of change.</li>
+                <equation>&Delta;S =
+                    <sqrt>(&Delta;x)<sup>2</sup> + (&Delta;y)<sup>2</sup></sqrt>
+                </equation>
+                <li>We can now approximate the area of the fence using a Riemann Sum:</li>
+                <equation>A &asymp;
+                    <sigma></sigma> f (x<sub>i</sub><sup>*</sup>, y<sub>i</sub><sup>*</sup>)&Delta;S</equation>
+                <li>The issue is that we don't really have a single independent variable, so let's parameterize C with respect to
+                    <equation><var>t</var></equation>:</li>
+                <equation>C =
+                    <vector>r</vector>(t) = &lang;x(t), y(t)&rang;</equation>,&emsp;
+                <equation>a &le; t &le; b</equation>
+                <li>Now we can rewrite our Riemann Sum in terms of
+                    <equation><var>t</var></equation>:</li>
+                <equation>A &asymp;
+                    <sigma></sigma> f (x(t<sub>i</sub><sup>*</sup>), y(t<sub>i</sub><sup>*</sup>))&Delta;S</equation><span style="color: red;"><equation>
+                            <div class="fraction">
+                                <div class="top">&Delta;t</div>
+                                <div class="bottom">&Delta;t</div>
+                            </div>
+                        </equation></span><br />
+                <equation>A &asymp;
+                    <sigma></sigma> f (x(t<sub>i</sub><sup>*</sup>), y(t<sub>i</sub><sup>*</sup>))
+                    <div class="fraction">
+                        <div class="top">&Delta;S</div>
+                        <div class="bottom">&Delta;t</div>
+                    </div>&Delta;t</equation>
+                <li>We add the extra <span style="color: red;">
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&Delta;t</div>
+                            <div class="bottom">&Delta;t</div>
+                        </div>
+                    </equation>
+                    </span> so that we can now get everything in terms of
+                    <equation><var>t</var></equation>, watch what happens when we take the limit of the above Riemann Sum:</li>
+                <equation>A =
+                    <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="t">
+                        f(x(t), y(t))
+                        <derivative of="S" respectTo="t"></derivative>
+                    </integral>
+                </equation>
+                <li>Using the differential, the "dt"s cancel out and we can rewrite the above as the following:</li>
+                <equation>
+                    <span class="answer">
+                            <integral lowerBound="<var>C</var>" respectTo="S">f (x, y)</integral>
+                        </span>
+                </equation>
+                <li>If we went to go apply this immediately, we would need to know what
+                    <equation><var>dS</var></equation> actually is. Since the above is a scalar line integral <u>with respect to arclength</u>, we can use the arclength funciton to make a substitution.</li>
+                <equation>S(t) =
+                    <integral lowerBound="<var>a</var>" upperBound="<var>t</var>" respectTo="u">
+                        ||
+                        <vector>r'</vector>(u)||
+                    </integral>
+                </equation>
+                <li>Applying the First Part of the Fundamental Theorem of Calculus (FTC), differentiating both sides gets us:</li>
+                <equation>
+                    <derivative of="S" respectTo="t"></derivative> = ||
+                    <vector>r'</vector>(t)||
+                </equation>
+                <li>Now we can substitute for
+                    <equation>
+                        <derivative of="S" respectTo="t"></derivative>
+                    </equation> into our integral.</li>
+                <equation><span class="alignedEquations">
+                    <integral lowerBound="<var>C</var>" respectTo="S">f (x, y)</integral> = 
+                    <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="t">
+                        f(x(t), y(t))
+                        <derivative of="S" respectTo="t"></derivative>
+                    </integral><br />
+                    = <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="t">
+                        f(x(t), y(t))||<vector>r'</vector>(t)||
+                    </integral><br />
+                    = <span class="answer"><integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="t">
+                        f(x(t), y(t))<sqrt>
+                            (<derivative of="x" respectTo="t"></derivative>)<sup>2</sup> + (<derivative of="y" respectTo="t"></derivative>)<sup>2</sup>
+                        </sqrt>
+                    </integral></span><br />
+                    </span>
+                </equation>
+            </ol>
+        </div>
+        <li>For the equation above, we also get:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>dS =
+                        <sqrt>
+                            (
+                            <derivative of="x" respectTo="t"></derivative>)<sup>2</sup> + (
+                            <derivative of="y" respectTo="t"></derivative>)<sup>2</sup>
+                        </sqrt>
+                    </equation>
+                </td>
+                <th>See proof for scalar line integrals</th>
+            </tr>
+        </table>
+        <li>The vector line integral is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="C" respectTo="S">
+                            <vector>F</vector> &sdot;
+                            <vector>T</vector>
+                        </integral>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <integral lowerBound="C">
+                            <vector>F</vector> &sdot; d
+                            <vector>r</vector>
+                        </integral>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="vectorLineIntegralProofToggleLink" onclick="toggleSolution('#vectorLineIntegralProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="vectorLineIntegralProof" class="solution">
+            <li>In physics, Work is the amount of energy put in to apply a force over a distance</li>
+            <!--Insert Diagram of box with angled force and only horizontal component meaning anything-->
+            <li>We see that work is the product of the magnitude of the parallel component of the force and the magnitude of the displacement.</li>
+            <li>When we see
+                <equation>||
+                    <vector>F</vector>||
+                    <cos>&theta;</cos>||
+                    <vector>d</vector>||</equation> we should recall the dot product formula from Chapter 12 and realize this is the same as
+                <equation>
+                    <vector>F</vector> &sdot;
+                    <vector>d</vector>
+                </equation>
+            </li>
+            <ol>
+                <li>Now let's pretend a particle moves along a curve
+                    <equation><var>C</var></equation> such that it is influnced by a force or vector field
+                    <equation>
+                        <vector>F</vector>
+                    </equation>.</li>
+                <!--Diagram of curve with force, &theta; and &Delta;S-->
+                <li>If we want to calculate the work done, we can try to split it up into small sections along the curve
+                    <equation><var>C</var></equation>. Using our formula for work from Physics, we can find small sections of work:
+                </li>
+                <equation>&Delta;W = ||
+                    <vector>F</vector>||&Delta;S
+                    <cos>&theta;</cos>
+                </equation>
+                <li>Let's try to parameterize the curve again and include it in our formula:</li>
+                <equation><var>C</var> =
+                    <vector>r</vector>(t) = &lang;x(t), y(t)&rang;</equation><br />
+                <equation>
+                    <vector>r'</vector>(t) = &lang;x'(t), y'(t)&rang;</equation>
+                <li>If we added the magnitude of a tangent unit vector into the mix, it would be the same as multiplying by 1, so it is allowed.</li>
+                <equation>&Delta;W =
+                    <magnitude>
+                        <vector>F</vector>
+                    </magnitude>
+                    <magnitude>
+                        <div class="fraction">
+                            <div class="top">
+                                <vector>r'</vector>(t)</div>
+                            <div class="bottom">
+                                <magnitude>
+                                    <vector>r'</vector>(t)
+                                </magnitude>
+                            </div>
+                        </div>
+                    </magnitude>
+                    <cos>&theta;</cos>&Delta;S
+                </equation>
+                <li>We recognize that this is the dot product of two vectors, the unit vector and
+                    <equation>
+                        <vector>F</vector>
+                    </equation>
+                </li>
+                <equation>&Delta;W =
+                    <vector>F</vector> &sdot;
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>r'</vector>(t)</div>
+                        <div class="bottom">
+                            <magnitude>
+                                <vector>r'</vector>(t)
+                            </magnitude>
+                        </div>
+                    </div>&Delta;S
+                </equation>
+                <li>We can rewrite that unit vector as
+                    <equation>
+                        <vector>T</vector>
+                    </equation> for simplicity's sake, since that is essentially a tangent unit vector.</li>
+                <equation>&Delta;W =
+                    <vector>F</vector> &sdot;
+                    <vector>T</vector>&Delta;S
+                </equation>
+                <li>So now we can approximate the total work done using a Riemann Sum:</li>
+                <equation>W &asymp;
+                    <sigma></sigma>
+                    <vector>F</vector> &sdot;
+                    <vector>T</vector>&Delta;S
+                </equation>
+                <li>Taking the limit of the Riemann Sum gets us:</li>
+                <equation><span class="answer">
+    W = <integral lowerBound="<var>C</var>" respectTo="S">
+        <vector>F</vector> &sdot;
+        <vector>T</vector>
+    </integral>
+</span></equation>
+                <li>We can shorten this using our definition of
+                    <equation><var>dS</var></equation>:</li>
+                <equation>
+                    <vector>T</vector>dS =
+                    <div class="fraction">
+                        <div class="top">
+                            <vector>r'</vector>(t)
+                        </div>
+                        <div class="bottom">
+                            <span class="cancel">
+            <magnitude>
+                <vector>r'</vector>(t)
+            </magnitude>
+        </span>
+                        </div>
+                    </div><span class="cancel">
+    <magnitude>
+        <vector>r'</vector>(t)
+    </magnitude>
+</span>dt =
+                    <vector>r'</vector>(t)dt</equation>
+                <li>We rewrite the above as
+                    <equation><var>d</var>
+                        <vector>r</vector>
+                    </equation>, and so our vector line integral also becomes:</li>
+                <equation>
+                    <span class="answer">
+                            <integral lowerBound="<var>C</var>"><vector>F</vector> &sdot; d<vector>r</vector></integral>
+                        </span>
+                </equation>
+            </ol>
+        </div>
+        <li>Another cool trick is that when
+            <equation>F(x, y) = &lang;P(x, y), Q(x, y)&rang;</equation>, our vector line integral becomes:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="<var>C</var>" respectTo="S">
+                            <vector>F</vector> &sdot;
+                            <vector>T</vector>
+                        </integral> =
+                        <integral lowerBound="<var>C</var>">
+                            P(x, y)dx + Q(x, y)dy
+                        </integral>
+                    </equation>
+                </td>
+                <th><a href="javascript:void(0)" id="vectorLineIntegralExpansionProofToggleLink" onclick="toggleSolution('#vectorLineIntegralExpansionProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="vectorLineIntegralExpansionProof" class="solution">
+            <ol>
+                <li>Starting with our
+                    <equation>
+                        <vector>T</vector>dS
+                    </equation>
+                </li>
+                <equation>
+                    <vector>T</vector>dS =
+                    <vector>r'</vector>(t)dt = &lang;
+                    <derivative of="x" respectTo="t"></derivative>,
+                    <derivative of="y" respectTo="t"></derivative>&rang;dt</equation>
+                <li>Applying what we know about the differential, we can distribute the
+                    <equation><var>dt</var></equation> into the gradient vector:</li>
+                <equation>&lang;
+                    <derivative of="x" respectTo="t"></derivative>,
+                    <derivative of="y" respectTo="t"></derivative>&rang;dt = &lang;dx, dy&rang;</equation>
+                <li>Our vector line integral becomes:</li>
+                <equation><span class="alignedEquations">
+                <integral lowerBound="<var>C</var>" respectTo="S"><vector>F</vector> &sdot; <vector>T</vector></integral> = <integral lowerBound="<var>C</var>">&lang;P(x, y), Q(x, y)&rang; &sdot; &lang;dx, dy&rang;</integral><br />
+                = <span class="answer">
+                    <integral lowerBound="<var>C</var>">P(x, y)dx + Q(x, y)dy</integral>
+                </span>
+                    </span>
+                </equation>
+            </ol>
+        </div>
+    </ul>
     <h3>16.3: Fundamental Theorem of Line Integrals:</h3>
     <ul></ul>
     <h3>16.4: Green's Theorem:</h3>
