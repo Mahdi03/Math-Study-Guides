@@ -18,8 +18,38 @@ This link provides information about a lot of stuff!!!!
     <ul>
         <li>Vector-valued functions describe the motion of a particle in space whereas vector fields can track the motion of a fluid.</li>
         <li>The function notation being
-            <vector>F</vector>: &#x211d;<sup>3</sup> &rarr; &#x211d;<sup>3</sup> (or
-            <vector>F</vector>: &#x211d;<sup>2</sup> &rarr; &#x211d;<sup>2</sup>)</li>
+            <equation>
+                <vector>F</vector>: &#x211d;<sup>3</sup> &rarr; &#x211d;<sup>3</sup>
+            </equation> (or
+            <equation>
+                <vector>F</vector>: &#x211d;<sup>2</sup> &rarr; &#x211d;<sup>2</sup>
+            </equation>)</li>
+        <li>In other words, we can break it apart into component functions
+            <equation><var>P</var></equation>,
+            <equation><var>Q</var></equation>, and
+            <equation><var>R</var></equation>:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <vector>F</vector>(x, y, z) = &lang;P(x, y, z), Q(x, y, z), R(x, y, z)&rang;
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>Assuming we have a scalar-valued function
+            <equation>x = f(x, y)</equation>, we say that the gradient vector field is given by:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        &nabla;<var>f (x, y) =</var> &lang;
+                        <pDerivative of="f" respectTo="x"></pDerivative>,
+                        <pDerivative of="f" respectTo="y"></pDerivative>&rang;
+                    </equation>
+                </td>
+            </tr>
+        </table>
     </ul>
     <h3>16.2: Scalar and Vector Line Integrals:</h3>
     <ul></ul>
