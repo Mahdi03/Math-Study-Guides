@@ -864,8 +864,13 @@
                 </equation>
                 <li>The determinant of a matrix tells us the scaling factor of its transformation, if we were to apply the matrix as a transformation, so simply taking the determinant of this matrix will give us our requested value.</li>
                 <equation>
-                    |
-                    <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>| =
+                    <det>
+                        <matrix dimensionX="1" dimensionY="1">
+                            <cell>
+                                <pDerivative of="(x, y)" respectTo="(r, &theta;)"></pDerivative>
+                            </cell>
+                        </matrix>
+                    </det> =
                     <det>
                         <matrix dimensionX="1" dimensionY="2">
                             <cell>&nabla;x(r<sub>1</sub>, &theta;<sub>1</sub>)</cell>
@@ -887,7 +892,9 @@
                                 <cos>&theta;</cos>
                             </cell>
                         </matrix>
-                    </det> = rcos<sup>2</sup>(&theta;) + rsin<sup>2</sup>(&theta;) = <span class="answer">r</span>
+                    </det> = r
+                    <cos power="2">&theta;</cos> + r
+                    <sin power="2">&theta;</sin> = <span class="answer">r</span>
                 </equation>
                 <li>All of that effort gives us the
                     <equation><var>r</var></equation> in
@@ -916,9 +923,310 @@
         </table>
     </ul>
     <h3>15.7: Triple Integrals in Cylindrical Coordinates:</h3>
-    <ul></ul>
+    <ul>
+        <li>We can have something like 3-D Polar Coordinates called Cylindrical Coordinates, where we essentially extend the polar plane with the z-axis:</li>
+        <!--Diagram of 2-D polar &rarr; 3-D polar-->
+        <table class="staticTable">
+            <tr>
+                <td><canvas id="twoDimensionalPolarGraph" width="220" height="220"></canvas>
+                    <script src="./drawingScripts/twoDimensionalPolarGraph.js" class="renderJS"></script>
+                </td>
+                <td style="border: none;">&rarr;</td>
+                <td>
+                    <canvas id="threeDimensionalPolarGraph" width="300" height="300"></canvas>
+                    <script src="./drawingScripts/threeDimensionalPolarGraph.js" class="renderJS"></script>
+                </td>
+            </tr>
+        </table>
+        <li>We find the jacobian of this transformation to be the same as we go from the cartesian plane to the polar plane in 2 dimensions.</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation><var>dV = rdrd&theta;dz</var></equation>
+                </td>
+                <th><a href="javascript:void(0)" id="jacobianOfCylindricalCoordinatesProofToggleLink" onclick="toggleSolution('#jacobianOfCylindricalCoordinatesProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="jacobianOfCylindricalCoordinatesProof" class="solution">
+            <ol>
+                <li>Let's find the Jacobian so we can use it as a standard substitution:</li>
+                <equation>
+                    <det>
+                        <matrix dimensionX="1" dimensionY="1">
+                            <cell>
+                                <pDerivative of="(x, y, z)" respectTo="(r, &theta;, z)"></pDerivative>
+                            </cell>
+                        </matrix>
+                    </det> =
+                    <det>
+                        <matrix dimensionX="1" dimensionY="3">
+                            <cell>&nabla;x(r, &theta;, z)</cell>
+                            <cell>&nabla;y(r, &theta;, z)</cell>
+                            <cell>&nabla;z(r, &theta;, z)</cell>
+                        </matrix>
+                    </det> =
+                    <det>
+                        <matrix dimensionX="3" dimensionY="3">
+                            <cell>
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell>&minus;r
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell><span class="cancel">0</span></cell>
+                            <cell>
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>r
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell><span class="cancel">0</span></cell>
+                            <cell><span class="cancel">0</span></cell>
+                            <cell><span class="cancel">0</span></cell>
+                            <cell><span class="cancel">1</span></cell>
+                        </matrix>
+                    </det> = 1(rcos<sup>2</sup>(&theta;) + rsin<sup>2</sup>(&theta;)) = <span class="answer">r</span>
+                </equation>
+                <li>So
+                    <equation><var>dV</var></equation> in Cylindrical Coordinates is
+                    <equation><var>rdrd&theta;dz</var></equation> and any shuffled combination thereof.</li>
+            </ol>
+        </div>
+    </ul>
     <h3>15.8: Triple Integrals in Spherical Coordinates:</h3>
     <ul>
+        <li>Similarly, we can form another coordinate system that takes a sphere and converts it into a box, for easier integration.</li>
+        <!--Table of sphere equation in all three coordinate systems-->
+        <table class="staticTable">
+            <tr>
+                <th>Cartesian:</th>
+                <td>
+                    <!--Sphere in 3-D Space graph-->
+                    <canvas id="sphereInThreeDimensionalSpace" width="320" height="280"></canvas>
+                    <script src="./drawingScripts/sphereInThreeDimensionalSpace.js" class="renderJS"></script>
+                </td>
+                <td>
+                    <!--Cartesian Bounds-->
+                    <equation>&minus;2 &le; x &le; 2</equation><br />
+                    <equation>&minus;
+                        <sqrt>4 &minus; x<sup>2</sup></sqrt> &le; y &le;
+                        <sqrt>4 &minus; x<sup>2</sup></sqrt>
+                    </equation><br />
+                    <equation>&minus;
+                        <sqrt>4 &minus; x<sup>2</sup> &minus; y<sup>2</sup></sqrt> &le; z &le;
+                        <sqrt>4 &minus; x<sup>2</sup> &minus; y<sup>2</sup></sqrt>
+                    </equation><br />
+                </td>
+                <td>
+                    <!--Right triangle to convert from cartesian to polar-->
+                    <canvas id="cartesianToPolarCoordinatesConversionTriangle" width="180" height="120"></canvas>
+                    <script src="./drawingScripts/cartesianToPolarCoordinatesConversionTriangle.js" class="renderJS"></script>
+                    <br />
+                    <equation>
+                        x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup>
+                    </equation><br />
+                    <equation><span class="alignedEquations">
+                        x = r<cos>&theta;</cos><br />
+                        y = r<sin>&theta;</sin>
+                    </span></equation>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">&darr;</td>
+            </tr>
+            <tr>
+                <th>Cylindrical:</th>
+                <td>
+                    <!--Cylindrical graph-->
+                    <canvas id="cylinderInThreeDimensionalSpace" width="320" height="280"></canvas>
+                    <script src="./drawingScripts/cylinderInThreeDimensionalSpace.js" class="renderJS"></script>
+                </td>
+                <td>
+                    <!--Cylindrical Bounds-->
+                    <equation>0 &le; &theta; &le; 2&pi;</equation><br />
+                    <equation>0 &le; r &le; 2</equation><br />
+                    <equation>&minus;
+                        <sqrt>4 &minus; r<sup>2</sup></sqrt> &le; z &le;
+                        <sqrt>4 &minus; r<sup>2</sup></sqrt>
+                    </equation>
+                </td>
+                <td>
+                    <!--Right triangle to convert from cylindrical to spherical-->
+                    <canvas id="cylindricalToSphericalCoordinatesConversionTriangle" width="180" height="120"></canvas>
+                    <script src="./drawingScripts/cylindricalToSphericalCoordinatesConversionTriangle.js" class="renderJS"></script>
+                    <br />
+                    <equation>
+                        r<sup>2</sup> + z<sup>2</sup> = &rho;<sup>2</sup>
+                    </equation><br />
+                    <equation><span class="alignedEquations">
+                        r = &rho;<sin>&phi;</sin><br />
+                        z = &rho;<cos>&phi;</cos>                        
+                    </span></equation>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">&darr;</td>
+            </tr>
+            <tr>
+                <th>Spherical:</th>
+                <td>
+                    <!--Spherical rectangular prism graph-->
+                    <canvas id="rectangularPrismInSphericalCoordinates" width="320" height="280"></canvas>
+                    <script src="./drawingScripts/rectangularPrismInSphericalCoordinates.js" class="renderJS"></script>
+                </td>
+                <td>
+                    <!--Spherical Bounds-->
+                    <equation>0 &le; &theta; &le; 2&pi;</equation><br />
+                    <equation>0 &le; &phi; &le; &pi;</equation><br />
+                    <equation>0 &le; &rho; &le; 2</equation>
+                </td>
+                <td>spherical coordinates</td>
+                <!--Or just get rid of this td entirely-->
+            </tr>
+        </table>
+        <li>The jacobian for this transformation is a little different:</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation><var>dV = &rho;<sup>2</sup><sin>&phi;</sin>d&rho;d&phi;d&theta;</var></equation>
+                </td>
+                <th><a href="javascript:void(0)" id="jacobianOfSphericalCoordinatesProofToggleLink" onclick="toggleSolution('#jacobianOfSphericalCoordinatesProof', true);">Show Proof</a></th>
+            </tr>
+        </table>
+        <div id="jacobianOfSphericalCoordinatesProof" class="solution">
+            <ol>
+                <li>Let's find the Jacobian so we can use it as a standard substitution. First we know what our x, y, and z values are in terms of &rho;, &phi;, and &theta;. Using the polar coordinate substitution, we can take it one step furthermore in the
+                    second triangle in the diagram up above to get:</li>
+                <equation><span class="alignedEquations">
+                    x = &rho;<sin>&phi;</sin><cos>&theta;</cos><br />
+                    y = &rho;<sin>&phi;</sin><sin>&theta;</sin><br />
+                    z = &rho;<cos>&phi;</cos>
+                </span></equation>
+                <li>Now we can take the determinant, and then it's only a matter of solving through expansion of minors (how we take square determinants of larger dimensions):</li>
+                <equation>
+                    <det>
+                        <matrix dimensionX="1" dimensionY="1">
+                            <cell>
+                                <pDerivative of="(x, y, z)" respectTo="(&rho;, &phi;, &theta;)"></pDerivative>
+                            </cell>
+                        </matrix>
+                    </det> =
+                    <det>
+                        <matrix dimensionX="1" dimensionY="3">
+                            <cell>&nabla;x(&rho;, &phi;, &theta;)</cell>
+                            <cell>&nabla;y(&rho;, &phi;, &theta;)</cell>
+                            <cell>&nabla;z(&rho;, &phi;, &theta;)</cell>
+                        </matrix>
+                    </det>
+                    =
+                    <det>
+                        <matrix dimensionX="3" dimensionY="3">
+                            <cell>
+                                <pDerivative of="x" respectTo="&rho;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="x" respectTo="&phi;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="x" respectTo="&theta;"></pDerivative>
+                            </cell>
+
+                            <cell>
+                                <pDerivative of="y" respectTo="&rho;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="y" respectTo="&phi;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="y" respectTo="&theta;"></pDerivative>
+                            </cell>
+
+                            <cell>
+                                <pDerivative of="z" respectTo="&rho;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="z" respectTo="&phi;"></pDerivative>
+                            </cell>
+                            <cell>
+                                <pDerivative of="z" respectTo="&theta;"></pDerivative>
+                            </cell>
+                        </matrix>
+                    </det>
+                </equation><br /><br />
+                <equation>
+                    =
+                    <det>
+                        <matrix dimensionX="3" dimensionY="3">
+                            <cell>
+                                <sin>&phi;</sin>
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell>
+                                &rho;
+                                <cos>&phi;</cos>
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell>
+                                &minus;&rho;
+                                <sin>&phi;</sin>
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>
+                                <sin>&phi;</sin>
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>&rho;
+                                <cos>&phi;</cos>
+                                <sin>&theta;</sin>
+                            </cell>
+                            <cell>&rho;
+                                <sin>&phi;</sin>
+                                <cos>&theta;</cos>
+                            </cell>
+                            <cell>
+                                <cos>&phi;</cos>
+                            </cell>
+                            <cell>&minus;&rho;
+                                <sin>&phi;</sin>
+                            </cell>
+                            <cell>0</cell>
+                        </matrix>
+                    </det>
+                </equation><br />
+                <equation><span class="alignedEquations">
+                    <br />
+                    = <sin>&phi;</sin><cos>&theta;</cos><det writeDet><matrix dimensionX="2" dimensionY="2">
+                        <cell>&rho;<cos>&phi;</cos><sin>&theta;</sin></cell>
+                        <cell>&rho;<sin>&phi;</sin><cos>&theta;</cos></cell>
+                        <cell>&minus;&rho;<sin>&phi;</sin></cell>
+                        <cell>0</cell>
+                    </matrix></det> &minus; &rho;<cos>&phi;</cos><cos>&theta;</cos><det writeDet><matrix dimensionX="2" dimensionY="2">
+                        <cell><sin>&phi;</sin><sin>&theta;</sin></cell>
+                        <cell>&rho;<sin>&phi;</sin><cos>&theta;</cos></cell>
+                        <cell><cos>&phi;</cos></cell>
+                        <cell>0</cell>
+                    </matrix></det> &minus; &rho;<sin>&phi;</sin><sin>&theta;</sin><det writeDet><matrix dimensionX="2" dimensionY="2">
+                        <cell><sin>&phi;</sin><sin>&theta;</sin></cell>
+                        <cell>&rho;<cos>&phi;</cos><sin>&theta;</sin></cell>
+                        <cell><cos>&phi;</cos></cell>
+                        <cell>&minus;&rho;<sin>&phi;</sin></cell>
+                    </matrix></det><br /><br />
+                    = <sin>&phi;</sin><cos>&theta;</cos>[0 + &rho;<sup>2</sup><sin power="2">&phi;</sin><cos>&theta;</cos>] &minus; &rho;<cos>&phi;</cos><cos>&theta;</cos>[0 &minus; &rho;<sin>&phi;</sin><cos>&theta;</cos><cos>&phi;</cos>] &minus; &rho;<sin>&phi;</sin><sin>&theta;</sin>[&rho;<sin power="2">&phi;</sin><sin>&theta;</sin> &minus; &rho;<cos power="2">&phi;</cos><sin>&theta;</sin>]<br />
+                    = &rho;<sup>2</sup><sin power="3">&phi;</sin><cos power="2">&theta;</cos> + &rho;<sup>2</sup><cos power="2">&phi;</cos><cos power="2">&theta;</cos><sin>&phi;</sin> &minus; &rho;<sin>&phi;</sin><sin>&theta;</sin>[&minus;&rho;<sin>&theta;</sin>(<sin power="2">&phi;</sin> + <cos power="2">&phi;</cos>)]<br />
+                    = &rho;<sup>2</sup><sin power="3">&phi;</sin><cos power="2">&theta;</cos> + &rho;<sup>2</sup><cos power="2">&phi;</cos><cos power="2">&theta;</cos><sin>&phi;</sin> + &rho;<sup>2</sup><sin>&phi;</sin><sin power="2">&theta;</sin>(1)<br />
+                    = &rho;<sup>2</sup>[<sin power="3">&phi;</sin><cos power="2">&theta;</cos> + <cos power="2">&phi;</cos><cos power="2">&theta;</cos><sin>&phi;</sin> + <sin>&phi;</sin><sin power="2">&theta;</sin>]<br />
+                    = &rho;<sup>2</sup>[<sin>&phi;</sin>[<sin power="2">&phi;</sin><cos power="2">&theta;</cos> + <cos power="2">&phi;</cos><cos power="2">&theta;</cos> + <sin power="2">&theta;</sin>]]<br />
+                    = &rho;<sup>2</sup>[<sin>&phi;</sin>[<cos power="2">&theta;</cos>(<sin power="2">&phi;</sin> + <cos power="2">&phi;</cos>) + <sin power="2">&theta;</sin>]]<br />
+                    = &rho;<sup>2</sup><sin>&phi;</sin>[<cos power="2">&theta;</cos>(1) + <sin power="2">&theta;</sin>]<br />
+                    = &rho;<sup>2</sup><sin>&phi;</sin>[1]<br />
+                    = <span class="answer">&rho;<sup>2</sup><sin>&phi;</sin></span>
+                    </span>
+                </equation>
+                <li>So
+                    <equation><var>dV</var></equation> in Spherical Coordinates is
+                    <equation><var>&rho;<sup>2</sup><sin>&phi;</sin>d&rho;d&phi;d&theta;</var></equation> and any shuffled combination thereof.</li>
+            </ol>
+        </div>
         <li>For a summary of all the formulas we have found for substitution:</li>
         <table class="rules">
             <tr>
@@ -927,29 +1235,72 @@
                 <th><u>Spherical:</u></th>
             </tr>
             <tr>
-                <td><var>x</var></td>
-                <td><var>r<cos>&theta;</cos></var></td>
-                <td><var>&rho;<sin>&phi;</sin><cos>&theta;</cos></var></td>
+                <td>
+                    <equation><var>x</var></equation>
+                </td>
+                <td>
+                    <equation><var>r<cos>&theta;</cos></var></equation>
+                </td>
+                <td>
+                    <equation><var>&rho;<sin>&phi;</sin><cos>&theta;</cos></var></equation>
+                </td>
             </tr>
             <tr>
-                <td><var>y</var></td>
-                <td><var>r<sin>&theta;</sin></var></td>
-                <td><var>&rho;<sin>&phi;</sin><sin>&theta;</sin></var></td>
+                <td>
+                    <equation><var>y</var></equation>
+                </td>
+                <td>
+                    <equation><var>r<sin>&theta;</sin></var></equation>
+                </td>
+                <td>
+                    <equation><var>&rho;<sin>&phi;</sin><sin>&theta;</sin></var></equation>
+                </td>
             </tr>
             <tr>
-                <td><var>z</var></td>
-                <td><var>z</var></td>
-                <td><var>&rho;<cos>&phi;</cos></var></td>
+                <td>
+                    <equation><var>z</var></equation>
+                </td>
+                <td>
+                    <equation><var>z</var></equation>
+                </td>
+                <td>
+                    <equation><var>&rho;<cos>&phi;</cos></var></equation>
+                </td>
             </tr>
             <tr>
-                <td><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup></td>
-                <td><var>r</var><sup>2</sup></td>
-                <td><var>&rho;</var><sup>2</sup>sin<sup>2</sup>(<var>&phi;</var>)</td>
+                <td>
+                    <equation><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup></equation>
+                </td>
+                <td>
+                    <equation><var>r</var><sup>2</sup></equation>
+                </td>
+                <td>
+                    <equation><var>&rho;</var><sup>2</sup>
+                        <sin power="2">&phi;</sin>
+                    </equation>
+                </td>
             </tr>
             <tr>
-                <td><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup></td>
-                <td><var>r</var><sup>2</sup> + <var>z</var><sup>2</sup></td>
-                <td><var>&rho;</var><sup>2</sup></td>
+                <td>
+                    <equation><var>x</var><sup>2</sup> + <var>y</var><sup>2</sup> + <var>z</var><sup>2</sup></equation>
+                </td>
+                <td>
+                    <equation><var>r</var><sup>2</sup> + <var>z</var><sup>2</sup></equation>
+                </td>
+                <td>
+                    <equation><var>&rho;</var><sup>2</sup></equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation><var>dV = dxdydz</var></equation>
+                </td>
+                <td>
+                    <equation><var>dV = rdrd&theta;dz</var></equation>
+                </td>
+                <td>
+                    <equation><var>dV = &rho;<sup>2</sup><sin>&phi;</sin>d&rho;d&phi;d&theta;</var></equation>
+                </td>
             </tr>
         </table>
     </ul>
