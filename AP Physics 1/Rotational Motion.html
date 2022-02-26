@@ -36,6 +36,58 @@
                 </td>
             </tr>
         </table>
+        <canvas id="centripetalAccelerationAnimation" width="200" height="200"></canvas>
+        <script class="renderJS">
+            var centripetalAccelerationAnimation = document.querySelector("#centripetalAccelerationAnimation");
+            var centripetalAccelerationAnimationCTX = centripetalAccelerationAnimation.getContext("2d");
+            oversampleCanvas(centripetalAccelerationAnimation, centripetalAccelerationAnimationCTX, 4);
+            var canvasHeight = 220,
+                canvasWidth = 220;
+            var radius = canvasHeight / 2 - 40;
+            //While true, decrease theta by Math.PI / 120 and redraw (circles clockwise)
+            var theta = Math.PI / 2;
+            var speed = 100; //100
+            var waitTime = 0;
+            var currentInitX, currentInitY;
+            var currentFinalX, currentFinalY;
+            var velocityVectorLength = 50;
+
+            var drawCentripetalAccelerationAnimation = async() => {
+                centripetalAccelerationAnimationCTX.strokeStyle = "black";
+                centripetalAccelerationAnimationCTX.setLineDash([5, 5]);
+                centripetalAccelerationAnimationCTX.beginPath();
+                centripetalAccelerationAnimationCTX.arc(canvasWidth / 2, canvasHeight / 2, radius, 0, 2 * Math.PI);
+                centripetalAccelerationAnimationCTX.stroke();
+                centripetalAccelerationAnimationCTX.setLineDash([]);
+                currentInitX = canvasWidth / 2 + (radius * Math.cos(theta));
+                currentInitY = canvasHeight / 2 - (radius * Math.sin(theta));
+                drawArrow(centripetalAccelerationAnimationCTX, currentInitX, currentInitY, canvasWidth / 2, canvasHeight / 2, {
+                    color: "purple",
+                    headlen: 7.5
+                }); //Centripetal Acceleration Arrow
+
+                centripetalAccelerationAnimationCTX.font = "10px Arial";
+                centripetalAccelerationAnimationCTX.fillText("→", currentInitX - (radius / 2 * Math.cos(theta)) - 1, currentInitY + (radius / 2 * Math.sin(theta)) - 4);
+                centripetalAccelerationAnimationCTX.fillText("a", currentInitX - (radius / 2 * Math.cos(theta)), currentInitY + (radius / 2 * Math.sin(theta)));
+                centripetalAccelerationAnimationCTX.font = "5pt Arial";
+                centripetalAccelerationAnimationCTX.fillText("c", currentInitX - (radius / 2 * Math.cos(theta)) + 4, currentInitY + (radius / 2 * Math.sin(theta)) + 3);
+
+                currentFinalX = currentInitX + (velocityVectorLength * Math.cos(theta - Math.PI / 2));
+                currentFinalY = currentInitY - (velocityVectorLength * Math.sin(theta - Math.PI / 2));
+                drawArrow(centripetalAccelerationAnimationCTX, currentInitX, currentInitY, currentFinalX, currentFinalY, {
+                    color: "turquoise",
+                    headlen: 7.5
+                }); //Tangential Velocity Vector
+                centripetalAccelerationAnimationCTX.font = "10px Arial";
+                centripetalAccelerationAnimationCTX.fillText("→", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)) - 1, currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)) - 4);
+                centripetalAccelerationAnimationCTX.fillText("v", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)), currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)));
+                theta -= Math.PI / (speed);
+                await new Promise(r => setTimeout(r, waitTime)); //Not sure why but setting this at 0 allows 0 ms of deferral before erasing and redrawing
+                centripetalAccelerationAnimationCTX.clearRect(0, 0, canvasWidth, canvasHeight);
+                requestAnimationFrame(drawCentripetalAccelerationAnimation);
+            }
+            requestAnimationFrame(drawCentripetalAccelerationAnimation);
+        </script>
         <li>When a car is going in a circular track, the Force of Friction is the same as the Centripetal Force of the track on the car because it is the only force keeping the car on the road, this is why
 
             <equation><var>F<sub>f</sub></var> = <var>F<sub>c</sub></var> &rarr; <var>&mu;mg</var> = <var>m</var>
