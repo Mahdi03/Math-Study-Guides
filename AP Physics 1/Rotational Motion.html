@@ -40,7 +40,7 @@
         <script class="renderJS">
             var centripetalAccelerationAnimation = document.querySelector("#centripetalAccelerationAnimation");
             var centripetalAccelerationAnimationCTX = centripetalAccelerationAnimation.getContext("2d");
-            oversampleCanvas(centripetalAccelerationAnimation, centripetalAccelerationAnimationCTX, 4);
+            oversampleCanvas(centripetalAccelerationAnimation, centripetalAccelerationAnimationCTX, 8);
             var canvasHeight = 220,
                 canvasWidth = 220;
             var radius = canvasHeight / 2 - 40;
@@ -67,10 +67,10 @@
                 }); //Centripetal Acceleration Arrow
 
                 centripetalAccelerationAnimationCTX.font = "10px Arial";
-                centripetalAccelerationAnimationCTX.fillText("→", currentInitX - (radius / 2 * Math.cos(theta)) - 1, currentInitY + (radius / 2 * Math.sin(theta)) - 4);
-                centripetalAccelerationAnimationCTX.fillText("a", currentInitX - (radius / 2 * Math.cos(theta)), currentInitY + (radius / 2 * Math.sin(theta)));
+                centripetalAccelerationAnimationCTX.fillText("→", currentInitX - (radius / 2 * Math.cos(theta)) - 1 + 3, currentInitY + (radius / 2 * Math.sin(theta)) - 4);
+                centripetalAccelerationAnimationCTX.fillText("a", currentInitX - (radius / 2 * Math.cos(theta)) + 3, currentInitY + (radius / 2 * Math.sin(theta)));
                 centripetalAccelerationAnimationCTX.font = "5pt Arial";
-                centripetalAccelerationAnimationCTX.fillText("c", currentInitX - (radius / 2 * Math.cos(theta)) + 4, currentInitY + (radius / 2 * Math.sin(theta)) + 3);
+                centripetalAccelerationAnimationCTX.fillText("c", currentInitX - (radius / 2 * Math.cos(theta)) + 5 + 3, currentInitY + (radius / 2 * Math.sin(theta)) + 3);
 
                 currentFinalX = currentInitX + (velocityVectorLength * Math.cos(theta - Math.PI / 2));
                 currentFinalY = currentInitY - (velocityVectorLength * Math.sin(theta - Math.PI / 2));
@@ -79,8 +79,8 @@
                     headlen: 7.5
                 }); //Tangential Velocity Vector
                 centripetalAccelerationAnimationCTX.font = "10px Arial";
-                centripetalAccelerationAnimationCTX.fillText("→", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)) - 1, currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)) - 4);
-                centripetalAccelerationAnimationCTX.fillText("v", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)), currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)));
+                centripetalAccelerationAnimationCTX.fillText("→", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)) - 2, currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)) - 4 - 3);
+                centripetalAccelerationAnimationCTX.fillText("v", currentFinalX - (velocityVectorLength / 2 * Math.cos(theta - Math.PI / 2)), currentFinalY + (velocityVectorLength / 2 * Math.sin(theta - Math.PI / 2)) - 3);
                 theta -= Math.PI / (speed);
                 await new Promise(r => setTimeout(r, waitTime)); //Not sure why but setting this at 0 allows 0 ms of deferral before erasing and redrawing
                 centripetalAccelerationAnimationCTX.clearRect(0, 0, canvasWidth, canvasHeight);
