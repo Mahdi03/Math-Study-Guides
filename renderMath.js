@@ -209,7 +209,7 @@ function renderMath(parentElement = "") {
                 var oldEvaluated = dom.querySelector("evaluated");
                 var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
                 var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
-                var newEvaluated = createHTMLNodesFromString("\\Bigr|_{" + from + "}^{" + to + "}");
+                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
                 oldEvaluated.replaceWith(...newEvaluated);
             }
             while (dom.querySelector("laPlaceTransform") != undefined) {
