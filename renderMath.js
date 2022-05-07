@@ -153,6 +153,13 @@ function renderMath(parentElement = "") {
                 oldSQRT.replaceWith(...newSQRT);
                 //console.log(dom.innerHTML)
             }
+            // <nthRoot n="3"></nthRoot> (for 3rd root and so on)
+            while (dom.querySelector("nthRoot") != undefined) {
+                var oldNthRoot = dom.querySelector("nthRoot");
+                var n = oldNthRoot.getAttribute("n");
+                var newNthRoot = createHTMLNodesFromString(`\\sqrt[${n}]{${oldNthRoot.innerHTML}}`);
+                oldNthRoot.replaceWith(...newNthRoot);
+            }
             while (dom.querySelector("div.fraction") != undefined) {
                 var oldFrac = dom.querySelector("div.fraction");
                 var top = oldFrac.children[0].innerHTML;
