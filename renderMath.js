@@ -324,7 +324,13 @@ function renderMath(parentElement = "") {
             for (var i = 0; i < otherFunctions.length; i++) {
                 while (dom.querySelector(otherFunctions[i]) != undefined) {
                     var oldFunc = dom.querySelector(otherFunctions[i]);
-                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "} {\\left(" + oldFunc.innerHTML + "\\right)}");
+                    var powerStr = "";
+                    if (oldFunc.getAttribute("inv") != null) {
+                        powerStr = "^{-1}";
+                    } else if (oldFunc.getAttribute("power")) {
+                        powerStr = "^{" + oldFunc.getAttribute("power") + "}";
+                    }
+                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "}" + powerStr + "{\\left(" + oldFunc.innerHTML + "\\right)}");
                     oldFunc.replaceWith(...newFunc);
                 }
             }
