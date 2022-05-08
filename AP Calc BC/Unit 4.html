@@ -15,32 +15,38 @@
         <li>Infinite Arithmetic Series are always divergent, and recall the Partial Sum Formula for Geometric Series, as well as the conditions required in order to have a convergent Infinite Geometric Series.</li>
         <table class="rules">
             <tr>
-                <td><var>S<sub>n</sub></var> = <var>a</var><sub>1</sub>
-                    <div class="fraction">
-                        <div class="top">
-                            (1 &minus; <var>r</var><sup><var>n</var></sup>)
+                <td>
+                    <equation>
+                        <var>S<sub>n</sub></var> = <var>a</var><sub>1</sub>
+                        <div class="fraction">
+                            <div class="top">
+                                (1 &minus; <var>r</var><sup><var>n</var></sup>)
+                            </div>
+                            <div class="bottom">
+                                (1 &minus; <var>r</var>)
+                            </div>
                         </div>
-                        <div class="bottom">
-                            (1 &minus; <var>r</var>)
-                        </div>
-                    </div>
+                    </equation>
                 </td>
             </tr>
             <tr>
-                <td>|<var>r</var>| &lt; 1 <br />Convergent</td>
                 <td>
-                    <sigma start="<var>k</var> = 1" end="&infin;"></sigma>(<var>ar<sup>k</sup></var>) =
-                    <lim as="n" approaches="&infin;"></lim>[
-                    <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma>(<var>ar<sup>k</sup></var>)] =
-                    <lim as="n" approaches="&infin;"></lim>[<var>a</var>
-                    <div class="fraction">
-                        <div class="top">(1 &minus; <var>r</var><sup><var>n</var></sup>)</div>
-                        <div class="bottom">(1 &minus; <var>r</var>)</div>
-                    </div>] =
-                    <div class="fraction">
-                        <div class="top"><var>a</var></div>
-                        <div class="bottom">1 &minus; <var>r</var></div>
-                    </div>
+                    <equation>|<var>r</var>| &lt; 1</equation> <br />Convergent</td>
+                <td>
+                    <equation>
+                        <sigma start="<var>k</var> = 1" end="&infin;"></sigma>(<var>ar<sup>k</sup></var>) =
+                        <lim as="n" approaches="&infin;"></lim>[
+                        <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma>(<var>ar<sup>k</sup></var>)] =
+                        <lim as="n" approaches="&infin;"></lim>[<var>a</var>
+                        <div class="fraction">
+                            <div class="top">(1 &minus; <var>r</var><sup><var>n</var></sup>)</div>
+                            <div class="bottom">(1 &minus; <var>r</var>)</div>
+                        </div>] =
+                        <div class="fraction">
+                            <div class="top"><var>a</var></div>
+                            <div class="bottom">1 &minus; <var>r</var></div>
+                        </div>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -51,148 +57,185 @@
         <li>Simply take the limit of the sequence, and if it approaches any other value than 0, the series will diverge.</li>
         <li>When the limit of the sequence converges to 0, another test needs to be tried out. This test can <strong>only prove divergence</strong>.</li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <var>n</var>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    <var>n</var>
+                </div>
+                <div class="bottom"><var>n</var> + 1</div>
             </div>
-            <div class="bottom"><var>n</var> + 1</div>
-        </div>&emsp;<a href="javascript:void(0)" id="nthTermTestProblem1SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem1Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="nthTermTestProblem1SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem1Solution');">Show Solution</a>
         <div id="nthTermTestProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>n</var>
-                        </div>
-                        <div class="bottom"><var>n</var> + 1</div>
-                    </div> = 1 &ne; 0
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>n</var>
+                            </div>
+                            <div class="bottom"><var>n</var> + 1</div>
+                        </div> = 1 &ne; 0
+                    </equation>
                 </li>
                 <li><span class="answer">&there4; diverges by Nth Term Test</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <var>n</var>sin(
-        <div class="fraction">
-            <div class="top">1</div>
-            <div class="bottom"><var>n</var></div>
-        </div>)&emsp;<a href="javascript:void(0)" id="nthTermTestProblem2SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem2Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <var>n</var>
+            <sin>
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>n</var></div>
+                </div>
+            </sin>
+        </equation>&emsp;<a href="javascript:void(0)" id="nthTermTestProblem2SolutionToggleLink" onclick="toggleSolution('#nthTermTestProblem2Solution');">Show Solution</a>
         <div id="nthTermTestProblem2Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim><var>n</var>sin(
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div>) =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">sin(
-                            <div class="fraction">
-                                <div class="top">1</div>
-                                <div class="bottom"><var>n</var></div>
-                            </div>)</div>
-                        <div class="bottom">
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim><var>n</var>
+                        <sin>
                             <div class="fraction">
                                 <div class="top">1</div>
                                 <div class="bottom"><var>n</var></div>
                             </div>
+                        </sin> =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <sin>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>n</var></div>
+                                    </div>
+                                </sin>
+                            </div>
+                            <div class="bottom">
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>n</var></div>
+                                </div>
+                            </div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">0</div>
+                            <div class="bottom">0</div>
                         </div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">0</div>
-                        <div class="bottom">0</div>
-                    </div>
+                    </equation>
                 </li>
-                <li>=
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">cos(
+                <li>
+                    <equation>
+                        =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <cos>
+                                    <div class="fraction">
+                                        <div class="top">1</div>
+                                        <div class="bottom"><var>n</var></div>
+                                    </div>
+                                </cos> &times; <var>n</var><sup>&minus;2</sup></div>
+                            <div class="bottom"><var>n</var><sup>&minus;2</sup></div>
+                        </div> =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <cos>
                             <div class="fraction">
                                 <div class="top">1</div>
                                 <div class="bottom"><var>n</var></div>
-                            </div>) &times; <var>n</var><sup>&minus;2</sup></div>
-                        <div class="bottom"><var>n</var><sup>&minus;2</sup></div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>cos(
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div>) = 1 &ne; 0
+                            </div>
+                        </cos> = 1 &ne; 0
+                    </equation>
                 </li>
-                <br />
-                <br />
                 <li><span class="answer">&there4; Diverges by Nth Term Test</span></li>
             </ol>
         </div>
 
         <h5>Geometric Series Test (GST):</h5>
-        <li>Use the GST when you can find a common ratio <var>r</var>. And recall from last year, that if |<var>r</var>| &ge; 1, the series will diverge, and if |<var>r</var>| &lt; 1, the series will converge.</li>
-        <li>Using this test you can also find the Interval of Convergence, when &minus;1 &le; <var>r</var> &le; 1.</li>
+        <li>Use the GST when you can find a common ratio
+            <equation><var>r</var></equation>. And recall from last year, that if
+            <equation>|<var>r</var>| &ge; 1</equation>, the series will diverge, and if
+            <equation>|<var>r</var>| &lt; 1</equation>, the series will converge.</li>
+        <li>Using this test you can also find the Interval of Convergence, when
+            <equation>&minus;1 &le; <var>r</var> &le; 1</equation>.</li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                (&minus;2)<sup><var>n</var></sup>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    (&minus;2)<sup><var>n</var></sup>
+                </div>
+                <div class="bottom">3<sup><var>n</var></sup></div>
             </div>
-            <div class="bottom">3<sup><var>n</var></sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="GSTProblem1SolutionToggleLink" onclick="toggleSolution('#GSTProblem1Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="GSTProblem1SolutionToggleLink" onclick="toggleSolution('#GSTProblem1Solution');">Show Solution</a>
         <div id="GSTProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            (&minus;2)<sup><var>n</var></sup>
-                        </div>
-                        <div class="bottom">3<sup><var>n</var></sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    (&minus;
-                    <div class="fraction">
-                        <div class="top">2</div>
-                        <div class="bottom">3</div>
-                    </div>)<sup><var>n</var></sup>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                (&minus;2)<sup><var>n</var></sup>
+                            </div>
+                            <div class="bottom">3<sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        (&minus;
+                        <div class="fraction">
+                            <div class="top">2</div>
+                            <div class="bottom">3</div>
+                        </div>)<sup><var>n</var></sup>
+                    </equation>
                 </li>
-                <li>|<var>r</var>| =
-                    <div class="fraction">
-                        <div class="top">2</div>
-                        <div class="bottom">3</div>
-                    </div> &le; 1 <span class="answer">&there4; Converges by GST</span></li>
+                <li>
+                    <equation>
+                        |<var>r</var>| =
+                        <div class="fraction">
+                            <div class="top">2</div>
+                            <div class="bottom">3</div>
+                        </div> &le; 1</equation> <span class="answer">&there4; Converges by GST</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">1</div>
-            <div class="bottom">ln(2)<sup><var>n</var></sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="GSTProblem2SolutionToggleLink" onclick="toggleSolution('#GSTProblem2Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">ln(2)<sup><var>n</var></sup></div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="GSTProblem2SolutionToggleLink" onclick="toggleSolution('#GSTProblem2Solution');">Show Solution</a>
         <div id="GSTProblem2Solution" class="solution">
             <ol>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">ln(2)<sup><var>n</var></sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1<sup><var>n</var></sup></div>
-                        <div class="bottom">ln(2)<sup><var>n</var></sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">ln(2)</div>
-                    </div>)<sup><var>n</var></sup>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">ln(2)<sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1<sup><var>n</var></sup></div>
+                            <div class="bottom">ln(2)<sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">ln(2)</div>
+                        </div>)<sup><var>n</var></sup>
+                    </equation>
                 </li>
-                <li><var>r</var> =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">ln(2)</div>
-                    </div> &ge; 1
+                <li>
+                    <equation>
+                        <var>r</var> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">ln(2)</div>
+                        </div> &ge; 1
+                    </equation>
                 </li>
                 <li><span class="answer">&there4; Diverges by the GST</span></li>
             </ol>
@@ -206,194 +249,252 @@
         <li>This test can be tried when other methods do not work, it is quite lengthy as it requires the usage of improper integration from the last unit.</li>
         <li>Simply put, when the improper integral of the sequence converges, the infinite series of the sequence converges, and if the improper integral of the sequence diverges, so does the series. However, if the integral converges to a certain value,
             this does not mean that the infinite series converges to the same value.</li>
-        <li>In order to use this test, the function must be <u>decreasing, continuous, and positive when <var>x</var> &ge; 1</u>, and this needs to be shown every time.</li>
+        <li>In order to use this test, the function must be <u>decreasing, continuous, and positive when <equation><var>x</var> &ge; 1</equation></u>, and this needs to be shown every time.</li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <ln>n</ln>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    <ln>n</ln>
+                </div>
+                <div class="bottom"><var>n</var></div>
             </div>
-            <div class="bottom"><var>n</var></div>
-        </div>&emsp;<a href="javascript:void(0)" id="integralTestProblem1SolutionToggleLink" onclick="toggleSolution('#integralTestProblem1Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="integralTestProblem1SolutionToggleLink" onclick="toggleSolution('#integralTestProblem1Solution');">Show Solution</a>
         <div id="integralTestProblem1Solution" class="solution">
             <ol>
-                <li>decreasing, continuous, and positive when <var>x</var> &ge; 1</li>
-                <li><var>f(x)</var> =
-                    <div class="fraction">
-                        <div class="top">
-                            <ln>x</ln>
-                        </div>
-                        <div class="bottom"><var>x</var></div>
-                    </div>
+                <li>decreasing, continuous, and positive when
+                    <equation><var>x</var> &ge; 1</equation>
                 </li>
                 <li>
-                    <integral lowerBound="1" upperBound="&infin;" respectTo="x">
+                    <equation>
+                        <var>f(x)</var> =
                         <div class="fraction">
                             <div class="top">
                                 <ln>x</ln>
                             </div>
                             <div class="bottom"><var>x</var></div>
                         </div>
-                    </integral> =
-                    <lim as="a" approaches="&infin;"></lim>
-                    <integral lowerBound="1" upperBound="<var>a</var>" respectTo="x">
-                        <div class="fraction">
-                            <div class="top">
-                                <ln>x</ln>
-                            </div>
-                            <div class="bottom"><var>x</var></div>
-                        </div>
-                    </integral>
+                    </equation>
                 </li>
-                <ol type="i">
-                    <li>
-                        <integral respectTo="x">
+                <li>
+                    <equation>
+                        <integral lowerBound="1" upperBound="&infin;" respectTo="x">
                             <div class="fraction">
                                 <div class="top">
                                     <ln>x</ln>
                                 </div>
                                 <div class="bottom"><var>x</var></div>
                             </div>
-                        </integral>:
-                    </li>
-                    <li><var>u</var> =
-                        <ln>x</ln>
-                    </li>
-                    <li><var>du</var> =
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>x</var></div>
-                        </div><var>dx</var></li>
+                        </integral> =
+                        <lim as="a" approaches="&infin;"></lim>
+                        <integral lowerBound="1" upperBound="<var>a</var>" respectTo="x">
+                            <div class="fraction">
+                                <div class="top">
+                                    <ln>x</ln>
+                                </div>
+                                <div class="bottom"><var>x</var></div>
+                            </div>
+                        </integral>
+                    </equation>
+                </li>
+                <ol type="i">
                     <li>
-                        <integral respectTo="u"><var>u</var></integral> = <var>u</var><sup>2</sup> / 2 + C
+                        <equation>
+                            <integral respectTo="x">
+                                <div class="fraction">
+                                    <div class="top">
+                                        <ln>x</ln>
+                                    </div>
+                                    <div class="bottom"><var>x</var></div>
+                                </div>
+                            </integral>:</equation>
                     </li>
-                    <li>ln<sup>2</sup>(<var>x</var>) / 2</li>
+                    <li>
+                        <equation><var>u</var> =
+                            <ln>x</ln>
+                        </equation>
+                    </li>
+                    <li>
+                        <equation>
+                            <var>du</var> =
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>x</var></div>
+                            </div><var>dx</var>
+                        </equation>
+                    </li>
+                    <li>
+                        <equation>
+                            <integral respectTo="u"><var>u</var></integral> = <var>u</var><sup>2</sup> / 2 + C
+                        </equation>
+                    </li>
+                    <li>
+                        <equation>
+                            <ln power="2">x</ln> / 2</equation>
+                    </li>
                 </ol>
                 <li>
-                    <lim as="a" approaches="&infin;"></lim>ln<sup>2</sup>(<var>a</var>) / 2 &minus; ln<sup>2</sup>(1) / 2 = &infin;
+                    <equation>
+                        <lim as="a" approaches="&infin;"></lim>
+                        <ln power="2">a</ln> / 2 &minus;
+                        <ln power="2">1</ln> / 2 = &infin;
+                    </equation>
                 </li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            <ln>n</ln>
+                <li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                <ln>n</ln>
+                            </div>
+                            <div class="bottom"><var>n</var></div>
                         </div>
-                        <div class="bottom"><var>n</var></div>
-                    </div> <span class="answer">Diverges by the Integral Test</span></li>
+                    </equation> <span class="answer">Diverges by the Integral Test</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <var>e<sup>n</sup></var>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    <var>e<sup>n</sup></var>
+                </div>
+                <div class="bottom">1 + <var>e</var><sup>2<var>n</var></sup></div>
             </div>
-            <div class="bottom">1 + <var>e</var><sup>2<var>n</var></sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="integralTestProblem2SolutionToggleLink" onclick="toggleSolution('#integralTestProblem2Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="integralTestProblem2SolutionToggleLink" onclick="toggleSolution('#integralTestProblem2Solution');">Show Solution</a>
         <div id="integralTestProblem2Solution" class="solution">
             <ol>
                 <li>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>e<sup>x</sup></var>
-                        </div>
-                        <div class="bottom">1 + <var>e</var><sup>2<var>x</var></sup></div>
-                    </div> = <var>e<sup>x</sup></var>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">1 + (<var>e</var><sup><var>x</var></sup>)<sup><sup>2</sup></sup>
-                        </div>
-                    </div>
-                </li>
-                <li>decreasing, continuous, positive for <var>x</var> &ge; 1</li>
-                <li><var>u</var> = <var>e<sup>x</sup></var>; <var>du</var> = <var>e<sup>x</sup>dx</var></li>
-                <li>
-                    <integral lowerBound="1" upperBound="&infin;" respectTo="x">
-                        <var>e<sup>x</sup></var>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>e<sup>x</sup></var>
+                            </div>
+                            <div class="bottom">1 + <var>e</var><sup>2<var>x</var></sup></div>
+                        </div> = <var>e<sup>x</sup></var>
                         <div class="fraction">
                             <div class="top">1</div>
                             <div class="bottom">1 + (<var>e</var><sup><var>x</var></sup>)<sup><sup>2</sup></sup>
                             </div>
                         </div>
-                    </integral> =
-                    <lim as="a" approaches="&infin;"></lim>
-                    <integral lowerBound="1" upperBound="<var>a</var>" respectTo="u">
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom">1 + <var>u</var><sup>2</sup></div>
-                        </div>
-                    </integral>
+                    </equation>
                 </li>
-                <li>=
-                    <lim as="a" approaches="&infin;"></lim>
-                    tan<sup>&minus;1</sup>(<var>u</var>)
-                    <evaluated from="1" to="<var>a</var>"></evaluated> =
-                    <lim as="a" approaches="&infin;"></lim>
-                    tan<sup>&minus;1</sup>(<var>e<sup>a</sup></var>) &minus; tan<sup>&minus;1</sup>(<var>e</var>)
+                <li>decreasing, continuous, positive for
+                    <equation><var>x</var> &ge; 1</equation>
                 </li>
-                arctan as <var>x</var> approaches infinity is &pi; &divide; 2
                 <li>
-                    <div class="fraction">
-                        <div class="top">&pi;</div>
-                        <div class="bottom">2</div>
-                    </div> &minus; tan<sup>&minus;1</sup>(<var>e</var>) is a finite value</li>
+                    <equation><var>u</var> = <var>e<sup>x</sup></var>; <var>du</var> = <var>e<sup>x</sup>dx</var></equation>
+                </li>
+                <li>
+                    <equation>
+                        <span class="alignedEquations">
+                            <integral lowerBound="1" upperBound="&infin;" respectTo="x">
+                                <var>e<sup>x</sup></var>
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom">1 + (<var>e</var><sup><var>x</var></sup>)<sup><sup>2</sup></sup>
+                                    </div>
+                                </div>
+                            </integral> =
+                            <lim as="a" approaches="&infin;"></lim>
+                            <integral lowerBound="1" upperBound="<var>a</var>" respectTo="u">
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom">1 + <var>u</var><sup>2</sup></div>
+                                </div>
+                            </integral><br />
+                            =
+                            <lim as="a" approaches="&infin;"></lim>
+                            <tan inv>u</tan><evaluated from="1" to="<var>a</var>"></evaluated> <br />
+                            = <lim as="a" approaches="&infin;"></lim><tan inv>e<sup>a</sup></tan> &minus; <tan inv>e</tan>
+                        </span>
+
+                    </equation>
+                </li>
+                as
+                <equation><var>x</var></equation> approaches infinity,
+                <equation>
+                    <tan inv>x</tan>
+                </equation> approaches
+                <equation>&pi;/2</equation>
+                <li>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">&pi;</div>
+                            <div class="bottom">2</div>
+                        </div> &minus;
+                        <tan inv>e</tan>
+                    </equation> is a finite value</li>
                 <li><span class="answer">&there4; Converges by the Integral Test</span></li>
             </ol>
         </div>
-
         <h5>P-Series Test:</h5>
         <li>If you can simplify your series into the form of a p-series (as shown below) then you can use the simple rule to check for convergence or divergence.</li>
         <table class="rules">
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n<sup>p</sup></var></div>
-                    </div>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>n<sup>p</sup></var></div>
+                        </div>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>If <var>p</var> &le; 1, the series will diverge, but if <var>p</var> &gt; 1, the series will converge.</li>
+        <li>If
+            <equation><var>p</var> &le; 1</equation>, the series will diverge, but if
+            <equation><var>p</var> &gt; 1</equation>, the series will converge.</li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <sqrt><var>n</var></sqrt>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    <sqrt><var>n</var></sqrt>
+                </div>
+                <div class="bottom"><var>n</var><sup>2</sup></div>
             </div>
-            <div class="bottom"><var>n</var><sup>2</sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="pTestProblem1SolutionToggleLink" onclick="toggleSolution('#pTestProblem1Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="pTestProblem1SolutionToggleLink" onclick="toggleSolution('#pTestProblem1Solution');">Show Solution</a>
         <div id="pTestProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt><var>n</var></sqrt>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt><var>n</var></sqrt>
+                            </div>
+                            <div class="bottom"><var>n</var><sup>2</sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                1
+                            </div>
+                            <div class="bottom"><var>n</var><sup>3/2</sup></div>
                         </div>
-                        <div class="bottom"><var>n</var><sup>2</sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            1
-                        </div>
-                        <div class="bottom"><var>n</var><sup>3/2</sup></div>
-                    </div>
+                    </equation>
                 </li>
-                <li><var>p</var> =
-                    <div class="fraction">
-                        <div class="top">3</div>
-                        <div class="bottom">2</div>
-                    </div> &ge; 1</li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt><var>n</var></sqrt>
+                <li>
+                    <equation>
+                        <var>p</var> =
+                        <div class="fraction">
+                            <div class="top">3</div>
+                            <div class="bottom">2</div>
+                        </div> &ge; 1
+                    </equation>
+                </li>
+                <li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt><var>n</var></sqrt>
+                            </div>
+                            <div class="bottom"><var>n</var><sup>2</sup></div>
                         </div>
-                        <div class="bottom"><var>n</var><sup>2</sup></div>
-                    </div> <span class="answer">Converges by P Test</span></li>
+                    </equation> <span class="answer">Converges by P Test</span></li>
             </ol>
         </div>
 
@@ -407,11 +508,13 @@
             <table class="rules" style="display: inline;">
                 <tr>
                     <td>
-                        <lim as="n" approaches="&infin;"></lim>
-                        <div class="fraction">
-                            <div class="top"><var>a<sub>n</sub></var></div>
-                            <div class="bottom"><var>b<sub>n</sub></var></div>
-                        </div>
+                        <equation>
+                            <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top"><var>a<sub>n</sub></var></div>
+                                <div class="bottom"><var>b<sub>n</sub></var></div>
+                            </div>
+                        </equation>
                     </td>
                 </tr>
             </table>
@@ -419,285 +522,430 @@
             <table class="rules" style="display: inline;">
                 <tr>
                     <td>
-                        <lim as="n" approaches="&infin;"></lim>
-                        <div class="fraction">
-                            <div class="top"><var>b<sub>n</sub></var></div>
-                            <div class="bottom"><var>a<sub>n</sub></var></div>
-                        </div>
+                        <equation>
+                            <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top"><var>b<sub>n</sub></var></div>
+                                <div class="bottom"><var>a<sub>n</sub></var></div>
+                            </div>
+                        </equation>
                     </td>
                 </tr>
             </table> <br /> is equal to a finite and positive value (remember, 0 and &infin; do not match the description), then both series either converge or both series diverge.</li>
         <li>There are some exceptions to this rule:</li>
         <li>If
-            <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>a<sub>n</sub></var> converges and
-            <lim as="n" approaches="&infin;"></lim>
-            <div class="fraction">
-                <div class="top"><var>a<sub>n</sub></var></div>
-                <div class="bottom"><var>b<sub>n</sub></var></div>
-            </div> = 0, then
-            <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>b<sub>n</sub></var> converges as well.</li>
+            <equation>
+                <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>a<sub>n</sub></var>
+            </equation> converges and
+            <equation>
+                <lim as="n" approaches="&infin;"></lim>
+                <div class="fraction">
+                    <div class="top"><var>a<sub>n</sub></var></div>
+                    <div class="bottom"><var>b<sub>n</sub></var></div>
+                </div> = 0</equation>, then
+            <equation>
+                <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>b<sub>n</sub></var>
+            </equation> converges as well.</li>
         <li>And if
-            <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>a<sub>n</sub></var> diverges and
-            <lim as="n" approaches="&infin;"></lim>
-            <div class="fraction">
-                <div class="top"><var>a<sub>n</sub></var></div>
-                <div class="bottom"><var>b<sub>n</sub></var></div>
-            </div> = &infin;, then
-            <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>b<sub>n</sub></var> diverges as well.</li>
-        </li>
+            <equation>
+                <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>a<sub>n</sub></var>
+            </equation> diverges and
+            <equation>
+                <lim as="n" approaches="&infin;"></lim>
+                <div class="fraction">
+                    <div class="top"><var>a<sub>n</sub></var></div>
+                    <div class="bottom"><var>b<sub>n</sub></var></div>
+                </div> = &infin;</equation>, then
+            <equation>
+                <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>b<sub>n</sub></var>
+            </equation> diverges as well.</li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">3<var>n</var> &minus; 1</div>
-            <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
-        </div>&emsp;<a href="javascript:void(0)" id="LCTProblem1SolutionToggleLink" onclick="toggleSolution('#LCTProblem1Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">3<var>n</var> &minus; 1</div>
+                <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="LCTProblem1SolutionToggleLink" onclick="toggleSolution('#LCTProblem1Solution');">Show Solution</a>
         <div id="LCTProblem1Solution" class="solution">
             <ol>
                 <li>compare to
-                    <div class="fraction">
-                        <div class="top">3<var>n</var></div>
-                        <div class="bottom"><var>n</var><sup>2</sup></div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">3</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">3<var>n</var></div>
+                            <div class="bottom"><var>n</var><sup>2</sup></div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">3</div>
+                            <div class="bottom"><var>n</var></div>
+                        </div>
+                    </equation>
                 </li>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">3</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div> diverges by P Test
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">3</div>
+                            <div class="bottom"><var>n</var></div>
+                        </div>
+                    </equation> diverges by P Test
                 </li>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <div class="fraction">
-                                <div class="top">3<var>n</var> &minus; 1</div>
-                                <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <div class="fraction">
+                                    <div class="top">3<var>n</var> &minus; 1</div>
+                                    <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="fraction">
-                                <div class="top">3</div>
-                                <div class="bottom"><var>n</var></div>
+                            <div class="bottom">
+                                <div class="fraction">
+                                    <div class="top">3</div>
+                                    <div class="bottom"><var>n</var></div>
+                                </div>
                             </div>
-                        </div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">(3<var>n</var> &minus; 1)<var>n</var></div>
-                        <div class="bottom">3(<var>n</var><sup>2</sup> &minus; 1)</div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">3<var>n</var><sup>2</sup> &minus; <var>n</var></div>
-                        <div class="bottom">3<var>n</var><sup>2</sup> &minus; 3</div>
-                    </div> = 1
+                        </div> =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">(3<var>n</var> &minus; 1)<var>n</var></div>
+                            <div class="bottom">3(<var>n</var><sup>2</sup> &minus; 1)</div>
+                        </div> =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">3<var>n</var><sup>2</sup> &minus; <var>n</var></div>
+                            <div class="bottom">3<var>n</var><sup>2</sup> &minus; 3</div>
+                        </div> = 1
+                    </equation>
                 </li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">3<var>n</var> &minus; 1</div>
-                        <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
-                    </div> <span class="answer">Diverges by the LCT</span></li>
+                <li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">3<var>n</var> &minus; 1</div>
+                            <div class="bottom"><var>n</var><sup>2</sup> &minus; 1</div>
+                        </div>
+                    </equation> <span class="answer">Diverges by the LCT</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <sqrt>3<var>n</var> + 1</sqrt>
-            </div>
-            <div class="bottom">
-                <sqrt><var>n</var><sup>5</sup> + 2</sqrt>
-            </div>
-        </div>&emsp;<a href="javascript:void(0)" id="LCTProblem2SolutionToggleLink" onclick="toggleSolution('#LCTProblem2Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <sqrt>
+                <div class="fraction">
+                    <div class="top">
+                        3<var>n</var> + 1
+                    </div>
+                    <div class="bottom">
+                        <var>n</var><sup>5</sup> + 2
+                    </div>
+                </div>
+            </sqrt>
+        </equation>&emsp;<a href="javascript:void(0)" id="LCTProblem2SolutionToggleLink" onclick="toggleSolution('#LCTProblem2Solution');">Show Solution</a>
         <div id="LCTProblem2Solution" class="solution">
             <ol>
                 <li>compare to
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt>3<var>n</var></sqrt>
+                    <equation>
+                        <sqrt>
+                            <div class="fraction">
+                                <div class="top">
+                                    3<var>n</var>
+                                </div>
+                                <div class="bottom">
+                                    <var>n</var><sup>5</sup>
+                                </div>
+                            </div>
+                        </sqrt> =
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt>3</sqrt>
+                            </div>
+                            <div class="bottom">
+                                <sqrt><var>n</var><sup>4</sup></sqrt>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <sqrt><var>n</var><sup>5</sup></sqrt>
-                        </div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt>3</sqrt>
-                        </div>
-                        <div class="bottom">
-                            <sqrt><var>n</var><sup>4</sup></sqrt>
-                        </div>
-                    </div>
+                    </equation>
                 </li>
                 <li>
-                    <sqrt>3</sqrt> &times;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">
-                            <sqrt><var>n</var><sup>4</sup></sqrt>
+                    <equation>
+                        <sqrt>3</sqrt> &times;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">
+                                <sqrt><var>n</var><sup>4</sup></sqrt>
+                            </div>
                         </div>
-                    </div> Converges by P Test <var>p</var> = 2 &ge; 1
+                    </equation> Converges by P Test
+                    <equation><var>p</var> = 2 &ge; 1</equation>
                 </li>
+                <li></li>
+                <equation>
+                    <span class="alignedEquations">
+                            <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">
+                                    <sqrt>
+                                    <div class="fraction">
+                                        <div class="top">3</div>
+                                        <div class="bottom"><var>n</var><sup>4</sup></div>
+                                    </div>
+                                    </sqrt>
+                                </div>
+                                <div class="bottom">
+                                    <sqrt><div class="fraction">
+                                            <div class="top">3<var>n</var> + 1</div>
+                                            <div class="bottom"><var>n</var><sup>5</sup> + 2</div>
+                                        </div></sqrt>
+                                </div>
+                            </div>
+                            =
+                            <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">
+                                    <sqrt>
+                                    <div class="fraction">
+                                        <div class="top">3</div>
+                                        <div class="bottom"><var>n</var><sup>4</sup></div>
+                                    </div>
+                                    </sqrt>
+                                </div>
+                                <div class="bottom">
+                                    <sqrt>
+                                        <div class="fraction">
+                                            <div class="top">
+                                                3<var>n</var> + 1
+                                            </div>
+                                            <div class="bottom">
+                                                <var>n</var><sup>5</sup> + 2
+                                            </div>
+                                        </div>
+                                    </sqrt>
+                                </div>
+                            </div>
+                            &times; <div class="fraction">
+                                <div class="top"><sqrt>(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)</sqrt></div>
+                                <div class="bottom"><sqrt>(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)</sqrt></div>
+                            </div>
+                            <br />
+                            = <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">
+                                    <sqrt>
+                                    <div class="fraction">
+                                        <div class="top">3</div>
+                                        <div class="bottom"><var>n</var><sup>4</sup></div>
+                                    </div>
+                                    </sqrt>
+                                    <sqrt>(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)</sqrt>
+                                </div>
+                                <div class="bottom">
+                                    <sqrt>
+                                        <div class="fraction">
+                                            <div class="top">
+                                                3<var>n</var> + 1
+                                            </div>
+                                            <div class="bottom">
+                                                <var>n</var><sup>5</sup> + 2
+                                            </div>
+                                        </div>
+                                    </sqrt>
+                                    <sqrt>(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)</sqrt>
+                                </div>
+                            </div><br />
+                            = <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">
+                                    <sqrt>
+                                    <div class="fraction">
+                                        <div class="top">3(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)</div>
+                                        <div class="bottom"><var>n</var><sup>4</sup></div>
+                                    </div>
+                                    </sqrt>
+                                </div>
+                                <div class="bottom">
+                                    <sqrt>
+                                        <div class="fraction">
+                                            <div class="top">
+                                                (3<var>n</var> + 1)(<var>n</var><sup>4</sup>)(<var>n</var><sup>5</sup> + 2)
+                                            </div>
+                                            <div class="bottom">
+                                                <var>n</var><sup>5</sup> + 2
+                                            </div>
+                                        </div>
+                                    </sqrt>
+                                </div>
+                            </div>
+                            <br />
+                            = <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">
+                                    <sqrt>3(<var>n</var><sup>5</sup> + 2)</sqrt>
+                                </div>
+                                <div class="bottom">
+                                    <sqrt>(3<var>n</var> + 1)(<var>n</var><sup>4</sup>)</sqrt>
+                                </div>
+                            </div><br />
+                            = 1
+                        </span>
+                </equation>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt>3/<var>n</var><sup>4</sup></sqrt>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt>3<var>n</var> + 1</sqrt>
+                            </div>
+                            <div class="bottom">
+                                <sqrt><var>n</var><sup>5</sup> + 2</sqrt>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <sqrt>(3<var>n</var> + 1)(<var>n</var><sup>5</sup> + 2)</sqrt>
-                        </div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt>3(<var>n</var><sup>5</sup> + 2)</sqrt>
-                        </div>
-                        <div class="bottom">
-                            <sqrt>(3<var>n</var> + 1)<var>n</var><sup>4</sup></sqrt>
-                        </div>
-                    </div> = 1
-                </li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            <sqrt>3<var>n</var> + 1</sqrt>
-                        </div>
-                        <div class="bottom">
-                            <sqrt><var>n</var><sup>5</sup> + 2</sqrt>
-                        </div>
-                    </div> <span class="answer">Converges by the LCT</span></li>
+                    </equation> <span class="answer">Converges by the LCT</span></li>
             </ol>
         </div>
 
         <h5>Ratio Test:</h5>
         <li>The ratio test looks at the ratio of the next term and the current term, if the ratio is less than 1, then the numbers grow smaller and smaller, telling us that the sum is finite (the series converges).</li>
-        <li>For the <var>a<sub>n+1</sub></var> simply substitute (<var>n</var> + 1) for every <var>n</var> in the sequence.</li>
+        <li>For the
+            <equation><var>a<sub>n+1</sub></var></equation> simply substitute
+            <equation>(<var>n</var> + 1)</equation> for every
+            <equation><var>n</var></equation> in the sequence.</li>
         <table class="rules">
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Convergent</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Convergent</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim>|
-                    <div class="fraction">
-                        <div class="top"><var>a<sub>n+1</sub></var></div>
-                        <div class="bottom"><var>a<sub>n</sub></var></div>
-                    </div>| &lt; 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>|
+                        <div class="fraction">
+                            <div class="top"><var>a<sub>n+1</sub></var></div>
+                            <div class="bottom"><var>a<sub>n</sub></var></div>
+                        </div>| &lt; 1
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Divergent</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Divergent</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim>|
-                    <div class="fraction">
-                        <div class="top"><var>a<sub>n+1</sub></var></div>
-                        <div class="bottom"><var>a<sub>n</sub></var></div>
-                    </div>| &gt; 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>|
+                        <div class="fraction">
+                            <div class="top"><var>a<sub>n+1</sub></var></div>
+                            <div class="bottom"><var>a<sub>n</sub></var></div>
+                        </div>| &gt; 1
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Inconclusive</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim>|
-                    <div class="fraction">
-                        <div class="top"><var>a<sub>n+1</sub></var></div>
-                        <div class="bottom"><var>a<sub>n</sub></var></div>
-                    </div>| = 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>|
+                        <div class="fraction">
+                            <div class="top"><var>a<sub>n+1</sub></var></div>
+                            <div class="bottom"><var>a<sub>n</sub></var></div>
+                        </div>| = 1
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top"><var>n</var>!</div>
-            <div class="bottom">(2<var>n</var> + 1)!</div>
-        </div>&emsp;<a href="javascript:void(0)" id="ratioTestProblem1SolutionToggleLink" onclick="toggleSolution('#ratioTestProblem1Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top"><var>n</var>!</div>
+                <div class="bottom">(2<var>n</var> + 1)!</div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="ratioTestProblem1SolutionToggleLink" onclick="toggleSolution('#ratioTestProblem1Solution');">Show Solution</a>
         <div id="ratioTestProblem1Solution" class="solution">
             <ol>
-                <li>
+                <li></li>
+                <equation><span class="alignedEquations">
                     <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            <div class="fraction">
-                                <div class="top">(<var>n</var> + 1)!</div>
-                                <div class="bottom">(2<var>n</var> + 2)!</div>
-                            </div>
+                    |<div class="fraction">
+                    <div class="top">
+                        <div class="fraction">
+                            <div class="top">(<var>n</var> + 1)!</div>
+                            <div class="bottom">(2<var>n</var> + 2)!</div>
                         </div>
-                        <div class="bottom">
+                    </div>
+                    <div class="bottom">
+                        <div class="fraction">
+                        <div class="top"><var>n</var>!</div>
+                        <div class="bottom">(2<var>n</var> + 1)!</div>
+                    </div>
+                    </div>
+                </div>| =
+                <lim as="n" approaches="&infin;"></lim>
+                |<div class="fraction">
+                    <div class="top">
+                        (<var>n</var> + 1)!(2<var>n</var> + 1)!
+                    </div>
+                    <div class="bottom">
+                        (2<var>n</var> + 2)!<var>n</var>!
+                    </div>
+                </div>|<br />
+                =
+                <lim as="n" approaches="&infin;"></lim>
+                |<div class="fraction">
+                    <div class="top">
+                        (<var>n</var> + 1)<var>n</var>!(2<var>n</var> + 1)!
+                    </div>
+                    <div class="bottom">
+                        (2<var>n</var> + 2)(2<var>n</var> + 1)!<var>n</var>!
+                    </div>
+                </div>|<br />
+                =
+                <lim as="n" approaches="&infin;"></lim>
+                |<div class="fraction">
+                    <div class="top">
+                        (<var>n</var> + 1)
+                    </div>
+                    <div class="bottom">
+                        (2<var>n</var> + 2)
+                    </div>
+                </div>|<br />
+                =
+                |<div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2</div>
+                </div>| &le; 1
+                </span></equation>
+                <li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
                             <div class="top"><var>n</var>!</div>
                             <div class="bottom">(2<var>n</var> + 1)!</div>
                         </div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            (<var>n</var> + 1)!(2<var>n</var> + 1)!
-                        </div>
-                        <div class="bottom">
-                            (2<var>n</var> + 2)!<var>n</var>!
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            (<var>n</var> + 1)<var>n</var>!(2<var>n</var> + 1)!
-                        </div>
-                        <div class="bottom">
-                            (2<var>n</var> + 2)(2<var>n</var> + 1)!<var>n</var>!
-                        </div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            (<var>n</var> + 1)
-                        </div>
-                        <div class="bottom">
-                            (2<var>n</var> + 2)
-                        </div>
-                    </div> =
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            1
-                        </div>
-                        <div class="bottom">
-                            2
-                        </div>
-                    </div> &le; 1
-                </li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top"><var>n</var>!</div>
-                        <div class="bottom">(2<var>n</var> + 1)!</div>
-                    </div> <span class="answer">Converges by the Ratio Test</span></li>
+                    </equation> <span class="answer">Converges by the Ratio Test</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">3<sup><var>n</var> &minus; 1</sup></div>
-            <div class="bottom">
-                <var>n</var>2<sup><var>n</var></sup>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">3<sup><var>n</var> &minus; 1</sup></div>
+                <div class="bottom">
+                    <var>n</var>2<sup><var>n</var></sup>
+                </div>
             </div>
-        </div>&emsp;<a href="javascript:void(0)" id="ratioTestProblem2SolutionToggleLink" onclick="toggleSolution('#ratioTestProblem2Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="ratioTestProblem2SolutionToggleLink" onclick="toggleSolution('#ratioTestProblem2Solution');">Show Solution</a>
         <div id="ratioTestProblem2Solution" class="solution">
             <ol>
-                <li>
+                <li></li>
+                <equation><span class="alignedEquations">
                     <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                    |<div class="fraction">
                         <div class="top">
                             <div class="fraction">
                                 <div class="top">3<sup><var>n</var></sup></div>
@@ -705,30 +953,31 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <div class="top">
-                                3<sup><var>n</var> &minus; 1</sup>
+                            <div class="fraction">
+                                <div class="top">3<sup><var>n</var> &minus; 1</sup></div>
+                                <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
                             </div>
-                            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
                         </div>
-                    </div> =
+                    </div>| =
                     <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                    |<div class="fraction">
                         <div class="top">
                             3&times;3<sup><var>n</var></sup><var>n</var>2<sup><var>n</var></sup>
                         </div>
                         <div class="bottom">3<sup><var>n</var></sup>(<var>n</var> + 1)2 &times; 2<sup><var>n</var></sup></div>
-                    </div> =
+                    </div>|<br />
+                    =
                     <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                    |<div class="fraction">
                         <div class="top">3<var>n</var></div>
                         <div class="bottom">2(<var>n</var> + 1)</div>
-                    </div> =
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                    </div>|<br />
+                    =
+                    |<div class="fraction">
                         <div class="top">3</div>
                         <div class="bottom">2</div>
-                    </div> &ge; 1
-                </li>
-                <br /><br />
+                    </div>| &ge; 1
+                </span></equation>
                 <li><span class="answer">&there4; Diverges by the Ratio Test</span></li>
             </ol>
         </div>
@@ -737,107 +986,143 @@
         <table class="rules">
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Convergent</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Convergent</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
-                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &lt; 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <nthRoot n="<var>n</var>">|<var>a<sub>n</sub></var>|</nthRoot> &lt; 1
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Divergent</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Divergent</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
-                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> &gt; 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <nthRoot n="<var>n</var>">|<var>a<sub>n</sub></var>|</nthRoot> &gt; 1
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)<br />Inconclusive</td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(<var>a<sub>n</sub></var>)
+                    </equation><br />Inconclusive</td>
                 <td>
-                    <lim as="n" approaches="&infin;"></lim><sup><var>n</var></sup>
-                    <sqrt>|<var>a<sub>n</sub></var>|</sqrt> = 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        <nthRoot n="<var>n</var>">|<var>a<sub>n</sub></var>|</nthRoot> = 1
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">1</div>
-            <div class="bottom">
-                <ln>2</ln><sup><var>n</var></sup></div>
-        </div>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">
+                    <ln>2</ln><sup><var>n</var></sup></div>
+            </div>
+        </equation>
         &emsp;<a href="javascript:void(0)" id="rootTestProblem1SolutionToggleLink" onclick="toggleSolution('#rootTestProblem1Solution');">Show Solution</a>
         <div id="rootTestProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">
-                            <ln>2</ln><sup><var>n</var></sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1<sup><var>n</var></sup></div>
-                        <div class="bottom">
-                            <ln>2</ln><sup><var>n</var></sup></div>
-                    </div>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">
+                                <ln>2</ln><sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1<sup><var>n</var></sup></div>
+                            <div class="bottom">
+                                <ln>2</ln><sup><var>n</var></sup></div>
+                        </div>
+                    </equation>
                 </li>
+                <li></li>
+                <equation>
+                    <span class="alignedEquations">
+                            <lim as="n" approaches="&infin;"></lim>
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><ln>2</ln></div>
+                            </div> ?&lt; 1<br />
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><ln>2</ln></div>
+                            </div> ?&lt; 1<br />
+                            1 ?&lt; <ln>2</ln><br />
+                            <var>e</var> ?&lt; 2        
+                        </span>
+                </equation>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">
-                            <ln>2</ln><sup><var>n</var></sup></div>
-                    </div> ?&lt; 1
-                </li>
-                <li>1 ?&lt; ln(2)</li>
-                <li><var>e</var> ?&lt; 2</li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">
-                            <ln>2</ln><sup><var>n</var></sup></div>
-                    </div> <span class="answer">Diverges by Root Test</span></li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">
+                                <ln>2</ln><sup><var>n</var></sup></div>
+                        </div>
+                    </equation> <span class="answer">Diverges by Root Test</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(
-        <div class="fraction">
-            <div class="top">2<var>n</var></div>
-            <div class="bottom">5<var>n</var> &minus; 1</div>
-        </div>)<sup>n</sup> &emsp;
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(
+            <div class="fraction">
+                <div class="top">2<var>n</var></div>
+                <div class="bottom">5<var>n</var> &minus; 1</div>
+            </div>)<sup>n</sup></equation> &emsp;
         <a href="javascript:void(0)" id="rootTestProblem2SolutionToggleLink" onclick="toggleSolution('#rootTestProblem2Solution');">Show Solution</a>
         <div id="rootTestProblem2Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    (
-                    <div class="fraction">
-                        <div class="top">2<var>n</var></div>
-                        <div class="bottom">5<var>n</var> &minus; 1</div>
-                    </div>)<sup>n &times; 1/<var>n</var></sup> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">2<var>n</var></div>
-                        <div class="bottom">5<var>n</var> &minus; 1</div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">2</div>
-                        <div class="bottom">5</div>
-                    </div> &lt; 1
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        (
+                        <div class="fraction">
+                            <div class="top">2<var>n</var></div>
+                            <div class="bottom">5<var>n</var> &minus; 1</div>
+                        </div>)<sup>n &times; 1/<var>n</var></sup> =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">2<var>n</var></div>
+                            <div class="bottom">5<var>n</var> &minus; 1</div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">2</div>
+                            <div class="bottom">5</div>
+                        </div> &lt; 1
+                    </equation>
                 </li>
                 <li><span class="answer">&there4; Converges by the Root Test</span></li>
             </ol>
         </div>
         <h5>Alternating Series Test (AST):</h5>
-        <li>Use this test when you have (-1)<sup><var>n</var></sup> or (-1)<sup><var>n + c</var></sup> (where <var>c</var> is any number) within your sequence.</li>
-        <li>If this is the case, create a new <var>a<sub>n</sub></var> without the alternating negative. If you can show that
-            <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0 and you can show that the series of <var>a<sub>n</sub></var> continuously decreases starting from a point, then the original alternating series converges.</li>
+        <li>Use this test when you have
+            <equation>(&minus;1)<sup><var>n</var></sup></equation> or
+            <equation>(-1)<sup><var>n + c</var></sup></equation> (where
+            <equation><var>c</var></equation> is any number) within your sequence.</li>
+        <li>If this is the case, create a new
+            <equation><var>a<sub>n</sub></var></equation> without the alternating negative. If you can show that
+            <equation>
+                <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0
+            </equation> and you can show that the series of
+            <equation><var>a<sub>n</sub></var></equation> continuously decreases starting from a point, then the original alternating series converges.</li>
         <li>Use this test to only prove convergence, if you find that
-            <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> &ne; 0, then it diverges by the nth term test.</li>
+            <equation>
+                <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> &ne; 0
+            </equation>, then it diverges by the nth term test.</li>
         <!--Make subsequent bullet point into a table-->
         <li>In order to prove whether it conditionally converges or if it absolutely converges, after using the AST to prove that the alternating series converges, remove the alternating part and use another test to show that the series without the alternating
             part either converges or diverges. If the alternating series converges and the normal series diverges, then the series as a whole conditionally converges. And if both converge then the series as a whole absolutely converges.</li>
@@ -845,200 +1130,261 @@
             term in the series.
         </li>
         <li>Examples: Do the series converge or diverge?</li>
-        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">(&minus;2)<sup><var>n</var></sup></div>
-            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="ASTProblem1SolutionToggleLink" onclick="toggleSolution('#ASTProblem1Solution');">Show Solution</a>
+        <equation>
+            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+                <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="ASTProblem1SolutionToggleLink" onclick="toggleSolution('#ASTProblem1Solution');">Show Solution</a>
         <div id="ASTProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">(&minus;2)<sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
-                    </div> =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">(&minus;1)<sup><var>n</var></sup>(2)<sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
-                    </div>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">(&minus;1)<sup><var>n</var></sup>(2)<sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                        </div> =
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">(&minus;1)<sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var></div>
+                        </div>
+                    </equation>
                 </li>
                 <li>
-                    =
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">(&minus;1)<sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var></div>
-                    </div>
-                </li>
-                <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">(&minus;1)<sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var></div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div> = 0
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        |
+                        <div class="fraction">
+                            <div class="top">(&minus;1)<sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var></div>
+                        </div>| =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>n</var></div>
+                        </div> = 0
+                    </equation>
                 </li>
                 <li>&there4; Converges by the AST</li>
                 But if we want to check for conditional or absolute convergence then we need to take it a step further
                 <li>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n</var></div>
-                    </div> diverges by P Test since <var>p</var> = 1 &le; 1</li>
-                <li>&there4;
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">(&minus;2)<sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
-                    </div> <span class="answer">Converges Conditionally</span></li>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>n</var></div>
+                        </div>
+                    </equation> diverges by P Test since
+                    <equation><var>p</var> = 1 &le; 1</equation>
+                </li>
+                <li>
+                    <equation>&there4;
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">(&minus;2)<sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var>2<sup><var>n</var></sup></div>
+                        </div>
+                    </equation> <span class="answer">Converges Conditionally</span></li>
             </ol>
         </div>
         <br />
-        <sigma start="<var>n</var> = 2" end="&infin;"></sigma>
-        <div class="fraction">
-            <div class="top">
-                <cos>n&pi;</cos>
+        <equation>
+            <sigma start="<var>n</var> = 2" end="&infin;"></sigma>
+            <div class="fraction">
+                <div class="top">
+                    <cos>n&pi;</cos>
+                </div>
+                <div class="bottom"><var>n</var>
+                    <ln>n</ln>
+                </div>
             </div>
-            <div class="bottom"><var>n</var>
-                <ln>n</ln>
-            </div>
-        </div>&emsp;<a href="javascript:void(0)" id="ASTProblem2SolutionToggleLink" onclick="toggleSolution('#ASTProblem2Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="ASTProblem2SolutionToggleLink" onclick="toggleSolution('#ASTProblem2Solution');">Show Solution</a>
         <div id="ASTProblem2Solution" class="solution">
             <ol>
                 since
-                <cos>n&pi;</cos> alternates between 1 and &minus;1, we can rewrite it as (&minus;1)<sup><var>n</var></sup>
+                <equation>
+                    <cos>n&pi;</cos>
+                </equation> alternates between 1 and &minus;1, we can rewrite it as
+                <equation>(&minus;1)<sup><var>n</var></sup></equation>
                 <li>
-                    <sigma start="<var>n</var> = 2" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top">
-                            (&minus;1)<sup><var>n</var></sup>
+                    <equation>
+                        <sigma start="<var>n</var> = 2" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                <cos>n&pi;</cos>
+                            </div>
+                            <div class="bottom"><var>n</var>
+                                <ln>n</ln>
+                            </div>
+                        </div> =
+                        <sigma start="<var>n</var> = 2" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top">
+                                (&minus;1)<sup><var>n</var></sup>
+                            </div>
+                            <div class="bottom"><var>n</var>
+                                <ln>n</ln>
+                            </div>
                         </div>
-                        <div class="bottom"><var>n</var>
-                            <ln>n</ln>
-                        </div>
-                    </div>
+                    </equation>
                 </li>
                 <li>
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
-                        <div class="top">
-                            (&minus;1)<sup><var>n</var></sup>
-                        </div>
-                        <div class="bottom"><var>n</var>
-                            <ln>n</ln>
-                        </div>
-                    </div> =
-                    <lim as="n" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>n</var>
-                            <ln>n</ln>
-                        </div>
-                    </div> = 0
+                    <equation>
+                        <lim as="n" approaches="&infin;"></lim>
+                        |
+                        <div class="fraction">
+                            <div class="top">
+                                (&minus;1)<sup><var>n</var></sup>
+                            </div>
+                            <div class="bottom"><var>n</var>
+                                <ln>n</ln>
+                            </div>
+                        </div>| =
+                        <lim as="n" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>n</var>
+                                <ln>n</ln>
+                            </div>
+                        </div> = 0
+                    </equation>
                 </li>
                 <li>&there4; Converges by AST</li>
             </ol>
         </div>
         <h3>Power Series:</h3>
         <li>A power series is an infinite series that can be rewritten as a polynomial of infinite degree.</li>
-        <li>You can have Power Series centered at a certain point <var>a</var>, written in general form as such:</li>
+        <li>You can have Power Series centered at a certain point
+            <equation><var>a</var></equation>, written in general form as such:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var></td>
-                <td><var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + c<sub>3</sub>(x &minus; a)<sup>3</sup> + ... + c<sub>n</sub>(x &minus; a)<sup>n</sup> + ...</var>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var>
+                    </equation>
+                </td>
+                <td>
+                    <equation><var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + c<sub>3</sub>(x &minus; a)<sup>3</sup> + ... + c<sub>n</sub>(x &minus; a)<sup>n</sup> + ...</var></equation>
                 </td>
             </tr>
         </table>
-        <li>Power series converge to a function, in terms of just <var>x</var>, and where it converges to the function actually depends. It could converge in select amount of value defined by the center and the radius of the Interval of Convergence (IOC),
-            it could converge at just the center, or it could converge for all real numbers.</li>
+        <li>Power series converge to a function, in terms of just
+            <equation><var>x</var></equation>, and where it converges to the function actually depends. It could converge in select amount of value defined by the center and the radius of the Interval of Convergence (IOC), it could converge at just the center,
+            or it could converge for all real numbers.</li>
         <li>As for the endpoints in the IOC, they need to be tested individually in order to see if they are included in the IOC.</li>
         <li>If you see that the series is geometric, then you can skip having to use the Ratio Test to solve for what the series converges to and finding the IOC as well as the radius.</li>
         <li>Finding the IOC can be done by using the GST (if applicable) or the Ratio Test.</li>
-        <li>Using the GST, you identify a Geometric Series and find a common ratio <var>r</var>, setting that &minus;1 &lt; <var>r</var> &lt; 1 and simplifying to find the IOC.</li>
+        <li>Using the GST, you identify a Geometric Series and find a common ratio
+            <equation><var>r</var></equation>, setting that
+            <equation>&minus;1 &lt; <var>r</var> &lt; 1</equation> and simplifying to find the IOC.</li>
         <li>Using the Ratio Test, you have the absolute value of the function &lt; 1, which means that the function is &lt; 1 and &gt; &minus;1</li>
         <h5>Differentiation and Integration of Power Series:</h5>
         <li>If we know the derivative of a series converges to something, then the antiderivative of what the derivative converges to would be what the original series converges to. And the same applies for the antiderivative of a series.</li>
         <li>When integrating a series, integrate from the center <var>a</var> to <var>x</var> for simplicity and to avoid the constant that comes with indefinite integration.</li>
-        <br />Given <var>f (x)</var> =
-        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var> = <var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + ...</var>
-
+        <br />Given
+        <equation><var>f (x)</var> =
+            <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>c<sub>n</sub>(x &minus; a)<sup>n</sup></var> = <var>c<sub>0</sub> + c<sub>1</sub>(x &minus; a)<sup>1</sup> + c<sub>2</sub>(x &minus; a)<sup>2</sup> + ...</var></equation>
         <table class="rules">
             <tr>
                 <td>
-                    <var>f '(x)</var></td>
+                    <equation><var>f '(x)</var></equation>
+                </td>
                 <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>nc<sub>n</sub>(x &minus; a)<sup>n &minus; 1</sup></var></td>
-                <td>c<sub>1</sub> + 2c<sub>2</sub>(x &minus; a)<sup>1</sup> + 3c<sub>3</sub>(x &minus; a)<sup>2</sup> + ...
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma><var>nc<sub>n</sub>(x &minus; a)<sup>n &minus; 1</sup></var>
+                    </equation>
+                </td>
+                <td>
+                    <equation>c<sub>1</sub> + 2c<sub>2</sub>(x &minus; a)<sup>1</sup> + 3c<sub>3</sub>(x &minus; a)<sup>2</sup> + ...</equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <integral respectTo="x"> <var>f(x)</var></integral>
+                    <equation>
+                        <integral respectTo="x"> <var>f(x)</var></integral>
+                    </equation>
                 </td>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var><div class="fraction">
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var><div class="fraction">
                         <div class="top">
                             c<sub>n</sub>(x &minus; a)<sup>n + 1</sup>
                         </div>
                         <div class="bottom">
                             n + 1
                         </div>
-                    </div></var></td>
-                <td>C + c<sub>0</sub>(x &minus; a)<sub>1</sub> +
-                    <div class="fraction">
-                        <div class="top">c<sub>1</sub>(x &minus; a)<sup>2</sup></div>
-                        <div class="bottom">2</div>
-                    </div>
-                    + ...
+                    </div></var>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        C + c<sub>0</sub>(x &minus; a)<sub>1</sub> +
+                        <div class="fraction">
+                            <div class="top">c<sub>1</sub>(x &minus; a)<sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div>
+                        + ...
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Although after Differentiation and Integration the Radius of Convergence remains the same, the endpoints need to be tested to see if they work. (Notice the <var>n</var> = 1 when the summation is differentiated).</li>
+        <li>Although after Differentiation and Integration the Radius of Convergence remains the same, the endpoints need to be tested to see if they work. (Notice the
+            <equation><var>n</var> = 1</equation> when the summation is differentiated).</li>
         <li>In order to check the endpoints, find where it converges and diverged when you plug in the endpoints.</li>
-        <li>In order to solve for C, plug in the center value of the power series for <var>x</var>.</li>
+        <li>In order to solve for C, plug in the center value of the power series for
+            <equation><var>x</var></equation>.</li>
         <h5>Taylor and Maclaurin Series:</h5>
         <li>A Taylor Series is another way to define a function using its derivatives.</li>
         <table class="rules">
             <tr>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top"><var>f <sup>(n)</sup>(a)(x &minus; a)<sup>n</sup></var></div>
-                        <div class="bottom"><var>n</var>!</div>
-                    </div>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top"><var>f <sup>(n)</sup>(a)(x &minus; a)<sup>n</sup></var></div>
+                            <div class="bottom"><var>n</var>!</div>
+                        </div>
+                    </equation>
                 </td>
                 <td>
-                    <var>f(a)</var> +
-                    <div class="fraction">
-                        <div class="top"><var>f '(a)(x &minus; a)</var><sup>1</sup></div>
-                        <div class="bottom">1!</div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top"><var>f ''(a)(x &minus; a)</var><sup>2</sup></div>
-                        <div class="bottom">2!</div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top"><var>f '''(a)(x &minus; a)</var><sup>3</sup></div>
-                        <div class="bottom">3!</div>
-                    </div> + ... +
-                    <div class="fraction">
-                        <div class="top"><var>f <sup>n</sup>(a)(x &minus; a)</var><sup><var>n</var></sup></div>
-                        <div class="bottom"><var>n</var>!</div>
-                    </div> + ...
+                    <equation>
+                        <var>f(a)</var> +
+                        <div class="fraction">
+                            <div class="top"><var>f '(a)(x &minus; a)</var><sup>1</sup></div>
+                            <div class="bottom">1!</div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top"><var>f ''(a)(x &minus; a)</var><sup>2</sup></div>
+                            <div class="bottom">2!</div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top"><var>f '''(a)(x &minus; a)</var><sup>3</sup></div>
+                            <div class="bottom">3!</div>
+                        </div> + ... +
+                        <div class="fraction">
+                            <div class="top"><var>f <sup>n</sup>(a)(x &minus; a)</var><sup><var>n</var></sup></div>
+                            <div class="bottom"><var>n</var>!</div>
+                        </div> + ...
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>If the Taylor Series is centered at 0, in other words, if <var>a</var> = 0, then it is called a Maclaurin Series.</li>
-        <li>The partial sum of a Taylor Series can be written as a Taylor polynomial of order <var>n</var>, or of degree <var>n</var>.</li>
-        <li>A first degree polynomial is just a tangent line to <var>f(x)</var> at <var>x = a</var>.</li>
+        <li>If the Taylor Series is centered at 0, in other words, if
+            <equation><var>a</var> = 0</equation>, then it is called a Maclaurin Series.</li>
+        <li>The partial sum of a Taylor Series can be written as a Taylor polynomial of order
+            <equation><var>n</var></equation>, or of degree
+            <equation><var>n</var></equation>.</li>
+        <li>A first degree polynomial is just a tangent line to
+            <equation><var>f(x)</var></equation> at
+            <equation><var>x = a</var></equation>.</li>
         <li>The higher the degree of the Taylor Polynomial, a better approximation.</li>
         <li>Some popular series to memorize:</li>
         <table class="rules">
@@ -1050,294 +1396,354 @@
             </tr>
             <tr>
                 <td>
-                    <div class="fraction">
-                        <div class="top">
-                            1
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">1 &minus; <var>x</var></div>
                         </div>
-                        <div class="bottom">
-                            1 &minus; <var>x</var>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>x<sup>n</sup></var>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>x<sup>n</sup></var>
+                    </equation>
                 </td>
-                <td>1 + <var>x</var> + <var>x</var><sup>2</sup> + <var>x</var><sup>3</sup> + ...</td>
-                <td>R = 1</td>
-            </tr>
-            <tr>
-                <td><var>e<sup>x</sup></var></td>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
-                    <div class="fraction">
-                        <div class="top"><var>x<sup>n</sup></var></div>
-                        <div class="bottom"><var>n</var>!</div>
-                    </div>
+                    <equation>1 + <var>x</var> + <var>x</var><sup>2</sup> + <var>x</var><sup>3</sup> + ...</equation>
                 </td>
-                <td>1 +
-                    <div class="fraction">
-                        <div class="top"><var>x</var><sup>1</sup></div>
-                        <div class="bottom">1!</div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top"><var>x</var><sup>2</sup></div>
-                        <div class="bottom">2!</div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top"><var>x</var><sup>3</sup></div>
-                        <div class="bottom">3!</div>
-                    </div> + ...
+                <td>
+                    <equation>R = 1</equation>
                 </td>
-                <td>R = &infin;</td>
             </tr>
             <tr>
                 <td>
-                    <sin>x</sin>
+                    <equation><var>e<sup>x</sup></var></equation>
                 </td>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>2<var>n</var> + 1</sup>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                        <div class="fraction">
+                            <div class="top"><var>x<sup>n</sup></var></div>
+                            <div class="bottom"><var>n</var>!</div>
                         </div>
-                        <div class="bottom">
-                            (2<var>n</var> + 1)!
-                        </div>
-                    </div>
+                    </equation>
                 </td>
                 <td>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>1</sup>
-                        </div>
-                        <div class="bottom">
-                            1!
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>3</sup>
-                        </div>
-                        <div class="bottom">
-                            3!
-                        </div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>5</sup>
-                        </div>
-                        <div class="bottom">
-                            5!
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>7</sup>
-                        </div>
-                        <div class="bottom">
-                            7!
-                        </div>
-                    </div> + ...
+                    <equation>
+                        1 +
+                        <div class="fraction">
+                            <div class="top"><var>x</var><sup>1</sup></div>
+                            <div class="bottom">1!</div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top"><var>x</var><sup>2</sup></div>
+                            <div class="bottom">2!</div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top"><var>x</var><sup>3</sup></div>
+                            <div class="bottom">3!</div>
+                        </div> + ...
+                    </equation>
                 </td>
-                <td>R = &infin;</td>
+                <td>
+                    <equation>R = &infin;</equation>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <cos>x</cos>
+                    <equation>
+                        <sin>x</sin>
+                    </equation>
                 </td>
                 <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>2<var>n</var></sup>
-                        </div>
-                        <div class="bottom">
-                            (2<var>n</var>)!
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>0</sup>
-                        </div>
-                        <div class="bottom">
-                            0!
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>2</sup>
-                        </div>
-                        <div class="bottom">
-                            2!
-                        </div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>4</sup>
-                        </div>
-                        <div class="bottom">
-                            4!
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>6</sup>
-                        </div>
-                        <div class="bottom">
-                            6!
-                        </div>
-                    </div> + ...
-                </td>
-                <td>R = &infin;</td>
-            </tr>
-            <tr>
-                <td>
-                    tan<sup>&minus;1</sup>(<var>x</var>)
-                </td>
-                <td>
-                    <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>2<var>n</var> + 1</sup>
-                        </div>
-                        <div class="bottom">
-                            (2<var>n</var> + 1)
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>1</sup>
-                        </div>
-                        <div class="bottom">
-                            1
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>3</sup>
-                        </div>
-                        <div class="bottom">
-                            3
-                        </div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>5</sup>
-                        </div>
-                        <div class="bottom">
-                            5
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>7</sup>
-                        </div>
-                        <div class="bottom">
-                            7
-                        </div>
-                    </div> + ...
-                </td>
-                <td>R = 1</td>
-            </tr>
-            <tr>
-                <td>
-                    <ln>1 + x</ln>
-                </td>
-                <td>
-                    <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(&minus;1)<sup><var>n</var> &minus; 1</sup>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup><var>n</var></sup>
-                        </div>
-                        <div class="bottom">
-                            <var>n</var>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>1</sup>
-                        </div>
-                        <div class="bottom">
-                            1
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>2</sup>
-                        </div>
-                        <div class="bottom">
-                            2
-                        </div>
-                    </div> +
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>3</sup>
-                        </div>
-                        <div class="bottom">
-                            3
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">
-                            <var>x</var><sup>4</sup>
-                        </div>
-                        <div class="bottom">
-                            4
-                        </div>
-                    </div> + ...
-                </td>
-                <td>R = 1</td>
-                <tr>
-                    <td colspan="4"></td>
-                </tr>
-                <tr>
-                    <td>(1 + <var>x</var>)<sup><var>k</var></sup></td>
-                    <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><sub><var>n</var></sub>C<sub><var>k</var></sub><var>x<sup>n</sup></var></td>
-                    <td>1 +
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
                         <div class="fraction">
                             <div class="top">
-                                <var>k</var>
+                                <var>x</var><sup>2<var>n</var> + 1</sup>
+                            </div>
+                            <div class="bottom">
+                                (2<var>n</var> + 1)!
+                            </div>
+                        </div>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>1</sup>
                             </div>
                             <div class="bottom">
                                 1!
                             </div>
-                        </div>
-                        <var>x</var><sup>1</sup> +
-
+                        </div> &minus;
                         <div class="fraction">
                             <div class="top">
-                                <var>k(k &minus; 1)</var>
-                            </div>
-                            <div class="bottom">
-                                2!
-                            </div>
-                        </div>
-                        <var>x</var><sup>2</sup> +
-                        <div class="fraction">
-                            <div class="top">
-                                <var>k(k &minus; 1)(k &minus; 2)</var>
+                                <var>x</var><sup>3</sup>
                             </div>
                             <div class="bottom">
                                 3!
                             </div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>5</sup>
+                            </div>
+                            <div class="bottom">
+                                5!
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>7</sup>
+                            </div>
+                            <div class="bottom">
+                                7!
+                            </div>
+                        </div> + ...
+                    </equation>
+                </td>
+                <td>
+                    <equation>R = &infin;</equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <cos>x</cos>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>2<var>n</var></sup>
+                            </div>
+                            <div class="bottom">
+                                (2<var>n</var>)!
+                            </div>
                         </div>
-                        <var>x</var><sup>3</sup> + ...
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>0</sup>
+                            </div>
+                            <div class="bottom">
+                                0!
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>2</sup>
+                            </div>
+                            <div class="bottom">
+                                2!
+                            </div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>4</sup>
+                            </div>
+                            <div class="bottom">
+                                4!
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>6</sup>
+                            </div>
+                            <div class="bottom">
+                                6!
+                            </div>
+                        </div> + ...
+                    </equation>
+                </td>
+                <td>
+                    <equation>R = &infin;</equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <tan inv>x</tan>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>2<var>n</var> + 1</sup>
+                            </div>
+                            <div class="bottom">
+                                (2<var>n</var> + 1)
+                            </div>
+                        </div>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>1</sup>
+                            </div>
+                            <div class="bottom">
+                                1
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>3</sup>
+                            </div>
+                            <div class="bottom">
+                                3
+                            </div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>5</sup>
+                            </div>
+                            <div class="bottom">
+                                5
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>7</sup>
+                            </div>
+                            <div class="bottom">
+                                7
+                            </div>
+                        </div> + ...
+                    </equation>
+                </td>
+                <td>
+                    <equation>R = 1</equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        <ln>1 + x</ln>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(&minus;1)<sup><var>n</var> &minus; 1</sup>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup><var>n</var></sup>
+                            </div>
+                            <div class="bottom">
+                                <var>n</var>
+                            </div>
+                        </div>
+                    </equation>
+                </td>
+                <td>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>1</sup>
+                            </div>
+                            <div class="bottom">
+                                1
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>2</sup>
+                            </div>
+                            <div class="bottom">
+                                2
+                            </div>
+                        </div> +
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>3</sup>
+                            </div>
+                            <div class="bottom">
+                                3
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">
+                                <var>x</var><sup>4</sup>
+                            </div>
+                            <div class="bottom">
+                                4
+                            </div>
+                        </div> + ...
+                    </equation>
+                </td>
+                <td>
+                    <equation>R = 1</equation>
+                </td>
+                <tr>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <equation>(1 + <var>x</var>)<sup><var>k</var></sup></equation>
                     </td>
-                    <td>R = 1</td>
+                    <td>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                            <var><sub>n</sub>C<sub>k</sub>x<sup>n</sup></var>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            1 +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>k</var>
+                                </div>
+                                <div class="bottom">
+                                    1!
+                                </div>
+                            </div>
+                            <var>x</var><sup>1</sup> +
+
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>k(k &minus; 1)</var>
+                                </div>
+                                <div class="bottom">
+                                    2!
+                                </div>
+                            </div>
+                            <var>x</var><sup>2</sup> +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>k(k &minus; 1)(k &minus; 2)</var>
+                                </div>
+                                <div class="bottom">
+                                    3!
+                                </div>
+                            </div>
+                            <var>x</var><sup>3</sup> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>R = 1</equation>
+                    </td>
                 </tr>
             </tr>
         </table>
         <li>
-            <sin>x</sin> is an odd function, so recall the odd powers and odd factorials.</li>
+            <equation>
+                <sin>x</sin>
+            </equation> is an odd function, so recall the odd powers and odd factorials.</li>
         <li>
-            <cos>x</cos> is an even function, so recall the even powers and even factorials.</li>
+            <equation>
+                <cos>x</cos>
+            </equation> is an even function, so recall the even powers and even factorials.</li>
         <li>The last one isn't necessary to memorize, it is just a fun series.</li>
         <h5>Lagrange Error Bound:</h5>
         <li>Just like estimating the value of an Alternating Series, where the next term after the cut-off was used as the error, the next term in the Taylor Series is used as the error in a Taylor Series approximation.</li>
@@ -1345,13 +1751,17 @@
         <table class="rules">
             <tr>
                 <td>
-                    <div class="fraction">
-                        <div class="top"><var>M</var>(<var>x &minus; a</var>)<sup><var>n</var> + 1</sup></div>
-                        <div class="bottom">(<var>n</var> + 1)!</div>
-                    </div>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top"><var>M</var>(<var>x &minus; a</var>)<sup><var>n</var> + 1</sup></div>
+                            <div class="bottom">(<var>n</var> + 1)!</div>
+                        </div>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Where <var>M</var> is either the <var>n</var>+1<sup>th</sup> derivative or a given maximum value, since the goal is to get the greatest amount of error.</li>
+        <li>Where
+            <equation><var>M</var></equation> is either the
+            <equation>(<var>n</var> + 1)</equation><sup>th</sup> derivative or a given maximum value, since the goal is to get the greatest amount of error.</li>
     </ul>
 </div>
