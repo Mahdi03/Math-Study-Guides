@@ -122,18 +122,18 @@ function renderMath(parentElement = "") {
                 .replaceAll("||", "&#x2225;") //Allows to show magnitude of vectors
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
-                .replaceAll(createHTMLNodesFromString("&lang;")[0].textContent, "\\left\\langle").replaceAll(createHTMLNodesFromString("&rang;")[0].textContent, "\\right\\rangle")
+                .replaceAll(createHTMLNodesFromString("&lang;")[0].textContent, "\\left\\langle ").replaceAll(createHTMLNodesFromString("&rang;")[0].textContent, "\\right\\rangle ")
                 //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
-                .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert");
+                .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert ");
             //.replaceAll("&lang;", "hello")
             //.replace(/[⟨⟨]/gi, "hello").replace(/⟩/gi, "\\right&rang;")
             //Replace HTML entities so they don't show up small on mobile
             var symbols = ["theta", "alpha", "beta", "gamma", "pi", "rho", "phi", "omega", "tau", "epsilon", "kappa", "mu"];
             for (var symbol of symbols) {
                 var regularExpression = new RegExp(createHTMLNodesFromString(`&${symbol};`)[0].textContent, "gmi"); //Create regular expression for each html entity in symbolic form
-                dom.innerHTML = dom.innerHTML.replace(regularExpression, `\\${symbol}`); //Actually replace with MathJax counterpart
+                dom.innerHTML = dom.innerHTML.replace(regularExpression, `\\${symbol} `); //Actually replace with MathJax counterpart
             }
             /*
             .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
@@ -155,6 +155,22 @@ function renderMath(parentElement = "") {
                 var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
                 var newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
+            }
+            while (dom.querySelector("integral") != undefined) {
+                var oldIntegral = dom.querySelector("integral");
+                var numberOfIntegrals = 1;
+                if (oldIntegral.hasAttribute("double")) {
+                    //Then it is a double integral
+                    numberOfIntegrals = 2;
+                }
+                if (oldIntegral.hasAttribute("triple")) {
+                    numberOfIntegrals = 3;
+                }
+                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
+                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
+                var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
+                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + respectTo);
+                oldIntegral.replaceWith(...newIntegral);
             }
             //Replace sqrt{} with \sqrt {}
             while (dom.querySelector("sqrt") != undefined) {
@@ -220,22 +236,6 @@ function renderMath(parentElement = "") {
                 var pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
                 var newPDerivative = createHTMLNodesFromString("\\dfrac{\\partial " + pDerivativeOrder + pDerivativeOf + "}{\\partial " + pDerivativeRespectTo + pDerivativeOrder + "}");
                 oldPDerivative.replaceWith(...newPDerivative);
-            }
-            while (dom.querySelector("integral") != undefined) {
-                var oldIntegral = dom.querySelector("integral");
-                var numberOfIntegrals = 1;
-                if (oldIntegral.hasAttribute("double")) {
-                    //Then it is a double integral
-                    numberOfIntegrals = 2;
-                }
-                if (oldIntegral.hasAttribute("triple")) {
-                    numberOfIntegrals = 3;
-                }
-                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
-                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
-                var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
-                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + respectTo);
-                oldIntegral.replaceWith(...newIntegral);
             }
             while (dom.querySelector("laPlaceTransform") != undefined) {
                 var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
