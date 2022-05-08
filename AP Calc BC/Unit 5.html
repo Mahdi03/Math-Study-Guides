@@ -11,33 +11,43 @@
 <div class="indent">
     <ul>
         <h3>Parametric Functions:</h3>
-        <li>Recall from EM3 functions that are defined using the parameter <var>t</var> (time) to define functions <var>x(t)</var> and <var>y(t)</var> which can later be rewritten as <var>y(x)</var>.</li>
-        <li>These graphs are drawn in a specific direction in increasing values of <var>t</var> which is shown by arrows on the graph.</li>
-        <li>In order to rewrite the function in a rectangular form, solve for <var>t</var> in one of the functions and then plug it in to the other, thus eliminating the parameter.</li>
+        <li>Recall from EM3 functions that are defined using the parameter
+            <equation><var>t</var></equation> (time) to define functions
+            <equation><var>x(t)</var></equation> and
+            <equation><var>y(t)</var></equation> which can later be rewritten as
+            <equation><var>y(x)</var></equation>.</li>
+        <li>These graphs are drawn in a specific direction in increasing values of
+            <equation><var>t</var></equation> which is shown by arrows on the graph.</li>
+        <li>In order to rewrite the function in a rectangular form, solve for
+            <equation><var>t</var></equation> in one of the functions and then plug it in to the other, thus eliminating the parameter.</li>
         <li>Recall from Unit 1 that:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y"></derivative> =
-                    <div class="fraction">
-                        <div class="top">
-                            <derivative of="y" respectTo="t"></derivative>
+                    <equation>
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <derivative of="y" respectTo="t"></derivative>
+                            </div>
+                            <div class="bottom">
+                                <derivative of="x" respectTo="t"></derivative>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <derivative of="x" respectTo="t"></derivative>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
                 <td>
-                    <derivative of="y<sup>2</sup>" respectTo="<sup>2</sup>x"></derivative> =
-                    <div class="fraction">
-                        <div class="top">
-                            <derivative respectTo="t"></derivative>(
-                            <derivative of="y" respectTo="x"></derivative>)</div>
-                        <div class="bottom">
-                            <derivative of="x" respectTo="t"></derivative>
+                    <equation>
+                        <derivative of="y" order="2"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <derivative respectTo="t"></derivative>(
+                                <derivative of="y" respectTo="x"></derivative>)</div>
+                            <div class="bottom">
+                                <derivative of="x" respectTo="t"></derivative>
+                            </div>
                         </div>
-                    </div>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -45,109 +55,134 @@
         <table class="rules">
             <tr>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
-                        <img src="../equations_images/arcLength1.png" style="transform: translateY(20px);" />
-                        <!--(1 +
-                        <div class="fraction">
-                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
-                        </div>)<sup>1/2</sup>-->
-                    </integral>
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                            <sqrt>
+                                1 + (
+                                <derivative of="y"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="y" lowerBound="<var>c</var>" upperBound="<var>d</var>">
-                        <img src="../equations_images/arcLength2.png" style="transform: translateY(20px);" />
-                        <!--(1 +
-                        <div class="fraction">
-                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dy</var>)<sup>2</sup></div>
-                        </div>)<sup>1/2</sup>-->
-                    </integral>
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="y" lowerBound="<var>c</var>" upperBound="<var>d</var>">
+                            <sqrt>
+                                1 + (
+                                <derivative of="x" respectTo="y"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>But with Parametric Functions we need to take in account the <var>t</var> factor, giving us:</li>
+        <li>But with Parametric Functions we need to take in account the
+            <equation><var>t</var></equation> factor, giving us:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="t" lowerBound="<var>a</var>" upperBound="<var>b</var>">
-                        <img src="../equations_images/particleSpeedMagnitude.png" style="transform: translateY(20px);" />
-                        <!--(
-                        <div class="fraction">
-                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
-                        </div>
-                        +
-                        <div class="fraction">
-                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
-                        </div>)<sup>1/2</sup>-->
-                    </integral>
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="t" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                            <sqrt>
+                                (
+                                <derivative of="y" respectTo="t"></derivative>)<sup>2</sup> + (
+                                <derivative of="x" respectTo="t"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Parametric motion differs from rectangular motion in that the <var>t</var> needs to be accounted for, and so what we know as
-            <derivative of="y"></derivative> is not the same with parametrics, it represents the speed of rectangular motion (with respect to <var>x</var>) but with parametrics it only represents the slope of the line, speed is represented differently.</li>
+        <li>Parametric motion differs from rectangular motion in that the
+            <equation><var>t</var></equation> needs to be accounted for, and so what we know as
+            <equation>
+                <derivative of="y"></derivative>
+            </equation> is not the same with parametrics, it represents the speed of rectangular motion (with respect to
+            <equation><var>x</var></equation>) but with parametrics it only represents the slope of the line, speed is represented differently.</li>
         <li>The same goes for other values as well, as shown below:</li>
         <table class="staticTable">
             <tr>
-                <td><var>x'(t)</var> =
-                    <derivative of="x" respectTo="t"></derivative>
+                <td>
+                    <equation>
+                        <var>x'(t)</var> =
+                        <derivative of="x" respectTo="t"></derivative>
+                    </equation>
                 </td>
-                <td>Horizontal velocity, the rate of change in <var>x</var> with respect to <var>t</var></td>
-            </tr>
-            <tr>
-                <td><var>y'(t)</var> =
-                    <derivative of="y" respectTo="t"></derivative>
+                <td>Horizontal velocity, the rate of change in
+                    <equation><var>x</var></equation> with respect to
+                    <equation><var>t</var></equation>
                 </td>
-                <td>Vertical velocity, the rate of change in <var>y</var> with respect to <var>t</var></td>
             </tr>
             <tr>
-                <td>(<var>x(t)</var>, <var>y(t)</var>)</td>
-                <td>Position at <var>t</var></td>
+                <td>
+                    <equation>
+                        <var>y'(t)</var> =
+                        <derivative of="y" respectTo="t"></derivative>
+                    </equation>
+                </td>
+                <td>Vertical velocity, the rate of change in
+                    <equation><var>y</var></equation> with respect to
+                    <equation><var>t</var></equation>
+                </td>
             </tr>
             <tr>
-                <td>&lang;
-                    <derivative of="x" respectTo="t"></derivative>,
-                    <derivative of="y" respectTo="t"></derivative>&rang;</td>
+                <td>
+                    <equation>(<var>x(t)</var>, <var>y(t)</var>)</equation>
+                </td>
+                <td>Position at
+                    <equation><var>t</var></equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        &lang;
+                        <derivative of="x" respectTo="t"></derivative>,
+                        <derivative of="y" respectTo="t"></derivative>&rang;
+                    </equation>
+                </td>
                 <td>Velocity vector</td>
             </tr>
             <tr>
                 <td>
-                    <img src="../equations_images/particleSpeedMagnitude.png" />
-                    <!--(
-                    <div class="fraction">
-                        <div class="top">(<var>dy</var>)<sup>2</sup></div>
-                        <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
-                    </div>
-                    +
-                    <div class="fraction">
-                        <div class="top">(<var>dx</var>)<sup>2</sup></div>
-                        <div class="bottom">(<var>dt</var>)<sup>2</sup></div>
-                    </div>)<sup>1/2</sup>-->
+                    <equation>
+                        <sqrt>
+                            (
+                            <derivative of="y" respectTo="t"></derivative>)<sup>2</sup> + (
+                            <derivative of="x" respectTo="t"></derivative>)<sup>2</sup>
+                        </sqrt>
+                    </equation>
                 </td>
                 <td>The magnitude of speed of a particle</td>
             </tr>
             <tr>
                 <td>
-                    &lang;
-                    <derivative of="<sup>2</sup>x" respectTo="t<sup>2</sup>"></derivative>,
-                    <derivative of="<sup>2</sup>y" respectTo="t<sup>2</sup>"></derivative>&rang;
+                    <equation>
+                        &lang;
+                        <derivative of="x" respectTo="t" order="2"></derivative>,
+                        <derivative of="y" respectTo="t" order="2"></derivative>&rang;
+                    </equation>
                 </td>
                 <td>Acceleration vector</td>
             </tr>
             <tr>
                 <td>
-                    <derivative of="y"></derivative>
+                    <equation>
+                        <derivative of="y"></derivative>
+                    </equation>
                 </td>
-                <td>The rate of change (slope of the tangent line) of the function with respect to <var>x</var></td>
+                <td>The rate of change (slope of the tangent line) of the function with respect to
+                    <equation><var>x</var></equation>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <derivative of="<sup>2</sup>y" respectTo="x<sup>2</sup>"></derivative>
+                    <equation>
+                        <derivative of="y" order="2"></derivative>
+                    </equation>
                 </td>
                 <td>The rate of change of the slope with respect to <var>x</var></td>
             </tr>
@@ -155,45 +190,70 @@
         <h3>Polar Functions:</h3>
         <li>Remember the Polar Plane from <a href="../EM3/studyGuide.html">Unit 7 - EM3 Study Guide</a> below and pay attention to the domains:</li>
         <div class="reviewTopic">
+            <h3>Polar Graphs:</h3>
+            <li>They come in many shapes and sizes</li>
             <h5>Circles:</h5>
             <li>These can come in three ways:</li>
             <table class="rules">
                 <tr>
-                    <td><var>r = a</var></td>
+                    <td>
+                        <equation><var>r = a</var></equation>
+                    </td>
                     <td>centered at origin</td>
-                    <td><var>a =</var> radius</td>
-                    <td>0 &le; &theta; &le; 2&pi;</td>
+                    <td>
+                        <equation><var>a =</var></equation> radius</td>
+                    <td>
+                        <equation>0 &le; &theta; &le; 2&pi;</equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td><var>r = a</var>
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r = a</var>
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
                     <td>centered on the <var>x</var>-axis</td>
-                    <td rowspan="2"><var>a = </var> diameter</td>
-                    <td rowspan="2">0 &le; &theta; &le; &pi;</td>
+                    <td rowspan="2">
+                        <equation><var>a = </var></equation> diameter</td>
+                    <td rowspan="2">
+                        <equation>0 &le; &theta; &le; &pi;</equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td><var>r = a</var>
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r = a</var>
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                     <td>centered on the <var>y</var>-axis</td>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <td><var>r</var> = 8</td>
-                    <td><var>r</var> = &minus;6</td>
+                    <td>
+                        <equation><var>r</var> = 8</equation>
+                    </td>
+                    <td>
+                        <equation><var>r</var> = &minus;6</equation>
+                    </td>
                 </tr>
                 <tr>
                     <td><iframe id="firstCircleGraph" width="250px" height="250px"></iframe></td>
                     <td><iframe id="secondCircleGraph" width="250px" height="250px"></iframe></td>
                 </tr>
                 <tr>
-                    <td><var>r =</var> &minus;8
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation><var>r =</var> &minus;8
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
-                    <td><var>r =</var> 9
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r =</var> 9
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -205,34 +265,49 @@
             <li>These come in two forms:</li>
             <table class="rules">
                 <tr>
-                    <td><var>r</var> = <var>a &plusmn; a</var>
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var> = <var>a &plusmn; a</var>
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
                     <td>Symmetry with x-axis</td>
-                    <td rowspan="2">0 &le; &theta; &le; 2&pi;</td>
+                    <td rowspan="2">
+                        <equation>0 &le; &theta; &le; 2&pi;</equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td><var>r</var> = <var>a &plusmn; a</var>
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = <var>a &plusmn; a</var>
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                     <td>Symmetry with y-axis</td>
                 </tr>
             </table>
-            <li>If it's <var>r</var> = <var>a</var> +
-                <var>a</var>
-                <cos>&theta;</cos>
-                then most of the graph will be on the positive side, if it's <var>r</var> = <var>a</var> &minus;
-                <var>a</var>
-                <cos>&theta;</cos>, then most of the graph will be on the negative side.</li>
+            <li>If it's
+                <equation><var>r</var> = <var>a</var> + <var>a</var>
+                    <cos>&theta;</cos>
+                </equation>
+                then most of the graph will be on the positive side, if it's
+                <equation><var>r</var> = <var>a</var> &minus; <var>a</var>
+                    <cos>&theta;</cos>
+                </equation>, then most of the graph will be on the negative side.</li>
             <li>The point always is on the origin.</li>
             <table>
                 <tr>
                     <td>
-                        <var>r</var> = 4 + 4
-                        <cos>&theta;</cos>
+                        <equation>
+                            <var>r</var> = 4 + 4
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 4 &minus; 4
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var> = 4 &minus; 4
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -240,11 +315,16 @@
                     <td><iframe id="secondCardioidGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
                 </tr>
                 <tr>
-                    <td><var>r</var> = 4 + 4
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation><var>r</var> = 4 + 4
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 4 &minus; 4
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = 4 &minus; 4
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -256,29 +336,44 @@
             <li>These come in the forms:</li>
             <table class="rules">
                 <tr>
-                    <td><var>r</var> = <var>a &plusmn;b</var>
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var> = <var>a &plusmn;b</var>
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
                     <td>Symmetry with x-axis</td>
-                    <td rowspan="2">0 &le; &theta; &le; 2&pi;</td>
+                    <td rowspan="2">
+                        <equation>0 &le; &theta; &le; 2&pi;</equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td><var>r</var> = <var>a &plusmn; b</var>
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = <var>a &plusmn; b</var>
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                     <td>Symmetry with y-axis</td>
                 </tr>
             </table>
-            <li>If <var>a &gt; b</var>, then there is no loop, rather a dimple that is never on the origin.</li>
-            <li>If <var>a &lt; b</var>, then there is an inner loop.</li>
+            <li>If
+                <equation><var>a &gt; b</var></equation>, then there is no loop, rather a dimple that is never on the origin.</li>
+            <li>If
+                <equation><var>a &lt; b</var></equation>, then there is an inner loop.</li>
             <table>
                 <tr>
                     <td>
-                        <var>r</var> = 5 + 3
-                        <cos>&theta;</cos>
+                        <equation>
+                            <var>r</var> = 5 + 3
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 3 &minus; 5
-                        <cos>&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var> = 3 &minus; 5
+                            <cos>&theta;</cos>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -286,11 +381,17 @@
                     <td><iframe id="secondLimaconGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
                 </tr>
                 <tr>
-                    <td><var>r</var> = 3 + 5
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = 3 + 5
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 5 &minus; 3
-                        <sin>&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = 5 &minus; 3
+                            <sin>&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -302,17 +403,29 @@
             <li>These come in the form:</li>
             <table class="rules">
                 <tr>
-                    <td><var>r = a</var>
-                        <cos>n&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r = a</var>
+                            <cos>n&theta;</cos>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
-                    <td><var>r = a</var>
-                        <sin>n&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r = a</var>
+                            <sin>n&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
             </table>
-            <li>If <var>n</var> is odd, then there are <var>n</var> pedals and the domain is 0 &le; &theta; &le; &pi;. If <var>n</var> is even, then there are 2<var>n</var> pedals and the domain is 0 &le; &theta; &le; 2&pi;.</li>
+            <li>If
+                <equation><var>n</var></equation> is odd, then there are
+                <equation><var>n</var></equation> pedals and the domain is
+                <equation>0 &le; &theta; &le; &pi;</equation>. If
+                <equation><var>n</var></equation> is even, then there are
+                <equation>2<var>n</var></equation> pedals and the domain is
+                <equation>0 &le; &theta; &le; 2&pi;</equation>.</li>
             <table class="staticTable">
                 <tr>
                     <td style="border: none;"></td>
@@ -325,25 +438,38 @@
                     <td>Even coefficient of <var>&theta;</var></td>
                     <td>Touches all 4 axes</td>
                     <td>Touches no axes</td>
-                    <td>2<var>n</var> pedals</td>
-                    <td>0 &le; &theta; &le; 2&pi;</td>
+                    <td>
+                        <equation>2<var>n</var></equation> pedals</td>
+                    <td>
+                        <equation>0 &le; &theta; &le; 2&pi;</equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Odd coefficient of <var>&theta;</var></td>
+                    <td>Odd coefficient of
+                        <equation><var>&theta;</var></equation>
+                    </td>
                     <td>Touches right axis only</td>
                     <td>Touches bottom axis only</td>
-                    <td><var>n</var> pedals</td>
-                    <td>0 &le; &theta; &le; &pi;</td>
+                    <td>
+                        <equation><var>n</var></equation> pedals</td>
+                    <td>
+                        <equation>0 &le; &theta; &le; &pi;</equation>
+                    </td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <td>
-                        <var>r</var> = 5
-                        <cos>4&theta;</cos>
+                        <equation>
+                            <var>r</var> = 5
+                            <cos>4&theta;</cos>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 5
-                        <cos>3&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var> = 5
+                            <cos>3&theta;</cos>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -351,11 +477,17 @@
                     <td><iframe id="secondPolarGraph" width="250px" height="250px" style="border: 1px solid #ccc">Loading...</iframe></td>
                 </tr>
                 <tr>
-                    <td><var>r</var> = 5
-                        <sin>4&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = 5
+                            <sin>4&theta;</sin>
+                        </equation>
                     </td>
-                    <td><var>r</var> = 5
-                        <sin>3&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var> = 5
+                            <sin>3&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -367,23 +499,35 @@
             <li>Also known as the infinity graphs, they come in the form of:</li>
             <table class="rules">
                 <tr>
-                    <td><var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
-                        <cos>2&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
+                            <cos>2&theta;</cos>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
-                    <td><var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
-                        <sin>2&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var><sup>2</sup> = <var>a</var><sup>2</sup>
+                            <sin>2&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <td><var>r</var><sup>2</sup> = 8<sup>2</sup>
-                        <cos>2&theta;</cos>
+                    <td>
+                        <equation>
+                            <var>r</var><sup>2</sup> = 8<sup>2</sup>
+                            <cos>2&theta;</cos>
+                        </equation>
                     </td>
-                    <td><var>r</var><sup>2</sup> = 8<sup>2</sup>
-                        <sin>2&theta;</sin>
+                    <td>
+                        <equation>
+                            <var>r</var><sup>2</sup> = 8<sup>2</sup>
+                            <sin>2&theta;</sin>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
@@ -393,87 +537,97 @@
             </table>
         </div>
         <li>In order to find the slope of a tangent line to a polar graph, we cannot simply use
-            <derivative of="r" respectTo="&theta;"></derivative> because it gives us the rate of change of the radius with respect to &theta;. We need to convert to a parametric function, and then deal with it as a parametric function.</li>
+            <equation>
+                <derivative of="r" respectTo="&theta;"></derivative>
+            </equation> because it gives us the rate of change of the radius with respect to
+            <equation>&theta;</equation>. We need to convert to a parametric function, and then deal with it as a parametric function.</li>
         <li>Remember the polar to rectangular conversion formulas:</li>
         <table class="rules">
             <tr>
-                <td><var>x(&theta;) = r<cos>&theta;</cos></var></td>
-                <td><var>y(&theta;) = r<sin>&theta;</sin></var></td>
+                <td>
+                    <equation><var>x(&theta;) = r<cos>&theta;</cos></var></equation>
+                </td>
+                <td>
+                    <equation><var>y(&theta;) = r<sin>&theta;</sin></var></equation>
+                </td>
             </tr>
         </table>
         <li>Using those formulas, you can convert the polar function into a parametric function in terms of <var>x</var> and <var>y</var> with the parameter <var>&theta;</var>, in which case the following formula applies:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y"></derivative> =
-                    <div class="fraction">
-                        <div class="top">
-                            <derivative of="y" respectTo="&theta;"></derivative>
+                    <equation>
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <derivative of="y" respectTo="&theta;"></derivative>
+                            </div>
+                            <div class="bottom">
+                                <derivative of="x" respectTo="&theta;"></derivative>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <derivative of="x" respectTo="&theta;"></derivative>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <strong>Ex 1:</strong> Find the slope of the graph of <var>r</var> = 5 &minus; 3
-        <sin>&theta;</sin> when &theta; =
-        <div class="fraction">
-            <div class="top">5&pi;</div>
-            <div class="bottom">3</div>
-        </div>&emsp;<a href="javascript:void(0)" id="polarSlopeProblem1SolutionToggleLink" onclick="toggleSolution('#polarSlopeProblem1Solution');">Show Solution</a>
+        <strong>Ex 1:</strong> Find the slope of the graph of
+        <equation><var>r</var> = 5 &minus; 3
+            <sin>&theta;</sin>
+        </equation> when
+        <equation>
+            &theta; =
+            <div class="fraction">
+                <div class="top">5&pi;</div>
+                <div class="bottom">3</div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="polarSlopeProblem1SolutionToggleLink" onclick="toggleSolution('#polarSlopeProblem1Solution');">Show Solution</a>
         <div id="polarSlopeProblem1Solution" class="solution">
             <ol>
                 <li>First take a look at the graph</li>
                 <iframe id="polarGraph1" width="250px" height="250px"></iframe>
-                <br />Now take your equation and make it parametric in order to find
-                <derivative of="y"></derivative> parametrically by plugging <var>r</var> into the conversion formulas
-                <li>
-                    <var>r</var> = 5 &minus; 3
-                    <sin>&theta;</sin><br />
-                    <var>x(&theta;) = r<cos>&theta;</cos></var><br />
-                    <var>y(&theta;) = r<sin>&theta;</sin></var><br />
-                    <var>x</var>(<var>&theta;</var>) = (5 &minus; 3
-                    <sin>&theta;</sin>) &times;
-                    <cos>&theta;</cos><br />
-                    <var>y</var>(<var>&theta;</var>) = (5 &minus; 3
-                    <sin>&theta;</sin>) &times;
-                    <sin>&theta;</sin><br />
+                <li>Now take your equation and make it parametric in order to find
+                    <equation>
+                        <derivative of="y"></derivative>
+                    </equation> parametrically by plugging
+                    <equation><var>r</var></equation> into the conversion formulas
                 </li>
-                Now simply take the
-                <derivative of="y"></derivative> =
-                <div class="fraction">
-                    <div class="top">
-                        <derivative of="y" respectTo="&theta;"></derivative>
-                    </div>
-                    <div class="bottom">
-                        <derivative of="x" respectTo="&theta;"></derivative>
-                    </div>
-                </div> and simplify
+                <equation><var>r</var> = 5 &minus; 3
+                    <sin>&theta;</sin>
+                </equation><br />
+                <equation><span class="alignedEquations">
+                            x(&theta;) = r<cos>&theta;</cos><br />
+                            y(&theta;) = r<sin>&theta;</sin><br />
+                            x(&theta;) = (5 &minus; 3<sin>&theta;</sin>) &times; <cos>&theta;</cos><br />
+                            y(&theta;) = (5 &minus; 3<sin>&theta;</sin>) &times; <sin>&theta;</sin>
+                    </span></equation>
                 <li>
-                    <derivative of="y" respectTo="&theta;"></derivative> = &minus;3
-                    <cos>&theta;</cos>
-                    <sin>&theta;</sin> +
-                    <cos>&theta;</cos>(5 &minus; 3
-                    <sin>&theta;</sin>) = &minus;6
-                    <cos>&theta;</cos>
-                    <sin>&theta;</sin> + 5
-                    <cos>&theta;</cos>
-                    <br /> = &minus;3(2
-                    <sin>&theta;</sin>
-                    <cos>&theta;</cos>) + 5
-                    <cos>&theta;</cos>
-                    <br />
-                    <derivative of="x" respectTo="&theta;"></derivative> = &minus;3cos<sup>2</sup>(<var>&theta;</var>) + &minus;
-                    <sin>&theta;</sin>(5 &minus; 3
-                    <sin>&theta;</sin>) = &minus;3cos<sup>2</sup>(<var>&theta;</var>) &minus; 3sin<sup>2</sup>(<var>&theta;</var>) &minus; 5
-                    <sin>&theta;</sin>
-                    <br /> = &minus;3(cos<sup>2</sup>(<var>&theta;</var>) &minus; sin<sup>2</sup>(<var>&theta;</var>)) &minus;5
-                    <sin>&theta;</sin>
+                    Now simply take the
+                    <equation>
+                        <derivative of="y"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <derivative of="y" respectTo="&theta;"></derivative>
+                            </div>
+                            <div class="bottom">
+                                <derivative of="x" respectTo="&theta;"></derivative>
+                            </div>
+                        </div>
+                    </equation> and simplify
                 </li>
-                Use double angle formulas to condense it even more
-                <li>
+                <equation><span class="alignedEquations">
+                    <derivative of="y" respectTo="&theta;"></derivative> = &minus;3<cos>&theta;</cos><sin>&theta;</sin> + <cos>&theta;</cos>(5 &minus; 3<sin>&theta;</sin>)<br />
+                    = &minus;6<cos>&theta;</cos><sin>&theta;</sin> + 5<cos>&theta;</cos><br />
+                    = &minus;3(2<sin>&theta;</sin><cos>&theta;</cos>) + 5<cos>&theta;</cos>
+                </span></equation>
+                <br />
+                <equation><span class="alignedEquations">
+                    <derivative of="x" respectTo="&theta;"></derivative> = &minus;3<cos power="2">&theta;</cos> + &minus;<sin>&theta;</sin>(5 &minus; 3<sin>&theta;</sin>)<br />
+                    = &minus;3cos<sup>2</sup>(<var>&theta;</var>) &minus; 3<sin power="2">&theta;</sin> &minus; 5<sin>&theta;</sin><br />
+                    = &minus;3(<cos power="2">&theta;</cos> &minus; <sin power="2">&theta;</sin>) &minus;5<sin>&theta;</sin>
+                </span></equation>
+                <li>Use double angle formulas to condense it even more</li>
+
+                <equation>
                     <derivative of="y"></derivative> =
                     <div class="fraction">
                         <div class="top">
@@ -497,42 +651,56 @@
                             <sin>&theta;</sin>
                         </div>
                     </div>
-                </li>
-                Evaluate the derivative at the given &theta; point
-                <li>
+                </equation>
+                <li>Evaluate the derivative at the given
+                    <equation>&theta;</equation> point</li>
+
+                <equation>
                     <derivative of="y"></derivative>
                     <evaluated from="<div class='fraction'><div class='top'>5&pi;</div><div class='bottom'>3</div></div>"></evaluated> &asymp; <span class="answer">0.874</span>
-                </li>
+                </equation>
             </ol>
         </div>
         <li>Using the parametric formula for length of the curve, we can find the length of polar graphs, switching that <var>t</var> to <var>&theta;</var>.</li>
         <h5>Area Of Polar Graphs:</h5>
         <li>From EM2, recall the area of a sector, which is
-            <div class="fraction">
-                <div class="top"><var>&theta;</var></div>
-                <div class="bottom">2<var>&pi;</var></div>
-            </div> &times; <var>&pi;r</var><sup>2</sup> =
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom">2</div>
-            </div><var>r</var><sup>2</sup><var>&theta;</var>
+            <equation>
+                <div class="fraction">
+                    <div class="top"><var>&theta;</var></div>
+                    <div class="bottom">2<var>&pi;</var></div>
+                </div> &times; <var>&pi;r</var><sup>2</sup> =
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2</div>
+                </div><var>r</var><sup>2</sup><var>&theta;</var>
+            </equation>
         </li>
-        <li>We can use this to find the area of a sector in a polar graph because all of the sectors have curved edges. As <var>&theta;</var> gets smaller and smaller (<var>d&theta;</var>), we can get a more precise area, and so we get:<br />
+        <li>We can use this to find the area of a sector in a polar graph because all of the sectors have curved edges. As
+            <equation><var>&theta;</var></equation> gets smaller and smaller (
+            <equation><var>d&theta;</var></equation>), we can get a more precise area, and so we get:<br />
             <table class="rules">
                 <tr>
                     <td>
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom">2</div>
-                        </div>
-                        <integral lowerBound="&alpha;" upperBound="&beta;" respectTo="&theta;"><var>r</var><sup>2</sup></integral>
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2</div>
+                            </div>
+                            <integral lowerBound="&alpha;" upperBound="&beta;" respectTo="&theta;"><var>r</var><sup>2</sup></integral>
+                        </equation>
                     </td>
                 </tr>
-            </table><br /> where &alpha; is the starting angle of &theta; and &beta; is the ending angle of &theta; from which you want to integrate through.</li>
+            </table><br /> where
+            <equation>&alpha;</equation> is the starting angle of
+            <equation>&theta;</equation> and
+            <equation>&beta;</equation> is the ending angle of
+            <equation>&theta;</equation> from which you want to integrate through.</li>
         <li>Pay attention to the bounds because it differs based on the type of polar graph.</li>
-
     </ul>
 </div>
+<script>
+    renderMath();
+</script>
 <script class="renderJS">
     var polarGraph1 = document.querySelector("#polarGraph1");
     //Polar Graphs
