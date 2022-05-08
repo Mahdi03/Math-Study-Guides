@@ -15,48 +15,64 @@
         <table class="rules">
             <tr>
                 <td>
-                    <var>a</var><sub><var>n</var></sub><var>x</var><sup><var>n</var></sup>
-                    <derivative of="y" respectTo="x" order="<var>n</var>"></derivative>
-                    + <var>a</var><sub><var>n</var> &minus; 1</sub><var>x</var><sup><var>n</var> &minus; 1</sup>
-                    <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative>
-                    + ... + <var>a</var><sub>1</sub><var>x</var>
-                    <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub><var>y</var> = 0
+                    <equation>
+                        <var>a</var><sub><var>n</var></sub><var>x</var><sup><var>n</var></sup>
+                        <derivative of="y" respectTo="x" order="<var>n</var>"></derivative>
+                        + <var>a</var><sub><var>n</var> &minus; 1</sub><var>x</var><sup><var>n</var> &minus; 1</sup>
+                        <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative>
+                        + ... + <var>a</var><sub>1</sub><var>x</var>
+                        <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub><var>y</var> = 0
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>We can suspect the solutions to be of the form <var>y = x<sup>n</sup></var>, and by plugging it in to the equation, we start to see that when the substituted equation has <var>n</var> distinct roots, the general solution is:</li>
+        <li>We can suspect the solutions to be of the form
+            <equation><var>y = x<sup>n</sup></var></equation>, and by plugging it in to the equation, we start to see that when the substituted equation has
+            <equation><var>n</var></equation> distinct roots, the general solution is:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>x</var><sup><var>m</var><sub>1</sub></sup> + <var>c</var><sub>2</sub><var>x</var><sup><var>m</var><sub>2</sub></sup> + ... + <var>c</var><sub><var>n</var></sub><var>x</var><sup><var>m<sub>n</sub></var></sup>
+                    <equation><var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>x</var><sup><var>m</var><sub>1</sub></sup> + <var>c</var><sub>2</sub><var>x</var><sup><var>m</var><sub>2</sub></sup> + ... + <var>c</var><sub><var>n</var></sub><var>x</var><sup><var>m<sub>n</sub></var></sup></equation>
                 </td>
             </tr>
         </table>
         <li>When we have repeating roots, we multiply subsequent terms by another
-            <ln>x</ln>. The set of solutions for a root of multiplicity <var>k</var> is:</li>
+            <equation>
+                <ln>x</ln>
+            </equation>. The set of solutions for a root of multiplicity
+            <equation><var>k</var></equation> is:</li>
         <table class="rules">
             <tr>
                 <td>
-                    {<var>x</var>, <var>x</var>
-                    <ln><var>x</var></ln>, <var>x</var>[
-                    <ln><var>x</var></ln>]<sup>2</sup>, ..., <var>x</var>[
-                    <ln>x</ln>]<sup><var>k</var> &minus; 1</sup>}
+                    <equation>
+                        \{<var>x</var>, <var>x</var>
+                        <ln><var>x</var></ln>, <var>x</var>[
+                        <ln><var>x</var></ln>]<sup>2</sup>, ..., <var>x</var>[
+                        <ln>x</ln>]<sup><var>k</var> &minus; 1</sup>\}
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>When we have complex roots, we solve for the roots <var>m</var>, put them back into <var>y = e<sup>m</sup></var>, and then using Euler's Identity (<var>e<sup>i&theta;</sup> = </var>
-            <cos>&theta;</cos> + <var>i</var>
-            <sin>&theta;</sin>) and the Superposition Principle to make our answer real. When the root is <var>m</var> = <var>a &plusmn; bi</var>, the general solution will be:</li>
+        <li>When we have complex roots, we solve for the roots
+            <equation><var>m</var></equation>, put them back into
+            <equation><var>y = e<sup>m</sup></var></equation>, and then using Euler's Identity (
+            <equation><var>e<sup>i&theta;</sup> = </var>
+                <cos>&theta;</cos> + <var>i</var>
+                <sin>&theta;</sin>
+            </equation>) and the Superposition Principle to make our answer real. When the root is
+            <equation><var>m</var> = <var>a &plusmn; bi</var></equation>, the general solution will be:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>x</var><sup><var>a</var></sup>
-                    <cos><var>b</var>
-                        <ln><var>x</var></ln>
-                    </cos> + <var>c</var><sub>2</sub><var>x</var><sup><var>a</var></sup>
-                    <sin><var>b</var>
-                        <ln><var>x</var></ln>
-                    </sin>
+                    <equation>
+                        <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>x</var><sup><var>a</var></sup>
+                        <cos><var>b</var>
+                            <ln><var>x</var></ln>
+                        </cos> + <var>c</var><sub>2</sub><var>x</var><sup><var>a</var></sup>
+                        <sin><var>b</var>
+                            <ln><var>x</var></ln>
+                        </sin>
+                    </equation>
                 </td>
             </tr>
         </table>

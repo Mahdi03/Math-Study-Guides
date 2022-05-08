@@ -16,58 +16,94 @@
         <table class="rules">
             <tr>
                 <td>
-                    <var>a</var><sub><var>n</var></sub>(<var>x</var>)
-                    <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
-                    <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
-                    <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
-                    <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)
+                    <equation>
+                        <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+                        <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+                        <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+                        <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+                        <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)
+                    </equation>
                 </td>
             </tr>
         </table>
         <h5>Existence of a Unique Solution Theorem 2 (EUST2):</h5>
         <li>If:
             <ol>
-                <li>a<sub><var>n</var></sub>(<var>x</var>), <var>a</var><sub><var>n</var> &minus; 1</sub>(<var>x</var>), ..., <var>a</var><sub>0</sub>(<var>x</var>), <var>g</var>(<var>x</var>) are continuous on any interval I</li>
-                <li>a<sub><var>n</var></sub>(<var>x</var>) &ne; 0 on I</li>
+                <li>
+                    <equation>a<sub><var>n</var></sub>(<var>x</var>), <var>a</var><sub><var>n</var> &minus; 1</sub>(<var>x</var>), ..., <var>a</var><sub>0</sub>(<var>x</var>), <var>g</var>(<var>x</var>)</equation> are continuous on any interval I</li>
+                <li>
+                    <equation>a<sub><var>n</var></sub>(<var>x</var>) &ne; 0</equation> on I</li>
             </ol> then the IVP has a unique solution on I.
         </li>
         <li>When given an nth order linear differential equation (OLDEN) without initial conditions, the set of solutions will not be unique.</li>
-        <li>There are two types of OLDEN, the homogeneous (HOLDEN) and the non-homogeneous (NOLDEN),<br />where the HOLDEN comes in the form <var>a</var><sub><var>n</var></sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
-            <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = 0<br />and NOLDEN comes in the form <var>a</var><sub><var>n</var></sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
-            <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>) where <var>g</var>(<var>x</var>) &ne; 0</li>
+        <li>There are two types of OLDEN, the homogeneous (HOLDEN) and the non-homogeneous (NOLDEN),<br />where the HOLDEN comes in the form
+            <equation>
+                <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+                <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = 0
+            </equation>
+
+            <br />and NOLDEN comes in the form
+            <equation>
+                <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+                <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)</equation>
+            where
+            <equation><var>g</var>(<var>x</var>) &ne; 0</equation>
+        </li>
         <li>With HOLDEN's you can add/subtract two solutions to get a third solution, and any scalar multiple of a solution is also a solution.</li>
-        <li>HOLDEN's technically have unlimited solutions, so we describe a structure of solutions as a linearly independent set { <var>f</var><sub>1</sub>(<var>x</var>), <var>f</var><sub>2</sub>(<var>x</var>), ..., <var>f</var><sub><var>n</var></sub>(<var>x</var>)}</li>
+        <li>HOLDEN's technically have unlimited solutions, so we describe a structure of solutions as a linearly independent set
+            <equation>{f<sub>1</sub>(x), f<sub>2</sub>(x), ..., f<sub>n</sub>(x)}</equation>
+        </li>
         <li>Linearly independent means that there's no repetition.</li>
         <img src="linearDependence.jpg" alt="Colors visual of linear independence" />
         <li>
-            A set of functions is linearly dependent on an interval I if there exists constants <var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, ..., <var>c</var><sub>3</sub> that are not all 0, so that <var>c</var><sub>1</sub><var>f</var><sub>1</sub>(<var>x</var>)
-            + <var>c</var><sub>2</sub><var>f</var><sub>2</sub>(<var>x</var>) + ... + <var>c</var><sub><var>n</var></sub><var>f</var><sub><var>n</var></sub>(<var>x</var>) = 0 for all <var>x</var> &isin; I. If
-            <var>c</var><sub>1</sub> = <var>c</var><sub>2</sub> = ... = <var>c</var><sub><var>n</var></sub> = 0 is the only solution, then we say that the functions are linearly independent on I.
+            A set of functions is linearly dependent on an interval I if there exists constants
+            <equation><var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, ..., <var>c</var><sub>3</sub></equation> that are not all 0, so that
+
+            <equation><var>c</var><sub>1</sub><var>f</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>f</var><sub>2</sub>(<var>x</var>) + ... + <var>c</var><sub><var>n</var></sub><var>f</var><sub><var>n</var></sub>(<var>x</var>) = 0</equation> for
+            all <var>x</var> &isin; I. If
+            <equation><var>c</var><sub>1</sub> = <var>c</var><sub>2</sub> = ... = <var>c</var><sub><var>n</var></sub> = 0</equation> is the only solution, then we say that the functions are linearly independent on I.
         </li>
         <li>One way to solve for those constants is to differentiate the equation as many times as needed, extending this approach we get a matrix equation:</li><br /><br />
-        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix>
-        <matrix dimensionX="1" dimensionY="4" values="<var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, &vellip;, <var>c</var><sub><var>n</var></sub>"></matrix> =
-        <matrix dimensionX="1" dimensionY="4" values="0, 0, &vellip;, 0"></matrix>
-        <li>A theorem states that if functions are linearly dependent and differentiable, then for all <var>x</var> &isin; I, the Wronskian W</li><br /><br /> det
-        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix> = 0
+        <equation>
+            <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix>
+            <matrix dimensionX="1" dimensionY="4" values="<var>c</var><sub>1</sub>, <var>c</var><sub>2</sub>, &vellip;, <var>c</var><sub><var>n</var></sub>"></matrix> =
+            <matrix dimensionX="1" dimensionY="4" values="0, 0, &vellip;, 0"></matrix>
+        </equation>
+        <li>A theorem states that if functions are linearly dependent and differentiable, then for all <var>x</var> &isin; I, the Wronskian W</li><br /><br />
+        <equation>
+            <det writeDet>
+                <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix>
+            </det> = 0
+        </equation>
         <li>Looking at the contrapositive of this theorem helps us find out whether a set can be considered linearly independent:<br />If there exists at least one <var>x</var> &isin; I such that<br /><br />
             <table class="rules">
                 <tr>
-                    <td><br />W(
-                        <var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub>) = det
-                        <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix> &ne; 0
+                    <td>
+                        <equation>
+                            W(
+                            <var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub>) =
+                            <det writeDet>
+                                <matrix dimensionX="4" dimensionY="4" values="<var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, &ctdot;, <var>f</var><sub><var>n</var></sub>, <var>f</var><sub>1</sub>', <var>f</var><sub>2</sub>', &ctdot;, <var>f</var><sub><var>n</var></sub>', &vellip;, &vellip;, &dtdot;, &vellip;, f<sub>1</sub><sup>(<var>n</var> &minus; 1)</sup>, f<sub>2</sub><sup>(<var>n</var> &minus; 1)</sup>, &ctdot;, f<sub><var>n</var></sub><sup>(<var>n</var> &minus; 1)</sup>"></matrix>
+                            </det> &ne; 0
+                        </equation>
+
                     </td>
                 </tr>
             </table>
-            <br /><br />then the functions <var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub> are linearly independent.</li>
-        <li>When you have a HOLDEN and a set of solutions that are solutions to the HOLDEN and are linearly independent, that is a fundamental set of solutions, and any solution to a HOLDEN can be written as <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub>            + <var>c</var><sub>2</sub><var>y</var><sub>2</sub> + ... + <var>c</var><sub><var>n</var></sub><var>y</var><sub><var>n</var></sub></li>
-        <li>A HOLDEN of <var>n</var> order will have <var>n</var> solutions</li>
+            <br /><br />then the functions
+            <equation><var>f</var><sub>1</sub>, <var>f</var><sub>2</sub>, ..., <var>f</var><sub><var>n</var></sub></equation> are linearly independent.</li>
+        <li>When you have a HOLDEN and a set of solutions that are solutions to the HOLDEN and are linearly independent, that is a fundamental set of solutions, and any solution to a HOLDEN can be written as
+            <equation><var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub> + <var>c</var><sub>2</sub><var>y</var><sub>2</sub> + ... + <var>c</var><sub><var>n</var></sub><var>y</var><sub><var>n</var></sub></equation>
+        </li>
+        <li>A HOLDEN of
+            <equation><var>n</var></equation> order will have
+            <equation><var>n</var></equation> solutions</li>
         <img src="linearIndependenceFlowchart.jpg" alt="A flowchart to find linear independence" />
         <li>To convert a NOLDEN to HOLDEN we can subtract two solutions </li>
 
@@ -78,28 +114,33 @@
             <table class="rules">
                 <tr>
                     <td>
-                        {e<sup><var>m</var><sub>1</sub><var>x</var></sup>, e <sup><var>m</var><sub>2</sub><var>x</var></sup>, ..., e<sup><var>m<sub>n</sub>x</var></sup>}
+                        <equation>{e<sup><var>m</var><sub>1</sub><var>x</var></sup>, e <sup><var>m</var><sub>2</sub><var>x</var></sup>, ..., e<sup><var>m<sub>n</sub>x</var></sup>}</equation>
                     </td>
                 </tr>
             </table>
         </li>
-        <li>In the case of repeated roots, we multiply subsequent terms by another <var>x</var>. The set of solutions for a root of multiplicity <var>k</var> is:
+        <li>In the case of repeated roots, we multiply subsequent terms by another
+            <equation><var>x</var></equation>. The set of solutions for a root of multiplicity
+            <equation><var>k</var></equation> is:
             <table class="rules">
                 <tr>
                     <td>
-                        {e<sup><var>mx</var></sup>, <var>x</var>e<sup><var>mx</var></sup>, <var>x</var><sup>2</sup>e<sup><var>mx</var></sup>, ..., x<sup><var>k</var> &minus; 1</sup>e<sup><var>mx</var></sup>}
+                        <equation>{e<sup><var>mx</var></sup>, <var>x</var>e<sup><var>mx</var></sup>, <var>x</var><sup>2</sup>e<sup><var>mx</var></sup>, ..., x<sup><var>k</var> &minus; 1</sup>e<sup><var>mx</var></sup>}</equation>
                     </td>
                 </tr>
             </table>
         </li>
         <!--Show Proof-->
-        <li>In the case of imaginary roots (when the root <var>m</var> = <var>a &plusmn; bi</var>), the set looks like:
+        <li>In the case of imaginary roots (when the root
+            <equation><var>m</var> = <var>a &plusmn; bi</var></equation>), the set looks like:
             <table class="rules">
                 <tr>
                     <td>
-                        {e<sup><var>ax</var></sup>
-                        <cos><var>b</var><var>x</var></cos>, <var>e</var><sup><var>ax</var></sup>
-                        <sin><var>b</var><var>x</var></sin>}
+                        <equation>
+                            \{e<sup><var>ax</var></sup>
+                            <cos><var>b</var><var>x</var></cos>, <var>e</var><sup><var>ax</var></sup>
+                            <sin><var>b</var><var>x</var></sin>\}
+                        </equation>
                     </td>
                 </tr>
             </table>
@@ -109,51 +150,75 @@
         <li>
             In the case of NOLDEN's with constant coefficients, we
             <ol>
-                <li>Find the solution to the corresponding HOLDEN (replace g(<var>x</var>) with 0)</li>
+                <li>Find the solution to the corresponding HOLDEN (replace
+                    <equation>g(<var>x</var>)</equation> with 0)</li>
                 <li>Find the particular solution, which is one direct solution to the NOLDEN, and it should be similar to the structure or form of g(<var>x</var>)</li>
-                <li>The solution to the NOLDEN should be <var>y(x)</var> = (particular solution) + (linear combination of HOLDEN solutions) where a linear combination of {e<sup><var>x</var></sup>, e<sup><var>x</var><sup>2</sup></sup>} would be <var>c</var><sub>1</sub>e<sup><var>x</var></sup>                    + <var>c</var><sub>2</sub>e<sup><var>x</var><sup>2</sup></sup> and so forth.</li>
+                <li>The solution to the NOLDEN should be
+                    <equation><var>y(x)</var> =</equation> (particular solution) + (linear combination of HOLDEN solutions) where a linear combination of
+                    <equation>{e<sup><var>x</var></sup>, e<sup><var>x</var><sup>2</sup></sup>}</equation> would be
+                    <equation><var>c</var><sub>1</sub>e<sup><var>x</var></sup> + <var>c</var><sub>2</sub>e<sup><var>x</var><sup>2</sup></sup>
+                    </equation> and so forth.</li>
             </ol>
         </li>
 
         <h3>4.5/4.6: Differential Operators:</h3>
-        <li>Another way to make the NOLDEN into a HOLDEN is to differentiate both sides completely until the right side (g(<var>x</var>)) really does become 0. Making that result into an auxilliary equation and solving the HOLDEN should give your answer.</li>
-        <li>The differential operator D(<var>y</var>) is another representation of
-            <derivative of="y" respectTo="x" order=""></derivative>
+        <li>Another way to make the NOLDEN into a HOLDEN is to differentiate both sides completely until the right side (
+            <equation>g(<var>x</var>)</equation>) really does become 0. Making that result into an auxilliary equation and solving the HOLDEN should give your answer.</li>
+        <li>The differential operator
+            <equation>D(<var>y</var>)</equation> is another representation of
+            <equation>
+                <derivative of="y" respectTo="x" order=""></derivative>
+            </equation>
         </li>
         <table class="rules">
             <tr>
-                <td>D<sup><var>k</var></sup>(<var>y</var>) =
-                    <derivative of="y" respectTo="x" order="<var>k</var>"></derivative>
+                <td>
+                    <equation>
+                        D<sup><var>k</var></sup>(<var>y</var>) =
+                        <derivative of="y" respectTo="x" order="<var>k</var>"></derivative>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>When it came to differentiating both sides until the right-hand side polynomial was annihilated, we differentiated <var>n</var> + 1 times for a polynomial of highest degree <var>n</var>. This can be rewritten as D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>)
-            = 0</li>
-        <li>When g(<var>x</var>) is an exponential function, we can cancel it out similarly. Some general rules for reference:</li>
+        <li>When it came to differentiating both sides until the right-hand side polynomial was annihilated, we differentiated
+            <equation><var>n</var> + 1</equation> times for a polynomial of highest degree
+            <equation><var>n</var></equation>. This can be rewritten as
+            <equation>D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>) = 0</equation>
+        </li>
+        <li>When
+            <equation>g(<var>x</var>)</equation> is an exponential function, we can cancel it out similarly. Some general rules for reference:</li>
         <table class="rules">
             <tr>
-                <td>D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>) = 0</td>
-                <th>
-                    <!--Show proof bruh-->
-                </th>
-            </tr>
-            <tr>
-                <td>(D &minus; <var>a</var>)e<sup><var>ax</var></sup> = 0</td>
-                <th>
-                    <!--Show proof bruh-->
-                </th>
-            </tr>
-            <tr>
-                <td>(D &minus; <var>a</var>)<sup><var>n</var> + 1</sup><var>x<sup>n</sup>e<sup>ax</sup></var> = 0</td>
+                <td>
+                    <equation>D<sup><var>n</var> + 1</sup>(<var>x<sup>n</sup></var>) = 0</equation>
+                </td>
                 <th>
                     <!--Show proof bruh-->
                 </th>
             </tr>
             <tr>
                 <td>
-                    D<sup>2</sup> &minus; 2&alpha;D + (&alpha;<sup>2</sup> + &beta;<sup>2</sup>) of <var>c</var><sub>1</sub><var>e</var><sup><var>&alpha;</var></sup>
-                    <cos>&beta;<var>x</var></cos> + <var>c</var><sub>2</sub><var>e</var><sup><var>&alpha;x</var></sup>
-                    <sin>&beta;<var>x</var></sin> = 0
+                    <equation>(D &minus; <var>a</var>)e<sup><var>ax</var></sup> = 0</equation>
+                </td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <equation>(D &minus; <var>a</var>)<sup><var>n</var> + 1</sup><var>x<sup>n</sup>e<sup>ax</sup></var> = 0</equation>
+                </td>
+                <th>
+                    <!--Show proof bruh-->
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        D<sup>2</sup> &minus; 2&alpha;D + (&alpha;<sup>2</sup> + &beta;<sup>2</sup>) <text>of</text> <var>c</var><sub>1</sub><var>e</var><sup><var>&alpha;</var></sup>
+                        <cos>&beta;<var>x</var></cos> + <var>c</var><sub>2</sub><var>e</var><sup><var>&alpha;x</var></sup>
+                        <sin>&beta;<var>x</var></sin> = 0
+                    </equation>
                 </td>
                 <th>
                     <!--Show proof bruh-->
@@ -161,52 +226,66 @@
             </tr>
         </table>
         <h3>4.7: Variations of Parameters:</h3>
-        <li>In order to solve NOLDEN's for which annihilation is not possible (particularly those of second-order), we solve the corresponding HOLDEN and then vary the parameters <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub></li>
+        <li>In order to solve NOLDEN's for which annihilation is not possible (particularly those of second-order), we solve the corresponding HOLDEN and then vary the parameters
+            <equation><var>c</var><sub>1</sub></equation> and
+            <equation><var>c</var><sub>2</sub></equation>
+        </li>
         <li>The first step is to always <u>normalize</u> the Differential Equation, which just means to divide the entire equation by the coefficient of the derivative, that way we isolate the derivative into a more formidable form.</li>
         <li>More often than not, it is easier to solve the corresponding HOLDEN than the NOLDEN itself, so we do exactly that. Once the NOLDEN is normalized, solve the corresponding HOLDEN to get the set of general solutions.</li>
         <li>The catch is solving for the particular solution so that we can find the solution to the entire NOLDEN.</li>
-        <li>The solution to a NOLDEN of the form <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var> is given by:
+        <li>The solution to a NOLDEN of the form
+            <equation><var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var></equation> is given by:
             <!--Insert table.rules showing another way to find the particular solution-->
             <table class="rules">
                 <tr>
                     <td>
-                        <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>y</var><sub>2</sub>(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)
-                        + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)
+                        <equation>
+                            <var>y</var>(<var>x</var>) = <var>c</var><sub>1</sub><var>y</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>y</var><sub>2</sub>(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)
+                            + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)
+                        </equation>
                     </td>
                     <td>
-                        <var>u</var><sub>1</sub>'(<var>x</var>) =
-                        <div style="transform: translateY(20%);" class="fraction">
-                            <div class="top">
-                                det
-                                <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                        <equation>
+                            <var>u</var><sub>1</sub>'(<var>x</var>) =
+                            <div style="transform: translateY(20%);" class="fraction">
+                                <div class="top">
+                                    <det writeDet>
+                                        <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </det>
+                                </div>
+                                <div class="bottom">
+                                    <det writeDet>
+                                        <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </det>
+                                </div>
                             </div>
-                            <div class="bottom">
-                                det
-                                <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            =
+                            <div class="fraction">
+                                <div class="top">W<sub>1</sub></div>
+                                <div class="bottom">W</div>
                             </div>
-                        </div>
-                        =
-                        <div class="fraction">
-                            <div class="top">W<sub>1</sub></div>
-                            <div class="bottom">W</div>
-                        </div>
+                        </equation>
                     </td>
                     <td>
-                        <var>u</var><sub>2</sub>'(<var>x</var>) =
-                        <div style="transform: translateY(20%);" class="fraction">
-                            <div class="top">
-                                det
-                                <matrix class="matricInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                        <equation>
+                            <var>u</var><sub>2</sub>'(<var>x</var>) =
+                            <div style="transform: translateY(20%);" class="fraction">
+                                <div class="top">
+                                    <det writeDet>
+                                        <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </det>
+                                </div>
+                                <div class="bottom">
+                                    <det writeDet>
+                                        <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </det>
+                                </div>
+                            </div> =
+                            <div class="fraction">
+                                <div class="top">W<sub>2</sub></div>
+                                <div class="bottom">W</div>
                             </div>
-                            <div class="bottom">
-                                det
-                                <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
-                            </div>
-                        </div> =
-                        <div class="fraction">
-                            <div class="top">W<sub>2</sub></div>
-                            <div class="bottom">W</div>
-                        </div>
+                        </equation>
                     </td>
                     <th><a id="particularSolutionProofToggleLink" href="javascript:void(0);" onclick="toggleSolution('#particularSolutionProof', true)">Show Proof</a></th>
                 </tr>
@@ -214,54 +293,71 @@
         </li>
         <div id="particularSolutionProof" class="solution">
             <ol>
-                <li>We look at a basic general solution to a second-order HOLDEN <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = 0</li>
-                <var>y(x) = c</var><sub>1</sub><var> y</var><sub>1</sub><var>(x) + c</var><sub>2</sub><var> y</var><sub>2</sub><var>(x)</var>
-                <li>Replacing <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> with functions <var>u</var><sub>1</sub>(<var>x</var>) and <var>u</var><sub>2</sub>(<var>x</var>) gets us:</li>
-                <var>y</var>(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)<br /> and
+                <li>We look at a basic general solution to a second-order HOLDEN
+                    <equation><var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = 0</equation>
+                </li>
+                <equation><var>y(x) = c</var><sub>1</sub><var> y</var><sub>1</sub><var>(x) + c</var><sub>2</sub><var> y</var><sub>2</sub><var>(x)</var></equation>
+                <li>Replacing
+                    <equation><var>c</var><sub>1</sub></equation> and
+                    <equation><var>c</var><sub>2</sub></equation> with functions
+                    <equation><var>u</var><sub>1</sub>(<var>x</var>)</equation> and
+                    <equation><var>u</var><sub>2</sub>(<var>x</var>)</equation> gets us:</li>
+                <equation><var>y</var>(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</equation><br /> and
                 <br />
-                <var>y</var>'(<var>x</var>) = <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span>                + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)
+                <equation><var>y</var>'(x) = <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span>                    + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)</equation>
                 <li>We need to solve for our two unknowns: <var>u</var><sub>1</sub>(<var>x</var>) and <var>u</var><sub>2</sub>(<var>x</var>). This means we need two equations
                     <br />We can set a condition:
-
-                    <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span> =
-                    0
+                    <equation>
+                        <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span>                        = 0
+                    </equation>
                     <br /> Even though it seems unnatural to impose a condition like letting it equal to 0, by adding an extra variable we are essentially given another degree of freedom, and that allows us to set these relationships between our introduced
                     variable and the original variable.
                 </li>
                 <li>Now our equation looks simpler, and we can take the next derivative so we can substitute back into our original normalized NOLDEN</li>
-                <var>y</var>'(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)<br />
-                <var>y</var>''(<var>x</var>) = <var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var>''(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)
-                + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>''(<var>x</var>)
-                <li>Now that we know <var>y</var>, <var>y</var>', and <var>y</var>'', we can plug it back in to our original NOLDEN <var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var>. It's too much algebra to simplify here, but you should
-                    be left with:</li>
-                <var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) = <var>f</var>(<var>x</var>)
+                <equation><span class="alignedEquations">
+                    <var>y</var>'(<var>x</var>) = <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)<br />
+                    <var>y</var>''(<var>x</var>) = <var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>1</sub>(<var>x</var>)<var>y</var>''(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>)
+                    + <var>u</var><sub>2</sub>(<var>x</var>)<var>y</var><sub>2</sub>''(<var>x</var>)
+                </span></equation>
+                <li>Now that we know
+                    <equation><var>y</var></equation>,
+                    <equation><var>y</var>'</equation>, and
+                    <equation><var>y</var>''</equation>, we can plug it back in to our original NOLDEN
+                    <equation><var>y</var>'' + <var>P(x)y</var>' + <var>Q(x)y</var> = <var>f(x)</var></equation>. It's too much algebra to simplify here, but you should be left with:</li>
+                <equation><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>'(<var>x</var>) + <var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) = <var>f</var>(<var>x</var>)</equation>
                 <li>Try to simplify it out and then factor into groups such that the terms resemble the HOLDEN. Since the HOLDEN is = 0, those terms should just disappear. And back from our original imposition of a relationship between our variable and the
                     original variable, we have:</li>
-                <span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span> = 0
-                <li>Now we have two equations, we can solve for both <var>u</var><sub>1</sub>'(<var>x</var>) and <var>u</var><sub>2</sub>'(<var>x</var>) in terms of the same variables, which gets us:</li>
+                <equation><span style="color: purple;"><var>u</var><sub>1</sub>'(<var>x</var>)<var>y</var><sub>1</sub>(<var>x</var>)</span> + <span style="color: purple;"><var>u</var><sub>2</sub>'(<var>x</var>)<var>y</var><sub>2</sub>(<var>x</var>)</span> = 0</equation>
+                <li>Now we have two equations, we can solve for both
+                    <equation><var>u</var><sub>1</sub>'(<var>x</var>)</equation> and
+                    <equation><var>u</var><sub>2</sub>'(<var>x</var>)</equation> in terms of the same variables, which gets us:</li>
                 <table class="staticTable">
                     <tr>
                         <td>
-                            <var>u</var><sub>1</sub>'(<var>x</var>) =
-                            <div class="fraction">
-                                <div class="top">
-                                    &minus;<var>y</var><sub>2</sub>(x)<var>f</var>(x)
+                            <equation>
+                                <var>u</var><sub>1</sub>'(<var>x</var>) =
+                                <div class="fraction">
+                                    <div class="top">
+                                        &minus;<var>y</var><sub>2</sub>(x)<var>f</var>(x)
+                                    </div>
+                                    <div class="bottom">
+                                        <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
+                                    </div>
                                 </div>
-                                <div class="bottom">
-                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
-                                </div>
-                            </div>
+                            </equation>
                         </td>
                         <td>
-                            <var>u</var><sub>2</sub>'(<var>x</var>) =
-                            <div class="fraction">
-                                <div class="top">
-                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>f</var>(<var>x</var>)
+                            <equation>
+                                <var>u</var><sub>2</sub>'(<var>x</var>) =
+                                <div class="fraction">
+                                    <div class="top">
+                                        <var>y</var><sub>1</sub>(<var>x</var>)<var>f</var>(<var>x</var>)
+                                    </div>
+                                    <div class="bottom">
+                                        <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
+                                    </div>
                                 </div>
-                                <div class="bottom">
-                                    <var>y</var><sub>1</sub>(<var>x</var>)<var>y</var><sub>2</sub>'(<var>x</var>) &minus; <var>y</var><sub>1</sub>'(x)<var>y</var><sub>2</sub>(x)
-                                </div>
-                            </div>
+                            </equation>
                         </td>
                     </tr>
                 </table>
@@ -275,39 +371,43 @@
                 <table class="staticTable">
                     <tr>
                         <td>
-                            <var>u</var><sub>1</sub>'(<var>x</var>) =
-                            <div style="transform: translateY(20%);" class="fraction">
-                                <div class="top">
-                                    det
-                                    <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            <equation>
+                                <var>u</var><sub>1</sub>'(<var>x</var>) =
+                                <div style="transform: translateY(20%);" class="fraction">
+                                    <div class="top">
+                                        det
+                                        <matrix class="matrixInFraction" dimensionX="2" dimensionY="2" values="0, <var>y</var><sub>2</sub>(<var>x</var>), <var>f</var>(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </div>
+                                    <div class="bottom">
+                                        det
+                                        <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </div>
                                 </div>
-                                <div class="bottom">
-                                    det
-                                    <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                =
+                                <div class="fraction">
+                                    <div class="top">W<sub>1</sub></div>
+                                    <div class="bottom">W</div>
                                 </div>
-                            </div>
-                            =
-                            <div class="fraction">
-                                <div class="top">W<sub>1</sub></div>
-                                <div class="bottom">W</div>
-                            </div>
+                            </equation>
                         </td>
                         <td>
-                            <var>u</var><sub>2</sub>'(<var>x</var>) =
-                            <div style="transform: translateY(20%);" class="fraction">
-                                <div class="top">
-                                    det
-                                    <matrix class="matricInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                            <equation>
+                                <var>u</var><sub>2</sub>'(<var>x</var>) =
+                                <div style="transform: translateY(20%);" class="fraction">
+                                    <div class="top">
+                                        det
+                                        <matrix class="matricInFraction" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), 0, <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </div>
+                                    <div class="bottom">
+                                        det
+                                        <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
+                                    </div>
+                                </div> =
+                                <div class="fraction">
+                                    <div class="top">W<sub>2</sub></div>
+                                    <div class="bottom">W</div>
                                 </div>
-                                <div class="bottom">
-                                    det
-                                    <matrix class="matrixInFraction" style="transform: translateY(0) !important;" dimensionX="2" dimensionY="2" values="<var>y</var><sub>1</sub>(<var>x</var>), <var>y</var><sub>2</sub>(<var>x</var>), <var>y</var><sub>1</sub>'(<var>x</var>), <var>y</var><sub>2</sub>'(<var>x</var>)"></matrix>
-                                </div>
-                            </div> =
-                            <div class="fraction">
-                                <div class="top">W<sub>2</sub></div>
-                                <div class="bottom">W</div>
-                            </div>
+                            </equation>
                         </td>
                     </tr>
                 </table>
@@ -315,7 +415,11 @@
         </div>
 
         <!--End proof for particular solution formula-->
-        <li>With this method, we can find the original equations <var>u</var><sub>1</sub> and <var>u</var><sub>2</sub> by integrating <var>u</var><sub>1</sub>' and <var>u</var><sub>2</sub>' respectively.</li>
+        <li>With this method, we can find the original equations
+            <equation><var>u</var><sub>1</sub></equation> and
+            <equation><var>u</var><sub>2</sub></equation> by integrating
+            <equation><var>u</var><sub>1</sub>'</equation> and
+            <equation><var>u</var><sub>2</sub>'</equation> respectively.</li>
     </ul>
 </div>
 <script>

@@ -123,36 +123,45 @@
             <table class="rules">
                 <tr>
                     <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
-                        <div class="fraction">
-                            <div class="top"><var>f <sup>(n)</sup>(a)(x &minus; a)<sup>n</sup></var></div>
-                            <div class="bottom"><var>n</var>!</div>
-                        </div>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                            <div class="fraction">
+                                <div class="top"><var>f <sup>(n)</sup>(a)(x &minus; a)<sup>n</sup></var></div>
+                                <div class="bottom"><var>n</var>!</div>
+                            </div>
+                        </equation>
                     </td>
                     <td>
-                        <var>f(a)</var> +
-                        <div class="fraction">
-                            <div class="top"><var>f '(a)(x &minus; a)</var><sup>1</sup></div>
-                            <div class="bottom">1!</div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top"><var>f ''(a)(x &minus; a)</var><sup>2</sup></div>
-                            <div class="bottom">2!</div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top"><var>f '''(a)(x &minus; a)</var><sup>3</sup></div>
-                            <div class="bottom">3!</div>
-                        </div> + ... +
-                        <div class="fraction">
-                            <div class="top"><var>f <sup>n</sup>(a)(x &minus; a)</var><sup><var>n</var></sup></div>
-                            <div class="bottom"><var>n</var>!</div>
-                        </div> + ...
+                        <equation>
+                            <var>f(a)</var> +
+                            <div class="fraction">
+                                <div class="top"><var>f '(a)(x &minus; a)</var><sup>1</sup></div>
+                                <div class="bottom">1!</div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top"><var>f ''(a)(x &minus; a)</var><sup>2</sup></div>
+                                <div class="bottom">2!</div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top"><var>f '''(a)(x &minus; a)</var><sup>3</sup></div>
+                                <div class="bottom">3!</div>
+                            </div> + ... +
+                            <div class="fraction">
+                                <div class="top"><var>f <sup>n</sup>(a)(x &minus; a)</var><sup><var>n</var></sup></div>
+                                <div class="bottom"><var>n</var>!</div>
+                            </div> + ...
+                        </equation>
                     </td>
                 </tr>
             </table>
-            <li>If the Taylor Series is centered at 0, in other words, if <var>a</var> = 0, then it is called a Maclaurin Series.</li>
-            <li>The partial sum of a Taylor Series can be written as a Taylor polynomial of order <var>n</var>, or of degree <var>n</var>.</li>
-            <li>A first degree polynomial is just a tangent line to <var>f(x)</var> at <var>x = a</var>.</li>
+            <li>If the Taylor Series is centered at 0, in other words, if
+                <equation><var>a</var> = 0</equation>, then it is called a Maclaurin Series.</li>
+            <li>The partial sum of a Taylor Series can be written as a Taylor polynomial of order
+                <equation><var>n</var></equation>, or of degree
+                <equation><var>n</var></equation>.</li>
+            <li>A first degree polynomial is just a tangent line to
+                <equation><var>f(x)</var></equation> at
+                <equation><var>x = a</var></equation>.</li>
             <li>The higher the degree of the Taylor Polynomial, a better approximation.</li>
             <li>Some popular series to memorize:</li>
             <table class="rules">
@@ -164,301 +173,361 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="fraction">
-                            <div class="top">
-                                1
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">1 &minus; <var>x</var></div>
                             </div>
-                            <div class="bottom">
-                                1 &minus; <var>x</var>
-                            </div>
-                        </div>
+                        </equation>
                     </td>
                     <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>x<sup>n</sup></var>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma><var>x<sup>n</sup></var>
+                        </equation>
                     </td>
-                    <td>1 + <var>x</var> + <var>x</var><sup>2</sup> + <var>x</var><sup>3</sup> + ...</td>
-                    <td>R = 1</td>
-                </tr>
-                <tr>
-                    <td><var>e<sup>x</sup></var></td>
                     <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
-                        <div class="fraction">
-                            <div class="top"><var>x<sup>n</sup></var></div>
-                            <div class="bottom"><var>n</var>!</div>
-                        </div>
+                        <equation>1 + <var>x</var> + <var>x</var><sup>2</sup> + <var>x</var><sup>3</sup> + ...</equation>
                     </td>
-                    <td>1 +
-                        <div class="fraction">
-                            <div class="top"><var>x</var><sup>1</sup></div>
-                            <div class="bottom">1!</div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top"><var>x</var><sup>2</sup></div>
-                            <div class="bottom">2!</div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top"><var>x</var><sup>3</sup></div>
-                            <div class="bottom">3!</div>
-                        </div> + ...
+                    <td>
+                        <equation>R = 1</equation>
                     </td>
-                    <td>R = &infin;</td>
                 </tr>
                 <tr>
                     <td>
-                        <sin>x</sin>
+                        <equation><var>e<sup>x</sup></var></equation>
                     </td>
                     <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>2<var>n</var> + 1</sup>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                            <div class="fraction">
+                                <div class="top"><var>x<sup>n</sup></var></div>
+                                <div class="bottom"><var>n</var>!</div>
                             </div>
-                            <div class="bottom">
-                                (2<var>n</var> + 1)!
-                            </div>
-                        </div>
+                        </equation>
                     </td>
                     <td>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>1</sup>
-                            </div>
-                            <div class="bottom">
-                                1!
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>3</sup>
-                            </div>
-                            <div class="bottom">
-                                3!
-                            </div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>5</sup>
-                            </div>
-                            <div class="bottom">
-                                5!
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>7</sup>
-                            </div>
-                            <div class="bottom">
-                                7!
-                            </div>
-                        </div> + ...
+                        <equation>
+                            1 +
+                            <div class="fraction">
+                                <div class="top"><var>x</var><sup>1</sup></div>
+                                <div class="bottom">1!</div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top"><var>x</var><sup>2</sup></div>
+                                <div class="bottom">2!</div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top"><var>x</var><sup>3</sup></div>
+                                <div class="bottom">3!</div>
+                            </div> + ...
+                        </equation>
                     </td>
-                    <td>R = &infin;</td>
+                    <td>
+                        <equation>R = &infin;</equation>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <cos>x</cos>
+                        <equation>
+                            <sin>x</sin>
+                        </equation>
                     </td>
                     <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>2<var>n</var></sup>
-                            </div>
-                            <div class="bottom">
-                                (2<var>n</var>)!
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>0</sup>
-                            </div>
-                            <div class="bottom">
-                                0!
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>2</sup>
-                            </div>
-                            <div class="bottom">
-                                2!
-                            </div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>4</sup>
-                            </div>
-                            <div class="bottom">
-                                4!
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>6</sup>
-                            </div>
-                            <div class="bottom">
-                                6!
-                            </div>
-                        </div> + ...
-                    </td>
-                    <td>R = &infin;</td>
-                </tr>
-                <tr>
-                    <td>
-                        tan<sup>&minus;1</sup>(<var>x</var>)
-                    </td>
-                    <td>
-                        <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>2<var>n</var> + 1</sup>
-                            </div>
-                            <div class="bottom">
-                                (2<var>n</var> + 1)
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>1</sup>
-                            </div>
-                            <div class="bottom">
-                                1
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>3</sup>
-                            </div>
-                            <div class="bottom">
-                                3
-                            </div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>5</sup>
-                            </div>
-                            <div class="bottom">
-                                5
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>7</sup>
-                            </div>
-                            <div class="bottom">
-                                7
-                            </div>
-                        </div> + ...
-                    </td>
-                    <td>R = 1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <ln>1 + x</ln>
-                    </td>
-                    <td>
-                        <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(&minus;1)<sup><var>n</var> &minus; 1</sup>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup><var>n</var></sup>
-                            </div>
-                            <div class="bottom">
-                                <var>n</var>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>1</sup>
-                            </div>
-                            <div class="bottom">
-                                1
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>2</sup>
-                            </div>
-                            <div class="bottom">
-                                2
-                            </div>
-                        </div> +
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>3</sup>
-                            </div>
-                            <div class="bottom">
-                                3
-                            </div>
-                        </div> &minus;
-                        <div class="fraction">
-                            <div class="top">
-                                <var>x</var><sup>4</sup>
-                            </div>
-                            <div class="bottom">
-                                4
-                            </div>
-                        </div> + ...
-                    </td>
-                    <td>R = 1</td>
-                    <tr>
-                        <td colspan="4"></td>
-                    </tr>
-                    <tr>
-                        <td>(1 + <var>x</var>)<sup><var>k</var></sup></td>
-                        <td>
-                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma><sub><var>n</var></sub>C<sub><var>k</var></sub><var>x<sup>n</sup></var></td>
-                        <td>1 +
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
                             <div class="fraction">
                                 <div class="top">
-                                    <var>k</var>
+                                    <var>x</var><sup>2<var>n</var> + 1</sup>
+                                </div>
+                                <div class="bottom">
+                                    (2<var>n</var> + 1)!
+                                </div>
+                            </div>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>1</sup>
                                 </div>
                                 <div class="bottom">
                                     1!
                                 </div>
-                            </div>
-                            <var>x</var><sup>1</sup> +
-
+                            </div> &minus;
                             <div class="fraction">
                                 <div class="top">
-                                    <var>k(k &minus; 1)</var>
-                                </div>
-                                <div class="bottom">
-                                    2!
-                                </div>
-                            </div>
-                            <var>x</var><sup>2</sup> +
-                            <div class="fraction">
-                                <div class="top">
-                                    <var>k(k &minus; 1)(k &minus; 2)</var>
+                                    <var>x</var><sup>3</sup>
                                 </div>
                                 <div class="bottom">
                                     3!
                                 </div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>5</sup>
+                                </div>
+                                <div class="bottom">
+                                    5!
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>7</sup>
+                                </div>
+                                <div class="bottom">
+                                    7!
+                                </div>
+                            </div> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>R = &infin;</equation>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <equation>
+                            <cos>x</cos>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>2<var>n</var></sup>
+                                </div>
+                                <div class="bottom">
+                                    (2<var>n</var>)!
+                                </div>
                             </div>
-                            <var>x</var><sup>3</sup> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>0</sup>
+                                </div>
+                                <div class="bottom">
+                                    0!
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>2</sup>
+                                </div>
+                                <div class="bottom">
+                                    2!
+                                </div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>4</sup>
+                                </div>
+                                <div class="bottom">
+                                    4!
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>6</sup>
+                                </div>
+                                <div class="bottom">
+                                    6!
+                                </div>
+                            </div> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>R = &infin;</equation>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <equation>
+                            <tan inv>x</tan>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <sigma start="<var>n</var> = 0" end="&infin;"></sigma>(&minus;1)<sup><var>n</var></sup>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>2<var>n</var> + 1</sup>
+                                </div>
+                                <div class="bottom">
+                                    (2<var>n</var> + 1)
+                                </div>
+                            </div>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>1</sup>
+                                </div>
+                                <div class="bottom">
+                                    1
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>3</sup>
+                                </div>
+                                <div class="bottom">
+                                    3
+                                </div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>5</sup>
+                                </div>
+                                <div class="bottom">
+                                    5
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>7</sup>
+                                </div>
+                                <div class="bottom">
+                                    7
+                                </div>
+                            </div> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>R = 1</equation>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <equation>
+                            <ln>1 + x</ln>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <sigma start="<var>n</var> = 1" end="&infin;"></sigma>(&minus;1)<sup><var>n</var> &minus; 1</sup>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup><var>n</var></sup>
+                                </div>
+                                <div class="bottom">
+                                    <var>n</var>
+                                </div>
+                            </div>
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>1</sup>
+                                </div>
+                                <div class="bottom">
+                                    1
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>2</sup>
+                                </div>
+                                <div class="bottom">
+                                    2
+                                </div>
+                            </div> +
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>3</sup>
+                                </div>
+                                <div class="bottom">
+                                    3
+                                </div>
+                            </div> &minus;
+                            <div class="fraction">
+                                <div class="top">
+                                    <var>x</var><sup>4</sup>
+                                </div>
+                                <div class="bottom">
+                                    4
+                                </div>
+                            </div> + ...
+                        </equation>
+                    </td>
+                    <td>
+                        <equation>R = 1</equation>
+                    </td>
+                    <tr>
+                        <td colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <equation>(1 + <var>x</var>)<sup><var>k</var></sup></equation>
                         </td>
-                        <td>R = 1</td>
+                        <td>
+                            <equation>
+                                <sigma start="<var>n</var> = 0" end="&infin;"></sigma>
+                                <var><sub>n</sub>C<sub>k</sub>x<sup>n</sup></var>
+                            </equation>
+                        </td>
+                        <td>
+                            <equation>
+                                1 +
+                                <div class="fraction">
+                                    <div class="top">
+                                        <var>k</var>
+                                    </div>
+                                    <div class="bottom">
+                                        1!
+                                    </div>
+                                </div>
+                                <var>x</var><sup>1</sup> +
+
+                                <div class="fraction">
+                                    <div class="top">
+                                        <var>k(k &minus; 1)</var>
+                                    </div>
+                                    <div class="bottom">
+                                        2!
+                                    </div>
+                                </div>
+                                <var>x</var><sup>2</sup> +
+                                <div class="fraction">
+                                    <div class="top">
+                                        <var>k(k &minus; 1)(k &minus; 2)</var>
+                                    </div>
+                                    <div class="bottom">
+                                        3!
+                                    </div>
+                                </div>
+                                <var>x</var><sup>3</sup> + ...
+                            </equation>
+                        </td>
+                        <td>
+                            <equation>R = 1</equation>
+                        </td>
                     </tr>
                 </tr>
             </table>
             <li>
-                <sin>x</sin> is an odd function, so recall the odd powers and odd factorials.</li>
+                <equation>
+                    <sin>x</sin>
+                </equation> is an odd function, so recall the odd powers and odd factorials.</li>
             <li>
-                <cos>x</cos> is an even function, so recall the even powers and even factorials.</li>
+                <equation>
+                    <cos>x</cos>
+                </equation> is an even function, so recall the even powers and even factorials.</li>
             <li>The last one isn't necessary to memorize, it is just a fun series.</li>
-
         </div>
         <h3>2.2: Separable Differential Equations:</h3>
         <li>A differential equation is separable when you can move all of the terms of one variable to one side and all of the terms of the other variable to the other side. This would mean splitting the derivative sign by taking advantage of the differential.
             Once what you have separated the differential equation, you can integrate both sides. Just remember to add a constant C to only ONE side of the equation.</li>
-        <li>If you'd like, you are allowed to turn <var>e</var><sup><var>c</var></sup> = A for easier algebraic manipulation purposes. Remember, the end goal is to solve for an equation.</li>
+        <li>If you'd like, you are allowed to turn
+            <equation><var>e</var><sup><var>c</var></sup> = A</equation> for easier algebraic manipulation purposes. Remember, the end goal is to solve for an equation.</li>
         <li>You can apply EUST to this as well.</li>
         <li>When your family of functions found from separating the differential equation does not coincide with the given initial condition, That initial condition is called a singular solution.</li>
         <li>If EUST does not apply, then separation of variables does not necessarily guarantee that you have found all of the solutions to the differential equation.</li>
@@ -467,83 +536,127 @@
         <li>Just as u-substitution has been used in factoring or integrals time and time again, u-substitution can also be used in differential equations.</li>
         <li>When you substitute <var>u</var> in for a certain value, your goal is to get rid of all instances of the other variables so you only have two variables when trying to separate the differential equation.</li>
         <li>A <u>homogeneous differential equation</u> is a differential equation that can be written in the form of
-            <derivative of="y" respectTo="x" order=""></derivative> = <var>F</var>(
-            <div class="fraction">
-                <div class="top"><var>y</var></div>
-                <div class="bottom"><var>x</var></div>
-            </div> ) (in this way,
-            <div class="fraction">
-                <div class="top"><var>y</var></div>
-                <div class="bottom"><var>x</var></div>
-            </div> can be readily substituted as <var>u</var>)</li>
+            <equation>
+                <derivative of="y" respectTo="x" order=""></derivative> = <var>F</var>(
+                <div class="fraction">
+                    <div class="top"><var>y</var></div>
+                    <div class="bottom"><var>x</var></div>
+                </div> )</equation> (in this way,
+            <equation>
+                <div class="fraction">
+                    <div class="top"><var>y</var></div>
+                    <div class="bottom"><var>x</var></div>
+                </div>
+            </equation> can be readily substituted as
+            <equation><var>u</var></equation>)</li>
         <h3>2.4: Exact Equations:</h3>
-        <li>When given a function of <var>y</var> defined implicitly (such as the equations of conic sections) implicit differentiation comes to the rescue.</li>
+        <li>When given a function of
+            <equation><var>y</var></equation> defined implicitly (such as the equations of conic sections) implicit differentiation comes to the rescue.</li>
         <li>When you implicitly differentiate an equation as such, it boils down to something of the form:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <pDerivative of="f" respectTo="x" order=""></pDerivative><var>dx</var> +
-                    <pDerivative of="f" respectTo="y" order=""></pDerivative><var>dy</var> = 0
+                    <equation>
+                        <pDerivative of="f" respectTo="x" order=""></pDerivative><var>dx</var> +
+                        <pDerivative of="f" respectTo="y" order=""></pDerivative><var>dy</var> = 0
+                    </equation>
                 </td>
                 <th>or</th>
-                <td>M(<var>x</var>, <var>y</var>)<var>dx</var> + N(<var>x</var>, <var>y</var>)<var>d</var><var>y</var> = 0</td>
+                <td>
+                    <equation>M(<var>x</var>, <var>y</var>)<var>dx</var> + N(<var>x</var>, <var>y</var>)<var>d</var><var>y</var> = 0</equation>
+                </td>
             </tr>
         </table>
-        <li>From this, M =
-            <pDerivative of="f" respectTo="x" order=""></pDerivative> and N =
-            <pDerivative of="f" respectTo="y" order=""></pDerivative> &rarr;
-            <pDerivative of="M" respectTo="y" order=""></pDerivative> =
-            <pDerivative of="" respectTo="y" order=""></pDerivative>(
-            <pDerivative of="f" respectTo="x" order=""></pDerivative>) and
-            <pDerivative of="N" respectTo="x" order=""></pDerivative> =
-            <pDerivative of="" respectTo="x" order=""></pDerivative>(
-            <pDerivative of="f" respectTo="y" order=""></pDerivative>)
+        <li>From this,
+            <equation>
+                M =
+                <pDerivative of="f" respectTo="x" order=""></pDerivative>
+            </equation>
+            and
+            <equation>
+                N =
+                <pDerivative of="f" respectTo="y" order=""></pDerivative>
+                &rarr;
+                <pDerivative of="M" respectTo="y" order=""></pDerivative> =
+                <pDerivative of="" respectTo="y" order=""></pDerivative>(
+                <pDerivative of="f" respectTo="x" order=""></pDerivative>)</equation> and
+            <equation>
+                <pDerivative of="N" respectTo="x" order=""></pDerivative> =
+                <pDerivative of="" respectTo="x" order=""></pDerivative>(
+                <pDerivative of="f" respectTo="y" order=""></pDerivative>)
+            </equation>
             <br /> We know from Clairaut's Theorem that
-            <pDerivative of="" respectTo="y" order=""></pDerivative>(
-            <pDerivative of="f" respectTo="x" order=""></pDerivative>) =
-            <pDerivative of="" respectTo="x" order=""></pDerivative>(
-            <pDerivative of="f" respectTo="y" order=""></pDerivative>) when M and N are continuously differentiable.
+            <equation>
+                <pDerivative of="" respectTo="y" order=""></pDerivative>(
+                <pDerivative of="f" respectTo="x" order=""></pDerivative>) =
+                <pDerivative of="" respectTo="x" order=""></pDerivative>(
+                <pDerivative of="f" respectTo="y" order=""></pDerivative>)</equation> when
+            <equation>M</equation> and
+            <equation>N</equation> are continuously differentiable.
         </li>
-        <li>A differential equation M(<var>x</var>, <var>y</var>)<var>dx</var> + N(<var>x</var>, <var>y</var>)<var>d</var><var>y</var> = 0 can be written in the form
-            <pDerivative of="f" respectTo="x" order=""></pDerivative><var>dx</var> +
-            <pDerivative of="f" respectTo="y" order=""></pDerivative><var>dy</var> = 0 if:
+        <li>A differential equation
+            <equation>M(<var>x</var>, <var>y</var>)<var>dx</var> + N(<var>x</var>, <var>y</var>)<var>d</var><var>y</var> = 0</equation> can be written in the form
+            <equation>
+                <pDerivative of="f" respectTo="x" order=""></pDerivative><var>dx</var> +
+                <pDerivative of="f" respectTo="y" order=""></pDerivative><var>dy</var> = 0</equation> if:
             <ol>
-                <li>M(<var>x</var>, <var>y</var>) and N(<var>x</var>, <var>y</var>) are continuously differentiable on a region R</li>
                 <li>
-                    <pDerivative of="M" respectTo="y" order=""></pDerivative> =
-                    <pDerivative of="N" respectTo="x" order=""></pDerivative>
+                    <equation>M(<var>x</var>, <var>y</var>)</equation> and
+                    <equation>N(<var>x</var>, <var>y</var>)</equation> are continuously differentiable on a region R</li>
+                <li>
+                    <equation>
+                        <pDerivative of="M" respectTo="y" order=""></pDerivative> =
+                        <pDerivative of="N" respectTo="x" order=""></pDerivative>
+                    </equation>
                 </li>
             </ol>
         </li>
-        <li>When solving these equations, it is necessary to integrate both M and N, and instead of adding a constant of integration, the trick is to add a function of the opposite species of variable so that the two equations
-            <integral respectTo="x">M</integral> =
-            <integral respectTo="y">N</integral> and you can solve for the actual function which is either of those.</li>
+        <li>When solving these equations, it is necessary to integrate both
+            <equation>M</equation> and
+            <equation>N</equation>, and instead of adding a constant of integration, the trick is to add a function of the opposite species of variable so that the two equations
+            <equation>
+                <integral respectTo="x">M</integral> =
+                <integral respectTo="y">N</integral>
+            </equation> and you can solve for the actual function which is either of those.</li>
 
         <h3>2.5: First Order Linear Differential Equations:</h3>
-        <li>Equations in the following form are <u>first order linear differential equations</u> (FOLDE's): <var>a</var><sub>1</sub>(<var>x</var>)
-            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = g(<var>x</var>)</li>
-        <li>When you divide by <var>a</var><sub>1</sub>(<var>x</var>) (the leading coefficient) and simplify the notation, a FOLDE looks more like the form of</li>
+        <li>Equations in the following form are <u>first order linear differential equations</u> (FOLDE's):
+            <equation>
+                <var>a</var><sub>1</sub>(<var>x</var>)
+                <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = g(<var>x</var>)</equation>
+        </li>
+        <li>When you divide by
+            <equation><var>a</var><sub>1</sub>(<var>x</var>)</equation> (the leading coefficient) and simplify the notation, a FOLDE looks more like the form of</li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y" respectTo="x" order=""></derivative> + <var>p</var>(<var>x</var>)y = <var>q</var>(<var>x</var>)</td>
+                    <equation>
+                        <derivative of="y" respectTo="x" order=""></derivative> + <var>p</var>(<var>x</var>)y = <var>q</var>(<var>x</var>)
+                    </equation>
+                </td>
             </tr>
         </table>
         <li>The first step in solving these is multiplying the entire equation on both sides by an <u>integrating factor</u> (shown below) so that the right side looks like the product rule of the derivative. Then you can integrate both sides (by undoing
             the product rule on the left and integrating normally on the right).</li>
         <table class="rules">
             <tr>
-                <td><var style="display: inline-block; transform: scale(1.25);">e</var><sup style="display: inline-block; transform: translateY(-15%) scale(0.75);"><integral respectTo="x"><var>p</var>(<var>x</var>)</integral></sup></td>
+                <td>
+                    <equation><var style="display: inline-block; transform: scale(1.25);">e</var><sup style="display: inline-block; transform: translateY(-15%) scale(0.75);"><integral respectTo="x"><var>p</var>(<var>x</var>)</integral></sup></equation>
+                </td>
             </tr>
         </table>
 
         <h3>2.6: Bernoulli and Ricotti Differential Equations:</h3>
         <h5>Bernoulli Equations:</h5>
-        <li>Bernoulli differential equations are very similar to FOLDE's, the only difference being an extra power of <var>y</var> on the right-hand side:</li>
+        <li>Bernoulli differential equations are very similar to FOLDE's, the only difference being an extra power of
+            <equation><var>y</var></equation> on the right-hand side:</li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y" respectTo="x" order=""></derivative> + <var>P</var>(<var>x</var>)<var>y</var> = <var>f</var> (<var>x</var>)<var>y</var><sup><var>n</var></sup></td>
+                    <equation>
+                        <derivative of="y" respectTo="x" order=""></derivative> + <var>P</var>(<var>x</var>)<var>y</var> = <var>f</var> (<var>x</var>)<var>y</var><sup><var>n</var></sup>
+                    </equation>
+                </td>
             </tr>
         </table>
         <li>Solve these differential equations simply divide both sides by <var>y<sup></sup>n</var> to make a FOLDE, and then substitute a value to form the differential equation into a FOLDE.</li>
@@ -552,14 +665,18 @@
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y" respectTo="x" order=""></derivative> = <var>P</var>(<var>x</var>) + <var>Q</var>(<var>x</var>)<var>y</var> + <var>R</var>(<var>x</var>)<var>y</var><sup>2</sup>
+                    <equation>
+                        <derivative of="y" respectTo="x" order=""></derivative> = <var>P</var>(<var>x</var>) + <var>Q</var>(<var>x</var>)<var>y</var> + <var>R</var>(<var>x</var>)<var>y</var><sup>2</sup>
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>With these equations, one solution to the differential equation must already be provided so that you can use a first solution <var>y</var><sub>1</sub> and substitution through differentiating:</li>
         <table class="rules">
             <tr>
-                <td><var>y = y</var><sub>1</sub> + <var>u</var></td>
+                <td>
+                    <equation><var>y = y</var><sub>1</sub> + <var>u</var></equation>
+                </td>
             </tr>
         </table>
         <h3>2.7: Substitution:</h3>

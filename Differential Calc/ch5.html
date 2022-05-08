@@ -27,66 +27,92 @@
         <li>All this is, is when an object oscillates back and forth uninterrupted as the system tries to restore itself to equilibrium (the center point where the system no longer moves, or when displacement is 0), such that when its motion is graphed on
             a line, it produces a sinusoidal function (it moves like a sine graph).</li>
         <li>We can (and shortly will) prove that simple harmonic motion is sinusoidal.</li>
-        <li>Springs have a Spring Force Constant (<var>k</var>) that varies from spring to spring.</li>
+        <li>Springs have a Spring Force Constant (
+            <equation><var>k</var></equation>) that varies from spring to spring.</li>
         <ol>
             <li>When you stretch a spring, as it tries to bring itself back to equilibrium, the Restoring Force is given by Hooke's Law:
                 <table class="rules">
                     <tr>
-                        <td><var>F<sub>s</sub> = &minus;kx</var></td>
+                        <td>
+                            <equation><var>F<sub>s</sub> = &minus;kx</var></equation>
+                        </td>
                     </tr>
                 </table>
                 The (&minus;) is there to tell you that the force is in the opposite direction of the displacement, and the formula tells you that displacement is proportional to the Restoring Force.</li>
             <li>We also know from Newton's Second Law that:</li>
             <table class="rules">
                 <tr>
-                    <td><var>F</var><sub>net</sub> = <var>ma</var></td>
+                    <td>
+                        <equation><var>F</var><sub><text>net</text></sub> = <var>ma</var></equation>
+                    </td>
                 </tr>
             </table>
-            <li>We can set <var>F</var><sub>net</sub> = <var>F<sub>s</sub></var>, and we know that acceleration <var>a</var> is just the second derivative of displacement <var>x</var>
-                <derivative order="2" of="x" respectTo="t"></derivative>. So we can substitute these in and we have ourselves a second-order homogeneous differential equation!
+            <li>We can set
+                <equation><var>F</var><sub><text>net</text></sub> = <var>F<sub>s</sub></var></equation>, and we know that acceleration
+                <equation><var>a</var></equation> is just the second derivative of displacement
+                <equation><var>x</var>
+                    <derivative order="2" of="x" respectTo="t"></derivative>
+                </equation>. So we can substitute these in and we have ourselves a second-order homogeneous differential equation!
             </li>
-            <var>F</var><sub>net</sub> = <var>F<sub>s</sub></var><br />
-            <var>ma = &minus;kx</var><br />
-            <var>m</var>
-            <derivative order="2" of="x" respectTo="t"></derivative> = <var>&minus;kx</var>
-            <li>Now let's bring everything to one side, and then divide by <var>m</var> to isolate the derivative.</li>
-            <derivative order="2" of="x" respectTo="t"></derivative> +
-            <div class="fraction">
-                <div class="top"><var>k</var></div>
-                <div class="bottom"><var>m</var></div>
-            </div><var>x</var> = 0
-            <li>Just to remove the fraction from our math, we'll substitute <var>&omega;</var><sup>2</sup> =
+            <equation>
+                <span class="alignedEquations">
+                    F<sub><text>net</text></sub> = F<sub>s</sub><br />
+                    ma = &minus;kx<br />
+                    <var>m</var><derivative order="2" of="x" respectTo="t"></derivative> = <var>&minus;kx</var>
+                </span>
+            </equation>
+            <li>Now let's bring everything to one side, and then divide by
+                <equation><var>m</var></equation> to isolate the derivative.</li>
+            <equation>
+                <derivative order="2" of="x" respectTo="t"></derivative> +
                 <div class="fraction">
                     <div class="top"><var>k</var></div>
                     <div class="bottom"><var>m</var></div>
-                </div>
-
+                </div><var>x</var> = 0
+            </equation>
+            <li>Just to remove the fraction from our math, we'll substitute
+                <equation>
+                    <var>&omega;</var><sup>2</sup> =
+                    <div class="fraction">
+                        <div class="top"><var>k</var></div>
+                        <div class="bottom"><var>m</var></div>
+                    </div>
+                </equation>
             </li>
-            <derivative order="2" of="x" respectTo="t"></derivative> +
-            <var>&omega;</var><sup>2</sup><var>x</var> = 0<br />
+            <equation>
+                <derivative order="2" of="x" respectTo="t"></derivative> +
+                <var>&omega;</var><sup>2</sup><var>x</var> = 0</equation>
             <li>Time for an auxiliary equation!!!</li>
-            <var>m</var><sup>2</sup> + &omega;<sup>2</sup> = 0<br /> &minus;
-            <var>&omega;</var><sup>2</sup> = <var>m</var><sup>2</sup><br /> &plusmn;
-            <var>i&omega;</var> = <var>m</var>
+            <equation><span class="alignedEquations">
+                <var>m</var><sup>2</sup> + &omega;<sup>2</sup> = 0<br /> &minus;
+                <var>&omega;</var><sup>2</sup> = <var>m</var><sup>2</sup><br /> &plusmn;
+                <var>i&omega;</var> = <var>m</var>
+            </span></equation>
             <li>We already know the set of solutions to equations that are imaginary roots for the auxiliary equation. And since our HOLDEN is of order 2, we are guaranteed two linearly independent solutions, which is now given by:</li>
             <table class="rules">
                 <tr>
                     <td>
-                        <var>x(t)</var> = <var>c</var><sub>1</sub>
-                        <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
-                        <sin>&omega;t</sin>
+                        <equation>
+                            <var>x(t)</var> = <var>c</var><sub>1</sub>
+                            <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
+                            <sin>&omega;t</sin>
+                        </equation>
                     </td>
                 </tr>
             </table>
             <li>But wait, the actual scenario gives us a graph of only one wave! The truth of the matter is, when we add two waves, they can either add constructively or destructively. And as long as they don't destructively interfere, we can try to shape
                 our equation into a summation identity. Let's try a trigonometric substitution to form it into one of our summation identities like
-                <sin>&alpha; + &beta;</sin>
+                <equation>
+                    <sin>&alpha; + &beta;</sin>
+                </equation>
             </li>
             <table style="color: purple; border-color: purple !important;">
                 <tr>
                     <td>
-                        <sqrt style="position: absolute; z-index: 1;"><var>c</var><sub>1</sub><sup>2</sup> +
-                            <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                        <equation style="position: absolute; z-index: 1;">
+                            <sqrt><var>c</var><sub>1</sub><sup>2</sup> +
+                                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                        </equation>
                         <canvas width="100" height="60" id="hookesLawAntiderivationTrigSubCanvas"></canvas>
                         <script class="renderJS">
                             var hookesLawAntiderivationTrigSubCanvas = document.querySelector("#hookesLawAntiderivationTrigSubCanvas");
@@ -112,82 +138,108 @@
                         </script>
 
                     </td>
-                    <td><var>c</var><sub>2</sub></td>
+                    <td>
+                        <equation><var>c</var><sub>2</sub></equation>
+                    </td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;"><var>c</var><sub>1</sub></td>
+                    <td style="text-align: center;">
+                        <equation><var>c</var><sub>1</sub></equation>
+                    </td>
                 </tr>
             </table>
-            <var>x(t)</var> = <var>c</var><sub>1</sub>
-            <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
-            <sin>&omega;t</sin><br />
-            <var>x(t)</var> =
-            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
-                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-            [
-            <cos>&omega;t</cos>
-            <div class="fraction">
-                <div class="top"><var>c</var><sub>1</sub></div>
-                <div class="bottom">
-                    <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
-                        <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-                </div>
-            </div> +
-            <sin>&omega;t</sin>
-            <div class="fraction">
-                <div class="top"><var>c</var><sub>2</sub></div>
-                <div class="bottom">
-                    <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
-                        <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-                </div>
-            </div>]<br />
-            <var>x(t)</var> =
-            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
-                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-            [
-            <cos>&omega;t</cos>
-            <cos>&phi;</cos> +
-            <sin>&omega;t</sin>
-            <sin>&phi;</sin>]<br />
-            <var>x(t)</var> =
-            <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
-                <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-            <cos>&omega;t &minus; &phi;</cos>
-            <li>And tada! The same derivation works if you switch <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub>, just this time around you'll get <var>x(t)</var> =
+            <!--Remember to go back and make a color element for MathJax to display color-->
+            <equation><span class="alignedEquations">
+                <var>x(t)</var> = <var>c</var><sub>1</sub>
+                <cos>&omega;t</cos> + <var>c</var><sub>2</sub>
+                <sin>&omega;t</sin><br />
+                <var>x(t)</var> =
                 <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
                     <var>c</var><sub>2</sub><sup>2</sup></sqrt>
-                <sin>&omega;t + &phi;</sin>
+                [
+                <cos>&omega;t</cos>
+                <div class="fraction">
+                    <div class="top"><var>c</var><sub>1</sub></div>
+                    <div class="bottom">
+                        <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                            <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                    </div>
+                </div> +
+                <sin>&omega;t</sin>
+                <div class="fraction">
+                    <div class="top"><var>c</var><sub>2</sub></div>
+                    <div class="bottom">
+                        <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                            <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                    </div>
+                </div>]<br />
+                <var>x(t)</var> =
+                <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                    <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                [
+                <cos>&omega;t</cos>
+                <cos>&phi;</cos> +
+                <sin>&omega;t</sin>
+                <sin>&phi;</sin>]<br />
+                <var>x(t)</var> =
+                <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                    <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                <cos>&omega;t &minus; &phi;</cos>
+                
+            </span></equation>
+            <li>And tada! The same derivation works if you switch
+                <equation><var>c</var><sub>1</sub></equation> and
+                <equation><var>c</var><sub>2</sub></equation>, just this time around you'll get
+                <equation>
+                    <var>x(t)</var> =
+                    <sqrt style="color: purple;"><var>c</var><sub>1</sub><sup>2</sup> +
+                        <var>c</var><sub>2</sub><sup>2</sup></sqrt>
+                    <sin>&omega;t + &phi;</sin>
+                </equation>
             </li>
         </ol>
-        <li>Now when we solve these kinds of equations, we can solve for <var>c</var><sub>1</sub> and <var>c</var><sub>2</sub> given initial conditions <var>x(t)</var> and <var>x'(t)</var> by plugging in and solving, and we can solve for our <var>&omega;</var>            if we know <var>k</var> and <var>m</var> through our original substitution <var>&omega;</var><sup>2</sup> =
-            <div class="fraction">
-                <div class="top"><var>k</var></div>
-                <div class="bottom"><var>m</var></div>
-            </div>
+        <li>Now when we solve these kinds of equations, we can solve for
+            <equation><var>c</var><sub>1</sub></equation> and
+            <equation><var>c</var><sub>2</sub></equation> given initial conditions <var>x(t)</var> and <var>x'(t)</var> by plugging in and solving, and we can solve for our
+            <equation><var>&omega;</var></equation> if we know
+            <equation><var>k</var></equation> and
+            <equation><var>m</var></equation> through our original substitution
+            <equation>
+                <var>&omega;</var><sup>2</sup> =
+                <div class="fraction">
+                    <div class="top"><var>k</var></div>
+                    <div class="bottom"><var>m</var></div>
+                </div>
+            </equation>
         </li>
         <h3>5.2: Springs with Dampers:</h3>
         <li>The previous section is heavily physics-related. Naturally, we assumed there was no friction to keep the model simpler, but in reality there is friction, and with friction we have Simple Harmonic Motion that slowly decays.</li>
         <!--Insert graph of (e^-3x)cos(x)-->
         <li>In these kinds of situations we say that the spring exhibits <u>damped motion</u>.</li>
-        <li>Originally we had a differential equation in the form of <var>m</var>
-            <derivative order="2" of="x" respectTo="t"></derivative> + <var>kx</var> = 0. But now we have to account for damping over time. We modify our differential equation to include a damping constant (&beta;)</li>
+        <li>Originally we had a differential equation in the form of
+            <equation><var>m</var>
+                <derivative order="2" of="x" respectTo="t"></derivative> + <var>kx</var> = 0</equation>. But now we have to account for damping over time. We modify our differential equation to include a damping constant (
+            <equation>&beta;</equation>)</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>m</var>
-                    <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
-                    <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = 0
+                    <equation>
+                        <var>m</var>
+                        <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
+                        <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = 0
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Once we convert into the auxiliary equation and solve using the quadratic formula, there are three possibilities with the discriminant (&beta;<sup>2</sup> &minus; 4<var>mk</var>):</li>
+        <li>Once we convert into the auxiliary equation and solve using the quadratic formula, there are three possibilities with the discriminant (
+            <equation>&beta;<sup>2</sup> &minus; 4<var>mk</var></equation>):</li>
         <ol>
             <li>
                 Discriminant &gt; 0:<br /> We get 2 real solutions, and we say that the system is <u>overdamped</u>
                 <table class="rules">
                     <tr>
                         <td>
-                            <var>x</var>(<var>t</var>) = <var>c</var><sub>1</sub><var>e</var><sup><var>r</var><sub>1</sub><var>t</var></sup> + <var>c</var><sub>2</sub><var>e</var><sup><var>r</var><sub>2</sub><var>t</var></sup>
+                            <equation><var>x</var>(<var>t</var>) = <var>c</var><sub>1</sub><var>e</var><sup><var>r</var><sub>1</sub><var>t</var></sup> + <var>c</var><sub>2</sub><var>e</var><sup><var>r</var><sub>2</sub><var>t</var></sup></equation>
                         </td>
                         <th>where <var>r</var><sub>1</sub> and <var>r</var><sub>2</sub> &lt; 0</th>
                     </tr>
@@ -199,7 +251,7 @@
                 <table class="rules">
                     <tr>
                         <td>
-                            <var>x</var>(<var>t</var>) = <var>e</var><sup><var>rt</var></sup>(<var>c</var><sub>1</sub>+<var>c</var><sub>2</sub><var>t</var>)
+                            <equation><var>x</var>(<var>t</var>) = <var>e</var><sup><var>rt</var></sup>(<var>c</var><sub>1</sub>+<var>c</var><sub>2</sub><var>t</var>)</equation>
                         </td>
                         <th>where <var>r</var> &lt; 0</th>
                     </tr>
@@ -211,26 +263,28 @@
                 <table class="rules">
                     <tr>
                         <td>
-                            <var>e</var><sup>&minus;<div class="fraction"><div class="top">&beta;</div><div class="bottom">2<var>m</var></div></div><var>t</var></sup>(<var>c</var><sub>1</sub>
-                            <cos>
-                                <div class="fraction">
-                                    <div class="top">
-                                        <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
+                            <equation>
+                                <var>e</var><sup>&minus;<div class="fraction"><div class="top">&beta;</div><div class="bottom">2<var>m</var></div></div><var>t</var></sup>(<var>c</var><sub>1</sub>
+                                <cos>
+                                    <div class="fraction">
+                                        <div class="top">
+                                            <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
+                                        </div>
+                                        <div class="bottom">
+                                            2<var>m</var>
+                                        </div>
                                     </div>
-                                    <div class="bottom">
-                                        2<var>m</var>
-                                    </div>
-                                </div>
-                                t</cos>+ <var>c</var><sub>2</sub>
-                            <sin>
-                                <div class="fraction">
-                                    <div class="top">
-                                        <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
-                                    </div>
-                                    <div class="bottom">
-                                        2<var>m</var>
-                                    </div>
-                                </div>t</sin>)
+                                    t</cos>+ <var>c</var><sub>2</sub>
+                                <sin>
+                                    <div class="fraction">
+                                        <div class="top">
+                                            <sqrt>4<var>mk</var> &minus; &beta;<sup>2</sup></sqrt>
+                                        </div>
+                                        <div class="bottom">
+                                            2<var>m</var>
+                                        </div>
+                                    </div>t</sin>)
+                            </equation>
                         </td>
                     </tr>
                 </table>
@@ -238,21 +292,32 @@
             </li>
         </ol>
         <h3>5.3: Forced Motion:</h3>
-        <li>Building off of our last model (<var>m</var>
-            <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
-            <derivative of="x" respectTo="t"></derivative> &minus; <var>kx</var>), sometimes there are scenarios where there is a mechanical force that also affects our system. We call this the forcing function, as denoted by <var>f (x)</var> in <var>m</var>
-            <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
-            <derivative of="x" respectTo="t"></derivative> &minus; <var>kx + f(t)</var>. When we rewrite this as follows, we start to see a difference.</li>
+        <li>Building off of our last model (
+            <equation>
+                <var>m</var>
+                <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
+                <derivative of="x" respectTo="t"></derivative> &minus; <var>kx</var>
+            </equation>), sometimes there are scenarios where there is a mechanical force that also affects our system. We call this the forcing function, as denoted by
+            <equation><var>f (x)</var></equation> in
+            <equation><var>m</var>
+                <derivative order="2" of="x" respectTo="t"></derivative> = &minus;&beta;
+                <derivative of="x" respectTo="t"></derivative> &minus; <var>kx + f(t)</var></equation>. When we rewrite this as follows, we start to see a difference.</li>
         <table class="rules">
             <tr>
-                <td><var>m</var>
-                    <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
-                    <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = <var>f(t)</var>
+                <td>
+                    <equation>
+                        <var>m</var>
+                        <derivative order="2" of="x" respectTo="t"></derivative> + &beta;
+                        <derivative of="x" respectTo="t"></derivative> + <var>kx</var> = <var>f(t)</var>
+                    </equation>
                 </td>
             </tr>
         </table>
         <li>While Damped Motion dealt with HOLDEN's, Forced Motion deals with NOLDEN's. Other than that, we already know how to solve these kinds of problems using the annihilator and what not.</li>
-        <li>Sometimes the particular solution might not match up with sinusoidal behavior, but if the limit at <var>t</var> &rarr; &infin; cancels out a part of the solution, we call it the <u>transient solution</u>, but if the part of the solution remains,
-            we call it the <u>steady-state solution</u>.</li>
+        <li>Sometimes the particular solution might not match up with sinusoidal behavior, but if the limit at
+            <equation><var>t</var> &rarr; &infin;</equation> cancels out a part of the solution, we call it the <u>transient solution</u>, but if the part of the solution remains, we call it the <u>steady-state solution</u>.</li>
     </ul>
 </div>
+<script>
+    renderMath();
+</script>

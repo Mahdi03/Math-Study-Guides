@@ -12,12 +12,18 @@
     <ul>
         <h3>3.1 Orthogonal Trajectories:</h3>
         <li>The family of curves that intersect with perpendicular trajectories to the original famiily of curves is considered a family of <u>orthogonal trajectories</u> and it is based off an already known fact, perpendicular slopes are opposite reciprocals.
-            <derivative of="y<sub>1</sub>" respectTo="x" order=""></derivative> &times;
-            <derivative of="y<sub>2</sub>" respectTo="x" order=""></derivative> = &minus;1
+            <equation>
+                <derivative of="y<sub>1</sub>" respectTo="x" order=""></derivative> &times;
+                <derivative of="y<sub>2</sub>" respectTo="x" order=""></derivative> = &minus;1
+            </equation>
         </li>
         <ol>
             <li>Implicitly differentiate the originalfamily of functions to find
-                <derivative of="y"></derivative> (this means getting rid of the <var>c</var> by somehow plugging in the original <var>y</var> into its place)</li>
+                <equation>
+                    <derivative of="y"></derivative>
+                </equation> (this means getting rid of the
+                <equation><var>c</var></equation> by somehow plugging in the original
+                <equation><var>y</var></equation> into its place)</li>
             <li>Take the negative reciprocal</li>
             <li>Solve the new differential equation to find the orthogonal trajectories</li>
         </ol>
@@ -27,3 +33,6 @@
 
     </ul>
 </div>
+<script>
+    renderMath();
+</script>
