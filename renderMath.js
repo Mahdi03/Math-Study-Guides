@@ -161,6 +161,13 @@ function renderMath(parentElement = "") {
                 var newNthRoot = createHTMLNodesFromString(`\\sqrt[${n}]{${oldNthRoot.innerHTML}}`);
                 oldNthRoot.replaceWith(...newNthRoot);
             }
+            while (dom.querySelector("evaluated") != undefined) {
+                var oldEvaluated = dom.querySelector("evaluated");
+                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
+                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
+                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
+                oldEvaluated.replaceWith(...newEvaluated);
+            }
             while (dom.querySelector("div.fraction") != undefined) {
                 var oldFrac = dom.querySelector("div.fraction");
                 var top = oldFrac.children[0].innerHTML;
@@ -213,13 +220,7 @@ function renderMath(parentElement = "") {
                 var newIntegral = createHTMLNodesFromString("\\displaystyle\\int_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + "d" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
             }
-            while (dom.querySelector("evaluated") != undefined) {
-                var oldEvaluated = dom.querySelector("evaluated");
-                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
-                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
-                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
-                oldEvaluated.replaceWith(...newEvaluated);
-            }
+
             while (dom.querySelector("laPlaceTransform") != undefined) {
                 var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
                 var newLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;\\left\\{" + oldLaPlaceTransform.innerHTML + "\\right\\}");
