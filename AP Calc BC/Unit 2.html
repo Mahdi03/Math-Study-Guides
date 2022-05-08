@@ -14,37 +14,61 @@
         <div class="indent">
             <h5>Extreme Value Theorem or "EVT":</h5>
             <div class="indent">
-                <li>If a function <var>f</var> is continuous on the closed interval [<var>a, b</var>], then <var>f</var> must have an absolute minimum and maximum value at least once.</li>
-                <li>If a function <var>f</var> is continuous on the open interval [<var>a, b</var>], then <var>f</var> may have a local minimum and/or maximum value.</li>
-                <li>To find the minimum or maximum of a graph, take the derivative and solve for <var>x</var> when the derivative is either equal to 0 or undefined.</li>
+                <li>If a function
+                    <equation><var>f</var></equation> is continuous on the closed interval
+                    <equation>[<var>a, b</var>]</equation>, then
+                    <equation><var>f</var></equation> must have an absolute minimum and maximum value at least once.</li>
+                <li>If a function
+                    <equation><var>f</var></equation> is continuous on the open interval
+                    <equation>[<var>a, b</var>]</equation>, then
+                    <equation><var>f</var></equation> may have a local minimum and/or maximum value.</li>
+                <li>To find the minimum or maximum of a graph, take the derivative and solve for
+                    <equation><var>x</var></equation> when the derivative is either equal to 0 or undefined.</li>
                 <li>The reason this works is that when the function switches from increasing to decreasing and vice-versa, the function either curves, corners, or cusps. And the slope of the tangent line at the middle of these switches is either 0 or undefined.</li>
-                <li>Whenever the derivative is equal to 0 or undefined, those values for <var>x</var> are called critical points.</li>
-                <li>Once you have the critical points, plug them back into the original <var>f</var>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined,
-                    then it is not a critical point.</li>
+                <li>Whenever the derivative is equal to 0 or undefined, those values for
+                    <equation><var>x</var></equation> are called critical points.</li>
+                <li>Once you have the critical points, plug them back into the original
+                    <equation><var>f</var></equation>, as well as the endpoints if the function is on a closed interval. Then rank the minimum and maximum of those values. If any of these values is also undefined, then it is not a critical point.</li>
             </div>
             <h5>Mean Value Theorem or "MVT":</h5>
             <div class="indent">
-                <li>If the function <var>g</var> is <u>continuous on the <strong>closed</strong> interval</u> [<var>a</var>, <var>b</var>] and <u>differentiable on the <strong>open</strong> interval</u> (<var>a</var>, <var>b</var>), then there exists at least
-                    one
-                    <var>x</var>-value, <var>x = c</var> in (<var>a</var>, <var>b</var>) for which:</li>
+                <li>If the function
+                    <equation><var>g</var></equation> is <u>continuous on the <strong>closed</strong> interval</u>
+                    <equation>[<var>a</var>, <var>b</var>]</equation> and <u>differentiable on the <strong>open</strong> interval</u>
+                    <equation>(<var>a</var>, <var>b</var>)</equation>, then there exists at least one
+                    <equation><var>x</var></equation>-value,
+                    <equation><var>x = c</var></equation> in
+                    <equation>(<var>a</var>, <var>b</var>)</equation> for which:</li>
                 <table class="rules">
                     <tr>
-                        <td><var>g'(c) = <div class="fraction"><div class="top">g(b) &minus; g(a)</div><div class="bottom">b &minus; a</div></div></var></td>
+                        <td>
+                            <equation>
+                                <var>g'(c) = <div class="fraction"><div class="top">g(b) &minus; g(a)</div><div class="bottom">b &minus; a</div></div></var>
+                            </equation>
+                        </td>
                     </tr>
                 </table>
-                <li>In other words, the AROC between <var>a</var> and <var>b</var> is the same as the IROC of when <var>x = c</var>.</li>
+                <li>In other words, the AROC between
+                    <equation><var>a</var></equation> and
+                    <equation><var>b</var></equation> is the same as the IROC of when
+                    <equation><var>x = c</var></equation>.</li>
             </div>
             <h5>Antiderivatives:</h5>
             <div class="indent">
-                <li>A function <var>D(x)</var> is an antiderivative of a function <var>f(x)</var> if <var>D'(x) = f(x)</var>.</li>
-                <li>The process of finding an antiderivative is called antidifferentiation, and you must <strong>always</strong> assume a constant <var>c</var>.</li>
+                <li>A function
+                    <equation><var>D(x)</var></equation> is an antiderivative of a function
+                    <equation><var>f(x)</var></equation> if
+                    <equation><var>D'(x) = f(x)</var></equation>.</li>
+                <li>The process of finding an antiderivative is called antidifferentiation, and you must <strong>always</strong> assume a constant
+                    <equation><var>+ C</var></equation>.</li>
             </div>
         </div>
         <h3>Connecting <var>f '(x)</var> and <var>f ''(x)</var> with the graph of <var>f(x)</var></h3>
         <div class="indent">
             <h5>The First Derivative Test:</h5>
             <div class="indent">
-                <li>Determine the sign of the derivative of <var>f</var> to the left and right of the critical values by creating a sign line and plugging in points (similar to graphing polynomials from EM3 <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit4">Polynomial Functions</a>)</li>
+                <li>Determine the sign of the derivative of
+                    <equation><var>f</var></equation> to the left and right of the critical values by creating a sign line and plugging in points (similar to graphing polynomials from EM3 <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit4">Polynomial Functions</a>)</li>
                 <table class="staticTable">
                     <tr>
                         <th>Left</th>
@@ -54,12 +78,14 @@
                     <tr>
                         <td>&plus;</td>
                         <td>&minus;</td>
-                        <td><var>f(c)</var> is a relative maximum</td>
+                        <td>
+                            <equation><var>f(c)</var></equation> is a relative maximum</td>
                     </tr>
                     <tr>
                         <td>&minus;</td>
                         <td>&plus;</td>
-                        <td><var>f(c)</var> is a relative minimum</td>
+                        <td>
+                            <equation><var>f(c)</var></equation> is a relative minimum</td>
                     </tr>
                     <tr>
                         <td colspan="2">No change</td>
@@ -68,8 +94,12 @@
                 </table>
                 <li>If the derivative is positive, then the function is increasing.</li>
                 <li>If the derivative is negative, then the function is decreasing.</li>
-                <li><var>f(x)</var> is concave up if <var>f '(x)</var> is increasing.</li>
-                <li><var>f(x)</var> is concave down if <var>f '(x)</var> is decreasing.</li>
+                <li>
+                    <equation><var>f(x)</var></equation> is concave up if
+                    <equation><var>f '(x)</var></equation> is increasing.</li>
+                <li>
+                    <equation><var>f(x)</var></equation> is concave down if
+                    <equation><var>f '(x)</var></equation> is decreasing.</li>
                 <li>If the second derivative is negative, then the function is concave down.</li>
                 <li>If the second derivative is positive, then the function is concave up.</li>
                 <li>If the function is concave up, then the tangent lines are underneath the graph.</li>
@@ -78,8 +108,12 @@
             <h5>Concavity Test:</h5>
             <div class="indent">
                 <ul>
-                    <li>Concave up where <var>f ''(x)</var> &gt; 0</li>
-                    <li>Concave down where <var>f ''(x)</var> &lt; 0</li>
+                    <li>Concave up where
+                        <equation><var>f ''(x)</var> &gt; 0</equation>
+                    </li>
+                    <li>Concave down where
+                        <equation><var>f ''(x)</var> &lt; 0</equation>
+                    </li>
                 </ul>
             </div>
             <h5>Point of Inflection:</h5>
@@ -91,15 +125,30 @@
             <div class="indent">
                 <table class="staticTable">
                     <tr>
-                        <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &lt; 0</td>
-                        <td><var>f</var>&nbsp;&nbsp;has a local maximum at <var>x = c</var></td>
+                        <td>
+                            <equation><var>f '(c)</var> = 0</equation> and
+                            <equation><var>f ''(c)</var> &lt; 0</equation>
+                        </td>
+                        <td>
+                            <equation><var>f</var></equation> has a local maximum at
+                            <equation><var>x = c</var></equation>
+                        </td>
                     </tr>
                     <tr>
-                        <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> &gt; 0</td>
-                        <td><var>f</var>&nbsp;&nbsp;has a local minimum at <var>x = c</var></td>
+                        <td>
+                            <equation><var>f '(c)</var> = 0</equation> and
+                            <equation><var>f ''(c)</var> &gt; 0</equation>
+                        </td>
+                        <td>
+                            <equation><var>f</var></equation> has a local minimum at
+                            <equation><var>x = c</var></equation>
+                        </td>
                     </tr>
                     <tr>
-                        <td><var>f '(c)</var> = 0 and <var>f ''(c)</var> = 0</td>
+                        <td>
+                            <equation><var>f '(c)</var> = 0</equation> and
+                            <equation><var>f ''(c)</var> = 0</equation>
+                        </td>
                         <td>Then the test fails, it could be concave up, concave down, or neither</td>
                     </tr>
                 </table>
@@ -110,15 +159,23 @@
             <h5>Related Rates:</h5>
             <div class="indent">
                 <li>Always take the
-                    <derivative respectTo="t"></derivative> with respect to <var>t</var>.</li>
+                    <equation>
+                        <derivative respectTo="t"></derivative>
+                    </equation> with respect to
+                    <equation><var>t</var></equation>.</li>
                 <li>Remember Area, Volume, and Surface Area formulas for all kinds of shapes.</li>
                 <li>Remember that the
-                    <derivative respectTo="t"></derivative> <strong><em>is</em></strong> the rate of change.</li>
+                    <equation>
+                        <derivative respectTo="t"></derivative>
+                    </equation> <strong><em>is</em></strong> the rate of change.</li>
             </div>
             <h5>Optimization:</h5>
             <div class="indent">
                 <li>Opposite from Related Rates, that the
-                    <derivative></derivative> with respect to <var>x</var> or the variable that you are using.</li>
+                    <equation>
+                        <derivative></derivative>
+                    </equation> with respect to
+                    <equation><var>x</var></equation> or the variable that you are using.</li>
             </div>
             <h5>Linearization:</h5>
             <div class="indent">
@@ -126,11 +183,16 @@
                 <li>The equation is:</li>
                 <table class="rules">
                     <tr>
-                        <td>L(<var>x</var>) = <var>f</var>(<var>a</var>) + <var>f</var> '(<var>a</var>)(<var>x &minus; a</var>)</td>
+                        <td>
+                            <equation>L(<var>x</var>) = <var>f</var>(<var>a</var>) + <var>f</var> '(<var>a</var>)(<var>x &minus; a</var>)</equation>
+                        </td>
                     </tr>
                 </table>
-                <li>Where <var>a</var> is the nearest value you know for the given function and <var>x</var> is the value with an unknown value when inputted into the function.</li>
-                <li>The Formula above is also the formula for a line in Point-Slope form, where <var>f</var> '(<var>a</var>) is the slope of the tangent line to the point.</li>
+                <li>Where
+                    <equation><var>a</var></equation> is the nearest value you know for the given function and
+                    <equation><var>x</var></equation> is the value with an unknown value when inputted into the function.</li>
+                <li>The Formula above is also the formula for a line in Point-Slope form, where
+                    <equation><var>f</var> '(<var>a</var>)</equation> is the slope of the tangent line to the point.</li>
             </div>
         </div>
         <h1>Integral Calculus:</h1>
@@ -148,259 +210,423 @@
                 <li>Trapezoidal Approximation Method ("TAM"):</li>
                 <iframe id="TAMGraph" width="250px" height="250px"></iframe>
             </ul>
-            <li>As seen in the RRAM graph, the area is found on the bounds [<var>a</var>, <var>b</var>] where <var>a</var> = 0 and <var>b</var> = 4 and there are 10 rectangles. So then the width of each rectangle can be found by
-                <div class="fraction">
-                    <div class="top"><var>b &minus; a</var></div>
-                    <div class="bottom"><var>n</var></div>
-                </div> where <var>n</var> is equal to the number of rectangles.
+            <li>As seen in the RRAM graph, the area is found on the bounds
+                <equation>[<var>a</var>, <var>b</var>]</equation> where
+                <equation><var>a</var> = 0</equation> and
+                <equation><var>b</var> = 4</equation> and there are 10 rectangles. So then the width of each rectangle can be found by
+                <equation>
+                    <div class="fraction">
+                        <div class="top"><var>b &minus; a</var></div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>
+                </equation> where
+                <equation><var>n</var></equation> is equal to the number of rectangles.
             </li>
             <li>The area of each rectangle can get tedious if we were to get more and more rectangles. So we can use
                 <a href="https://mahdi03.github.io/Math-Study-Guides/EM3/studyGuide.html#unit8">Sums</a>!</li>
-            <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as S<sub><var>n</var></sub> =
-                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var></li>
-            <li>Where <var>f</var> (<var>c<sub>k</sub></var>) is the height of each rectangle and &Delta;<var>x</var> =
-                <div class="fraction">
-                    <div class="top"><var>b &minus; a</var></div>
-                    <div class="bottom"><var>n</var></div>
-                </div>, the width of each rectangle.</li>
-            <li>As seen in RAM, as the number of rectangles <var>n</var> increases, the better the approximation of the area.</li>
-            <li>So if <var>n</var> &rarr; <var>&infin;</var> then
-                <lim as="n" approaches="&infin;"></lim>
-                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> should give us an exact area under the curve.</li>
+            <li>Let <var>n</var> = # of rectangles, the approximation can be denoted as
+                <equation>
+                    S<sub><var>n</var></sub> =
+                    <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var>
+                </equation>
+            </li>
+            <li>Where
+                <equation><var>f</var> (<var>c<sub>k</sub></var>)</equation> is the height of each rectangle and
+                <equation>
+                    &Delta;<var>x</var> =
+                    <div class="fraction">
+                        <div class="top"><var>b &minus; a</var></div>
+                        <div class="bottom"><var>n</var></div>
+                    </div>
+                </equation>, the width of each rectangle.</li>
+            <li>As seen in RAM, as the number of rectangles
+                <equation><var>n</var></equation> increases, the better the approximation of the area.</li>
+            <li>So if
+                <equation><var>n</var> &rarr; <var>&infin;</var></equation> then
+                <equation>
+                    <lim as="n" approaches="&infin;"></lim>
+                    <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var>
+                </equation>
+                should give us an exact area under the curve.</li>
             <li>This is called a Riemann Sum, and it gives us the true area under the curve.</li>
         </div>
         <h3>Definite Integrals:</h3>
         <div class="indent">
             <li>The Riemann Sum above:
-                <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var> can be written in another form for both simplicity and maneuverability.</li>
+                <equation>
+                    <sigma start="<var>k</var> = 1" end="<var>n</var>"></sigma><var>f</var> (<var>c<sub>k</sub></var>)&Delta;<var>x</var>
+                </equation>
+                can be written in another form for both simplicity and maneuverability.</li>
             <li>This form is an Integral, and it is denoted as
-                <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
+                <equation>
+                    <integral lowerbound="a" upperBound="b" respectTo="x"><var>f </var>(<var>x</var>)</integral>
+                </equation>
             </li>
-            <li>The <span style='font-size: 200%; display: inline-block; transform: translateY(10px);'>&int;</span><sub style='display: inline-block; transform: translateY(12px);'><var>a</var></sub><sup style='display: inline-block; transform: translateY(-11px);'><var>b</var></sup>                is the integral sign with the bounds [<var>a</var>, <var>b</var>] where <var>a</var> and <var>b</var> are both constants.</li><br />
-            <li>The <var>f </var>(<var>x</var>) is the same as the <var>f</var> (<var>c<sub>k</sub></var>) in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
-            <li>The <var>dx</var> is the same exact value as the &Delta;<var>x</var> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremely small value (a differential) as the number of rectangles tends towards <var>&infin;</var>,
-                and it also lets us know which variable is the integral being taken with respect to. As seen later, this <var>dx</var> will come in handy with <var>u</var>-substitution and
-                <derivative></derivative>
+            <li>The
+                <equation>\displaystyle\int_a^b</equation>
+                is the integral sign with the bounds
+                <equation>[<var>a</var>, <var>b</var>]</equation> where
+                <equation><var>a</var></equation> and
+                <equation><var>b</var></equation> are both constants.</li><br />
+            <li>The
+                <equation><var>f </var>(<var>x</var>)</equation> is the same as the
+                <equation><var>f</var> (<var>c<sub>k</sub></var>)</equation> in the Riemann Sum definition of an integral. It represents the height of each incremented rectangle.</li>
+            <li>The
+                <equation><var>dx</var></equation> is the same exact value as the
+                <equation>&Delta;<var>x</var></equation> from the Riemann Sum notation. It is the width of the rectangle, which becomes an extremely small value (a differential) as the number of rectangles tends towards <var>&infin;</var>, and it also lets us know
+                which variable is the integral being taken with respect to. As seen later, this
+                <equation><var>dx</var></equation> will come in handy with <var>u</var>-substitution and
+                <equation>
+                    <derivative></derivative>
+                </equation>
             </li>
             <h5>5 Easy Rules for Definite Integrals</h5>
             <div class="indent">
                 <table class="rules">
                     <tr>
                         <td>
-                            <integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral>
+                            <equation>
+                                <integral lowerBound="a" upperBound="a" respectTo="x"><var>f(x)</var></integral> = 0
+                            </equation>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            <equation>
+                                <integral lowerBound="b" upperBound="a" respectTo="x"><var>f(x)</var></integral> = &minus;
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            </equation>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> =
-                            <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus;
-                            <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            <equation>
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> =
+                                <integral lowerBound="a" upperBound="c" respectTo="x"><var>f(x)</var></integral> &plus;
+                                <integral lowerBound="c" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            </equation>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var>
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            <equation>
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>kf(x)</var></integral> = <var>k</var>
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                            </equation>
                         </td>
-                        <td>(<var>k</var> is constant; you can pull a constant out of the integral.)</td>
+                        <td>(
+                            <equation><var>k</var></equation> is constant; you can pull a constant out of the integral.)</td>
                     </tr>
                     <tr>
                         <td>
-                            <integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> =
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn;
-                            <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral>
+                            <equation>
+                                <integral lowerBound="a" upperBound="b" respectTo="x">[<var>f(x)</var> &plusmn; <var>g(x)</var>]</integral> =
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral> &plusmn;
+                                <integral lowerBound="a" upperBound="b" respectTo="x"><var>g(x)</var></integral>
+                            </equation>
                         </td>
                     </tr>
                 </table>
                 <strong>Example:</strong> Given the following:
-                <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4 , &emsp;
-                <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9, &emsp;
-                <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                <equation>
+                    <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 4
+                </equation>, &emsp;
+                <equation>
+                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9
+                </equation>, &emsp;
+                <equation>
+                    <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                </equation>
                 <br />
                 <ol>
                     <li>Find
-                        <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem1SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem1Solution');">Show Solution</a>
+                        <equation>
+                            <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral>
+                        </equation>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem1SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem1Solution');">Show Solution</a>
                     </li>
                     <div id="definiteIntegralsProblem1Solution" class="solution">
-                        <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0, according to rule #1<br /><br />
+                        <equation>
+                            <integral lowerBound="3" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 0
+                        </equation>, according to rule #1<br /><br />
                     </div>
                     <li>Find
-                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem2SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem2Solution');">Show Solution</a>
+                        <equation>
+                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral>
+                        </equation>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem2SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem2Solution');">Show Solution</a>
                     </li>
                     <div id="definiteIntegralsProblem2Solution" class="solution">
-                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;
-                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #2<br /><br /> So
-                        <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                        <equation>
+                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;
+                            <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral>
+                        </equation>, according to rule #2<br /><br /> So
+                        <equation>
+                            <integral lowerBound="7" upperBound="1" respectTo="x"><var>f(x)</var></integral> = &minus;6
+                        </equation>
                     </div>
                     <li>
-                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem3SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem3Solution');">Show Solution</a>
+                        <equation>
+                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>
+                        </equation>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem3SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem3Solution');">Show Solution</a>
                     </li>
                     <div id="definiteIntegralsProblem3Solution" class="solution">
-                        <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> =
-                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus;
-                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>, according to rule #3<br /><br /> So
-                        <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5</div>
+                        <equation>
+                            <integral lowerBound="1" upperBound="7" respectTo="x"><var>f(x)</var></integral> =
+                            <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> &plus;
+                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral>
+                        </equation>, according to rule #3<br /><br /> So
+                        <equation>
+                            <integral lowerBound="3" upperBound="7" respectTo="x"><var>f(x)</var></integral> = 9 &minus; 4 = 5
+                        </equation>
+                    </div>
                     <li>Find
-                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem4SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem4Solution');">Show Solution</a>
+                        <equation>
+                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>
+                        </equation>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem4SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem4Solution');">Show Solution</a>
                     </li>
                     <div id="definiteIntegralsProblem4Solution" class="solution">
-                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5
-                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br /> So
-                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20</div>
+                        <equation>
+                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral> = 5
+                            <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>
+                        </equation>, according to rule #4<br /><br /> So
+                        <equation>
+                            <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral> = 5(4) = 20
+                        </equation>
+                    </div>
                     <li>
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem5SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem5Solution');">Show Solution</a>
+                        <equation>
+                            <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral>
+                        </equation>&emsp;<a href="javascript:void(0)" id="definiteIntegralsProblem5SolutionToggleLink" onclick="toggleSolution('#definiteIntegralsProblem5Solution');">Show Solution</a>
                     </li>
                     <div id="definiteIntegralsProblem5Solution" class="solution">
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> =
-                        <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus;
-                        <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>, according to rule #5 and
-                        <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = &minus;2
-                        <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>, according to rule #4<br /><br />So
-                        <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18</div>
+                        <equation>
+                            <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> =
+                            <integral lowerBound="1" upperBound="7" respectTo="x">&minus;2<var>f(x)</var></integral> &plus;
+                            <integral lowerBound="1" upperBound="3" respectTo="x">5<var>f(x)</var></integral>
+                        </equation>, according to rule #5 and
+                        <equation>
+                            <integral lowerBound="1" upperBound="3" respectTo="x">&minus;2<var>f(x)</var></integral> = &minus;2
+                            <integral lowerBound="1" upperBound="3" respectTo="x"><var>f(x)</var></integral>
+                        </equation>, according to rule #4<br /><br />So
+                        <equation>
+                            <integral lowerBound="1" upperBound="7" respectTo="x">[&minus;2<var>f(x)</var> &plus; <var>g(x)</var>]</integral> = &minus;2(9) &plus; (&minus;5) = &minus;18
+                        </equation>
+                    </div>
                 </ol>
             </div>
             <h5>Average Value of a Function:</h5>
-            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] then the average value of <var>f</var> from <var>a</var> to <var>b</var> is given by
-                <div class="fraction">
-                    <div class="top">1</div>
-                    <div class="bottom"><var>b</var> &minus; <var>a</var></div>
-                </div>
-                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+            <li>If
+                <equation><var>f</var></equation> is continuous on
+                <equation>[<var>a</var>, <var>b</var>]</equation> then the average value of
+                <equation><var>f</var></equation> from
+                <equation><var>a</var></equation> to
+                <equation><var>b</var></equation> is given by
+                <equation>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                    </div>
+                    <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                </equation>.
             </li>
             <h5>Mean Value Theorem for Integrals:</h5>
-            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then there exists a number <var>c</var> in [<var>a</var>, <var>b</var>] such that <var>f</var>(<var>c</var>) = <var>f</var><sub><var>ave</var></sub> =
-                <div class="fraction">
-                    <div class="top">1</div>
-                    <div class="bottom"><var>b</var> &minus; <var>a</var></div>
-                </div>
-                <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+            <li>If
+                <equation><var>f</var></equation> is continuous on
+                <equation>[<var>a</var>, <var>b</var>]</equation>, then there exists a number
+                <equation><var>c</var></equation> in
+                <equation>[<var>a</var>, <var>b</var>]</equation> such that
+                <equation><var>f</var>(<var>c</var>) = <var>f</var><sub><text>avg</text></sub> =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>b</var> &minus; <var>a</var></div>
+                    </div>
+                    <integral lowerBound="a" upperBound="b" respectTo="x"><var>f(x)</var></integral>
+                </equation>
             </li>
-            <li>Basically the x-value for the Average Value of a Function</li>
+            <li>Basically the <var>x</var>-value for the Average Value of a Function</li>
             <h5>The Fundamental Theorem of Calculus "FTC":</h5>
             <li>This theorem has 2 parts, the first is to evaluate definite integrals using antiderivatives and the second connects Integrals back to its original function.</li>
-            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>] and differentiable on (<var>a</var>, <var>b</var>), then if <var>F(x)</var> is the antiderivative of <var>f(x)</var>:</li>
+            <li>If
+                <equation><var>f</var></equation> is continuous on
+                <equation>[<var>a</var>, <var>b</var>]</equation> and differentiable on
+                <equation>(<var>a</var>, <var>b</var>)</equation>, then if
+                <equation><var>F(x)</var></equation> is the antiderivative of
+                <equation><var>f(x)</var></equation>:</li>
             <table class="rules">
                 <tr>
                     <td>
-                        <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x"><var>f(x)</var></integral> = <var>F(b) &minus; F(a)</var></td>
+                        <equation>
+                            <integral lowerBound="<var>a</var>" upperBound="<var>b</var>" respectTo="x"><var>f(x)</var></integral> = <var>F(b) &minus; F(a)</var>
+                        </equation>
+                    </td>
                 </tr>
             </table>
-            <li>If <var>f</var> is continuous on [<var>a</var>, <var>b</var>], then:</li>
+            <li>If
+                <equation><var>f</var></equation> is continuous on
+                <equation>[<var>a</var>, <var>b</var>]</equation>, then:</li>
             <table class="rules">
                 <tr>
                     <td>
-                        <derivative></derivative>
-                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="t"><var>f(t)</var></integral> = <var>f(x)</var>
+                        <equation>
+                            <derivative></derivative>
+                            <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="t"><var>f(t)</var></integral> = <var>f(x)</var>
+                        </equation>
                     </td>
                     <td>
-                        <var>y</var> =
-                        <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral><br />
-                        <derivative of="y"></derivative> = [
-                        <derivative respectTo="v"></derivative>
-                        <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral>] &times;
-                        <derivative respectTo="v"></derivative>
+                        <equation>
+                            <span class="alignedEquations">
+                            <var>y</var> =
+                            <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral><br />
+                            <derivative of="y"></derivative> = [
+                            <derivative respectTo="v"></derivative>
+                            <integral lowerBound="<var>a</var>" upperBound="<var>v</var>" respectTo="t"><var>f(t)</var></integral>] &times;
+                            <derivative respectTo="v"></derivative>
+                        </span>
+                        </equation>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x) &minus; f(a)</var> (using part 1)<br />
-                        <var>f(a)</var> +
-                        <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x)</var>
+                        <equation>
+                            <span class="alignedEquations">
+                                <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x) &minus; f(a)</var> <text> &emsp;using part 1</text><br />
+                                <var>f(a)</var> +
+                                <integral lowerBound="<var>a</var>" upperBound="<var>x</var>" respectTo="x"><var>f '(t)</var></integral> = <var>f(x)</var>
+                            </span>
+                        </equation>
+
                     </td>
                 </tr>
             </table>
             <h5>U-Substitution Examples:</h5>
-            <integral respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>&emsp;<a href="javascript:void(0)" id="uSubProblem1SolutionToggleLink" onclick="toggleSolution('#uSubProblem1Solution');">Show Solution</a>
+            <equation>
+                <integral respectTo="x">(<var>x</var><sup>2</sup> &minus; 1)<sup>3</sup>2<var>x</var></integral>
+            </equation>&emsp;<a href="javascript:void(0)" id="uSubProblem1SolutionToggleLink" onclick="toggleSolution('#uSubProblem1Solution');">Show Solution</a>
             <div id="uSubProblem1Solution" class="solution">
                 <ol>
-                    <li><var>u</var> = <var>x</var><sup>2</sup> &minus; 1<br /><var>du</var> = 2<var>xdx</var></li>
-                    Plug in <var>u</var> and <var>du</var>
                     <li>
-                        <integral respectTo="u"><var>u</var><sup>3</sup></integral> =
-                        <div class="fraction">
-                            <div class="top"><var>u</var><sup>4</sup></div>
-                            <div class="bottom">4</div>
-                        </div> &plus; C</li>
-                    Plug <var>x</var><sup>2</sup> &minus; 1 back in for <var>u</var>
-                    <li><span class="answer">
+                        <equation>
+                            <span class="alignedEquations">
+                            <var>u</var> = <var>x</var><sup>2</sup> &minus; 1<br />
+                            <var>du</var> = 2<var>xdx</var>
+                            </span>
+                        </equation>
+                    </li>
+                    Plug in
+                    <equation><var>u</var></equation> and
+                    <equation><var>du</var></equation>
+                    <li>
+                        <equation>
+                            <integral respectTo="u"><var>u</var><sup>3</sup></integral> =
+                            <div class="fraction">
+                                <div class="top"><var>u</var><sup>4</sup></div>
+                                <div class="bottom">4</div>
+                            </div> &plus; C
+                        </equation>
+                    </li>
+                    Plug
+                    <equation><var>x</var><sup>2</sup> &minus; 1</equation> back in for
+                    <equation><var>u</var></equation>
+                    <li>
+                        <equation>
+                            <span class="answer">
                             <div class="fraction">
                                 <div class="top">(<var>x</var><sup>2</sup> &minus; 1 )<sup>4</sup></div>
                                 <div class="bottom">4</div>
                             </div> &plus; C
-                        </span></li>
+                        </span>
+                        </equation>
+                    </li>
                 </ol>
             </div>
             <br />
-            <integral respectTo="x">
-                <div class="fraction">
-                    <div class="top">
-                        <ln>x</ln>
+            <equation>
+                <integral respectTo="x">
+                    <div class="fraction">
+                        <div class="top">
+                            <ln>x</ln>
+                        </div>
+                        <div class="bottom"><var>x</var></div>
                     </div>
-                    <div class="bottom"><var>x</var></div>
-                </div>
-            </integral>&emsp;<a href="javascript:void(0)" id="uSubProblem2SolutionToggleLink" onclick="toggleSolution('#uSubProblem2Solution');">Show Solution</a>
+                </integral>
+            </equation>&emsp;<a href="javascript:void(0)" id="uSubProblem2SolutionToggleLink" onclick="toggleSolution('#uSubProblem2Solution');">Show Solution</a>
             <div id="uSubProblem2Solution" class="solution">
                 <ol>
-                    <li><var>u</var> =
-                        <ln>x</ln><br /><var>du</var> =
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>x</var></div>
-                        </div><var>dx</var></li>
-                    Plug in <var>u</var> and <var>du</var>
                     <li>
-                        <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
-                        <div class="fraction">
-                            <div class="top"><var>u</var><sup>2</sup></div>
-                            <div class="bottom">2</div>
-                        </div> &plus; C</li>
+                        <equation><span class="alignedEquations">
+                            <var>u</var> = <ln>x</ln><br />
+                            <var>du</var> =
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>x</var></div>
+                            </div><var>dx</var>
+                        </span></equation>
+                    </li>
+                    Plug in
+                    <equation><var>u</var></equation> and
+                    <equation><var>du</var></equation>
+                    <li>
+                        <equation>
+                            <integral lowerBound="" upperBound="" respectTo="u"><var>u</var></integral> =
+                            <div class="fraction">
+                                <div class="top"><var>u</var><sup>2</sup></div>
+                                <div class="bottom">2</div>
+                            </div> &plus; C
+                        </equation>
+                    </li>
                     Plug
-                    <ln>x</ln> back for <var>u</var>
-                    <li><span class="answer"><div class="fraction">
-                <div class="top">(
-                    <ln>u</ln>)<sup>2</sup></div>
-                <div class="bottom">2</div>
-            </div> &plus; C</span></li>
+                    <equation>
+                        <ln>x</ln>
+                    </equation> back for
+                    <equation><var>u</var></equation>
+                    <li>
+                        <equation>
+                            <span class="answer"><div class="fraction">
+                            <div class="top">(<ln>u</ln>)<sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div> &plus; C</span>
+                        </equation>
+                    </li>
                 </ol>
             </div>
             <li>Sometimes problems will ask to solve for the "initial value problem", given
-                <derivative of="y"></derivative>. All this means is to find the antiderivative, or the original function <var>y</var>. The "initial value" just refers to the C constant that comes in when you take the integral of a function.</li>
-
+                <equation>
+                    <derivative of="y"></derivative>
+                </equation>. All this means is to find the antiderivative, or the original function
+                <equation><var>y</var></equation>. The "initial value" just refers to the
+                <equation>+C</equation> constant that comes in when you take the integral of a function.</li>
             <strong>Ex. 1:</strong> Given
-            <derivative of="y"></derivative> = 2<var>y &minus; x</var>, solve the initial value problem given the condition that <var>y</var> = 6 when <var>x</var> = 15.&emsp;<a href="javascript:void(0)" id="initialValueProblem1SolutionToggleLink" onclick="toggleSolution('#initialValueProblem1Solution');">Show Solution</a>
+            <equation>
+                <derivative of="y"></derivative> = 2<var>y &minus; x</var>
+            </equation>, solve the initial value problem given the condition that
+            <equation><var>y</var> = 6</equation> when
+            <equation><var>x</var> = 15</equation>.&emsp;<a href="javascript:void(0)" id="initialValueProblem1SolutionToggleLink" onclick="toggleSolution('#initialValueProblem1Solution');">Show Solution</a>
             <div id="initialValueProblem1Solution" class="solution">
                 <ol>
-                    In this case, we must separate our variables (move the <var>x</var>'s and <var>y</var>'s to different sides). So:
-                    <li>
+                    In this case, we must separate our variables (move the
+                    <equation><var>x</var></equation>'s and
+                    <equation><var>y</var></equation>'s to different sides). So:<br />
+                    <equation><span class="alignedEquations">
                         <div class="fraction">
                             <div class="top">1</div>
                             <div class="bottom">2<var>y</var></div>
-                        </div><var>dy</var> = <var>&minus; xdx</var></li>
-                    <li>
+                        </div><var>dy</var> = <var>&minus; xdx</var><br />
                         <integral respectTo="y">
                             <div class="fraction">
                                 <div class="top">1</div>
                                 <div class="bottom">2<var>y</var></div>
                             </div>
                         </integral> =
-                        <integral respectTo="x"><var>&minus; x</var></integral>
-                    </li>
-                    <li>&half;
-                        <integral respectTo="y">
+                        <integral respectTo="x"><var>&minus; x</var></integral><br />
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div><integral respectTo="y">
                             <div class="fraction">
                                 <div class="top">1</div>
                                 <div class="bottom"><var>y</var></div>
                             </div>
                         </integral> = &minus;
-                        <integral respectTo="x"><var>x</var></integral>
-                    </li>
-                    <li>
+                        <integral respectTo="x"><var>x</var></integral><br />
                         <div class="fraction">
                             <div class="top">1</div>
                             <div class="bottom">2</div>
@@ -408,35 +634,35 @@
                         <div class="fraction">
                             <div class="top"><var>x</var><sup>2</sup></div>
                             <div class="bottom">2</div>
-                        </div> + C</li>
-                    <li> ln|
-                        <sqrt><var>y</var></sqrt>| = &minus;
-                        <div class="fraction">
+                        </div> + C<br />
+                        ln|<sqrt><var>y</var></sqrt>| = &minus;<div class="fraction">
                             <div class="top"><var>x</var><sup>2</sup></div>
                             <div class="bottom">2</div>
-                        </div> + C</li>Now if we exponentiate both sides:
-                    <li>
-                        <sqrt><var>y</var></sqrt> = <var>e</var><sup>&minus;<var>x</var><sup>2</sup> &divide; 2 + C</sup>
-                    </li>
-                    <li><var>y</var> = <var>e</var><sup>&minus;2<var>x</var><sup>2</sup> &divide; 2 + C</sup>
-                    </li>Now we need to solve for C given the point (15, 6):
-                    <li>6 = <var>e</var><sup>&minus;15<sup>2</sup> + C</sup>
-                    </li>
-                    <li>6 = <var>e</var><sup>&minus;225</sup><var>e</var><sup>C</sup></li>
-                    <li>
-                        <ln>6<var>e</var><sup>&minus;225</sup></ln> =
-                        <ln><var>e</var><sup>C</sup></ln>
-                    </li>
-                    <li>
-                        <ln>6</ln> +
-                        <ln><var>e</var><sup>&minus;225</sup></ln> = C</li>
-                    <li>
-                        <ln>6</ln> &minus; 225 = C &ap; &minus;223.208</li>
-                    And so the original function, and the answer, would be:
-                    <li><span class="answer"><var>y</var> = &minus;223.208<var>e<sup><var>x</var><sup>2</sup></sup></var></span></li>
+                        </div> + C<br />
+                        <text>Now if we exponentiate both sides:</text> <br />
+                        <sqrt><var>y</var></sqrt> = <var>e</var><sup>&minus;<div class="fraction">
+                            <div class="top"><var>x</var><sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div> + C</sup><br />
+                        <var>y</var> = (<var>e</var><sup>&minus;<div class="fraction">
+                            <div class="top"><var>x</var><sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div> + C</sup>)<sup>2</sup><br />
+                        <var>y</var> = <var>e</var><sup>&minus;<div class="fraction">
+                            <div class="top">2<var>x</var><sup>2</sup></div>
+                            <div class="bottom">2</div>
+                        </div> + C</sup><br />
+                        <var>y</var> = <var>e</var><sup>&minus;<var>x</var><sup>2</sup> + C</sup><br />
+                        <text>Now we need to solve for C given the initial condition:</text><br />
+                        6 = <var>e</var><sup>&minus;15<sup>2</sup> + C</sup><br />
+                        6 = <var>e</var><sup>&minus;225</sup><var>e</var><sup>C</sup><br />
+                        <ln>6<var>e</var><sup>&minus;225</sup></ln> = <ln><var>e</var><sup>C</sup></ln><br />
+                        <ln>6</ln> + <ln><var>e</var><sup>&minus;225</sup></ln> = C<br />
+                        <ln>6</ln> &minus; 225 = C &ap; &minus;223.208
+                    </span></equation><br /><br /> And so the original function, and the answer, would be:
+                    <equation><span class="answer"><var>y</var> = &minus;223.208<var>e<sup><var>x</var><sup>2</sup></sup></var></span></equation>
                 </ol>
             </div>
-
             <h5>Integration by Parts:</h5>
             <li>
                 Usually, the preferred method is u-substitution because it helps with chain rule and it is the easiest way to find antiderivatives. In the case that u-substitution does not work, there is another method, called Integration by Parts.
@@ -444,35 +670,48 @@
             <table class="rules">
                 <tr>
                     <td>
-                        <integral respectTo="v"><var>u</var></integral> =
-                        <var>uv</var> &minus;
-                        <integral respectTo="u"><var>v</var></integral>
+                        <equation>
+                            <integral respectTo="v"><var>u</var></integral> =
+                            <var>uv</var> &minus;
+                            <integral respectTo="u"><var>v</var></integral>
+                        </equation>
                     </td>
                 </tr>
             </table>
             <li>This method involves the integration of a product of two different kinds of functions. It can be derived using the Product Rule from Differential Calculus.</li>
             <table class="staticTable">
                 <tr>
-                    <td>(<var>uv</var>)' = <var>udv + vdu</var></td>
+                    <td>
+                        <equation>(<var>uv</var>)' = <var>udv + vdu</var></equation>
+                    </td>
                     <td>Recall the Product Rule from Differential Calculus</td>
                 </tr>
                 <tr>
-                    <td><span style="font-size: 200%; display: inline-block; transform: translateY(10px);">&int;</span>(<var>uv</var>)' =
-                        <integral respectTo="v"><var>u</var></integral> +
-                        <integral respectTo="u"><var>v</var></integral>
+                    <td>
+                        <!--Keep integral tag without attributes rn, proper changes will be merged from mvCalc branch-->
+                        <equation>
+                            <integral>(<var>uv</var>)'</integral> =
+                            <integral respectTo="v"><var>u</var></integral> +
+                            <integral respectTo="u"><var>v</var></integral>
+                        </equation>
                     </td>
                     <td>Integrate both sides</td>
                 </tr>
                 <tr>
-                    <td><var>uv</var> &minus;
-                        <integral respectTo="u"><var>v</var></integral> =
-                        <integral respectTo="v"><var>u</var></integral>
+                    <td>
+                        <equation>
+                            <var>uv</var> &minus;
+                            <integral respectTo="u"><var>v</var></integral> =
+                            <integral respectTo="v"><var>u</var></integral>
+                        </equation>
                     </td>
                     <td>Solve for the integral of a function with respect to the other function (you'll see why in a bit)</td>
                 </tr>
             </table>
             <li>For
-                <integral respectTo="x"><var>x<cos>x</cos></var></integral>, we can select which of the two types of functions in the product will be set as the first function.
+                <equation>
+                    <integral respectTo="x"><var>x<cos>x</cos></var></integral>
+                </equation>, we can select which of the two types of functions in the product will be set as the first function.
             </li>
             <li>When selecting the first function, remember:</li>
             <table class="staticTable lipet">
@@ -497,20 +736,36 @@
                     <td>rigonometric</td>
                 </tr>
             </table>
-            <li>So since <var>x</var> <strong>is</strong> a polynomial, it takes precedence over
-                <cos>x</cos> to be our <var>u</var> function.<br /> Let <var>u = x</var> and let <var>dv = <cos>x</cos>dx</var>:<br /> The equation requires a <var>v</var> and a <var>du</var>, and so we need to find those using our givens.<br />
-                <derivative of="u"></derivative> = 1 so <var>du</var> = <var>dx</var> and <var>v</var> =
-                <integral respectTo="x">
+            <li>So since
+                <equation><var>x</var></equation> <strong>is</strong> a polynomial, it takes precedence over
+                <equation>
                     <cos>x</cos>
-                </integral>
+                </equation> to be our
+                <equation><var>u</var></equation> function.<br /> Let
+                <equation><var>u = x</var></equation> and let
+                <equation><var>dv = <cos>x</cos>dx</var></equation>:<br /> The equation requires a
+                <equation><var>v</var></equation> and a
+                <equation><var>du</var></equation>, and so we need to find those using our givens.<br />
+                <equation>
+                    <derivative of="u"></derivative> = 1
+                </equation> so
+                <equation><var>du</var> = <var>dx</var></equation> and
+                <equation>
+                    <var>v</var> =
+                    <integral respectTo="x">
+                        <cos>x</cos>
+                    </integral>
+                </equation>
                 <br /> Now just plug it in to the formula and simplify:<br />
-                <var>x</var>
-                <sin>x</sin> &minus;
-                <integral respectTo="x">
-                    <sin>x</sin>
-                </integral><br /> = x
-                <sin>x</sin> +
-                <cos>x</cos> + C
+                <equation>
+                    <var>x</var>
+                    <sin>x</sin> &minus;
+                    <integral respectTo="x">
+                        <sin>x</sin>
+                    </integral><br /> = x
+                    <sin>x</sin> +
+                    <cos>x</cos> + C
+                </equation>
             </li>
         </div>
         <!--<integral lowerBound="0" upperBound="<var>x</var>" respectTo="x">

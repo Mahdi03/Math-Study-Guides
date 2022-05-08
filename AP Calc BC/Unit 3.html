@@ -17,22 +17,30 @@
     <ul>
         <h5>Euler's (Oiler's) Method:</h5>
         <li>This method is used to estimate the behavior of a function near a certain point, using linearization. However, it is repetitive linearization as the points are supposed to follow the function, based on the ROC at that point. In this case, we will
-            have a &Delta;<var>x</var>, which is equal to
-            <div class="fraction">
-                <div class="top"><var>x</var><sub>f</sub> &minus; <var>x</var><sub>i</sub></div>
-                <div class="bottom"><var>n</var></div>
-            </div>
+            have a
+            <equation>&Delta;<var>x</var></equation>, which is equal to
+            <equation>
+                <div class="fraction">
+                    <div class="top"><var>x</var><sub>f</sub> &minus; <var>x</var><sub>i</sub></div>
+                    <div class="bottom"><var>n</var></div>
+                </div>
+            </equation>
         </li>
         <li>Set up a table to better picture the math behind this method.</li>
         <li>And for each increment you take, you can just take the final point, and make it your next initial point and then do the whole process again!</li>
         <li>Given
-            <derivative of="y"></derivative> = <var>y &minus; x</var> and the point (0, 3), find the estimate of <var>y</var> when <var>x</var> = 1.2 using 3 steps:</li>
-        &Delta;<var>x</var> =
-        <div class="fraction">
-            <div class="top">1.2 &minus; 0</div>
-            <div class="bottom">3</div>
-        </div> = 0.4
-
+            <equation>
+                <derivative of="y"></derivative> = <var>y &minus; x</var>
+            </equation> and the point (0, 3), find the estimate of
+            <equation><var>y</var></equation> when
+            <equation><var>x</var> = 1.2</equation> using 3 steps:</li>
+        <equation>
+            &Delta;<var>x</var> =
+            <div class="fraction">
+                <div class="top">1.2 &minus; 0</div>
+                <div class="bottom">3</div>
+            </div> = 0.4
+        </equation>
         <table class="staticTable">
             <tr>
                 <th>(<var>x<sub>i</sub></var>, <var>y<sub>i</sub></var>)</th>
@@ -81,19 +89,26 @@
         <table class="rules">
             <tr>
                 <td>
-                    <var>y</var> = C<var>e<sup>kt</sup></var>
+                    <equation><var>y</var> = C<var>e<sup>kt</sup></var></equation>
                 </td>
             </tr>
         </table>
-        <li>Where C is your initial value (when <var>t</var> = 0).</li>
-        <li>Where <var>k</var> is the proportionality constant that tells by just how much will the values grow or decay.</li>
-        <li>Where <var>t</var> represents time, in whatever unit required by certain problems.</li>
-        <li>This formula can be "anti-derived" by the formula given below, which also explains why <var>k</var> is a "proportionality" constant because the Rate of Change varies directly or proportionally.
+        <li>Where
+            <equation>C</equation> is your initial value (when
+            <equation><var>t</var> = 0</equation>).</li>
+        <li>Where
+            <equation><var>k</var></equation> is the proportionality constant that tells by just how much will the values grow or decay.</li>
+        <li>Where
+            <equation><var>t</var></equation> represents time, in whatever unit required by certain problems.</li>
+        <li>This formula can be "anti-derived" by the formula given below, which also explains why
+            <equation><var>k</var></equation> is a "proportionality" constant because the Rate of Change varies directly or proportionally.
         </li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y" respectTo="t"></derivative> = <var>ky</var>
+                    <equation>
+                        <derivative of="y" respectTo="t"></derivative> = <var>ky</var>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -101,45 +116,65 @@
         <table class="staticTable">
             <tr>
                 <td>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>y</var></div>
-                    </div>
-                    d<var>y</var> = <var>k</var>d<var>t</var>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                        d<var>y</var> = <var>k</var>d<var>t</var>
+                    </equation>
                 </td>
                 <td>Separate variables</td>
             </tr>
             <tr>
                 <td>
-                    <integral respectTo="y">
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>y</var></div>
-                        </div>
-                    </integral>
-                    =
-                    <integral respectTo="t">
-                        <var>k</var>
-                    </integral>
+                    <equation>
+                        <integral respectTo="y">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>y</var></div>
+                            </div>
+                        </integral>
+                        =
+                        <integral respectTo="t">
+                            <var>k</var>
+                        </integral>
+                    </equation>
                 </td>
                 <td rowspan="2">Integrate both sides (add a plus C to only one side because the constant does not matter)</td>
             </tr>
             <tr>
-                <td>ln|<var>y</var>| = <var>kt</var> + c</td>
+                <td>
+                    <equation>ln|<var>y</var>| = <var>kt</var> + c</equation>
+                </td>
             </tr>
             <tr>
-                <td><var>e</var><sup>ln|<var>y</var>|</sup> = <var>e</var><sup><var>kt</var> + c</sup></td>
-                <td>Exponentiate both sides in order to solve for <var>y</var></td>
+                <td>
+                    <equation><var>e</var><sup>ln|<var>y</var>|</sup> = <var>e</var><sup><var>kt</var> + c</sup></equation>
+                </td>
+                <td>Exponentiate both sides in order to solve for
+                    <equation><var>y</var></equation>
+                </td>
             </tr>
             <tr>
-                <td><var>y</var> = <var>e</var><sup><var>kt</var></sup><var>e</var><sup>c</sup></td>
+                <td>
+                    <equation><var>y</var> = <var>e</var><sup><var>kt</var></sup><var>e</var><sup>c</sup></equation>
+                </td>
                 <td>The absolute value goes away because whether or not it is Exponential Growth or Decay, the function will always be positive</td>
             </tr>
             <tr>
-                <td><var>y</var> = C<var>e</var><sup><var>kt</var></sup></td>
                 <td>
-                    If you have to solve for c, the answer is usually a ln(<var>x</var>), and <var>e</var><sup>ln(<var>x</var>)</sup> = <var>x</var>, so it comes out to the front as your initial value.
-                    <br /> If you are already given an initial value, then it is the same C.
+                    <equation><var>y</var> = C<var>e</var><sup><var>kt</var></sup></equation>
+                </td>
+                <td>
+                    If you have to solve for
+                    <equation>c</equation>, the answer is usually a
+                    <equation>
+                        <ln>x</ln>
+                    </equation>, and
+                    <equation><var>e</var><sup><ln>x</ln></sup> = <var>x</var></equation>, so it comes out to the front as your initial value.
+                    <br /> If you are already given an initial value, then it is the same
+                    <equation>C</equation>.
                 </td>
             </tr>
         </table>
@@ -148,45 +183,60 @@
             <h3>Partial Fraction Decomposition:</h3><br />
             <div class="indent">
                 <!--<img src="https://www.purplemath.com/modules/partfrac/partfr04.gif" /><br />
-                <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>-->
-                <div class="fraction">
-                    <div class="top">3<var>x</var> &plus; 2</div>
-                    <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
-                </div> =
-                <div class="fraction">
-                    <div class="top">A</div>
-                    <div class="bottom"><var>x</var></div>
-                </div> &plus;
-                <div class="fraction">
-                    <div class="top">B</div>
-                    <div class="bottom"><var>x</var> &plus; 1</div>
-                </div><br /> [
-                <div class="fraction">
-                    <div class="top">3<var>x</var> &plus; 2</div>
-                    <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
-                </div>][
-                <div class="fraction">
-                    <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
-                    <div class="bottom">1</div>
-                </div>] = [
-                <div class="fraction">
-                    <div class="top">A</div>
-                    <div class="bottom"><var>x</var></div>
-                </div>][
-                <div class="fraction">
-                    <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
-                    <div class="bottom">1</div>
-                </div>] &plus; [
-                <div class="fraction">
-                    <div class="top">B</div>
-                    <div class="bottom">(<var>x</var> &plus; 1)</div>
-                </div>][
-                <div class="fraction">
-                    <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
-                    <div class="bottom">1</div>
-                </div>]<br /><br /> 3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br /><br /> If <var>x</var> = 0, then:<br /> 3(0) &plus; 2 = A(0 &plus; 1) &plus; B(0)<br /> 0 &plus; 2 = A(1) &plus; 0 <br /> A = 2<br /><br /> And if x = &minus;1, then:<br /> 3(&minus;1)
-                &plus; 2 = A(&minus;1 &plus; 1) &plus; B(&minus;1)<br /> &minus;3 &plus; 2 = 0 &plus; &minus;B <br /> &minus;1 = &minus;B<br /> B = 1<br /> &there4;
-                <div class="fraction">
+        <img src="https://www.purplemath.com/modules/partfrac/partfr05.gif" /><br/>-->
+                <equation><span class="alignedEquations">
+            <div class="fraction">
+                <div class="top">3<var>x</var> &plus; 2</div>
+                <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
+            </div> =
+            <div class="fraction">
+                <div class="top">A</div>
+                <div class="bottom"><var>x</var></div>
+            </div> &plus;
+            <div class="fraction">
+                <div class="top">B</div>
+                <div class="bottom"><var>x</var> &plus; 1</div>
+            </div><br />
+            [
+            <div class="fraction">
+                <div class="top">3<var>x</var> &plus; 2</div>
+                <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
+            </div>][
+            <div class="fraction">
+                <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+                <div class="bottom">1</div>
+            </div>] = [
+            <div class="fraction">
+                <div class="top">A</div>
+                <div class="bottom"><var>x</var></div>
+            </div>][
+            <div class="fraction">
+                <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+                <div class="bottom">1</div>
+            </div>] &plus; [
+            <div class="fraction">
+                <div class="top">B</div>
+                <div class="bottom">(<var>x</var> &plus; 1)</div>
+            </div>][
+            <div class="fraction">
+                <div class="top"><var>x</var>(<var>x</var> &plus; 1)</div>
+                <div class="bottom">1</div>
+            </div>]<br />
+            3x &plus; 2 = A(x &plus; 1) &plus; B(x)<br />
+            </span></equation>
+                <br /> If
+                <equation><var>x</var> = 0</equation>, then:<br />
+                <equation><span class="alignedEquations">
+                3(0) &plus; 2 = A(0 &plus; 1) &plus; B(0)<br /> 0 &plus; 2 = A(1) &plus; 0 <br />
+                A = 2<br />
+            </span></equation>
+                <br /> And if
+                <equation>x = &minus;1</equation>, then:<br />
+                <equation><span class="alignedEquations">
+                3(&minus;1) &plus; 2 = A(&minus;1 &plus; 1) &plus; B(&minus;1)<br />
+                &minus;3 &plus; 2 = 0 &plus; &minus;B <br />
+                &minus;1 = &minus;B<br /> B = 1<br />
+                &there4;<div class="fraction">
                     <div class="top">3<var>x</var> &plus; 2</div>
                     <div class="bottom"><var>x</var>(<var>x</var> &plus; 1)</div>
                 </div> =
@@ -197,142 +247,176 @@
                 <div class="fraction">
                     <div class="top">1</div>
                     <div class="bottom"><var>x</var> &plus; 1</div>
-                </div><br />
+                </div><br />    
+            </span></equation>
             </div>
         </div>
         <h5>Logistic Growth:</h5>
         <li>Recall this from EM3 as well. It is exponential growth, but with a carrying capacity (due to limited resources, etc.)</li>
-        <li>For exponential growth, the rate of change was <var>ky</var>, and so if we add a Carrying Capacity <var>L</var>, we get </li>
+        <li>For exponential growth, the rate of change was
+            <equation><var>ky</var></equation>, and so if we add a Carrying Capacity
+            <equation><var>L</var></equation>, we get </li>
         <table class="rules">
             <tr>
                 <td>
-                    <derivative of="y" respectTo="t"></derivative> = <var>ky</var>(<var>L &minus; y</var>)
+                    <equation>
+                        <derivative of="y" respectTo="t"></derivative> = <var>ky</var>(<var>L &minus; y</var>)
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Where <var>k</var> is the proportionality constant that tells by just how much will the values grow or decay.</li>
-        <li>Where <var>t</var> represents time, in whatever unit required by certain problems.</li>
-        <li>Where <var>L</var> is the Carrying Capacity, or in other words, the
-            <lim as="t" approaches="&infin;"></lim><var>y</var> = L, no matter what initial value <var>y</var> has.</li>
+        <li>Where
+            <equation><var>k</var></equation> is the proportionality constant that tells by just how much will the values grow or decay.</li>
+        <li>Where
+            <equation><var>t</var></equation> represents time, in whatever unit required by certain problems.</li>
+        <li>Where
+            <equation><var>L</var></equation> is the Carrying Capacity, or in other words, the
+            <equation>
+                <lim as="t" approaches="&infin;"></lim><var>y</var> = L
+            </equation>, no matter what initial value
+            <equation><var>y</var></equation> has.</li>
         <li>The formula shown below can be "anti-derived" as well, using Partial Fraction Decomposition</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>y</var> =
-                    <div class="fraction">
-                        <div class="top">
-                            <var>L</var>
+                    <equation>
+                        <var>y</var> =
+                        <div class="fraction">
+                            <div class="top">
+                                <var>L</var>
+                            </div>
+                            <div class="bottom">
+                                1 + C<var>e<sup>&minus;Lkt</sup></var>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            1 + C<var>e<sup>&minus;Lkt</sup></var>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Where "C" is just the constant that comes from anti-differentiating both sides. keep in mind that this is <strong>NOT</strong> the initial value, unlike the Exponential Growth problems.</li>
+        <li>Where
+            <equation>C</equation> is just the constant that comes from anti-differentiating both sides. keep in mind that this is <strong>NOT</strong> the initial value, unlike the Exponential Growth problems.</li>
         <li>The "anti-derivation" is shown below:</li>
         <table class="staticTable">
             <tr>
                 <td>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
-                    </div>
-                    d<var>y</var> = <var>k</var>d<var>t</var>
+                    <equation>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                        </div>
+                        d<var>y</var> = <var>k</var>d<var>t</var>
+                    </equation>
                 </td>
                 <td>Separate variables</td>
             </tr>
             <tr>
                 <td>
-                    <integral respectTo="y">
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
-                        </div>
-                    </integral>
-                    =
-                    <integral respectTo="t">
-                        <var>k</var>
-                    </integral>
+                    <equation>
+                        <integral respectTo="y">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                            </div>
+                        </integral>
+                        =
+                        <integral respectTo="t">
+                            <var>k</var>
+                        </integral>
+                    </equation>
                 </td>
                 <td rowspan="2">Integrate both sides (add a plus C to only one side because the constant does not matter)</td>
             </tr>
             <tr>
                 <td>
-                    <integral respectTo="y">
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
-                        </div>
-                    </integral>
-                    =
-                    <var>kt</var> + c
+                    <equation>
+                        <integral respectTo="y">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom"><var>y</var>(<var>L &minus; y</var>)</div>
+                            </div>
+                        </integral>
+                        =
+                        <var>kt</var> + c
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <var>A</var>(<var>y</var>) + B(<var>L &minus; y</var>) = 1<br />
-                    <var>y</var> = 0: <var>B</var> = <var>L</var><sup>&minus;1</sup><br />
-                    <var>y</var> = <var>L</var>: <var>A</var> = <var>L</var><sup>&minus;1</sup><br />
-                    <integral respectTo="y">
-                        <div class="fraction">
-                            <div class="top"><var>L</var><sup>&minus;1</sup></div>
-                            <div class="bottom"><var>y</var></div>
-                        </div>
-                    </integral>
-                    +
-                    <integral respectTo="y">
-                        <div class="fraction">
-                            <div class="top"><var>L</var><sup>&minus;1</sup></div>
-                            <div class="bottom">(<var>L &minus; y</var>)</div>
-                        </div>
-                    </integral>
+                    <equation><var>A</var>(<var>y</var>) + B(<var>L &minus; y</var>) = 1</equation><br />
+                    <equation><var>y</var> = 0: <var>B</var> = <var>L</var><sup>&minus;1</sup></equation><br />
+                    <equation><var>y</var> = <var>L</var>: <var>A</var> = <var>L</var><sup>&minus;1</sup></equation><br />
+                    <equation>
+                        <integral respectTo="y">
+                            <div class="fraction">
+                                <div class="top"><var>L</var><sup>&minus;1</sup></div>
+                                <div class="bottom"><var>y</var></div>
+                            </div>
+                        </integral>
+                        +
+                        <integral respectTo="y">
+                            <div class="fraction">
+                                <div class="top"><var>L</var><sup>&minus;1</sup></div>
+                                <div class="bottom">(<var>L &minus; y</var>)</div>
+                            </div>
+                        </integral>
+                    </equation>
                 </td>
                 <td>Now use Partial Fraction Decomposition to split up the integral on the left</td>
             </tr>
             <tr>
                 <td>
-                    <var>L</var><sup>&minus;1</sup>ln|<var>y</var>| &minus; <var>L</var><sup>&minus;1</sup>ln|<var>L &minus; y</var>| = <var>kt</var> + c
+                    <equation><var>L</var><sup>&minus;1</sup>ln|<var>y</var>| &minus; <var>L</var><sup>&minus;1</sup>ln|<var>L &minus; y</var>| = <var>kt</var> + c</equation>
                 </td>
-                <td>Don't forget that <var>L</var> is just a constant, a number, and so it comes out of the integral and we can simplify.<br /> When taking the integral of the second term, it is (<var>L &minus; y</var>), meaning that <var>y</var> is negative
-                    and the minus comes out due to the chain rule.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &minus;ln|<var>y</var>| + ln|<var>L &minus; y</var>| = (<var>kt + c</var>)(&minus;<var>L</var>)
-                </td>
-                <td>
-                    Multiply both sides by &minus;<var>L</var> in order to cancel the &minus; <var>L</var><sup>&minus;1</sup>
+                <td>Don't forget that
+                    <equation><var>L</var></equation> is just a constant, a number, and so it comes out of the integral and we can simplify.<br /> When taking the integral of the second term, it is
+                    <equation>(<var>L &minus; y</var>)</equation>, meaning that
+                    <equation><var>y</var></equation> is negative and the minus comes out due to the chain rule.
                 </td>
             </tr>
             <tr>
                 <td>
-                    ln|
-                    <div class="fraction">
-                        <div class="top"><var>L &minus; y</var></div>
-                        <div class="bottom"><var>y</var></div>
-                    </div>
-                    | = &minus;<var>Lkt</var> + c
+                    <equation>&minus;ln|<var>y</var>| + ln|<var>L &minus; y</var>| = (<var>kt + c</var>)(&minus;<var>L</var>)</equation>
                 </td>
-                <td>Combine the ln's in order to start solving for <var>y</var><br /> Remember that c is just a constant and that we would not multiply it by another constant <var>L</var></td>
+                <td>
+                    Multiply both sides by
+                    <equation>&minus;<var>L</var></equation> in order to cancel the
+                    <equation>&minus;<var>L</var><sup>&minus;1</sup></equation>
+                </td>
             </tr>
             <tr>
                 <td>
-                    |
-                    <div class="fraction">
-                        <div class="top"><var>L &minus; y</var></div>
-                        <div class="bottom"><var>y</var></div>
-                    </div>
-                    | =
-                    <var>e</var><sup>&minus;<var>Lkt</var> + c</sup>
+                    <equation>
+                        ln|
+                        <div class="fraction">
+                            <div class="top"><var>L &minus; y</var></div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                        | = &minus;<var>Lkt</var> + c
+                    </equation>
+                </td>
+                <td>Combine the ln's in order to start solving for
+                    <equation><var>y</var></equation><br /> Remember that
+                    <equation>c</equation> is just a constant and that we would not multiply it by another constant
+                    <equation><var>L</var></equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <equation>
+                        |
+                        <div class="fraction">
+                            <div class="top"><var>L &minus; y</var></div>
+                            <div class="bottom"><var>y</var></div>
+                        </div>
+                        | =
+                        <var>e</var><sup>&minus;<var>Lkt</var> + c</sup>
+                    </equation>
                 </td>
                 <td>Exponentiate both sides</td>
             </tr>
             <tr>
                 <td>
-                    <var>L</var> = <var>y + yCe<sup>&minus;Lkt</sup></var>
+                    <equation><var>L</var> = <var>y + yCe<sup>&minus;Lkt</sup></var></equation>
                 </td>
                 <td>
                     We can now ignore the absolute value because the exponential function will always be positive<br /> The + c from the previous step turns into a big C as the coefficient of <var>e</var> here because when you solve for c, you will get
@@ -341,17 +425,18 @@
             </tr>
             <tr>
                 <td>
-                    <var>L</var> = <var>y</var>(1 + <var>Ce<sup>&minus;Lkt</sup></var>)<br />
-                    <var>y</var> =
-                    <div class="fraction">
-                        <div class="top">
-                            <var>L</var>
+                    <equation><var>L</var> = <var>y</var>(1 + <var>Ce<sup>&minus;Lkt</sup></var>)</equation><br />
+                    <equation>
+                        <var>y</var> =
+                        <div class="fraction">
+                            <div class="top">
+                                <var>L</var>
+                            </div>
+                            <div class="bottom">
+                                1 + C<var>e<sup>&minus;Lkt</sup></var>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            1 + C<var>e<sup>&minus;Lkt</sup></var>
-                        </div>
-                    </div>
-
+                    </equation>
                 </td>
                 <td>
                     Solve for <var>y</var> by factoring it out and dividing both sides by the other factor.<br /> To avoid this large derivation each time, remember "Lice minus licked"
@@ -359,10 +444,12 @@
             </tr>
         </table>
         <li>The graph of a normal Logistic Growth function looks like this, where at
-            <div class="fraction">
-                <div class="top"><var>L</var></div>
-                <div class="bottom">2</div>
-            </div> the ROC is the max, and it changes in concavity.</li>
+            <equation>
+                <div class="fraction">
+                    <div class="top"><var>L</var></div>
+                    <div class="bottom">2</div>
+                </div>
+            </equation> the ROC is the max, and it changes in concavity.</li>
         <iframe id="logisticGrowthGraph" width="250px" height="250px"></iframe>
         <h3>Length, Area, and Volumes of Shapes on the Cartesian Plane</h3>
         <h5>Area in Between Curves:</h5>
@@ -375,11 +462,15 @@
             <iframe id="linearRotatedGraph" width="250px" height="250px"></iframe><br /> creates a 3-dimensional cone, whose volume is
             <table class="rules">
                 <tr>
-                    <td><var>V</var> =
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom">3</div>
-                        </div>&pi;<var>r</var><sup>2</sup><var>h</var></td>
+                    <td>
+                        <equation>
+                            <var>V</var> =
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">3</div>
+                            </div>&pi;<var>r</var><sup>2</sup><var>h</var>
+                        </equation>
+                    </td>
                 </tr>
             </table>
         </li>
@@ -387,45 +478,61 @@
         <li>For this you will need to recall the volume of a cylinder:</li>
         <table class="rules">
             <tr>
-                <td><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></td>
+                <td>
+                    <equation><var>V</var> = &pi;<var>r</var><sup>2</sup><var>h</var></equation>
+                </td>
             </tr>
         </table>
         <li>Now imagine that you take the 2-dimensional representation of the cone, a triangle, and you try to take the area using RAM.</li>
         <iframe id="linearAreaRAMGraph" width="250px" height="250px"></iframe>
         <li>If this graph were to be rotated by the x-axis, all of the rectangles would become cylinders, where the width of the rectangle is the height of the cylinder, and the height of the rectangle is the radius of the cylinder.</li>
-        <li>The height of each rectangle is <var>y = x</var> and the width of each rectangle tends to be an extremely small differential, <var>dx</var>. So these values can be plugged into the formula for the volume of a cylinder, where <var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var>.
-            Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds:<br />
-            <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>. Then just use the FTC to solve.</li>
+        <li>The height of each rectangle is
+            <equation><var>y = x</var></equation> and the width of each rectangle tends to be an extremely small differential,
+            <equation><var>dx</var></equation>. So these values can be plugged into the formula for the volume of a cylinder, where
+            <equation><var>V</var> = &pi;(<var>x</var>)<sup>2</sup><var>dx</var></equation>. Now this is only the volume of one of those cylinders, or disks, and we want to calculate the volume from [0, 4] so we must integrate it from those bounds:<br />
+            <equation>
+                <integral respectTo="x" lowerBound="0" upperBound="4">&pi;(<var>x</var>)<sup>2</sup></integral>
+            </equation>. Then just use the FTC to solve.</li>
         <br />
         <li>The more generic formula is: </li>
         <table class="rules">
             <tr>
-                <td><var>V</var> = &pi;
-                    <integral respectTo="x" lowerBound="a" upperBound="b">r(<var>x</var>)<sup>2</sup></integral>
+                <td>
+                    <equation><var>V</var> = &pi;
+                        <integral respectTo="x" lowerBound="a" upperBound="b">r(<var>x</var>)<sup>2</sup></integral>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>In most cases, it is easier to take out the &pi; from the integral and multiply it at the end as it keeps the math much simpler.</li>
+        <li>In most cases, it is easier to take out the
+            <equation>&pi;</equation> from the integral and multiply it at the end as it keeps the math much simpler.</li>
         <li>If the shape is hollow, or you are given two functions to rotate around a certain axis, you can use the same derivation technique, but instead, subtract the two radii to get the resultant radius of the cylinder that makes up the shape.</li>
         <li>When the 3-Dimensional shape is hollow, it is called a washer, and its formula is as follows:</li>
         <table class="rules">
             <tr>
-                <td><var>V</var> = &pi;
-                    <integral respectTo="x" lowerBound="a" upperBound="b">R(<var>x</var>)<sup>2</sup> &minus; r(<var>x</var>)<sup>2</sup></integral>
+                <td>
+                    <equation><var>V</var> = &pi;
+                        <integral respectTo="x" lowerBound="a" upperBound="b">R(<var>x</var>)<sup>2</sup> &minus; r(<var>x</var>)<sup>2</sup></integral>
+                    </equation>
                 </td>
             </tr>
         </table>
-        <li>Where R(<var>x</var>) is the larger radius (function farther from the axis of rotation) and r(<var>x</var>) is the smaller radius (function closer to the axis of rotation)</li>
+        <li>Where
+            <equation>R(<var>x</var>)</equation> is the larger radius (function farther from the axis of rotation) and
+            <equation>r(<var>x</var>)</equation> is the smaller radius (function closer to the axis of rotation)</li>
         <h5>Volumes of Graphs using Cross-Sections:</h5>
         <li>There is another method for making 3-Dimensional shapes using 2-Dimensional Graphs. It is a broader version of rotating graphs on an axis, you do this using cross-sections of different shapes to make different solids.</li>
         <li>Some cross-sections you can use include 45-45-90 Isosceles Right Triangles, Equilateral Triangles, Circles, Semi-Circles, Squares, and any other 2-Dimensional shapes that you can find the area of using just the base.</li>
         <li>So it helps to just know all of the area formulas for these shapes.</li>
         <li>The reason for this is that this method uses the value of the length in between the functions as the base of the cross-section, and then the sum of all of the areas on the given bounds gives the total volume.</li>
-        <li>For these types of functions you want to first find the equation of the area of a cross-section, A(<var>x</var>), and then using a more generic formula:</li>
+        <li>For these types of functions you want to first find the equation of the area of a cross-section,
+            <equation>A(<var>x</var>)</equation>, and then using a more generic formula:</li>
         <table class="rules">
             <tr>
-                <td><var>V</var> =
-                    <integral respectTo="x" lowerBound="a" upperBound="b">A(<var>x</var>)</integral>
+                <td>
+                    <equation><var>V</var> =
+                        <integral respectTo="x" lowerBound="a" upperBound="b">A(<var>x</var>)</integral>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -433,14 +540,17 @@
         <h5>Length of a Curve:</h5>
         <li>Using line segments, we can estimate the length of a curve.</li>
         <li>Given a
-            <sin>x</sin> curve, we can estimate the length of the curve using one line segment.<br />
+            <equation>
+                <sin>x</sin>
+            </equation> curve, we can estimate the length of the curve using one line segment.<br />
             <iframe id="sinLengthEstimateOneSegmentGraph" width="250px" height="250px"></iframe>
             <br />which would just pan out to the Pythagorean Theorem (Distance Formula):
             <table class="rules">
                 <tr>
                     <td>
-                        <var>S</var> =
-                        <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt>
+                        <equation><var>S</var> =
+                            <sqrt>(&Delta;<var>x</var>)<sup>2</sup> + (&Delta;<var>y</var>)<sup>2</sup></sqrt>
+                        </equation>
                     </td>
                 </tr>
             </table>
@@ -450,89 +560,123 @@
         <li>So then if the number of line segments reaches infinity, the result would be the actual desired answer.</li>
         <table class="staticTable">
             <tr>
-                <td><var>S</var> =
-                    <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                <td>
+                    <equation><var>dS</var> =
+                        <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                    </equation>
                 </td>
-                <td>Start with the length of one segment as the change in <var>x</var> and the change in <var>y</var> become so small that we can represent them using differentials.</td>
+                <td>Start with the length of one segment as the change in
+                    <equation><var>x</var></equation> and the change in
+                    <equation><var>y</var></equation> become so small that we can represent them using differentials.</td>
             </tr>
             <tr>
                 <td>
-                    <derivative of="S"></derivative> =
-                    <div class="fraction">
-
-                        <div class="top">
-                            <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                    <equation>
+                        <derivative of="S"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                            </div>
+                            <div class="bottom"><var>dx</var></div>
                         </div>
-                        <div class="bottom"><var>dx</var></div>
-                    </div>
+                    </equation>
                 </td>
                 <td>Now take the derivative to find the rate of change in each segment (this is necessary for the last step when we go back to the length instead of the ROC)</td>
             </tr>
             <tr>
                 <td>
-                    <derivative of="S"></derivative> =
-                    <div class="fraction">
-
-                        <div class="top">
-                            <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                    <equation>
+                        <derivative of="S"></derivative> =
+                        <div class="fraction">
+                            <div class="top">
+                                <sqrt>(<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup></sqrt>
+                            </div>
+                            <div class="bottom">
+                                <sqrt>(<var>dx</var>)<sup>2</sup></sqrt>
+                            </div>
                         </div>
-                        <div class="bottom">
-                            <sqrt>(<var>dx</var>)<sup>2</sup></sqrt>
-                        </div>
-                    </div>
+                    </equation>
                 </td>
                 <td rowspan="3">Basically, simplify, and remember that
-                    <derivative of="<sup>2</sup>y" respectTo="x<sup>2</sup>"></derivative> &ne;
-                    <div class="fraction">
-                        <div class="top">(<var>dy</var>)<sup>2</sup></div>
-                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <derivative of="S"></derivative> = (
-                    <div class="fraction">
-                        <div class="top">
-                            (<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup>
+                    <equation>
+                        <derivative of="y" order="2"></derivative> &ne;
+                        <div class="fraction">
+                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
                         </div>
-                        <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
-                    </div>
-                    )<sup>1/2</sup>
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <derivative of="S"></derivative> = <img src="../equations_images/arcLength1.png" style="transform: translateY(10px);" />
-                    <!--(1 +
+                    <equation>
+                        <derivative of="S"></derivative> =
+                        <sqrt>
+                            <div class="fraction">
+                                <div class="top">
+                                    (<var>dx</var>)<sup>2</sup> + (<var>dy</var>)<sup>2</sup>
+                                </div>
+                                <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                            </div>
+                        </sqrt>
+                    </equation>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--<derivative of="S"></derivative> = <img src="../equations_images/arcLength1.png" style="transform: translateY(10px);" />
+                    (1 +
                     <div class="fraction">
                         <div class="top">(<var>dy</var>)<sup>2</sup></div>
                         <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
                     </div>)<sup>1/2</sup>-->
+                    <equation>
+                        <derivative of="S"></derivative> =
+                        <sqrt>
+                            1 +
+                            <div class="fraction">
+                                <div class="top">(<var>dy</var>)<sup>2</sup></div>
+                                <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
+                            </div>
+                        </sqrt>
+                    </equation>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <var>dS</var> = <img src="../equations_images/arcLength1.png" style="transform: translateY(10px);" />
-                    <!--(1 +
+                    <!--<var>dS</var> = <img src="../equations_images/arcLength1.png" style="transform: translateY(10px);" />
+                    (1 +
                     <div class="fraction">
                         <div class="top">(<var>dy</var>)<sup>2</sup></div>
                         <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
-                    </div>)<sup>1/2</sup>--><var>dx</var>
+                    </div>)<sup>1/2</sup><var>dx</var>-->
+                    <equation>
+                        <var>dS</var> =
+                        <sqrt>
+                            1 + (
+                            <derivative of="y"></derivative>)<sup>2</sup>
+                        </sqrt><var>dx</var>
+                    </equation>
                 </td>
                 <td>Now set it up to make the equation integrable to get the original length and not just the ROC.</td>
             </tr>
             <tr>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
-                        <img src="../equations_images/arcLength1.png" style="transform: translateY(20px);" />
-                        <!--(1 +
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                            <!--<img src="../equations_images/arcLength1.png" style="transform: translateY(20px);" />
+                        (1 +
                         <div class="fraction">
                             <div class="top">(<var>dy</var>)<sup>2</sup></div>
                             <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
                         </div>)<sup>1/2</sup>-->
-                    </integral>
+                            <sqrt>
+                                1 + (
+                                <derivative of="y"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
                 <td>Now Integrate from one bound <var>a</var> to another <var>b</var></td>
             </tr>
@@ -541,26 +685,26 @@
         <table class="rules">
             <tr>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
-                        <img src="../equations_images/arcLength1.png" style="transform: translateY(20px);" />
-                        <!--(1 +
-                        <div class="fraction">
-                            <div class="top">(<var>dy</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dx</var>)<sup>2</sup></div>
-                        </div>)<sup>1/2</sup>-->
-                    </integral>
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="x" lowerBound="<var>a</var>" upperBound="<var>b</var>">
+                            <sqrt>
+                                1 + (
+                                <derivative of="y"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
                 <td>
-                    <var>S</var> =
-                    <integral respectTo="y" lowerBound="<var>c</var>" upperBound="<var>d</var>">
-                        <img src="../equations_images/arcLength2.png" style="transform: translateY(20px);" />
-                        <!--(1 +
-                        <div class="fraction">
-                            <div class="top">(<var>dx</var>)<sup>2</sup></div>
-                            <div class="bottom">(<var>dy</var>)<sup>2</sup></div>
-                        </div>)<sup>1/2</sup>-->
-                    </integral>
+                    <equation>
+                        <var>S</var> =
+                        <integral respectTo="y" lowerBound="<var>c</var>" upperBound="<var>d</var>">
+                            <sqrt>
+                                1 + (
+                                <derivative of="x" respectTo="y"></derivative>)<sup>2</sup>
+                            </sqrt>
+                        </integral>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -570,81 +714,101 @@
         <li>The same limit rules from Unit 1 apply to sequences and series, including Sandwich Theorem.</li>
         <h5>Absolute Value Theorem:</h5>
         <li>If the
-            <lim as="n" approaches="&infin;"></lim>|<var>a<sub>n</sub></var>| = 0, then the
-            <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0.
+            <equation>
+                <lim as="n" approaches="&infin;"></lim>|<var>a<sub>n</sub></var>| = 0
+            </equation>, then the
+            <equation>
+                <lim as="n" approaches="&infin;"></lim><var>a<sub>n</sub></var> = 0
+            </equation>.
         </li>
         <li>It's helpful with alternating series.</li>
         <h3>L'H&ocirc;pital's Rule & Indeterminate forms</h3>
         <li>Some indeterminate forms:
-            <div class="fraction">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-            </div> or &plusmn;
-            <div class="fraction">
-                <div class="top">&infin;</div>
-                <div class="bottom">&infin;</div>
-            </div>
+            <equation>
+                <div class="fraction">
+                    <div class="top">0</div>
+                    <div class="bottom">0</div>
+                </div>
+            </equation> or
+            <equation>&plusmn;
+                <div class="fraction">
+                    <div class="top">&infin;</div>
+                    <div class="bottom">&infin;</div>
+                </div>
+            </equation>
         </li>
         <li>If
-            <lim as="x" approaches="<var>a</var>"></lim>
-            <div class="fraction">
-                <div class="top"><var>f(x)</var></div>
-                <div class="bottom"><var>g(x)</var></div>
-            </div> yields either of the indeterminate forms stated above, then
-            <lim as="x" approaches="<var>a</var>"></lim>
-            <div class="fraction">
-                <div class="top"><var>f(x)</var></div>
-                <div class="bottom"><var>g(x)</var></div>
-            </div> =
-            <lim as="x" approaches="<var>a</var>"></lim>
-            <div class="fraction">
-                <div class="top"><var>f '(x)</var></div>
-                <div class="bottom"><var>g'(x)</var></div>
-            </div>
+            <equation>
+                <lim as="x" approaches="<var>a</var>"></lim>
+                <div class="fraction">
+                    <div class="top"><var>f(x)</var></div>
+                    <div class="bottom"><var>g(x)</var></div>
+                </div>
+            </equation> yields either of the indeterminate forms stated above, then
+            <equation>
+                <lim as="x" approaches="<var>a</var>"></lim>
+                <div class="fraction">
+                    <div class="top"><var>f(x)</var></div>
+                    <div class="bottom"><var>g(x)</var></div>
+                </div> =
+                <lim as="x" approaches="<var>a</var>"></lim>
+                <div class="fraction">
+                    <div class="top"><var>f '(x)</var></div>
+                    <div class="bottom"><var>g'(x)</var></div>
+                </div>
+            </equation>
         </li>
         <li>This process can be repeated as many times as the limit is either of those two indeterminate forms, and if it does equal some other indeterminate form, you can rearrange it to equal either of those two indeterminate forms before differentiating
             the top and bottom.</li>
 
         <strong>Ex 1:</strong> Evaluate
-        <lim as="x" approaches="0"></lim>
-        <div class="fraction">
-            <div class="top"><var>e</var><sup>3<var>x</var></sup> &minus; 1</div>
-            <div class="bottom"><var>x</var></div>
-        </div>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem1SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem1Solution');">Show Solution</a>
+        <equation>
+            <lim as="x" approaches="0"></lim>
+            <div class="fraction">
+                <div class="top"><var>e</var><sup>3<var>x</var></sup> &minus; 1</div>
+                <div class="bottom"><var>x</var></div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem1SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem1Solution');">Show Solution</a>
         <div id="lhopitalsRuleProblem1Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="x" approaches="0"></lim>
-                    <div class="fraction">
-                        <div class="top"><var>e</var><sup>3<var>x</var></sup> &minus; 1</div>
-                        <div class="bottom"><var>x</var></div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">0</div>
-                        <div class="bottom">0</div>
-                    </div>
+                    <equation>
+                        <lim as="x" approaches="0"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>e</var><sup>3<var>x</var></sup> &minus; 1</div>
+                            <div class="bottom"><var>x</var></div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">0</div>
+                            <div class="bottom">0</div>
+                        </div>
+                    </equation>
                 </li>
                 <li>
                     Using L'H&ocirc;pital's Rule, differentiate top and bottom:<br />
-                    <lim as="x" approaches="0"></lim>
-                    <div class="fraction">
-                        <div class="top">3<var>e</var><sup>3<var>x</var></sup></div>
-                        <div class="bottom">1</div>
-                    </div> = <span class="answer">3</span>
+                    <equation>
+                        <lim as="x" approaches="0"></lim>
+                        <div class="fraction">
+                            <div class="top">3<var>e</var><sup>3<var>x</var></sup></div>
+                            <div class="bottom">1</div>
+                        </div> = <span class="answer">3</span>
+                    </equation>
                 </li>
             </ol>
         </div>
         <li>Sometimes repeating is necessary.</li>
         <li>Sometimes repeating is necessary.</li>
         <strong>Ex 2:</strong> Evaluate
-        <lim as="x" approaches="-&infin;"></lim>
-        <div class="fraction">
-            <div class="top"><var>x</var><sup>2</sup></div>
-            <div class="bottom"><var>e</var><sup>&minus;<var>x</var></sup></div>
-        </div>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem2SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem2Solution');">Show Solution</a>
+        <equation>
+            <lim as="x" approaches="-&infin;"></lim>
+            <div class="fraction">
+                <div class="top"><var>x</var><sup>2</sup></div>
+                <div class="bottom"><var>e</var><sup>&minus;<var>x</var></sup></div>
+            </div>
+        </equation>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem2SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem2Solution');">Show Solution</a>
         <div id="lhopitalsRuleProblem2Solution" class="solution">
             <ol>
-                <li>
+                <equation><span class="alignedEquations">
                     <lim as="x" approaches="-&infin;"></lim>
                     <div class="fraction">
                         <div class="top"><var>x</var><sup>2</sup></div>
@@ -653,9 +817,7 @@
                     <div class="fraction">
                         <div class="top">&infin;</div>
                         <div class="bottom">&infin;</div>
-                    </div>
-                </li>
-                <li>
+                    </div><br />
                     <lim as="x" approaches="&minus;&infin;"></lim>
                     <div class="fraction">
                         <div class="top">2<var>x</var></div>
@@ -664,201 +826,233 @@
                     <div class="fraction">
                         <div class="top">&minus;&infin;</div>
                         <div class="bottom">&minus;&infin;</div>
-                    </div>
-                </li>
-                <li>
+                    </div><br />
                     <lim as="x" approaches="&minus;&infin;"></lim>
                     <div class="fraction">
                         <div class="top">2</div>
                         <div class="bottom"><var>e</var><sup>&minus;<var>x</var></sup></div>
                     </div> = <span class="answer">0</span>
-                </li>
+                    </span>
+                </equation>
             </ol>
         </div>
         <li>The rule can be used for other indeterminate forms, but they have to be converted to
-            <div class="fraction">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-            </div> or &plusmn;
-            <div class="fraction">
-                <div class="top">&infin;</div>
-                <div class="bottom">&infin;</div>
-            </div> first.
+            <equation>
+                <div class="fraction">
+                    <div class="top">0</div>
+                    <div class="bottom">0</div>
+                </div>
+            </equation> or
+            <equation>&plusmn;
+                <div class="fraction">
+                    <div class="top">&infin;</div>
+                    <div class="bottom">&infin;</div>
+                </div>
+            </equation> first.
         </li>
         <strong>Ex 3:</strong> Evaluate
-        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-        <div class="fraction">
-            <div class="top">1</div>
-            <div class="bottom">
-                <ln>x</ln>
+        <equation>
+            <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom">
+                    <ln>x</ln>
+                </div>
+            </div> &minus;
+            <div class="fraction">
+                <div class="top">1</div>
+                <div class="bottom"><var>x</var> &minus; 1</div>
             </div>
-        </div> &minus;
-        <div class="fraction">
-            <div class="top">1</div>
-            <div class="bottom"><var>x</var> &minus; 1</div>
-        </div>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem3SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem3Solution');">Show Solution</a>
+        </equation>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem3SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem3Solution');">Show Solution</a>
         <div id="lhopitalsRuleProblem3Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">
-                            <ln>x</ln>
-                        </div>
-                    </div> &minus;
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>x</var> &minus; 1</div>
-                    </div> = &infin; &minus; &infin;
+                    <equation>
+                        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">
+                                <ln>x</ln>
+                            </div>
+                        </div> &minus;
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>x</var> &minus; 1</div>
+                        </div> = &infin; &minus; &infin;
+                    </equation>
                 </li>
                 Combine fractions using a common denominator:
                 <li>
-                    <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-                    <div class="fraction">
-                        <div class="top"><var>x</var> &minus; 1 &minus;
-                            <ln>x</ln>
+                    <equation>
+                        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>x</var> &minus; 1 &minus;
+                                <ln>x</ln>
+                            </div>
+                            <div class="bottom">(
+                                <ln>x</ln>)(<var>x</var> &minus; 1)</div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">0</div>
+                            <div class="bottom">0</div>
                         </div>
-                        <div class="bottom">(
-                            <ln>x</ln>)(<var>x</var> &minus; 1)</div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">0</div>
-                        <div class="bottom">0</div>
-                    </div>
+                    </equation>
                 </li>
                 Using L'H&ocirc;pital's Rule, differentiate top and bottom:
                 <li>
-                    <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-                    <div class="fraction">
-                        <div class="top">1 &minus;
-                            <div class="fraction">
-                                <div class="top">1</div>
-                                <div class="bottom"><var>x</var></div>
+                    <equation>
+                        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+                        <div class="fraction">
+                            <div class="top">1 &minus;
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>x</var></div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ln>x</ln> &plus;
+                                <div class="fraction">
+                                    <div class="top"><var>x</var> &minus; 1</div>
+                                    <div class="bottom"><var>x</var></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="bottom">
-                            <ln>x</ln> &plus;
-                            <div class="fraction">
-                                <div class="top"><var>x</var> &minus; 1</div>
-                                <div class="bottom"><var>x</var></div>
-                            </div>
-                        </div>
-                    </div>
+                    </equation>
                 </li>
                 <br />Simplify:
                 <li>
-                    <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-                    <div class="fraction">
-                        <div class="top"><var>x</var> &minus; 1</div>
-                        <div class="bottom"><var>x</var>
-                            <ln>x</ln> &plus; <var>x</var> &minus; 1</div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">0</div>
-                        <div class="bottom">0</div>
-                    </div>
+                    <equation>
+                        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+                        <div class="fraction">
+                            <div class="top"><var>x</var> &minus; 1</div>
+                            <div class="bottom"><var>x</var>
+                                <ln>x</ln> &plus; <var>x</var> &minus; 1</div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">0</div>
+                            <div class="bottom">0</div>
+                        </div>
+                    </equation>
                 </li>
                 Using L'H&ocirc;pital's Rule, differentiate top and bottom:
                 <li>
-                    <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">1 &plus;
-                            <ln>x</ln> &plus; 1</div>
-                    </div> =
-                    <span class="answer">
+                    <equation>
+                        <lim as="x" approaches="1<sup>&plus;</sup>"></lim>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">1 &plus;
+                                <ln>x</ln> &plus; 1</div>
+                        </div> =
+                        <span class="answer">
                     <div class="fraction">
                         <div class="top">1</div>
                         <div class="bottom">2</div>
                     </div></span>
+                    </equation>
                 </li>
             </ol>
         </div>
         <li>Use logarithms to find limits in tactics similar to Logarithmic Differentiation, use it whenever you have <var>x</var> in the exponent.</li>
-
         <strong>Ex 4:</strong> Evaluate
-        <lim as="x" approaches="&infin;"></lim><sup><var>x</var></sup>
-        <sqrt><var>x</var></sqrt>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem4SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem4Solution');">Show Solution</a>
+        <equation>
+            <lim as="x" approaches="&infin;"></lim>
+            <nthRoot n="<var>x</var>"><var>x</var></nthRoot>
+        </equation>&emsp;<a href="javascript:void(0)" id="lhopitalsRuleProblem4SolutionToggleLink" onclick="toggleSolution('#lhopitalsRuleProblem4Solution');">Show Solution</a>
         <div id="lhopitalsRuleProblem4Solution" class="solution">
             <ol>
-                Make it into a function <var>y</var>
-                <li><var>y</var> = <sup><var>x</var></sup>
-                    <sqrt><var>x</var></sqrt>
+                Make it into a function
+                <equation><var>y</var></equation>
+                <li>
+                    <equation>
+                        <var>y</var> =
+                        <nthRoot n="<var>x</var>"><var>x</var></nthRoot>
+                    </equation>
                 </li>
                 Find natural log of both sides:
                 <li>
-                    <ln>y</ln> =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>x</var></div>
-                    </div>
-                    <ln>x</ln>
-                </li>
-                Find the limit of both sides:
-                <li>
-                    <lim as="x" approaches="&infin;"></lim>
-                    <ln>y</ln> =
-                    <lim as="x" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <ln>x</ln>
-                        </div>
-                        <div class="bottom"><var>x</var></div>
-                    </div>
-                </li>
-                Solve the right side of the equation:
-                <li>
-                    <lim as="x" approaches="&infin;"></lim>
-                    <ln>y</ln> =
-                    <lim as="x" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <ln>x</ln>
-                        </div>
-                        <div class="bottom"><var>x</var></div>
-                    </div> =
-                    <div class="fraction">
-                        <div class="top">&infin;</div>
-                        <div class="bottom">&infin;</div>
-                    </div>
-                </li>
-                Using L'H&ocirc;pital's Rule, find derivative of top and bottom:
-                <li>
-                    <lim as="x" approaches="&infin;"></lim>
-                    <ln>y</ln> =
-                    <lim as="x" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">
-                            <div class="fraction">
-                                <div class="top">1</div>
-                                <div class="bottom"><var>x</var></div>
-                            </div>
-                        </div>
-                        <div class="bottom">1</div>
-                    </div> = 0
-                </li>
-                Therefore,
-                <lim as="x" approaches="&infin;"></lim>
-                <ln>y</ln> = 0
-                <br />Using our limit rules, the limit of a function is the function of a limit, and substitute <var>y</var> back in
-                <li>
-                    <lim as="x" approaches="&infin;"></lim>
-                    <ln>y</ln> =
-                    <ln>
-                        <lim as="x" approaches="&infin;"></lim>y</ln> =
-                    <ln>
-                        <lim as="x" approaches="&infin;"></lim><sup><var>x</var></sup>
-                        <sqrt><var>x</var></sqrt>
-                    </ln> = 0
-                </li>
-                Raise <var>e</var> to both sides of the equation
-                <li>
-                    <lim as="x" approaches="&infin;"></lim><var>x</var><sup>
+                    <equation>
+                        <ln>y</ln> =
                         <div class="fraction">
                             <div class="top">1</div>
                             <div class="bottom"><var>x</var></div>
-                        </div></sup> = <span class="answer">1</span>
+                        </div>
+                        <ln>x</ln>
+                    </equation>
+                </li>
+                Find the limit of both sides:
+                <li>
+                    <equation>
+                        <lim as="x" approaches="&infin;"></lim>
+                        <ln>y</ln> =
+                        <lim as="x" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <ln>x</ln>
+                            </div>
+                            <div class="bottom"><var>x</var></div>
+                        </div>
+                    </equation>
+                </li>
+                Solve the right side of the equation:
+                <li>
+                    <equation>
+                        <lim as="x" approaches="&infin;"></lim>
+                        <ln>y</ln> =
+                        <lim as="x" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <ln>x</ln>
+                            </div>
+                            <div class="bottom"><var>x</var></div>
+                        </div> =
+                        <div class="fraction">
+                            <div class="top">&infin;</div>
+                            <div class="bottom">&infin;</div>
+                        </div>
+                    </equation>
+                </li>
+                Using L'H&ocirc;pital's Rule, find derivative of top and bottom:
+                <li>
+                    <equation>
+                        <lim as="x" approaches="&infin;"></lim>
+                        <ln>y</ln> =
+                        <lim as="x" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">
+                                <div class="fraction">
+                                    <div class="top">1</div>
+                                    <div class="bottom"><var>x</var></div>
+                                </div>
+                            </div>
+                            <div class="bottom">1</div>
+                        </div> = 0
+                    </equation>
+                </li>
+                Therefore,
+                <equation>
+                    <lim as="x" approaches="&infin;"></lim>
+                    <ln>y</ln> = 0
+                </equation>
+                <br />Using our limit rules, the limit of a function is the function of a limit, and substitute
+                <equation><var>y</var></equation> back in
+                <li>
+                    <equation>
+                        <lim as="x" approaches="&infin;"></lim>
+                        <ln>y</ln> =
+                        <ln>
+                            <lim as="x" approaches="&infin;"></lim>y</ln> =
+                        <ln>
+                            <lim as="x" approaches="&infin;"></lim>
+                            <nthRoot n="<var>x</var>"><var>x</var></nthRoot>
+                        </ln> = 0
+                    </equation>
+                </li>
+                Exponentiate both sides of the equation
+                <li>
+                    <equation>
+                        <lim as="x" approaches="&infin;"></lim>
+                        <nthRoot n="<var>x</var>"><var>x</var></nthRoot> = <span class="answer">1</span>
+                    </equation>
                 </li>
             </ol>
         </div>
@@ -869,37 +1063,46 @@
         <li>To solve improper integrals substitute a variable for &infin; or &minus;&infin; and find the limit as the variable approaches &infin; or &minus;&infin;</li>
 
         <strong>Ex 1:</strong> Evaluate
-        <integral respectTo="x" lowerBound="1" upperBound="&infin;">
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom"><var>x</var><sup>2</sup></div>
-            </div>
-        </integral>
+        <equation>
+            <integral respectTo="x" lowerBound="1" upperBound="&infin;">
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom"><var>x</var><sup>2</sup></div>
+                </div>
+            </integral>
+        </equation>
         &emsp;<a href="javascript:void(0)" id="improperIntegralsProblem1SolutionToggleLink" onclick="toggleSolution('#improperIntegralsProblem1Solution');">Show Solution</a>
         <div id="improperIntegralsProblem1Solution" class="solution">
             <ol>
-                Substitute <var>a</var> for &infin; and find the
-                <lim as="a" approaches="&infin;"></lim>
-                <li>
+                Substitute
+                <equation><var>a</var></equation> for &infin; and find the
+                <equation>
                     <lim as="a" approaches="&infin;"></lim>
-                    <integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
-                        <var>x</var><sup>&minus;2</sup>
-                    </integral>
+                </equation>
+                <li>
+                    <equation>
+                        <lim as="a" approaches="&infin;"></lim>
+                        <integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
+                            <var>x</var><sup>&minus;2</sup>
+                        </integral>
+                    </equation>
                 </li>
                 Solve:
                 <li>
-                    <lim as="a" approaches="&infin;"></lim>
-                    &minus;<var>x</var><sup>&minus;1</sup>
-                    <evaluated from="1" to="<var>a</var>"></evaluated> =
-                    <lim as="a" approaches="&infin;"></lim> &minus;
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom"><var>a</var></div>
-                    </div> &minus; (&minus;
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">1</div>
-                    </div>) = 1
+                    <equation>
+                        <lim as="a" approaches="&infin;"></lim>
+                        &minus;<var>x</var><sup>&minus;1</sup>
+                        <evaluated from="1" to="<var>a</var>"></evaluated> =
+                        <lim as="a" approaches="&infin;"></lim> &minus;
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom"><var>a</var></div>
+                        </div> &minus; (&minus;
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">1</div>
+                        </div>) = 1
+                    </equation>
                 </li>
             </ol>
         </div>
@@ -912,58 +1115,76 @@
         <li>Divergent &minus; Divergent = Indeterminate form</li>
 
         <strong>Ex 2:</strong> Evaluate
-        <integral respectTo="x" lowerBound="1" upperBound="&infin;">
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom">2<var>x</var> &minus; 1</div>
-            </div>
-        </integral>&emsp;<a href="javascript:void(0)" id="improperIntegralsProblem2SolutionToggleLink" onclick="toggleSolution('#improperIntegralsProblem2Solution');">Show Solution</a>
+        <equation>
+            <integral respectTo="x" lowerBound="1" upperBound="&infin;">
+                <div class="fraction">
+                    <div class="top">1</div>
+                    <div class="bottom">2<var>x</var> &minus; 1</div>
+                </div>
+            </integral>
+        </equation>&emsp;<a href="javascript:void(0)" id="improperIntegralsProblem2SolutionToggleLink" onclick="toggleSolution('#improperIntegralsProblem2Solution');">Show Solution</a>
         <div id="improperIntegralsProblem2Solution" class="solution">
             <ol>
                 <li>
-                    <lim as="a" approaches="&infin;"></lim>
-                    <integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
-                        <div class="fraction">
-                            <div class="top">1</div>
-                            <div class="bottom">2<var>x</var> &minus; 1</div>
-                        </div>
-                    </integral>
+                    <equation>
+                        <lim as="a" approaches="&infin;"></lim>
+                        <integral respectTo="x" lowerBound="1" upperBound="<var>a</var>">
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">2<var>x</var> &minus; 1</div>
+                            </div>
+                        </integral>
+                    </equation>
                 </li>
                 <li>
-                    <lim as="a" approaches="&infin;"></lim>
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">2</div>
-                    </div>
-                    <ln>2x &minus; 1</ln>
-                    <evaluated from="1" to="<var>a</var>"></evaluated> =
-                    <div class="fraction">
-                        <div class="top">1</div>
-                        <div class="bottom">2</div>
-                    </div>
-                    <lim as="a" approaches="&infin;"></lim>ln(2<var>a</var> &minus; 1) &minus; ln(1) = &infin; <span class="answer">Diverges</span>
+                    <equation>
+                        <lim as="a" approaches="&infin;"></lim>
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div>
+                        <ln>2x &minus; 1</ln>
+                        <evaluated from="1" to="<var>a</var>"></evaluated> =
+                        <div class="fraction">
+                            <div class="top">1</div>
+                            <div class="bottom">2</div>
+                        </div>
+                        <lim as="a" approaches="&infin;"></lim>ln(2<var>a</var> &minus; 1) &minus; ln(1) = &infin; <span class="answer">Diverges</span>
+                    </equation>
                 </li>
             </ol>
         </div>
         <h5>P-Series Integrals:</h5>
-        <li>If <var>a</var> &gt; 0, then
-            <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;">
+        <li>If
+            <equation><var>a</var> &gt; 0</equation>, then
+            <equation>
+                <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup><var>p</var></sup></div>
+                    </div>
+                </integral>
+            </equation> is convergent if
+            <equation><var>p</var> &gt; 1</equation> and divergent if
+            <equation><var>p</var> &le; 1</equation>
+        </li>
+        <li>If
+            <equation><var>a</var> = 1</equation> and
+            <equation><var>p</var> &gt; 1</equation>, then
+            <equation>
+                <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;">
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom"><var>x</var><sup><var>p</var></sup></div>
+                    </div>
+                </integral>
+            </equation> converges to
+            <equation>
                 <div class="fraction">
                     <div class="top">1</div>
-                    <div class="bottom"><var>x</var><sup><var>p</var></sup></div>
+                    <div class="bottom"><var>p</var> &minus; 1</div>
                 </div>
-            </integral> is convergent if <var>p</var> &gt; 1 and divergent if <var>p</var> &le; 1</li>
-        <li>If <var>a</var> = 1 and <var>p</var> &gt; 1, then
-            <integral respectTo="x" lowerBound="<var>a</var>" upperBound="&infin;">
-                <div class="fraction">
-                    <div class="top">1</div>
-                    <div class="bottom"><var>x</var><sup><var>p</var></sup></div>
-                </div>
-            </integral> converges to
-            <div class="fraction">
-                <div class="top">1</div>
-                <div class="bottom"><var>p</var> &minus; 1</div>
-            </div>
+            </equation>
         </li>
     </ul>
 </div>

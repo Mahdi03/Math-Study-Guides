@@ -20,66 +20,99 @@
             <table class="rules">
                 <tr>
                     <td>
-                        <var>a</var><sub><var>n</var></sub>(<var>x</var>)
-                        <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
-                        <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
-                        <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
-                        <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)
+                        <equation>
+                            <var>a</var><sub><var>n</var></sub>(<var>x</var>)
+                            <derivative of="y" respectTo="x" order="<var>n</var>"></derivative> +
+                            <var>a</var><sub><var>n &minus;</var> 1</sub>(<var>x</var>)
+                            <derivative of="y" respectTo="x" order="<var>n</var> &minus; 1"></derivative> + ... + <var>a</var><sub>1</sub>(<var>x</var>)
+                            <derivative of="y" respectTo="x" order=""></derivative> + <var>a</var><sub>0</sub>(<var>x</var>)<var>y</var> = <var>g</var>(<var>x</var>)
+                        </equation>
                     </td>
                 </tr>
             </table>To tell whether a differential equation is linear, look to see if there are any
-            <sin>y</sin> or <var>y</var><sup>2</sup>
+            <equation>
+                <sin>y</sin>
+            </equation> or
+            <equation><var>y</var><sup>2</sup></equation>.
         </li>
-        <li>When the solution to a differential equation is <var>y(x)</var> = 0, it is called the trivial solution.</li>
+        <li>When the solution to a differential equation is
+            <equation><var>y(x)</var> = 0</equation>, it is called the trivial solution.</li>
         <li>To verify a given solution to the differential equation, differentiate the potential solution as many times as needed to plug it in to the differential equation and check to see if it satisfies the criteria.</li>
         <!--<li>If <var>y</var>(<var>x</var>) is a solution to a linear differential equation, <var>cy</var>(<var>x</var>) is also a solution to the linear differential equation.</li>-->
-        <li>If <var>y</var><sub>1</sub> and <var>y</var><sub>2</sub> are solutions to a linear differential equation, then any linear combination <var>c</var><sub>1</sub><var>y</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>y</var><sub>1</sub>(<var>x</var>)
+        <li>If
+            <equation><var>y</var><sub>1</sub></equation> and
+            <equation><var>y</var><sub>2</sub></equation> are solutions to a linear differential equation, then any linear combination
+            <equation><var>c</var><sub>1</sub><var>y</var><sub>1</sub>(<var>x</var>) + <var>c</var><sub>2</sub><var>y</var><sub>1</sub>(<var>x</var>)</equation>
             is also a solution to the differential equation.</li>
         <hr />
         <li>When looking at word problems, use this table to help:</li>
         <table class="staticTable">
             <tr>
                 <td>directly proportional<br />varies directly</td>
-                <td><var>y = kx</var></td>
+                <td>
+                    <equation><var>y = kx</var></equation>
+                </td>
             </tr>
             <tr>
                 <td>inversely proportional<br />varies inversely</td>
-                <td>y =
-                    <div class="fraction">
-                        <div class="top"><var>k</var></div>
-                        <div class="bottom"><var>x</var></div>
-                    </div> or <var>xy = k</var></td>
+                <td>
+                    <equation>y =
+                        <div class="fraction">
+                            <div class="top"><var>k</var></div>
+                            <div class="bottom"><var>x</var></div>
+                        </div> <text> &nbsp;or&nbsp; </text> <var>xy = k</var></equation>
+                </td>
             </tr>
             <tr>
                 <td>jointly proportional<br />varies jointly</td>
-                <td>output = <var>kxy</var></td>
+                <td>output
+                    <equation>= <var>kxy</var></equation>
+                </td>
             </tr>
         </table>
         <hr />
         <h3>EUST</h3>
         <li>An initial value problem comes in the form of a differential equation and an initial condition
-            <derivative of="y" respectTo="x" order=""></derivative> = <var>f</var> (<var>x</var>, <var>y</var>), <var>y</var>(<var>x</var><sub>0</sub>) = <var>y</var><sub>0</sub></li>
+            <equation>
+                <derivative of="y" respectTo="x" order=""></derivative> = <var>f</var> (<var>x</var>, <var>y</var>), <var>y</var>(<var>x</var><sub>0</sub>) = <var>y</var><sub>0</sub>
+            </equation>
+        </li>
         <h5>Existence of a Unique Solution Theorem (EUST):</h5>
-        <li>Over a 2D domain (rectangle) R whose interior contains the initial condition (<var>x</var><sub>0</sub>, <var>y</var><sub>0</sub>), if:
+        <li>Over a 2D domain (rectangle)
+            <equation>R</equation> whose interior contains the initial condition
+            <equation>(<var>x</var><sub>0</sub>, <var>y</var><sub>0</sub>)</equation>, if:
             <ol>
-                <li><var>f</var> (<var>x</var>, <var>y</var>) is continuous on R</li>
                 <li>
-                    <pDerivative of="f" respectTo="x"></pDerivative> is continuous on R</li>
+                    <equation><var>f</var>(<var>x</var>, <var>y</var>)</equation> is continuous on
+                    <equation>R</equation>
+                </li>
+                <li>
+                    <equation>
+                        <pDerivative of="f" respectTo="x"></pDerivative>
+                    </equation> is continuous on
+                    <equation>R</equation>
+                </li>
             </ol>
             then over such an interval I centered at the initial condition point exists a unique solution to the initial value problem in the aforementioned format.</li>
-        <li>With the EUST theorem (I know it's a tautology) you can check for equilibrium solutions to the IVP. An <u>equilibrium solution</u> is a solution of the form <var>y = k</var>, meaning that
-            <derivative of="y" respectTo="x" order=""></derivative> = <var>k</var></li>
+        <li>With the EUST theorem (I know it's a tautology) you can check for equilibrium solutions to the IVP. An <u>equilibrium solution</u> is a solution of the form
+            <equation><var>y = k</var></equation>, meaning that
+            <equation>
+                <derivative of="y" respectTo="x" order=""></derivative> = <var>k</var>
+            </equation>
+        </li>
         <li>This simplifies the answer because if EUST applies, then if the IVP has an equilibrium solution, it would be the only solution. If not, try verifying the initial condition as that might be the only solution to the IVP.</li>
         <h3>The Method of Picard:</h3>
         <li>This is another approach to solving initial value problems (IVP's). In this method we construct a sequence of terms so that hopefully the n-th term resembles a taylor polynomial or other power series of a familiar function.</li>
         <table class="rules">
             <tr>
                 <td>
-                    <var>y</var><sub><var>n</var> + 1</sub>(<var>x</var>) =
-                    <integral lowerBound="<var>x</var><sub>0</sub>" upperBound="x" respectTo="t">
-                        <var>f</var> (<var>t</var>, <var>y</var><sub><var>n</var></sub>(<var>t</var>))
-                    </integral>
-                    + <var>y</var><sub>0</sub>
+                    <equation>
+                        <var>y</var><sub><var>n</var> + 1</sub>(<var>x</var>) =
+                        <integral lowerBound="<var>x</var><sub>0</sub>" upperBound="x" respectTo="t">
+                            <var>f</var> (<var>t</var>, <var>y</var><sub><var>n</var></sub>(<var>t</var>))
+                        </integral>
+                        + <var>y</var><sub>0</sub>
+                    </equation>
                 </td>
             </tr>
         </table>
@@ -533,3 +566,6 @@
         <li>u-substitution works in more general ways, just be creative to convert differential equations into aforementioned forms.</li>
     </ul>
 </div>
+<script>
+    renderMath();
+</script>

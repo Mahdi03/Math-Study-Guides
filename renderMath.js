@@ -122,6 +122,7 @@ function renderMath(parentElement = "") {
                 .replaceAll("||", "&#x2225;") //Allows to show magnitude of vectors
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
+                .replaceAll(createHTMLNodesFromString("&lang;")[0].textContent, "\\left\\langle").replaceAll(createHTMLNodesFromString("&rang;")[0].textContent, "\\right\\rangle")
                 //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
@@ -148,6 +149,35 @@ function renderMath(parentElement = "") {
                 var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
                 var newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
+            }
+            //Replace sqrt{} with \sqrt {}
+            while (dom.querySelector("sqrt") != undefined) {
+                var oldSQRT = dom.querySelector("sqrt");
+                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+                oldSQRT.replaceWith(...newSQRT);
+                //console.log(dom.innerHTML)
+            }
+            // <nthRoot n="3"></nthRoot> (for 3rd root and so on)
+            while (dom.querySelector("nthRoot") != undefined) {
+                var oldNthRoot = dom.querySelector("nthRoot");
+                var n = oldNthRoot.getAttribute("n");
+                var newNthRoot = createHTMLNodesFromString(`\\sqrt[${n}]{${oldNthRoot.innerHTML}}`);
+                oldNthRoot.replaceWith(...newNthRoot);
+            }
+            while (dom.querySelector("evaluated") != undefined) {
+                var oldEvaluated = dom.querySelector("evaluated");
+                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
+                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
+                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
+                oldEvaluated.replaceWith(...newEvaluated);
+            }
+            while (dom.querySelector("div.fraction") != undefined) {
+                var oldFrac = dom.querySelector("div.fraction");
+                var top = oldFrac.children[0].innerHTML;
+                var bottom = oldFrac.children[1].innerHTML;
+                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
+                oldFrac.replaceWith(...newFrac);
+                //console.log(dom.innerHTML)
             }
             while (dom.querySelector("log") != undefined) {
                 var oldLog = dom.querySelector("log");
@@ -200,13 +230,6 @@ function renderMath(parentElement = "") {
                 var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
                 var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
-            }
-            while (dom.querySelector("evaluated") != undefined) {
-                var oldEvaluated = dom.querySelector("evaluated");
-                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
-                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
-                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}");
-                oldEvaluated.replaceWith(...newEvaluated);
             }
             while (dom.querySelector("laPlaceTransform") != undefined) {
                 var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
@@ -329,12 +352,13 @@ function renderMath(parentElement = "") {
             for (var i = 0; i < otherFunctions.length; i++) {
                 while (dom.querySelector(otherFunctions[i]) != undefined) {
                     var oldFunc = dom.querySelector(otherFunctions[i]);
-                    var power = "";
-                    if (oldFunc.hasAttribute("power")) {
-                        power = oldFunc.getAttribute("power");
+                    var powerStr = "";
+                    if (oldFunc.getAttribute("inv") != null) {
+                        powerStr = "^{-1}";
+                    } else if (oldFunc.getAttribute("power")) {
+                        powerStr = "^{" + oldFunc.getAttribute("power") + "}";
                     }
-                    if (power != "") { power = "^{" + power + "}"; }
-                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "}" + power + "{\\left(" + oldFunc.innerHTML + "\\right)}");
+                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "}" + powerStr + "{\\left(" + oldFunc.innerHTML + "\\right)}");
                     oldFunc.replaceWith(...newFunc);
                 }
             }
