@@ -297,6 +297,12 @@ function renderMath(parentElement = "") {
                 var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
                 oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
             }
+            //Used to simply get rid of all other span tags until new fixes can be implemented
+            while (dom.querySelector("span") != undefined) {
+                var oldSpan = dom.querySelector("span");
+                var newSpan = createHTMLNodesFromString(oldSpan.innerHTML);
+                oldSpan.replaceWith(...newSpan);
+            }
             while (dom.querySelector("sup") != undefined) {
                 var oldSUP = dom.querySelector("sup");
                 var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
