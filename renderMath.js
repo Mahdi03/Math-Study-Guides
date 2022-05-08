@@ -314,35 +314,6 @@ function renderMath(parentElement = "") {
                 }
                 oldDet.replaceWith(...newDet);
             }
-            //Remember that MathJax does not support boxed answers in aligned equations
-            while (dom.querySelector("span.answer") != undefined) {
-                var oldSpan = dom.querySelector("span.answer");
-                //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
-                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
-                oldSpan.replaceWith(...newSpan);
-            }
-            while (dom.querySelector("span.cancel") != undefined) {
-                var oldSpan = dom.querySelector("span.cancel");
-                var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
-                oldSpan.replaceWith(...newSpan);
-            }
-            while (dom.querySelector("span.alignedEquations") != undefined) {
-                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
-                while (oldSpanAlignedEquations.querySelector("br") != undefined) {
-                    var oldBR = oldSpanAlignedEquations.querySelector("br");
-                    var newBR = createHTMLNodesFromString("\n\\\\\n");
-                    oldBR.replaceWith(...newBR);
-                }
-                oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
-                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
-                oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
-            }
-            //Used to simply get rid of all other span tags until new fixes can be implemented
-            while (dom.querySelector("span") != undefined) {
-                var oldSpan = dom.querySelector("span");
-                var newSpan = createHTMLNodesFromString(oldSpan.innerHTML);
-                oldSpan.replaceWith(...newSpan);
-            }
             while (dom.querySelector("sup") != undefined) {
                 var oldSUP = dom.querySelector("sup");
                 var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
@@ -361,21 +332,6 @@ function renderMath(parentElement = "") {
                 var oldVAR = dom.querySelector("var");
                 var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
                 oldVAR.replaceWith(...newVAR);
-                //console.log(dom.innerHTML)
-            }
-            //Replace sqrt{} with \sqrt {}
-            while (dom.querySelector("sqrt") != undefined) {
-                var oldSQRT = dom.querySelector("sqrt");
-                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
-                oldSQRT.replaceWith(...newSQRT);
-                //console.log(dom.innerHTML)
-            }
-            while (dom.querySelector("div.fraction") != undefined) {
-                var oldFrac = dom.querySelector("div.fraction");
-                var top = oldFrac.children[0].innerHTML;
-                var bottom = oldFrac.children[1].innerHTML;
-                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
-                oldFrac.replaceWith(...newFrac);
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("text") != undefined) {
@@ -397,6 +353,7 @@ function renderMath(parentElement = "") {
                     oldFunc.replaceWith(...newFunc);
                 }
             }
+            //Replace vector{} with \overrightarrow{}
             while (dom.querySelector("vector") != undefined) {
                 var oldVector = dom.querySelector("vector");
                 var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
@@ -431,7 +388,12 @@ function renderMath(parentElement = "") {
                 var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
                 oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
             }
-            //Replace vector{} with \overrightarrow{}
+            //Used to simply get rid of all other span tags until new fixes can be implemented
+            while (dom.querySelector("span") != undefined) {
+                var oldSpan = dom.querySelector("span");
+                var newSpan = createHTMLNodesFromString(oldSpan.innerHTML);
+                oldSpan.replaceWith(...newSpan);
+            }
             //myString.replace(/<sup>()<\/sup>/, "^{$1}");
             innerMath += dom.innerHTML.replaceAll(",", ",\\,"); //adds a space after every comma - Added it down here since my matrix tags used commas and I didn't want to replace those until they were latex-ified
             innerMath += "\\)";
