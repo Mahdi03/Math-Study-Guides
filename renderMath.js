@@ -126,11 +126,17 @@ function renderMath(parentElement = "") {
                 //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
-                .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert")
-                //.replaceAll("&lang;", "hello")
-                //.replace(/[⟨⟨]/gi, "hello").replace(/⟩/gi, "\\right&rang;")
-                //Replace HTML entities so they don't show up small on mobile
-                .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
+                .replace(/[|]([^|]{1,})[|]/gm, "\\left\\vert {$1} \\right\\vert");
+            //.replaceAll("&lang;", "hello")
+            //.replace(/[⟨⟨]/gi, "hello").replace(/⟩/gi, "\\right&rang;")
+            //Replace HTML entities so they don't show up small on mobile
+            var symbols = ["theta", "alpha", "beta", "gamma", "pi", "rho", "phi", "omega", "tau", "epsilon", "kappa", "mu"];
+            for (var symbol of symbols) {
+                var regularExpression = new RegExp(createHTMLNodesFromString(`&${symbol};`)[0].textContent, "gmi"); //Create regular expression for each html entity in symbolic form
+                dom.innerHTML = dom.innerHTML.replace(regularExpression, `\\${symbol}`); //Actually replace with MathJax counterpart
+            }
+            /*
+            .replace(/&theta;/gi, "\\theta").replace(/&alpha;/gi, "\\alpha")
                 .replace(/&beta;/gi, "\\beta").replace(/&gamma;/gi, "\\gamma")
                 .replace(/&pi;/gi, "\\pi").replace(/&rho;/gi, "\\rho").replace(/&phi;/gi, "\\phi")
                 .replace(/&omega;/gi, "\\omega").replace(/&tau;/gi, "\\tau")
@@ -142,7 +148,7 @@ function renderMath(parentElement = "") {
                 /*
                     .replace(/[\[]([^\]]{1,})[\]]/gm, "\\left[ {$1} \\right]").replace(/[\(]([^\)]{1,})[\)]/gm, "\\left( {$1} \\right)")
                 .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
-            ;
+
             while (dom.querySelector("sigma") != undefined) {
                 var oldSigma = dom.querySelector("sigma");
                 var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
