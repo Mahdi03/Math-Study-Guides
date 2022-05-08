@@ -122,6 +122,7 @@ function renderMath(parentElement = "") {
                 .replaceAll("||", "&#x2225;") //Allows to show magnitude of vectors
                 .replaceAll("(", "\\left(").replaceAll(")", "\\right)")
                 .replaceAll("[", "\\left[").replaceAll("]", "\\right]")
+                .replaceAll(createHTMLNodesFromString("&lang;")[0].textContent, "\\left\\langle").replaceAll(createHTMLNodesFromString("&rang;")[0].textContent, "\\right\\rangle")
                 //The following line comes from: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
                 .replace(/^((?!\\ce).){0,9}({[^}]{1,}})$/gmi, "\\left\\{$2\\right\\}")
                 //.replaceAll("{", "\\left\\{").replaceAll("}", "\\right\\}")
