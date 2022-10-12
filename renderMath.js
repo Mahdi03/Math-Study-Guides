@@ -1027,6 +1027,7 @@ class CircuitDiagram {
         return this;
     }
     beginCircuit(a, b) {
+        this.ctx.clearRect(0, 0, this.originalCanvasWidth, this.originalCanvasHeight);
         this.ctx.lineWidth = 1.5;
         this.ctx.strokeStyle = "#000";
         this.ctx.beginPath();
