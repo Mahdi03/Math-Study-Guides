@@ -1,510 +1,538 @@
-        /*Font For Normal Text To Read*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
-        /*Font for Main Title (<h1>)*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
-        /*Font For Unit Titles (<h2>)*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
-        /*Font For Titles of Sections (<h3>)*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap');
-        /*Font For Titles of Thms and Rules (<h5>)*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-        body {
-            width: 75%;
-            margin: 5px auto;
-            overflow-y: scroll;
-        }
-        
-        body.mobile {
-            width: 90%;
-        }
-        /* Header Styles */
-        
-        h1 {
-            text-align: center;
-            font-family: 'Rock Salt', cursive;
-            color: darkblue;
-            font-size: 30pt;
-        }
-        
-        h2 {
-            /*display: flex;
-            flex-direction: column;
-            justify-content: center;*/
-            font-size: 25pt;
-            font-family: 'Fredoka One', cursive;
-            color: orange;
-        }
-        
-        h1 a,
-        h2 a {
-            color: inherit;
-            text-decoration: none;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .mobile h2 {
-            font-size: 35pt;
-            margin: 0;
-        }
-        
-        h3 {
-            font-size: 30pt;
-            font-family: 'Dancing Script', cursive;
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-        
-        .mobile h3 {
-            font-size: 2.9em;
-        }
-        
-        h5 {
-            font-size: 18pt;
-            font-family: 'Indie Flower', cursive;
-            margin: 0;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .mobile h5 {
-            font-size: 2em;
-        }
-        /*Styles for main bullet points*/
-        
-        li:not(var) {
-            font-size: 12pt;
-            font-family: 'Titilium Web', sans-serif;
-            margin: 0.75em 0 0.75em 0;
-        }
-        
-        .mobile li:not(var) {
-            font-size: 1em;
-            margin: 1.5em 0 1.5em 0;
-        }
-        /*.indent>ul {
-            list-style-type: none;
-        }
-        
-        .indent>ul>li:before {
-            Theta
-            content: '\03B8';
-            Infinity
-            content: '\221E';
-            margin-left: -20px;
-            margin-right: 10px;
-            font-size: 16pt;
-        }*/
-        
-        .indent {
-            margin-left: 4em;
-        }
-        
-        .mobile .indent {
-            margin-left: 2em;
-        }
-        /*To make equation tags Scrollable*/
-        /*equation:not(table.rules equation):not(li equation),*/
-        
-        equation.scrollable {
-            display: inline-grid;
-            width: 100%;
-        }
-        /*equation:not(table.rules equation):not(li equation)>mjx-container,*/
-        
-        equation.scrollable>mjx-container {
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-        
-        table.rules equation::selection,
-        table.rules equation::-moz-selection {
-            background-color: rgb(0, 208, 255);
-            color: white;
-        }
-        /*Begin supplementary math styles*/
-        
-        .fraction {
-            display: inline-block;
-            margin: 2px;
-            margin-bottom: 1em;
-        }
-        
-         :not(lim)>.fraction .top {
-            border-bottom: 1px solid black;
-        }
-        
-        .fraction .top,
-        .fraction .bottom {
-            text-align: center;
-        }
-        
-        .limTable {
-            display: inline-table;
-            margin: 0;
-            padding: 0;
-            border: 1px solid black;
-        }
-        
-        .limTable td {
-            border: 1px solid black;
-            padding: 0;
-            vertical-align: center;
-            text-align: center;
-        }
-        
-        derivative .fraction {
-            transform: translateY(30%);
-        }
-        
-         :not(.limTable) .fraction {
-            transform: translateY(30%);
-        }
-        /*Style popup tables*/
-        
-        .rules td {
-            border: 2px solid black;
-            border-radius: 15px;
-            border-spacing: 0;
-            padding: 10px;
-            text-align: center;
-        }
-        
-        .rules td .th {
-            display: block;
-        }
-        
-        #unit1,
-        #unit2,
-        #unit3,
-        #unit4,
-        #unit5,
-        #unit6,
-        #unit7,
-        #unit8,
-        #unit9,
-        #limitFormulas,
-        .solution,
-        #prerequisites,
-        #linearMotion,
-        #forces,
-        #energy,
-        #rotationalMotion,
-        #waves {
-            display: none;
-            -webkit-transition: display 1s ease-in-out;
-            -moz-transition: display 1s ease-in-out;
-            -ms-transition: display 1s ease-in-out;
-            -o-transition: display 1s ease-in-out;
-            transition: display 1s ease-in-out;
-        }
-        
-        .solution {
-            margin-top: 10px;
-        }
-        
-        .answer {
-            border: 2px solid black;
-            padding: 5px;
-        }
-        
-        .mobile .studyGuideDropdown {
-            /*display: flex;
-            flex-direction: row;
-            align-items: center;
-            /*justify-content: space-evenly;
-            align-items: center;*/
-            display: table-row;
-            padding: 0;
-        }
-        
-        .mobile .studyGuideDropdown>.toggleButtonTDWrapper,
-        .mobile .studyGuideDropdown>h2 {
-            display: table-cell;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .mobile .studyGuideDropdown>h2 {
-            padding-left: 1em;
-        }
-        /*Allow the hover to be applied on both desktop and mobile*/
-        
-        .studyGuideDropdown:hover .toggleButton {
-            background-color: rgb(0, 208, 255);
-            cursor: pointer;
-        }
-        
-        .studyGuideDropdown:hover h2,
-        .studyGuideDropdown:hover h2 a {
-            color: rgb(0, 180, 255);
-            cursor: pointer;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .toggleButton:before {
-            padding-top: 100%;
-        }
-        
-        .toggleButton {
-            border: 1px solid grey;
-            font-size: 20px;
-            display: inline-table;
-            margin: 5px;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            float: left;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            vertical-align: center;
-            background-color: orange;
-            border-radius: 25px;
-        }
-        
-        .mobile .toggleButton {
-            /*display: inline-table;*/
-            margin: 5px;
-            text-align: center;
-            float: none;
-            font-size: 40pt;
-            border: 2px solid grey;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            padding: 10px;
-            border-radius: 50px;
-        }
-        
-        .mobile .toggleButton.loading {
-            padding: 0;
-        }
-        
-        .mobile .tableOfContents {
-            margin: 0 auto;
-        }
-        
-        .important {
-            transition: all 0.5s ease-in-out;
-            background-color: white;
-        }
-        
-        .important:hover {
-            border-style: dashed;
-            width: auto;
-            cursor: default;
-            transform: scale(1.2);
-            -webkit-transform: scale(1.2);
-            background-color: rgb(0, 208, 255);
-            position: relative;
-            z-index: 10;
-        }
-        
-        derivative,
-        lim,
-        sqrt,
-        var {
-            font-family: initial;
-            /*Overrides the Google Fonts so that the math can render better*/
-        }
-        /*
-        Vector tags
-        <div class="outer">
-            <div class="inner">&rarr;</div>
-            <div class="inner">v</div>
-        </div>
-        */
-        
-        .outer {
-            /*width: 12pt;*/
-            display: inline-block;
-            margin-left: -4px;
-        }
-        
-        .inner,
-        .inner var {
-            margin: 0;
-            border: none;
-            padding: 0;
-            text-align: center;
-            height: 7pt;
-        }
-        /*Single Vector tags in numerator of fraction tags need to be translated up*/
-        
-        .top vector:only-child {
-            display: inline-block;
-            transform: translateY(-7px);
-        }
-        
-        .matrix {
-            border-left: 1px solid black;
-            border-right: 1px solid black;
-            display: inline-table;
-            transform: translateY(-20%);
-        }
-        
-        .matrix td {
-            padding: 1px;
-            text-align: center;
-        }
-        
-        img[src="./equations.jpg"],
-        #inclinedPlanes1,
-        #inclinedPlanes2 {
-            width: 50%;
-            height: auto;
-        }
-        
-        .longdivision2nd {
-            text-align: center;
-        }
-        
-        .longdivision3rd {
-            text-align: end;
-        }
-        
-        .longdivision4th {
-            text-align: end;
-        }
-        
-        .sigmaTag,
-        .sigmaTag td,
-        .sigmaTag tr,
-        .matrix td,
-        .chemicalElement td {
-            text-align: center !important;
-            border: none !important;
-            border-radius: 0 !important;
-            border-collapse: collapse !important;
-            border-spacing: 0 !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        
-        .chemicalElement {
-            line-height: 10px;
-            display: inline-table;
-            border-spacing: 0;
-            transform: translateY(-40%);
-        }
-        
-        .chemicalElement td:not(.elementName) {
-            font-size: 70%;
-            padding-top: 1px;
-            padding-bottom: 1px;
-        }
-        
-        .staticTable {
-            border-collapse: collapse;
-        }
-        
-        .staticTable>tr>td,
-        .staticTable>tbody>tr>td,
-        .staticTable>tr>th:not(.rules th),
-        .staticTable>tbody>tr>th:not(.rules th) {
-            margin: 5px;
-            padding: 10px;
-            text-align: center;
-            border: 2px solid black;
-            border-collapse: collapse;
-        }
-        
-        #pascalsTriangle {
-            text-align: center;
-            padding-left: 6px;
-            padding-right: 6px;
-        }
-        
-        .reviewTopic {
-            border: 3px dashed;
-            padding: 20px;
-        }
-        
-        #vocab h2 {
-            font-size: 200%;
-            text-align: center;
-        }
-        
-        #vocab h3 {
-            font-size: 150%;
-            font-family: 'ZCOOL XiaoWei', serif;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        .backToTopButton {
-            background-color: rgba(0, 0, 0, calc(150/255));
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            position: fixed;
-            right: 10px;
-            bottom: 10px;
-            visibility: hidden;
-            opacity: 0;
-        }
-        
-        .backToTopButton:hover {
-            cursor: pointer;
-        }
-        /*To toggle the visibility of the backToTop button by fading*/
-        
-        .backToTopButton.show {
-            visibility: visible;
-            opacity: 1;
-            transition: visibility 0s linear, opacity 500ms ease-in;
-        }
-        
-        .backToTopButton.hide {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 500ms linear, opacity 500ms ease-in;
-        }
-        
-        .upArrow {
-            margin-bottom: 2px;
-        }
-        
-        .upArrow .triangle {
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 10px solid white;
-            margin: 0 auto;
-        }
-        
-        .upArrow .rectangle {
-            height: 12px;
-            width: 2px;
-            background-color: white;
-            margin: 0 auto;
-        }
-        
-        .grayedOut,
-        .greyedOut {
-            background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) 2px, white 2px, white 8px);
-        }
+/*Font For Normal Text To Read*/
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+/*Font for Main Title (<h1>)*/
+
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+
+/*Font For Unit Titles (<h2>)*/
+
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+/*Font For Titles of Sections (<h3>)*/
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap');
+
+/*Font For Titles of Thms and Rules (<h5>)*/
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+body {
+    width: 75%;
+    margin: 5px auto;
+    overflow-y: scroll;
+}
+
+body.mobile {
+    width: 90%;
+}
+
+
+/* Header Styles */
+
+h1 {
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    color: darkblue;
+    font-size: 30pt;
+}
+
+h2 {
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;*/
+    font-size: 25pt;
+    font-family: 'Fredoka One', cursive;
+    color: orange;
+}
+
+h1 a,
+h2 a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.mobile h2 {
+    font-size: 35pt;
+    margin: 0;
+}
+
+h3 {
+    font-size: 30pt;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.mobile h3 {
+    font-size: 2.9em;
+}
+
+h5 {
+    font-size: 18pt;
+    font-family: 'Indie Flower', cursive;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mobile h5 {
+    font-size: 2em;
+}
+
+
+/*Styles for main bullet points*/
+
+li:not(var) {
+    font-size: 12pt;
+    font-family: 'Titilium Web', sans-serif;
+    margin: 0.75em 0 0.75em 0;
+}
+
+.mobile li:not(var) {
+    font-size: 1em;
+    margin: 1.5em 0 1.5em 0;
+}
+
+
+/*.indent>ul {
+    list-style-type: none;
+}
+
+.indent>ul>li:before {
+    Theta
+    content: '\03B8';
+    Infinity
+    content: '\221E';
+    margin-left: -20px;
+    margin-right: 10px;
+    font-size: 16pt;
+}*/
+
+.indent {
+    margin-left: 4em;
+}
+
+.mobile .indent {
+    margin-left: 2em;
+}
+
+
+/*To make equation tags Scrollable*/
+
+
+/*equation:not(table.rules equation):not(li equation),*/
+
+equation.scrollable {
+    display: inline-grid;
+    width: 100%;
+}
+
+
+/*equation:not(table.rules equation):not(li equation)>mjx-container,*/
+
+equation.scrollable>mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+table.rules equation::selection,
+table.rules equation::-moz-selection {
+    background-color: rgb(0, 208, 255);
+    color: white;
+}
+
+
+/*Begin supplementary math styles*/
+
+.fraction {
+    display: inline-block;
+    margin: 2px;
+    margin-bottom: 1em;
+}
+
+ :not(lim)>.fraction .top {
+    border-bottom: 1px solid black;
+}
+
+.fraction .top,
+.fraction .bottom {
+    text-align: center;
+}
+
+.limTable {
+    display: inline-table;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+.limTable td {
+    border: 1px solid black;
+    padding: 0;
+    vertical-align: center;
+    text-align: center;
+}
+
+derivative .fraction {
+    transform: translateY(30%);
+}
+
+ :not(.limTable) .fraction {
+    transform: translateY(30%);
+}
+
+
+/*Style popup tables*/
+
+.rules td {
+    border: 2px solid black;
+    border-radius: 15px;
+    border-spacing: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.rules td .th {
+    display: block;
+}
+
+#unit1,
+#unit2,
+#unit3,
+#unit4,
+#unit5,
+#unit6,
+#unit7,
+#unit8,
+#unit9,
+#limitFormulas,
+.solution,
+#prerequisites,
+#linearMotion,
+#forces,
+#energy,
+#rotationalMotion,
+#waves {
+    display: none;
+    -webkit-transition: display 1s ease-in-out;
+    -moz-transition: display 1s ease-in-out;
+    -ms-transition: display 1s ease-in-out;
+    -o-transition: display 1s ease-in-out;
+    transition: display 1s ease-in-out;
+}
+
+.solution {
+    margin-top: 10px;
+}
+
+.answer {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.mobile .studyGuideDropdown {
+    /*display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*justify-content: space-evenly;
+    align-items: center;*/
+    display: table-row;
+    padding: 0;
+}
+
+.mobile .studyGuideDropdown>.toggleButtonTDWrapper,
+.mobile .studyGuideDropdown>h2 {
+    display: table-cell;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.mobile .studyGuideDropdown>h2 {
+    padding-left: 1em;
+}
+
+
+/*Allow the hover to be applied on both desktop and mobile*/
+
+.studyGuideDropdown:hover .toggleButton {
+    background-color: rgb(0, 208, 255);
+    cursor: pointer;
+}
+
+.studyGuideDropdown:hover h2,
+.studyGuideDropdown:hover h2 a {
+    color: rgb(0, 180, 255);
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.toggleButton:before {
+    padding-top: 100%;
+}
+
+.toggleButton {
+    border: 1px solid grey;
+    font-size: 20px;
+    display: inline-table;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: center;
+    background-color: orange;
+    border-radius: 25px;
+}
+
+.mobile .toggleButton {
+    /*display: inline-table;*/
+    margin: 5px;
+    text-align: center;
+    float: none;
+    font-size: 40pt;
+    border: 2px solid grey;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.mobile .toggleButton.loading {
+    padding: 0;
+}
+
+.mobile .tableOfContents {
+    margin: 0 auto;
+}
+
+.important {
+    transition: all 0.5s ease-in-out;
+    background-color: white;
+}
+
+.important:hover {
+    border-style: dashed;
+    width: auto;
+    cursor: default;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    background-color: rgb(0, 208, 255);
+    position: relative;
+    z-index: 10;
+}
+
+derivative,
+lim,
+sqrt,
+var {
+    font-family: initial;
+    /*Overrides the Google Fonts so that the math can render better*/
+}
+
+
+/*
+Vector tags
+<div class="outer">
+    <div class="inner">&rarr;</div>
+    <div class="inner">v</div>
+</div>
+*/
+
+.outer {
+    /*width: 12pt;*/
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.inner,
+.inner var {
+    margin: 0;
+    border: none;
+    padding: 0;
+    text-align: center;
+    height: 7pt;
+}
+
+
+/*Single Vector tags in numerator of fraction tags need to be translated up*/
+
+.top vector:only-child {
+    display: inline-block;
+    transform: translateY(-7px);
+}
+
+.matrix {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display: inline-table;
+    transform: translateY(-20%);
+}
+
+.matrix td {
+    padding: 1px;
+    text-align: center;
+}
+
+img[src="./equations.jpg"],
+#inclinedPlanes1,
+#inclinedPlanes2 {
+    width: 50%;
+    height: auto;
+}
+
+.longdivision2nd {
+    text-align: center;
+}
+
+.longdivision3rd {
+    text-align: end;
+}
+
+.longdivision4th {
+    text-align: end;
+}
+
+.sigmaTag,
+.sigmaTag td,
+.sigmaTag tr,
+.matrix td,
+.chemicalElement td {
+    text-align: center !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.chemicalElement {
+    line-height: 10px;
+    display: inline-table;
+    border-spacing: 0;
+    transform: translateY(-40%);
+}
+
+.chemicalElement td:not(.elementName) {
+    font-size: 70%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.staticTable {
+    border-collapse: collapse;
+}
+
+.staticTable>tr>td,
+.staticTable>tbody>tr>td,
+.staticTable>tr>th:not(.rules th),
+.staticTable>tbody>tr>th:not(.rules th) {
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+#pascalsTriangle {
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.reviewTopic {
+    border: 3px dashed;
+    padding: 20px;
+}
+
+#vocab h2 {
+    font-size: 200%;
+    text-align: center;
+}
+
+#vocab h3 {
+    font-size: 150%;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.backToTopButton {
+    background-color: rgba(0, 0, 0, calc(150/255));
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.backToTopButton:hover {
+    cursor: pointer;
+}
+
+
+/*To toggle the visibility of the backToTop button by fading*/
+
+.backToTopButton.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear, opacity 500ms ease-in;
+}
+
+.backToTopButton.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms linear, opacity 500ms ease-in;
+}
+
+.upArrow {
+    margin-bottom: 2px;
+}
+
+.upArrow .triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid white;
+    margin: 0 auto;
+}
+
+.upArrow .rectangle {
+    height: 12px;
+    width: 2px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.grayedOut,
+.greyedOut {
+    background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) 2px, white 2px, white 8px);
+}
