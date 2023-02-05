@@ -1,9 +1,3 @@
-document.querySelectorAll("[redir]").forEach((element) => {
-    element.onclick = function() {
-        var link = element.getAttribute("redir");
-        window.location.assign(link);
-    }
-});
 /* Taken from: https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
    returns true if mobile
 */
@@ -96,20 +90,7 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
     toggleButton.addEventListener("click", getFile);
 
 });
-/*
-document.querySelectorAll("h1").forEach(function(element) {
-    element.onclick = function(event) {
-        var link = event.srcElement.attributes.redir.nodeValue;
-        createAndClickLink(link);
-    }
-});
 
-function createAndClickLink(link) {
-    var a = document.createElement("a");
-    a.href = link;
-    a.click();
-}
-*/
 //};
 
 var backToTopButton = document.createElement("div");

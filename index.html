@@ -34,29 +34,15 @@
 
 <body>
     <h1>Table of Contents:</h1>
-    <h2 redir="EM3/studyGuide.html">EM3 Study Guide</h2>
-    <h2 redir="AP Calc BC/studyGuide.html">AP Calc BC Study Guide</h2>
-    <h2 redir="Differential Calc/studyGuide.html">Differential Calc Study Guide</h2>
-    <h2 redir="MV Calc/studyGuide.html">Multivariable Calc Study Guide</h2>
-    <h2 redir="AP Physics 1/studyGuide.html">AP Physics 1 Study Guide</h2>
-    <h2 redir="AP Physics 2/studyGuide.html">AP Physics 2 Study Guide</h2>
-    <h2 redir="AP Chem/studyGuide.html">AP Chemistry Study Guide</h2>
+    <h2><a href="EM3/studyGuide.html">EM3</a></h2>
+    <h2><a href="AP Calc BC/studyGuide.html">AP Calculus BC</a></h2>
+    <h2><a href="Differential Calc/studyGuide.html">Differential Equations</a></h2>
+    <h2><a href="MV Calc/studyGuide.html">Multivariable Calculus</a></h2>
+    <h2><a href="AP Physics 1/studyGuide.html">AP Physics 1</a></h2>
+    <h2><a href="AP Physics 2/studyGuide.html">AP Physics 2</a></h2>
+    <h2><a href="AP Chem/studyGuide.html">AP Chemistry</a></h2>
 
     <script src="main.js"></script>
-    <script>
-        document.querySelectorAll("h2").forEach(function(element) {
-            element.onclick = function(event) {
-                var link = event.srcElement.attributes.redir.nodeValue;
-                createAndClickLink(link);
-            }
-        });
-
-        function createAndClickLink(link) {
-            var a = document.createElement("a");
-            a.href = link;
-            a.click();
-        }
-    </script>
 </body>
 
 </html>

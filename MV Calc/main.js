@@ -25,16 +25,4 @@ document.body.onload = function() {
     renderMath();
     addImportanceToFormulas();
     removeImportanceFromElements();
-    document.querySelectorAll("h1").forEach(function(element) {
-        element.onclick = function(event) {
-            var link = event.srcElement.attributes.redir.nodeValue;
-            createAndClickLink(link);
-        }
-    });
-
-    function createAndClickLink(link) {
-        var a = document.createElement("a");
-        a.href = link;
-        a.click();
-    }
 };
