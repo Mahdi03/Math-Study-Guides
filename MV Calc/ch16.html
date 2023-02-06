@@ -14,7 +14,7 @@ http://farside.ph.utexas.edu/teaching/em/lectures/node6.html
 This link provides information about a lot of stuff!!!!
 
     -->
-    <h3>16.1: </h3>
+    <h3>16.1: Vector Fields:</h3>
     <ul>
         <li>Vector-valued functions describe the motion of a particle in space whereas vector fields can track the motion of a fluid.</li>
         <li>The function notation being
@@ -50,6 +50,9 @@ This link provides information about a lot of stuff!!!!
                 </td>
             </tr>
         </table>
+        <li>So the gradient vector field of
+            <equation>z = x<sup>2</sup> + y<sup>2</sup></equation> is
+            <equation>&nabla;f (x, y) = &lang;2x, 2y&rang;</equation>.</li>
     </ul>
     <h3>16.2: Scalar and Vector Line Integrals:</h3>
     <ul>
@@ -166,7 +169,7 @@ This link provides information about a lot of stuff!!!!
                             (
                             <derivative of="x" respectTo="t"></derivative>)<sup>2</sup> + (
                             <derivative of="y" respectTo="t"></derivative>)<sup>2</sup>
-                        </sqrt>
+                        </sqrt>dt
                     </equation>
                 </td>
                 <th>See proof for scalar line integrals</th>
@@ -362,7 +365,110 @@ This link provides information about a lot of stuff!!!!
         </div>
     </ul>
     <h3>16.3: Fundamental Theorem of Line Integrals:</h3>
-    <ul></ul>
+    <ul>
+        <li>Let
+            <equation><var>C</var></equation> be a piecewise smooth curve given by the vector function
+            <equation>
+                <vector>r</vector>(t)
+            </equation>,
+            <equation><var>a &lt; t &lt; b</var></equation>, let
+            <equation><var>f</var></equation> be differentiable function of 2 or 3 variables whose gradient vector
+            <equation><var>&nabla;f</var></equation> is continuous on
+            <equation><var>C</var></equation>, then</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <integral lowerBound="C">
+                            &nabla;f &sdot; d
+                            <vector>r</vector>
+                        </integral> = f(
+                        <vector>r</vector>(b)) &minus; f(
+                        <vector>r</vector>(a))
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <!--Connected region example diagrams - show/hide actual definition-->
+        <li>A region is <u>connected</u> if you can find a curve that fits entirely within the region to connect any two points. (Connected means one piece)<br /><a href="javascript:void(0)" id="connectedRegionDefinitionToggleLink" onclick="toggleSolution('#connectedRegionDefinition', 'Definition');">Show Definition</a></li>
+        <p id="connectedRegionDefinition" class="solution">Definition: A region
+            <equation>D &sube; &#x211d;<sup>2</sup></equation> is <u>connected</u> if for all points
+            <equation>(<var>x<sub>1</sub></var>, <var>y<sub>1</sub></var>), (<var>x<sub>1</sub></var>, <var>y<sub>1</sub></var>) &isin; D</equation> there exists a curve
+            <equation><var>C</var></equation> from
+            <equation>(<var>x<sub>1</sub></var>, <var>y<sub>1</sub></var>)</equation> to
+            <equation>(<var>x<sub>2</sub></var>, <var>y<sub>2</sub></var>)</equation> that lies entirely in
+            <equation><var>D</var></equation>.
+        </p>
+        <canvas id="connectedDefinitionDiagram" width="345" height="175"></canvas>
+        <script src="./drawingScripts/Ch 16/connectedDefinitionDiagram.js" class="renderJS"></script>
+
+        <!--closed curve example diagrams - show/hide actual definition-->
+        <li>A curve is <u>closed</u> if the curve can be parameterized where the starting value of the curve is also the ending value. (A closed curve resembles a loop). <br /><a href="javascript:void(0)" id="closedCurveDefinitionToggleLink" onclick="toggleSolution('#closedCurveDefinition', 'Definition');">Show Definition</a></li>
+        <p id="closedCurveDefinition" class="solution">Definition: A curve
+            <equation><var>C</var></equation> is <u>closed</u> if
+            <equation><var>C</var></equation> can be parameterized by
+            <equation>
+                <vector>r</vector>(t), a &le; t &le; b
+            </equation> with
+            <equation>
+                <vector>r</vector>(a) =
+                <vector>r</vector>(b)
+            </equation>
+        </p>
+        <canvas id="closedCurveDiagram" width="400" height="100"></canvas>
+        <script src="./drawingScripts/Ch 16/closedCurveDiagram.js" class="renderJS"></script>
+
+        <!--Definition of simple curves-->
+        <li>A curve is <u>simple</u> when the curve has no self intersections except possibly at end points. <br /><a href="javascript:void(0)" id="simpleCurveDefinitionToggleLink" onclick="toggleSolution('#simpleCurveDefinition', 'Definition');">Show Definition</a></li>
+        <p id="simpleCurveDefinition" class="solution">Definition: A curve
+            <equation><var>C</var></equation> parameterized by
+            <equation>
+                <vector>r</vector>(t), a &le; t &le; b
+            </equation> is <u>simple</u> if
+            <equation>
+                <vector>r</vector>(t<sub>1</sub>) &ne;
+                <vector>r</vector>(t<sub>2</sub>)
+            </equation> except possibly when
+            <equation><var>t</var><sub>1</sub> = <var>a</var></equation> and
+            <equation><var>t</var><sub>2</sub> = <var>b</var></equation>.
+        </p>
+        <canvas id="simpleCurveDiagram" width="400" height="100"></canvas>
+        <script src="./drawingScripts/Ch 16/simpleCurveDiagram.js" class="renderJS"></script>
+
+        <!--Definition of simply connected regions-->
+        <li>A connected region is <u>simply connected</u> when the region does not have holes. <br /><a href="javascript:void(0)" id="simplyConnectedRegionDefinitionToggleLink" onclick="toggleSolution('#simplyConnectedRegionDefinition', 'Definition');">Show Definition</a></li>
+        <p id="simplyConnectedRegionDefinition" class="solution">Definition: A connected region
+            <equation><var>D</var></equation> is <u>simply connected</u> if for every simple closed curve contained in
+            <equation><var>D</var></equation>, the interior of the curve
+            <equation><var>C</var></equation> is contained in
+            <equation><var>D</var></equation>.
+        </p>
+        <canvas id="simplyConnectedRegionDiagram" width="250" height="100"></canvas>
+        <script src="./drawingScripts/Ch 16/simplyConnectedRegionDiagram.js"></script>
+
+        <li>If a vector field possesses a potential function
+            <equation><var>f</var>(<var>x, y</var>)</equation>, then we say the vector field is conservative. When the vector field is conservative, we know that</li>
+        <table class="rules">
+            <tr>
+                <td>
+                    <equation>
+                        <pDerivative of="P" respectTo="y"></pDerivative> =
+                        <pDerivative of="Q" respectTo="x"></pDerivative>
+                    </equation>
+                </td>
+            </tr>
+        </table>
+        <li>If
+            <equation>
+                <pDerivative of="P" respectTo="y"></pDerivative> =
+                <pDerivative of="Q" respectTo="x"></pDerivative>
+            </equation>, we can't say whether
+            <equation>
+                <vector>F</vector> = &lang;P, Q&rang;</equation> is conservative or not.</li>
+        <li>
+            <equation>
+                <vector>F</vector> = &lang;P, Q&rang;</equation> is conservative if we can find an "antiderivative".</li>
+    </ul>
     <h3>16.4: Green's Theorem:</h3>
     <ul></ul>
     <h3>16.6: Parametric Surfacees and Area:</h3>
