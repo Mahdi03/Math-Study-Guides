@@ -1,0 +1,92 @@
+/*
+Oswald Font For Titles, Years
+Used As Such:
+font-family: 'Oswald', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+/*
+ZCOOL XiaoWei Font For Titles In Vocabulary Popup
+Used As Such:
+font-family: 'ZCOOL XiaoWei', serif;
+*/
+
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
+
+/*
+Nunito Font For Text, Descriptions
+Used As Such:
+font-family: 'Nunito', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+h2.popupLink {
+    text-align: center;
+}
+
+h2.popupLink:hover {
+    color: rgb(0, 180, 255);
+    cursor: pointer;
+}
+
+#modalBackground {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 500;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: hidden;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.75);
+    /* Black w/ opacity */
+}
+
+#modalBackground:hover {
+    cursor: pointer;
+}
+
+.modal:hover {
+    cursor: default;
+}
+
+.modal {
+    background-color: #fefefe;
+    margin: 0 auto;
+    /* 15% from the top and centered */
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    height: 95%;
+    display: none;
+    overflow: auto;
+    /*overflow-y: hidden;
+/*Change To Hidden In Production Stages*/
+}
+
+.close {
+    font-size: 20px;
+    text-align: center;
+    width: 45px;
+    height: 25px;
+    color: white;
+    background-color: red;
+    position: fixed;
+    float: right;
+}
+
+.close:hover {
+    cursor: pointer;
+    color: red;
+    background-color: white;
+}

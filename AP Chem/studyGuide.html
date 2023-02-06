@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
     <link href="../styles.css" rel="stylesheet" />
+    <link href="../popupStyles.css" rel="stylesheet" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV5QCWLKKM"></script>
@@ -28,116 +29,25 @@
             enable_page_level_ads: true
         });
     </script>
-    <style>
-        /*
-Oswald Font For Titles, Years
-Used As Such:
-font-family: 'Oswald', sans-serif;
-*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Oswald');
-        /*
-ZCOOL XiaoWei Font For Titles In Vocabulary Popup
-Used As Such:
-font-family: 'ZCOOL XiaoWei', serif;
-*/
-        
-        @import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
-        /*
-Nunito Font For Text, Descriptions
-Used As Such:
-font-family: 'Nunito', sans-serif;
-*/
-        
-        @import url('https://fonts.googleapis.com/css?family=Nunito');
-        .link {
-            text-align: center;
-        }
-        
-        .link:hover {
-            color: rgb(0, 180, 255);
-            cursor: pointer;
-        }
-        
-        #modalBackground {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 500;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: hidden;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.75);
-            /* Black w/ opacity */
-        }
-        
-        #modalBackground:hover {
-            cursor: pointer;
-        }
-        
-        .modal:hover {
-            cursor: default;
-        }
-        
-        .modal {
-            background-color: #fefefe;
-            margin: 0 auto;
-            /* 15% from the top and centered */
-            padding: 10px;
-            border: 1px solid #888;
-            width: 80%;
-            /* Could be more or less, depending on screen size */
-            height: 95%;
-            display: none;
-            overflow: auto;
-            /*overflow-y: hidden;
-    /*Change To Hidden In Production Stages*/
-        }
-        
-        .close {
-            font-size: 20px;
-            text-align: center;
-            width: 45px;
-            height: 25px;
-            color: white;
-            background-color: red;
-            position: fixed;
-            float: right;
-        }
-        
-        .close:hover {
-            cursor: pointer;
-            color: red;
-            background-color: white;
-        }
-        
-        #vocab {
-            z-index: 1000;
-            overflow-y: auto;
-        }
-    </style>
 </head>
 
 <body>
     <h1><a href="..">AP Chemistry Study Guide</a></h1>
     <h3 style="text-align: center; color: red;">Created by Mahdi Ayman and Seth Ferrell, Credit to Yana Khetiya</h3>
-    <h2 class="link">AP Chemistry Periodic Table and Equations</h2>
+    <h2 class="popupLink" onclick="openPopup('apChemistryPeriodicTable')">AP Chemistry Periodic Table</h2>
+    <h2 class="popupLink" onclick="openPopup('apChemistryEquationSheet')">AP Chemistry Equation Sheet</h2>
     <div id="modalBackground">
-        <div id="apChemistryEquations" class="modal">
+        <div id="apChemistryPeriodicTable" class="modal">
             <span class="close">&times;</span>
             <div style="margin: 0 auto;">
                 <!--AP Chem Periodic Table Of Elements-->
                 <iframe src="chemistry-periodic-table-2020.pdf" height="800px" width="100%" scrolling="auto"></iframe>
                 <a href="chemistry-periodic-table-2020.pdf" target="_blank">Download Periodic Table of Elements Here</a>
+            </div>
+        </div>
+        <div id="apChemistryEquationSheet" class="modal">
+            <span class="close">&times;</span>
+            <div style="margin: 0 auto;">
                 <!--AP Chem Equation Sheet-->
                 <iframe src="chemistry-equations-sheet-2020.pdf" height="800px" width="100%" scrolling="auto"></iframe>
                 <a href="chemistry-equations-sheet-2020.pdf" target="_blank">Download Equation Sheet Here</a>
@@ -209,36 +119,6 @@ font-family: 'Nunito', sans-serif;
     </div>
     <script src="../renderMath.js"></script>
     <script src="../main.js"></script>
-    <script>
-        document.querySelector("h2.link").onclick = function() {
-            openPopup("apChemistryEquations");
-        };
-        //Opens Popup Based on ID
-        function openPopup(id) {
-            document.querySelector("#modalBackground").style.display = "block";
-            if (id === "#vocab") {
-                document.querySelector("#vocab").style.display = "block";
-            } else {
-                document.querySelector("#" + id).style.display = "block";
-            }
-        }
-
-        //Hides All Popups and Background
-        function closeAllPopups() {
-            document.getElementById("modalBackground").style.display = "none";
-            document.querySelectorAll(".modal").forEach(function(elementModal) {
-                elementModal.style.display = "none";
-            });
-        }
-        document.querySelector("#modalBackground").onclick = function(clickEvent) {
-            if (clickEvent.path[0].id === "modalBackground") {
-                closeAllPopups();
-            }
-        };
-        document.querySelectorAll(".close").forEach(function(elementClose) {
-            elementClose.onclick = closeAllPopups;
-        });
-    </script>
 
 </body>
 

@@ -11,6 +11,7 @@ if (mobileCheck()) {
 } else {
     document.body.classList.add("desktop");
 }
+
 document.querySelectorAll(".toggleButton").forEach((toggleButton) => {
     toggleButton.parentNode.classList.add("studyGuideDropdown");
     //Wrap all the toggleButtons in a wrapper that can be styled to be a table-cell in layout
@@ -34,7 +35,29 @@ document.querySelectorAll(".toggleButton").forEach((toggleButton) => {
     });
     */
 });
-//document.body.onload = function() {
+
+//Control popups
+
+//Opens Popup Based on ID
+function openPopup(id) {
+    document.querySelector("#modalBackground").style.display = "block";
+    document.querySelector("#" + id).style.display = "block";
+}
+//Hides All Popups and Background
+function closeAllPopups() {
+    document.getElementById("modalBackground").style.display = "none";
+    document.querySelectorAll(".modal").forEach(function(elementModal) {
+        elementModal.style.display = "none";
+    });
+}
+if (document.querySelector("#modalBackground")) {
+    //Have the if check for pages that don't have any popups
+    document.querySelector("#modalBackground").onclick = closeAllPopups;
+}
+document.querySelectorAll(".close").forEach(function(elementClose) {
+    elementClose.onclick = closeAllPopups;
+});
+
 //Added an HTML Include Before Everything else so that the HTML renders properly
 document.querySelectorAll("[htmlInclude]").forEach((element) => {
     var fileLink = element.getAttribute("htmlInclude");
@@ -91,7 +114,6 @@ document.querySelectorAll("[htmlInclude]").forEach((element) => {
 
 });
 
-//};
 
 var backToTopButton = document.createElement("div");
 backToTopButton.classList.add("backToTopButton");
