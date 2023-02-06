@@ -1966,6 +1966,7 @@ class SketchGraph {
         /*Establish Ctrl+Z and Ctrl+Y as undo and redo*/
         window.addEventListener("keypress", (keypressEvent) => {
             console.log(keypressEvent);
+
             //Ctrl-Z is code: 'KeyZ', ctrlKey: true
             //Ctrl-Y is code: 'KeyY', ctrlKey: true
             if (navigator.platform.match("Mac") ? keypressEvent.metaKey : keypressEvent.ctrlKey) {
@@ -1981,6 +1982,13 @@ class SketchGraph {
                     keypressEvent.preventDefault();
                     //Export to file and save
                 }
+            }
+        });
+        window.addEventListener("keyup", (keyupEvent) => {
+            console.log(keyupEvent);
+            if (keyupEvent.code == "Escape") {
+                //Let's finish the drawing event and get back to normal
+
             }
         });
     }
