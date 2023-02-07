@@ -166,10 +166,10 @@ function renderMath(parentElement = "") {
                 if (oldIntegral.hasAttribute("triple")) {
                     numberOfIntegrals = 3;
                 }
-                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? oldIntegral.getAttribute("lowerBound") : "";
-                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? oldIntegral.getAttribute("upperBound") : "";
+                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? ("_{" + oldIntegral.getAttribute("lowerBound") + "}") : "";
+                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? ("^{" + oldIntegral.getAttribute("upperBound") + "}") : "";
                 var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
-                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt_{" + lowerBound + "}^{" + upperBound + "} {" + oldIntegral.innerHTML + "}" + respectTo);
+                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt" + lowerBound + upperBound + " {" + oldIntegral.innerHTML + "}" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
             }
             //Replace sqrt{} with \sqrt {}
