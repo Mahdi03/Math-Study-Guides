@@ -1,6 +1,6 @@
 <link href="../styles.css" rel="stylesheet" />
 <script src="../renderMath.js"></script>
-<script src="main.js" async></script>
+<script src="../main.js" async></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -366,7 +366,7 @@ This link provides information about a lot of stuff!!!!
     </ul>
     <h3>16.3: Fundamental Theorem of Line Integrals:</h3>
     <ul>
-        <li>Let
+        <li>The <u>Fundamental Theorem of Line Integrals</u> (FTLI) states: Let
             <equation><var>C</var></equation> be a piecewise smooth curve given by the vector function
             <equation>
                 <vector>r</vector>(t)
@@ -438,36 +438,168 @@ This link provides information about a lot of stuff!!!!
         <!--Definition of simply connected regions-->
         <li>A connected region is <u>simply connected</u> when the region does not have holes. <br /><a href="javascript:void(0)" id="simplyConnectedRegionDefinitionToggleLink" onclick="toggleSolution('#simplyConnectedRegionDefinition', 'Definition');">Show Definition</a></li>
         <p id="simplyConnectedRegionDefinition" class="solution">Definition: A connected region
-            <equation><var>D</var></equation> is <u>simply connected</u> if for every simple closed curve contained in
+            <equation><var>D</var></equation> is <u>simply connected</u> if for every <u>simple</u> <u>closed</u> curve contained in
             <equation><var>D</var></equation>, the interior of the curve
             <equation><var>C</var></equation> is contained in
             <equation><var>D</var></equation>.
         </p>
         <canvas id="simplyConnectedRegionDiagram" width="250" height="100"></canvas>
-        <script src="./drawingScripts/Ch 16/simplyConnectedRegionDiagram.js"></script>
+        <script src="./drawingScripts/Ch 16/simplyConnectedRegionDiagram.js" class="renderJS"></script>
 
-        <li>If a vector field possesses a potential function
-            <equation><var>f</var>(<var>x, y</var>)</equation>, then we say the vector field is conservative. When the vector field is conservative, we know that</li>
-        <table class="rules">
-            <tr>
-                <td>
-                    <equation>
-                        <pDerivative of="P" respectTo="y"></pDerivative> =
-                        <pDerivative of="Q" respectTo="x"></pDerivative>
-                    </equation>
-                </td>
-            </tr>
-        </table>
-        <li>If
+        <li>Let
+            <equation>
+                <vector>F</vector> = &lang;<var>P</var>, <var>Q</var>&rang;
+            </equation> be a vector field defined on a region
+            <equation><var>D</var></equation>. If we have:
+            <ol type="I">
+                <li>
+                    <equation><var>D</var></equation> is open and <u>simply connected</u></li>
+                <li>
+                    <equation><var>P</var></equation> and
+                    <equation><var>Q</var></equation> have continuous first order partial derivatives</li>
+                <li>
+                    <table class="rules" style="display: inline-table;">
+                        <tr>
+                            <td>
+                                <equation>
+                                    <pDerivative of="P" respectTo="y"></pDerivative> =
+                                    <pDerivative of="Q" respectTo="x"></pDerivative>
+                                </equation>
+                            </td>
+                        </tr>
+                    </table>
+                    on
+                    <equation><var>D</var></equation>
+                </li>
+                then the vector field
+                <equation>
+                    <vector>F</vector>
+                </equation> is said to be <u>conservative</u> in the region
+                <equation><var>D</var></equation>. This means that we can find an "antiderivative" (a scalar-valued function
+                <equation><var>f</var></equation> such that
+                <equation>&nabla;<var>f</var> =
+                    <vector>F</vector>
+                </equation>.
+            </ol>
+        </li>
+        <li>If we only know that
             <equation>
                 <pDerivative of="P" respectTo="y"></pDerivative> =
                 <pDerivative of="Q" respectTo="x"></pDerivative>
             </equation>, we can't say whether
             <equation>
-                <vector>F</vector> = &lang;P, Q&rang;</equation> is conservative or not.</li>
-        <li>
+                <vector>F</vector> = &lang;P, Q&rang;</equation> is conservative or not without the other pieces of information.</li>
+        <li>The converse holds true, however, that for any <u>conservative</u> vector field,
             <equation>
-                <vector>F</vector> = &lang;P, Q&rang;</equation> is conservative if we can find an "antiderivative".</li>
+                <pDerivative of="P" respectTo="y"></pDerivative> =
+                <pDerivative of="Q" respectTo="x"></pDerivative>
+            </equation> holds true.</li>
+        <strong>Example:</strong> Determine a potential function for the vector field
+        <equation>
+            <vector>F</vector>(<var>x, y</var>) = &lang;<var>x</var><sup>2</sup>+<var>y</var><sup>2</sup>, 2<var>xy</var>&rang;
+        </equation> in
+        <equation>&#x211d;<sup>2</sup></equation>. <a href="javascript:void(0)" id="vectorFieldPotentialFunctionExampleProblemToggleLink" onclick="toggleSolution('#vectorFieldPotentialFunctionExampleProblem', 'Solution');">Show Solution</a>
+        <div id="vectorFieldPotentialFunctionExampleProblem" class="solution">
+            <ol>
+                <li>First, we need to establish that the vector field is in fact <u>conservative</u>:
+                    <ol type="I">
+                        <li>
+                            <equation><var>D</var> = &#x211d;<sup>2</sup></equation> is <u>open</u> and <u>simply connected</u>
+                        </li>
+                        <li>
+                            <equation><var>P</var> = <var>x</var><sup>2</sup> + <var>y</var><sup>2</sup></equation> and
+                            <equation><var>Q</var> = 2<var>xy</var></equation> have continuous first-order partial derivatives
+                        </li>
+                        <li>
+                            <equation>
+                                <pDerivative of="P" respectTo="y"></pDerivative> = 2<var>y</var> =
+                                <pDerivative of="Q" respectTo="x"></pDerivative> = 2<var>y</var>
+                            </equation> in
+                            <equation><var>D</var></equation>
+                        </li>
+                    </ol>
+                    Hence,
+                    <equation>
+                        <vector>F</vector>(<var>x, y</var>)
+                    </equation> is conservative in
+                    <equation>&#x211d;<sup>2</sup></equation>
+                </li>
+                <li>We know that
+                    <equation>
+                        <vector>F</vector>(<var>x, y</var>) = &nabla;<var>f</var>(<var>x, y</var>)
+                    </equation> for some function
+                    <equation><var>f</var>(<var>x, y</var>)</equation>.<br /> So we can say
+                    <equation>
+                        &lang;<var>P, Q</var>&rang; = &lang;
+                        <pDerivative of="f" respectTo="x"></pDerivative>,
+                        <pDerivative of="f" respectTo="y"></pDerivative>&rang;
+                    </equation>. Therefore
+                    <equation><var>P</var> =
+                        <pDerivative of="f" respectTo="x"></pDerivative>
+                    </equation> and
+                    <equation><var>Q</var> =
+                        <pDerivative of="f" respectTo="y"></pDerivative>
+                    </equation>.<br /> We recover
+                    <equation><var>f</var></equation> by integrating.
+                </li>
+                <equation>
+                    <var>f</var> =
+                    <integral respectTo="x"><var>P</var></integral> =
+                    <integral respectTo="x">(<var>x</var><sup>2</sup> + <var>y</var><sup>2</sup>)</integral>
+                    =
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">3</div>
+                    </div>
+                    <var>x</var><sup>2</sup> + <var>xy</var><sup>2</sup> + <span equationColor="green"><var>g(y)</var></span>
+                </equation>
+                <span style="color: green">(some function in terms of <equation><var>y</var></equation>)</span><br />
+                <equation>
+                    <var>f</var> =
+                    <integral respectTo="y"><var>Q</var></integral> =
+                    <integral respectTo="y">(2<var>xy</var>)</integral>
+                    =
+                    <var>xy</var><sup>2</sup> + <span equationColor="purple"><var>h(x)</var></span>
+                </equation>
+                <span style="color: purple">(some function in terms of <equation><var>x</var></equation>)</span><br />
+                <li>We can equate both expressions for
+                    <equation><var>f</var></equation>
+                </li>
+                <equation>
+                    <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">3</div>
+                    </div>
+                    <var>x</var><sup>2</sup> + <span class="cancel"><var>xy</var><sup>2</sup></span> + <span equationColor="green"><var>g(y)</var></span> =
+                    <span class="cancel"><var>xy</var><sup>2</sup></span> + <span equationColor="purple"><var>h(x)</var></span>
+                </equation>
+                <li>From this we get
+                    <equation><span equationColor="green"><var>g(y)</var> = 0</span></equation> and
+                    <equation><span equationColor="purple"><var>h(x)</var> = <div class="fraction">
+                        <div class="top">1</div>
+                        <div class="bottom">3</div>
+                    </div>
+                    <var>x</var><sup>2</sup></span></equation>
+                </li>
+                <li>Now we can conclude that
+                    <equation>
+                        <span class="answer"><var>f</var>(<var>x, y</var>) =
+                            <div class="fraction">
+                                <div class="top">1</div>
+                                <div class="bottom">3</div>
+                            </div>
+                            <var>x</var><sup>2</sup> + <var>xy</var><sup>2</sup>
+                        </span>
+                    </equation> is the potential function for the vector field
+                    <equation>
+                        <vector>F</vector>(<var>x, y</var>) = &lang;<var>x</var><sup>2</sup>+<var>y</var><sup>2</sup>, 2<var>xy</var>&rang;
+                    </equation> in
+                    <equation>&#x211d;<sup>2</sup></equation> (try both definitions of
+                    <equation><var>f</var></equation>, they should be the same)
+                </li>
+            </ol>
+            <!--TODO: Show an Fdr with path C example-->
+        </div>
     </ul>
     <h3>16.4: Green's Theorem:</h3>
     <ul></ul>
@@ -479,4 +611,7 @@ This link provides information about a lot of stuff!!!!
     <ul></ul>
     <h3>16.8: Stoke's Theorem:</h3>
     <ul></ul>
+    <script>
+        renderMath();
+    </script>
 </div>
