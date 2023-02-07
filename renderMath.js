@@ -73,11 +73,11 @@ function renderMath(parentElement = "") {
                 },
                 tex: {
                     packages: {
-                        '[+]': ['mhchem']
+                        '[+]': ['mhchem', 'color']
                     }
                 },
                 loader: {
-                    load: ['[tex]/mhchem']
+                    load: ['[tex]/mhchem', '[tex]/color']
                 }
             };
             /*
@@ -131,8 +131,8 @@ function renderMath(parentElement = "") {
             //.replace(/[⟨⟨]/gi, "hello").replace(/⟩/gi, "\\right&rang;")
             //Replace HTML entities so they don't show up small on mobile
             var symbols = ["theta", "alpha", "beta", "gamma", "pi", "rho", "phi", "omega", "tau", "epsilon", "kappa", "mu"];
-            for (var symbol of symbols) {
-                var regularExpression = new RegExp(createHTMLNodesFromString(`&${symbol};`)[0].textContent, "gmi"); //Create regular expression for each html entity in symbolic form
+            for (let symbol of symbols) {
+                let regularExpression = new RegExp(createHTMLNodesFromString(`&${symbol};`)[0].textContent, "gmi"); //Create regular expression for each html entity in symbolic form
                 dom.innerHTML = dom.innerHTML.replace(regularExpression, `\\${symbol} `); //Actually replace with MathJax counterpart
             }
             /*
@@ -150,15 +150,15 @@ function renderMath(parentElement = "") {
                 .replace(/[\{]([^})]{1,})[\}]/gm, "\\left\\{ {$1} \\right\\}")*/
 
             while (dom.querySelector("sigma") != undefined) {
-                var oldSigma = dom.querySelector("sigma");
-                var startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
-                var endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
-                var newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
+                let oldSigma = dom.querySelector("sigma");
+                let startValue = (oldSigma.getAttribute("start") !== null) ? oldSigma.getAttribute("start") : "";
+                let endValue = (oldSigma.getAttribute("end") !== null) ? oldSigma.getAttribute("end") : "";
+                let newSigma = createHTMLNodesFromString("\\displaystyle\\sum_{" + startValue + "}^{" + endValue + "}");
                 oldSigma.replaceWith(...newSigma);
             }
             while (dom.querySelector("integral") != undefined) {
-                var oldIntegral = dom.querySelector("integral");
-                var numberOfIntegrals = 1;
+                let oldIntegral = dom.querySelector("integral");
+                let numberOfIntegrals = 1;
                 if (oldIntegral.hasAttribute("double")) {
                     //Then it is a double integral
                     numberOfIntegrals = 2;
@@ -166,45 +166,45 @@ function renderMath(parentElement = "") {
                 if (oldIntegral.hasAttribute("triple")) {
                     numberOfIntegrals = 3;
                 }
-                var lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? ("_{" + oldIntegral.getAttribute("lowerBound") + "}") : "";
-                var upperBound = (oldIntegral.getAttribute("upperBound") != null) ? ("^{" + oldIntegral.getAttribute("upperBound") + "}") : "";
-                var respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
-                var newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt" + lowerBound + upperBound + " {" + oldIntegral.innerHTML + "}" + respectTo);
+                let lowerBound = (oldIntegral.getAttribute("lowerBound") != null) ? ("_{" + oldIntegral.getAttribute("lowerBound") + "}") : "";
+                let upperBound = (oldIntegral.getAttribute("upperBound") != null) ? ("^{" + oldIntegral.getAttribute("upperBound") + "}") : "";
+                let respectTo = (oldIntegral.getAttribute("respectTo") != null) ? "d" + oldIntegral.getAttribute("respectTo") : "";
+                let newIntegral = createHTMLNodesFromString("\\displaystyle\\" + "i".repeat(numberOfIntegrals) + "nt" + lowerBound + upperBound + " {" + oldIntegral.innerHTML + "}" + respectTo);
                 oldIntegral.replaceWith(...newIntegral);
             }
             //Replace sqrt{} with \sqrt {}
             while (dom.querySelector("sqrt") != undefined) {
-                var oldSQRT = dom.querySelector("sqrt");
-                var newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
+                let oldSQRT = dom.querySelector("sqrt");
+                let newSQRT = createHTMLNodesFromString("\\sqrt {" + oldSQRT.innerHTML + "}");
                 oldSQRT.replaceWith(...newSQRT);
                 //console.log(dom.innerHTML)
             }
             // <nthRoot n="3"></nthRoot> (for 3rd root and so on)
             while (dom.querySelector("nthRoot") != undefined) {
-                var oldNthRoot = dom.querySelector("nthRoot");
-                var n = oldNthRoot.getAttribute("n");
-                var newNthRoot = createHTMLNodesFromString(`\\sqrt[${n}]{${oldNthRoot.innerHTML}}`);
+                let oldNthRoot = dom.querySelector("nthRoot");
+                let n = oldNthRoot.getAttribute("n");
+                let newNthRoot = createHTMLNodesFromString(`\\sqrt[${n}]{${oldNthRoot.innerHTML}}`);
                 oldNthRoot.replaceWith(...newNthRoot);
             }
             while (dom.querySelector("evaluated") != undefined) {
-                var oldEvaluated = dom.querySelector("evaluated");
-                var from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
-                var to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
-                var newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
+                let oldEvaluated = dom.querySelector("evaluated");
+                let from = (oldEvaluated.getAttribute("from") != null) ? oldEvaluated.getAttribute("from") : "";
+                let to = (oldEvaluated.getAttribute("to") != null) ? oldEvaluated.getAttribute("to") : "";
+                let newEvaluated = createHTMLNodesFromString("\\Biggr|_{" + from + "}^{" + to + "}"); //Needs to be fixed!!!!
                 oldEvaluated.replaceWith(...newEvaluated);
             }
             while (dom.querySelector("div.fraction") != undefined) {
-                var oldFrac = dom.querySelector("div.fraction");
-                var top = oldFrac.children[0].innerHTML;
-                var bottom = oldFrac.children[1].innerHTML;
-                var newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
+                let oldFrac = dom.querySelector("div.fraction");
+                let top = oldFrac.children[0].innerHTML;
+                let bottom = oldFrac.children[1].innerHTML;
+                let newFrac = createHTMLNodesFromString("\\dfrac{" + top + "}{" + bottom + "}");
                 oldFrac.replaceWith(...newFrac);
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("log") != undefined) {
-                var oldLog = dom.querySelector("log");
-                var base = oldLog.getAttribute("base");
-                var newLog = "";
+                let oldLog = dom.querySelector("log");
+                let base = oldLog.getAttribute("base");
+                let newLog = "";
                 if (base !== null) {
                     newLog = "\\log_{" + base + "} {" + oldLog.innerHTML + "}";
                 } else {
@@ -215,42 +215,42 @@ function renderMath(parentElement = "") {
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("lim") != undefined) {
-                var oldLim = dom.querySelector("lim");
-                var limAs = oldLim.getAttribute("as");
-                var limApproaches = oldLim.getAttribute("approaches");
-                var newLim = createHTMLNodesFromString("\\displaystyle\\lim_{" + limAs + " \\to " + limApproaches + "}");
+                let oldLim = dom.querySelector("lim");
+                let limAs = oldLim.getAttribute("as");
+                let limApproaches = oldLim.getAttribute("approaches");
+                let newLim = createHTMLNodesFromString("\\displaystyle\\lim_{" + limAs + " \\to " + limApproaches + "}");
                 oldLim.replaceWith(...newLim);
             }
             while (dom.querySelector("derivative") != undefined) {
-                var oldDerivative = dom.querySelector("derivative");
-                var derivativeOf = oldDerivative.getAttribute("of") ? oldDerivative.getAttribute("of") : "";
-                var derivativeRespectTo = oldDerivative.getAttribute("respectTo") ? oldDerivative.getAttribute("respectTo") : "x";
-                var derivativeOrder = oldDerivative.getAttribute("order") ? "^{" + oldDerivative.getAttribute("order") + "}" : "";
-                var newDerivative = createHTMLNodesFromString("\\dfrac{d" + derivativeOrder + derivativeOf + "}{d" + derivativeRespectTo + derivativeOrder + "}");
+                let oldDerivative = dom.querySelector("derivative");
+                let derivativeOf = oldDerivative.getAttribute("of") ? oldDerivative.getAttribute("of") : "";
+                let derivativeRespectTo = oldDerivative.getAttribute("respectTo") ? oldDerivative.getAttribute("respectTo") : "x";
+                let derivativeOrder = oldDerivative.getAttribute("order") ? "^{" + oldDerivative.getAttribute("order") + "}" : "";
+                let newDerivative = createHTMLNodesFromString("\\dfrac{d" + derivativeOrder + derivativeOf + "}{d" + derivativeRespectTo + derivativeOrder + "}");
                 oldDerivative.replaceWith(...newDerivative);
             }
             while (dom.querySelector("pDerivative") != undefined) {
-                var oldPDerivative = dom.querySelector("pDerivative");
-                var pDerivativeOf = oldPDerivative.getAttribute("of") ? oldPDerivative.getAttribute("of") : "";
-                var pDerivativeRespectTo = oldPDerivative.getAttribute("respectTo") ? oldPDerivative.getAttribute("respectTo") : "x";
-                var pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
-                var newPDerivative = createHTMLNodesFromString("\\dfrac{\\partial " + pDerivativeOrder + pDerivativeOf + "}{\\partial " + pDerivativeRespectTo + pDerivativeOrder + "}");
+                let oldPDerivative = dom.querySelector("pDerivative");
+                let pDerivativeOf = oldPDerivative.getAttribute("of") ? oldPDerivative.getAttribute("of") : "";
+                let pDerivativeRespectTo = oldPDerivative.getAttribute("respectTo") ? oldPDerivative.getAttribute("respectTo") : "x";
+                let pDerivativeOrder = oldPDerivative.getAttribute("order") ? "^{" + oldPDerivative.getAttribute("order") + "}" : "";
+                let newPDerivative = createHTMLNodesFromString("\\dfrac{\\partial " + pDerivativeOrder + pDerivativeOf + "}{\\partial " + pDerivativeRespectTo + pDerivativeOrder + "}");
                 oldPDerivative.replaceWith(...newPDerivative);
             }
             while (dom.querySelector("laPlaceTransform") != undefined) {
-                var oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
-                var newLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;\\left\\{" + oldLaPlaceTransform.innerHTML + "\\right\\}");
+                let oldLaPlaceTransform = dom.querySelector("laPlaceTransform");
+                let newLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;\\left\\{" + oldLaPlaceTransform.innerHTML + "\\right\\}");
                 oldLaPlaceTransform.replaceWith(...newLaPlaceTransform);
             }
             while (dom.querySelector("invLaPlaceTransform") != undefined) {
-                var oldInvLaPlaceTransform = dom.querySelector("invLaPlaceTransform");
-                var newInvLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;^{-1}\\left\\{" + oldInvLaPlaceTransform.innerHTML + "\\right\\}");
+                let oldInvLaPlaceTransform = dom.querySelector("invLaPlaceTransform");
+                let newInvLaPlaceTransform = createHTMLNodesFromString("&Laplacetrf;^{-1}\\left\\{" + oldInvLaPlaceTransform.innerHTML + "\\right\\}");
                 oldInvLaPlaceTransform.replaceWith(...newInvLaPlaceTransform);
             }
             while (dom.querySelector("matrix") != undefined) {
-                var oldMatrix = dom.querySelector("matrix");
-                var dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
-                var dimensionY = parseInt(oldMatrix.getAttribute("dimensionY"));
+                let oldMatrix = dom.querySelector("matrix");
+                let dimensionX = parseInt(oldMatrix.getAttribute("dimensionX"));
+                let dimensionY = parseInt(oldMatrix.getAttribute("dimensionY"));
                 /*
                 Since this attribute is stored in string format, everything that comes before it is not actually rendered
                 since it is not a DOM element, so for matrices of pDerivatives and what not, also support innerHTML
@@ -282,8 +282,8 @@ function renderMath(parentElement = "") {
                         punctuation = "vmatrix";
                     }
                     var newMatrixString = "\\begin{" + punctuation + "}";
-                    for (var row = 1; row <= dimensionY; row++) {
-                        for (var col = 1; col <= dimensionX; col++) {
+                    for (let row = 1; row <= dimensionY; row++) {
+                        for (let col = 1; col <= dimensionX; col++) {
                             newMatrixString += values[(row - 1) * dimensionX + (col - 1)];
                             if (col != dimensionX) {
                                 newMatrixString += " & ";
@@ -294,17 +294,17 @@ function renderMath(parentElement = "") {
                         }
                     }
                     newMatrixString += "\\end{" + punctuation + "}";
-                    var newMatrix = createHTMLNodesFromString(newMatrixString);
+                    let newMatrix = createHTMLNodesFromString(newMatrixString);
                     oldMatrix.replaceWith(...newMatrix);
                 }
             }
             while (dom.querySelector("det") != undefined) {
-                var oldDet = dom.querySelector("det");
-                var writeDet = false;
+                let oldDet = dom.querySelector("det");
+                let writeDet = false;
                 if (oldDet.hasAttribute("writeDet")) {
                     writeDet = true;
                 }
-                var newDet;
+                let newDet;
                 //If the child of the determinant has already converted something other than a variable name, then print just as
                 if (oldDet.firstChild.wholeText.includes("\\begin")) {
                     newDet = createHTMLNodesFromString(((writeDet) ? "\\det" : "") + oldDet.innerHTML);
@@ -315,87 +315,101 @@ function renderMath(parentElement = "") {
                 oldDet.replaceWith(...newDet);
             }
             while (dom.querySelector("sup") != undefined) {
-                var oldSUP = dom.querySelector("sup");
-                var newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
+                let oldSUP = dom.querySelector("sup");
+                let newSUP = createHTMLNodesFromString("^{" + oldSUP.innerHTML + "}");
                 oldSUP.replaceWith(...newSUP);
                 //console.log(dom.innerHTML)
             }
             //Replace sub{} with _{}
             while (dom.querySelector("sub") != undefined) {
-                var oldSUB = dom.querySelector("sub");
-                var newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
+                let oldSUB = dom.querySelector("sub");
+                let newSUB = createHTMLNodesFromString("_{" + oldSUB.innerHTML + "}");
                 oldSUB.replaceWith(...newSUB);
                 //console.log(dom.innerHTML)
             }
             //Replace var with nothing since MathJax automatically styles text
             while (dom.querySelector("var") != undefined) {
-                var oldVAR = dom.querySelector("var");
-                var newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
+                let oldVAR = dom.querySelector("var");
+                let newVAR = createHTMLNodesFromString("{" + oldVAR.innerHTML + "}");
                 oldVAR.replaceWith(...newVAR);
                 //console.log(dom.innerHTML)
             }
             while (dom.querySelector("text") != undefined) {
-                var oldText = dom.querySelector("text");
-                var newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
+                let oldText = dom.querySelector("text");
+                let newText = createHTMLNodesFromString("\\text{" + oldText.innerHTML + "}");
                 oldText.replaceWith(...newText);
             }
             var otherFunctions = ["sin", "cos", "tan", "csc", "sec", "cot", "ln"];
-            for (var i = 0; i < otherFunctions.length; i++) {
+            for (let i = 0; i < otherFunctions.length; i++) {
                 while (dom.querySelector(otherFunctions[i]) != undefined) {
-                    var oldFunc = dom.querySelector(otherFunctions[i]);
-                    var powerStr = "";
+                    let oldFunc = dom.querySelector(otherFunctions[i]);
+                    let powerStr = "";
                     if (oldFunc.getAttribute("inv") != null) {
                         powerStr = "^{-1}";
                     } else if (oldFunc.getAttribute("power")) {
                         powerStr = "^{" + oldFunc.getAttribute("power") + "}";
                     }
-                    var newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "}" + powerStr + "{\\left(" + oldFunc.innerHTML + "\\right)}");
+                    let newFunc = createHTMLNodesFromString("\\operatorname{" + otherFunctions[i] + "}" + powerStr + "{\\left(" + oldFunc.innerHTML + "\\right)}");
                     oldFunc.replaceWith(...newFunc);
                 }
             }
             //Replace vector{} with \overrightarrow{}
             while (dom.querySelector("vector") != undefined) {
-                var oldVector = dom.querySelector("vector");
-                var newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
+                let oldVector = dom.querySelector("vector");
+                let newVector = createHTMLNodesFromString("\\overrightarrow{" + oldVector.innerHTML + "}");
                 oldVector.replaceWith(...newVector);
             }
             while (dom.querySelector("magnitude") != undefined) {
-                var oldMagnitude = dom.querySelector("magnitude");
-                var newMagnitude = createHTMLNodesFromString("\\left\\vert\\left\\vert" + oldMagnitude.innerHTML + "\\right\\vert\\right\\vert");
+                let oldMagnitude = dom.querySelector("magnitude");
+                let newMagnitude = createHTMLNodesFromString("\\left\\vert\\left\\vert" + oldMagnitude.innerHTML + "\\right\\vert\\right\\vert");
                 oldMagnitude.replaceWith(...newMagnitude);
             }
             //Remember that MathJax does not support boxed answers in aligned equations
             while (dom.querySelector("span.answer") != undefined) {
-                var oldSpan = dom.querySelector("span.answer");
+                let oldSpan = dom.querySelector("span.answer");
                 //\llap{\mathrel{\boxed{\phantom{3x = 19 - 2y}}}}
-                var newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
+                let newSpan = createHTMLNodesFromString("\\boxed{" + oldSpan.innerHTML + "}");
                 oldSpan.replaceWith(...newSpan);
             }
             while (dom.querySelector("span.cancel") != undefined) {
-                var oldSpan = dom.querySelector("span.cancel");
-                var newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
+                let oldSpan = dom.querySelector("span.cancel");
+                let newSpan = createHTMLNodesFromString("\\cancel{" + oldSpan.innerHTML + "}");
                 oldSpan.replaceWith(...newSpan);
             }
             //Remember that this tag does not like a verbose usage of <var></var> inside of it, try to remove unnecessary brackets in the event of "Misplaced &"
             while (dom.querySelector("span.alignedEquations") != undefined) {
-                var oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
+                let oldSpanAlignedEquations = dom.querySelector("span.alignedEquations");
                 while (oldSpanAlignedEquations.querySelector("br") != undefined) {
-                    var oldBR = oldSpanAlignedEquations.querySelector("br");
-                    var newBR = createHTMLNodesFromString("\n\\\\\n");
+                    let oldBR = oldSpanAlignedEquations.querySelector("br");
+                    let newBR = createHTMLNodesFromString("\n\\\\\n");
                     oldBR.replaceWith(...newBR);
                 }
                 oldSpanAlignedEquations.innerHTML = oldSpanAlignedEquations.innerHTML.replace(/=/g, "&=").replace(/\-\>/gm, "&->").replace(/\-&gt;/gm, "&->");
-                var newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
+                let newSpanAlignedEquations = createHTMLNodesFromString("\\begin{align}" + oldSpanAlignedEquations.innerHTML + "\\end{align}");
                 oldSpanAlignedEquations.replaceWith(...newSpanAlignedEquations);
+            }
+            //Usage <span equationColor="red">stuff</span> OR <span equationColor="rgb(255, 56, 35)"></span>
+            while (dom.querySelector("span[equationColor]") != undefined) {
+                let oldSpanColor = dom.querySelector("span[equationColor]");
+                let color = oldSpanColor.getAttribute("equationColor");
+                let colorString;
+                if (color.substr(0, 3) == "rgb") {
+                    color = color.replace("rgb\\left(", "").replace("\\right)", "").replaceAll(",", "COLORCOMMA");
+                    colorString = "\\color[RGB]{" + color + "} ";
+                } else {
+                    colorString = "\\color{" + color + "} ";
+                }
+                let newSpanColor = createHTMLNodesFromString("{" + colorString + oldSpanColor.innerHTML + "}");
+                oldSpanColor.replaceWith(...newSpanColor);
             }
             //Used to simply get rid of all other span tags until new fixes can be implemented
             while (dom.querySelector("span") != undefined) {
-                var oldSpan = dom.querySelector("span");
-                var newSpan = createHTMLNodesFromString(oldSpan.innerHTML);
+                let oldSpan = dom.querySelector("span");
+                let newSpan = createHTMLNodesFromString(oldSpan.innerHTML);
                 oldSpan.replaceWith(...newSpan);
             }
             //myString.replace(/<sup>()<\/sup>/, "^{$1}");
-            innerMath += dom.innerHTML.replaceAll(",", ",\\,"); //adds a space after every comma - Added it down here since my matrix tags used commas and I didn't want to replace those until they were latex-ified
+            innerMath += dom.innerHTML.replaceAll(",", ",\\,").replaceAll("COLORCOMMA", ","); //adds a space after every comma - Added it down here since my matrix tags used commas and I didn't want to replace those until they were latex-ified
             innerMath += "\\)";
             equationTag.innerHTML = innerMath;
             //Use for debugging purposes:
